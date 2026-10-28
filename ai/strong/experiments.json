@@ -64548,5 +64548,96 @@
         "reserved_final_seeds_used": false,
         "interpretation": "Append-only candidate inputs on the unchanged historical training/validation roots. No outcomes were inspected or new targets generated. The saved targets use old continuation policies/engine and a restricted shortlist; new actions have no saved labels. Engine/teacher/target compatibility and a separately designed training experiment remain required. No playing-strength claim.",
         "next": "Finish the unchanged auction comparison before another strength experiment. A discount-aware experiment must consider missing nomination labels and naturally occurring low-cash roots, validate intended-engine/teacher compatibility, preserve train/validation/evaluation separation, and prove warm-start/export parity. No running policies changed."
+    },
+    "auction_training_natural_history_recovery_v1": {
+        "recorded_at": "2026-10-28T19:46:17.689199+00:00",
+        "goal_turn_classification": "progress",
+        "previous_goal_turn_classification": "progress",
+        "status": "natural_low_cash_nomination_states_recovered_with_split_preserved",
+        "document": "ai/AUCTION-TRAINING-HISTORY-2026-10-28.md",
+        "reports": {
+            "1": {
+                "report_sha256": "2ac6bcdfc5d7ba22f54c84cf1c8cc1ddcef23a97be7d87e48c0348c097f968e0",
+                "design_sha256": "795bb0c2de9036e787a99384b756001df5dd54644acd2360479cc1c09f4888f9",
+                "prefixes": 160,
+                "transitions": 87187,
+                "newly_affordable_roots": 4,
+                "coverage": {
+                    "players": {
+                        "6": 4
+                    },
+                    "rules": {
+                        "recharged/open": 3,
+                        "recharged/sealed": 1
+                    },
+                    "splits": {
+                        "validation": 4
+                    },
+                    "steps": {
+                        "3": 4
+                    }
+                },
+                "learner_roots": 0,
+                "opponent_roots": 4
+            },
+            "2": {
+                "report_sha256": "0fbd9d922e4034fb0d8e3beab3394bd89487b96df514b3d65bcc3d34b658fe48",
+                "design_sha256": "bc935986b2d3247872a16313b4388da218ea6d71f7c3f6f3d66e2c1cc86711b0",
+                "prefixes": 880,
+                "transitions": 464461,
+                "newly_affordable_roots": 6,
+                "coverage": {
+                    "players": {
+                        "5": 2,
+                        "6": 4
+                    },
+                    "rules": {
+                        "recharged/sealed": 3,
+                        "recharged/open": 3
+                    },
+                    "splits": {
+                        "train": 6
+                    },
+                    "steps": {
+                        "3": 6
+                    }
+                },
+                "learner_roots": 0,
+                "opponent_roots": 6
+            }
+        },
+        "historical_prefixes": 1040,
+        "recorded_transitions": 551648,
+        "recovered_roots": 10,
+        "split_counts": {
+            "validation": 4,
+            "train": 6
+        },
+        "unique_public_requests": 10,
+        "all_recovered_roles": "economic opponent",
+        "learner_roots": 0,
+        "training_game_prefixes": 960,
+        "validation_game_prefixes": 80,
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "29e09e9dc42f88e23949f9ca9be6bc62eefe3a58",
+            "archive_path": "archives/auction-training-history-evidence-v1.tgz",
+            "archive_sha256": "f5dbd1a219a8d468aef72a31837149aa748e15dd83e5b054bee896c8eb31ba4e",
+            "manifest_sha256": "c6b8502db050b98f023cc92468e210bdcbbe7a7ba546e4c223ec25872209c9f4",
+            "archived_files": 29,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "labelled": false,
+        "training_ready": false,
+        "new_hf_jobs": 0,
+        "new_inference": 0,
+        "new_games": 0,
+        "new_rollouts": 0,
+        "new_gradients": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "interpretation": "The discounted nomination edge occurs in natural old-engine histories. Six training and four separate validation requests are recovered without editing money or game history. All are opponent turns at 5\u20136 players in Step 3; the current engine can strengthen opponents too. This is a bounded fixed-history sample, not action-value, outcome or prevalence evidence.",
+        "next": "Finish the unchanged auction comparison. Keep recovered states as unlabelled regression/teacher-input candidates; preserve public-belief evaluation and whole-deal splits. Address broader discount-feature and omitted-nomination target coverage in a separately selected experiment. No further historical replay expansion needed without a new question."
     }
 }

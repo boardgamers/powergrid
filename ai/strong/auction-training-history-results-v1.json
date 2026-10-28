@@ -1,0 +1,1483 @@
+{
+  "passed": true,
+  "prefixes_verified": 160,
+  "transitions": 87187,
+  "newly_affordable_roots": 4,
+  "learner_roots": 0,
+  "opponent_roots": 4,
+  "coverage": {
+    "players": {
+      "6": 4
+    },
+    "rules": {
+      "recharged/open": 3,
+      "recharged/sealed": 1
+    },
+    "splits": {
+      "validation": 4
+    },
+    "steps": {
+      "3": 4
+    }
+  },
+  "prefixes": [
+    {
+      "source_root_id": "policy-v2:2:parent:economic:0:50",
+      "players": 2,
+      "episode": 0,
+      "split": "validation",
+      "transitions": 331,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:2:parent:economic:1:44",
+      "players": 2,
+      "episode": 1,
+      "split": "validation",
+      "transitions": 302,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:2:parent:economic:2:70",
+      "players": 2,
+      "episode": 2,
+      "split": "validation",
+      "transitions": 365,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:2:parent:economic:3:78",
+      "players": 2,
+      "episode": 3,
+      "split": "validation",
+      "transitions": 371,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:2:parent:economic:4:45",
+      "players": 2,
+      "episode": 4,
+      "split": "validation",
+      "transitions": 340,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:2:parent:economic:5:45",
+      "players": 2,
+      "episode": 5,
+      "split": "validation",
+      "transitions": 288,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:2:parent:economic:6:71",
+      "players": 2,
+      "episode": 6,
+      "split": "validation",
+      "transitions": 366,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:2:parent:economic:7:84",
+      "players": 2,
+      "episode": 7,
+      "split": "validation",
+      "transitions": 383,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:2:parent:economic:8:51",
+      "players": 2,
+      "episode": 8,
+      "split": "train",
+      "transitions": 353,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:2:parent:economic:9:42",
+      "players": 2,
+      "episode": 9,
+      "split": "train",
+      "transitions": 228,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:2:parent:economic:10:74",
+      "players": 2,
+      "episode": 10,
+      "split": "train",
+      "transitions": 357,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:2:parent:economic:11:51",
+      "players": 2,
+      "episode": 11,
+      "split": "train",
+      "transitions": 299,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:2:parent:economic:12:48",
+      "players": 2,
+      "episode": 12,
+      "split": "train",
+      "transitions": 360,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:2:parent:economic:13:46",
+      "players": 2,
+      "episode": 13,
+      "split": "train",
+      "transitions": 285,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:2:parent:economic:14:70",
+      "players": 2,
+      "episode": 14,
+      "split": "train",
+      "transitions": 363,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:2:parent:economic:15:54",
+      "players": 2,
+      "episode": 15,
+      "split": "train",
+      "transitions": 320,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:0:50",
+      "players": 3,
+      "episode": 0,
+      "split": "validation",
+      "transitions": 504,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:1:52",
+      "players": 3,
+      "episode": 1,
+      "split": "validation",
+      "transitions": 349,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:2:61",
+      "players": 3,
+      "episode": 2,
+      "split": "validation",
+      "transitions": 456,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:3:63",
+      "players": 3,
+      "episode": 3,
+      "split": "validation",
+      "transitions": 507,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:4:38",
+      "players": 3,
+      "episode": 4,
+      "split": "validation",
+      "transitions": 400,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:5:40",
+      "players": 3,
+      "episode": 5,
+      "split": "validation",
+      "transitions": 366,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:6:55",
+      "players": 3,
+      "episode": 6,
+      "split": "validation",
+      "transitions": 509,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:7:70",
+      "players": 3,
+      "episode": 7,
+      "split": "validation",
+      "transitions": 483,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:8:40",
+      "players": 3,
+      "episode": 8,
+      "split": "validation",
+      "transitions": 404,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:9:41",
+      "players": 3,
+      "episode": 9,
+      "split": "validation",
+      "transitions": 395,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:10:57",
+      "players": 3,
+      "episode": 10,
+      "split": "validation",
+      "transitions": 506,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:11:65",
+      "players": 3,
+      "episode": 11,
+      "split": "validation",
+      "transitions": 429,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:12:51",
+      "players": 3,
+      "episode": 12,
+      "split": "train",
+      "transitions": 391,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:13:44",
+      "players": 3,
+      "episode": 13,
+      "split": "train",
+      "transitions": 362,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:14:77",
+      "players": 3,
+      "episode": 14,
+      "split": "train",
+      "transitions": 412,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:15:61",
+      "players": 3,
+      "episode": 15,
+      "split": "train",
+      "transitions": 417,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:16:44",
+      "players": 3,
+      "episode": 16,
+      "split": "train",
+      "transitions": 374,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:17:39",
+      "players": 3,
+      "episode": 17,
+      "split": "train",
+      "transitions": 389,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:18:83",
+      "players": 3,
+      "episode": 18,
+      "split": "train",
+      "transitions": 474,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:19:84",
+      "players": 3,
+      "episode": 19,
+      "split": "train",
+      "transitions": 470,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:20:47",
+      "players": 3,
+      "episode": 20,
+      "split": "train",
+      "transitions": 384,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:21:32",
+      "players": 3,
+      "episode": 21,
+      "split": "train",
+      "transitions": 317,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:22:76",
+      "players": 3,
+      "episode": 22,
+      "split": "train",
+      "transitions": 432,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:3:parent:economic:23:85",
+      "players": 3,
+      "episode": 23,
+      "split": "train",
+      "transitions": 431,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:0:51",
+      "players": 4,
+      "episode": 0,
+      "split": "validation",
+      "transitions": 544,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:1:42",
+      "players": 4,
+      "episode": 1,
+      "split": "validation",
+      "transitions": 461,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:2:69",
+      "players": 4,
+      "episode": 2,
+      "split": "validation",
+      "transitions": 649,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:3:66",
+      "players": 4,
+      "episode": 3,
+      "split": "validation",
+      "transitions": 583,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:4:45",
+      "players": 4,
+      "episode": 4,
+      "split": "validation",
+      "transitions": 544,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:5:37",
+      "players": 4,
+      "episode": 5,
+      "split": "validation",
+      "transitions": 407,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:6:79",
+      "players": 4,
+      "episode": 6,
+      "split": "validation",
+      "transitions": 670,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:7:66",
+      "players": 4,
+      "episode": 7,
+      "split": "validation",
+      "transitions": 509,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:8:49",
+      "players": 4,
+      "episode": 8,
+      "split": "validation",
+      "transitions": 598,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:9:44",
+      "players": 4,
+      "episode": 9,
+      "split": "validation",
+      "transitions": 504,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:10:56",
+      "players": 4,
+      "episode": 10,
+      "split": "validation",
+      "transitions": 576,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:11:48",
+      "players": 4,
+      "episode": 11,
+      "split": "validation",
+      "transitions": 485,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:12:49",
+      "players": 4,
+      "episode": 12,
+      "split": "validation",
+      "transitions": 583,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:13:42",
+      "players": 4,
+      "episode": 13,
+      "split": "validation",
+      "transitions": 389,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:14:71",
+      "players": 4,
+      "episode": 14,
+      "split": "validation",
+      "transitions": 641,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:15:59",
+      "players": 4,
+      "episode": 15,
+      "split": "validation",
+      "transitions": 469,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:16:54",
+      "players": 4,
+      "episode": 16,
+      "split": "train",
+      "transitions": 523,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:17:44",
+      "players": 4,
+      "episode": 17,
+      "split": "train",
+      "transitions": 403,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:18:64",
+      "players": 4,
+      "episode": 18,
+      "split": "train",
+      "transitions": 555,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:19:74",
+      "players": 4,
+      "episode": 19,
+      "split": "train",
+      "transitions": 561,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:20:48",
+      "players": 4,
+      "episode": 20,
+      "split": "train",
+      "transitions": 539,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:21:41",
+      "players": 4,
+      "episode": 21,
+      "split": "train",
+      "transitions": 438,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:22:72",
+      "players": 4,
+      "episode": 22,
+      "split": "train",
+      "transitions": 629,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:23:60",
+      "players": 4,
+      "episode": 23,
+      "split": "train",
+      "transitions": 581,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:24:51",
+      "players": 4,
+      "episode": 24,
+      "split": "train",
+      "transitions": 529,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:25:41",
+      "players": 4,
+      "episode": 25,
+      "split": "train",
+      "transitions": 432,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:26:58",
+      "players": 4,
+      "episode": 26,
+      "split": "train",
+      "transitions": 554,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:27:68",
+      "players": 4,
+      "episode": 27,
+      "split": "train",
+      "transitions": 595,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:28:41",
+      "players": 4,
+      "episode": 28,
+      "split": "train",
+      "transitions": 530,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:29:42",
+      "players": 4,
+      "episode": 29,
+      "split": "train",
+      "transitions": 420,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:30:77",
+      "players": 4,
+      "episode": 30,
+      "split": "train",
+      "transitions": 560,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:4:parent:economic:31:78",
+      "players": 4,
+      "episode": 31,
+      "split": "train",
+      "transitions": 620,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:0:52",
+      "players": 5,
+      "episode": 0,
+      "split": "validation",
+      "transitions": 637,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:1:44",
+      "players": 5,
+      "episode": 1,
+      "split": "validation",
+      "transitions": 587,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:2:65",
+      "players": 5,
+      "episode": 2,
+      "split": "validation",
+      "transitions": 650,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:3:41",
+      "players": 5,
+      "episode": 3,
+      "split": "validation",
+      "transitions": 538,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:4:39",
+      "players": 5,
+      "episode": 4,
+      "split": "validation",
+      "transitions": 538,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:5:31",
+      "players": 5,
+      "episode": 5,
+      "split": "validation",
+      "transitions": 484,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:6:71",
+      "players": 5,
+      "episode": 6,
+      "split": "validation",
+      "transitions": 699,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:7:65",
+      "players": 5,
+      "episode": 7,
+      "split": "validation",
+      "transitions": 580,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:8:38",
+      "players": 5,
+      "episode": 8,
+      "split": "validation",
+      "transitions": 486,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:9:39",
+      "players": 5,
+      "episode": 9,
+      "split": "validation",
+      "transitions": 481,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:10:79",
+      "players": 5,
+      "episode": 10,
+      "split": "validation",
+      "transitions": 787,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:11:74",
+      "players": 5,
+      "episode": 11,
+      "split": "validation",
+      "transitions": 627,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:12:42",
+      "players": 5,
+      "episode": 12,
+      "split": "validation",
+      "transitions": 506,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:13:36",
+      "players": 5,
+      "episode": 13,
+      "split": "validation",
+      "transitions": 482,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:14:61",
+      "players": 5,
+      "episode": 14,
+      "split": "validation",
+      "transitions": 620,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:15:66",
+      "players": 5,
+      "episode": 15,
+      "split": "validation",
+      "transitions": 569,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:16:37",
+      "players": 5,
+      "episode": 16,
+      "split": "validation",
+      "transitions": 576,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:17:38",
+      "players": 5,
+      "episode": 17,
+      "split": "validation",
+      "transitions": 478,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:18:49",
+      "players": 5,
+      "episode": 18,
+      "split": "validation",
+      "transitions": 614,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:19:63",
+      "players": 5,
+      "episode": 19,
+      "split": "validation",
+      "transitions": 608,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:20:47",
+      "players": 5,
+      "episode": 20,
+      "split": "train",
+      "transitions": 512,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:21:51",
+      "players": 5,
+      "episode": 21,
+      "split": "train",
+      "transitions": 523,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:22:63",
+      "players": 5,
+      "episode": 22,
+      "split": "train",
+      "transitions": 609,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:23:78",
+      "players": 5,
+      "episode": 23,
+      "split": "train",
+      "transitions": 719,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:24:46",
+      "players": 5,
+      "episode": 24,
+      "split": "train",
+      "transitions": 607,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:25:46",
+      "players": 5,
+      "episode": 25,
+      "split": "train",
+      "transitions": 539,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:26:64",
+      "players": 5,
+      "episode": 26,
+      "split": "train",
+      "transitions": 619,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:27:83",
+      "players": 5,
+      "episode": 27,
+      "split": "train",
+      "transitions": 747,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:28:45",
+      "players": 5,
+      "episode": 28,
+      "split": "train",
+      "transitions": 605,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:29:44",
+      "players": 5,
+      "episode": 29,
+      "split": "train",
+      "transitions": 584,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:30:59",
+      "players": 5,
+      "episode": 30,
+      "split": "train",
+      "transitions": 669,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:31:70",
+      "players": 5,
+      "episode": 31,
+      "split": "train",
+      "transitions": 605,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:32:42",
+      "players": 5,
+      "episode": 32,
+      "split": "train",
+      "transitions": 528,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:33:40",
+      "players": 5,
+      "episode": 33,
+      "split": "train",
+      "transitions": 518,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:34:69",
+      "players": 5,
+      "episode": 34,
+      "split": "train",
+      "transitions": 611,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:35:64",
+      "players": 5,
+      "episode": 35,
+      "split": "train",
+      "transitions": 757,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:36:40",
+      "players": 5,
+      "episode": 36,
+      "split": "train",
+      "transitions": 511,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:37:40",
+      "players": 5,
+      "episode": 37,
+      "split": "train",
+      "transitions": 587,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:38:48",
+      "players": 5,
+      "episode": 38,
+      "split": "train",
+      "transitions": 591,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:5:parent:economic:39:72",
+      "players": 5,
+      "episode": 39,
+      "split": "train",
+      "transitions": 623,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:0:44",
+      "players": 6,
+      "episode": 0,
+      "split": "validation",
+      "transitions": 526,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:1:36",
+      "players": 6,
+      "episode": 1,
+      "split": "validation",
+      "transitions": 515,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:2:67",
+      "players": 6,
+      "episode": 2,
+      "split": "validation",
+      "transitions": 677,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:3:58",
+      "players": 6,
+      "episode": 3,
+      "split": "validation",
+      "transitions": 678,
+      "newly_affordable_roots": 2,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:4:32",
+      "players": 6,
+      "episode": 4,
+      "split": "validation",
+      "transitions": 610,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:5:29",
+      "players": 6,
+      "episode": 5,
+      "split": "validation",
+      "transitions": 576,
+      "newly_affordable_roots": 1,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:6:71",
+      "players": 6,
+      "episode": 6,
+      "split": "validation",
+      "transitions": 701,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:7:75",
+      "players": 6,
+      "episode": 7,
+      "split": "validation",
+      "transitions": 724,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:8:32",
+      "players": 6,
+      "episode": 8,
+      "split": "validation",
+      "transitions": 503,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:9:44",
+      "players": 6,
+      "episode": 9,
+      "split": "validation",
+      "transitions": 507,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:10:45",
+      "players": 6,
+      "episode": 10,
+      "split": "validation",
+      "transitions": 661,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:11:46",
+      "players": 6,
+      "episode": 11,
+      "split": "validation",
+      "transitions": 663,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:12:51",
+      "players": 6,
+      "episode": 12,
+      "split": "validation",
+      "transitions": 757,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:13:31",
+      "players": 6,
+      "episode": 13,
+      "split": "validation",
+      "transitions": 509,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:14:59",
+      "players": 6,
+      "episode": 14,
+      "split": "validation",
+      "transitions": 610,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:15:84",
+      "players": 6,
+      "episode": 15,
+      "split": "validation",
+      "transitions": 928,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:16:39",
+      "players": 6,
+      "episode": 16,
+      "split": "validation",
+      "transitions": 603,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:17:44",
+      "players": 6,
+      "episode": 17,
+      "split": "validation",
+      "transitions": 606,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:18:64",
+      "players": 6,
+      "episode": 18,
+      "split": "validation",
+      "transitions": 736,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:19:82",
+      "players": 6,
+      "episode": 19,
+      "split": "validation",
+      "transitions": 727,
+      "newly_affordable_roots": 1,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:20:38",
+      "players": 6,
+      "episode": 20,
+      "split": "validation",
+      "transitions": 611,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:21:35",
+      "players": 6,
+      "episode": 21,
+      "split": "validation",
+      "transitions": 581,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:22:58",
+      "players": 6,
+      "episode": 22,
+      "split": "validation",
+      "transitions": 635,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:23:53",
+      "players": 6,
+      "episode": 23,
+      "split": "validation",
+      "transitions": 701,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:24:32",
+      "players": 6,
+      "episode": 24,
+      "split": "train",
+      "transitions": 587,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:25:39",
+      "players": 6,
+      "episode": 25,
+      "split": "train",
+      "transitions": 592,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:26:54",
+      "players": 6,
+      "episode": 26,
+      "split": "train",
+      "transitions": 741,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:27:69",
+      "players": 6,
+      "episode": 27,
+      "split": "train",
+      "transitions": 792,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:28:43",
+      "players": 6,
+      "episode": 28,
+      "split": "train",
+      "transitions": 673,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:29:35",
+      "players": 6,
+      "episode": 29,
+      "split": "train",
+      "transitions": 516,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:30:46",
+      "players": 6,
+      "episode": 30,
+      "split": "train",
+      "transitions": 727,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:31:71",
+      "players": 6,
+      "episode": 31,
+      "split": "train",
+      "transitions": 762,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:32:35",
+      "players": 6,
+      "episode": 32,
+      "split": "train",
+      "transitions": 695,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:33:33",
+      "players": 6,
+      "episode": 33,
+      "split": "train",
+      "transitions": 508,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:34:49",
+      "players": 6,
+      "episode": 34,
+      "split": "train",
+      "transitions": 752,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:35:72",
+      "players": 6,
+      "episode": 35,
+      "split": "train",
+      "transitions": 672,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:36:44",
+      "players": 6,
+      "episode": 36,
+      "split": "train",
+      "transitions": 698,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:37:30",
+      "players": 6,
+      "episode": 37,
+      "split": "train",
+      "transitions": 509,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:38:46",
+      "players": 6,
+      "episode": 38,
+      "split": "train",
+      "transitions": 805,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:39:41",
+      "players": 6,
+      "episode": 39,
+      "split": "train",
+      "transitions": 662,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:40:37",
+      "players": 6,
+      "episode": 40,
+      "split": "train",
+      "transitions": 596,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:41:41",
+      "players": 6,
+      "episode": 41,
+      "split": "train",
+      "transitions": 581,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:42:50",
+      "players": 6,
+      "episode": 42,
+      "split": "train",
+      "transitions": 607,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:43:57",
+      "players": 6,
+      "episode": 43,
+      "split": "train",
+      "transitions": 737,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:44:39",
+      "players": 6,
+      "episode": 44,
+      "split": "train",
+      "transitions": 595,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:45:34",
+      "players": 6,
+      "episode": 45,
+      "split": "train",
+      "transitions": 492,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:46:46",
+      "players": 6,
+      "episode": 46,
+      "split": "train",
+      "transitions": 619,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    },
+    {
+      "source_root_id": "policy-v2:6:parent:economic:47:64",
+      "players": 6,
+      "episode": 47,
+      "split": "train",
+      "transitions": 760,
+      "newly_affordable_roots": 0,
+      "historical_public_root_exact": true
+    }
+  ],
+  "interpretation": "Natural fixed-history public states recovered before recorded actions; no altered action choices, teacher targets or strength results.",
+  "design_sha256": "795bb0c2de9036e787a99384b756001df5dd54644acd2360479cc1c09f4888f9",
+  "artifacts": {
+    "prefixes.jsonl.gz": "54e4394aad1918bf78c9957200826099f6da61cbc0370cc4a1e31025395f0f27",
+    "replay.log": "2ee348c38d91e6b73ec6c04e5605120c6cbdf6e2c0e156df6b98926c0c2dcf3a",
+    "newly-affordable-roots.jsonl": "3821829caac7dcb71a1b7ec07342193edda179c9c4b82cc9a177a1d7a30476bc",
+    "provenance.json": "8a5c9885e9196c9fa9ecb0751044ea2c9bdc5dafa16d686ae17d3b9da23080b9",
+    "assessment.json": "b25a208ecb99b34e15d3d284450ea8dd3c572f094b3b1496d5f9245771ef7d25",
+    "design.json": "795bb0c2de9036e787a99384b756001df5dd54644acd2360479cc1c09f4888f9"
+  },
+  "new_hf_jobs": 0,
+  "new_inference": 0,
+  "new_rollouts": 0,
+  "new_games": 0,
+  "new_gradients": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "training_ready": false
+}

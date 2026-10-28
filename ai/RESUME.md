@@ -1,5 +1,22 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October update — naturally occurring low-cash nominations recovered.**
+
+Replaying **1,040 saved game prefixes / 551,648 recorded actions** through the
+historical and current engines recovered **six unlabelled training cases and
+four separate validation cases** where a one-Elektro nomination was formerly
+blocked. All are economic-opponent turns at 5–6 players in Step 3. Each full
+saved public endpoint reconstructed; economics matched after every recorded
+action. No policy decisions, new games, labels, gradients or HF jobs were
+generated. Read [the history recovery](AUCTION-TRAINING-HISTORY-2026-10-28.md).
+
+Keep the four validation cases out of training. These are targeted regression
+inputs, not sufficient data for a policy or a strength result; the current
+engine can improve opponent choices as well. Finish the unchanged full auction
+comparison before the next strength experiment. The broader feature/teacher
+coverage gaps below remain. Research active; no candidate qualified or final
+seeds used.
+
 **28 October update — discount inputs recovered; missing nomination labels identified.**
 
 A separate schema 4.4 appends the public discount flag and nomination opening

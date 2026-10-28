@@ -1,0 +1,396 @@
+{
+  "version": 1,
+  "created_at": "2026-10-28T22:10:04.008782+00:00",
+  "purpose": "Fresh confirmation of unchanged conservative population auction search versus the same filtered model on the current engine. Not reserved final qualification.",
+  "previous_comparison_evidence_sha256": "9345a66b0d6ea745aaef63391ed02dfed0125b28730393b4693c62834c342667",
+  "current_engine_evidence_sha256": "6f266bdf66deb06d99861d145b6d34edc91e421deb8642b247a915432ee468e7",
+  "current_engine_commit": "3adad0cc0d1d31352aa7a9059bd15efa79647269",
+  "runtime_manifest_sha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+  "scope": {
+    "map": "Germany",
+    "players": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "variants": [
+      "original",
+      "recharged"
+    ],
+    "auctions": [
+      "open",
+      "sealed"
+    ],
+    "money": "public",
+    "setup": "automatic",
+    "deck": "standard",
+    "recharged_setup": "current",
+    "endPlantDiscountAtStep3": false
+  },
+  "arms": {
+    "filter": {
+      "backend": "population-v1",
+      "feature_revision": "4.3-strategic-correction",
+      "model": {
+        "path": "policy.onnx",
+        "sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+      },
+      "runtime_manifest": {
+        "path": "manifest.json",
+        "sha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df"
+      },
+      "settings": {
+        "arm": "filter",
+        "max_steps": 2400,
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      },
+      "version": 1
+    },
+    "conservative_population": {
+      "backend": "opponent-auction-v1",
+      "feature_revision": "4.3-strategic-correction",
+      "model": {
+        "path": "policy.onnx",
+        "sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+      },
+      "opponent": {
+        "path": "ai/strong/fixtures/surrogate-continuation-selected-members-v1/policy.json",
+        "sha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c"
+      },
+      "runtime_manifest": {
+        "path": "manifest.json",
+        "sha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df"
+      },
+      "settings": {
+        "arm": "auction",
+        "max_steps": 2400,
+        "minimum_advantage": "1/8",
+        "population_modes": [
+          "neural_population"
+        ],
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      },
+      "version": 1
+    }
+  },
+  "screens": [
+    {
+      "players": 2,
+      "opponent": "economic",
+      "deals": 32,
+      "games": 256
+    },
+    {
+      "players": 2,
+      "opponent": "search_geo",
+      "deals": 32,
+      "games": 256
+    },
+    {
+      "players": 2,
+      "opponent": "legacy",
+      "deals": 32,
+      "games": 256
+    },
+    {
+      "players": 2,
+      "opponent": "heuristic",
+      "deals": 32,
+      "games": 256
+    },
+    {
+      "players": 2,
+      "opponent": "rush",
+      "deals": 32,
+      "games": 256
+    },
+    {
+      "players": 3,
+      "opponent": "economic",
+      "deals": 32,
+      "games": 384
+    },
+    {
+      "players": 3,
+      "opponent": "search_geo",
+      "deals": 32,
+      "games": 384
+    },
+    {
+      "players": 3,
+      "opponent": "legacy",
+      "deals": 32,
+      "games": 384
+    },
+    {
+      "players": 3,
+      "opponent": "heuristic",
+      "deals": 32,
+      "games": 384
+    },
+    {
+      "players": 3,
+      "opponent": "rush",
+      "deals": 32,
+      "games": 384
+    },
+    {
+      "players": 4,
+      "opponent": "economic",
+      "deals": 32,
+      "games": 512
+    },
+    {
+      "players": 4,
+      "opponent": "search_geo",
+      "deals": 32,
+      "games": 512
+    },
+    {
+      "players": 4,
+      "opponent": "legacy",
+      "deals": 32,
+      "games": 512
+    },
+    {
+      "players": 4,
+      "opponent": "heuristic",
+      "deals": 32,
+      "games": 512
+    },
+    {
+      "players": 4,
+      "opponent": "rush",
+      "deals": 32,
+      "games": 512
+    },
+    {
+      "players": 5,
+      "opponent": "economic",
+      "deals": 32,
+      "games": 640
+    },
+    {
+      "players": 5,
+      "opponent": "search_geo",
+      "deals": 32,
+      "games": 640
+    },
+    {
+      "players": 5,
+      "opponent": "legacy",
+      "deals": 32,
+      "games": 640
+    },
+    {
+      "players": 5,
+      "opponent": "heuristic",
+      "deals": 32,
+      "games": 640
+    },
+    {
+      "players": 5,
+      "opponent": "rush",
+      "deals": 32,
+      "games": 640
+    },
+    {
+      "players": 6,
+      "opponent": "economic",
+      "deals": 32,
+      "games": 768
+    },
+    {
+      "players": 6,
+      "opponent": "search_geo",
+      "deals": 32,
+      "games": 768
+    },
+    {
+      "players": 6,
+      "opponent": "legacy",
+      "deals": 32,
+      "games": 768
+    },
+    {
+      "players": 6,
+      "opponent": "heuristic",
+      "deals": 32,
+      "games": 768
+    },
+    {
+      "players": 6,
+      "opponent": "rush",
+      "deals": 32,
+      "games": 768
+    },
+    {
+      "players": 3,
+      "opponent": "a260",
+      "model_path": "runs/strong-league-v2-a/best.onnx",
+      "revision": "b38515c29e57826de05b55b645c29591e4a886bf",
+      "sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+      "deals": 32,
+      "games": 384
+    },
+    {
+      "players": 2,
+      "opponent": "economic_capacity_v1",
+      "deals": 32,
+      "games": 256
+    }
+  ],
+  "independent_deals_per_count": 32,
+  "seed_template": "current-auction-confirmation-v1-{players}p",
+  "runtime_seed_template": "current-auction-runtime-v1-{players}p",
+  "deal_offsets": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "planned_games_per_arm": 13440,
+  "planned_games_total": 26880,
+  "pairing": "Every independent deal repeats all seats and all four rules, shared across both arms and opponents. Preserve complete deal blocks.",
+  "primary": "Population minus filter: equal-weight mean terminal win-credit difference across the five search_geo player counts.",
+  "secondary": "All 27 count/opponent cells and every count/rule view, strict wins, tied-win credits, every adverse paired difference, actual search overrides and runtime costs.",
+  "uncertainty": {
+    "method": "Paired whole-deal bootstrap of 32 independent deals per count; keep both arms, all seats/rules/opponents together.",
+    "replicates": 10000,
+    "seed": 281028,
+    "confidence": 0.95,
+    "interpretation": "One prespecified primary contrast. Secondary intervals are marginal descriptive intervals, not simultaneous family-wide guarantees."
+  },
+  "confirmation_success": [
+    "Every planned game and decision audit completes, with no illegal moves or capped outcomes.",
+    "Primary paired population-minus-filter interval lower endpoint is strictly greater than zero.",
+    "Population search satisfies the unchanged final protocol point floors and per-count/per-rule above-chance interval requirements on these confirmation deals.",
+    "Report all regressions and review them before final selection; no retrospective count/rule routing, threshold tuning, or automatic promotion."
+  ],
+  "game_max_steps": 1600,
+  "reference_search": "Unchanged search_geo16, six geographic candidates, horizon2400.",
+  "search_semantics": {
+    "minimum_advantage": "1/8",
+    "samples_per_population": 8,
+    "rationale": "Retain the engineering recipe specified before the complete fidelity study; no threshold/budget fitting to these results.",
+    "selection": "Strict pooled terminal-credit advantage above 1/8 and nonnegative advantage in every included population; model favored on ties. Exact rational credits. These are screening rules, not calibrated confidence.",
+    "scope": "Auctions only. Both search arms retain the same strict-loss-filtered model outside auctions.",
+    "candidate_menu": "Existing public shortlist plus model move, unchanged order and strict-loss exclusions.",
+    "hidden_information": "All players money is public. Hidden sealed bids and future deck excluded; use existing public inference and matched sampled worlds.",
+    "focal_continuation": "Frozen-1 with strict loss filter; future live search is approximated, not recursively solved.",
+    "opponent_identity": "Never provided to the learner; arena opponent names are evaluator metadata only."
+  },
+  "model_pin": {
+    "key": "frozen-1",
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "6b6009756d7b5968bc5b6425efc84a94aab2a1d6",
+    "prefix": "runs/policy-iteration-training-v2-frozen/ensemble-1/derivative",
+    "files": {
+      "inference64.pt": "3c17d4228e7446f8859aa01e79020ed91f454312925d29c153a76f49f94118da",
+      "inference64.onnx": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+    },
+    "feature_revision": "4.3-strategic-correction",
+    "model_args": {
+      "head_type": "frozen",
+      "heads": 4,
+      "margin": 0.025,
+      "parent_margin": 0.025,
+      "disagreement_penalty": 1.0
+    },
+    "training_verified": true,
+    "parent_frozen": true,
+    "seeds": [
+      12101,
+      12102,
+      12103,
+      12104
+    ],
+    "design_sha256": "987698dc90f5b8807f18fde8770dcc365509a3381ec87f83361df1796cb98d3e",
+    "data_check_sha256": "d3ff565c717bcd6a6c6c1fdc97cd31655c41d065576e64303c7764096f1affc9",
+    "training_verified_sha256": "881c8a4b34f937575cb3f3c851db794f81908621f4a93e47f467be852845974f",
+    "strict_parity_positions": 2553,
+    "cached_positions_checked": 17280,
+    "qualification_eligible": false
+  },
+  "runtime_pilots": [
+    {
+      "arm": "filter",
+      "players": 2,
+      "opponent": "search_geo",
+      "deals": 1,
+      "games": 8
+    },
+    {
+      "arm": "filter",
+      "players": 6,
+      "opponent": "search_geo",
+      "deals": 1,
+      "games": 24
+    },
+    {
+      "arm": "conservative_population",
+      "players": 2,
+      "opponent": "search_geo",
+      "deals": 1,
+      "games": 8
+    },
+    {
+      "arm": "conservative_population",
+      "players": 6,
+      "opponent": "search_geo",
+      "deals": 1,
+      "games": 24
+    }
+  ],
+  "runtime_pilot_games": 64,
+  "admission": "Finish four current-engine HF runtime pilots, then freeze job sizes/timeouts/concurrency from their complete measured costs. Pilot wins are excluded from strength.",
+  "failure_policy": "Preserve every original handle, failed game and partial receipt. No automatic retries, survivor-only comparisons or grid launch after a failed pilot. Diagnose before a separately recorded recovery decision.",
+  "forbidden_changes": [
+    "weights",
+    "feature revision",
+    "candidate shortlist",
+    "minimum advantage",
+    "sample budget",
+    "opponent population",
+    "auction-only scope"
+  ],
+  "final_protocol_sha256": "7f0336c8784faf8f18e046b95b88e0ab1be7c2de1c0ec4d3eec96f0a415286ce",
+  "grid_admitted": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "new_hf_jobs": 0
+}

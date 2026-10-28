@@ -1,0 +1,77 @@
+{
+  "created_at": "2026-10-28T21:50:26.788245+00:00",
+  "stage": "prepared_not_admitted",
+  "base_prepared_sha256": "e11da9fef1f1a7e4ebfb3fbc9c45163effe5ad361925b7dd0916a29ea691967b",
+  "base_runtime_manifest_sha256": "8ad645eb91e9f56278e5c820b92fae47aca45ebcb610fa75eb6713e93884fc3f",
+  "runtime_manifest_sha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+  "current_engine_commit": "3adad0cc0d1d31352aa7a9059bd15efa79647269",
+  "wrapper_diagnostic_sha256": "c4600e1799fb42ae4cc48ed03cbf4424aaca2c1553dcc8ee4043155c13607471",
+  "wrapper_cases_sha256": "1d303732b7c5430e01015608a2451cad27edbd2553f73d2b83c4d13c56c154e0",
+  "changed_files": [
+    "ai/strong/sealed-policy-beliefs.cjs"
+  ],
+  "unchanged_files": 1466,
+  "preparer_sha256": "ff10876992e6e329383bb1b34932b5d0e3bb4bb05b2d0333ed036b936b0df2e5",
+  "model_sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+  "descriptors": {
+    "filter": {
+      "backend": "population-v1",
+      "feature_revision": "4.3-strategic-correction",
+      "model": {
+        "path": "policy.onnx",
+        "sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+      },
+      "runtime_manifest": {
+        "path": "manifest.json",
+        "sha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df"
+      },
+      "settings": {
+        "arm": "filter",
+        "max_steps": 2400,
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      },
+      "version": 1
+    },
+    "conservative_population": {
+      "backend": "opponent-auction-v1",
+      "feature_revision": "4.3-strategic-correction",
+      "model": {
+        "path": "policy.onnx",
+        "sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+      },
+      "opponent": {
+        "path": "ai/strong/fixtures/surrogate-continuation-selected-members-v1/policy.json",
+        "sha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c"
+      },
+      "runtime_manifest": {
+        "path": "manifest.json",
+        "sha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df"
+      },
+      "settings": {
+        "arm": "auction",
+        "max_steps": 2400,
+        "minimum_advantage": "1/8",
+        "population_modes": [
+          "neural_population"
+        ],
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      },
+      "version": 1
+    }
+  },
+  "policy_sha256": {
+    "filter": "3b492c71ac5653ac7c41dfefd1c397e74e14df6f57629a455c61c8e45f55f52a",
+    "conservative_population": "b9879af9668b3e1b79cac6139b59571a83d838f8e0988627506f9b2eb902a980"
+  },
+  "interpretation": "Public pending-set compatibility repair, not a new learned policy or tuned search setting. Canonical equivalence and actual noncanonical continuations must be tested before admission.",
+  "new_hf_jobs": 0,
+  "new_inference": 0,
+  "new_full_games": 0,
+  "new_gradients": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

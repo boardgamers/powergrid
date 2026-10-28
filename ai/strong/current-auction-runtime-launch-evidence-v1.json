@@ -1,0 +1,72 @@
+{
+  "checked_at": "2026-10-28T22:13:47.428114+00:00",
+  "jobs": [
+    {
+      "name": "pg-current-auction-runtime-v1-filter-2p",
+      "job_id": "6ae2733541e90535df77d71e",
+      "stage": "RUNNING",
+      "created_at": "2026-10-28 22:12:05.826000+00:00",
+      "started_at": "2026-10-28 22:12:08.618000+00:00",
+      "finished_at": "None",
+      "guard_sha256": "db0877b9e9ac036faa032f2ef9245049015bb8caa998f0009474bf64df9a5e67",
+      "games": 8,
+      "timeout": "2h",
+      "flavor": "cpu-upgrade"
+    },
+    {
+      "name": "pg-current-auction-runtime-v1-filter-6p",
+      "job_id": "6ae273363fb22a235dd4a65d",
+      "stage": "RUNNING",
+      "created_at": "2026-10-28 22:12:06.097000+00:00",
+      "started_at": "2026-10-28 22:12:08.744000+00:00",
+      "finished_at": "None",
+      "guard_sha256": "e448336021bf13ed44a176cf7a58f22132039df1ea1d5a49a71f759a9c6a5da3",
+      "games": 24,
+      "timeout": "5h",
+      "flavor": "cpu-upgrade"
+    },
+    {
+      "name": "pg-current-auction-runtime-v1-pop-2p",
+      "job_id": "6ae2733641e90535df77d722",
+      "stage": "RUNNING",
+      "created_at": "2026-10-28 22:12:06.352000+00:00",
+      "started_at": "2026-10-28 22:12:08.791000+00:00",
+      "finished_at": "None",
+      "guard_sha256": "77c95a5420f0abffc71bc713e708678fa998f0a6169106343251818349ec1579",
+      "games": 8,
+      "timeout": "2h",
+      "flavor": "cpu-upgrade"
+    },
+    {
+      "name": "pg-current-auction-runtime-v1-pop-6p",
+      "job_id": "6ae273363fb22a235dd4a660",
+      "stage": "RUNNING",
+      "created_at": "2026-10-28 22:12:06.606000+00:00",
+      "started_at": "2026-10-28 22:12:10.360000+00:00",
+      "finished_at": "None",
+      "guard_sha256": "9cc6043524ec91e52c3a96c78b396320a508576880ff98a2d667a0dbfc8e9439",
+      "games": 24,
+      "timeout": "5h",
+      "flavor": "cpu-upgrade"
+    }
+  ],
+  "runtime_games": 64,
+  "source_sha256": "d76b90f0ab5156c08c6c312abb7d7f640da79dfdd254f15c698ef049d47857c7",
+  "protocol_sha256": "d0504c3f92d94fe96a1b336f26fe0e6c991502a3e03ff17fb1b2d00f53067d93",
+  "confirmation_games": 26880,
+  "confirmation_grid_admitted": false,
+  "recovery": "Use only manage-current-auction-runtime-v1.py collect on the four original handles. Preserve failures/partial evidence; no automatic retry. Complete all pilots and cost review before preparing the larger grid.",
+  "goal_status": "active",
+  "candidate_qualified": false,
+  "reserved_final_seeds_used": false,
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "176f2f01da956b583cc5fc97a15bed7d753e8fbb",
+    "archive_path": "archives/current-auction-runtime-launch-evidence-v1.tgz",
+    "archive_sha256": "45c9699cb31f7e770036d7045d29aa6db0ea7ef2824d9891c980c482438542f5",
+    "manifest_sha256": "c5f1d7ac9cbaa7b81b259019a391d4f389e883b2f3f7c22c50a927b7a5a08898",
+    "archived_files": 35,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  }
+}

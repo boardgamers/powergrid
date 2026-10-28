@@ -1,5 +1,29 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October — current-engine auction adapter and search checks passed.**
+
+Read [the current-engine report](CURRENT-ENGINE-AUCTION-2026-10-28.md).
+A public pending-player-set repair fixes 16 actual-wrapper sealed-auction input
+failures; all 20 wrapper cases now pass complete policy execution. All 2,693
+public preparations and 140 full canonical search decisions remain exact
+relative to the first current-engine copy. The second check completed 2,960
+uncapped continuations / 512,203 neural decisions. The original local checker
+exited 0; do not rerun it. Engine/adapter copies and all failed harness evidence
+are preserved, with unchanged weights, features and auction-search settings.
+
+The evidence is independently re-audited and archived at private model revision
+`ca003e34a2b80b86f95aa8b7affc031b8bde2683`. The next confirmation is frozen:
+32 fresh deals per count, 26,880 games across two unchanged arms. Four current-
+engine HF pilots (64 runtime-only games) have now been submitted; exact original
+handles, source revision, timeout allocation and the collection command are in
+the report. No background coordinator is running. Use only the bounded collect
+operation for those handles; preserve failures and do not resubmit automatically.
+
+Do not launch the larger grid before all four pilots and their independent
+audits pass and complete measured costs are reviewed. No candidate qualified,
+no production deployment, no final seeds used. Historical compatibility limits
+below are superseded only by these fixed-position and wrapper checks.
+
 **28 October, 21:24 UTC — complete auction study shows a substantial search gain.**
 
 All **10,080 games / 648 selected jobs** passed the complete independent audit.

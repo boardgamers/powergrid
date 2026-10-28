@@ -1,0 +1,85 @@
+{
+  "passed": true,
+  "completed_at": "2026-10-28T22:08:25.806751+00:00",
+  "counts": {
+    "filter": {
+      "decisions": 20,
+      "root_filter_overrides": 0,
+      "rollouts": 0,
+      "rollout_caps": 0,
+      "neural_decisions": 0,
+      "search_changes": 0,
+      "search_decisions": 0,
+      "requests": 20
+    },
+    "conservative_population": {
+      "decisions": 160,
+      "root_filter_overrides": 0,
+      "rollouts": 2960,
+      "rollout_caps": 0,
+      "neural_decisions": 512203,
+      "search_changes": 24,
+      "search_decisions": 88,
+      "surrogate_decisions": 0,
+      "requests": 160,
+      "exact_canonical_decisions": 140,
+      "wrapper_requests": 20
+    }
+  },
+  "seconds": 563.9357130350036,
+  "identities": {
+    "filter": {
+      "policySha256": "3b492c71ac5653ac7c41dfefd1c397e74e14df6f57629a455c61c8e45f55f52a",
+      "runtimeManifestSha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+      "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+      "featureRevision": "4.3-strategic-correction",
+      "backend": "population-v1",
+      "settings": {
+        "arm": "filter",
+        "max_steps": 2400,
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      }
+    },
+    "conservative_population": {
+      "policySha256": "b9879af9668b3e1b79cac6139b59571a83d838f8e0988627506f9b2eb902a980",
+      "runtimeManifestSha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+      "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+      "featureRevision": "4.3-strategic-correction",
+      "backend": "opponent-auction-v1",
+      "settings": {
+        "arm": "auction",
+        "max_steps": 2400,
+        "minimum_advantage": "1/8",
+        "population_modes": [
+          "neural_population"
+        ],
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      },
+      "opponentPolicySha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c"
+    }
+  },
+  "input_hashes": {
+    "ai/strong/check-current-engine-auction-v2.py": "b415aab20b3414d61b5a1a40070aafb7d1d6487aba7284eea35cb048370d35d6",
+    "ai/runs/current-engine-auction-v2/prepared.json": "3fc9588b2254e77151f4de171571e372a8d588107b960ad54a815518c7c48303",
+    "ai/runs/current-engine-auction-v2/order-assessment.json": "1eb310a7505b5db1320776ad94dae77ade67c108280fe24076f9967a5391eb95",
+    "ai/runs/current-engine-auction-v1/assessment.json": "3ef543fedcf9038a195c83881fb122e7f8af184e81d3fd61beeb7dbc9152a500",
+    "ai/runs/current-engine-auction-v1/decisions.jsonl": "3d22cf670e07d7f2c07456fd0cc24d8e165f59a847475f8a6d18fe6937b01a05",
+    "ai/runs/current-engine-auction-v1/inputs.jsonl": "09ca09bc835efee39fbac2f036aa6b29a9d86adb09c4c1b655c015f6bcfec17f",
+    "ai/runs/current-engine-auction-v2/artifact/manifest.json": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+    "ai/runs/current-engine-auction-wrapper-diagnostic-v3/cases.json": "1d303732b7c5430e01015608a2451cad27edbd2553f73d2b83c4d13c56c154e0"
+  },
+  "prepared_sha256": "3fc9588b2254e77151f4de171571e372a8d588107b960ad54a815518c7c48303",
+  "intent_sha256": "f5518dc2ea76c2f2e4e01641afd0cf0d83750cf964137183c7af78aa4ce391c2",
+  "receipts_sha256": "f7b9f641a22970ff88ecf29b2ea92004ba18ead919152348da528d42f9c5ea5c",
+  "canonical_public_preparations_exact": 2693,
+  "new_hf_jobs": 0,
+  "new_full_games": 0,
+  "new_gradients": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "scope": "Actual current-engine policy/continuation execution and simultaneous-input repair. Not a new strength result; fresh whole-game confirmation and final qualification remain required."
+}

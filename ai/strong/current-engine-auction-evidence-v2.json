@@ -1,0 +1,83 @@
+{
+  "status": "current_engine_fixed_position_and_wrapper_search_verified",
+  "runtime_manifest_sha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+  "reports": {
+    "1": {
+      "path": "ai/runs/current-engine-auction-v1/assessment.json",
+      "sha256": "3ef543fedcf9038a195c83881fb122e7f8af184e81d3fd61beeb7dbc9152a500"
+    },
+    "2": {
+      "path": "ai/runs/current-engine-auction-v2/assessment.json",
+      "sha256": "0d7a04e55e0f4650f9059c34ad63f31602dfbc4ecd01cd9d18ec03aca3cae490"
+    }
+  },
+  "counts": {
+    "v1": {
+      "filter": {
+        "decisions": 2693,
+        "root_filter_overrides": 2,
+        "rollouts": 0,
+        "rollout_caps": 0,
+        "neural_decisions": 0,
+        "search_changes": 0,
+        "search_decisions": 0,
+        "requests": 2693
+      },
+      "conservative_population": {
+        "decisions": 140,
+        "root_filter_overrides": 0,
+        "rollouts": 2160,
+        "rollout_caps": 0,
+        "neural_decisions": 390557,
+        "search_changes": 23,
+        "search_decisions": 70,
+        "surrogate_decisions": 0,
+        "requests": 140
+      }
+    },
+    "v2": {
+      "filter": {
+        "decisions": 20,
+        "root_filter_overrides": 0,
+        "rollouts": 0,
+        "rollout_caps": 0,
+        "neural_decisions": 0,
+        "search_changes": 0,
+        "search_decisions": 0,
+        "requests": 20
+      },
+      "conservative_population": {
+        "decisions": 160,
+        "root_filter_overrides": 0,
+        "rollouts": 2960,
+        "rollout_caps": 0,
+        "neural_decisions": 512203,
+        "search_changes": 24,
+        "search_decisions": 88,
+        "surrogate_decisions": 0,
+        "requests": 160
+      }
+    }
+  },
+  "independent_receipt_audit_sha256": "aa05f1ec58f9ee67aa10d3781a12d5da576bad3e6e5c90099400f7e930840910",
+  "runtime_recovery_sha256": "f59a51e912b6e88d6932d7680af90984340dc713b6ca9e500f477cc5e4a7a368",
+  "exact_full_canonical_search_decisions": 140,
+  "wrapper_cases": 20,
+  "previously_failing_cases_fixed": 16,
+  "preserved_diagnostic_harness_failures": 2,
+  "new_hf_jobs": 0,
+  "new_full_games": 0,
+  "new_gradients": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "ca003e34a2b80b86f95aa8b7affc031b8bde2683",
+    "archive_path": "archives/current-engine-auction-evidence-v2.tgz",
+    "archive_sha256": "12309cf9c1ac339601ccf8e5e6c78916e57fabce04626efb49a3ca19f4c67e0d",
+    "manifest_sha256": "8eff4dff7eafd1c631d23d7de3bee9aaaac1f953a34797b746db399c5e2edafc",
+    "archived_files": 80,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  }
+}

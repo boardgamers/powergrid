@@ -1,0 +1,189 @@
+{
+  "created_at": "2026-10-28T21:35:39.630973+00:00",
+  "stage": "prepared_not_admitted",
+  "comparison_evidence_sha256": "9345a66b0d6ea745aaef63391ed02dfed0125b28730393b4693c62834c342667",
+  "comparison_summary_sha256": "a472c79c5856d63944b8ea66d54906567191d074f60211470fb4ed2f6f1c06d0",
+  "current_engine_commit": "3adad0cc0d1d31352aa7a9059bd15efa79647269",
+  "engine_evidence_sha256": "cf38727e322198a507c00f8b13bd5f3b55208b5c633086db38220d71bc10fa5c",
+  "engine_build_sha256": "b3230c20ab41bb6bf19cbacd31b413db088e97ed0111ef0cf72a62d72a1b4e65",
+  "engine_design_sha256": "9210eae79bcf594a9388182257d8ddd0b5f5dcfac8a3777b8619c16fc9d5b1d7",
+  "original_runtime_manifest_sha256": "a2047543f5f6a8065dd9b868dd4551531147185068c665900691c5b13c278619",
+  "runtime_manifest_sha256": "8ad645eb91e9f56278e5c820b92fae47aca45ebcb610fa75eb6713e93884fc3f",
+  "original_descriptors": {
+    "filter": {
+      "backend": "population-v1",
+      "feature_revision": "4.3-strategic-correction",
+      "model": {
+        "path": "policy.onnx",
+        "sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+      },
+      "runtime_manifest": {
+        "path": "manifest.json",
+        "sha256": "a2047543f5f6a8065dd9b868dd4551531147185068c665900691c5b13c278619"
+      },
+      "settings": {
+        "arm": "filter",
+        "max_steps": 2400,
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      },
+      "version": 1
+    },
+    "conservative_population": {
+      "backend": "opponent-auction-v1",
+      "feature_revision": "4.3-strategic-correction",
+      "model": {
+        "path": "policy.onnx",
+        "sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+      },
+      "opponent": {
+        "path": "ai/strong/fixtures/surrogate-continuation-selected-members-v1/policy.json",
+        "sha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c"
+      },
+      "runtime_manifest": {
+        "path": "manifest.json",
+        "sha256": "a2047543f5f6a8065dd9b868dd4551531147185068c665900691c5b13c278619"
+      },
+      "settings": {
+        "arm": "auction",
+        "max_steps": 2400,
+        "minimum_advantage": "1/8",
+        "population_modes": [
+          "neural_population"
+        ],
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      },
+      "version": 1
+    }
+  },
+  "descriptors": {
+    "filter": {
+      "backend": "population-v1",
+      "feature_revision": "4.3-strategic-correction",
+      "model": {
+        "path": "policy.onnx",
+        "sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+      },
+      "runtime_manifest": {
+        "path": "manifest.json",
+        "sha256": "8ad645eb91e9f56278e5c820b92fae47aca45ebcb610fa75eb6713e93884fc3f"
+      },
+      "settings": {
+        "arm": "filter",
+        "max_steps": 2400,
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      },
+      "version": 1
+    },
+    "conservative_population": {
+      "backend": "opponent-auction-v1",
+      "feature_revision": "4.3-strategic-correction",
+      "model": {
+        "path": "policy.onnx",
+        "sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+      },
+      "opponent": {
+        "path": "ai/strong/fixtures/surrogate-continuation-selected-members-v1/policy.json",
+        "sha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c"
+      },
+      "runtime_manifest": {
+        "path": "manifest.json",
+        "sha256": "8ad645eb91e9f56278e5c820b92fae47aca45ebcb610fa75eb6713e93884fc3f"
+      },
+      "settings": {
+        "arm": "auction",
+        "max_steps": 2400,
+        "minimum_advantage": "1/8",
+        "population_modes": [
+          "neural_population"
+        ],
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      },
+      "version": 1
+    }
+  },
+  "policy_sha256": {
+    "filter": "f27839ac4023003a3dc8a6f9d97a3601091c5aace947286b1ca5ba17d0cf8c96",
+    "conservative_population": "a5cb20c657bc405ef0e8728d1d73577c796b2689bf9d2b2260cdaf6d19ce3874"
+  },
+  "changed_files": [
+    "ai/strong/public_policy_runtime_v1.py",
+    "engine/dist/index.js",
+    "engine/dist/src/analysis.js",
+    "engine/dist/src/available-moves.js",
+    "engine/dist/src/engine.js",
+    "engine/dist/src/gamestate.js",
+    "engine/dist/src/maps/bremen.js",
+    "engine/dist/src/maps/europe.js",
+    "engine/dist/src/move.js",
+    "engine/dist/src/powerPlants.js",
+    "engine/dist/src/premoves.js",
+    "engine/dist/wrapper.js"
+  ],
+  "added_files": [
+    "ai/strong/current_engine_scope_v1.py",
+    "engine/dist/src/auction-auto-pass.js",
+    "engine/dist/src/auction-pricing.js",
+    "engine/dist/src/choice-revisions.js"
+  ],
+  "removed_files": [
+    "engine/dist/index.d.ts",
+    "engine/dist/src/analysis.d.ts",
+    "engine/dist/src/available-moves.d.ts",
+    "engine/dist/src/engine.d.ts",
+    "engine/dist/src/gamestate.d.ts",
+    "engine/dist/src/log.d.ts",
+    "engine/dist/src/maps.d.ts",
+    "engine/dist/src/maps/america.d.ts",
+    "engine/dist/src/maps/australia.d.ts",
+    "engine/dist/src/maps/badenwurttemberg.d.ts",
+    "engine/dist/src/maps/benelux.d.ts",
+    "engine/dist/src/maps/brazil.d.ts",
+    "engine/dist/src/maps/bremen.d.ts",
+    "engine/dist/src/maps/centraleurope.d.ts",
+    "engine/dist/src/maps/china.d.ts",
+    "engine/dist/src/maps/europe.d.ts",
+    "engine/dist/src/maps/france.d.ts",
+    "engine/dist/src/maps/germany.d.ts",
+    "engine/dist/src/maps/indian.d.ts",
+    "engine/dist/src/maps/italy.d.ts",
+    "engine/dist/src/maps/japan.d.ts",
+    "engine/dist/src/maps/korea.d.ts",
+    "engine/dist/src/maps/manhattan.d.ts",
+    "engine/dist/src/maps/middleeast.d.ts",
+    "engine/dist/src/maps/northamerica.d.ts",
+    "engine/dist/src/maps/northerneurope.d.ts",
+    "engine/dist/src/maps/quebec.d.ts",
+    "engine/dist/src/maps/russia.d.ts",
+    "engine/dist/src/maps/southafrica.d.ts",
+    "engine/dist/src/maps/spainportugal.d.ts",
+    "engine/dist/src/maps/ukireland.d.ts",
+    "engine/dist/src/move.d.ts",
+    "engine/dist/src/planning.d.ts",
+    "engine/dist/src/powerPlants.d.ts",
+    "engine/dist/src/premoves.d.ts",
+    "engine/dist/src/prices.d.ts",
+    "engine/dist/src/randomizeMap.d.ts",
+    "engine/dist/src/utils.d.ts",
+    "engine/dist/wrapper.d.ts"
+  ],
+  "unchanged_files": 1451,
+  "preparer_sha256": "b2279176c6dbabbadbb66b2931b21af54b9bf1f06478dbc8ec7b5a5831c1eda0",
+  "scope_checker_sha256": "af73fbf8d2d690e67e8cef1cd8c6e79a29a02fbf12fee26749d880809c124d94",
+  "model_sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+  "current_engine_typechecked": false,
+  "scope": "Isolated current engine, same trained weights/features/shortlist/selection and exact search settings. Explicit option rejection only; no production routing.",
+  "new_hf_jobs": 0,
+  "new_games": 0,
+  "new_inference": 0,
+  "new_gradients": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

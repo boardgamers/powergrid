@@ -1,0 +1,219 @@
+{
+  "created_at": "2026-10-28T22:10:04.008782+00:00",
+  "stage": "prepared_not_launched",
+  "protocol_sha256": "d0504c3f92d94fe96a1b336f26fe0e6c991502a3e03ff17fb1b2d00f53067d93",
+  "runtime_evidence_sha256": "6f266bdf66deb06d99861d145b6d34edc91e421deb8642b247a915432ee468e7",
+  "runtime_manifest_sha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+  "source_manifest_sha256": "718013c2500edf2022cbcfc28a5e5d5f662db9afd4ae01a979d706646e4b8505",
+  "preparer_sha256": "947e5b8284c53d180e6257b74e68bb650c37e328796648da697f6cf71ef6fbd0",
+  "source_files": 1483,
+  "rows": [
+    {
+      "name": "pg-current-auction-runtime-v1-filter-2p",
+      "arm": "filter",
+      "players": 2,
+      "job": "runtime-controls/pg-current-auction-runtime-v1-filter-2p.job.json",
+      "shard": {
+        "name": "pg-current-auction-runtime-v1-filter-2p",
+        "group": "search_geo/2p",
+        "players": 2,
+        "start": 0,
+        "deals": 1,
+        "seed": "current-auction-runtime-v1-2p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 8
+      },
+      "identity": {
+        "policySha256": "3b492c71ac5653ac7c41dfefd1c397e74e14df6f57629a455c61c8e45f55f52a",
+        "runtimeManifestSha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+        "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+        "featureRevision": "4.3-strategic-correction",
+        "backend": "population-v1",
+        "settings": {
+          "arm": "filter",
+          "max_steps": 2400,
+          "samples": 8,
+          "threads": 1,
+          "workers": 4
+        }
+      },
+      "candidate_sha256": "0057b3fa854e35c435e3d9afc8b8d9e948b4929307d9e2f5483b66fe6efaa1af",
+      "contract_sha256": "64ad8552980f58dee57ac39cb6d079d398a90189ca809fe905ff7e842739b237",
+      "job_spec_sha256": "a56471f5cca14fbeca8e6c2585df64e97c5c46df27704ca9dfa56a2466d02b94",
+      "flavor": "cpu-upgrade",
+      "timeout": "2h"
+    },
+    {
+      "name": "pg-current-auction-runtime-v1-filter-6p",
+      "arm": "filter",
+      "players": 6,
+      "job": "runtime-controls/pg-current-auction-runtime-v1-filter-6p.job.json",
+      "shard": {
+        "name": "pg-current-auction-runtime-v1-filter-6p",
+        "group": "search_geo/6p",
+        "players": 6,
+        "start": 0,
+        "deals": 1,
+        "seed": "current-auction-runtime-v1-6p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 24
+      },
+      "identity": {
+        "policySha256": "3b492c71ac5653ac7c41dfefd1c397e74e14df6f57629a455c61c8e45f55f52a",
+        "runtimeManifestSha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+        "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+        "featureRevision": "4.3-strategic-correction",
+        "backend": "population-v1",
+        "settings": {
+          "arm": "filter",
+          "max_steps": 2400,
+          "samples": 8,
+          "threads": 1,
+          "workers": 4
+        }
+      },
+      "candidate_sha256": "0057b3fa854e35c435e3d9afc8b8d9e948b4929307d9e2f5483b66fe6efaa1af",
+      "contract_sha256": "a8a3a7c6971c3615f190c5d2456bd8181ba583a7f0b0e018ec893c752beef7ac",
+      "job_spec_sha256": "21ff36460d331c65e71dfe13b8d7b1a901e79f653ace2ff9cda19dc1700b7a9f",
+      "flavor": "cpu-upgrade",
+      "timeout": "5h"
+    },
+    {
+      "name": "pg-current-auction-runtime-v1-pop-2p",
+      "arm": "conservative_population",
+      "players": 2,
+      "job": "runtime-controls/pg-current-auction-runtime-v1-pop-2p.job.json",
+      "shard": {
+        "name": "pg-current-auction-runtime-v1-pop-2p",
+        "group": "search_geo/2p",
+        "players": 2,
+        "start": 0,
+        "deals": 1,
+        "seed": "current-auction-runtime-v1-2p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 8
+      },
+      "identity": {
+        "policySha256": "b9879af9668b3e1b79cac6139b59571a83d838f8e0988627506f9b2eb902a980",
+        "runtimeManifestSha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+        "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+        "featureRevision": "4.3-strategic-correction",
+        "backend": "opponent-auction-v1",
+        "settings": {
+          "arm": "auction",
+          "max_steps": 2400,
+          "minimum_advantage": "1/8",
+          "population_modes": [
+            "neural_population"
+          ],
+          "samples": 8,
+          "threads": 1,
+          "workers": 4
+        },
+        "opponentPolicySha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c"
+      },
+      "candidate_sha256": "3d88d3a198fcc7f942f0a5c0654d836401680c39aef8517d2bf84123b3d76bde",
+      "contract_sha256": "aa0d95f5c5585e4165ef43214e6b71aa5b77bc86b03ff087802a89a844ccb686",
+      "job_spec_sha256": "7680fb562f9bcd3a35e925c4cd2543cfdc4ce603cd45d1246ab5839efced7631",
+      "flavor": "cpu-upgrade",
+      "timeout": "2h"
+    },
+    {
+      "name": "pg-current-auction-runtime-v1-pop-6p",
+      "arm": "conservative_population",
+      "players": 6,
+      "job": "runtime-controls/pg-current-auction-runtime-v1-pop-6p.job.json",
+      "shard": {
+        "name": "pg-current-auction-runtime-v1-pop-6p",
+        "group": "search_geo/6p",
+        "players": 6,
+        "start": 0,
+        "deals": 1,
+        "seed": "current-auction-runtime-v1-6p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 24
+      },
+      "identity": {
+        "policySha256": "b9879af9668b3e1b79cac6139b59571a83d838f8e0988627506f9b2eb902a980",
+        "runtimeManifestSha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+        "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+        "featureRevision": "4.3-strategic-correction",
+        "backend": "opponent-auction-v1",
+        "settings": {
+          "arm": "auction",
+          "max_steps": 2400,
+          "minimum_advantage": "1/8",
+          "population_modes": [
+            "neural_population"
+          ],
+          "samples": 8,
+          "threads": 1,
+          "workers": 4
+        },
+        "opponentPolicySha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c"
+      },
+      "candidate_sha256": "3d88d3a198fcc7f942f0a5c0654d836401680c39aef8517d2bf84123b3d76bde",
+      "contract_sha256": "78366f56c125c3c3d6857c0f9d7c542eca941868ad78e60dc1fa801bbe1e89b4",
+      "job_spec_sha256": "03b867412fb71d88c62bd7457a92dd66efd5d42b02ce0ab7212c4564fbe94af8",
+      "flavor": "cpu-upgrade",
+      "timeout": "5h"
+    }
+  ],
+  "games": 64,
+  "workers": 4,
+  "calibration": [
+    {
+      "job_id": "6ae0fa243fb22a235dd31616",
+      "players": 2,
+      "games": 8,
+      "seconds": 1191.168778863037,
+      "cpu_seconds": 2776.5800000000004,
+      "sampled_peak_total_rss_bytes": 6540431360,
+      "memory_samples": 5615,
+      "memory_sampling_period_seconds": 0.2,
+      "includes_startup_and_validation": true
+    },
+    {
+      "job_id": "6ae0fa2541e90535df7674df",
+      "players": 6,
+      "games": 24,
+      "seconds": 5704.234898448922,
+      "cpu_seconds": 21761.379999999997,
+      "sampled_peak_total_rss_bytes": 6899556352,
+      "memory_samples": 27428,
+      "memory_sampling_period_seconds": 0.2,
+      "includes_startup_and_validation": true
+    }
+  ],
+  "calibration_sha256": "b735ca337138bf801e8d326ea779190a2711b94eecaab4281c7c3847f83e3330",
+  "allocation": "Four concurrent games, four search workers, one inference thread. Timeout uses 900 seconds setup plus twice historical same-count population pilot wall time within 75% of limit; filter conservatively uses the same bound.",
+  "new_hf_jobs": 0,
+  "new_full_games": 0,
+  "new_gradients": 0,
+  "grid_admitted": false,
+  "reserved_final_seeds_used": false,
+  "archive": "strong-source-current-auction-runtime-v1.tgz",
+  "sha256": "d0d7265536ad848c93883074a2513bae336421c0211895335a56da583ebb0a61",
+  "bytes": 130224242,
+  "entry_sha256": "e216f1558602ff8665da0e712d15f419afaec297a2d5194e4d61c0e74be16f1b",
+  "measured_entry_sha256": "234ab3c5f4713dfb013ec9d02357655242519d1feb0c89f89c145ebbae2804ef",
+  "runner_sha256": "aecb5804d52adf78e268bdd093b7b7339ca7a2469bcab555470532e09050ccdd",
+  "code_hashes": {
+    "ai/strong/manage-current-auction-runtime-v1.py": "ad28c7e60ef0159c7a52baa1192049ac67fe5d4a03355b503079d92d19741e7b",
+    "ai/strong/manage-conservative-auction-runtime-v2.py": "ce34f174fb6e1c58cddb308c0df3c70e705c4ef23317ea2513e97d9ed20def51",
+    "ai/strong/conservative_auction_bootstrap_recovery_v1.py": "27d0c81aadeaf5624540f92ed0f6aa7d549a09d3ea5fb48dfe0d9fb67449ad09",
+    "ai/strong/node-runtime-cache-v1.json": "203e55de270732e1e15d838a8719eca9c3c0e4527cc49be54ea4f899735b9ae8",
+    "ai/strong/test_current_auction_runtime_v1.py": "8042e09ad0a9526b824a58a3ddc3dd6a942115ac2a4bdb865887ae16265525e5"
+  },
+  "bootstrap_sha256": "f6c88c20f26cad1dd192b34735466426bea1ed0bfd7f63727c01bbd59c915284",
+  "prepared_source_sha256": "6664d5b0d9cf7061b2d45eb6c23b7e003653eb68efda3f8bfb2545fb30e4b67b",
+  "tests_sha256": "3e7b5c21fcfcea026a5f14aa026c1f0c9cd23f029cb6dbb1b8fb5c25854be924",
+  "repo": "coyotte508/powergrid-ai-training-v1",
+  "revision": "fbee9770f28fd5bf6b2042382876e58ebbaf775d",
+  "preparation_sha256": "64e18385dff8ea0ffd8f514993e7e895f3a1188d3986878029ff0f577699fc27",
+  "remote_archive_verified": true
+}

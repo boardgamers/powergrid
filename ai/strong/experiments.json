@@ -65298,5 +65298,101 @@
         "research_goal": "active",
         "previous_goal_turn": "verified_wait",
         "this_goal_turn": "progress"
+    },
+    "current_engine_auction_compatibility_v2": {
+        "status": "fixed_position_and_actual_wrapper_search_verified",
+        "report": "ai/CURRENT-ENGINE-AUCTION-2026-10-28.md",
+        "evidence": "ai/strong/current-engine-auction-evidence-v2.json",
+        "evidence_sha256": "6f266bdf66deb06d99861d145b6d34edc91e421deb8642b247a915432ee468e7",
+        "engine_commit": "3adad0cc0d1d31352aa7a9059bd15efa79647269",
+        "runtime_manifest_sha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+        "public_preparations_exact_to_first_current_copy": 2693,
+        "canonical_full_search_decisions_exact": 140,
+        "actual_wrapper_cases": 20,
+        "previously_failing_wrapper_cases_fixed": 16,
+        "preserved_diagnostic_harness_failures": 2,
+        "actual_policy_requests": 3013,
+        "uncapped_continuations": 5120,
+        "continuation_neural_decisions": 902760,
+        "weights_features_search_settings_unchanged": true,
+        "historical_engine_to_current_search_choice_changes_on_archived_cpu_cases": 1,
+        "new_hf_jobs_for_fixture_checks": 0,
+        "new_full_strength_games": 0,
+        "new_gradients": 0,
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "ca003e34a2b80b86f95aa8b7affc031b8bde2683",
+            "archive_path": "archives/current-engine-auction-evidence-v2.tgz",
+            "archive_sha256": "12309cf9c1ac339601ccf8e5e6c78916e57fabce04626efb49a3ca19f4c67e0d",
+            "manifest_sha256": "8eff4dff7eafd1c631d23d7de3bee9aaaac1f953a34797b746db399c5e2edafc",
+            "archived_files": 80,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
+    },
+    "current_auction_confirmation_v1": {
+        "status": "four_runtime_pilots_running_confirmation_grid_not_admitted",
+        "protocol": "ai/strong/current-auction-confirmation-protocol-v1.json",
+        "protocol_sha256": "d0504c3f92d94fe96a1b336f26fe0e6c991502a3e03ff17fb1b2d00f53067d93",
+        "independent_deals_per_count": 32,
+        "planned_games_per_arm": 13440,
+        "planned_games_total": 26880,
+        "arms": [
+            "filter",
+            "conservative_population"
+        ],
+        "runtime_games": 64,
+        "original_runtime_jobs": [
+            {
+                "name": "pg-current-auction-runtime-v1-filter-2p",
+                "job_id": "6ae2733541e90535df77d71e",
+                "stage_at_snapshot": "RUNNING",
+                "timeout": "2h"
+            },
+            {
+                "name": "pg-current-auction-runtime-v1-filter-6p",
+                "job_id": "6ae273363fb22a235dd4a65d",
+                "stage_at_snapshot": "RUNNING",
+                "timeout": "5h"
+            },
+            {
+                "name": "pg-current-auction-runtime-v1-pop-2p",
+                "job_id": "6ae2733641e90535df77d722",
+                "stage_at_snapshot": "RUNNING",
+                "timeout": "2h"
+            },
+            {
+                "name": "pg-current-auction-runtime-v1-pop-6p",
+                "job_id": "6ae273363fb22a235dd4a660",
+                "stage_at_snapshot": "RUNNING",
+                "timeout": "5h"
+            }
+        ],
+        "checked_at": "2026-10-28T22:13:47.428114+00:00",
+        "source": "ai/strong/current-auction-runtime-source-v1.json",
+        "source_sha256": "d76b90f0ab5156c08c6c312abb7d7f640da79dfdd254f15c698ef049d47857c7",
+        "launch_evidence": "ai/strong/current-auction-runtime-launch-evidence-v1.json",
+        "launch_evidence_sha256": "b640dfb03968c90cbcf68abee336f9580d1cbe22bf6197ec5361e2af9dd4c9b6",
+        "launch_archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "176f2f01da956b583cc5fc97a15bed7d753e8fbb",
+            "archive_path": "archives/current-auction-runtime-launch-evidence-v1.tgz",
+            "archive_sha256": "45c9699cb31f7e770036d7045d29aa6db0ea7ef2824d9891c980c482438542f5",
+            "manifest_sha256": "c5f1d7ac9cbaa7b81b259019a391d4f389e883b2f3f7c22c50a927b7a5a08898",
+            "archived_files": 35,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "background_owner": null,
+        "next": "Bounded collection of the four original pilots, then complete cost/audit review before sizing and launching the fresh grid; no automatic retries.",
+        "previous_goal_turn_classification": "no_progress",
+        "previous_goal_turn_note": "Answered the user architecture question using read-only evidence; no research state changed.",
+        "current_goal_turn_classification": "progress",
+        "goal_status": "active",
+        "candidate_qualified": false,
+        "new_gradient_updates": 0,
+        "reserved_final_seeds_used": false
     }
 }

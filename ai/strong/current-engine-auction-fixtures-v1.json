@@ -1,0 +1,143 @@
+{
+  "passed": true,
+  "scope": "Fixed-position engineering compatibility; not full-game or wrapper admission.",
+  "positions": 2693,
+  "menu_changes": [
+    "counterfactual-1",
+    "counterfactual-4",
+    "counterfactual-7",
+    "counterfactual-10",
+    "counterfactual-13",
+    "counterfactual-16",
+    "counterfactual-19",
+    "counterfactual-22",
+    "counterfactual-25",
+    "counterfactual-28",
+    "natural-v1-0",
+    "natural-v1-1",
+    "natural-v1-2",
+    "natural-v1-3",
+    "natural-v2-0",
+    "natural-v2-1",
+    "natural-v2-2",
+    "natural-v2-3",
+    "natural-v2-4",
+    "natural-v2-5"
+  ],
+  "exact_prepared_positions": 2673,
+  "information_boundary_checks": 140,
+  "counts": {
+    "filter": {
+      "decisions": 2693,
+      "root_filter_overrides": 2,
+      "rollouts": 0,
+      "rollout_caps": 0,
+      "neural_decisions": 0,
+      "search_changes": 0,
+      "search_decisions": 0,
+      "requests": 2693,
+      "exact_archived_filter_controls": 100
+    },
+    "conservative_population": {
+      "decisions": 140,
+      "root_filter_overrides": 0,
+      "rollouts": 2160,
+      "rollout_caps": 0,
+      "neural_decisions": 390557,
+      "search_changes": 23,
+      "search_decisions": 70,
+      "surrogate_decisions": 0,
+      "requests": 140
+    }
+  },
+  "identities": {
+    "filter": {
+      "policySha256": "f27839ac4023003a3dc8a6f9d97a3601091c5aace947286b1ca5ba17d0cf8c96",
+      "runtimeManifestSha256": "8ad645eb91e9f56278e5c820b92fae47aca45ebcb610fa75eb6713e93884fc3f",
+      "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+      "featureRevision": "4.3-strategic-correction",
+      "backend": "population-v1",
+      "settings": {
+        "arm": "filter",
+        "max_steps": 2400,
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      }
+    },
+    "conservative_population": {
+      "policySha256": "a5cb20c657bc405ef0e8728d1d73577c796b2689bf9d2b2260cdaf6d19ce3874",
+      "runtimeManifestSha256": "8ad645eb91e9f56278e5c820b92fae47aca45ebcb610fa75eb6713e93884fc3f",
+      "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+      "featureRevision": "4.3-strategic-correction",
+      "backend": "opponent-auction-v1",
+      "settings": {
+        "arm": "auction",
+        "max_steps": 2400,
+        "minimum_advantage": "1/8",
+        "population_modes": [
+          "neural_population"
+        ],
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      },
+      "opponentPolicySha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c"
+    }
+  },
+  "input_hashes": {
+    "ai/strong/fixtures/multiplayer-serving-v1.jsonl": "f1c97bf909e38e5df372a89d169d80f5a6f24c00dccefacd60b10b767f1fcfa0",
+    "ai/runs/conservative-auction-8840u-prepared-v2/package/cases.json": "407da2d87c758d7d55ef57900ee74a18ed956a49d2fe0d1fd400fb2b39afacba",
+    "ai/runs/conservative-auction-8840u-collected-v2/output/receipts.jsonl": "596fa014e7f2722c5f81bc3c55dcc87c04dd84a99a25cfcbdcfee3c2dea17d81",
+    "ai/runs/conservative-auction-8840u-collected-v2/assessment.json": "70be8358db79be9a42c0c5dc9915c8100bfdff2fd1666c3e30bf0f81cbdec51a",
+    "ai/strong/conservative-auction-cpu-results-evidence-v2.json": "af79424c8a7a7e1f09221096e818fec6ace4471b65632c1e59d277a0db10e25b",
+    "ai/runs/conservative-auction-8840u-collected-v2/output/status.json": "149c8b6cbd1c962b28d4d9cc2c51a3a5164b7b95d1181d7f7e6c6904ad082137",
+    "ai/runs/conservative-auction-8840u-prepared-v2/package/benchmark-manifest.json": "c6e1698208bdda2ab19d8d4e1f1e23e145bd16f882fcc535428729f056856bb3",
+    "ai/runs/current-engine-policy-v1/inputs.json": "48dfabd299ff01bc87c1683ae9ce915939f2407c6c5142b9c563ad8da82c8acb",
+    "ai/runs/auction-training-history-v1/newly-affordable-roots.jsonl": "3821829caac7dcb71a1b7ec07342193edda179c9c4b82cc9a177a1d7a30476bc",
+    "ai/runs/auction-training-history-v2/newly-affordable-roots.jsonl": "aa75b72cf8dccdd33df73f81b9fc322505cd088c6dca8a5d4cef86c8344f72ba",
+    "ai/strong/check-current-engine-auction-v1.py": "021f15713e90e1ac3064238e98c0ec2a32a2eff4b7f4bc25b4ce662203681e52",
+    "ai/strong/current-engine-auction-inputs-v1.cjs": "54231b9f92799d95c51638c767724814b7bedd6d13a9b59a60fd04511a5033e5",
+    "ai/runs/current-engine-auction-v1/prepared.json": "e11da9fef1f1a7e4ebfb3fbc9c45163effe5ad361925b7dd0916a29ea691967b",
+    "ai/runs/current-engine-auction-v1/artifact/manifest.json": "8ad645eb91e9f56278e5c820b92fae47aca45ebcb610fa75eb6713e93884fc3f"
+  },
+  "new_hf_jobs": 0,
+  "new_full_games": 0,
+  "new_gradients": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "search_changes": [
+    "cpu-2p-original-sealed-bid",
+    "cpu-2p-original-sealed-choose",
+    "cpu-2p-recharged-sealed-choose",
+    "cpu-3p-original-open-bid",
+    "cpu-3p-original-open-choose",
+    "cpu-3p-original-sealed-bid",
+    "cpu-3p-recharged-open-bid",
+    "cpu-3p-recharged-sealed-choose",
+    "cpu-4p-original-sealed-bid",
+    "cpu-4p-recharged-open-bid",
+    "cpu-4p-recharged-sealed-choose",
+    "cpu-5p-original-open-bid",
+    "cpu-5p-original-open-choose",
+    "cpu-5p-original-sealed-bid",
+    "cpu-5p-original-sealed-choose",
+    "cpu-6p-original-open-bid",
+    "cpu-6p-recharged-sealed-choose",
+    "counterfactual-3",
+    "counterfactual-4",
+    "counterfactual-7",
+    "counterfactual-13",
+    "counterfactual-18",
+    "counterfactual-21"
+  ],
+  "current_vs_historical_search_choice_changes": [
+    "4p-recharged-sealed-choose"
+  ],
+  "completed_at": "2026-10-28T21:50:26.714882+00:00",
+  "seconds": 540.8706815019978,
+  "prepared_sha256": "e11da9fef1f1a7e4ebfb3fbc9c45163effe5ad361925b7dd0916a29ea691967b",
+  "intent_sha256": "7122e7ebf668362e2cf32cc03800ff8a0a8b763300e94126481c06406711420e",
+  "inputs_sha256": "09ca09bc835efee39fbac2f036aa6b29a9d86adb09c4c1b655c015f6bcfec17f",
+  "receipts_sha256": "3d22cf670e07d7f2c07456fd0cc24d8e165f59a847475f8a6d18fe6937b01a05"
+}

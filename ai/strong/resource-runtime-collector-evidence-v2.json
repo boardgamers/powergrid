@@ -1,0 +1,34 @@
+{
+  "status": "corrected_runtime_collector_verified_not_admitted_or_launched",
+  "collector_sha256": "4c251c07b24f9c49c665c2cd5c726bd84cff21ffd0f23f5a9d79f73ac9a2b936",
+  "test_assessment_sha256": "80ae317e9c31ed4295ab079c86ada2ba6b8ec2c32f88f0d887729ad882d915b5",
+  "tests": 21,
+  "source_manifest_sha256": "7678b22c535648280394cb7374c926bfcb2ea88da5c2d8b35100cda64a3c299a",
+  "prepared_package_archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "0c5597ce154a87da3a46a4e01ef209c7be43e237",
+    "archive_path": "archives/resource-runtime-preflight-evidence-v2.tgz",
+    "archive_sha256": "ae60f8e37c35f07d884bde1d5670489a4e458eeb01f27c5d12a6941dd31b2d55",
+    "manifest_sha256": "b2287c18da108682ff01758b3e1985e6ad15f5534bb6c90b5566c2f556872977",
+    "archived_files": 1603,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "actual_admission_created": false,
+  "execution_source_uploaded": false,
+  "new_hf_jobs": 0,
+  "new_full_game_trajectories": 0,
+  "new_gradients": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "17ed7eda6358fc120a4e02618fdfe4a04c49834d",
+    "archive_path": "archives/resource-runtime-collector-evidence-v2.tgz",
+    "archive_sha256": "a9e0e1d7d9b946f18928abbf706514fa5482b0a9a0ef569150822cb5c98c975f",
+    "manifest_sha256": "553aafee404cea0472249a46e27088d8fc89cac2a767de521ce363a4c0bcce96",
+    "archived_files": 44,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  }
+}

@@ -1,5 +1,23 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October update — corrected-runtime collector ready, no pilot launched.**
+
+The v4 collector now verifies exact launch/source/admission bindings and immutable
+raw archives, runs the pinned v4 auditor with full pairing, reuses saved audits,
+and preserves failures without counting partial games as successes. Its 21
+offline tests pass, including early failures before the first CPU/RSS sample.
+The initial passing 20-test version is retained. The real command also rejects
+missing original terminal evidence before any collection directory or API call.
+Read [the collection handoff](RESOURCE-RUNTIME-COLLECTION-2026-10-28.md).
+
+No admission, execution-source upload, corrected-pilot job, inference, full game,
+gradient update or final-seed use was added. At the 17:38 UTC HF check, three
+original resource pilots / 40 games were verified, one failure was preserved,
+and two six-player originals remained running. At 17:43 UTC the auction owner
+was confirmed alive (579 audited / 644 submitted of 648). Wait for complete
+original runtime costs before budget admission, and finish the full auction
+comparison before another strength study. No candidate qualified or deployed.
+
 **28 October update — corrected-runtime launch controls verified, no new admission.**
 
 The separately prepared v4 runtime package now has a one-attempt launcher, with

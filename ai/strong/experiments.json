@@ -63980,5 +63980,40 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "remaining": "Collect the six original terminal outcomes and review measured budget before a real admission; adapt failure-preserving v4 collection before collecting corrected pilots. Finish the unchanged auction comparison before another strength study."
+    },
+    "resource_runtime_corrected_collector_v2": {
+        "date": "2026-10-28",
+        "status": "corrected_runtime_collector_verified_not_admitted_or_launched",
+        "document": "ai/RESOURCE-RUNTIME-COLLECTION-2026-10-28.md",
+        "collector": "ai/strong/collect-resource-turn-runtime-v2.py",
+        "collector_sha256": "4c251c07b24f9c49c665c2cd5c726bd84cff21ffd0f23f5a9d79f73ac9a2b936",
+        "tests": 21,
+        "initial_passing_tests_preserved": 20,
+        "test_assessment_sha256": "80ae317e9c31ed4295ab079c86ada2ba6b8ec2c32f88f0d887729ad882d915b5",
+        "evidence_descriptor": "ai/strong/resource-runtime-collector-evidence-v2.json",
+        "evidence_descriptor_sha256": "67fa01541856e34c60bea90109e74fa37472bfefab41539e0397a326ac4ff1dd",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "17ed7eda6358fc120a4e02618fdfe4a04c49834d",
+            "archive_path": "archives/resource-runtime-collector-evidence-v2.tgz",
+            "archive_sha256": "a9e0e1d7d9b946f18928abbf706514fa5482b0a9a0ef569150822cb5c98c975f",
+            "manifest_sha256": "553aafee404cea0472249a46e27088d8fc89cac2a767de521ce363a4c0bcce96",
+            "archived_files": 44,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "source_manifest_sha256": "7678b22c535648280394cb7374c926bfcb2ea88da5c2d8b35100cda64a3c299a",
+        "scope": "runtime-only",
+        "proposed_jobs": 2,
+        "proposed_runtime_games": 32,
+        "actual_admission_created": false,
+        "execution_source_uploaded": false,
+        "new_hf_jobs": 0,
+        "new_inference": 0,
+        "new_full_game_trajectories": 0,
+        "new_gradients": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "remaining": "Preserve terminal original runtime outcomes and review their measured costs before admission. Complete the unchanged auction comparison before selecting another strength study."
     }
 }

@@ -55,10 +55,11 @@ outcome report and real admission do not exist.
    the launch operation with `--execute` only after reviewing the concrete
    admission. Default launch is dry. Do not rerun preparation, overwrite intents
    or infer authorization from a test fixture.
-5. Before collecting newly launched v4 pilots, adapt the failure-preserving
-   collector to those exact handles and the v4 auditor, including admission
-   provenance. The original v1 collector is only for the six original jobs;
-   it must not be pointed at the corrected pilots. This adaptation is still due.
+5. The subsequent [v4 collection implementation](RESOURCE-RUNTIME-COLLECTION-2026-10-28.md)
+   is now ready at `strong/collect-resource-turn-runtime-v2.py`, with 21 offline
+   tests. Use it only after the two corrected pilots actually exist. The original
+   v1 collector is only for the six original jobs and must not be pointed at the
+   corrected pilots.
 
 The two proposed jobs validate corrected runtime behavior; they cannot select
 the strongest policy. Fresh full-game v4 runtime and strength validation remain

@@ -63615,5 +63615,108 @@
         "current_auction_source_changed": false,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false
+    },
+    "resource_turn_boundary_correction_v2": {
+        "recorded_at": "2026-10-28T16:34:46.282416+00:00",
+        "status": "failed_original_runtime_diagnosed_separate_mechanism_corrected_not_integrated",
+        "goal_turn_classification": "progress",
+        "previous_goal_turn_classification": "verified_wait",
+        "original_job": {
+            "job_id": "6ae20c133fb22a235dd4146f",
+            "status": "ERROR",
+            "complete_games": 7,
+            "expected_games": 8,
+            "failed_episode": 7,
+            "recorded_prefix_actions_replayed_exactly": 137,
+            "failed_revision": 315,
+            "round": 12,
+            "step": 3,
+            "root_cause": "Undo-commit newTurn=false after own terminal auction discard was mistaken for a noninitial resource purchase.",
+            "raw_archive": {
+                "repo": "coyotte508/powergrid-ai-germany-v1",
+                "revision": "cc490998a1d3cf4a1d65994dd7669df2dc375c6b",
+                "archive_path": "archives/pg-resource-turn-runtime-v1-anchored-2p.tgz",
+                "archive_sha256": "0dafef7c84d923ceabcb38f52c1874f7265289dc329b11fe60b2adb42a9e0415",
+                "manifest_sha256": "466fad853bd4a04ccf0f5756af430321a4568cc9b049830277b1e5fcefabf7b1",
+                "archived_files": 38,
+                "format": "tar.gz",
+                "remote_archive_verified": true
+            }
+        },
+        "assessment_sha256": "5f47c21bb6284f138269dc3856ff7e6c967142fcdd78ee6af9138c99f988d9d4",
+        "reproduction_sha256": "6bc570ee6db898dc5f4b1bedd5f7ff777f8f0498a8dd338dc101a6b9030e2988",
+        "counts": {
+            "turns": 625,
+            "positions": 3082,
+            "historical_anchor_input_parity": 3078,
+            "duplicate_checks": 3082,
+            "corrupted_commit_flags_rejected": 3082,
+            "old_boundary_rejections": 4,
+            "original_search_seed_receipts_exact": 488,
+            "local_purchase_edges": 24,
+            "chronological_log_omissions_rejected": 2,
+            "late_audit_starts_rejected": 1
+        },
+        "coverage": {
+            "players": {
+                "2": 392,
+                "3": 51,
+                "4": 51,
+                "5": 49,
+                "6": 82
+            },
+            "rules": {
+                "original/sealed": 201,
+                "recharged/sealed": 138,
+                "original/open": 149,
+                "recharged/open": 137
+            },
+            "steps": {
+                "1": 384,
+                "2": 56,
+                "3": 185
+            },
+            "families": {
+                "historical-model": 334,
+                "whole-2p": 95,
+                "corrected-2p": 97,
+                "anchored-2p": 98,
+                "reproduced-failure": 1
+            },
+            "entry_committed": {
+                "True": 621,
+                "False": 4
+            }
+        },
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "491c718ed00359631c56bdb06fba21da5521830e",
+            "archive_path": "archives/resource-turn-boundary-evidence-v2.tgz",
+            "archive_sha256": "bf7fb0c65aac1138eafd27b59edfb0d64f55bb80ac7a0d67e473434b0c3d8235",
+            "manifest_sha256": "4b9fbb173343008c42a7c729365c53b37db2128d282192ac6de1b7ce1e1074c5",
+            "archived_files": 51,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "new_sources": {
+            "ai/strong/check-resource-turn-boundary-v2.py": "e1673984f118c9e9217fe7f07e38aa5f88fe3921c9c8a8dc42042e0ede1f8714",
+            "ai/strong/check-resource-turn-boundary-v2.cjs": "40c364f8e3c0a0dd366a8e3f8c285e7500080fd1f10f248191a829a5edbf96d8",
+            "ai/strong/resource-turn-anchor-v2.cjs": "dd47be03f83ab87dcbb163cb9dba3e523fadcbc5759ebd1da3ade12240f6871a",
+            "ai/strong/resource_turn_anchor_verification_v2.py": "55c823b22ee8de8d6e44e30e588f06e34efa2bdfdcdfc184f3fa5c6137f5be3a"
+        },
+        "original_frozen_policies_unchanged": true,
+        "new_full_game_artifact_integrated": false,
+        "preserved_harness_failure": "ai/runs/resource-turn-boundary-v2/failure.json",
+        "new_hf_jobs": 0,
+        "new_learner_inference": 0,
+        "new_full_game_trajectories": 0,
+        "new_gradients": 0,
+        "opponent_prefix_reexecuted": true,
+        "opponent_search_work_separately_measured": false,
+        "new_strength_games": 0,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "auction_study": "Sole original owner live; all code pins matched; finish complete comparison before next strength study.",
+        "next": "Collect remaining original runtime evidence without suppressing failed job; integrate corrected helper/auditor into a new pinned policy before separately admitted resource runtime work."
     }
 }

@@ -1,5 +1,34 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October update — anchored resource pilot failed; boundary defect reproduced and separate fix checked.**
+
+Original job `6ae20c133fb22a235dd4146f` is ERROR (seven complete games,
+episode 7 failed after 137 recorded learner actions). Exact prefix replay
+confirmed that discarding at the end of Auction can enter Resources with
+`newTurn=false`: the flag describes undo commitment, not the start of buying.
+The frozen v1 anchor/auditor conflated these boundaries. No replacement was
+submitted and all failed evidence remains intact.
+
+Separate v2 helper/auditor checks passed **625 turns / 3,082 positions**, across
+2–6 players, all rules and Steps 1–3; **488 original search-seed receipts** match.
+Four real false-commit entries are covered, including the failed request. The
+first checking harness's expected-error transport failure is preserved. Read
+[the diagnosis and recovery handoff](RESOURCE-TURN-BOUNDARY-2026-10-28.md).
+This is mechanism validation only: a corrected full-game policy/artifact has
+not yet been integrated. No new HF jobs, learner inference, complete games,
+gradients or final seeds. The prefix reconstruction reran the original search
+opponent; do not describe that diagnostic as zero computational search work.
+
+The original 96-game runtime gate is **incomplete/failed**, not six verified
+pilots. Two two-player pilots passed; three six-player originals were directly
+confirmed RUNNING during diagnosis. The old collector stops at the preserved
+failure; a reviewed collection-only path is needed to collect later originals.
+Do not resubmit. The sole auction owner PID 1075760 remained live with unchanged
+pins at 16:30 UTC (553 audited / 617 submitted / 648 selected batches). Finish
+its complete comparison before selecting the next strength study. No candidate
+qualified or deployed. The earlier notice saying four resource pilots remain
+running is superseded by this confirmed failure.
+
 **28 October update — resource runtime bottleneck measured without changing policy.**
 
 In the complete audited whole-turn two-player pilot, Resources used 99.50% of

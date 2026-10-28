@@ -64439,5 +64439,63 @@
         "qualification_eligible": false,
         "reserved_final_seeds_used": false,
         "remaining": "Finish unchanged auction comparison and collect the two corrected runtime pilots. Fixed-action parity does not validate discounted nomination, new policy trajectories, edited choices, alternate decks, platform auto-pass or search migration; validate intended engine and serving before final qualification/deployment."
+    },
+    "auction_discount_input_identifiability_v1": {
+        "recorded_at": "2026-10-28T19:06:36.884121+00:00",
+        "goal_turn_classification": "progress",
+        "previous_goal_turn_classification": "verified_wait",
+        "status": "discount_flag_aliased_in_all_ten_fixed_encoder_pairs",
+        "document": "ai/AUCTION-DISCOUNT-ENCODING-2026-10-28.md",
+        "feature_revision": "4.3-strategic-correction",
+        "current_engine_commit": "3adad0cc0d1d31352aa7a9059bd15efa79647269",
+        "fixed_fixture_pairs": 10,
+        "encoder_calls": 20,
+        "aliased_complete_encodings": 10,
+        "opening_bid_changed": 10,
+        "discounted_opening_bid": 1,
+        "ordinary_opening_bids": [
+            3,
+            4,
+            7,
+            9,
+            11
+        ],
+        "coverage": {
+            "players": [
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "variant": "recharged",
+            "auctions": [
+                "open",
+                "sealed"
+            ]
+        },
+        "report_sha256": "e53a1188ed97182c6dccfb0e6ef4ff7eb3ced023271a0b7c0979140cf7800af5",
+        "design_sha256": "a9815ee826bf9e4385b63fd904f18951c4675def2b504958c9f72fcfd04db762",
+        "pairs_sha256": "53a620653b99360239b10fe4765c5f90700247a194a5316c186bf3f9819284a5",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "8b022e4e040722eeea5d1868b69f829987ef3156",
+            "archive_path": "archives/auction-discount-encoding-evidence-v1.tgz",
+            "archive_sha256": "f4b4c778674ed1ba44ea241a10c6a8aaeb68df99159f04ebbfeee07317f90d41",
+            "manifest_sha256": "ca091058df0210d1d53ab60b9ef8ebe7db9840038df46ba4b289f200de840eca",
+            "archived_files": 16,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "scope": "counterfactual-feature-identifiability",
+        "new_inference": 0,
+        "new_search_rollouts": 0,
+        "new_hf_jobs": 0,
+        "new_full_game_trajectories": 0,
+        "new_gradients": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "interpretation": "The frozen neural representation cannot directly condition on the toggled discount when the whole encoding is identical. Paired histories are synthetic; natural reachability, actual action regret and causation of weak Recharged results are unproved. Hybrid search can still observe full state.",
+        "next": "Finish unchanged auction comparison first. Consider a separately pinned intended-engine, append-only discount/opening-price feature extension with warm-start output parity and controlled training/evaluation. Preserve printed plant identity and original features; do not relabel nomination as an immediate purchase."
     }
 }

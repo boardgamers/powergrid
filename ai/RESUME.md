@@ -1,5 +1,22 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October update — confirmed missing auction-discount information.**
+
+Ten predetermined paired Recharged nomination fixtures (2–6 players, open/sealed)
+produce identical complete schema-4.3 encodings while the opening bid changes
+from 1 to the printed plant number (3–11). All menus match; only the public
+`plantDiscountActive` flag is toggled. Read
+[the diagnostic](AUCTION-DISCOUNT-ENCODING-2026-10-28.md).
+
+This identifies a representation gap, not a win-rate explanation: the counterfactual
+histories are not claimed naturally reachable and no alternative action is proved
+better. The nomination's zero immediate action-cost feature is not itself a wrong
+debit; opening price should be explicit alongside the plant's printed number.
+After the complete auction comparison, consider a separately pinned intended-engine
+and append-only discount-feature experiment with controlled training/evaluation.
+No running policy, weights, source or feature meaning changed. Twenty encoder
+calls, zero model inference, games, HF jobs or gradients; final seeds unused.
+
 **28 October update — current-engine economic transitions verified on 33 recorded games.**
 
 The frozen and pinned current engines match after **16,330 actions**, with

@@ -1,5 +1,24 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October update — neural snapshot evaluation route verified on recorded games.**
+
+A separate adapter now runs the unchanged v3 resource policy against the frozen
+three-player A260 neural opponent using its historical 3.0 encoder. Atomic and
+whole-turn model controls each reproduce 12 original games exactly, every seat
+and rule. Independent engine replay rechecks 6,426 opponent predictions across
+the two routes; six corrupted-input checks pass. The initial adapter's missing
+legacy `playerOrder` assumption failed before any complete replay and is
+preserved with its original sources. The corrected run is separately recorded.
+Read [the snapshot-route handoff](RESOURCE-TURN-SNAPSHOT-2026-10-28.md).
+This is replay validation, not new strength data or an admitted strategy study.
+
+The whole-turn two-player HF runtime pilot has also passed independent audit:
+eight games / 11,352 uncapped continuations, 858.53 s measured wall time and
+3,079.67 CPU-s. Other original pilots remain subject to collection; do not
+resubmit them. The auction owner remains unchanged (524 audited / 588 submitted
+of 648 selected jobs at 15:25 UTC). Finish the complete auction comparison before
+choosing the next strategy study. No final seeds, qualification or deployment.
+
 **28 October update — six resource runtime pilots launched; strength study unchanged.**
 
 The pinned v3 artifact is now running on six original HF jobs, **96 runtime-only

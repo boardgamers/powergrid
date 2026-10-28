@@ -2,6 +2,21 @@
 
 ## Current state
 
+**Collection update, 15:26 UTC:** the original whole-turn two-player job has
+completed and passed independent audit (eight games / 11,352 uncapped
+continuations / zero caps). Its measured workflow cost was 858.53 s wall,
+3,079.67 CPU-s and 4.556 GB sampled peak process-tree RSS, excluding HF
+bootstrap/download/upload. The five other originals were directly inspected
+as RUNNING. The six-job gate remains incomplete; no strength inference is made.
+The raw successful job archive is at private model revision
+`767558c54d51cc6252c71d50422075cb71d4ebcb`,
+`archives/pg-resource-turn-runtime-v1-whole-2p.tgz`, SHA-256
+`056465aafca7647857e32bcca825e86f14b8485840e1a1d49cfb3ba4198203a3`.
+Its independent collection receipt is preserved with the
+[neural-opponent adapter evidence](RESOURCE-TURN-SNAPSHOT-2026-10-28.md).
+
+The original launch snapshot follows:
+
 Six original HF jobs were submitted at approximately **14:52 UTC**, covering
 **96 runtime-only games**. Direct inspection at **14:59 UTC** found all six
 RUNNING. No pilot has yet been collected or independently audited. These are

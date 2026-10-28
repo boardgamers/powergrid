@@ -63319,5 +63319,139 @@
         "current_auction_source_changed": false,
         "qualification_eligible": false,
         "reserved_final_seeds_used": false
+    },
+    "resource_turn_neural_snapshot_route_v1": {
+        "date": "2026-10-28",
+        "status": "recorded_neural_snapshot_route_verified_not_strength_tested",
+        "document": "ai/RESOURCE-TURN-SNAPSHOT-2026-10-28.md",
+        "result": "ai/strong/resource-turn-snapshot-adapter-results-v1.json",
+        "evidence": "ai/strong/resource-turn-snapshot-adapter-evidence-v1.json",
+        "assessment_sha256": "e7d054045984d1e24ecc7d9ff1fb075d990a08197bc9d57050a9b962b7377ed8",
+        "plan_sha256": "d156e5d9ae42227cd383a002695e8a710bf0e595ffa1b4828eb6fae9110b0a02",
+        "opponent": "frozen_a260",
+        "players": 3,
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "opponent_feature_revision": "3.0",
+        "learner_feature_revision": "4.3-strategic-correction",
+        "recorded_game_replays": 24,
+        "distinct_original_games": 12,
+        "modes": {
+            "filter": {
+                "replayed_games": 12,
+                "learner_audit": {
+                    "passed": true,
+                    "games": 12,
+                    "counts": {
+                        "policy_requests": 1555,
+                        "atomic_moves": 1555,
+                        "resource_turns": 0,
+                        "root_filter_overrides": 0,
+                        "rollouts": 0,
+                        "rollout_caps": 0,
+                        "neural_decisions": 0
+                    },
+                    "paired_schedule_checked": true,
+                    "new_inference": 0,
+                    "new_hf_jobs": 0,
+                    "qualification_eligible": false,
+                    "reserved_final_seeds_used": false
+                },
+                "opponent_predictions_verified": 3213,
+                "learner_requests_engine_replayed": 1555,
+                "all_terminals_exact": true
+            },
+            "model-turn": {
+                "replayed_games": 12,
+                "learner_audit": {
+                    "passed": true,
+                    "games": 12,
+                    "counts": {
+                        "policy_requests": 1119,
+                        "atomic_moves": 1555,
+                        "resource_turns": 126,
+                        "root_filter_overrides": 0,
+                        "rollouts": 0,
+                        "rollout_caps": 0,
+                        "neural_decisions": 0
+                    },
+                    "paired_schedule_checked": true,
+                    "new_inference": 0,
+                    "new_hf_jobs": 0,
+                    "qualification_eligible": false,
+                    "reserved_final_seeds_used": false
+                },
+                "opponent_predictions_verified": 3213,
+                "learner_requests_engine_replayed": 1119,
+                "all_terminals_exact": true
+            }
+        },
+        "tampered_inputs_rejected": 6,
+        "preserved_failed_attempt": {
+            "path": "ai/runs/resource-turn-snapshot-adapter-v1",
+            "summary_sha256": "95b10f250b0995a9bb28f6547db65a58e59bbe6caa5cb2a50839949d2afeda37",
+            "plan_sha256": "c335464e29e577420ec8befe8d03b84ca3004bf8648091944071d5a10fcb6782",
+            "correction": "Revision 3.0 opponent observations omit playerOrder; hash only fields the encoder actually emits. Learner ordering remains mandatory and independently replayed."
+        },
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "af4e53466b5a529d58a18a692f7ec87dc8544578",
+            "archive_path": "archives/resource-turn-snapshot-adapter-evidence-v1.tgz",
+            "archive_sha256": "81301607405cf612e1e64dcf5ebe2490880d09975fa461fd137b341efd5df667",
+            "manifest_sha256": "dafbffa9112a52d157bd17130b86347f626bfeca23cc50e8156a2aa140fe7152",
+            "archived_files": 278,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "first_resource_pilot_collected": {
+            "job_id": "6ae20c133fb22a235dd41471",
+            "verified_receipt_sha256": "e7fb7cc5b3ebb4f21aac8f24ba74a1571507f3d041190d2c7b80796192025f57",
+            "games": 8,
+            "audit": {
+                "passed": true,
+                "games": 8,
+                "counts": {
+                    "policy_requests": 919,
+                    "atomic_moves": 1284,
+                    "resource_turns": 95,
+                    "root_filter_overrides": 0,
+                    "rollouts": 11352,
+                    "rollout_caps": 0,
+                    "neural_decisions": 930744
+                },
+                "paired_schedule_checked": true,
+                "new_inference": 0,
+                "new_hf_jobs": 0,
+                "qualification_eligible": false,
+                "reserved_final_seeds_used": false
+            },
+            "measurement": {
+                "seconds": 858.5279077009764,
+                "cpu_seconds": 3079.6699999999996,
+                "sampled_peak_total_rss_bytes": 4555935744,
+                "memory_samples": 4193,
+                "memory_sampling_period_seconds": 0.2,
+                "includes_startup_and_validation": true
+            },
+            "archive": {
+                "repo": "coyotte508/powergrid-ai-germany-v1",
+                "revision": "767558c54d51cc6252c71d50422075cb71d4ebcb",
+                "archive_path": "archives/pg-resource-turn-runtime-v1-whole-2p.tgz",
+                "archive_sha256": "056465aafca7647857e32bcca825e86f14b8485840e1a1d49cfb3ba4198203a3",
+                "manifest_sha256": "2575b8e7a307efc70e14a7a20174ddf14e7b72592bb6b1877b56ccf2b9ad974c",
+                "archived_files": 41,
+                "format": "tar.gz",
+                "remote_archive_verified": true
+            },
+            "interpretation": "Runtime-only original job; no win-rate or strength inference."
+        },
+        "interpretation": "Separate resource evaluator route for the existing three-player frozen neural qualification opponent. Atomic and model-turn controls reproduce the same historical games, with independent whole-engine and actual opponent-model replay. The v3 source and running studies are unchanged. Not a fresh strategy comparison.",
+        "remaining": "Complete original runtime pilots and full auction comparison. If a resource study is chosen, package and pin this adapter in a new admitted source before testing search modes against the neural opponent. Final qualification and selected-policy serving/hardware gates remain.",
+        "new_hf_jobs": 0,
+        "new_full_game_trajectories": 0,
+        "new_strength_games": 0,
+        "new_gradients": 0,
+        "current_auction_source_changed": false,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
     }
 }

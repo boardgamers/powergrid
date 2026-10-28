@@ -1,0 +1,62 @@
+{
+  "status": "recorded_snapshot_opponent_route_verified_not_strength_tested",
+  "assessment_sha256": "e7d054045984d1e24ecc7d9ff1fb075d990a08197bc9d57050a9b962b7377ed8",
+  "artifact_descriptor_sha256": "f41f16f64bf4e9b068e09e15116a6f02c5254ef60c01bd7650a0d7ad356a2e57",
+  "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+  "recorded_game_replays": 24,
+  "modes": {
+    "filter": {
+      "replayed_games": 12,
+      "learner_audit": {
+        "passed": true,
+        "games": 12,
+        "counts": {
+          "policy_requests": 1555,
+          "atomic_moves": 1555,
+          "resource_turns": 0,
+          "root_filter_overrides": 0,
+          "rollouts": 0,
+          "rollout_caps": 0,
+          "neural_decisions": 0
+        },
+        "paired_schedule_checked": true,
+        "new_inference": 0,
+        "new_hf_jobs": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
+      },
+      "opponent_predictions_verified": 3213,
+      "learner_requests_engine_replayed": 1555,
+      "all_terminals_exact": true
+    },
+    "model-turn": {
+      "replayed_games": 12,
+      "learner_audit": {
+        "passed": true,
+        "games": 12,
+        "counts": {
+          "policy_requests": 1119,
+          "atomic_moves": 1555,
+          "resource_turns": 126,
+          "root_filter_overrides": 0,
+          "rollouts": 0,
+          "rollout_caps": 0,
+          "neural_decisions": 0
+        },
+        "paired_schedule_checked": true,
+        "new_inference": 0,
+        "new_hf_jobs": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false
+      },
+      "opponent_predictions_verified": 3213,
+      "learner_requests_engine_replayed": 1119,
+      "all_terminals_exact": true
+    }
+  },
+  "tampered_inputs_rejected": 6,
+  "new_hf_jobs": 0,
+  "new_full_game_trajectories": 0,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false
+}

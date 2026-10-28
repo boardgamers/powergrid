@@ -64497,5 +64497,56 @@
         "reserved_final_seeds_used": false,
         "interpretation": "The frozen neural representation cannot directly condition on the toggled discount when the whole encoding is identical. Paired histories are synthetic; natural reachability, actual action regret and causation of weak Recharged results are unproved. Hybrid search can still observe full state.",
         "next": "Finish unchanged auction comparison first. Consider a separately pinned intended-engine, append-only discount/opening-price feature extension with warm-start output parity and controlled training/evaluation. Preserve printed plant identity and original features; do not relabel nomination as an immediate purchase."
+    },
+    "auction_discount_append_only_features_v1": {
+        "recorded_at": "2026-10-28T19:24:39.974856+00:00",
+        "goal_turn_classification": "progress",
+        "previous_goal_turn_classification": "verified_wait",
+        "status": "append_only_discount_inputs_verified_with_teacher_coverage_gap",
+        "document": "ai/AUCTION-DISCOUNT-FEATURES-2026-10-28.md",
+        "feature_revision": "4.4-auction-discount",
+        "state_dim": 1218,
+        "action_dim": 103,
+        "positions": 17280,
+        "split_counts": {
+            "validation": 4320,
+            "train": 12960
+        },
+        "parent_prefixes_and_full_input_hashes_exact": 17280,
+        "counts": {
+            "positions": 17280,
+            "discount_active": 4739,
+            "nomination": 5760,
+            "discounted_nomination_in_old_menu": 2496,
+            "discounted_nomination_labelled": 2099,
+            "discounted_nomination_excluded_by_shortlist": 397,
+            "current_nomination_menu_has_additions": 0,
+            "current_nomination_menu_has_removals": 0
+        },
+        "targeted_fixture_encodings": 40,
+        "formerly_aliased_pairs_separated": 10,
+        "additional_contract_checks": 5,
+        "report_sha256": "aecd08d2c2fd6cd7fc49301e8a10f44853ef2c07897e7ac2111aaf969435d4a4",
+        "design_sha256": "ecea4d6fb7d8251146d6ebc6f821ae4dec3b066e28aa7c53b07ca0852e647474",
+        "feature_cache_sha256": "62516680254e9cfd86afffab6ff5ff08cae9376c2e7464f20f4039a9c7fe8c44",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "512c6019ae88b98e3a44393a1d1d5cd3a6b25968",
+            "archive_path": "archives/auction-discount-features-evidence-v1.tgz",
+            "archive_sha256": "f0942d4d9bcd87a19a3e37fdab9fa93b3e9edcd88496e7dcf20ee7afabad6fa8",
+            "manifest_sha256": "32ea3c0834a25979a175d77f6b7f22d4670b6e79968435826618efacd820b245",
+            "archived_files": 23,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "training_ready": false,
+        "new_inference": 0,
+        "new_hf_jobs": 0,
+        "new_full_games": 0,
+        "new_gradients": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "interpretation": "Append-only candidate inputs on the unchanged historical training/validation roots. No outcomes were inspected or new targets generated. The saved targets use old continuation policies/engine and a restricted shortlist; new actions have no saved labels. Engine/teacher/target compatibility and a separately designed training experiment remain required. No playing-strength claim.",
+        "next": "Finish the unchanged auction comparison before another strength experiment. A discount-aware experiment must consider missing nomination labels and naturally occurring low-cash roots, validate intended-engine/teacher compatibility, preserve train/validation/evaluation separation, and prove warm-start/export parity. No running policies changed."
     }
 }

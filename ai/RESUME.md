@@ -1,5 +1,23 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**28 October update — discount inputs recovered; missing nomination labels identified.**
+
+A separate schema 4.4 appends the public discount flag and nomination opening
+price/discount. All **17,280** saved training roots preserve exact parent input
+hashes, feature prefixes, legal menus, target-column mappings and the original
+12,960/4,320 train/validation split. Targeted tests separate all ten previously
+aliased flag pairs and cover low-cash menus. Read
+[the feature and coverage report](AUCTION-DISCOUNT-FEATURES-2026-10-28.md).
+
+Of 2,496 legal discounted nomination opportunities, **397 (15.9%)** were excluded
+from the old labelled option set (312 train / 85 validation). The selected roots
+also do not cover the current engine's newly affordable low-cash nominations.
+An input-only change therefore leaves missing teacher coverage. No new targets,
+weights, architecture, HF jobs or strength claim; the cache is explicitly **not
+training-ready** for a changed engine. Finish the unchanged full auction
+comparison before selecting a separately designed discount-aware experiment.
+Running policies remain frozen; no candidate qualified and final seeds unused.
+
 **28 October update — confirmed missing auction-discount information.**
 
 Ten predetermined paired Recharged nomination fixtures (2–6 players, open/sealed)

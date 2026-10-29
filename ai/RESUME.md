@@ -1,5 +1,32 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 00:35:27 UTC — confirmation healthy; complete-policy final transport validated.**
+
+The same original recovery coordinator **PID 2398668 / session 50170** is live,
+with all 54 pins unchanged. **108 jobs / 5,888 games** are independently audited;
+172 originals have been submitted. Fresh HF inspection confirmed all **64
+unverified originals RUNNING**, with no new terminal failures at this check.
+Checkpoint: `strong/current-auction-confirmation-recovery-progress-v1.json`.
+Do not compete with or restart this owner. Full comparison remains unfinished;
+no partial win analysis or policy changes.
+
+In parallel, the new selected-public-policy final job wrapper passed **12 unit
+checks and five validation-only cases against the actual frozen hybrid artifact**.
+It preserves full search configuration and rejects altered search settings,
+model-only substitution, wrong fingerprints and unknown reserved shards.
+A first harness fixture failed before its intended check; that evidence is kept,
+and three successful validations were reused in the corrected harness. No new
+policy calls, games, HF jobs, candidate selection or reserved seeds were needed
+for this transport work. Read [the final-transport handoff](SELECTED-PUBLIC-POLICY-FINAL-JOB-2026-10-29.md).
+
+Its 52-file evidence archive is verified at private model revision
+`27738f3229ce8f7f93d0c3144a002334c37d143c`; descriptor
+`strong/selected-public-policy-final-job-evidence-v1.json`. Final source/launch
+admission and complete selected-policy technical qualification are still required,
+after the complete confirmation supports selection. Research active; no candidate
+qualified. All synthetic selected/launch documents are test fixtures only.
+
+
 **29 October, 00:18:52 UTC — recovery admitted; confirmation continues with unchanged policies.**
 
 Read [the recovery handoff](CURRENT-AUCTION-RECOVERY-2026-10-29.md). All **64

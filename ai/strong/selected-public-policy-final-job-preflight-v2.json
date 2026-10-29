@@ -1,0 +1,114 @@
+{
+  "passed": true,
+  "created_at": "2026-10-29T00:31:26.407379+00:00",
+  "tests": 12,
+  "real_artifact_validation_cases": [
+    {
+      "case": "valid_hybrid",
+      "expected_rejection": null,
+      "returncode": 0,
+      "passed": true,
+      "source_manifest_sha256": "2c47ec6a13ae1beeaaf53b7f77c2281a6e2560ffcf3ec29678ec978c4dadff93",
+      "validation_log_sha256": "579a4f99ceb3d0a7773cbff6d3aa24cba6b873e3271f3b3a74ee1532f34ed2a9",
+      "execution_directory_created": false,
+      "reused_original_validation": true,
+      "original_case_directory": "ai/runs/selected-public-policy-final-job-preflight-v1/valid_hybrid"
+    },
+    {
+      "case": "wrong_fingerprint",
+      "expected_rejection": "launch authorization",
+      "returncode": 1,
+      "passed": true,
+      "source_manifest_sha256": "301e69bda48446222f9dcf774cf77ee8d63e8f836c1c55e066539977e44e66bc",
+      "validation_log_sha256": "9bc699da2e0f480acb7ef6c8b528da5f51e79cde5acfa4c57a4e743ac819bb47",
+      "execution_directory_created": false,
+      "reused_original_validation": true,
+      "original_case_directory": "ai/runs/selected-public-policy-final-job-preflight-v1/wrong_fingerprint"
+    },
+    {
+      "case": "wrong_reserved_shard",
+      "expected_rejection": "Unknown reserved shard",
+      "returncode": 1,
+      "passed": true,
+      "source_manifest_sha256": "dca5c6d0c6ab61c0837c852815b18b35bcd1fb84525e29de3d8924b43b9f2c2a",
+      "validation_log_sha256": "68d57cf65de526ae05d68399d4a03fd3d0fceb6ea89772b62a93df99145e4024",
+      "execution_directory_created": false,
+      "reused_original_validation": true,
+      "original_case_directory": "ai/runs/selected-public-policy-final-job-preflight-v1/wrong_reserved_shard"
+    },
+    {
+      "case": "changed_search_budget",
+      "expected_rejection": "complete-policy identity",
+      "returncode": 1,
+      "passed": true,
+      "source_manifest_sha256": "5563554c712409cb398b4ab1ad44c8c28a7b250de5bd6916dc7ff9b32787082d",
+      "validation_log_sha256": "90d5b986e49f59c3331c538e138dd0fb0c628ea03d52a10b0cdf367743b74cc5",
+      "execution_directory_created": false
+    },
+    {
+      "case": "dropped_search",
+      "expected_rejection": "complete-policy identity",
+      "returncode": 1,
+      "passed": true,
+      "source_manifest_sha256": "004fae8dd6f3cc06217405bd51c5d091149233b2607320a5f3ea95e72d620b8f",
+      "validation_log_sha256": "d4a43432755843e227a8be17951846f6ab241e2c1ce70be9524370b2d4b6c871",
+      "execution_directory_created": false
+    }
+  ],
+  "identity": {
+    "policySha256": "b9879af9668b3e1b79cac6139b59571a83d838f8e0988627506f9b2eb902a980",
+    "runtimeManifestSha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+    "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+    "featureRevision": "4.3-strategic-correction",
+    "backend": "opponent-auction-v1",
+    "settings": {
+      "arm": "auction",
+      "max_steps": 2400,
+      "minimum_advantage": "1/8",
+      "population_modes": [
+        "neural_population"
+      ],
+      "samples": 8,
+      "threads": 1,
+      "workers": 4
+    },
+    "opponentPolicySha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c"
+  },
+  "input_hashes": {
+    "ai/strong/check-selected-public-policy-final-job-v2.py": "2f22f9a7afd91d9bf0fdefaac63fb2038b565b3f1c884c348ca5a779bd404aec",
+    "ai/strong/public_policy_selected_final_job_v1.py": "bf40ce31435fc013c6509ad98bec5770568c563894701dbe71046998d107902f",
+    "ai/strong/test_public_policy_selected_final_job_v1.py": "d44259fbc96fb22f045e5876c36437418cf245ef154520bf45f21fb269fb9951",
+    "ai/runs/selected-public-policy-final-job-tests-v1-first.log": "86b2487b198ef5c75a33028cae1786ddb95aac83d89712fd3f84c89f9594c56c",
+    "ai/strong/current-auction-grid-source-v1.json": "a4384b10eb8a4381423731bc0c315673f9214d91c1fb336aa81ef4a7102d1c5a",
+    "ai/strong/public_policy_final_contract_v1.py": "211e143a278fe6e5d0eb0b3654061130b6141b1518fd07297162307c39487103",
+    "ai/strong/public_policy_final_runner_v1.py": "aecb5804d52adf78e268bdd093b7b7339ca7a2469bcab555470532e09050ccdd",
+    "ai/strong/final-protocol-multiplayer.json": "7f0336c8784faf8f18e046b95b88e0ab1be7c2de1c0ec4d3eec96f0a415286ce",
+    "ai/strong/check-selected-public-policy-final-job-v1.py": "08eee6caf1df7113270bc3debe45d3cce03b9c1f3b078a42512050ae7aadc36d",
+    "ai/runs/selected-public-policy-final-job-preflight-v1/intent.json": "ffac327313c23ac84d04a09af2d029eec9b4db035c4526e760a49c3cbaf003bc",
+    "ai/runs/selected-public-policy-final-job-preflight-v1-first.log": "0cf6de08784b7e8d9319e5568cee37f9187a1269001621d6a19ad10b2661d63a"
+  },
+  "original_source_unchanged": true,
+  "reference_source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "revision": "7db94147918597e1da1e8ee2f4bd12b96aa067b5",
+    "archive": "strong-source-current-auction-grid-v1.tgz",
+    "sha256": "bb2ef01bc09f176c62545971aa02b5e9dadc947fb14dd52ca191667ba456bfe0",
+    "source_manifest_sha256": "28752635cfaee648b3e6f5ab999132291be575d56d3cbc7fd3e6450ee3b399f5"
+  },
+  "preserved_first_harness_failure": "The first harness requested 16 worlds, rejected during fixture construction because this verifier supports eight. The corrected case changes search workers instead; three successful original validations were reused, not rerun.",
+  "reused_original_validation_cases": 3,
+  "new_validation_cases": 2,
+  "new_policy_calls": 0,
+  "new_games": 0,
+  "new_hf_jobs": 0,
+  "candidate_selected": false,
+  "qualification_eligible": false,
+  "reserved_final_seeds_used": false,
+  "remaining": [
+    "complete confirmation and candidate selection",
+    "immutable final source/launch admission",
+    "full selected-policy export/serving/8840U qualification",
+    "reserved strength evaluation and final audit"
+  ],
+  "scope": "Final job transport validation only. Synthetic selection/authorization documents must never authorize a real launch."
+}

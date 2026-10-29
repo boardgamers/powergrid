@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "tests": 12,
+  "real_artifact_validation_cases": 5,
+  "preflight_report": "ai/strong/selected-public-policy-final-job-preflight-v2.json",
+  "preflight_sha256": "7b91cc58e06fc6f3da87700ad9fe3ae3718467fcc72f67e01a54bb0acb0cf8b8",
+  "identity": {
+    "policySha256": "b9879af9668b3e1b79cac6139b59571a83d838f8e0988627506f9b2eb902a980",
+    "runtimeManifestSha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+    "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+    "featureRevision": "4.3-strategic-correction",
+    "backend": "opponent-auction-v1",
+    "settings": {
+      "arm": "auction",
+      "max_steps": 2400,
+      "minimum_advantage": "1/8",
+      "population_modes": [
+        "neural_population"
+      ],
+      "samples": 8,
+      "threads": 1,
+      "workers": 4
+    },
+    "opponentPolicySha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c"
+  },
+  "preserved_first_harness_failure": true,
+  "new_games": 0,
+  "new_hf_jobs": 0,
+  "new_policy_calls": 0,
+  "candidate_selected": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false,
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "27738f3229ce8f7f93d0c3144a002334c37d143c",
+    "archive_path": "archives/selected-public-policy-final-job-evidence-v1.tgz",
+    "archive_sha256": "9aae3d316c8819afa30a790a331cdb1d7daabb1e4849003208a6f7701f482233",
+    "manifest_sha256": "91730587f643c0c640f08f4d1190afa1567540256f3f8af5d57afc9b9f825768",
+    "archived_files": 52,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  }
+}

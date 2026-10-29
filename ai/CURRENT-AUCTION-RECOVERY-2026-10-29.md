@@ -6,6 +6,13 @@ slots, policies, current engine, search budget and statistical analysis remain
 unchanged. This recovery does not generate replacement games.
 
 <!-- RECOVERY-STATUS-BEGIN -->
+**Later checkpoint, 00:35:27 UTC:** the same coordinator is live with all 54
+pins unchanged. **108 jobs / 5,888 games** are audited; 172 originals submitted.
+Fresh HF inspection found all 64 unverified originals RUNNING, with no new
+terminal failure. Exact handles and guard hashes:
+`strong/current-auction-confirmation-recovery-progress-v1.json`. The original
+launch snapshot below remains historical recovery evidence.
+
 **29 October, 00:18:52 UTC: recovery admitted; remaining confirmation is running.**
 All **64 initial originals / 3,456 games** passed their complete data audits:
 63 retain HF COMPLETED and one retains HF ERROR with its separate terminal-data

@@ -1,0 +1,1093 @@
+{
+  "created_at": "2026-10-29T22:15:52.013983+00:00",
+  "purpose": "Paired whole-game development screen; no qualification or final evaluation",
+  "arms": [
+    "parent",
+    "d0-all0",
+    "d0-all1",
+    "d1-all0",
+    "d1-all1"
+  ],
+  "identities": {
+    "parent": {
+      "policySha256": "491b478dc77bb811317e9abdd80c636a2449225f910d2bc1a33f547bcafe252f",
+      "runtimeManifestSha256": "d16f282ec72929643df4cae189d0bb1163ce1459a74a7528cf2028200c7a7625",
+      "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+      "featureRevision": "4.3-strategic-correction",
+      "backend": "population-v1",
+      "settings": {
+        "arm": "filter",
+        "max_steps": 2400,
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      }
+    },
+    "d0-all0": {
+      "policySha256": "bf8c53b263fff04820a561374db77f33dc0d998d9df506830b8bfb91c6b4dcde",
+      "runtimeManifestSha256": "d16f282ec72929643df4cae189d0bb1163ce1459a74a7528cf2028200c7a7625",
+      "modelSha256": "b236aa87ce9f9b1d5e2c8be376b627a5d5309e8cfad8e954799209da88087a8d",
+      "featureRevision": "4.4-auction-discount",
+      "backend": "population-v1",
+      "settings": {
+        "arm": "filter",
+        "max_steps": 2400,
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      }
+    },
+    "d0-all1": {
+      "policySha256": "16dcc45ae6dc202404fa9adc3a7558e8618fb6b96e8693e39dd03096b4bb4f5c",
+      "runtimeManifestSha256": "d16f282ec72929643df4cae189d0bb1163ce1459a74a7528cf2028200c7a7625",
+      "modelSha256": "47b50ee56ed3c71b986e4705bc7be49a88e91b7b71fad8b8a27d2a35a3346759",
+      "featureRevision": "4.4-auction-discount",
+      "backend": "population-v1",
+      "settings": {
+        "arm": "filter",
+        "max_steps": 2400,
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      }
+    },
+    "d1-all0": {
+      "policySha256": "315babab347f81a7703ee6a42a776e04750a65040b70803dd9e39c3ec2d859b3",
+      "runtimeManifestSha256": "d16f282ec72929643df4cae189d0bb1163ce1459a74a7528cf2028200c7a7625",
+      "modelSha256": "9424cf1647edff6173a0816a614957ef1d2cfd3dd5c66eea747c46d0851edf20",
+      "featureRevision": "4.4-auction-discount",
+      "backend": "population-v1",
+      "settings": {
+        "arm": "filter",
+        "max_steps": 2400,
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      }
+    },
+    "d1-all1": {
+      "policySha256": "920c505344ffe04cc370e379cf2487666e697847476b35be61b1d832f2185fde",
+      "runtimeManifestSha256": "d16f282ec72929643df4cae189d0bb1163ce1459a74a7528cf2028200c7a7625",
+      "modelSha256": "a3b0d0eacc43aa8279234e910da262935234019eb044d4719e75154943488d9c",
+      "featureRevision": "4.4-auction-discount",
+      "backend": "population-v1",
+      "settings": {
+        "arm": "filter",
+        "max_steps": 2400,
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      }
+    }
+  },
+  "rows": [
+    {
+      "name": "pg-nom-dev-v1-parent-search-geo-2p",
+      "arm": "parent",
+      "descriptor": "policies/nomination-parent.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-parent-search-geo-2p",
+        "group": "search_geo/2p",
+        "players": 2,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-2p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 32
+      },
+      "candidate": "controls/parent.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-parent-search-geo-2p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-parent-search-geo-3p",
+      "arm": "parent",
+      "descriptor": "policies/nomination-parent.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-parent-search-geo-3p",
+        "group": "search_geo/3p",
+        "players": 3,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-3p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 48
+      },
+      "candidate": "controls/parent.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-parent-search-geo-3p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-parent-search-geo-4p",
+      "arm": "parent",
+      "descriptor": "policies/nomination-parent.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-parent-search-geo-4p",
+        "group": "search_geo/4p",
+        "players": 4,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-4p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 64
+      },
+      "candidate": "controls/parent.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-parent-search-geo-4p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-parent-search-geo-5p",
+      "arm": "parent",
+      "descriptor": "policies/nomination-parent.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-parent-search-geo-5p",
+        "group": "search_geo/5p",
+        "players": 5,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-5p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 80
+      },
+      "candidate": "controls/parent.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-parent-search-geo-5p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-parent-search-geo-6p",
+      "arm": "parent",
+      "descriptor": "policies/nomination-parent.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-parent-search-geo-6p",
+        "group": "search_geo/6p",
+        "players": 6,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-6p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 96
+      },
+      "candidate": "controls/parent.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-parent-search-geo-6p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-parent-a260-2p",
+      "arm": "parent",
+      "descriptor": "policies/nomination-parent.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-parent-a260-2p",
+        "group": "a260/2p",
+        "players": 2,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-2p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 32
+      },
+      "candidate": "controls/parent.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-parent-a260-2p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-parent-a260-3p",
+      "arm": "parent",
+      "descriptor": "policies/nomination-parent.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-parent-a260-3p",
+        "group": "a260/3p",
+        "players": 3,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-3p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 48
+      },
+      "candidate": "controls/parent.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-parent-a260-3p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-parent-a260-4p",
+      "arm": "parent",
+      "descriptor": "policies/nomination-parent.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-parent-a260-4p",
+        "group": "a260/4p",
+        "players": 4,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-4p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 64
+      },
+      "candidate": "controls/parent.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-parent-a260-4p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-parent-a260-5p",
+      "arm": "parent",
+      "descriptor": "policies/nomination-parent.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-parent-a260-5p",
+        "group": "a260/5p",
+        "players": 5,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-5p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 80
+      },
+      "candidate": "controls/parent.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-parent-a260-5p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-parent-a260-6p",
+      "arm": "parent",
+      "descriptor": "policies/nomination-parent.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-parent-a260-6p",
+        "group": "a260/6p",
+        "players": 6,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-6p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 96
+      },
+      "candidate": "controls/parent.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-parent-a260-6p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all0-search-geo-2p",
+      "arm": "d0-all0",
+      "descriptor": "policies/nomination-d0-all0.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d0-all0-search-geo-2p",
+        "group": "search_geo/2p",
+        "players": 2,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-2p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 32
+      },
+      "candidate": "controls/d0-all0.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d0-all0-search-geo-2p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all0-search-geo-3p",
+      "arm": "d0-all0",
+      "descriptor": "policies/nomination-d0-all0.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d0-all0-search-geo-3p",
+        "group": "search_geo/3p",
+        "players": 3,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-3p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 48
+      },
+      "candidate": "controls/d0-all0.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d0-all0-search-geo-3p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all0-search-geo-4p",
+      "arm": "d0-all0",
+      "descriptor": "policies/nomination-d0-all0.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d0-all0-search-geo-4p",
+        "group": "search_geo/4p",
+        "players": 4,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-4p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 64
+      },
+      "candidate": "controls/d0-all0.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d0-all0-search-geo-4p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all0-search-geo-5p",
+      "arm": "d0-all0",
+      "descriptor": "policies/nomination-d0-all0.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d0-all0-search-geo-5p",
+        "group": "search_geo/5p",
+        "players": 5,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-5p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 80
+      },
+      "candidate": "controls/d0-all0.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d0-all0-search-geo-5p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all0-search-geo-6p",
+      "arm": "d0-all0",
+      "descriptor": "policies/nomination-d0-all0.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d0-all0-search-geo-6p",
+        "group": "search_geo/6p",
+        "players": 6,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-6p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 96
+      },
+      "candidate": "controls/d0-all0.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d0-all0-search-geo-6p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all0-a260-2p",
+      "arm": "d0-all0",
+      "descriptor": "policies/nomination-d0-all0.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d0-all0-a260-2p",
+        "group": "a260/2p",
+        "players": 2,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-2p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 32
+      },
+      "candidate": "controls/d0-all0.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d0-all0-a260-2p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all0-a260-3p",
+      "arm": "d0-all0",
+      "descriptor": "policies/nomination-d0-all0.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d0-all0-a260-3p",
+        "group": "a260/3p",
+        "players": 3,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-3p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 48
+      },
+      "candidate": "controls/d0-all0.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d0-all0-a260-3p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all0-a260-4p",
+      "arm": "d0-all0",
+      "descriptor": "policies/nomination-d0-all0.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d0-all0-a260-4p",
+        "group": "a260/4p",
+        "players": 4,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-4p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 64
+      },
+      "candidate": "controls/d0-all0.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d0-all0-a260-4p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all0-a260-5p",
+      "arm": "d0-all0",
+      "descriptor": "policies/nomination-d0-all0.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d0-all0-a260-5p",
+        "group": "a260/5p",
+        "players": 5,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-5p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 80
+      },
+      "candidate": "controls/d0-all0.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d0-all0-a260-5p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all0-a260-6p",
+      "arm": "d0-all0",
+      "descriptor": "policies/nomination-d0-all0.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d0-all0-a260-6p",
+        "group": "a260/6p",
+        "players": 6,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-6p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 96
+      },
+      "candidate": "controls/d0-all0.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d0-all0-a260-6p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all1-search-geo-2p",
+      "arm": "d0-all1",
+      "descriptor": "policies/nomination-d0-all1.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d0-all1-search-geo-2p",
+        "group": "search_geo/2p",
+        "players": 2,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-2p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 32
+      },
+      "candidate": "controls/d0-all1.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d0-all1-search-geo-2p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all1-search-geo-3p",
+      "arm": "d0-all1",
+      "descriptor": "policies/nomination-d0-all1.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d0-all1-search-geo-3p",
+        "group": "search_geo/3p",
+        "players": 3,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-3p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 48
+      },
+      "candidate": "controls/d0-all1.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d0-all1-search-geo-3p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all1-search-geo-4p",
+      "arm": "d0-all1",
+      "descriptor": "policies/nomination-d0-all1.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d0-all1-search-geo-4p",
+        "group": "search_geo/4p",
+        "players": 4,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-4p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 64
+      },
+      "candidate": "controls/d0-all1.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d0-all1-search-geo-4p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all1-search-geo-5p",
+      "arm": "d0-all1",
+      "descriptor": "policies/nomination-d0-all1.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d0-all1-search-geo-5p",
+        "group": "search_geo/5p",
+        "players": 5,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-5p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 80
+      },
+      "candidate": "controls/d0-all1.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d0-all1-search-geo-5p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all1-search-geo-6p",
+      "arm": "d0-all1",
+      "descriptor": "policies/nomination-d0-all1.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d0-all1-search-geo-6p",
+        "group": "search_geo/6p",
+        "players": 6,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-6p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 96
+      },
+      "candidate": "controls/d0-all1.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d0-all1-search-geo-6p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all1-a260-2p",
+      "arm": "d0-all1",
+      "descriptor": "policies/nomination-d0-all1.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d0-all1-a260-2p",
+        "group": "a260/2p",
+        "players": 2,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-2p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 32
+      },
+      "candidate": "controls/d0-all1.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d0-all1-a260-2p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all1-a260-3p",
+      "arm": "d0-all1",
+      "descriptor": "policies/nomination-d0-all1.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d0-all1-a260-3p",
+        "group": "a260/3p",
+        "players": 3,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-3p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 48
+      },
+      "candidate": "controls/d0-all1.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d0-all1-a260-3p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all1-a260-4p",
+      "arm": "d0-all1",
+      "descriptor": "policies/nomination-d0-all1.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d0-all1-a260-4p",
+        "group": "a260/4p",
+        "players": 4,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-4p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 64
+      },
+      "candidate": "controls/d0-all1.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d0-all1-a260-4p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all1-a260-5p",
+      "arm": "d0-all1",
+      "descriptor": "policies/nomination-d0-all1.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d0-all1-a260-5p",
+        "group": "a260/5p",
+        "players": 5,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-5p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 80
+      },
+      "candidate": "controls/d0-all1.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d0-all1-a260-5p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all1-a260-6p",
+      "arm": "d0-all1",
+      "descriptor": "policies/nomination-d0-all1.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d0-all1-a260-6p",
+        "group": "a260/6p",
+        "players": 6,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-6p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 96
+      },
+      "candidate": "controls/d0-all1.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d0-all1-a260-6p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all0-search-geo-2p",
+      "arm": "d1-all0",
+      "descriptor": "policies/nomination-d1-all0.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d1-all0-search-geo-2p",
+        "group": "search_geo/2p",
+        "players": 2,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-2p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 32
+      },
+      "candidate": "controls/d1-all0.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d1-all0-search-geo-2p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all0-search-geo-3p",
+      "arm": "d1-all0",
+      "descriptor": "policies/nomination-d1-all0.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d1-all0-search-geo-3p",
+        "group": "search_geo/3p",
+        "players": 3,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-3p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 48
+      },
+      "candidate": "controls/d1-all0.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d1-all0-search-geo-3p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all0-search-geo-4p",
+      "arm": "d1-all0",
+      "descriptor": "policies/nomination-d1-all0.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d1-all0-search-geo-4p",
+        "group": "search_geo/4p",
+        "players": 4,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-4p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 64
+      },
+      "candidate": "controls/d1-all0.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d1-all0-search-geo-4p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all0-search-geo-5p",
+      "arm": "d1-all0",
+      "descriptor": "policies/nomination-d1-all0.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d1-all0-search-geo-5p",
+        "group": "search_geo/5p",
+        "players": 5,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-5p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 80
+      },
+      "candidate": "controls/d1-all0.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d1-all0-search-geo-5p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all0-search-geo-6p",
+      "arm": "d1-all0",
+      "descriptor": "policies/nomination-d1-all0.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d1-all0-search-geo-6p",
+        "group": "search_geo/6p",
+        "players": 6,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-6p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 96
+      },
+      "candidate": "controls/d1-all0.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d1-all0-search-geo-6p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all0-a260-2p",
+      "arm": "d1-all0",
+      "descriptor": "policies/nomination-d1-all0.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d1-all0-a260-2p",
+        "group": "a260/2p",
+        "players": 2,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-2p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 32
+      },
+      "candidate": "controls/d1-all0.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d1-all0-a260-2p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all0-a260-3p",
+      "arm": "d1-all0",
+      "descriptor": "policies/nomination-d1-all0.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d1-all0-a260-3p",
+        "group": "a260/3p",
+        "players": 3,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-3p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 48
+      },
+      "candidate": "controls/d1-all0.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d1-all0-a260-3p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all0-a260-4p",
+      "arm": "d1-all0",
+      "descriptor": "policies/nomination-d1-all0.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d1-all0-a260-4p",
+        "group": "a260/4p",
+        "players": 4,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-4p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 64
+      },
+      "candidate": "controls/d1-all0.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d1-all0-a260-4p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all0-a260-5p",
+      "arm": "d1-all0",
+      "descriptor": "policies/nomination-d1-all0.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d1-all0-a260-5p",
+        "group": "a260/5p",
+        "players": 5,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-5p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 80
+      },
+      "candidate": "controls/d1-all0.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d1-all0-a260-5p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all0-a260-6p",
+      "arm": "d1-all0",
+      "descriptor": "policies/nomination-d1-all0.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d1-all0-a260-6p",
+        "group": "a260/6p",
+        "players": 6,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-6p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 96
+      },
+      "candidate": "controls/d1-all0.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d1-all0-a260-6p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all1-search-geo-2p",
+      "arm": "d1-all1",
+      "descriptor": "policies/nomination-d1-all1.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d1-all1-search-geo-2p",
+        "group": "search_geo/2p",
+        "players": 2,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-2p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 32
+      },
+      "candidate": "controls/d1-all1.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d1-all1-search-geo-2p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all1-search-geo-3p",
+      "arm": "d1-all1",
+      "descriptor": "policies/nomination-d1-all1.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d1-all1-search-geo-3p",
+        "group": "search_geo/3p",
+        "players": 3,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-3p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 48
+      },
+      "candidate": "controls/d1-all1.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d1-all1-search-geo-3p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all1-search-geo-4p",
+      "arm": "d1-all1",
+      "descriptor": "policies/nomination-d1-all1.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d1-all1-search-geo-4p",
+        "group": "search_geo/4p",
+        "players": 4,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-4p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 64
+      },
+      "candidate": "controls/d1-all1.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d1-all1-search-geo-4p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all1-search-geo-5p",
+      "arm": "d1-all1",
+      "descriptor": "policies/nomination-d1-all1.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d1-all1-search-geo-5p",
+        "group": "search_geo/5p",
+        "players": 5,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-5p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 80
+      },
+      "candidate": "controls/d1-all1.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d1-all1-search-geo-5p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all1-search-geo-6p",
+      "arm": "d1-all1",
+      "descriptor": "policies/nomination-d1-all1.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d1-all1-search-geo-6p",
+        "group": "search_geo/6p",
+        "players": 6,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-6p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 96
+      },
+      "candidate": "controls/d1-all1.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d1-all1-search-geo-6p.contract.json",
+      "opponent_model": null
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all1-a260-2p",
+      "arm": "d1-all1",
+      "descriptor": "policies/nomination-d1-all1.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d1-all1-a260-2p",
+        "group": "a260/2p",
+        "players": 2,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-2p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 32
+      },
+      "candidate": "controls/d1-all1.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d1-all1-a260-2p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all1-a260-3p",
+      "arm": "d1-all1",
+      "descriptor": "policies/nomination-d1-all1.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d1-all1-a260-3p",
+        "group": "a260/3p",
+        "players": 3,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-3p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 48
+      },
+      "candidate": "controls/d1-all1.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d1-all1-a260-3p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all1-a260-4p",
+      "arm": "d1-all1",
+      "descriptor": "policies/nomination-d1-all1.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d1-all1-a260-4p",
+        "group": "a260/4p",
+        "players": 4,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-4p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 64
+      },
+      "candidate": "controls/d1-all1.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d1-all1-a260-4p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all1-a260-5p",
+      "arm": "d1-all1",
+      "descriptor": "policies/nomination-d1-all1.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d1-all1-a260-5p",
+        "group": "a260/5p",
+        "players": 5,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-5p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 80
+      },
+      "candidate": "controls/d1-all1.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d1-all1-a260-5p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all1-a260-6p",
+      "arm": "d1-all1",
+      "descriptor": "policies/nomination-d1-all1.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-d1-all1-a260-6p",
+        "group": "a260/6p",
+        "players": 6,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-6p",
+        "opponent": "a260",
+        "opponent_sha256": "9b46db558669a0c3085412fe2544359eda55ed9f092dffb67bead6af3c409ecd",
+        "games": 96
+      },
+      "candidate": "controls/d1-all1.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-d1-all1-a260-6p.contract.json",
+      "opponent_model": "final-opponent-a260.onnx"
+    }
+  ],
+  "games": 3200,
+  "jobs": 50,
+  "rules": [
+    "original/open",
+    "original/sealed",
+    "recharged/open",
+    "recharged/sealed"
+  ],
+  "players": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "independent_deals_per_cell": 4,
+  "seat_rotations": "All seats in each deal/rule cell",
+  "primary_comparison": "Each trained arm versus unchanged parent control on identical deals/seats/opponents; summarize paired deal-level win-credit differences. Four deals is a screen, not precise qualification.",
+  "all_arms_retained": true,
+  "candidate_search": false,
+  "loss_filter": "Unchanged frozen parent building-loss filter",
+  "workers": 4,
+  "threads": 1,
+  "flavor": "cpu-upgrade",
+  "timeout": "5h",
+  "base_source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "revision": "7db94147918597e1da1e8ee2f4bd12b96aa067b5",
+    "archive": "strong-source-current-auction-grid-v1.tgz",
+    "sha256": "bb2ef01bc09f176c62545971aa02b5e9dadc947fb14dd52ca191667ba456bfe0",
+    "source_manifest_sha256": "28752635cfaee648b3e6f5ab999132291be575d56d3cbc7fd3e6450ee3b399f5"
+  },
+  "base_artifact_manifest_sha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+  "runtime_manifest_sha256": "d16f282ec72929643df4cae189d0bb1163ce1459a74a7528cf2028200c7a7625",
+  "training_results_sha256": "9be466e693d764032f3646db9e37c0758b5a8a3c6e4fa63ca88eaec1879e66be",
+  "exports_sha256": "23aa048d0bf7cf98101dad8064f6ad6fb47f2e39a947c9228ba70b3b43b6e6c6",
+  "changed_runtime_files": [
+    "ai/strong/hybrid-continuations.cjs",
+    "ai/strong/encoders.cjs",
+    "ai/strong/hybrid_search.py",
+    "ai/strong/public_policy_runtime_v1.py",
+    "ai/strong/public_policy_final_audit_v1.py",
+    "ai/strong/population_policy_verification.py",
+    "ai/strong/public_policy_final_contract_v1.py",
+    "ai/strong/features-v4_4.cjs",
+    "models/d0-all0.onnx",
+    "models/d0-all1.onnx",
+    "models/d1-all0.onnx",
+    "models/d1-all1.onnx",
+    "manifest.json",
+    "policies/nomination-parent.json",
+    "policies/nomination-d0-all0.json",
+    "policies/nomination-d0-all1.json",
+    "policies/nomination-d1-all0.json",
+    "policies/nomination-d1-all1.json"
+  ],
+  "reserved_final_seeds_used": false,
+  "qualified": false
+}

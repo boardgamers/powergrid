@@ -1,0 +1,72 @@
+{
+  "source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "revision": "b2f0cc2e891f63efd0772376132328520659fef9",
+    "archive": "strong-source-nomination-discount-development-v1.tgz",
+    "sha256": "738b855e02970c0986f947b10cb7011bdc146e92580a4c0f85968361eb4b9261",
+    "manifest_sha256": "b6e419726bce8a3dad4d5dd17e38b8802b0b72cd5ae272ea02cd37c8bcdc2fe4",
+    "protocol_sha256": "2f7fe04791c0cb6ac0bb0f8712b73dde3714cf96693c9cd3a1f68fe8bd785251",
+    "serving_check_sha256": "5d4a1fcc0e1c94dc7c94e190836b96ec0330b763c02e3d234b56ada326a60b52",
+    "remote_archive_verified": true
+  },
+  "protocol_sha256": "2f7fe04791c0cb6ac0bb0f8712b73dde3714cf96693c9cd3a1f68fe8bd785251",
+  "jobs": [
+    {
+      "name": "pg-nom-dev-v1-d1-all1-search-geo-2p",
+      "job_id": "6ae3c67c0e0338d1bb7c3def",
+      "row": {
+        "name": "pg-nom-dev-v1-d1-all1-search-geo-2p",
+        "arm": "d1-all1",
+        "descriptor": "policies/nomination-d1-all1.json",
+        "shard": {
+          "name": "pg-nom-dev-v1-d1-all1-search-geo-2p",
+          "group": "search_geo/2p",
+          "players": 2,
+          "start": 0,
+          "deals": 4,
+          "seed": "nomination-discount-development-v1-2p",
+          "opponent": "search_geo",
+          "opponent_sha256": null,
+          "games": 32
+        },
+        "candidate": "controls/d1-all1.candidate.json",
+        "contract": "controls/pg-nom-dev-v1-d1-all1-search-geo-2p.contract.json",
+        "opponent_model": null
+      },
+      "source_sha256": "c80788d2627d4e03b228cc08e1bd8d05c8d632bfbe3c98d877b9c11e6f8b84eb",
+      "intent_sha256": "81eec764748bf4bf67d3e63d118419b8ffcc65ace3e02bf9ab5248dc6d5e73c1"
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all1-search-geo-6p",
+      "job_id": "6ae3c67d0e0338d1bb7c3df2",
+      "row": {
+        "name": "pg-nom-dev-v1-d1-all1-search-geo-6p",
+        "arm": "d1-all1",
+        "descriptor": "policies/nomination-d1-all1.json",
+        "shard": {
+          "name": "pg-nom-dev-v1-d1-all1-search-geo-6p",
+          "group": "search_geo/6p",
+          "players": 6,
+          "start": 0,
+          "deals": 4,
+          "seed": "nomination-discount-development-v1-6p",
+          "opponent": "search_geo",
+          "opponent_sha256": null,
+          "games": 96
+        },
+        "candidate": "controls/d1-all1.candidate.json",
+        "contract": "controls/pg-nom-dev-v1-d1-all1-search-geo-6p.contract.json",
+        "opponent_model": null
+      },
+      "source_sha256": "c80788d2627d4e03b228cc08e1bd8d05c8d632bfbe3c98d877b9c11e6f8b84eb",
+      "intent_sha256": "060a10b0192d7798df415e20a0dade4317bd04668dc471410f63572799cf5bc7"
+    }
+  ],
+  "planned_jobs": 50,
+  "submitted_jobs": 2,
+  "planned_games": 3200,
+  "submitted_games": 128,
+  "automatic_retries": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

@@ -1,0 +1,361 @@
+{
+  "complete": true,
+  "created_at": "2026-10-29T22:06:37.382651+00:00",
+  "arms": [
+    {
+      "complete": true,
+      "arm": "d0-all0",
+      "independently_audited": true,
+      "parent_tensors_identical": true,
+      "non_nomination_rows_exact": 256,
+      "ensemble_sha256": "fc59f7b7bc157c1a12a5df2c2f31459ae234ad3333224d271b8d534ef54714fe",
+      "training_report_sha256": "f7a82bf39c2e21b6eee8e96bad25c3c181327cfa702c282e1074441717d5fdec",
+      "members": [
+        {
+          "seed": 15101,
+          "best_epoch": 35,
+          "updates": 2040,
+          "seconds": 5.901837864003028
+        },
+        {
+          "seed": 15102,
+          "best_epoch": 5,
+          "updates": 2040,
+          "seconds": 5.687202567001805
+        },
+        {
+          "seed": 15103,
+          "best_epoch": 35,
+          "updates": 2040,
+          "seconds": 5.686190744003397
+        },
+        {
+          "seed": 15104,
+          "best_epoch": 35,
+          "updates": 2040,
+          "seconds": 5.683872566005448
+        }
+      ],
+      "new_gradient_updates": 8160,
+      "seconds": 24.148954192998644,
+      "metrics": {
+        "train": {
+          "roots": 4326,
+          "weighted_mse": 0.020622501878410266,
+          "mean_simulated_regret": 0.0676246580752042,
+          "mean_simulated_advantage": 0.004865204576976421,
+          "changes": 201,
+          "negative_changes": 47,
+          "half_a_advantage": 0.004644879796578826,
+          "half_b_advantage": 0.005085529357374018
+        },
+        "validation": {
+          "roots": 1444,
+          "weighted_mse": 0.03153802414349298,
+          "mean_simulated_regret": 0.07164343836565097,
+          "mean_simulated_advantage": 0.0008440096952908587,
+          "changes": 56,
+          "negative_changes": 21,
+          "half_a_advantage": 0.0011361668975069252,
+          "half_b_advantage": 0.0005518524930747923
+        }
+      },
+      "qualified": false,
+      "scope": "Target fit and frozen-parent scope checks only; no whole-game strength conclusion.",
+      "job_id": "6ae3ac9d0e0338d1bb7c2560",
+      "receipt": {
+        "storage": "hf_bucket",
+        "bucket": "coyotte508/powergrid-ai-checkpoints",
+        "path": "confirmation-v3/pg-nomination-train-v1-d0-all0/a5f11cd600df6c6304f9d2a1b9ac2b76ff38aa6fa3e1b61fae0f6bad728fa19a.tgz",
+        "archive_sha256": "a5f11cd600df6c6304f9d2a1b9ac2b76ff38aa6fa3e1b61fae0f6bad728fa19a",
+        "manifest_sha256": "d1187d6f97c9c99efd327c4512dc7a7a743ef09499cc95003ed061bce5db8be5",
+        "bytes": 9405896,
+        "server_versioning": false,
+        "max_application_upload_calls": 3,
+        "xet_hash": "aaf477400fb54f488effc4e8c1c6155c0b06fef53ddadc55993a13b976b496b6",
+        "download_verified": true,
+        "application_upload_calls": 1,
+        "reconciled_upload_error_or_interruption": false,
+        "raw_audited": false,
+        "qualified": false
+      },
+      "job_log_sha256": "9828c114708f964cdb868264a6732ac44be0c81482139d641e56448c44582cb1",
+      "collector_sha256": "7e4ae0a2b9ef0814e9cbe6c599e145403795c79b9fea8f8b50d28138a97ffe91",
+      "design_sha256": "cc669a077b3446b6234d38dc433b2428a333ac8f0b41f137a3e9b055c916d3ea"
+    },
+    {
+      "complete": true,
+      "arm": "d0-all1",
+      "independently_audited": true,
+      "parent_tensors_identical": true,
+      "non_nomination_rows_exact": 256,
+      "ensemble_sha256": "decad3e49269b8033c89749202f1f7f694062d7cf8bc8da7bafd26f8f6738b9e",
+      "training_report_sha256": "8d3cbd42521f1745d35e38e76de7d08446743f779a732163751d2ef50770c26f",
+      "members": [
+        {
+          "seed": 15101,
+          "best_epoch": 5,
+          "updates": 2040,
+          "seconds": 5.8208535179999785
+        },
+        {
+          "seed": 15102,
+          "best_epoch": 5,
+          "updates": 2040,
+          "seconds": 5.679085984000011
+        },
+        {
+          "seed": 15103,
+          "best_epoch": 5,
+          "updates": 2040,
+          "seconds": 5.673580893000008
+        },
+        {
+          "seed": 15104,
+          "best_epoch": 5,
+          "updates": 2040,
+          "seconds": 5.64767701400001
+        }
+      ],
+      "new_gradient_updates": 8160,
+      "seconds": 23.754851573999986,
+      "metrics": {
+        "train": {
+          "roots": 4326,
+          "weighted_mse": 0.026699545782841866,
+          "mean_simulated_regret": 0.07160856353059024,
+          "mean_simulated_advantage": 0.0008812991215903837,
+          "changes": 116,
+          "negative_changes": 40,
+          "half_a_advantage": 0.0005056634304207119,
+          "half_b_advantage": 0.0012569348127600556
+        },
+        "validation": {
+          "roots": 1444,
+          "weighted_mse": 0.02663391482866158,
+          "mean_simulated_regret": 0.07111863746537396,
+          "mean_simulated_advantage": 0.001368810595567867,
+          "changes": 36,
+          "negative_changes": 12,
+          "half_a_advantage": 0.0014607860110803323,
+          "half_b_advantage": 0.0012768351800554016
+        }
+      },
+      "qualified": false,
+      "scope": "Target fit and frozen-parent scope checks only; no whole-game strength conclusion.",
+      "job_id": "6ae3ad90c78863f9c62dd3cd",
+      "receipt": {
+        "storage": "hf_bucket",
+        "bucket": "coyotte508/powergrid-ai-checkpoints",
+        "path": "confirmation-v3/pg-nomination-train-v1-d0-all1/a177d1d7cea8e176273b51c523e10d0e4432ccb0419b227a14a51f1704de0071.tgz",
+        "archive_sha256": "a177d1d7cea8e176273b51c523e10d0e4432ccb0419b227a14a51f1704de0071",
+        "manifest_sha256": "60feb6ef3668a9c5ce3d9a5178c6f017f746613c7edd2a7e5df5732411ae8d4d",
+        "bytes": 9403956,
+        "server_versioning": false,
+        "max_application_upload_calls": 3,
+        "xet_hash": "c9189a684c527982e569c2abe450bc53ed5dde4d3af0cd71948534fa3dd7b24a",
+        "download_verified": true,
+        "application_upload_calls": 1,
+        "reconciled_upload_error_or_interruption": false,
+        "raw_audited": false,
+        "qualified": false
+      },
+      "job_log_sha256": "23aad9973d0ab7c3adcf041dfe2acc525c8bd32667fa0ee54ed175c816324f45",
+      "collector_sha256": "7e4ae0a2b9ef0814e9cbe6c599e145403795c79b9fea8f8b50d28138a97ffe91",
+      "design_sha256": "cc669a077b3446b6234d38dc433b2428a333ac8f0b41f137a3e9b055c916d3ea"
+    },
+    {
+      "complete": true,
+      "arm": "d1-all0",
+      "independently_audited": true,
+      "parent_tensors_identical": true,
+      "non_nomination_rows_exact": 256,
+      "ensemble_sha256": "e03263793b76c67ab499c2d6a8d324d325ef1cc2f7fdc94225ffbd1f32b70d74",
+      "training_report_sha256": "df3a060342840db91749a67cbc1c95d030767343147f939735a62aee3379a729",
+      "members": [
+        {
+          "seed": 15101,
+          "best_epoch": 35,
+          "updates": 2040,
+          "seconds": 5.715767087000131
+        },
+        {
+          "seed": 15102,
+          "best_epoch": 100,
+          "updates": 2040,
+          "seconds": 5.505433120997623
+        },
+        {
+          "seed": 15103,
+          "best_epoch": 35,
+          "updates": 2040,
+          "seconds": 5.522913961001905
+        },
+        {
+          "seed": 15104,
+          "best_epoch": 35,
+          "updates": 2040,
+          "seconds": 5.550006909004878
+        }
+      ],
+      "new_gradient_updates": 8160,
+      "seconds": 23.221552010996675,
+      "metrics": {
+        "train": {
+          "roots": 4326,
+          "weighted_mse": 0.017932930062029114,
+          "mean_simulated_regret": 0.06252468119124674,
+          "mean_simulated_advantage": 0.009965181460933888,
+          "changes": 549,
+          "negative_changes": 121,
+          "half_a_advantage": 0.009408951687471105,
+          "half_b_advantage": 0.010521411234396672
+        },
+        "validation": {
+          "roots": 1444,
+          "weighted_mse": 0.03217070436306795,
+          "mean_simulated_regret": 0.06962538954293629,
+          "mean_simulated_advantage": 0.00286205851800554,
+          "changes": 177,
+          "negative_changes": 47,
+          "half_a_advantage": 0.003527527700831025,
+          "half_b_advantage": 0.0021965893351800552
+        }
+      },
+      "qualified": false,
+      "scope": "Target fit and frozen-parent scope checks only; no whole-game strength conclusion.",
+      "job_id": "6ae3ad98c78863f9c62dd3db",
+      "receipt": {
+        "storage": "hf_bucket",
+        "bucket": "coyotte508/powergrid-ai-checkpoints",
+        "path": "confirmation-v3/pg-nomination-train-v1-d1-all0/89860533944cfa18399e6692a076aba5ecbf212a88f042c618a1b640515384fb.tgz",
+        "archive_sha256": "89860533944cfa18399e6692a076aba5ecbf212a88f042c618a1b640515384fb",
+        "manifest_sha256": "504bb5bd5dcb8044fe5248618f2c92c9497ed84acb6de781f716ee62e0479a74",
+        "bytes": 9413584,
+        "server_versioning": false,
+        "max_application_upload_calls": 3,
+        "xet_hash": "23b31b91baab810f0dd6d5e8ef0daaa7d0ce9ce60e218c6a7d27d220c87d4c65",
+        "download_verified": true,
+        "application_upload_calls": 1,
+        "reconciled_upload_error_or_interruption": false,
+        "raw_audited": false,
+        "qualified": false
+      },
+      "job_log_sha256": "3fb8d3bb50a6abdfaf48f84af7d50e3a266ebe44a960c2dfc64dea65f91302b1",
+      "collector_sha256": "7e4ae0a2b9ef0814e9cbe6c599e145403795c79b9fea8f8b50d28138a97ffe91",
+      "design_sha256": "cc669a077b3446b6234d38dc433b2428a333ac8f0b41f137a3e9b055c916d3ea"
+    },
+    {
+      "complete": true,
+      "arm": "d1-all1",
+      "independently_audited": true,
+      "parent_tensors_identical": true,
+      "non_nomination_rows_exact": 256,
+      "ensemble_sha256": "3eac247f7f5550777e0054e6a422390f83af7c61f0856498d962882c73e142f3",
+      "training_report_sha256": "849fc3a031b18f791f8cce07ecf57b5ed71886fc5fba5e25177d43c7a65a7889",
+      "members": [
+        {
+          "seed": 15101,
+          "best_epoch": 5,
+          "updates": 2040,
+          "seconds": 5.790122496999999
+        },
+        {
+          "seed": 15102,
+          "best_epoch": 5,
+          "updates": 2040,
+          "seconds": 5.540437875999999
+        },
+        {
+          "seed": 15103,
+          "best_epoch": 75,
+          "updates": 2040,
+          "seconds": 5.5473531419999915
+        },
+        {
+          "seed": 15104,
+          "best_epoch": 5,
+          "updates": 2040,
+          "seconds": 5.5256671580000045
+        }
+      ],
+      "new_gradient_updates": 8160,
+      "seconds": 23.381449490999984,
+      "metrics": {
+        "train": {
+          "roots": 4326,
+          "weighted_mse": 0.020129026202751185,
+          "mean_simulated_regret": 0.0720239299198644,
+          "mean_simulated_advantage": 0.00046593273231622747,
+          "changes": 55,
+          "negative_changes": 16,
+          "half_a_advantage": 0.0002672792417938049,
+          "half_b_advantage": 0.00066458622283865
+        },
+        "validation": {
+          "roots": 1444,
+          "weighted_mse": 0.02876624195165544,
+          "mean_simulated_regret": 0.07147571849030471,
+          "mean_simulated_advantage": 0.0010117295706371192,
+          "changes": 14,
+          "negative_changes": 3,
+          "half_a_advantage": 0.0011469875346260389,
+          "half_b_advantage": 0.0008764716066481994
+        }
+      },
+      "qualified": false,
+      "scope": "Target fit and frozen-parent scope checks only; no whole-game strength conclusion.",
+      "job_id": "6ae3ad9c0e0338d1bb7c26c8",
+      "receipt": {
+        "storage": "hf_bucket",
+        "bucket": "coyotte508/powergrid-ai-checkpoints",
+        "path": "confirmation-v3/pg-nomination-train-v1-d1-all1/406eb189adc5d09388394208b6bc8b45ea351cd9fe4959aece2f954cea4a4c70.tgz",
+        "archive_sha256": "406eb189adc5d09388394208b6bc8b45ea351cd9fe4959aece2f954cea4a4c70",
+        "manifest_sha256": "6128e1a40c16c5c4142c4a2de1ffb3fea5f84553f78e83ad751e62c89db22e5d",
+        "bytes": 9411539,
+        "server_versioning": false,
+        "max_application_upload_calls": 3,
+        "xet_hash": "8a65a2c7dcb2e0a0824fd9ae2242839e64dd7d29d56fde8c4663122fbb9c0a12",
+        "download_verified": true,
+        "application_upload_calls": 1,
+        "reconciled_upload_error_or_interruption": false,
+        "raw_audited": false,
+        "qualified": false
+      },
+      "job_log_sha256": "29ad5fc2bebc8bf9353681ee195c8af108bd77ec3bf1565a69a40b717a003c65",
+      "collector_sha256": "7e4ae0a2b9ef0814e9cbe6c599e145403795c79b9fea8f8b50d28138a97ffe91",
+      "design_sha256": "cc669a077b3446b6234d38dc433b2428a333ac8f0b41f137a3e9b055c916d3ea"
+    }
+  ],
+  "source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "revision": "e534cbd61c2bfa1f506c37dd195be9725f376639",
+    "archive": "strong-source-nomination-discount-training-v1.tgz",
+    "sha256": "1fa646d432ce7ae34f04328b317fb3ae56aa883a7c7a3d1ed88e66a5e5609682",
+    "manifest_sha256": "62ecfdcb29feb22c39876a457bb5afccd917732304554bfee443f21c60ec336c",
+    "design_sha256": "cc669a077b3446b6234d38dc433b2428a333ac8f0b41f137a3e9b055c916d3ea",
+    "data_report_sha256": "dedec991de80c2615ce6306f7ca561804a59d464b2180fd42ca1fbba0fda718d",
+    "remote_archive_verified": true,
+    "teacher_evidence": {
+      "repo": "coyotte508/powergrid-ai-training-v1",
+      "repo_type": "dataset",
+      "revision": "f1d17a40e4ff6a188617a5dc7fac43cc20735393",
+      "archive": "evidence/auction-discount-teacher-complete-v2.tgz",
+      "sha256": "13866325028a7de6af5b1035e6847e62070932880d66bee8aef913210e9eb342",
+      "manifest_sha256": "1169233e271673bf5d545eaa81b28190d98cff65460247e6475dc510a1fd7030",
+      "remote_archive_verified": true,
+      "roots": 5770,
+      "rollouts": 1940544,
+      "independently_audited": true,
+      "caps": 0,
+      "qualified": false,
+      "reserved_final_seeds_used": false
+    }
+  },
+  "design_sha256": "cc669a077b3446b6234d38dc433b2428a333ac8f0b41f137a3e9b055c916d3ea",
+  "collector_sha256": "7e4ae0a2b9ef0814e9cbe6c599e145403795c79b9fea8f8b50d28138a97ffe91",
+  "new_gradient_updates": 32640,
+  "qualified": false,
+  "reserved_final_seeds_used": false,
+  "next": "Export/serving parity checks and new whole-game development comparison; target fit is not playing strength."
+}

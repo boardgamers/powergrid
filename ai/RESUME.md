@@ -1,5 +1,28 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, latest — GPU training complete and audited; development endpoint jobs submitted.**
+
+Read the top of [the auction training continuation](AUCTION-DISCOUNT-TRAINING-2026-10-29.md).
+All four original L4 jobs completed, 16 seed fits / 32,640 updates, parent tensors
+unchanged. Independent metrics and other-phase checks passed; outputs archived at
+private dataset revision `f0ff1b85261a875d1df5dfd39dd8c783fe559aad`.
+Validation-target advantages are small, not evidence of whole-game strength.
+Strict native/ONNX parity passed 6,026 positions per model; actual public serving
+passed 402 fixtures per policy across all count/rule combinations, preserving all
+332 non-nomination moves. An adapter registration omission was caught and repaired
+before source upload or any game execution; the failed preflight is retained.
+
+The fixed new Germany development plan has 3,200 games / 50 jobs: parent plus all four
+trained arms, search_geo and a260, 2–6p, all four rule combinations, four paired
+deals with every seat. Two originals submitted: `6ae3c67c0e0338d1bb7c3def` (2p/32
+games) and `6ae3c67d0e0338d1bb7c3df2` (6p/96 games). Use
+`strong/collect_nomination_development_v1.py --collect`; only after both independent
+audits pass, `strong/manage_nomination_development_v1.py --launch 48` releases the
+remaining fixed shards. No background runner or objective was created. Check exact
+handles and source pins in `strong/nomination-discount-development-launch-v1.json`.
+Do not repeat completed training, mutate frozen policies, use final seeds or deploy.
+The old confirmation collector remains stopped on its missing-log issue below.
+
 **29 October — all teacher data audited; four GPU training jobs submitted.**
 
 Read [the auction training continuation](AUCTION-DISCOUNT-TRAINING-2026-10-29.md).

@@ -1,0 +1,575 @@
+{
+  "complete": true,
+  "arms": [
+    {
+      "arm": "d0-all0",
+      "model_sha256": "b236aa87ce9f9b1d5e2c8be376b627a5d5309e8cfad8e954799209da88087a8d",
+      "groups": {
+        "all": {
+          "roots": 1444,
+          "changes": 56,
+          "positive_changes": 27,
+          "negative_changes": 21,
+          "mean_sampled_advantage": 0.0008440096952908587,
+          "half_a_advantage": 0.0011361668975069252,
+          "half_b_advantage": 0.0005518524930747923
+        },
+        "players/4": {
+          "roots": 288,
+          "changes": 12,
+          "positive_changes": 5,
+          "negative_changes": 4,
+          "mean_sampled_advantage": 0.001925998263888889,
+          "half_a_advantage": 0.002224392361111111,
+          "half_b_advantage": 0.0016276041666666667
+        },
+        "kind/original_control": {
+          "roots": 720,
+          "changes": 26,
+          "positive_changes": 17,
+          "negative_changes": 8,
+          "mean_sampled_advantage": 0.0022135416666666666,
+          "half_a_advantage": 0.001736111111111111,
+          "half_b_advantage": 0.002690972222222222
+        },
+        "rules/original/sealed": {
+          "roots": 360,
+          "changes": 16,
+          "positive_changes": 11,
+          "negative_changes": 5,
+          "mean_sampled_advantage": 0.0034288194444444444,
+          "half_a_advantage": 0.003125,
+          "half_b_advantage": 0.003732638888888889
+        },
+        "players/5": {
+          "roots": 288,
+          "changes": 6,
+          "positive_changes": 2,
+          "negative_changes": 2,
+          "mean_sampled_advantage": -8.138020833333333e-05,
+          "half_a_advantage": -0.00048828125,
+          "half_b_advantage": 0.0003255208333333333
+        },
+        "kind/discount_included": {
+          "roots": 545,
+          "changes": 23,
+          "positive_changes": 7,
+          "negative_changes": 10,
+          "mean_sampled_advantage": -0.001132454128440367,
+          "half_a_advantage": -0.00011467889908256881,
+          "half_b_advantage": -0.0021502293577981653
+        },
+        "rules/recharged/open": {
+          "roots": 363,
+          "changes": 18,
+          "positive_changes": 5,
+          "negative_changes": 6,
+          "mean_sampled_advantage": -0.0003013085399449036,
+          "half_a_advantage": 0.00021522038567493114,
+          "half_b_advantage": -0.0008178374655647383
+        },
+        "players/2": {
+          "roots": 288,
+          "changes": 13,
+          "positive_changes": 6,
+          "negative_changes": 5,
+          "mean_sampled_advantage": 0.0018988715277777778,
+          "half_a_advantage": 0.003363715277777778,
+          "half_b_advantage": 0.00043402777777777775
+        },
+        "rules/original/open": {
+          "roots": 360,
+          "changes": 10,
+          "positive_changes": 6,
+          "negative_changes": 3,
+          "mean_sampled_advantage": 0.0009982638888888888,
+          "half_a_advantage": 0.00034722222222222224,
+          "half_b_advantage": 0.0016493055555555556
+        },
+        "rules/recharged/sealed": {
+          "roots": 361,
+          "changes": 12,
+          "positive_changes": 5,
+          "negative_changes": 7,
+          "mean_sampled_advantage": -0.000735803324099723,
+          "half_a_advantage": 0.0008656509695290858,
+          "half_b_advantage": -0.0023372576177285317
+        },
+        "players/6": {
+          "roots": 292,
+          "changes": 9,
+          "positive_changes": 5,
+          "negative_changes": 3,
+          "mean_sampled_advantage": -0.0010434503424657535,
+          "half_a_advantage": -0.0011237157534246575,
+          "half_b_advantage": -0.0009631849315068493
+        },
+        "players/3": {
+          "roots": 288,
+          "changes": 16,
+          "positive_changes": 9,
+          "negative_changes": 7,
+          "mean_sampled_advantage": 0.0015462239583333333,
+          "half_a_advantage": 0.001736111111111111,
+          "half_b_advantage": 0.0013563368055555555
+        },
+        "kind/recharged_no_discount": {
+          "roots": 90,
+          "changes": 5,
+          "positive_changes": 2,
+          "negative_changes": 2,
+          "mean_sampled_advantage": -0.0033854166666666668,
+          "half_a_advantage": -0.0015625,
+          "half_b_advantage": -0.005208333333333333
+        },
+        "kind/discount_excluded": {
+          "roots": 85,
+          "changes": 2,
+          "positive_changes": 1,
+          "negative_changes": 1,
+          "mean_sampled_advantage": 0.006433823529411764,
+          "half_a_advantage": 0.006985294117647059,
+          "half_b_advantage": 0.0058823529411764705
+        },
+        "kind/newly_affordable": {
+          "roots": 4,
+          "changes": 0,
+          "positive_changes": 0,
+          "negative_changes": 0,
+          "mean_sampled_advantage": 0.0,
+          "half_a_advantage": 0.0,
+          "half_b_advantage": 0.0
+        }
+      }
+    },
+    {
+      "arm": "d0-all1",
+      "model_sha256": "47b50ee56ed3c71b986e4705bc7be49a88e91b7b71fad8b8a27d2a35a3346759",
+      "groups": {
+        "all": {
+          "roots": 1444,
+          "changes": 36,
+          "positive_changes": 18,
+          "negative_changes": 12,
+          "mean_sampled_advantage": 0.001368810595567867,
+          "half_a_advantage": 0.0014607860110803323,
+          "half_b_advantage": 0.0012768351800554016
+        },
+        "players/4": {
+          "roots": 288,
+          "changes": 10,
+          "positive_changes": 5,
+          "negative_changes": 2,
+          "mean_sampled_advantage": 0.005669487847222222,
+          "half_a_advantage": 0.005425347222222222,
+          "half_b_advantage": 0.005913628472222222
+        },
+        "kind/original_control": {
+          "roots": 720,
+          "changes": 23,
+          "positive_changes": 14,
+          "negative_changes": 7,
+          "mean_sampled_advantage": 0.002777777777777778,
+          "half_a_advantage": 0.0024305555555555556,
+          "half_b_advantage": 0.003125
+        },
+        "rules/original/sealed": {
+          "roots": 360,
+          "changes": 14,
+          "positive_changes": 9,
+          "negative_changes": 4,
+          "mean_sampled_advantage": 0.003363715277777778,
+          "half_a_advantage": 0.002907986111111111,
+          "half_b_advantage": 0.0038194444444444443
+        },
+        "players/5": {
+          "roots": 288,
+          "changes": 6,
+          "positive_changes": 2,
+          "negative_changes": 3,
+          "mean_sampled_advantage": -0.000244140625,
+          "half_a_advantage": -5.425347222222222e-05,
+          "half_b_advantage": -0.00043402777777777775
+        },
+        "kind/discount_included": {
+          "roots": 545,
+          "changes": 10,
+          "positive_changes": 3,
+          "negative_changes": 3,
+          "mean_sampled_advantage": -0.00014334862385321102,
+          "half_a_advantage": 0.00040137614678899085,
+          "half_b_advantage": -0.0006880733944954129
+        },
+        "rules/recharged/open": {
+          "roots": 363,
+          "changes": 8,
+          "positive_changes": 3,
+          "negative_changes": 2,
+          "mean_sampled_advantage": 0.0005165289256198347,
+          "half_a_advantage": 0.000946969696969697,
+          "half_b_advantage": 8.608815426997245e-05
+        },
+        "players/2": {
+          "roots": 288,
+          "changes": 1,
+          "positive_changes": 1,
+          "negative_changes": 0,
+          "mean_sampled_advantage": 0.0005425347222222222,
+          "half_a_advantage": 0.0005425347222222222,
+          "half_b_advantage": 0.0005425347222222222
+        },
+        "rules/original/open": {
+          "roots": 360,
+          "changes": 9,
+          "positive_changes": 5,
+          "negative_changes": 3,
+          "mean_sampled_advantage": 0.002191840277777778,
+          "half_a_advantage": 0.001953125,
+          "half_b_advantage": 0.0024305555555555556
+        },
+        "rules/recharged/sealed": {
+          "roots": 361,
+          "changes": 5,
+          "positive_changes": 1,
+          "negative_changes": 3,
+          "mean_sampled_advantage": -0.0005843144044321329,
+          "half_a_advantage": 4.3282548476454294e-05,
+          "half_b_advantage": -0.0012119113573407201
+        },
+        "players/6": {
+          "roots": 292,
+          "changes": 12,
+          "positive_changes": 6,
+          "negative_changes": 4,
+          "mean_sampled_advantage": 0.0004280821917808219,
+          "half_a_advantage": 0.00048159246575342463,
+          "half_b_advantage": 0.00037457191780821916
+        },
+        "players/3": {
+          "roots": 288,
+          "changes": 7,
+          "positive_changes": 4,
+          "negative_changes": 3,
+          "mean_sampled_advantage": 0.0004611545138888889,
+          "half_a_advantage": 0.0009223090277777778,
+          "half_b_advantage": 0.0
+        },
+        "kind/recharged_no_discount": {
+          "roots": 90,
+          "changes": 1,
+          "positive_changes": 1,
+          "negative_changes": 0,
+          "mean_sampled_advantage": 0.0014756944444444444,
+          "half_a_advantage": 0.0019097222222222222,
+          "half_b_advantage": 0.0010416666666666667
+        },
+        "kind/discount_excluded": {
+          "roots": 85,
+          "changes": 2,
+          "positive_changes": 0,
+          "negative_changes": 2,
+          "mean_sampled_advantage": -0.0009191176470588235,
+          "half_a_advantage": -0.0003676470588235294,
+          "half_b_advantage": -0.0014705882352941176
+        },
+        "kind/newly_affordable": {
+          "roots": 4,
+          "changes": 0,
+          "positive_changes": 0,
+          "negative_changes": 0,
+          "mean_sampled_advantage": 0.0,
+          "half_a_advantage": 0.0,
+          "half_b_advantage": 0.0
+        }
+      }
+    },
+    {
+      "arm": "d1-all0",
+      "model_sha256": "9424cf1647edff6173a0816a614957ef1d2cfd3dd5c66eea747c46d0851edf20",
+      "groups": {
+        "all": {
+          "roots": 1444,
+          "changes": 177,
+          "positive_changes": 83,
+          "negative_changes": 47,
+          "mean_sampled_advantage": 0.00286205851800554,
+          "half_a_advantage": 0.003527527700831025,
+          "half_b_advantage": 0.0021965893351800552
+        },
+        "players/4": {
+          "roots": 288,
+          "changes": 36,
+          "positive_changes": 13,
+          "negative_changes": 11,
+          "mean_sampled_advantage": 0.0009494357638888889,
+          "half_a_advantage": 0.0008680555555555555,
+          "half_b_advantage": 0.0010308159722222222
+        },
+        "kind/original_control": {
+          "roots": 720,
+          "changes": 77,
+          "positive_changes": 45,
+          "negative_changes": 18,
+          "mean_sampled_advantage": 0.002864583333333333,
+          "half_a_advantage": 0.003146701388888889,
+          "half_b_advantage": 0.0025824652777777777
+        },
+        "rules/original/sealed": {
+          "roots": 360,
+          "changes": 40,
+          "positive_changes": 25,
+          "negative_changes": 10,
+          "mean_sampled_advantage": 0.0035807291666666665,
+          "half_a_advantage": 0.004166666666666667,
+          "half_b_advantage": 0.002994791666666667
+        },
+        "players/5": {
+          "roots": 288,
+          "changes": 40,
+          "positive_changes": 15,
+          "negative_changes": 10,
+          "mean_sampled_advantage": 0.0008409288194444445,
+          "half_a_advantage": 0.00244140625,
+          "half_b_advantage": -0.0007595486111111111
+        },
+        "kind/discount_included": {
+          "roots": 545,
+          "changes": 75,
+          "positive_changes": 26,
+          "negative_changes": 22,
+          "mean_sampled_advantage": -0.0006163990825688074,
+          "half_a_advantage": 0.00048738532110091746,
+          "half_b_advantage": -0.0017201834862385322
+        },
+        "rules/recharged/open": {
+          "roots": 363,
+          "changes": 57,
+          "positive_changes": 18,
+          "negative_changes": 17,
+          "mean_sampled_advantage": 0.002690254820936639,
+          "half_a_advantage": 0.0032713498622589533,
+          "half_b_advantage": 0.002109159779614325
+        },
+        "players/2": {
+          "roots": 288,
+          "changes": 40,
+          "positive_changes": 23,
+          "negative_changes": 13,
+          "mean_sampled_advantage": 0.00341796875,
+          "half_a_advantage": 0.0068359375,
+          "half_b_advantage": 0.0
+        },
+        "rules/original/open": {
+          "roots": 360,
+          "changes": 37,
+          "positive_changes": 20,
+          "negative_changes": 8,
+          "mean_sampled_advantage": 0.0021484375,
+          "half_a_advantage": 0.002126736111111111,
+          "half_b_advantage": 0.002170138888888889
+        },
+        "rules/recharged/sealed": {
+          "roots": 361,
+          "changes": 43,
+          "positive_changes": 20,
+          "negative_changes": 12,
+          "mean_sampled_advantage": 0.0030297783933518007,
+          "half_a_advantage": 0.004544667590027701,
+          "half_b_advantage": 0.0015148891966759003
+        },
+        "players/6": {
+          "roots": 292,
+          "changes": 32,
+          "positive_changes": 15,
+          "negative_changes": 7,
+          "mean_sampled_advantage": 0.003210616438356164,
+          "half_a_advantage": 0.0031571061643835617,
+          "half_b_advantage": 0.003264126712328767
+        },
+        "players/3": {
+          "roots": 288,
+          "changes": 29,
+          "positive_changes": 17,
+          "negative_changes": 6,
+          "mean_sampled_advantage": 0.005886501736111111,
+          "half_a_advantage": 0.004340277777777778,
+          "half_b_advantage": 0.007432725694444444
+        },
+        "kind/recharged_no_discount": {
+          "roots": 90,
+          "changes": 13,
+          "positive_changes": 6,
+          "negative_changes": 4,
+          "mean_sampled_advantage": -0.002951388888888889,
+          "half_a_advantage": -0.0022569444444444442,
+          "half_b_advantage": -0.0036458333333333334
+        },
+        "kind/discount_excluded": {
+          "roots": 85,
+          "changes": 12,
+          "positive_changes": 6,
+          "negative_changes": 3,
+          "mean_sampled_advantage": 0.031433823529411764,
+          "half_a_advantage": 0.032536764705882355,
+          "half_b_advantage": 0.030330882352941176
+        },
+        "kind/newly_affordable": {
+          "roots": 4,
+          "changes": 0,
+          "positive_changes": 0,
+          "negative_changes": 0,
+          "mean_sampled_advantage": 0.0,
+          "half_a_advantage": 0.0,
+          "half_b_advantage": 0.0
+        }
+      }
+    },
+    {
+      "arm": "d1-all1",
+      "model_sha256": "a3b0d0eacc43aa8279234e910da262935234019eb044d4719e75154943488d9c",
+      "groups": {
+        "all": {
+          "roots": 1444,
+          "changes": 14,
+          "positive_changes": 9,
+          "negative_changes": 3,
+          "mean_sampled_advantage": 0.0010117295706371192,
+          "half_a_advantage": 0.0011469875346260389,
+          "half_b_advantage": 0.0008764716066481994
+        },
+        "players/4": {
+          "roots": 288,
+          "changes": 5,
+          "positive_changes": 3,
+          "negative_changes": 1,
+          "mean_sampled_advantage": 0.0023057725694444445,
+          "half_a_advantage": 0.002495659722222222,
+          "half_b_advantage": 0.0021158854166666665
+        },
+        "kind/original_control": {
+          "roots": 720,
+          "changes": 10,
+          "positive_changes": 7,
+          "negative_changes": 2,
+          "mean_sampled_advantage": 0.002018229166666667,
+          "half_a_advantage": 0.0019314236111111112,
+          "half_b_advantage": 0.002105034722222222
+        },
+        "rules/original/sealed": {
+          "roots": 360,
+          "changes": 9,
+          "positive_changes": 6,
+          "negative_changes": 2,
+          "mean_sampled_advantage": 0.002387152777777778,
+          "half_a_advantage": 0.001953125,
+          "half_b_advantage": 0.0028211805555555555
+        },
+        "players/5": {
+          "roots": 288,
+          "changes": 3,
+          "positive_changes": 2,
+          "negative_changes": 0,
+          "mean_sampled_advantage": 0.003119574652777778,
+          "half_a_advantage": 0.0030924479166666665,
+          "half_b_advantage": 0.003146701388888889
+        },
+        "kind/discount_included": {
+          "roots": 545,
+          "changes": 3,
+          "positive_changes": 1,
+          "negative_changes": 1,
+          "mean_sampled_advantage": -0.00022935779816513763,
+          "half_a_advantage": 0.00017201834862385322,
+          "half_b_advantage": -0.0006307339449541285
+        },
+        "rules/recharged/open": {
+          "roots": 363,
+          "changes": 2,
+          "positive_changes": 1,
+          "negative_changes": 0,
+          "mean_sampled_advantage": 0.0003443526170798898,
+          "half_a_advantage": 0.0007747933884297521,
+          "half_b_advantage": -8.608815426997245e-05
+        },
+        "players/2": {
+          "roots": 288,
+          "changes": 0,
+          "positive_changes": 0,
+          "negative_changes": 0,
+          "mean_sampled_advantage": 0.0,
+          "half_a_advantage": 0.0,
+          "half_b_advantage": 0.0
+        },
+        "rules/original/open": {
+          "roots": 360,
+          "changes": 1,
+          "positive_changes": 1,
+          "negative_changes": 0,
+          "mean_sampled_advantage": 0.0016493055555555556,
+          "half_a_advantage": 0.0019097222222222222,
+          "half_b_advantage": 0.001388888888888889
+        },
+        "rules/recharged/sealed": {
+          "roots": 361,
+          "changes": 2,
+          "positive_changes": 1,
+          "negative_changes": 1,
+          "mean_sampled_advantage": -0.0003246191135734072,
+          "half_a_advantage": -4.3282548476454294e-05,
+          "half_b_advantage": -0.0006059556786703601
+        },
+        "players/6": {
+          "roots": 292,
+          "changes": 2,
+          "positive_changes": 1,
+          "negative_changes": 1,
+          "mean_sampled_advantage": -0.0007758989726027397,
+          "half_a_advantage": -0.0006956335616438356,
+          "half_b_advantage": -0.0008561643835616438
+        },
+        "players/3": {
+          "roots": 288,
+          "changes": 4,
+          "positive_changes": 3,
+          "negative_changes": 1,
+          "mean_sampled_advantage": 0.00043402777777777775,
+          "half_a_advantage": 0.0008680555555555555,
+          "half_b_advantage": 0.0
+        },
+        "kind/recharged_no_discount": {
+          "roots": 90,
+          "changes": 1,
+          "positive_changes": 1,
+          "negative_changes": 0,
+          "mean_sampled_advantage": 0.0014756944444444444,
+          "half_a_advantage": 0.0019097222222222222,
+          "half_b_advantage": 0.0010416666666666667
+        },
+        "kind/discount_excluded": {
+          "roots": 85,
+          "changes": 0,
+          "positive_changes": 0,
+          "negative_changes": 0,
+          "mean_sampled_advantage": 0.0,
+          "half_a_advantage": 0.0,
+          "half_b_advantage": 0.0
+        },
+        "kind/newly_affordable": {
+          "roots": 4,
+          "changes": 0,
+          "positive_changes": 0,
+          "negative_changes": 0,
+          "mean_sampled_advantage": 0.0,
+          "half_a_advantage": 0.0,
+          "half_b_advantage": 0.0
+        }
+      }
+    }
+  ],
+  "data_report_sha256": "dedec991de80c2615ce6306f7ca561804a59d464b2180fd42ca1fbba0fda718d",
+  "export_report_sha256": "23aa048d0bf7cf98101dad8064f6ad6fb47f2e39a947c9228ba70b3b43b6e6c6",
+  "new_games": 0,
+  "new_gradients": 0,
+  "qualified": false,
+  "interpretation": "Validation positions were used for checkpoint selection. These are sampled conditional continuation margins, not independent whole-game win rates or calibrated confidence."
+}

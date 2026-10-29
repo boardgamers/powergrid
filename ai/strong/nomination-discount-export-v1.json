@@ -1,0 +1,91 @@
+{
+  "complete": true,
+  "arms": [
+    {
+      "arm": "d0-all0",
+      "complete": true,
+      "checks": {
+        "nomination": 5770,
+        "other_phases": 256
+      },
+      "all_native_onnx_choices_equal": true,
+      "other_phase_parent_choices_equal": 256,
+      "max_absolute_errors": [
+        1.610676036989389e-10,
+        1.4215406629602967e-11
+      ],
+      "source_checkpoint_sha256": "fc59f7b7bc157c1a12a5df2c2f31459ae234ad3333224d271b8d534ef54714fe",
+      "files": {
+        "inference64.onnx": "b236aa87ce9f9b1d5e2c8be376b627a5d5309e8cfad8e954799209da88087a8d",
+        "inference64.pt": "5a9397aef6f8eddff0f276e85ebb05bec36f82d5653932a723fb923dd1215507"
+      },
+      "qualified": false
+    },
+    {
+      "arm": "d0-all1",
+      "complete": true,
+      "checks": {
+        "nomination": 5770,
+        "other_phases": 256
+      },
+      "all_native_onnx_choices_equal": true,
+      "other_phase_parent_choices_equal": 256,
+      "max_absolute_errors": [
+        1.610676036989389e-10,
+        1.4215406629602967e-11
+      ],
+      "source_checkpoint_sha256": "decad3e49269b8033c89749202f1f7f694062d7cf8bc8da7bafd26f8f6738b9e",
+      "files": {
+        "inference64.onnx": "47b50ee56ed3c71b986e4705bc7be49a88e91b7b71fad8b8a27d2a35a3346759",
+        "inference64.pt": "86aa41ced21d72b7df240b3615855e51752adb2f454bea44907b78f5f9fa82d7"
+      },
+      "qualified": false
+    },
+    {
+      "arm": "d1-all0",
+      "complete": true,
+      "checks": {
+        "nomination": 5770,
+        "other_phases": 256
+      },
+      "all_native_onnx_choices_equal": true,
+      "other_phase_parent_choices_equal": 256,
+      "max_absolute_errors": [
+        1.610676036989389e-10,
+        1.4215406629602967e-11
+      ],
+      "source_checkpoint_sha256": "e03263793b76c67ab499c2d6a8d324d325ef1cc2f7fdc94225ffbd1f32b70d74",
+      "files": {
+        "inference64.onnx": "9424cf1647edff6173a0816a614957ef1d2cfd3dd5c66eea747c46d0851edf20",
+        "inference64.pt": "4451ebf4178145d84b58fc2dbc4184dc73acd86fc2e6c0791f3c719137a44591"
+      },
+      "qualified": false
+    },
+    {
+      "arm": "d1-all1",
+      "complete": true,
+      "checks": {
+        "nomination": 5770,
+        "other_phases": 256
+      },
+      "all_native_onnx_choices_equal": true,
+      "other_phase_parent_choices_equal": 256,
+      "max_absolute_errors": [
+        1.610676036989389e-10,
+        1.4215406629602967e-11
+      ],
+      "source_checkpoint_sha256": "3eac247f7f5550777e0054e6a422390f83af7c61f0856498d962882c73e142f3",
+      "files": {
+        "inference64.onnx": "a3b0d0eacc43aa8279234e910da262935234019eb044d4719e75154943488d9c",
+        "inference64.pt": "3c19961721006f7a3fabe7e1523c8d3e7a3991a0aea7abb78827aebecf569da7"
+      },
+      "qualified": false
+    }
+  ],
+  "training_results_sha256": "9be466e693d764032f3646db9e37c0758b5a8a3c6e4fa63ca88eaec1879e66be",
+  "exporter_sha256": "8f80966023521d96d34f1f3e2d0d9540f8c8b378a3c389a3889d3874c551c3de",
+  "new_games": 0,
+  "new_gradients": 0,
+  "qualified": false,
+  "remaining": "Current public-serving fixtures and fresh full-game development evaluation."
+}

@@ -72124,5 +72124,75 @@
         "candidate_selected": false,
         "qualified": false,
         "reserved_final_seeds_used": false
+    },
+    "nomination_discount_training_audited_20261029": {
+        "created_at": "2026-10-29T22:23:15.574826+00:00",
+        "stage": "training_audited_development_endpoint_jobs_running",
+        "completed_training_jobs": 4,
+        "retained_seed_members": 16,
+        "new_gradient_updates": 32640,
+        "aggregate_training_seconds": 94.50680726899529,
+        "parent_tensors_unchanged": true,
+        "training_results_file": "ai/strong/nomination-discount-training-results-v1.json",
+        "training_results_sha256": "9be466e693d764032f3646db9e37c0758b5a8a3c6e4fa63ca88eaec1879e66be",
+        "training_evidence": {
+            "repo": "coyotte508/powergrid-ai-training-v1",
+            "repo_type": "dataset",
+            "revision": "f0ff1b85261a875d1df5dfd39dd8c783fe559aad",
+            "archive": "evidence/nomination-discount-training-v1.tgz",
+            "sha256": "374a791de6ca2d6b473a9c0f054952899d09954976daa1dad53f387a6dd57e9f",
+            "manifest_sha256": "f55c048cd5d34819ea82d34d39513fdecc2c8eab9b3b13aca69f0b16dd980fa6",
+            "remote_archive_verified": true,
+            "independently_audited": true,
+            "arms": 4,
+            "seeds_per_arm": 4,
+            "new_gradient_updates": 32640,
+            "qualified": false
+        },
+        "validation_interpretation": "Small selected-validation conditional continuation margins, not independent whole-game strength gains.",
+        "native_onnx_cases_per_model": 6026,
+        "public_serving_cases_per_policy": 402,
+        "public_non_nomination_cases_preserved_per_model": 332,
+        "preflight_evidence": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "950c08c92068ad4aea36e036b7d5f9d5289b7a4a",
+            "archive_path": "archives/nomination-discount-development-preflight-evidence-v1.tgz",
+            "archive_sha256": "134c81911e8eb85d14a0368b65a38b88344156cf89c44dde3522eab06fe24a56",
+            "manifest_sha256": "55fd97be892cbe868af61ad559515076aa0bc10e2dc5e49851f41ad0c0790657",
+            "archived_files": 27,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "development_protocol_file": "ai/strong/nomination-discount-development-protocol-v1.json",
+        "development_protocol_sha256": "2f7fe04791c0cb6ac0bb0f8712b73dde3714cf96693c9cd3a1f68fe8bd785251",
+        "development_source": {
+            "repo": "coyotte508/powergrid-ai-training-v1",
+            "revision": "b2f0cc2e891f63efd0772376132328520659fef9",
+            "archive": "strong-source-nomination-discount-development-v1.tgz",
+            "sha256": "738b855e02970c0986f947b10cb7011bdc146e92580a4c0f85968361eb4b9261",
+            "manifest_sha256": "b6e419726bce8a3dad4d5dd17e38b8802b0b72cd5ae272ea02cd37c8bcdc2fe4",
+            "protocol_sha256": "2f7fe04791c0cb6ac0bb0f8712b73dde3714cf96693c9cd3a1f68fe8bd785251",
+            "serving_check_sha256": "5d4a1fcc0e1c94dc7c94e190836b96ec0330b763c02e3d234b56ada326a60b52",
+            "remote_archive_verified": true
+        },
+        "initial_development_jobs": [
+            {
+                "name": "pg-nom-dev-v1-d1-all1-search-geo-2p",
+                "job_id": "6ae3c67c0e0338d1bb7c3def",
+                "stage": "RUNNING"
+            },
+            {
+                "name": "pg-nom-dev-v1-d1-all1-search-geo-6p",
+                "job_id": "6ae3c67d0e0338d1bb7c3df2",
+                "stage": "RUNNING"
+            }
+        ],
+        "planned_development_games": 3200,
+        "submitted_development_games": 128,
+        "automatic_objective": "removed_by_user_do_not_recreate",
+        "automatic_retries": false,
+        "candidate_selected": false,
+        "qualified": false,
+        "reserved_final_seeds_used": false
     }
 }

@@ -5,7 +5,103 @@ research and training in this chat. Do not recreate an objective. The separate
 confirmation finisher stopped on a missing HF log receipt; its frozen policies,
 deals and selection criteria are unchanged. No game deployment is part of this work.
 
-## Latest continuation — teacher audit complete, GPU training submitted
+## Latest continuation — GPU training audited, full-game screen prepared
+
+All four original GPU jobs **COMPLETED**. All 16 prescribed seed fits ran their
+120 epochs: **32,640 optimizer updates**. Independent collection verified the
+four bucket archives, all retained heads, selected epochs, training/data hashes,
+unchanged parent tensors, actual update counts and independently recomputed CPU
+metrics. Each trained model also preserved the parent exactly on 256 actual
+non-nomination rows. No model has been selected or qualified.
+
+Training itself took 94.51 aggregate worker seconds (23.2–24.1 seconds per arm),
+excluding scheduling, environment setup, downloads and upload. More GPU compute
+is not currently the bottleneck: generating useful teacher continuations and
+measuring whole-game strength dominate.
+
+The exported policies' validation choices are:
+
+| Arm | Changed choices / 1,444 | Positive / negative sampled changes | Average sampled advantage |
+| --- | ---: | ---: | ---: |
+| d0-all0 | 56 | 27 / 21 | +0.000844 |
+| d0-all1 | 36 | 18 / 12 | +0.001369 |
+| d1-all0 | 177 | 83 / 47 | +0.002862 |
+| d1-all1 | 14 | 9 / 3 | +0.001012 |
+
+These are conditional terminal-credit margins on saved validation positions
+already used for checkpoint selection, **not measured full-game win-rate gains**.
+The apparent gains are small; the full-coverage ensemble is especially reluctant
+to intervene. Keep all four arms for the planned game screen. If actual games
+remain flat, revisit target quality/representation and ensemble selection rather
+than simply spending more epochs or GPUs. Per-count/rule/category diagnostics are
+in `strong/nomination-discount-validation-analysis-v1.json`.
+
+Full trained outputs, logs, original bucket receipts and independent audits are
+archived in private dataset `coyotte508/powergrid-ai-training-v1`, revision
+`f0ff1b85261a875d1df5dfd39dd8c783fe559aad`,
+`evidence/nomination-discount-training-v1.tgz`.
+Descriptor: `strong/nomination-discount-training-evidence-v1.json`.
+Report: `strong/nomination-discount-training-results-v1.json`.
+Do not rerun the completed training or repeat its collector.
+
+All four float64 ONNX exports preserve the stored weights and passed strict
+native/ONNX checks on 5,770 nomination + 256 other-phase positions each. Choices
+matched throughout; maximum absolute output error was below 2e-10. The original
+parent's other-phase choices/outputs also matched. These are local inference
+checks, not simulations or new training.
+
+The isolated development runtime adds schema 4.4 registration only; original
+engine rules, legal menus, loss filter, historical artifacts and confirmation
+policies remain unchanged. It explicitly rejects final-game contracts. Public
+serving passed 402 existing fixtures per policy, spanning all 20 player-count /
+rule combinations and first/last cases for each phase/menu group. The copied
+parent matched the original on all 402; all four trained policies matched the
+parent on all 332 non-nomination cases. The first preflight caught an omitted
+schema registration in `hybrid-continuations.cjs`; its failure is preserved under
+`runs/nomination-discount-development-v1-preflight-failure-01/`. It was repaired
+before source upload or any HF game execution.
+
+**Development screen: 3,200 Germany games / 50 jobs.** The unchanged parent and all four
+trained arms face fixed `search_geo` and a260 opponents, at every count 2–6,
+Original/Recharged × open/sealed. Four independent deals per cell, all seat
+rotations, shared seeds across arms. Compare paired deal-level differences, and
+treat four deals as a screen rather than precise qualification. New seed namespace
+`nomination-discount-development-v1-{players}p` is separate from training,
+confirmation and reserved final seeds. No candidate search is enabled; the
+existing building-loss filter is retained identically.
+
+Source overlay is archived at private dataset revision
+`b2f0cc2e891f63efd0772376132328520659fef9`,
+`strong-source-nomination-discount-development-v1.tgz`. It pins the unchanged
+current-engine source separately and verifies every overlay before applying it.
+All 50 actual runner contracts passed non-executing validation.
+
+The first two original endpoint jobs were submitted and effective configuration
+checked (4 CPU workers, one inference thread, `cpu-upgrade`, five-hour timeout):
+
+- `6ae3c67c0e0338d1bb7c3def` — d1-all1 vs search_geo, 2 players, 32 games.
+- `6ae3c67d0e0338d1bb7c3df2` — d1-all1 vs search_geo, 6 players, 96 games.
+
+The other 48 shards remain unsubmitted until both originals pass collection.
+Use `strong/collect_nomination_development_v1.py --collect` with the usual
+`PYTHONPATH=ai/strong ai/.venv/bin/python -u -B` prefix. It observes only original
+handles, verifies retained archives and reruns the raw game/decision audit in the
+isolated runtime. Once both endpoints are verified, use
+`strong/manage_nomination_development_v1.py --launch 48`. Never overwrite launch
+intents, retry ambiguous submissions or silently replace failed games. This is a
+finite fixed screen, not a recreated objective or background automation.
+
+Exact controls and handles: `strong/nomination-discount-development-protocol-v1.json`,
+`strong/nomination-discount-development-source-v1.json`,
+`strong/nomination-discount-development-launch-v1.json`.
+Read `runs/nomination-discount-development-collected-v1/state.json` for the latest
+observation. Final comparison and archival collection remain pending.
+
+The older confirmation collector's missing-log failure remains separate and
+unresolved; its STOP and original data are preserved. Do not let this new screen
+stand in for that unfinished study or claim it qualifies either old or new models.
+
+## Previous continuation — teacher audit complete, GPU training submitted
 
 All **60 original teacher jobs completed**. The independent collector checked
 **5,770 roots / 1,940,544 action-world continuations**, with **zero truncations**.

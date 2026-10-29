@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "created_at": "2026-10-29T08:06:58.260151+00:00",
+  "scope": "Consistent-pair retention and verified private transport on one already-audited game; no new game or full recovery execution.",
+  "tests": 13,
+  "test_log_sha256": "d99be0df99078b7b312fb767cbc569cf8fb26b4acbda018574c9c5d95cd46be9",
+  "retention_sha256": "fe1edbf68b2cfda8786d9e68b133db20f4335fedd72816374db486571e37f3fe",
+  "test_sha256": "2d19000ecea9a3c9f90bd376e1fc4402ac5cab19696fdd350a7ce4299749369d",
+  "original_job_id": "6ae2c3f741e90535df782f3b",
+  "original_row_name": "pg-current-confirm-v1-pop-search_geo-4p-06",
+  "episode": 100,
+  "original_archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "f7542962ab74ed9826daee7d2b074543e3e222ba",
+    "archive_path": "archives/pg-current-confirm-v1-pop-search_geo-4p-06.tgz",
+    "archive_sha256": "d8874d31bebd97ece1dc206f3acbc7a5e09d7cc47e533f945117cdd6a1e7df68",
+    "manifest_sha256": "b480a26c024cad99da7886ebe85bed78fa0d51cfa1f39a9f72d329c483b75179",
+    "archived_files": 61,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "retained_original_hashes": {
+    "game-100.json": "6238115de23fbe0983d12ec1b74ec1dd363fc1165a0cfd2684f15de130e22387",
+    "decisions-100.jsonl": "fa2493e3db9bc1c8b0ad212afaaf6995a19eb54d0e1200749ba8a1bbad106982"
+  },
+  "real_private_checkpoint_archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "22dc795707f34405d51d2e1a2e9906a5ffcd05ff",
+    "archive_path": "archives/pg-retention-v2-preflight-existing-4p-checkpoint-0001.tgz",
+    "archive_sha256": "722d96082f58c3cf78675b23d1fd777bb94db80cae5e20402ca1818acf417c2d",
+    "manifest_sha256": "b54e9e5e3da7a7c5128f10841d42810615f8d7d7e92a357b1c73492b9ed69a34",
+    "archived_files": 4,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "measured_copy_and_verified_upload_seconds": 5.280575612006942,
+  "repeated_capture_created_no_duplicate": true,
+  "original_files_unchanged": true,
+  "new_hf_jobs": 0,
+  "new_games": 0,
+  "new_policy_calls": 0,
+  "production_source_admitted": false,
+  "recovery_execution_admitted": false,
+  "candidate_selected": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false,
+  "previous_goal_turn_classification": "progress",
+  "current_goal_turn_classification": "progress",
+  "goal_status": "active",
+  "remaining": "Bind the exact original source/command and effective resources to prepared immutable attempt controls; implement final archive and independent recovery collection/coverage; archive/review real admission before dispatch."
+}

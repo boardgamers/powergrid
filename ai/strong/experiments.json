@@ -68812,6 +68812,50 @@
         "current_goal_turn_classification": "progress",
         "goal_status": "active",
         "next_action": "Implement and verify external raw-evidence retention and separately identified recovery attempts; archive/review actual controls before the single same-seed failed-shard recovery. No original job remains live. Do not restart old coordinators or dispatch from the decision document alone."
+    },
+    "current_auction_recovery_retention_20261029": {
+        "status": "retention_component_verified_actual_recovery_admission_pending",
+        "doc": "ai/CURRENT-AUCTION-RETENTION-2026-10-29.md",
+        "report": "ai/strong/current-auction-recovery-retention-preflight-v2.json",
+        "archive_descriptor": "ai/strong/current-auction-recovery-retention-evidence-v2.json",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "9903195075d6643117bace6b387861c16992674d",
+            "archive_path": "archives/current-auction-recovery-retention-evidence-v2.tgz",
+            "archive_sha256": "afcee1d03ed67710c2fb840eee24b932fcf1ca790843cd03cbdb6ef244829960",
+            "manifest_sha256": "ba358c896abaaa080be3cc710feccab6735aad7d427805ddfda5e112546a9961",
+            "archived_files": 23,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "tests": 13,
+        "test_transport": "mocked; two real synthetic child processes, including hard kill",
+        "real_existing_game_checkpoint": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "22dc795707f34405d51d2e1a2e9906a5ffcd05ff",
+            "archive_path": "archives/pg-retention-v2-preflight-existing-4p-checkpoint-0001.tgz",
+            "archive_sha256": "722d96082f58c3cf78675b23d1fd777bb94db80cae5e20402ca1818acf417c2d",
+            "manifest_sha256": "b54e9e5e3da7a7c5128f10841d42810615f8d7d7e92a357b1c73492b9ed69a34",
+            "archived_files": 4,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "existing_episode": 100,
+        "original_job_id": "6ae2c3f741e90535df782f3b",
+        "verified_copy_upload_seconds": 5.280575612006942,
+        "duplicate_scan_uploaded_nothing": true,
+        "new_hf_jobs": 0,
+        "new_games": 0,
+        "new_policy_calls": 0,
+        "original_files_unchanged": true,
+        "recovery_execution_admitted": false,
+        "candidate_selected": false,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "previous_goal_turn_classification": "progress",
+        "current_goal_turn_classification": "progress",
+        "goal_status": "active",
+        "remaining": "Bind the exact original source/command and effective resources to prepared immutable attempt controls; implement final archive and independent recovery collection/coverage; archive/review real admission before dispatch."
     }
 
 }

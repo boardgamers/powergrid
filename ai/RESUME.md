@@ -1,5 +1,29 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October — external completed-game retention verified; actual recovery not admitted.**
+
+The new retention component preserves stable completed game/decision pairs with
+their original hashes while wrapping an unchanged child process. It defers
+partial writes, rejects changed context/files, preserves capped evidence, and
+stops without retry on failed/ambiguous uploads. Thirteen tests passed, including
+real synthetic child interruption. The separate real preflight archived one
+existing audited 18 MB decision log and its game to private HF, downloaded and
+verified it in 5.28 seconds, and confirmed duplicate scans upload nothing.
+No games/inference/jobs were run. Read
+[the retention handoff](CURRENT-AUCTION-RETENTION-2026-10-29.md) and its report.
+Do not repeat successful tests or the real preflight/upload.
+
+Next: production supervisor/source/attempt binding, unique final envelopes and
+independent recovery collection/coverage, then actual prepared-control admission
+for the single exact failed shard. This component is not a job launcher and its
+checkpoints are not independent raw-game audits. All 621 original handles remain
+terminal; do not restart collectors/coordinators. Preserve the 620 verified
+shards and one explicit failure. The 323 unsubmitted rows stay unlaunched.
+
+Previous turn: progress (`812ef09`, terminal accounting/recovery decision). This
+turn: progress (retention implementation, 13 tests and real saved-data transport
+proof). Goal active; no candidate selected/qualified, reserved final seeds unused.
+
 **29 October, 07:45 UTC — all originals terminal; resource recovery decision recorded.**
 
 All 621 submitted jobs are terminal. **620 shards / 19,764 games** passed raw

@@ -1,5 +1,38 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 04:20 UTC — final audit storage verified; original confirmation continues.**
+
+Measured capacity projects approximately 259 GB free after confirmation. Keeping
+all final evidence expanded would require about 293–340 GB; keeping compressed
+originals with temporary auditing projects 33–41 GB including a 50% margin.
+These are estimates from observed maxima, not hard bounds. The new helper checks
+actual archive size and free space, saves the full audit durably before cleanup,
+preserves failures and retains original evidence. Eight tests passed. A separate
+preflight reproduced all 24 games' original independent audit from one existing
+archive, removed only its temporary copy and preserved all 471 owner pins.
+
+Read [the storage handoff](SELECTED-PUBLIC-POLICY-FINAL-STORAGE-2026-10-29.md).
+Its 27-file proof is privately archived and download/hash verified at revision
+`05015dc6ca6531e211a5ac91d8ed4967f1091890`. No new game, inference, HF job or
+reserved seed was used by this work. Do not repeat its completed tests, preflight
+or upload. Actual final admission and batch/collection integration remain pending.
+
+At **04:20:12 UTC**, sole coordinator **PID 3788704 / session 32582** was verified
+live with **471 unchanged pins**: **441 audited jobs / 16,664 games**, 484 originals
+submitted, and **42 RUNNING / 1 COMPLETED** uncollected originals in fresh HF
+inspection. Three audited jobs retain their original HF ERROR status and passed
+the frozen complete-terminal-data recovery rule; no replacements were launched.
+Snapshot: `strong/current-auction-network-resume-progress-v1.json`. Preserve the
+owner; do not compare partial strength results or run a competing collector.
+
+Previous research turn: progress (measured storage and implemented the helper;
+the intervening Rust explanation was informational). This turn: progress
+(verified real-archive storage behavior and archived the evidence), plus a
+verified wait on the original study. Research active; no candidate selected or
+qualified; reserved final seeds unused. Complete comparison and the separate
+held-out strength gate remain required.
+
+
 **29 October, 03:51 UTC — final-job archive verifier tested; original confirmation continues.**
 
 The returned-final-job verifier now checks the original HF completion status,

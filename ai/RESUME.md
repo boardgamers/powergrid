@@ -1,5 +1,38 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 05:30 UTC — separate final assessment and target qualification implemented.**
+
+The final assessor re-audits all 320 original compressed job archives with four
+workers, requires fresh reviews to match initial collection, and applies the
+unchanged 20,160-game strength gate only after complete coverage. Raw strength
+alone never qualifies. It also verifies the exact standalone package and original
+target process, then revalidates substantive selection/admission and the full
+native/export/8840U proof before any qualified result can be written. Failed gates
+remain failures; no replacement games, threshold changes or deployment.
+
+All **16 focused tests passed**, including a rule-specific regression hidden by
+a strong average. The actual unfinished study rejected the entry point before
+outcomes, network, output or worker-pool creation. The new package-binding code
+also passed against the **real saved 8840U archive and target receipts** without
+replay or inference (1,479 file/hash bindings). The 35-file engineering archive
+was privately upload/download verified at revision
+`24eefa6010881e5d759d88c6ead52603e0cb9064`. Read
+[the assessment handoff](SELECTED-PUBLIC-POLICY-FINAL-ASSESSMENT-2026-10-29.md).
+Do not rerun completed tests/preflight/upload work.
+
+The original coordinator **PID 3788704 / session 32582** was verified live with
+**471 unchanged pins**. Its 05:29:16 checkpoint recorded **481 audited / 545
+submitted** of 944 confirmation jobs. Preserve the owner, no competing collection
+or partial strength analysis. The implementation chain is present, but actual
+complete confirmation/comparison, justified selection, real source publication
+and final execution/qualification are still required; none is implied by these
+engineering checks. Next: finish the unchanged confirmation and comparison.
+
+Previous turn: progress (`177e3ac`, final runner). This turn: progress (final
+assessment and actual saved-package binding). Goal active, no selected/qualified
+candidate and reserved final seeds unused.
+
+
 **29 October, 05:16 UTC — final collection/dispatch runner tested; no final admission.**
 
 The new bounded-cycle manager connects reviewed source admission, original-only

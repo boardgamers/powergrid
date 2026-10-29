@@ -1,5 +1,36 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 01:30 UTC — current-engine export parity complete; both original runs live.**
+
+The exact frozen native checkpoint and ONNX model chose the same legal action
+on **all 2,553 current-engine public fixtures**. Values are finite, normalized,
+and zero in inactive player slots. A fresh independent process regenerated every
+input tensor and re-audited all raw output arrays. Maximum logit/value differences
+are **4.75e-10 / 1.02e-11**. Six rejection/binding tests passed. The first harness
+setup stopped before inference because native model definitions are absent from
+the serving package; its evidence is preserved. The corrected check binds those
+definitions to the original immutable training archive. No weights changed.
+
+Read [the export handoff](CURRENT-ENGINE-EXPORT-2026-10-29.md). Its 37-file raw
+proof/checkpoint/source snapshot is privately archived and download-verified at
+model revision `47c1eb217410c3038e7609eae8f5a56154ebcecc`; descriptor
+`strong/current-engine-export-evidence-v1.json`. Do not repeat completed parity
+or independent feature audits. After the full target is collected and audited,
+run `strong/audit_current_engine_export_v1.py bind_serving` once to bind all
+5,106 saved target model proposals to the native checkpoint; no new inference.
+That binding remains pending and does not select a candidate.
+
+Original 8840U PID **3462824** is live with **3,570 / 5,106 requests** complete,
+still in population search. The filtered pass completed all 2,553 positions.
+Original HF coordinator **PID 2398668 / session 50170** is also live with all
+54 pins unchanged: at **01:30:07 UTC**, **256 jobs / 12,672 games** were audited,
+320 originals submitted, and all **64 unverified originals RUNNING** in fresh
+HF inspection. Preserve both owners; no competing collector or restart.
+
+The full 944-job / 26,880-game comparison, selection and reserved strength gate
+remain unfinished. Research active; no candidate qualified; final seeds unused.
+
+
 **29 October, 01:13 UTC — full 8840U replay launched; confirmation advancing.**
 
 All **2,553 original serving fixtures** passed current-engine public-state,

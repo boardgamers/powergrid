@@ -67883,5 +67883,88 @@
         "next": "Inspect the two exact original owners. Collect/re-audit the target only after terminal completion; no retries. Complete all 26880 confirmation games before independent comparison/selection. Preserve full selected-policy checkpoint parity and reserved strength gates.",
         "benchmark_manifest_sha256": "9bd471f4c7267dc4a1a8133c4b27ac0b4cfa2fefe2afe5d8408e5bf8129bb9ff",
         "runtime_manifest_sha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df"
+    },
+    "current_engine_export_parity_20261029": {
+        "status": "current_engine_base_export_parity_passed_target_and_confirmation_live",
+        "date": "2026-10-29",
+        "report": "ai/strong/current-engine-export-parity-v1.json",
+        "report_sha256": "723dcb30bdaeb12b60f916379c0782b589e2facf58f48befdd6f1c538a7b3084",
+        "independent_audit": "ai/strong/current-engine-export-audit-v1.json",
+        "independent_audit_sha256": "b7c4ee858576030c7f024d1ce7ea167000f8e89de44ad502f64d8951d8318939",
+        "positions": 2553,
+        "by_player_count": {
+            "2": 349,
+            "3": 427,
+            "4": 527,
+            "5": 609,
+            "6": 641
+        },
+        "all_native_onnx_actions_equal": true,
+        "finite_normalized_values_and_zero_inactive_slots": true,
+        "all_input_tensor_hashes_independently_match": true,
+        "max_logit_error": 4.746425474877469e-10,
+        "max_value_error": 1.0236589353951331e-11,
+        "model_sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+        "checkpoint_sha256": "3c17d4228e7446f8859aa01e79020ed91f454312925d29c153a76f49f94118da",
+        "runtime_manifest_sha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+        "native_source": {
+            "archive": "strong-source-policy-iteration-training-20261024-v2.tgz",
+            "revision": "776fc237a19be9789fe160d4406e68cd31adf080",
+            "sha256": "21a162cb75167e3781bcd8e8f2810b4b93f37712775af300abb910fdcccfd958"
+        },
+        "first_setup_failure_preserved": true,
+        "first_setup_forward_passes": 0,
+        "tests": 6,
+        "new_native_forward_passes": 2553,
+        "new_onnx_forward_passes": 2553,
+        "new_search_rollouts_by_export_work": 0,
+        "new_hf_jobs_by_export_work": 0,
+        "new_full_evaluation_games_by_export_work": 0,
+        "gradient_updates": 0,
+        "archive_descriptor": "ai/strong/current-engine-export-evidence-v1.json",
+        "archive_descriptor_sha256": "120b987cb008b520af145385005bdceb50361d3159179db67acd3ce0da2d9098",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "47c1eb217410c3038e7609eae8f5a56154ebcecc",
+            "archive_path": "archives/current-engine-export-evidence-v1.tgz",
+            "archive_sha256": "d06fa97590f60d0f547cd3682beec58a9e196d01c5c2331116f148d476a83b29",
+            "manifest_sha256": "30ea2072a1c0e023c98ac3a3abb3b1b8fe9bbd985b07ba028154c858df18173f",
+            "archived_files": 37,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "target_checkpoint": {
+            "path": "ai/strong/current-full-serving-8840u-progress-v1.json",
+            "sha256": "a97d278cd995831a236f7700435358a612495607d0e572c95394bcb113c78b69",
+            "pid": 3462824,
+            "verified_live": true,
+            "requests_completed": 3570,
+            "expected_requests": 5106,
+            "full_independent_collection_pending": true,
+            "native_proposal_binding_pending": true
+        },
+        "confirmation_checkpoint": {
+            "path": "ai/strong/current-auction-confirmation-recovery-progress-v1.json",
+            "sha256": "5899fa4db897304645b463c3a45a98bdd36cf2ef546c12e9eb9b716b2a778235",
+            "checked_at": "2026-10-29T01:30:07.555555+00:00",
+            "owner_pid": 2398668,
+            "exec_session": 50170,
+            "submitted_jobs": 320,
+            "audited_jobs": 256,
+            "audited_games": 12672,
+            "unverified_original_status_counts": {
+                "RUNNING": 64
+            },
+            "unchanged_pins": 54,
+            "free_bytes": 486843293696
+        },
+        "candidate_selected": false,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "goal_status": "active",
+        "previous_goal_turn_classification": "progress",
+        "previous_goal_turn_note": "Verified all original fixtures against current engine, launched full actual-8840U replay, archived and pushed exact recovery package.",
+        "current_goal_turn_classification": "progress",
+        "next": "Keep both original owners running. Collect/audit target after terminal completion and bind saved model proposals to native parity. Finish complete confirmation and independent comparison before selection; reserve final strength seeds until admission."
     }
 }

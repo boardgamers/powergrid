@@ -54,8 +54,9 @@ The package is 142,593,866 bytes, SHA-256
 `a255e5f5bf21df18f667d2d0791c6ec8039087479e30178053d6df805f73cbde`.
 Full serving verification remains unfinished. Preserve this original process,
 remote directory and launch guard; do not launch another copy.
-Later live inspection found **2,718 / 5,106** complete: the filtered-policy
-pass finished all 2,553 positions and population search is underway. Snapshot:
+Later live inspection at the 01:30 UTC checkpoint found
+**3,570 / 5,106** complete: the filtered-policy pass finished all 2,553
+positions and population search is underway. Snapshot:
 `strong/current-full-serving-8840u-progress-v1.json`. Independent collection and
 full re-audit remain pending.
 <!-- TARGET-STATUS-END -->
@@ -97,7 +98,14 @@ player count, rule and phase. It is not a new model-checkpoint export parity
 test or a full cross-host response comparison. The earlier 320-request exact
 cross-host benchmark remains separate evidence.
 
+Separate [current-engine checkpoint parity](CURRENT-ENGINE-EXPORT-2026-10-29.md)
+has now passed on all 2,553 original positions, with independent input/output
+re-auditing. After this target is collected and audited, bind every saved
+`modelProposal` to that native-checkpoint evidence with
+`strong/audit_current_engine_export_v1.py bind_serving`. This adds no inference
+or simulations. The full target collection and binding are still pending.
+
 After complete strength confirmation, selection must bind the same exact
-identity/settings to reuse applicable technical evidence. Complete checkpoint
-parity and the separate reserved strength gate remain required. No candidate is
-qualified by this benchmark, and no production routing is changed.
+identity/settings to reuse applicable technical evidence. The separate reserved
+strength gate remains required. No candidate is qualified by this benchmark,
+and no production routing is changed.

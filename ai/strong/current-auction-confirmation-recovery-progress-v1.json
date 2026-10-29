@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-29T01:13:09.239600+00:00",
+  "checked_at": "2026-10-29T01:30:07.555555+00:00",
   "owner_pid": 2398668,
   "exec_session": 50170,
   "owner_verified_live": true,
@@ -67,8 +67,8 @@
     },
     "source_sha256": "a4384b10eb8a4381423731bc0c315673f9214d91c1fb336aa81ef4a7102d1c5a",
     "expected_jobs": 944,
-    "verified_jobs": 222,
-    "submitted_jobs": 286,
+    "verified_jobs": 256,
+    "submitted_jobs": 320,
     "max_active_jobs": 64,
     "automatic_restarts": false,
     "recovery_rule": "complete_original_terminals_after_policy_shutdown_timeout_v1",
@@ -76,192 +76,22 @@
     "new_gradients": 0,
     "qualified": false,
     "reserved_final_seeds_used": false,
-    "updated_at": "2026-10-29T01:12:11.335107+00:00",
+    "updated_at": "2026-10-29T01:29:27.656841+00:00",
     "active_at_submission": 64,
     "awaiting_collection": []
   },
   "source_sha256": "a4384b10eb8a4381423731bc0c315673f9214d91c1fb336aa81ef4a7102d1c5a",
-  "submitted_jobs": 286,
-  "audited_jobs": 222,
-  "audited_games": 10992,
+  "submitted_jobs": 320,
+  "audited_jobs": 256,
+  "audited_games": 12672,
   "audited_original_hf_stages": {
-    "COMPLETED": 221,
+    "COMPLETED": 255,
     "ERROR": 1
   },
   "unverified_original_status_counts": {
     "RUNNING": 64
   },
   "unverified_originals": [
-    {
-      "name": "pg-current-confirm-v1-filter-a260-3p-00",
-      "job_id": "6ae29d033fb22a235dd4dc61",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-a260-3p-04",
-      "job_id": "6ae29d033fb22a235dd4dc63",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-a260-3p-08",
-      "job_id": "6ae29d0341e90535df780889",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-a260-3p-12",
-      "job_id": "6ae29d043fb22a235dd4dc65",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-a260-3p-16",
-      "job_id": "6ae29d043fb22a235dd4dc67",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-a260-3p-20",
-      "job_id": "6ae29d043fb22a235dd4dc6a",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-a260-3p-24",
-      "job_id": "6ae29d0541e90535df78088b",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-a260-3p-28",
-      "job_id": "6ae29d0541e90535df78088d",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-economic_capacity_v1-2p-00",
-      "job_id": "6ae29d053fb22a235dd4dc6e",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-economic_capacity_v1-2p-08",
-      "job_id": "6ae29d0541e90535df780890",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-economic_capacity_v1-2p-16",
-      "job_id": "6ae29d063fb22a235dd4dc70",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-economic_capacity_v1-2p-24",
-      "job_id": "6ae29d0641e90535df780894",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-heuristic-6p-24",
-      "job_id": "6ae29cfd3fb22a235dd4dc49",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-heuristic-6p-26",
-      "job_id": "6ae29cfd3fb22a235dd4dc4b",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-heuristic-6p-28",
-      "job_id": "6ae29cfe3fb22a235dd4dc4d",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-heuristic-6p-30",
-      "job_id": "6ae29cfe3fb22a235dd4dc51",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-6p-00",
-      "job_id": "6ae29cfe3fb22a235dd4dc53",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-6p-02",
-      "job_id": "6ae29cff41e90535df780875",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-6p-04",
-      "job_id": "6ae29cff41e90535df780877",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-6p-06",
-      "job_id": "6ae29cff3fb22a235dd4dc55",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-6p-08",
-      "job_id": "6ae29d0041e90535df780879",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-6p-10",
-      "job_id": "6ae29d003fb22a235dd4dc57",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-6p-12",
-      "job_id": "6ae29d003fb22a235dd4dc59",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-6p-14",
-      "job_id": "6ae29d0041e90535df78087b",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-6p-16",
-      "job_id": "6ae29d0141e90535df78087d",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-6p-18",
-      "job_id": "6ae29d013fb22a235dd4dc5b",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-6p-20",
-      "job_id": "6ae29d013fb22a235dd4dc5d",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-6p-22",
-      "job_id": "6ae29d0241e90535df78087f",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-6p-24",
-      "job_id": "6ae29d0241e90535df780881",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-6p-26",
-      "job_id": "6ae29d0241e90535df780883",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-6p-28",
-      "job_id": "6ae29d0241e90535df780885",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-6p-30",
-      "job_id": "6ae29d0341e90535df780887",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-search_geo-5p-26",
-      "job_id": "6ae2943c3fb22a235dd4d2ed",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-search_geo-5p-30",
-      "job_id": "6ae2943c41e90535df78000d",
-      "stage": "RUNNING"
-    },
     {
       "name": "pg-current-confirm-v1-filter-search_geo-6p-00",
       "job_id": "6ae296ec41e90535df78025d",
@@ -410,6 +240,176 @@
     {
       "name": "pg-current-confirm-v1-pop-economic-2p-26",
       "job_id": "6ae29d6b3fb22a235dd4dcc3",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-2p-28",
+      "job_id": "6ae2a0133fb22a235dd4df1e",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-2p-30",
+      "job_id": "6ae2a01341e90535df780b1c",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-00",
+      "job_id": "6ae2a0183fb22a235dd4df39",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-02",
+      "job_id": "6ae2a0183fb22a235dd4df3b",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-04",
+      "job_id": "6ae2a01841e90535df780b2d",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-06",
+      "job_id": "6ae2a01941e90535df780b2f",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-08",
+      "job_id": "6ae2a01941e90535df780b31",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-10",
+      "job_id": "6ae2a01941e90535df780b33",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-12",
+      "job_id": "6ae2a0193fb22a235dd4df3f",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-14",
+      "job_id": "6ae2a01a3fb22a235dd4df41",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-16",
+      "job_id": "6ae2a01a3fb22a235dd4df44",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-18",
+      "job_id": "6ae2a01a41e90535df780b35",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-20",
+      "job_id": "6ae2a01b3fb22a235dd4df48",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-22",
+      "job_id": "6ae2a01b41e90535df780b38",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-24",
+      "job_id": "6ae2a01b41e90535df780b3a",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-26",
+      "job_id": "6ae2a01b3fb22a235dd4df4c",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-28",
+      "job_id": "6ae2a01c3fb22a235dd4df4e",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-30",
+      "job_id": "6ae2a01c3fb22a235dd4df50",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-00",
+      "job_id": "6ae2a0133fb22a235dd4df20",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-02",
+      "job_id": "6ae2a01341e90535df780b1f",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-04",
+      "job_id": "6ae2a0143fb22a235dd4df22",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-06",
+      "job_id": "6ae2a0143fb22a235dd4df24",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-08",
+      "job_id": "6ae2a0143fb22a235dd4df26",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-10",
+      "job_id": "6ae2a01541e90535df780b23",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-12",
+      "job_id": "6ae2a01541e90535df780b27",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-14",
+      "job_id": "6ae2a01541e90535df780b29",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-16",
+      "job_id": "6ae2a0153fb22a235dd4df2b",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-18",
+      "job_id": "6ae2a0163fb22a235dd4df2d",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-20",
+      "job_id": "6ae2a0163fb22a235dd4df2f",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-22",
+      "job_id": "6ae2a01641e90535df780b2b",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-24",
+      "job_id": "6ae2a0173fb22a235dd4df31",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-26",
+      "job_id": "6ae2a0173fb22a235dd4df33",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-28",
+      "job_id": "6ae2a0173fb22a235dd4df35",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-30",
+      "job_id": "6ae2a0173fb22a235dd4df37",
       "stage": "RUNNING"
     }
   ],
@@ -2129,9 +2129,213 @@
       "job_id": "6ae29d6b3fb22a235dd4dcc3",
       "created_at": "2026-10-29T01:12:11.082096+00:00",
       "guard_sha256": "36a7805ef12c9dcbac1adba51970b361722f75f85c35d47236af068ce1343304"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-2p-28",
+      "job_id": "6ae2a0133fb22a235dd4df1e",
+      "created_at": "2026-10-29T01:23:30.844254+00:00",
+      "guard_sha256": "855001f018a86c8abaa7e2928a2535c5b9905895de534eadbe3135caf595fb06"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-2p-30",
+      "job_id": "6ae2a01341e90535df780b1c",
+      "created_at": "2026-10-29T01:23:31.133802+00:00",
+      "guard_sha256": "7219b084ae40d2f4ba1a059ff4041da8b990f0f2301337e2daffd1d6a7d81fae"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-00",
+      "job_id": "6ae2a0183fb22a235dd4df39",
+      "created_at": "2026-10-29T01:23:36.068091+00:00",
+      "guard_sha256": "cdfb4d87d0ee384c50b7654777a1b274164d0d9074e032a067fdc56b4f8aabe4"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-02",
+      "job_id": "6ae2a0183fb22a235dd4df3b",
+      "created_at": "2026-10-29T01:23:36.336914+00:00",
+      "guard_sha256": "9b771f6a5d681c7580c507d565dd744591f9287f5f7fea239d9cb648ad0fd052"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-04",
+      "job_id": "6ae2a01841e90535df780b2d",
+      "created_at": "2026-10-29T01:23:36.610649+00:00",
+      "guard_sha256": "f87c8a8b351b588d1b26bcb453d98a6fa53797480d47776dcf1b7027cfbd9800"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-06",
+      "job_id": "6ae2a01941e90535df780b2f",
+      "created_at": "2026-10-29T01:23:36.876410+00:00",
+      "guard_sha256": "f69a378110806119d99b11fe3e916c0836144b6910f3305ebedc50e88525dbfc"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-08",
+      "job_id": "6ae2a01941e90535df780b31",
+      "created_at": "2026-10-29T01:23:37.226135+00:00",
+      "guard_sha256": "c1c91cb113906fb3dd274d8c1790c412185f01744babb3964707a0687e27108a"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-10",
+      "job_id": "6ae2a01941e90535df780b33",
+      "created_at": "2026-10-29T01:23:37.535197+00:00",
+      "guard_sha256": "1edbd316921c40c7dbc293388cb8fbf1e6bd05ad81d0e8e711421e51b320ffa7"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-12",
+      "job_id": "6ae2a0193fb22a235dd4df3f",
+      "created_at": "2026-10-29T01:23:37.814372+00:00",
+      "guard_sha256": "5914bd0deac2988059ff59f7d6d3bc60409890e0c4562a32e2ca9cbbd86e2a23"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-14",
+      "job_id": "6ae2a01a3fb22a235dd4df41",
+      "created_at": "2026-10-29T01:23:38.091284+00:00",
+      "guard_sha256": "abc925b06c1e87ba57e25d7a8f741bab8e528ffa8ea3542b702350a91b0ef78c"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-16",
+      "job_id": "6ae2a01a3fb22a235dd4df44",
+      "created_at": "2026-10-29T01:23:38.358431+00:00",
+      "guard_sha256": "64b8de0e6bfbc8f470a450c54d588cbdf1a8772721247b8b4dae81a088897507"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-18",
+      "job_id": "6ae2a01a41e90535df780b35",
+      "created_at": "2026-10-29T01:23:38.657034+00:00",
+      "guard_sha256": "809d746f32a59d88060ece1d84080ea147646b0059d2d96fd3689ee2b85b63bf"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-20",
+      "job_id": "6ae2a01b3fb22a235dd4df48",
+      "created_at": "2026-10-29T01:23:38.971545+00:00",
+      "guard_sha256": "187342ff49efaf4c6eaa9c0e070f6a92e9f1226442c47f864372b6e1c0e4c1ef"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-22",
+      "job_id": "6ae2a01b41e90535df780b38",
+      "created_at": "2026-10-29T01:23:39.240265+00:00",
+      "guard_sha256": "7edfbc3e57ea1b12ba3fcfaf8bc9a3aa8fc2f9f6eab2f41cc1733feb016cc44e"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-24",
+      "job_id": "6ae2a01b41e90535df780b3a",
+      "created_at": "2026-10-29T01:23:39.507843+00:00",
+      "guard_sha256": "f25c74f1a0d8c5b842ea3aa193191ca8e2ae78d1671404ea483630dde5677ce9"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-26",
+      "job_id": "6ae2a01b3fb22a235dd4df4c",
+      "created_at": "2026-10-29T01:23:39.773727+00:00",
+      "guard_sha256": "b5baee721f4fc3bc6e89b031644fbaa97b78c11d8f0000a090c11ba5b4cad09b"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-28",
+      "job_id": "6ae2a01c3fb22a235dd4df4e",
+      "created_at": "2026-10-29T01:23:40.048088+00:00",
+      "guard_sha256": "26275c0f8e8025a594314b0df95f1f633603f2b310786dd2ba51a9f169fda509"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-2p-30",
+      "job_id": "6ae2a01c3fb22a235dd4df50",
+      "created_at": "2026-10-29T01:23:40.332760+00:00",
+      "guard_sha256": "3da8baa0e347c59ca80cd9f5bc84dafca1460942855e977bc7793028cf47eecd"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-00",
+      "job_id": "6ae2a0133fb22a235dd4df20",
+      "created_at": "2026-10-29T01:23:31.410420+00:00",
+      "guard_sha256": "29c4e764bb4a3df260ec2109645448012b1a52b0f6644c65c46cd012c191c4a0"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-02",
+      "job_id": "6ae2a01341e90535df780b1f",
+      "created_at": "2026-10-29T01:23:31.689306+00:00",
+      "guard_sha256": "2ae3b768407ba88cb4679443b8901c1b5d748b831daf85135600da8429c5fd5d"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-04",
+      "job_id": "6ae2a0143fb22a235dd4df22",
+      "created_at": "2026-10-29T01:23:31.978781+00:00",
+      "guard_sha256": "f4020982a0fde3e28cc07329e8194baf8116a4931593a1a01a641178097a3ad2"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-06",
+      "job_id": "6ae2a0143fb22a235dd4df24",
+      "created_at": "2026-10-29T01:23:32.248419+00:00",
+      "guard_sha256": "c12833e792bd89e916fd916e5d71cc2af0da7569dec29873afc67f188f3df6b2"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-08",
+      "job_id": "6ae2a0143fb22a235dd4df26",
+      "created_at": "2026-10-29T01:23:32.625303+00:00",
+      "guard_sha256": "2d32b5023b92daa8bc88ef44d61baf4487fcdf50515fb85a8875245cc08c8f34"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-10",
+      "job_id": "6ae2a01541e90535df780b23",
+      "created_at": "2026-10-29T01:23:32.900968+00:00",
+      "guard_sha256": "0dd6b93a84d647922427f5b7932fc4f52b8594e10acb50265957436c4a7e9e51"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-12",
+      "job_id": "6ae2a01541e90535df780b27",
+      "created_at": "2026-10-29T01:23:33.168479+00:00",
+      "guard_sha256": "9c4da22032618f31407c41b8e114c70f1a7fccc776956b337eef95d3840ed2f5"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-14",
+      "job_id": "6ae2a01541e90535df780b29",
+      "created_at": "2026-10-29T01:23:33.443682+00:00",
+      "guard_sha256": "2cc49747e9bfad6298bd28e4923e52f2dbb5531e568a8ac4135c7b6e16559af8"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-16",
+      "job_id": "6ae2a0153fb22a235dd4df2b",
+      "created_at": "2026-10-29T01:23:33.712644+00:00",
+      "guard_sha256": "4c4f5ecc765c4843829617455b445ff1820a6920cf280143bda979bea2dadaae"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-18",
+      "job_id": "6ae2a0163fb22a235dd4df2d",
+      "created_at": "2026-10-29T01:23:34.063552+00:00",
+      "guard_sha256": "3acb700a0438edc8e9874506f1df86039fc2020a4e5424e5a1ec94151069c26c"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-20",
+      "job_id": "6ae2a0163fb22a235dd4df2f",
+      "created_at": "2026-10-29T01:23:34.357134+00:00",
+      "guard_sha256": "7552714beb39a59aeda6e60704ea884dcd5ebc6900f10d30ff16657b8449749f"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-22",
+      "job_id": "6ae2a01641e90535df780b2b",
+      "created_at": "2026-10-29T01:23:34.667714+00:00",
+      "guard_sha256": "c2f61a67339d7bac9c2645bb1161e4e17b39b78beafb3c99092966c893f23bb7"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-24",
+      "job_id": "6ae2a0173fb22a235dd4df31",
+      "created_at": "2026-10-29T01:23:34.939573+00:00",
+      "guard_sha256": "30a9f3e51d97286f10c228343dfe781228dcf4cc63c1a2b15765dc3a0bfab085"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-26",
+      "job_id": "6ae2a0173fb22a235dd4df33",
+      "created_at": "2026-10-29T01:23:35.210332+00:00",
+      "guard_sha256": "301491f8d60d0e3625c55b6e672e2e8165f8151b3224285d5eaf46eaa3a2efb1"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-28",
+      "job_id": "6ae2a0173fb22a235dd4df35",
+      "created_at": "2026-10-29T01:23:35.488807+00:00",
+      "guard_sha256": "dee52e237bb4051ef210c1c237a055277bd35305bdcc0b9f5e92e42cdcff35a4"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-2p-30",
+      "job_id": "6ae2a0173fb22a235dd4df37",
+      "created_at": "2026-10-29T01:23:35.792418+00:00",
+      "guard_sha256": "a54bd7ce4e8255bf4d3353f4889954b6b4335d2d4896527991577334e3d7bee5"
     }
   ],
-  "free_bytes": 507278069760,
+  "free_bytes": 486843293696,
   "new_submissions_by_observer": 0,
   "qualified": false,
   "reserved_final_seeds_used": false

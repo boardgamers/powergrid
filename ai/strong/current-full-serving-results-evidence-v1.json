@@ -1,0 +1,57 @@
+{
+  "complete": true,
+  "requests": 5106,
+  "positions_per_policy": 2553,
+  "processor": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+  "identities": {
+    "filter": {
+      "policySha256": "3b492c71ac5653ac7c41dfefd1c397e74e14df6f57629a455c61c8e45f55f52a",
+      "runtimeManifestSha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+      "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+      "featureRevision": "4.3-strategic-correction",
+      "backend": "population-v1",
+      "settings": {
+        "arm": "filter",
+        "max_steps": 2400,
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      }
+    },
+    "conservative_population": {
+      "policySha256": "b9879af9668b3e1b79cac6139b59571a83d838f8e0988627506f9b2eb902a980",
+      "runtimeManifestSha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+      "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+      "featureRevision": "4.3-strategic-correction",
+      "backend": "opponent-auction-v1",
+      "settings": {
+        "arm": "auction",
+        "max_steps": 2400,
+        "minimum_advantage": "1/8",
+        "population_modes": [
+          "neural_population"
+        ],
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      },
+      "opponentPolicySha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c"
+    }
+  },
+  "technical_report_sha256": "1ac5df30e7275bcab9b074667e6eae3cd9f142c250a09d6b43e3ce26612d69d1",
+  "checkpoint_binding_sha256": "e2e591981ca23e215a73e92642750b12753ab2dc91771ea296e66ae6145b0a44",
+  "latency_summary_sha256": "1370f56111ad4852db86a4684db33007cc6a51af0b52cdd1ed04104d197f11be",
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "e4f018ff2f983e5e4f1a6b7e92a7586051bf5842",
+    "archive_path": "archives/current-full-serving-results-evidence-v1.tgz",
+    "archive_sha256": "7848187c35f8844ffd20b8b7e1511ca0db8aec432e39ffc0e6baed1feb5e4256",
+    "manifest_sha256": "e5db8ce3295f5f69631ff068878dafe2ae7e32dd3f9aadf33d98d53d23b3da55",
+    "archived_files": 28,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "candidate_selected": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

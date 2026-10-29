@@ -5,6 +5,7 @@ inference, job creation, collection or rerun is performed by this helper.
 """
 import json
 from pathlib import Path
+import shutil
 
 from huggingface_hub import HfApi
 from policy_iteration_evidence_archive import upload_evidence
@@ -46,7 +47,11 @@ def main():
     assert binding['export_report_sha256'] == digest(export_path)
     assert binding['export_audit_sha256'] == digest(export_audit)
     assert not result['candidate_selected'] and not result['qualified'] and not result['reserved_final_seeds_used']
-    sources = {Path(__file__).resolve(), result_path, binding_path, export_path, export_audit,
+    summary_path = STRONG/'current-full-serving-latency-summary-v1.json'; summary = read(summary_path)
+    assert summary['complete'] and summary['source_audit_sha256'] == digest(result_path)
+    assert summary['source_binding_sha256'] == digest(binding_path)
+    assert summary['receipts_sha256'] == binding['target_receipts_sha256']
+    sources = {Path(__file__).resolve(), result_path, binding_path, summary_path, export_path, export_audit,
         STRONG/'current-full-serving-readiness-v1.json', STRONG/'current-full-serving-8840u-launch-v1.json',
         STRONG/'current-full-serving-launch-evidence-v1.json', STRONG/'current-engine-export-evidence-v1.json',
         STRONG/'current_auction_full_serving_v1.py', STRONG/'benchmark-current-full-serving-8840u-v1.py',
@@ -64,7 +69,6 @@ def main():
         name = str(p.relative_to(ROOT)); before = digest(p); target = OUT/name
         target.parent.mkdir(parents=True, exist_ok=True)
         with p.open('rb') as source, target.open('xb') as dest:
-            import shutil
             shutil.copyfileobj(source, dest)
         assert digest(target) == before == digest(p); manifest[name] = before
     save(OUT/'recovery.json', {
@@ -78,6 +82,7 @@ def main():
     save(RESULT, {'complete': True, 'requests': 5106, 'positions_per_policy': 2553,
         'processor': result['processor'], 'identities': result['identities'],
         'technical_report_sha256': digest(result_path), 'checkpoint_binding_sha256': digest(binding_path),
+        'latency_summary_sha256': digest(summary_path),
         'archive': archive, 'candidate_selected': False, 'qualified': False, 'reserved_final_seeds_used': False})
     OUT.with_suffix('.intent.json').write_text(json.dumps({'stage': 'uploaded_download_verified', 'archive': archive,
         'descriptor_sha256': digest(RESULT)}, indent=2)+'\n')

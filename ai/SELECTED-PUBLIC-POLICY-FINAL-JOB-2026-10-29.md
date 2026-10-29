@@ -63,14 +63,15 @@ its artifact again. Do not rerun the preflight or repeat the upload.
    launch intents. Preserve the unchanged final schedule of 320 shards / 20,160
    games; derive batch resources from complete measured evidence. The new job
    wrapper is not itself a launcher or selection authority.
-3. Complete all 2,553 selected-policy export/serving checks, actual AMD 8840U
-   benchmarking for that same policy/settings and standalone extracted-package
-   verification. Earlier model-only and 320-response hybrid evidence do not
-   replace this gate.
+3. Full export/serving and standalone-package checks on the actual AMD 8840U
+   are complete for both unchanged policies: 2,553 positions each, all 5,106
+   responses independently audited and bound to the native checkpoint. Bind
+   the [archived technical proof](CURRENT-FULL-SERVING-2026-10-29.md) to the
+   exact selected policy/settings; do not repeat the completed replay.
 4. Execute the reserved strength plan only after admission; independently audit
    every original result and apply the unchanged final qualification gate.
 
-The active confirmation owner and recovery instructions are in
+The confirmation owner's current status and recovery instructions are in
 [the recovery handoff](CURRENT-AUCTION-RECOVERY-2026-10-29.md). Do not modify its
 54 pinned inputs or run a competing collector. This transport work does not
 change its policies, source, budget or analysis.

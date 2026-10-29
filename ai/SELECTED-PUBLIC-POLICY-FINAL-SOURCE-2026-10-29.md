@@ -48,9 +48,10 @@ Evidence:
    Review every regression and the unchanged confirmation requirements before
    selecting and freezing a candidate. Preserve failures and do not tune using
    partial or reserved results.
-2. Finish the original 8840U replay, collect/audit it and bind saved proposals to
-   the independently verified checkpoint. Bind all technical evidence to the
-   same selected complete-policy identity.
+2. The original 8840U replay, independent collection/audit and native-checkpoint
+   binding are complete for both unchanged policies: all 5,106 responses passed.
+   Preserve the [archived proof](CURRENT-FULL-SERVING-2026-10-29.md) and bind it
+   to the same selected complete-policy identity/settings; do not rerun it.
 3. Derive the real per-shard game-worker allocation and HF resources/timeouts
    from complete measured execution costs. Game concurrency is separate from
    the already-frozen policy search workers and inference threads.

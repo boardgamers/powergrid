@@ -6,15 +6,22 @@ slots, policies, current engine, search budget and statistical analysis remain
 unchanged. This recovery does not generate replacement games.
 
 <!-- RECOVERY-STATUS-BEGIN -->
-**Later checkpoint, 01:48:47 UTC:** the same coordinator is live with all 54
-pins unchanged. **271 jobs / 12,912 games** are audited; 335 originals submitted.
-Fresh HF inspection found all 64 unverified originals RUNNING, with no new
-terminal failure. Exact handles and guard hashes:
+**Latest checkpoint, 29 October 02:58:07 UTC:** coordinator PID 2398668 has
+exited. It stopped at **02:36:24 UTC** on a DNS `ConnectError` during an HF
+status lookup; its state/log and all 54 unchanged pins are preserved. This is
+an observation failure, not evidence that a remote job failed. A fresh bounded
+read-only inspection succeeded: **339 jobs / 14,512 games** already audited,
+**403 originals submitted**, with **21 COMPLETED / 43 RUNNING** among the 64
+uncollected originals. No new terminal job failure was observed. The remaining
+541 original rows are unsubmitted. No restart, collection or new submission was
+performed by this status observer. Exact handles and guard hashes:
 `strong/current-auction-confirmation-recovery-progress-v1.json`.
-The original launch snapshot below remains historical recovery evidence.
-The separate [full serving replay](CURRENT-FULL-SERVING-2026-10-29.md) remains
-live on the actual 8840U. [Current-engine checkpoint parity](CURRENT-ENGINE-EXPORT-2026-10-29.md)
-now passes all 2,553 original positions, with independent raw-output auditing.
+Preserve the stopped owner and original handles. Inspect before any deliberate
+collection/resumption; do not automatically restart or submit replacements.
+The original launch snapshot below is historical recovery evidence.
+The separate [full serving replay](CURRENT-FULL-SERVING-2026-10-29.md) is complete:
+all 5,106 original target responses passed independent audits and native-checkpoint
+binding, with a verified immutable results archive. No candidate is qualified.
 
 **29 October, 00:18:52 UTC: recovery admitted; remaining confirmation is running.**
 All **64 initial originals / 3,456 games** passed their complete data audits:

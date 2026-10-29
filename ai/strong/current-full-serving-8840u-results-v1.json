@@ -1,0 +1,1039 @@
+{
+  "complete": true,
+  "requests": 5106,
+  "positions_per_policy": 2553,
+  "all_moves_legal": true,
+  "identities": {
+    "filter": {
+      "policySha256": "3b492c71ac5653ac7c41dfefd1c397e74e14df6f57629a455c61c8e45f55f52a",
+      "runtimeManifestSha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+      "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+      "featureRevision": "4.3-strategic-correction",
+      "backend": "population-v1",
+      "settings": {
+        "arm": "filter",
+        "max_steps": 2400,
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      }
+    },
+    "conservative_population": {
+      "policySha256": "b9879af9668b3e1b79cac6139b59571a83d838f8e0988627506f9b2eb902a980",
+      "runtimeManifestSha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+      "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+      "featureRevision": "4.3-strategic-correction",
+      "backend": "opponent-auction-v1",
+      "settings": {
+        "arm": "auction",
+        "max_steps": 2400,
+        "minimum_advantage": "1/8",
+        "population_modes": [
+          "neural_population"
+        ],
+        "samples": 8,
+        "threads": 1,
+        "workers": 4
+      },
+      "opponentPolicySha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c"
+    }
+  },
+  "counts": {
+    "filter": {
+      "decisions": 2553,
+      "root_filter_overrides": 2,
+      "rollouts": 0,
+      "rollout_caps": 0,
+      "neural_decisions": 0,
+      "search_changes": 0,
+      "search_decisions": 0
+    },
+    "conservative_population": {
+      "decisions": 2553,
+      "root_filter_overrides": 2,
+      "rollouts": 31680,
+      "rollout_caps": 0,
+      "neural_decisions": 4043599,
+      "search_changes": 138,
+      "search_decisions": 779,
+      "surrogate_decisions": 0
+    }
+  },
+  "processor": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+  "cold_ms": {
+    "filter": 670.9795370697975,
+    "conservative_population": 6616.675919853151
+  },
+  "warm_timings_by_count_rule_phase": {
+    "filter": {
+      "2p/original/sealed/Resources": {
+        "positions": 29,
+        "median_ms": 8.63244105130434,
+        "p95_ms": 11.627222783863544,
+        "max_ms": 12.014978099614382
+      },
+      "2p/original/sealed/Building": {
+        "positions": 20,
+        "median_ms": 9.514109697192907,
+        "p95_ms": 12.902252678759396,
+        "max_ms": 13.456133659929037
+      },
+      "2p/original/sealed/Bureaucracy": {
+        "positions": 17,
+        "median_ms": 9.623348712921143,
+        "p95_ms": 11.956677492707968,
+        "max_ms": 12.118275742977858
+      },
+      "2p/original/sealed/Auction": {
+        "positions": 16,
+        "median_ms": 9.8542848136276,
+        "p95_ms": 13.921869220212102,
+        "max_ms": 15.259287785738707
+      },
+      "2p/recharged/sealed/Auction": {
+        "positions": 14,
+        "median_ms": 10.982899460941553,
+        "p95_ms": 12.769833742640913,
+        "max_ms": 14.244093094021082
+      },
+      "2p/recharged/sealed/Resources": {
+        "positions": 28,
+        "median_ms": 7.6974795665591955,
+        "p95_ms": 11.972140241414309,
+        "max_ms": 12.314355000853539
+      },
+      "2p/recharged/sealed/Building": {
+        "positions": 18,
+        "median_ms": 9.056688286364079,
+        "p95_ms": 11.609630659222603,
+        "max_ms": 11.701174080371857
+      },
+      "2p/recharged/sealed/Bureaucracy": {
+        "positions": 15,
+        "median_ms": 7.33565166592598,
+        "p95_ms": 11.09285377897322,
+        "max_ms": 12.324083130806684
+      },
+      "2p/original/open/Auction": {
+        "positions": 30,
+        "median_ms": 8.61487747170031,
+        "p95_ms": 14.619607594795523,
+        "max_ms": 15.740865841507912
+      },
+      "2p/original/open/Resources": {
+        "positions": 35,
+        "median_ms": 8.99379700422287,
+        "p95_ms": 12.959677167236805,
+        "max_ms": 14.310108963400126
+      },
+      "2p/original/open/Building": {
+        "positions": 16,
+        "median_ms": 10.513083776459098,
+        "p95_ms": 14.232057030312717,
+        "max_ms": 14.379543252289295
+      },
+      "2p/original/open/Bureaucracy": {
+        "positions": 25,
+        "median_ms": 8.606261108070612,
+        "p95_ms": 12.38284036517143,
+        "max_ms": 12.538716197013855
+      },
+      "2p/recharged/open/Auction": {
+        "positions": 28,
+        "median_ms": 7.84295448102057,
+        "p95_ms": 12.20965611282736,
+        "max_ms": 13.143771793693304
+      },
+      "2p/recharged/open/Resources": {
+        "positions": 27,
+        "median_ms": 8.696575183421373,
+        "p95_ms": 11.776370089501143,
+        "max_ms": 12.055765837430954
+      },
+      "2p/recharged/open/Building": {
+        "positions": 15,
+        "median_ms": 7.721476256847382,
+        "p95_ms": 11.455240473151207,
+        "max_ms": 11.459498200565577
+      },
+      "2p/recharged/open/Bureaucracy": {
+        "positions": 15,
+        "median_ms": 8.347011171281338,
+        "p95_ms": 12.070585321635008,
+        "max_ms": 12.108668219298124
+      },
+      "3p/original/sealed/Auction": {
+        "positions": 22,
+        "median_ms": 11.154333828017116,
+        "p95_ms": 13.829943677410483,
+        "max_ms": 15.94977779313922
+      },
+      "3p/original/sealed/Resources": {
+        "positions": 33,
+        "median_ms": 8.778722956776619,
+        "p95_ms": 12.837648391723631,
+        "max_ms": 13.444701675325632
+      },
+      "3p/original/sealed/Building": {
+        "positions": 19,
+        "median_ms": 9.579394944012165,
+        "p95_ms": 12.728751637041567,
+        "max_ms": 13.414512854069471
+      },
+      "3p/original/sealed/Bureaucracy": {
+        "positions": 26,
+        "median_ms": 8.03283043205738,
+        "p95_ms": 12.196247116662562,
+        "max_ms": 12.364150956273079
+      },
+      "3p/recharged/sealed/Auction": {
+        "positions": 21,
+        "median_ms": 10.064770933240652,
+        "p95_ms": 13.729870785027742,
+        "max_ms": 15.411030035465956
+      },
+      "3p/recharged/sealed/Resources": {
+        "positions": 32,
+        "median_ms": 8.345572743564844,
+        "p95_ms": 12.07404974848032,
+        "max_ms": 12.982220854610205
+      },
+      "3p/recharged/sealed/Building": {
+        "positions": 21,
+        "median_ms": 10.209870059043169,
+        "p95_ms": 12.49337987974286,
+        "max_ms": 12.50157505273819
+      },
+      "3p/recharged/sealed/Bureaucracy": {
+        "positions": 16,
+        "median_ms": 8.920160355046391,
+        "p95_ms": 11.52172009460628,
+        "max_ms": 11.870970949530602
+      },
+      "3p/original/open/Auction": {
+        "positions": 40,
+        "median_ms": 8.688614005222917,
+        "p95_ms": 13.704345608130096,
+        "max_ms": 15.01774275675416
+      },
+      "3p/original/open/Resources": {
+        "positions": 42,
+        "median_ms": 10.367288487032056,
+        "p95_ms": 14.073909702710807,
+        "max_ms": 16.328978817909956
+      },
+      "3p/original/open/Building": {
+        "positions": 25,
+        "median_ms": 11.909564957022667,
+        "p95_ms": 15.00556143000722,
+        "max_ms": 15.69176185876131
+      },
+      "3p/original/open/Bureaucracy": {
+        "positions": 24,
+        "median_ms": 10.215982096269727,
+        "p95_ms": 14.09553256817162,
+        "max_ms": 14.143388718366623
+      },
+      "3p/recharged/open/Auction": {
+        "positions": 35,
+        "median_ms": 7.79323372989893,
+        "p95_ms": 12.82142433337867,
+        "max_ms": 13.769088312983513
+      },
+      "3p/recharged/open/Resources": {
+        "positions": 32,
+        "median_ms": 9.903009049594402,
+        "p95_ms": 12.08186843432486,
+        "max_ms": 13.46685504540801
+      },
+      "3p/recharged/open/Building": {
+        "positions": 20,
+        "median_ms": 10.752926580607891,
+        "p95_ms": 13.670210540294647,
+        "max_ms": 14.170581009238958
+      },
+      "3p/recharged/open/Bureaucracy": {
+        "positions": 19,
+        "median_ms": 8.748754858970642,
+        "p95_ms": 12.253128178417683,
+        "max_ms": 12.27253396064043
+      },
+      "4p/original/sealed/Auction": {
+        "positions": 29,
+        "median_ms": 11.532447766512632,
+        "p95_ms": 16.896750405430794,
+        "max_ms": 18.3598012663424
+      },
+      "4p/original/sealed/Resources": {
+        "positions": 39,
+        "median_ms": 11.020101141184568,
+        "p95_ms": 13.719815853983164,
+        "max_ms": 13.853329699486494
+      },
+      "4p/original/sealed/Building": {
+        "positions": 27,
+        "median_ms": 11.292514856904745,
+        "p95_ms": 14.788714982569218,
+        "max_ms": 15.760453883558512
+      },
+      "4p/original/sealed/Bureaucracy": {
+        "positions": 24,
+        "median_ms": 9.417127817869186,
+        "p95_ms": 13.718015095219014,
+        "max_ms": 14.337030705064535
+      },
+      "4p/recharged/sealed/Auction": {
+        "positions": 30,
+        "median_ms": 11.35581312701106,
+        "p95_ms": 17.098579253070053,
+        "max_ms": 20.529452245682478
+      },
+      "4p/recharged/sealed/Resources": {
+        "positions": 40,
+        "median_ms": 10.264194570481777,
+        "p95_ms": 12.72553785238415,
+        "max_ms": 14.363412279635668
+      },
+      "4p/recharged/sealed/Building": {
+        "positions": 24,
+        "median_ms": 11.502940906211734,
+        "p95_ms": 14.50763316825032,
+        "max_ms": 14.961494132876396
+      },
+      "4p/recharged/sealed/Bureaucracy": {
+        "positions": 23,
+        "median_ms": 8.928671013563871,
+        "p95_ms": 11.634452128782868,
+        "max_ms": 11.805544141680002
+      },
+      "4p/original/open/Auction": {
+        "positions": 54,
+        "median_ms": 9.266762994229794,
+        "p95_ms": 12.904538027942179,
+        "max_ms": 14.831062871962786
+      },
+      "4p/original/open/Resources": {
+        "positions": 32,
+        "median_ms": 9.616742609068751,
+        "p95_ms": 11.888435832224786,
+        "max_ms": 12.256061658263206
+      },
+      "4p/original/open/Building": {
+        "positions": 21,
+        "median_ms": 10.702748782932758,
+        "p95_ms": 13.920167926698923,
+        "max_ms": 16.13852195441723
+      },
+      "4p/original/open/Bureaucracy": {
+        "positions": 19,
+        "median_ms": 8.220918010920286,
+        "p95_ms": 11.743488116189837,
+        "max_ms": 11.744957882910967
+      },
+      "4p/recharged/open/Auction": {
+        "positions": 67,
+        "median_ms": 9.246965404599905,
+        "p95_ms": 15.463636396452785,
+        "max_ms": 16.060843132436275
+      },
+      "4p/recharged/open/Resources": {
+        "positions": 44,
+        "median_ms": 11.916363378986716,
+        "p95_ms": 15.491252508945763,
+        "max_ms": 16.41484396532178
+      },
+      "4p/recharged/open/Building": {
+        "positions": 28,
+        "median_ms": 13.111655600368977,
+        "p95_ms": 17.491322779096663,
+        "max_ms": 19.66912392526865
+      },
+      "4p/recharged/open/Bureaucracy": {
+        "positions": 26,
+        "median_ms": 11.82016241364181,
+        "p95_ms": 15.839593834243715,
+        "max_ms": 16.02142583578825
+      },
+      "5p/original/sealed/Auction": {
+        "positions": 40,
+        "median_ms": 10.415772208943963,
+        "p95_ms": 22.352994792163372,
+        "max_ms": 23.4518819488585
+      },
+      "5p/original/sealed/Resources": {
+        "positions": 46,
+        "median_ms": 9.552527917549014,
+        "p95_ms": 12.88603781722486,
+        "max_ms": 15.879163052886724
+      },
+      "5p/original/sealed/Building": {
+        "positions": 31,
+        "median_ms": 10.969483759254217,
+        "p95_ms": 14.677968807518482,
+        "max_ms": 14.84718406572938
+      },
+      "5p/original/sealed/Bureaucracy": {
+        "positions": 30,
+        "median_ms": 8.880594046786427,
+        "p95_ms": 14.53730808570981,
+        "max_ms": 14.693418052047491
+      },
+      "5p/recharged/sealed/Auction": {
+        "positions": 39,
+        "median_ms": 8.827636949717999,
+        "p95_ms": 15.30271233059466,
+        "max_ms": 28.426555916666985
+      },
+      "5p/recharged/sealed/Resources": {
+        "positions": 44,
+        "median_ms": 9.724394883960485,
+        "p95_ms": 15.016462421044709,
+        "max_ms": 15.875895973294973
+      },
+      "5p/recharged/sealed/Building": {
+        "positions": 32,
+        "median_ms": 9.3755426350981,
+        "p95_ms": 13.73344596941024,
+        "max_ms": 14.24851082265377
+      },
+      "5p/recharged/sealed/Bureaucracy": {
+        "positions": 25,
+        "median_ms": 8.775095921009779,
+        "p95_ms": 14.153130818158388,
+        "max_ms": 15.434134751558304
+      },
+      "5p/original/open/Auction": {
+        "positions": 63,
+        "median_ms": 10.14693919569254,
+        "p95_ms": 16.313764825463295,
+        "max_ms": 18.891675863415003
+      },
+      "5p/original/open/Resources": {
+        "positions": 47,
+        "median_ms": 10.758497286587954,
+        "p95_ms": 16.428588889539242,
+        "max_ms": 17.965001054108143
+      },
+      "5p/original/open/Building": {
+        "positions": 29,
+        "median_ms": 12.727842200547457,
+        "p95_ms": 18.60771719366312,
+        "max_ms": 19.995263312011957
+      },
+      "5p/original/open/Bureaucracy": {
+        "positions": 30,
+        "median_ms": 10.182642377912998,
+        "p95_ms": 15.360004897229373,
+        "max_ms": 16.63022907450795
+      },
+      "5p/recharged/open/Auction": {
+        "positions": 65,
+        "median_ms": 9.244609624147415,
+        "p95_ms": 15.28807831928134,
+        "max_ms": 17.27932970970869
+      },
+      "5p/recharged/open/Resources": {
+        "positions": 37,
+        "median_ms": 11.831364128738642,
+        "p95_ms": 15.513692330569029,
+        "max_ms": 15.630993992090225
+      },
+      "5p/recharged/open/Building": {
+        "positions": 27,
+        "median_ms": 12.77800789102912,
+        "p95_ms": 16.765779675915837,
+        "max_ms": 18.453601747751236
+      },
+      "5p/recharged/open/Bureaucracy": {
+        "positions": 24,
+        "median_ms": 11.447499506175518,
+        "p95_ms": 15.788113302551208,
+        "max_ms": 16.19985094293952
+      },
+      "6p/original/sealed/Auction": {
+        "positions": 41,
+        "median_ms": 11.387357953935862,
+        "p95_ms": 19.59214499220252,
+        "max_ms": 27.968123089522123
+      },
+      "6p/original/sealed/Resources": {
+        "positions": 25,
+        "median_ms": 8.095567114651203,
+        "p95_ms": 11.476862896233797,
+        "max_ms": 11.576652992516756
+      },
+      "6p/original/sealed/Building": {
+        "positions": 22,
+        "median_ms": 9.993182495236397,
+        "p95_ms": 13.174588815309106,
+        "max_ms": 13.382893055677414
+      },
+      "6p/original/sealed/Bureaucracy": {
+        "positions": 18,
+        "median_ms": 8.641143096610904,
+        "p95_ms": 10.446295887231827,
+        "max_ms": 10.803874116390944
+      },
+      "6p/recharged/sealed/Auction": {
+        "positions": 46,
+        "median_ms": 12.66754511743784,
+        "p95_ms": 24.487512186169624,
+        "max_ms": 31.667760107666254
+      },
+      "6p/recharged/sealed/Resources": {
+        "positions": 53,
+        "median_ms": 12.265881057828665,
+        "p95_ms": 15.164597891271114,
+        "max_ms": 16.58912980929017
+      },
+      "6p/recharged/sealed/Building": {
+        "positions": 35,
+        "median_ms": 14.1131398268044,
+        "p95_ms": 17.571695987135172,
+        "max_ms": 18.177379854023457
+      },
+      "6p/recharged/sealed/Bureaucracy": {
+        "positions": 33,
+        "median_ms": 11.527738999575377,
+        "p95_ms": 15.888831205666063,
+        "max_ms": 16.89304504543543
+      },
+      "6p/original/open/Auction": {
+        "positions": 88,
+        "median_ms": 11.334361508488655,
+        "p95_ms": 16.169672715477645,
+        "max_ms": 17.493372783064842
+      },
+      "6p/original/open/Resources": {
+        "positions": 34,
+        "median_ms": 10.482655372470617,
+        "p95_ms": 14.738226472400129,
+        "max_ms": 16.50288375094533
+      },
+      "6p/original/open/Building": {
+        "positions": 24,
+        "median_ms": 12.576504610478878,
+        "p95_ms": 16.225003986619413,
+        "max_ms": 17.030721064656973
+      },
+      "6p/original/open/Bureaucracy": {
+        "positions": 25,
+        "median_ms": 10.895401239395142,
+        "p95_ms": 15.82677541300654,
+        "max_ms": 16.82277023792267
+      },
+      "6p/recharged/open/Auction": {
+        "positions": 71,
+        "median_ms": 11.084035038948059,
+        "p95_ms": 15.922480495646596,
+        "max_ms": 17.788881435990334
+      },
+      "6p/recharged/open/Resources": {
+        "positions": 56,
+        "median_ms": 15.259213047102094,
+        "p95_ms": 19.369611516594887,
+        "max_ms": 20.272095687687397
+      },
+      "6p/recharged/open/Building": {
+        "positions": 37,
+        "median_ms": 14.909935183823109,
+        "p95_ms": 20.84705755114555,
+        "max_ms": 21.54020918533206
+      },
+      "6p/recharged/open/Bureaucracy": {
+        "positions": 33,
+        "median_ms": 13.854742050170898,
+        "p95_ms": 17.920468654483557,
+        "max_ms": 18.579193856567144
+      }
+    },
+    "conservative_population": {
+      "2p/original/sealed/Resources": {
+        "positions": 29,
+        "median_ms": 8.360927924513817,
+        "p95_ms": 12.062170729041098,
+        "max_ms": 12.74801092222333
+      },
+      "2p/original/sealed/Building": {
+        "positions": 20,
+        "median_ms": 9.20456345193088,
+        "p95_ms": 12.98646330833435,
+        "max_ms": 13.034502044320107
+      },
+      "2p/original/sealed/Bureaucracy": {
+        "positions": 17,
+        "median_ms": 8.539262227714062,
+        "p95_ms": 12.167924083769321,
+        "max_ms": 12.564496137201786
+      },
+      "2p/original/sealed/Auction": {
+        "positions": 16,
+        "median_ms": 2263.431935105473,
+        "p95_ms": 5145.510344882496,
+        "max_ms": 5780.962428078055
+      },
+      "2p/recharged/sealed/Auction": {
+        "positions": 14,
+        "median_ms": 2267.6633370574564,
+        "p95_ms": 4749.505696329288,
+        "max_ms": 5141.95111580193
+      },
+      "2p/recharged/sealed/Resources": {
+        "positions": 28,
+        "median_ms": 8.014029590412974,
+        "p95_ms": 11.796258180402218,
+        "max_ms": 19.292457960546017
+      },
+      "2p/recharged/sealed/Building": {
+        "positions": 18,
+        "median_ms": 9.219551924616098,
+        "p95_ms": 12.019250309094787,
+        "max_ms": 12.19488400965929
+      },
+      "2p/recharged/sealed/Bureaucracy": {
+        "positions": 15,
+        "median_ms": 7.915140129625797,
+        "p95_ms": 10.210966086015105,
+        "max_ms": 10.287280194461346
+      },
+      "2p/original/open/Auction": {
+        "positions": 30,
+        "median_ms": 4209.6251079346985,
+        "p95_ms": 7735.344560537487,
+        "max_ms": 8869.317567907274
+      },
+      "2p/original/open/Resources": {
+        "positions": 35,
+        "median_ms": 9.019516874104738,
+        "p95_ms": 14.310511574149132,
+        "max_ms": 15.075063798576593
+      },
+      "2p/original/open/Building": {
+        "positions": 16,
+        "median_ms": 10.757831390947104,
+        "p95_ms": 13.93242902122438,
+        "max_ms": 14.392788987606764
+      },
+      "2p/original/open/Bureaucracy": {
+        "positions": 25,
+        "median_ms": 9.192730765789747,
+        "p95_ms": 12.363660149276255,
+        "max_ms": 12.881087139248848
+      },
+      "2p/recharged/open/Auction": {
+        "positions": 28,
+        "median_ms": 5033.649200107902,
+        "p95_ms": 7284.971677837893,
+        "max_ms": 7571.656548883766
+      },
+      "2p/recharged/open/Resources": {
+        "positions": 27,
+        "median_ms": 8.820794988423586,
+        "p95_ms": 11.738454550504684,
+        "max_ms": 12.243940029293299
+      },
+      "2p/recharged/open/Building": {
+        "positions": 15,
+        "median_ms": 8.520896080881357,
+        "p95_ms": 13.827900076285005,
+        "max_ms": 13.874209951609373
+      },
+      "2p/recharged/open/Bureaucracy": {
+        "positions": 15,
+        "median_ms": 8.077772799879313,
+        "p95_ms": 11.98159446939826,
+        "max_ms": 12.13462883606553
+      },
+      "3p/original/sealed/Auction": {
+        "positions": 22,
+        "median_ms": 2013.3443858940154,
+        "p95_ms": 6312.178473779932,
+        "max_ms": 6375.773303210735
+      },
+      "3p/original/sealed/Resources": {
+        "positions": 33,
+        "median_ms": 8.139141835272312,
+        "p95_ms": 12.513135746121407,
+        "max_ms": 13.152710162103176
+      },
+      "3p/original/sealed/Building": {
+        "positions": 19,
+        "median_ms": 9.010879788547754,
+        "p95_ms": 12.337157269939775,
+        "max_ms": 14.921337831765413
+      },
+      "3p/original/sealed/Bureaucracy": {
+        "positions": 26,
+        "median_ms": 8.125885855406523,
+        "p95_ms": 11.742791626602411,
+        "max_ms": 11.937969829887152
+      },
+      "3p/recharged/sealed/Auction": {
+        "positions": 21,
+        "median_ms": 2850.71042412892,
+        "p95_ms": 5882.653380744159,
+        "max_ms": 5965.202239342034
+      },
+      "3p/recharged/sealed/Resources": {
+        "positions": 32,
+        "median_ms": 8.50560748949647,
+        "p95_ms": 11.027465830557048,
+        "max_ms": 11.554792057722807
+      },
+      "3p/recharged/sealed/Building": {
+        "positions": 21,
+        "median_ms": 9.541282895952463,
+        "p95_ms": 12.537614908069372,
+        "max_ms": 13.145036064088345
+      },
+      "3p/recharged/sealed/Bureaucracy": {
+        "positions": 16,
+        "median_ms": 8.492045802995563,
+        "p95_ms": 10.357558378018439,
+        "max_ms": 10.475573129951954
+      },
+      "3p/original/open/Auction": {
+        "positions": 40,
+        "median_ms": 3762.9649995360523,
+        "p95_ms": 8164.002881781197,
+        "max_ms": 8611.568147782236
+      },
+      "3p/original/open/Resources": {
+        "positions": 42,
+        "median_ms": 9.94588783942163,
+        "p95_ms": 12.558588455431163,
+        "max_ms": 13.470776844769716
+      },
+      "3p/original/open/Building": {
+        "positions": 25,
+        "median_ms": 11.361278127878904,
+        "p95_ms": 14.537883270531891,
+        "max_ms": 16.53979765251279
+      },
+      "3p/original/open/Bureaucracy": {
+        "positions": 24,
+        "median_ms": 10.306819109246135,
+        "p95_ms": 13.400297705084085,
+        "max_ms": 18.934108316898346
+      },
+      "3p/recharged/open/Auction": {
+        "positions": 35,
+        "median_ms": 5718.075125943869,
+        "p95_ms": 8992.750942846758,
+        "max_ms": 9440.988872665912
+      },
+      "3p/recharged/open/Resources": {
+        "positions": 32,
+        "median_ms": 9.29822213947773,
+        "p95_ms": 11.166320671327412,
+        "max_ms": 19.00404877960682
+      },
+      "3p/recharged/open/Building": {
+        "positions": 20,
+        "median_ms": 10.639878455549479,
+        "p95_ms": 13.785187504254283,
+        "max_ms": 15.809800010174513
+      },
+      "3p/recharged/open/Bureaucracy": {
+        "positions": 19,
+        "median_ms": 8.745997212827206,
+        "p95_ms": 11.952967336401342,
+        "max_ms": 12.374765239655972
+      },
+      "4p/original/sealed/Auction": {
+        "positions": 29,
+        "median_ms": 4601.899345871061,
+        "p95_ms": 8811.436172947286,
+        "max_ms": 9724.453995004296
+      },
+      "4p/original/sealed/Resources": {
+        "positions": 39,
+        "median_ms": 10.416215285658836,
+        "p95_ms": 14.0192199498415,
+        "max_ms": 14.284403063356876
+      },
+      "4p/original/sealed/Building": {
+        "positions": 27,
+        "median_ms": 11.518139392137527,
+        "p95_ms": 14.788041170686483,
+        "max_ms": 14.967198949307203
+      },
+      "4p/original/sealed/Bureaucracy": {
+        "positions": 24,
+        "median_ms": 10.110821574926376,
+        "p95_ms": 12.606575642712414,
+        "max_ms": 12.96902820467949
+      },
+      "4p/recharged/sealed/Auction": {
+        "positions": 30,
+        "median_ms": 4451.3785156887025,
+        "p95_ms": 7975.208443892185,
+        "max_ms": 8527.682929765433
+      },
+      "4p/recharged/sealed/Resources": {
+        "positions": 40,
+        "median_ms": 11.541295796632767,
+        "p95_ms": 14.16991881560534,
+        "max_ms": 16.541521064937115
+      },
+      "4p/recharged/sealed/Building": {
+        "positions": 24,
+        "median_ms": 12.15903158299625,
+        "p95_ms": 15.48161143437028,
+        "max_ms": 17.293510027229786
+      },
+      "4p/recharged/sealed/Bureaucracy": {
+        "positions": 23,
+        "median_ms": 10.23996202275157,
+        "p95_ms": 13.340131472796202,
+        "max_ms": 14.172372873872519
+      },
+      "4p/original/open/Auction": {
+        "positions": 54,
+        "median_ms": 5334.934318903834,
+        "p95_ms": 10862.691373471167,
+        "max_ms": 12335.258588194847
+      },
+      "4p/original/open/Resources": {
+        "positions": 32,
+        "median_ms": 9.126587538048625,
+        "p95_ms": 14.878670638427138,
+        "max_ms": 16.32685074582696
+      },
+      "4p/original/open/Building": {
+        "positions": 21,
+        "median_ms": 12.47734110802412,
+        "p95_ms": 16.09261892735958,
+        "max_ms": 17.234148923307657
+      },
+      "4p/original/open/Bureaucracy": {
+        "positions": 19,
+        "median_ms": 9.38412919640541,
+        "p95_ms": 14.532477594912052,
+        "max_ms": 14.903506729751825
+      },
+      "4p/recharged/open/Auction": {
+        "positions": 67,
+        "median_ms": 5376.603281591088,
+        "p95_ms": 10320.25335249491,
+        "max_ms": 11430.786250159144
+      },
+      "4p/recharged/open/Resources": {
+        "positions": 44,
+        "median_ms": 11.351343244314194,
+        "p95_ms": 16.839156416244805,
+        "max_ms": 16.96725096553564
+      },
+      "4p/recharged/open/Building": {
+        "positions": 28,
+        "median_ms": 13.047406682744622,
+        "p95_ms": 17.92207781691104,
+        "max_ms": 19.545679911971092
+      },
+      "4p/recharged/open/Bureaucracy": {
+        "positions": 26,
+        "median_ms": 10.646418435499072,
+        "p95_ms": 16.02238742634654,
+        "max_ms": 17.952759750187397
+      },
+      "5p/original/sealed/Auction": {
+        "positions": 40,
+        "median_ms": 3786.9543870911,
+        "p95_ms": 9765.687287016772,
+        "max_ms": 10074.866854120046
+      },
+      "5p/original/sealed/Resources": {
+        "positions": 46,
+        "median_ms": 11.068982305005193,
+        "p95_ms": 15.17758541740477,
+        "max_ms": 15.579904895275831
+      },
+      "5p/original/sealed/Building": {
+        "positions": 31,
+        "median_ms": 11.206538416445255,
+        "p95_ms": 17.903263680636883,
+        "max_ms": 26.260259095579386
+      },
+      "5p/original/sealed/Bureaucracy": {
+        "positions": 30,
+        "median_ms": 10.164418956264853,
+        "p95_ms": 15.433601289987564,
+        "max_ms": 15.573312994092703
+      },
+      "5p/recharged/sealed/Auction": {
+        "positions": 39,
+        "median_ms": 4512.645915150642,
+        "p95_ms": 9124.72564629279,
+        "max_ms": 9765.605184715241
+      },
+      "5p/recharged/sealed/Resources": {
+        "positions": 44,
+        "median_ms": 11.088679544627666,
+        "p95_ms": 16.285920585505664,
+        "max_ms": 24.1556316614151
+      },
+      "5p/recharged/sealed/Building": {
+        "positions": 32,
+        "median_ms": 11.851569404825568,
+        "p95_ms": 18.410194502212107,
+        "max_ms": 18.916213884949684
+      },
+      "5p/recharged/sealed/Bureaucracy": {
+        "positions": 25,
+        "median_ms": 9.7049530595541,
+        "p95_ms": 14.345555938780308,
+        "max_ms": 15.017962083220482
+      },
+      "5p/original/open/Auction": {
+        "positions": 63,
+        "median_ms": 4890.455752145499,
+        "p95_ms": 10998.753194371238,
+        "max_ms": 12286.47666471079
+      },
+      "5p/original/open/Resources": {
+        "positions": 47,
+        "median_ms": 12.15360127389431,
+        "p95_ms": 16.093029314652085,
+        "max_ms": 25.9881722740829
+      },
+      "5p/original/open/Building": {
+        "positions": 29,
+        "median_ms": 13.499113731086254,
+        "p95_ms": 18.835499603301287,
+        "max_ms": 19.273290876299143
+      },
+      "5p/original/open/Bureaucracy": {
+        "positions": 30,
+        "median_ms": 10.771943954750896,
+        "p95_ms": 15.27525852434337,
+        "max_ms": 15.678032767027617
+      },
+      "5p/recharged/open/Auction": {
+        "positions": 65,
+        "median_ms": 7815.129001159221,
+        "p95_ms": 11727.772517781705,
+        "max_ms": 13120.353186037391
+      },
+      "5p/recharged/open/Resources": {
+        "positions": 37,
+        "median_ms": 12.207234278321266,
+        "p95_ms": 16.032228618860245,
+        "max_ms": 16.260764561593533
+      },
+      "5p/recharged/open/Building": {
+        "positions": 27,
+        "median_ms": 13.83175514638424,
+        "p95_ms": 18.394970521330833,
+        "max_ms": 19.312376156449318
+      },
+      "5p/recharged/open/Bureaucracy": {
+        "positions": 24,
+        "median_ms": 11.236003367230296,
+        "p95_ms": 14.808454806916414,
+        "max_ms": 15.024504158645868
+      },
+      "6p/original/sealed/Auction": {
+        "positions": 41,
+        "median_ms": 4791.122275870293,
+        "p95_ms": 10296.947208698839,
+        "max_ms": 10571.851403918117
+      },
+      "6p/original/sealed/Resources": {
+        "positions": 25,
+        "median_ms": 9.596943855285645,
+        "p95_ms": 14.520099014043806,
+        "max_ms": 14.665862079709768
+      },
+      "6p/original/sealed/Building": {
+        "positions": 22,
+        "median_ms": 11.192598612979054,
+        "p95_ms": 15.268513793125749,
+        "max_ms": 15.909328125417233
+      },
+      "6p/original/sealed/Bureaucracy": {
+        "positions": 18,
+        "median_ms": 9.904145495966077,
+        "p95_ms": 12.512146262452005,
+        "max_ms": 13.048253953456879
+      },
+      "6p/recharged/sealed/Auction": {
+        "positions": 46,
+        "median_ms": 4779.758697608486,
+        "p95_ms": 9910.34994169604,
+        "max_ms": 10552.473207004368
+      },
+      "6p/recharged/sealed/Resources": {
+        "positions": 53,
+        "median_ms": 12.692188378423452,
+        "p95_ms": 18.028700072318312,
+        "max_ms": 23.121617268770933
+      },
+      "6p/recharged/sealed/Building": {
+        "positions": 35,
+        "median_ms": 14.820919837802649,
+        "p95_ms": 19.111274136230346,
+        "max_ms": 20.748754031956196
+      },
+      "6p/recharged/sealed/Bureaucracy": {
+        "positions": 33,
+        "median_ms": 12.129132635891438,
+        "p95_ms": 16.706243809312582,
+        "max_ms": 18.212034832686186
+      },
+      "6p/original/open/Auction": {
+        "positions": 88,
+        "median_ms": 6826.922844396904,
+        "p95_ms": 12145.350763457827,
+        "max_ms": 13082.850039936602
+      },
+      "6p/original/open/Resources": {
+        "positions": 34,
+        "median_ms": 11.964205652475357,
+        "p95_ms": 16.537267388775945,
+        "max_ms": 16.557667404413223
+      },
+      "6p/original/open/Building": {
+        "positions": 24,
+        "median_ms": 14.408190036192536,
+        "p95_ms": 19.732765899971128,
+        "max_ms": 20.40507085621357
+      },
+      "6p/original/open/Bureaucracy": {
+        "positions": 25,
+        "median_ms": 12.647201307117939,
+        "p95_ms": 15.912055410444736,
+        "max_ms": 17.150248866528273
+      },
+      "6p/recharged/open/Auction": {
+        "positions": 71,
+        "median_ms": 7768.219491932541,
+        "p95_ms": 12143.262241734192,
+        "max_ms": 13809.10761281848
+      },
+      "6p/recharged/open/Resources": {
+        "positions": 56,
+        "median_ms": 14.62896028533578,
+        "p95_ms": 19.27842281293124,
+        "max_ms": 20.033034961670637
+      },
+      "6p/recharged/open/Building": {
+        "positions": 37,
+        "median_ms": 14.881337061524391,
+        "p95_ms": 21.73043079674244,
+        "max_ms": 22.230317816138268
+      },
+      "6p/recharged/open/Bureaucracy": {
+        "positions": 33,
+        "median_ms": 14.341036323457956,
+        "p95_ms": 18.677155394107103,
+        "max_ms": 20.612019579857588
+      }
+    }
+  },
+  "status_sha256": "62a7d5aa4db3bb1afa788b0d8bf6dc92dc005b1e02405e8e1002720ba57378fd",
+  "manifest_sha256": "9bd471f4c7267dc4a1a8133c4b27ac0b4cfa2fefe2afe5d8408e5bf8129bb9ff",
+  "scope": "All 2553 original public fixtures, both frozen confirmation policies on actual 8840U. Fixed-position serving and latency only; search continuations counted. No strength or checkpoint parity claim.",
+  "candidate_selected": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

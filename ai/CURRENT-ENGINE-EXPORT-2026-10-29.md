@@ -75,25 +75,22 @@ package for the exact current engine and public fixtures; no regeneration or
 inference rerun is required on restore. Inspect existing intents/outcomes before
 retrying an upload.
 
-## Bind to the full target replay after collection
+## Full target binding completed
 
-Do not restart either running process. Once the original full target replay has
-completed, use its existing manager's collection operation and independent
-5,106-response audit described in
-[the full-serving handoff](CURRENT-FULL-SERVING-2026-10-29.md). Then run once:
+The original full target replay completed and was independently collected and
+audited. The subsequent `bind_serving` operation passed on **all 5,106 saved
+target responses**: each `modelProposal` equals the native-checkpoint argmax on
+the same request. Legal filter/search overrides remain separately audited.
+No new inference, search or game execution was needed. Do not repeat the binding.
 
-```sh
-ai/.venv/bin/python -u -B ai/strong/audit_current_engine_export_v1.py bind_serving
-```
-
-This checks every saved target `modelProposal` against the independently verified
-native checkpoint choice on the same request, for both policies. A different
-final action is allowed only as the separately audited filter/search behavior.
-Expected output: `strong/current-full-serving-export-binding-v1.json`.
-This binding has not yet run because the original target is still running.
-It performs no new inference or simulations and cannot collect or launch jobs.
+Report: `strong/current-full-serving-export-binding-v1.json`. Full target
+results, measured timings and recovery references are in
+[the completed serving handoff](CURRENT-FULL-SERVING-2026-10-29.md).
+The raw response/audit/binding archive is verified at model revision
+`e4f018ff2f983e5e4f1a6b7e92a7586051bf5842`; descriptor
+`strong/current-full-serving-results-evidence-v1.json`.
 
 The full confirmation and reserved strength qualification remain unfinished.
 Later selection must bind the same complete policy identity/settings before
-reusing applicable technical evidence. Values remain uncalibrated estimates;
-this work does not establish their suitability for player analysis.
+reusing this technical evidence. Values remain uncalibrated estimates; these
+checks do not establish their suitability for player analysis.

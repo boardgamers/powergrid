@@ -1,0 +1,130 @@
+{
+  "complete": true,
+  "source_audit_sha256": "1ac5df30e7275bcab9b074667e6eae3cd9f142c250a09d6b43e3ce26612d69d1",
+  "source_binding_sha256": "e2e591981ca23e215a73e92642750b12753ab2dc91771ea296e66ae6145b0a44",
+  "receipts_sha256": "f1773fd81fb18239d63d7f95ff9a25d4e317aa4d3a0765d9ada95850d6c77730",
+  "cold_process_plus_first_request_ms": {
+    "filter": 670.9795370697975,
+    "conservative_population": 6616.675919853151
+  },
+  "warm_by_request_type": {
+    "fast_policy": {
+      "2": {
+        "requests": 348,
+        "median_ms": 8.968433365225792,
+        "p95_ms": 12.928638164885342,
+        "max_ms": 15.740865841507912
+      },
+      "3": {
+        "requests": 427,
+        "median_ms": 9.543055202811956,
+        "p95_ms": 13.925680238753555,
+        "max_ms": 16.328978817909956
+      },
+      "4": {
+        "requests": 527,
+        "median_ms": 10.525619145482779,
+        "p95_ms": 15.506081422790885,
+        "max_ms": 20.529452245682478
+      },
+      "5": {
+        "requests": 609,
+        "median_ms": 10.126248002052307,
+        "p95_ms": 16.178962495177984,
+        "max_ms": 28.426555916666985
+      },
+      "6": {
+        "requests": 641,
+        "median_ms": 11.927359271794558,
+        "p95_ms": 18.176719080656767,
+        "max_ms": 31.667760107666254
+      },
+      "all": {
+        "requests": 2552,
+        "median_ms": 10.148652596399188,
+        "p95_ms": 16.267165262252092,
+        "max_ms": 31.667760107666254
+      }
+    },
+    "searched_auction": {
+      "2": {
+        "requests": 80,
+        "median_ms": 3856.065696803853,
+        "p95_ms": 7574.967354722321,
+        "max_ms": 8869.317567907274
+      },
+      "3": {
+        "requests": 101,
+        "median_ms": 4474.030494689941,
+        "p95_ms": 8522.645568009466,
+        "max_ms": 9440.988872665912
+      },
+      "4": {
+        "requests": 170,
+        "median_ms": 5085.125899408013,
+        "p95_ms": 10460.170410992574,
+        "max_ms": 12335.258588194847
+      },
+      "5": {
+        "requests": 194,
+        "median_ms": 5869.062294019386,
+        "p95_ms": 11193.737115478143,
+        "max_ms": 13120.353186037391
+      },
+      "6": {
+        "requests": 233,
+        "median_ms": 6288.550949655473,
+        "p95_ms": 11867.419584374875,
+        "max_ms": 13809.10761281848
+      },
+      "all": {
+        "requests": 778,
+        "median_ms": 5342.785442015156,
+        "p95_ms": 11198.597511672415,
+        "max_ms": 13809.10761281848
+      }
+    },
+    "hybrid_without_search": {
+      "2": {
+        "requests": 268,
+        "median_ms": 8.871110854670405,
+        "p95_ms": 12.937700073234735,
+        "max_ms": 19.292457960546017
+      },
+      "3": {
+        "requests": 326,
+        "median_ms": 8.933174423873425,
+        "p95_ms": 12.98059371765703,
+        "max_ms": 19.00404877960682
+      },
+      "4": {
+        "requests": 357,
+        "median_ms": 10.947939939796925,
+        "p95_ms": 16.523766331374645,
+        "max_ms": 19.545679911971092
+      },
+      "5": {
+        "requests": 415,
+        "median_ms": 11.696009896695614,
+        "p95_ms": 16.60848511382937,
+        "max_ms": 26.260259095579386
+      },
+      "6": {
+        "requests": 408,
+        "median_ms": 12.956688646227121,
+        "p95_ms": 19.2483281949535,
+        "max_ms": 23.121617268770933
+      },
+      "all": {
+        "requests": 1774,
+        "median_ms": 10.493650333955884,
+        "p95_ms": 17.1865624608472,
+        "max_ms": 26.260259095579386
+      }
+    }
+  },
+  "scope": "Fixed original fixture distribution, end-to-end policy request latency. Excludes first request per arm from warm results. Searched auctions have non-null search receipts; no-search hybrid requests include other phases and trivial auctions. Percentiles are descriptive for these positions, not representative gameplay/job latency. Cold measurement includes policy-process creation and first request, not download/install/queue/harness validation.",
+  "qualified": false,
+  "candidate_selected": false,
+  "reserved_final_seeds_used": false
+}

@@ -68120,5 +68120,122 @@
         "qualified": false,
         "reserved_final_seeds_used": false,
         "remaining": "Complete original confirmation and target replay. Independently collect/audit/bind target; compare complete strength grid before selection. Substantive real admission, resource plan, immutable publication, batch scheduling and final result collection still need integration."
+    },
+    "current_full_serving_completed_20261029": {
+        "status": "complete_original_target_collected_audited_native_bound_and_archived",
+        "date": "2026-10-29",
+        "recorded_at": "2026-10-29T03:01:38.278402+00:00",
+        "original_target_pid": 3462824,
+        "target_verified_exited": true,
+        "target_started_at": "2026-10-29T01:11:16.122496+00:00",
+        "target_finished_at": "2026-10-29T02:25:13.385174+00:00",
+        "collection_session": 15475,
+        "native_binding_session": 29225,
+        "archive_session": 61345,
+        "positions_per_policy": 2553,
+        "requests": 5106,
+        "processor": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+        "coverage": "Germany, 2-6 players, original/Recharged and open/sealed, all four decision phases",
+        "all_moves_legal": true,
+        "all_target_model_proposals_match_native_checkpoint": true,
+        "counts": {
+            "filter": {
+                "decisions": 2553,
+                "root_filter_overrides": 2,
+                "rollouts": 0,
+                "rollout_caps": 0,
+                "neural_decisions": 0,
+                "search_changes": 0,
+                "search_decisions": 0
+            },
+            "conservative_population": {
+                "decisions": 2553,
+                "root_filter_overrides": 2,
+                "rollouts": 31680,
+                "rollout_caps": 0,
+                "neural_decisions": 4043599,
+                "search_changes": 138,
+                "search_decisions": 779,
+                "surrogate_decisions": 0
+            }
+        },
+        "wall_seconds": 4437.258535613306,
+        "cpu_seconds": 6080.240000000001,
+        "warm_latency_ms": {
+            "fast_policy": {
+                "requests": 2552,
+                "median_ms": 10.148652596399188,
+                "p95_ms": 16.267165262252092,
+                "max_ms": 31.667760107666254
+            },
+            "searched_auction": {
+                "requests": 778,
+                "median_ms": 5342.785442015156,
+                "p95_ms": 11198.597511672415,
+                "max_ms": 13809.10761281848
+            },
+            "hybrid_without_search": {
+                "requests": 1774,
+                "median_ms": 10.493650333955884,
+                "p95_ms": 17.1865624608472,
+                "max_ms": 26.260259095579386
+            }
+        },
+        "cold_process_plus_first_request_ms": {
+            "filter": 670.9795370697975,
+            "conservative_population": 6616.675919853151
+        },
+        "latency_scope": "Fixed original fixture distribution, not representative gameplay/platform-job percentiles. Cold excludes downloads, dependency setup and queueing. Different fixture mix from earlier 160-position benchmark, so no controlled speedup/regression claim.",
+        "reports_sha256": {
+            "ai/strong/current-full-serving-8840u-results-v1.json": "1ac5df30e7275bcab9b074667e6eae3cd9f142c250a09d6b43e3ce26612d69d1",
+            "ai/strong/current-full-serving-export-binding-v1.json": "e2e591981ca23e215a73e92642750b12753ab2dc91771ea296e66ae6145b0a44",
+            "ai/strong/current-full-serving-latency-summary-v1.json": "1370f56111ad4852db86a4684db33007cc6a51af0b52cdd1ed04104d197f11be",
+            "ai/strong/current-full-serving-results-evidence-v1.json": "8d6f2eec10ca70466403baa95d4ab64baa226d7d0e415d92c063ca6047fdc370"
+        },
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "e4f018ff2f983e5e4f1a6b7e92a7586051bf5842",
+            "archive_path": "archives/current-full-serving-results-evidence-v1.tgz",
+            "archive_sha256": "7848187c35f8844ffd20b8b7e1511ca0db8aec432e39ffc0e6baed1feb5e4256",
+            "manifest_sha256": "e5db8ce3295f5f69631ff068878dafe2ae7e32dd3f9aadf33d98d53d23b3da55",
+            "archived_files": 28,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "target_readiness_pins_unchanged": 65,
+        "confirmation_checkpoint": {
+            "path": "ai/strong/current-auction-confirmation-recovery-progress-v1.json",
+            "sha256": "68b01499c2ff728757134e9b2217b8603ab6dfc54308e1ebf3c3eb027cf47f0c",
+            "checked_at": "2026-10-29T02:58:07.698121+00:00",
+            "owner_pid": 2398668,
+            "owner_verified_exited": true,
+            "owner_stopped_at": "2026-10-29T02:36:24.845995+00:00",
+            "failure_type": "ConnectError",
+            "failure": "[Errno -2] Name or service not known",
+            "owner_log_sha256": "63b9e0967b8ba84d72d356119e8accdbd490131fbda0e2bff5a160cbf4e05203",
+            "unchanged_pins": 54,
+            "audited_jobs": 339,
+            "audited_games": 14512,
+            "submitted_jobs": 403,
+            "unverified_original_status_counts": {
+                "COMPLETED": 21,
+                "RUNNING": 43
+            },
+            "free_bytes": 461561761792,
+            "automatic_restart": false,
+            "inspection_scope": "Only original handles inspected; existing audit receipts counted, no new collection or job submission."
+        },
+        "new_inference_during_collection_binding_and_archive": 0,
+        "new_full_games_by_this_technical_work": 0,
+        "new_hf_jobs_by_this_technical_work": 0,
+        "gradient_updates": 0,
+        "previous_goal_turn_classification": "progress",
+        "previous_goal_turn_note": "Prepared completed-target archive helper as a3739d6; full target replay subsequently finished.",
+        "current_goal_turn_classification": "progress",
+        "goal_status": "active",
+        "candidate_selected": false,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "next": "Preserve completed target proof without reruns. Deliberately inspect stopped confirmation owner and collect original handles before any resumption; no automatic restart or replacement jobs. Full 944-job comparison, selection and separate reserved strength qualification remain incomplete."
     }
 }

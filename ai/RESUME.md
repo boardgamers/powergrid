@@ -1,5 +1,38 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 02:58 UTC — full 8840U evidence complete; confirmation owner stopped on a network error.**
+
+Both unchanged policies completed all 2,553 original public positions on the
+actual AMD 8840U: **5,106 legal responses**, independently collected/audited and
+bound to the exact native checkpoint. The hybrid performed 779 searched decisions
+and 31,680 complete rollouts, with no truncations. On this fixed fixture set,
+warm fast requests had median/p95 **10.15 / 16.27 ms**; searched auctions had
+median/p95 **5.34 / 11.20 s**. These are descriptive fixture timings, not platform
+job latency guarantees or playing-strength evidence. No Rust rewrite was made.
+
+Read [the completed target handoff](CURRENT-FULL-SERVING-2026-10-29.md).
+All original outputs, independent audit, native-proposal binding and timings are
+privately archived and download-verified at model revision
+`e4f018ff2f983e5e4f1a6b7e92a7586051bf5842`. Do not repeat the completed replay,
+collection, binding or upload. The 65 target-readiness pins remain unchanged.
+
+**The former confirmation coordinator PID 2398668 / session 50170 is no longer
+live.** It stopped at **02:36:24 UTC** with a DNS `ConnectError` while inspecting
+an original HF handle. Its state and log are preserved; all 54 pins are unchanged.
+A bounded read-only inspection at 02:58:07 UTC confirmed **339 audited jobs /
+14,512 games**, **403 originals submitted**, and **21 COMPLETED / 43 RUNNING**
+among the 64 uncollected originals. No new terminal job failure was observed.
+The connection worked again for this inspection; that does not restart the owner.
+
+Read [the recovery handoff](CURRENT-AUCTION-RECOVERY-2026-10-29.md) and
+`strong/current-auction-confirmation-recovery-progress-v1.json`. Preserve original
+handles and the stopped owner. Collection/resumption requires deliberate review;
+do not automatically restart, replace jobs, tune on partial outcomes or use final
+seeds. The remaining 541 original rows have not been submitted at this checkpoint.
+Research remains active, with no candidate selected or qualified. Complete
+confirmation, selection and the separate reserved strength gate remain pending.
+
+
 **29 October, 02:08 UTC — final dispatch transport tested; original runs continue.**
 
 The complete-policy final dispatch layer now passes **12 tests**, covering

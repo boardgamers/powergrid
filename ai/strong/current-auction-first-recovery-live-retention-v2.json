@@ -1,0 +1,247 @@
+{
+  "passed": true,
+  "job_id": "6ae3083f3fb22a235dd56000",
+  "checkpoints": 10,
+  "retained_game_pairs": 11,
+  "episodes": [
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    92
+  ],
+  "expected_games": 16,
+  "checkpoint_archives": [
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "ccd9c9bbdf5ad1365a83ab15e18fca55a7af60c2",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0001.tgz",
+        "archive_sha256": "50a7edfb94d661a8e24c7a4eecbaf630993188851cb03eed0347f55344d8ac34",
+        "manifest_sha256": "377977b3044ebb61e3b6fab091fe3041c3c400d878467e32e6c6a671b02d8a6c",
+        "archived_files": 6,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        80,
+        81
+      ],
+      "bytes": 27495048,
+      "context_and_pair_hashes_verified": true,
+      "raw_game_audited": false
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "03a3322571d0543d832ed9413ed6150c82bffd99",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0002.tgz",
+        "archive_sha256": "85e1959526bce672f47d288e617c4c283b50f73c97a09ceaf0c479a682358822",
+        "manifest_sha256": "9ed31063ee2f99e0d20790c1b7ab2c8b0b3e1e7019ec35148204714b0a8c4c62",
+        "archived_files": 4,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        85
+      ],
+      "bytes": 15763250,
+      "context_and_pair_hashes_verified": true,
+      "raw_game_audited": false
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "ee9719ae109908e65d21c673ab67fb9c7bce0e0b",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0003.tgz",
+        "archive_sha256": "ca170746440b3a848ada2ff73d9ee58a08051da23a77ab7717110e40c8d05d65",
+        "manifest_sha256": "ef5ce54767b4ae50a4d9955152ebff8ac229233b354b24139791ff303392e249",
+        "archived_files": 4,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        83
+      ],
+      "bytes": 20260229,
+      "context_and_pair_hashes_verified": true,
+      "raw_game_audited": false
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "cfbd5629139a2ae8a6e17159c389db9c5a765e7e",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0004.tgz",
+        "archive_sha256": "1c161d4a22b62635ef9fe1cbcc55ab77ece888d4b8b44ecf05eb2e84692ee00d",
+        "manifest_sha256": "8f35bf8508c010f1bed3ae619c2a47efc7a4dbf654cbb63616dfb730fde8251b",
+        "archived_files": 4,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        84
+      ],
+      "bytes": 16516901,
+      "context_and_pair_hashes_verified": true,
+      "raw_game_audited": false
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "cee0d02ea0e86d24fdad9c1174d69dfca95287df",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0005.tgz",
+        "archive_sha256": "b6b4dbdac34826e1a40cfa607b8a855d96e0ad6c1688ea5b51803ef41be553a1",
+        "manifest_sha256": "c20d9567dc63d31bfb19015e2838708a38e07d88b19cf78838d448c8b9736fdd",
+        "archived_files": 4,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        82
+      ],
+      "bytes": 20344952,
+      "context_and_pair_hashes_verified": true,
+      "raw_game_audited": false
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "77e1726a109c7bb45ff8a7432af8447d676a9aae",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0006.tgz",
+        "archive_sha256": "e4205e5f0986e4d1302db54197fb6287f30f7f45b22c21e4ca87c86e9a7611e0",
+        "manifest_sha256": "2a54ed2978c088353a77ad6531c88189eed33fcc052898e0c504056c3022429f",
+        "archived_files": 4,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        89
+      ],
+      "bytes": 14438756,
+      "context_and_pair_hashes_verified": true,
+      "raw_game_audited": false
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "eb46cd5992d96b59815c0c284433138a3c5175fd",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0007.tgz",
+        "archive_sha256": "81154cf5b1ffb3572fd13d1c85210b3902e3dba0fdc411ff215932cce40ac36c",
+        "manifest_sha256": "70a9668cb404b0fabd9f7e5bcf3c4772955b68cda51163124e9ad60b9ebc3b1c",
+        "archived_files": 4,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        88
+      ],
+      "bytes": 15834591,
+      "context_and_pair_hashes_verified": true,
+      "raw_game_audited": false
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "e2e7c0f926275450b2fcdda8451c4fcf7235ee70",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0008.tgz",
+        "archive_sha256": "d579e8daa65c875a8de7ef4d34bc66149a7e365f5046d8c2b308e06187a423bd",
+        "manifest_sha256": "06786fcffc49a004f7ef182dd49bed051665947f286a13ae609d17cd756cba90",
+        "archived_files": 4,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        86
+      ],
+      "bytes": 20268676,
+      "context_and_pair_hashes_verified": true,
+      "raw_game_audited": false
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "3d3536a787f9b97ba4361440e101598c4c364244",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0009.tgz",
+        "archive_sha256": "e118b550becbbc7f56e316e3a141429b474d40dc9dded7d4442436179431e04e",
+        "manifest_sha256": "6df1f1d049310fb3028dbd3f11d1dbe7af45a8c3d48ef756a8e9b91053c3f4cb",
+        "archived_files": 4,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        87
+      ],
+      "bytes": 18922534,
+      "context_and_pair_hashes_verified": true,
+      "raw_game_audited": false
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "78863e28fee4665060cb4dc1a51f6949762765d6",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0010.tgz",
+        "archive_sha256": "414b703ecea8fe698f454802be90cbb22095d0d166da0bde202c6b7cac70f4ee",
+        "manifest_sha256": "174e5d6c51841acd5c654953c18751d5607179aeafb43373e2d4077ce167e0b9",
+        "archived_files": 4,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        92
+      ],
+      "bytes": 17876213,
+      "context_and_pair_hashes_verified": true,
+      "raw_game_audited": false
+    }
+  ],
+  "original_failed_handle": "6ae2c32f3fb22a235dd50586",
+  "before": {
+    "checked_at": "2026-10-29T09:18:08.628545+00:00",
+    "job_id": "6ae3083f3fb22a235dd56000",
+    "attempt_id": "pg-current-recover-v2-pop-search-4p-05",
+    "stage": "RUNNING",
+    "timeout_seconds": 86400,
+    "flavor": "cpu-upgrade",
+    "image": "python:3.11-slim-bookworm",
+    "bootstrap_sha256": "604c628ebd57b1d09c6d377e0e501c9c87e4aa0fae10195f116aafe00b13b426",
+    "environment_sha256": "f0e386bfc7ff0f50885f51757753c4dbf7b4df4b8bfabf80d0261c629f60823c",
+    "public_configuration_verified": true,
+    "original_failed_handle": "6ae2c32f3fb22a235dd50586"
+  },
+  "after": {
+    "checked_at": "2026-10-29T09:18:14.071468+00:00",
+    "job_id": "6ae3083f3fb22a235dd56000",
+    "attempt_id": "pg-current-recover-v2-pop-search-4p-05",
+    "stage": "RUNNING",
+    "timeout_seconds": 86400,
+    "flavor": "cpu-upgrade",
+    "image": "python:3.11-slim-bookworm",
+    "bootstrap_sha256": "604c628ebd57b1d09c6d377e0e501c9c87e4aa0fae10195f116aafe00b13b426",
+    "environment_sha256": "f0e386bfc7ff0f50885f51757753c4dbf7b4df4b8bfabf80d0261c629f60823c",
+    "public_configuration_verified": true,
+    "original_failed_handle": "6ae2c32f3fb22a235dd50586"
+  },
+  "bytes_verified": 187721150,
+  "observation_sha256": "2d1d0faec56c237648841401ff6d1f790d2040e94a1dac5f8ab0051dcb2fe5e5",
+  "code_sha256": "fbcfdd9cdcc183396e379aa76aeae00c448148cfe07f9d58b09c241b36e09481",
+  "retention_validator_sha256": "fe1edbf68b2cfda8786d9e68b133db20f4335fedd72816374db486571e37f3fe",
+  "frozen_context_sha256": "c31831a55a30250c6941af7a7c7b360df9c886b3f3274eb087e414d8fa28a40f",
+  "new_hf_jobs": 0,
+  "new_games": 0,
+  "new_inference": 0,
+  "strength_outcomes_aggregated": false,
+  "complete_attempt_audited": false,
+  "child_liveness_proof_pending_final_envelope": true,
+  "remaining_rows_admitted": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false,
+  "previous_goal_turn_classification": "progress",
+  "current_goal_turn_classification": "progress",
+  "goal_status": "active"
+}

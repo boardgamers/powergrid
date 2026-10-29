@@ -1,5 +1,23 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 09:18 UTC — actual periodic recovery archives verified while HF job runs.**
+
+Same handle **`6ae3083f3fb22a235dd56000`**, verified RUNNING before and after the
+check. The first ten immutable checkpoints contain **11 unique game/decision
+pairs (187,721,150 bytes)**. Downloaded archive/manifest/pair hashes, exact frozen
+context, policy/deal/seat/rule bindings and decision-log completeness all passed.
+Report: `strong/current-auction-first-recovery-live-retention-v2.json`.
+The original private archives preserve the bytes; cached checkpoint directories
+are ready for the final collector. Do not repeat the successful fixed snapshot.
+
+This establishes actual periodic retention, not the full raw-game audit or the
+final supervisor's live-child transport proof. Confirmation remains at 19,764
+audited games; no partial outcomes were analyzed. Keep waiting on the exact
+handle, then collect all 16 games and final envelope. No remaining-row launches,
+new jobs/games/inference, policy changes, candidate selection or final seeds.
+Previous goal turn: progress (coverage controls). This turn: progress (new real
+checkpoint evidence); goal active.
+
 **29 October, 09:09 UTC — canonical recovery coverage verified; same first job still RUNNING.**
 
 The same recovery handle **`6ae3083f3fb22a235dd56000`** remains RUNNING with its

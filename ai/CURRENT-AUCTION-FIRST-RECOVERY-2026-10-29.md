@@ -1,5 +1,23 @@
 # First exact-shard resource recovery
 
+**09:18 UTC update — real live checkpoints verified.** The same HF job was
+RUNNING before and after independently downloading the first ten immutable
+checkpoint archives. All **11 distinct completed game/decision pairs** passed
+archive/manifest hashes, frozen context, original policy/deal/seat/rule binding,
+decision-log hash and complete line-count checks. Verified bytes: **187,721,150**.
+Episodes: 80–89 and 92. No game outcomes were aggregated, no games/inference/jobs
+were generated, and these 11 retained pairs are not counted as independently
+audited confirmation games. The complete 16-game audit and final envelope's
+child-liveness/transport evidence remain required before any remaining launch.
+
+The receipt references and measured observation are in
+`strong/current-auction-first-recovery-live-retention-v2.json`; the exact read-only
+checker is `strong/check_current_auction_live_retention_v2.py`. Original private
+checkpoint archives already retain the raw bytes. Downloads are cached under
+`runs/current-auction-resource-recovery-hf-v2/checkpoints/` for final collection.
+Do not repeat this successful fixed-snapshot check; the final collector must
+verify all checkpoints against the completed original output instead.
+
 The first recovery was submitted on **29 October at 08:47 UTC** as HF job
 **`6ae3083f3fb22a235dd56000`**, attempt
 `pg-current-recover-v2-pop-search-4p-05`. Its actual HF configuration was checked

@@ -1,0 +1,34 @@
+{
+  "created_at": "2026-10-29T07:09:12.976596+00:00",
+  "passed": true,
+  "scope": "collection_only_after_inspected_incomplete_original_timeout",
+  "known_original_name": "pg-current-confirm-v1-pop-search_geo-4p-05",
+  "known_original_job_id": "6ae2c32f3fb22a235dd50586",
+  "expected_jobs": 944,
+  "expected_games": 26880,
+  "original_submitted_jobs": 621,
+  "original_owner_pid": 3788704,
+  "original_owner_stopped": true,
+  "unchanged_owner_pins": 471,
+  "bound_original_guards": 621,
+  "admission_path": "ai/runs/current-auction-archive-receipt-inspection-v1/collection-admission.json",
+  "admission_sha256": "8f3d9005e2944569bcaec2ac368923986848375087b825a14e5b60592b3dd345",
+  "tests": {
+    "count": 11,
+    "log": "ai/runs/current-auction-timeout-collection-tests-v1-final.log",
+    "sha256": "3f0e84486d5ebe3465afd677087323a5f71b354df17a6e2e56f5eb1a9ae97c62",
+    "positive_unit_archives": "synthetic; original raw verifier mocked in unit tests"
+  },
+  "collector_sha256": "297828839b6c0f7673b8c6b3fc57f0dbbc5c9c9cd6806a618b689c0cb5057af7",
+  "test_sha256": "7349707b82388756a01385653fc0d5eab1ddba4c8ef4ff259a50eef96f705f10",
+  "new_jobs": 0,
+  "new_games": 0,
+  "new_inference": 0,
+  "qualified": false,
+  "reserved_final_seeds_used": false,
+  "limitations": [
+    "Original confirmation cannot qualify with missing games.",
+    "No new coordinator, resubmission, replacement games or frozen input changes admitted.",
+    "Actual archive collection remains to run."
+  ]
+}

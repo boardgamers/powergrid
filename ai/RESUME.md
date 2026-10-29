@@ -1,5 +1,39 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October — incomplete HF timeout; launching coordinator stopped. Read this first.**
+
+Original job `6ae2c32f3fb22a235dd50586`
+(`pg-current-confirm-v1-pop-search_geo-4p-05`) hit its frozen **3h timeout**.
+Its log reports nine of 16 expected games, with no raw-results archive receipt;
+the expected archive was absent at the inspected immutable HF revision. This
+does **not** meet the complete-data shutdown recovery rule. Preserve the failure;
+the incomplete confirmation cannot qualify a candidate or support a comparison
+of only surviving results.
+
+Coordinator **PID 3788704 / session 32582** exited at 06:54:03 UTC and is stopped
+for inspection. **Do not restart it or use its previous launch command.** There
+are 621 original submissions and 323 never-submitted rows. All 471 frozen pins
+and all 621 launch guards remain unchanged. No replacement or new jobs were
+submitted by this recovery work.
+
+The collection-only helper passed **11 tests** and its real admission. Three
+completed passes audited **41 additional original jobs**, giving **598 audited,
+one explicit failure and 22 active originals** at 07:27:00 UTC. All collectors
+finished (last PID 1596937 / session 67648). Next, inspect
+`runs/current-auction-timeout-collection-v1/state.json` and the actual process;
+continue bounded original-only collection if no collector is alive. Do not use
+the old manager that stops at the known failed shard.
+
+Read [the timeout and collection handoff](CURRENT-AUCTION-TIMEOUT-2026-10-29.md)
+for the exact command, failure evidence and resume order. Finish preserving the
+already-submitted originals, then make a separate recorded resource/recovery
+decision before new evaluation. The 323 unsubmitted rows stay unlaunched for now.
+No partial strength analysis, selected/qualified candidate or reserved final
+games. The broad research goal remains **active**. The intervening Rust recap
+was informational (no progress); this turn collected more original raw evidence
+and persisted the recovery record (progress). Historical instructions below
+about the live coordinator are superseded.
+
 **29 October, 05:30 UTC — separate final assessment and target qualification implemented.**
 
 The final assessor re-audits all 320 original compressed job archives with four

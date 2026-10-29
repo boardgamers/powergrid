@@ -1,0 +1,170 @@
+{
+  "passed": true,
+  "checked_at": "2026-10-29T12:21:57.703648+00:00",
+  "canonical_shards": 944,
+  "canonical_games": 26880,
+  "canonical_game_keys_sha256": "5fee4cffe93311894d9e10d1fe959213e3d34e84b680bb44cc4da0bddef7ceb7",
+  "routing_sha256": "ab27f784b2b40c97796d610963dfd36a328c9419aa843330b69f6a0eca134295",
+  "inventory": {
+    "required_recovery_receipts": 324,
+    "available_recovery_receipts": 40,
+    "missing_recovery_receipts": 284,
+    "available_by_backend": {
+      "timeout_v2": 1,
+      "retained_v2": 38,
+      "bucket_first_v3": 1
+    },
+    "missing_by_backend": {
+      "retained_v2": 26,
+      "bucket_remaining_v3": 258
+    },
+    "failed_attempts_preserved": [
+      {
+        "name": "pg-current-confirm-v1-pop-economic-5p-29",
+        "backend": "retained_v2",
+        "terminal_stage": "ERROR",
+        "failed_handle": "6ae31a9841e90535df789411"
+      },
+      {
+        "name": "pg-current-confirm-v1-pop-economic-5p-31",
+        "backend": "retained_v2",
+        "terminal_stage": "ERROR",
+        "failed_handle": "6ae31a993fb22a235dd5740c"
+      },
+      {
+        "name": "pg-current-confirm-v1-pop-search_geo-5p-19",
+        "backend": "retained_v2",
+        "terminal_stage": "ERROR",
+        "failed_handle": "6ae31aa441e90535df78942c"
+      },
+      {
+        "name": "pg-current-confirm-v1-pop-legacy-5p-01",
+        "backend": "retained_v2",
+        "terminal_stage": "ERROR",
+        "failed_handle": "6ae31aac41e90535df78943c"
+      },
+      {
+        "name": "pg-current-confirm-v1-pop-legacy-5p-10",
+        "backend": "retained_v2",
+        "terminal_stage": "ERROR",
+        "failed_handle": "6ae31ab141e90535df78944a"
+      },
+      {
+        "name": "pg-current-confirm-v1-pop-legacy-5p-20",
+        "backend": "retained_v2",
+        "terminal_stage": "ERROR",
+        "failed_handle": "6ae31ab641e90535df789459"
+      },
+      {
+        "name": "pg-current-confirm-v1-pop-legacy-5p-22",
+        "backend": "retained_v2",
+        "terminal_stage": "ERROR",
+        "failed_handle": "6ae31ab83fb22a235dd57472"
+      },
+      {
+        "name": "pg-current-confirm-v1-pop-legacy-5p-23",
+        "backend": "retained_v2",
+        "terminal_stage": "ERROR",
+        "failed_handle": "6ae31ab841e90535df789463"
+      },
+      {
+        "name": "pg-current-confirm-v1-pop-legacy-5p-24",
+        "backend": "retained_v2",
+        "terminal_stage": "ERROR",
+        "failed_handle": "6ae31ab93fb22a235dd57476"
+      },
+      {
+        "name": "pg-current-confirm-v1-pop-legacy-5p-28",
+        "backend": "retained_v2",
+        "terminal_stage": "ERROR",
+        "failed_handle": "6ae31abb3fb22a235dd5747d"
+      }
+    ],
+    "complete": false,
+    "review_contents_loaded": false,
+    "statistics_admitted": false
+  },
+  "actual_receipt_bindings": [
+    {
+      "reference": {
+        "name": "pg-current-confirm-v1-pop-economic-5p-30",
+        "backend": "retained_v2",
+        "original_row_sha256": "444facb6038c90755ef7112f467ed6bdb908aa2692dd959a0e4cfb9c7f10182a",
+        "original_failed_handle": null,
+        "job_id": "6ae31a993fb22a235dd57406",
+        "attempt_id": "pg-current-retained-v2-pop-economic-5p-30",
+        "stage": "COMPLETED",
+        "verified": true,
+        "review_sha256": "535c94d75890ae53398becc39c0b79a367d202624cee01c1336168f337e298a9"
+      },
+      "games": 20,
+      "all_original_receipts_verified_in_saved_review": true,
+      "archive": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "a53dde647fe4846a0bf48fa7a0bf4c13bea7bd69",
+        "archive_path": "archives/pg-current-retained-v2-pop-economic-5p-30-final.tgz",
+        "archive_sha256": "aa686f9dee0c3b55ede35cf175cfc758b29d571a6cf5c488d519cc1f82ade5c3",
+        "manifest_sha256": "23a57766e3763618fc9ab0b1990ca4dc7e217ae05c1b14b09ec31c626fe1aee7",
+        "archived_files": 121,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "raw_reaudits": 0,
+      "statistics_admitted": false
+    },
+    {
+      "reference": {
+        "name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-00",
+        "backend": "bucket_first_v3",
+        "original_row_sha256": "286a77cee5727e9405c64ce47bb4033c2279e67f770f04de11865c26a5a9eeee",
+        "original_failed_handle": null,
+        "job_id": "6ae32f6741e90535df78a8a6",
+        "attempt_id": "pg-current-bucket-v3-pop-economic-capacity-v1-2p-00",
+        "stage": "COMPLETED",
+        "verified": true,
+        "review_sha256": "c596072e97c8ffda2969697c8e783fd41541a3807f7925325bfb9586a8c3fa5a"
+      },
+      "games": 16,
+      "all_original_receipts_verified_in_saved_review": true,
+      "archive": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "2769e975d02b497c1f7b5f408aab5b2986c35f34",
+        "archive_path": "archives/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-collected.tgz",
+        "archive_sha256": "878d62b02b7b32bade7f13ab8662f1ce30abff86ae6c1a1696bd74da68fd9419",
+        "manifest_sha256": "ec26dbc2109edba0de4dc4a57c666e4757657a7617717059b6b61840dbdedd9d",
+        "archived_files": 203,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "raw_reaudits": 0,
+      "statistics_admitted": false
+    }
+  ],
+  "incomplete_entry_rejected_before_context": true,
+  "incomplete_entry_review_loader_calls": 0,
+  "bucket_remaining_collection_not_yet_exercised": true,
+  "new_tests": 23,
+  "code_sha256": "803f1dc36bb2ad272df601fe4be3e138a653e1acf42825e3aa958b9f35d03beb",
+  "preflight_sha256": "eebc4bbc0c8c7df9fcd6702d80b399e2d5f4ee0b38048b689931525007be11a1",
+  "test_sha256": "9faa1418b45a67a446ca149ed56a14503382faf78dd490c2ab7c204dc597012d",
+  "test_log_sha256": "6a7f5b5397b18d6af66babd2a3e809e000dcd7e7d818f6e7d8370c1dc62b4d95",
+  "frozen_input_hashes": {
+    "ai/strong/current_auction_recovery_authentication_v2.py": "57a8b7e45e14df99acd9a459bd164e63518d04ce5c21d54c9df2de0c3973e2fc",
+    "ai/strong/current_auction_recovery_coverage_v2.py": "9c16301ea8d66aa2f226f2ca31f4dd3b1d9b66c495180417f76f518f5c835a1d",
+    "ai/strong/manage_current_auction_first_bucket_v3.py": "8a8e4c5b62bf7ed5cfa97466df2a309a7627c9253d3d871cb9b6bcbf0fd0fcaf",
+    "ai/strong/manage_current_auction_bucket_remaining_v3.py": "bfb9a981b58a7cb40eaf4eed6d91d6bb6f24648800792965efc026c611c89a97",
+    "ai/strong/current_auction_bucket_collection_v3.py": "195ed1f7940011ff9b1e6ca17c96b74fc26f5a5d7134038f0d6e2efcb726fd27",
+    "ai/strong/current-auction-first-bucket-source-v3.json": "05875a6eb6e7ea4c00f621dc1fbdd7e4d11cb3cb6edaa43cda0f8e953d00559d",
+    "ai/strong/current-auction-bucket-remaining-source-v3.json": "fb240382a306ca2b640f8a2d0d4bcfc760a88a47e720c7144731b07dcd4238cc",
+    "ai/strong/current-auction-bucket-remaining-decision-v3.json": "e5d97672096b249dd16ba36bf4efe7150c39e6560ffaf70782ef37d011741629",
+    "ai/strong/current-auction-remaining-dispatch-v2.json": "221ef528b2c19bef4212be98e60cb78fd6cee8f620a03bfb0159df4497c92343"
+  },
+  "raw_reaudits": 0,
+  "new_jobs": 0,
+  "new_games": 0,
+  "inference_requests": 0,
+  "statistics_admitted": false,
+  "candidate_selected": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

@@ -1,5 +1,28 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 12:27 UTC — 20,596 / 26,880 audited; mixed-attempt authentication passed.**
+
+Read [the current attempt handoff](CURRENT-AUCTION-ATTEMPTS-2026-10-29.md).
+New provenance adapter passed 23 tests and actual retained-v2/first-bucket receipt
+bindings, including sealed archive bytes. The incomplete study rejects before
+recovery review loading; no statistics or repeated raw audits were run. A completed
+remaining-bucket receipt still needs its first real authentication check.
+
+Original v2 batch: 40 audited / 800 games, ten failures preserved.
+Bucket batch: 50 jobs / 1000 games submitted (48 RUNNING, 2 SCHEDULING);
+7 new jobs / 140 fixed games this turn. Latest exact handles are in
+`strong/current-auction-attempt-authentication-status-v3.json`. 208 rows /
+4804 games remain untouched. No background coordinator was started.
+Current bounded collection/dispatch sessions completed; verify actual process
+ownership before the next pass. Preserve original STOP and frozen live sources.
+
+Continue bounded collection/dispatch, explicit failed-transport recovery, then
+complete attempt-aware raw re-audit/comparison and unchanged final strength gates.
+No candidate selected/qualified or final seeds used. Goal active; previous and
+current turns made progress. Keep user updates to new results and actionable
+blockers; do not repeat settled background.
+
+
 **29 October, 12:08 UTC — first bucket job fully audited; 43 remaining jobs submitted (43 RUNNING).**
 
 Read [the remaining-bucket handoff](CURRENT-AUCTION-BUCKET-REMAINING-2026-10-29.md)

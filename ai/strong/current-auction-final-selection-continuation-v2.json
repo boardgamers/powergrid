@@ -1,0 +1,117 @@
+{
+  "checked_at": "2026-10-29T14:07:58.929866+00:00",
+  "selection_preflight": "ai/strong/current-auction-final-selection-preflight-v2.json",
+  "selection_preflight_sha256": "6bde04cfc964cd01d9183263a9165ed109688e26994f2ec2eb7b5ddf6113f168",
+  "input_hashes": {
+    "ai/strong/current-auction-final-selection-preflight-v2.json": "6bde04cfc964cd01d9183263a9165ed109688e26994f2ec2eb7b5ddf6113f168",
+    "ai/strong/current_auction_final_selection_v2.py": "def9b6a7fc2ac7e9c93903bcdcb53418384cbf5ad4add69bcd9a877613b3b1a9",
+    "ai/strong/test_current_auction_final_selection_v2.py": "6ebfb2c1e452f71660671debf9ba26cb36683b5057f7f26f34609683db8445aa",
+    "ai/strong/prepare_current_auction_final_selection_v2.py": "f7e0f961c49d359b9bbd40965d6dbc3f8081228d15d80abe98d4f8a631a30add",
+    "ai/strong/finish_current_auction_confirmation_v1.py": "148a9d7447e68a9648e6163dd80103a88d2e6c3faff21dd0f2dc50d0b4c25c8b",
+    "ai/strong/test_finish_current_auction_confirmation_v1.py": "39004b745f597682a49684b9ad82d58d7fe83728b683351af0fca75c40e4a891",
+    "ai/runs/current-auction-final-selection-tests-v2-first.log": "c58be27e34a79bb197ead8eac4b05d482d242584511661732e9c7c71504200ba",
+    "ai/runs/current-auction-final-selection-preflight-v2-first.log": "bfae3d6c5d51272b2efd79427bf67d45a2c5ee1b9c4be018440cb830e4a05ac0",
+    "ai/runs/current-auction-confirmation-finisher-tests-v1-first.log": "f5571c0e2c237e223e323ae5df0e408bbe1d25ba6341f3182fa4027685a32fcb"
+  },
+  "tests_passed": {
+    "selection": 22,
+    "finisher": 5
+  },
+  "automatic_objective": "removed_by_user_do_not_recreate",
+  "user_instruction": "carry on",
+  "runner_state_observed": {
+    "pid": 502682,
+    "started_at": "2026-10-29T14:02:58.524733+00:00",
+    "input_hashes": {
+      "ai/strong/finish_current_auction_confirmation_v1.py": "148a9d7447e68a9648e6163dd80103a88d2e6c3faff21dd0f2dc50d0b4c25c8b",
+      "ai/strong/manage_current_auction_failed_bucket_v3.py": "36a472a7815fa2095271beae2f4100102e170b768fbfa1bb8f80b81cba493584",
+      "ai/strong/current_auction_attempt_comparison_v4.py": "ff5e01dbeef8a33af33c195691c11c5a9574467f9e57da45e67ba32071382e68",
+      "ai/strong/current_auction_attempt_authentication_v4.py": "91200504f192b69ced568f44ff735330378c4194510c698017f8860442582ab0"
+    },
+    "scope": "Existing fixed confirmation queue and analysis only",
+    "new_experiments": 0,
+    "automatic_job_retries": false,
+    "candidate_selected": false,
+    "qualified": false,
+    "reserved_final_seeds_used": false,
+    "stage": "starting",
+    "updated_at": "2026-10-29T14:02:58.535147+00:00"
+  },
+  "runner_actual_process_verified": true,
+  "audited_games_minimum_before_runner": 21116,
+  "canonical_games": 26880,
+  "new_six_player_handles_before_runner": [
+    "6ae34d5d3fb22a235dd5b787",
+    "6ae34d5e3fb22a235dd5b789",
+    "6ae34d5e3fb22a235dd5b78c"
+  ],
+  "new_fixed_games_requested_before_runner": 72,
+  "interrupted_promotion_inspection": {
+    "checked_at": "2026-10-29T13:58:35.064694+00:00",
+    "job_id": "6ae336863fb22a235dd595b3",
+    "status": {
+      "checked_at": "2026-10-29T13:58:32.415121+00:00",
+      "job_id": "6ae336863fb22a235dd595b3",
+      "stage": "COMPLETED",
+      "attempt_id": "pg-current-bucket-v3-pop-heuristic-5p-08",
+      "original_name": "pg-current-confirm-v1-pop-heuristic-5p-08",
+      "timeout_seconds": 86400,
+      "flavor": "cpu-upgrade",
+      "image": "python:3.11-slim-bookworm",
+      "bootstrap_sha256": "ceb6ed0af80eb8a658d7513245ba08d1488987a3eef22c676e337bb247083965",
+      "environment_sha256": "dab3eafa20ffb4e82dd5ff5965abf3b7baf87af81443a406c9dd080a737ed69a",
+      "public_configuration_verified": true
+    },
+    "raw_review_sha256": "50aea8d8efbc686a95dd7f7bb4b93aaf64741c13009a60f87c86ef6dc8e2b71f",
+    "manifest_sha256": "7053494a29cb921a5f28f6137d2173a7b171dcfce25cec4ef943e9a965d6896b",
+    "remote_archive_absent": true,
+    "local_archive_absent": true,
+    "promotion_intent_absent": true,
+    "interrupted_local_session": 80031,
+    "interrupted_session_exit_code": 143,
+    "interruption_cause": "Unknown; no games rerun.",
+    "verified_existing_games": 20,
+    "stop_sha256": "8a24e0ebe90f2ba353c669ea9d4e0769969e150f551a7559729da23eac5c954e",
+    "new_jobs": 0,
+    "new_games": 0
+  },
+  "interrupted_promotion_recovery": {
+    "complete": true,
+    "completed_at": "2026-10-29T13:58:55.539792+00:00",
+    "job_id": "6ae336863fb22a235dd595b3",
+    "review_sha256": "efdc2ca93f9a8db353bfb800e5392f4055151e7f69458bac61f4dc68a55b4631",
+    "archive": {
+      "repo": "coyotte508/powergrid-ai-germany-v1",
+      "revision": "8da2f3bf7c4325ee5bf1f101825578ecc0745225",
+      "archive_path": "archives/pg-current-bucket-v3-pop-heuristic-5p-08-collected.tgz",
+      "archive_sha256": "da5ec41067baff55521b4f4a00380849c5171c3a3e84609f57ca4dfdd3f105a5",
+      "manifest_sha256": "7053494a29cb921a5f28f6137d2173a7b171dcfce25cec4ef943e9a965d6896b",
+      "archived_files": 295,
+      "format": "tar.gz",
+      "remote_archive_verified": true
+    },
+    "preserved_stop": "ai/runs/current-auction-failed-bucket-hf-v3/recovered-stops/2026-10-29T13-55-08-promotion.json",
+    "games_recovered": 20,
+    "new_jobs": 0,
+    "new_games": 0,
+    "new_raw_audits": 0,
+    "qualified": false,
+    "reserved_final_seeds_used": false
+  },
+  "preserved_collection_stop": {
+    "created_at": "2026-10-29T13:55:08.377205+00:00",
+    "batch": "untouched",
+    "original_name": "pg-current-confirm-v1-pop-heuristic-5p-08",
+    "job_id": "6ae336863fb22a235dd595b3",
+    "stage": "COMPLETED",
+    "collection_error_type": "ValueError",
+    "automatic_job_retries": false
+  },
+  "source_archives_unchanged": true,
+  "new_training_updates": 0,
+  "new_experiments": 0,
+  "complete_comparison_executed": false,
+  "candidate_selected": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

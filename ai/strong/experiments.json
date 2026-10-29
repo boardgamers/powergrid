@@ -71961,5 +71961,30 @@
         "complete_comparison_executed": false,
         "failure_backend_actual_completed_receipt_check_pending": true,
         "final_selection_attempt_integration_pending": true
+    },
+    "current_auction_selection_continuation_20261029": {
+        "created_at": "2026-10-29T14:07:58.929866+00:00",
+        "stage": "existing_confirmation_finisher_running_selection_adapter_verified",
+        "status_file": "ai/strong/current-auction-final-selection-continuation-v2.json",
+        "status_sha256": "dfffa70860c8f164cb5ad05e1a76988de73cc4c7a531ba147929b5806eaef42f",
+        "automatic_objective": "removed_by_user_do_not_recreate",
+        "runner_pid": 502682,
+        "selection_tests_passed": 22,
+        "finisher_tests_passed": 5,
+        "audited_games_minimum_before_runner": 21116,
+        "recovered_archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "8da2f3bf7c4325ee5bf1f101825578ecc0745225",
+            "archive_path": "archives/pg-current-bucket-v3-pop-heuristic-5p-08-collected.tgz",
+            "archive_sha256": "da5ec41067baff55521b4f4a00380849c5171c3a3e84609f57ca4dfdd3f105a5",
+            "manifest_sha256": "7053494a29cb921a5f28f6137d2173a7b171dcfce25cec4ef943e9a965d6896b",
+            "archived_files": 295,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "complete_comparison_executed": false,
+        "candidate_selected": false,
+        "qualified": false,
+        "reserved_final_seeds_used": false
     }
 }

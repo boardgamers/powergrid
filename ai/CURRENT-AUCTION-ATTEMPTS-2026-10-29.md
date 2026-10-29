@@ -1,5 +1,69 @@
 # Explicit transport recovery and current confirmation — 29 October 2026
 
+## Latest continuation — 14:03 UTC
+
+The user deleted the automatic objective and explicitly asked to carry on.
+Do not recreate it. A finite local runner now finishes only this existing frozen
+confirmation queue and its complete comparison; no new research experiment,
+training, candidate selection or reserved evaluation is included.
+
+**At least 21,116 / 26,880 games are independently audited.** The completed
+13:39 collection added 20 games; another 20 were recovered from an interrupted
+local archive operation. Three additional fixed six-player rows / 72 games were
+submitted at 13:42 (handles `6ae34d5d3fb22a235dd5b787`,
+`6ae34d5e3fb22a235dd5b789`, `6ae34d5e3fb22a235dd5b78c`). Later live counts are in
+`runs/current-auction-failed-bucket-hf-v3/state.json`; do not treat this paragraph
+as a live status report.
+
+**Current owner: PID 502682**, started 14:02:58 UTC, detached from the chat's
+command session. Verify `/proc/502682/cmdline` and the state before acting:
+
+- Script: `strong/finish_current_auction_confirmation_v1.py`.
+- State/log: `runs/current-auction-confirmation-finisher-v1/state.json` and
+  `runs/current-auction-confirmation-finisher-v1.log`.
+- Each cycle uses the frozen combined manager, maximum 64 active jobs and eight
+  collections; 60 seconds between cycles, at most 144 cycles / 24 hours.
+- After all 268 bucket jobs are verified, the existing comparison v4 independently
+  re-audits all 944 canonical results and computes the unchanged strength checks.
+- Errors stop the runner. There are no automatic game retries. Do not start a
+  competing collector or rerun a comparison with an existing intent/outcome.
+- To stop after its current cycle, create
+  `runs/current-auction-confirmation-finisher-v1/STOP`. Check the actual process
+  before taking over; completed/failed state does not authorize a blind retry.
+
+The selection adapter `strong/current_auction_final_selection_v2.py` is now
+implemented. It replaces the impossible old-coordinator completion requirement
+with complete canonical coverage and per-attempt provenance. It binds all raw
+audit paths, receipts, original failures and count totals before calling the
+**unchanged** scientific, adverse-review and actual 8840U gates. It creates no
+candidate. 22 tests passed; actual incomplete coverage was rejected before
+opening comparison/review/technical outcomes. Five existing independent audit
+bindings / 120 games and the existing 5,106 target requests / 2,553 native positions
+were checked without new gameplay, inference or repeated raw audits. See
+`strong/current-auction-final-selection-preflight-v2.json`. Five additional tests
+passed for the finisher's completion, failure and stop boundaries. A real complete
+comparison and successful candidate admission have **not** occurred.
+
+Local session 80031 ended with exit 143 while packaging
+`pg-current-bucket-v3-pop-heuristic-5p-08` (HF handle
+`6ae336863fb22a235dd595b3`). The next collector correctly stopped on that existing
+package. Inspection proved the original job COMPLETED, all 19 checkpoint trees
+and the 20-game audit intact, with no local archive, remote archive or upload
+intent. Its existing package was uploaded once and downloaded/hash-verified;
+no games or raw audits were repeated. The temporary collection STOP is preserved
+under `runs/current-auction-failed-bucket-hf-v3/recovered-stops/`; both older
+dispatcher STOPs remain untouched. Recovery details and script are in
+`runs/current-auction-interrupted-promotion-v3/`.
+
+Recovered archive: private model revision
+`8da2f3bf7c4325ee5bf1f101825578ecc0745225`,
+`archives/pg-current-bucket-v3-pop-heuristic-5p-08-collected.tgz`, SHA-256
+`da5ec41067baff55521b4f4a00380849c5171c3a3e84609f57ca4dfdd3f105a5`.
+The new code/preflight are saved on `ai/germany-baseline`; raw archives remain
+in the existing private HF model repository.
+
+## Previous checkpoint — 13:27 UTC
+
 **21,076 / 26,880 games independently audited; 400 added this turn.**
 At **13:27:27 UTC**, all ten explicitly admitted recovery jobs were **RUNNING**.
 The untouched bucket batch had 81 submitted jobs: 29 COMPLETED and 52 RUNNING;
@@ -101,16 +165,16 @@ Reports: `strong/current-auction-attempt-authentication-preflight-v4.json` and
 (15 tests and 120 existing games independently re-audited) stays preserved.
 Do not repeat successful previous profiles, tests, preparation or source uploads.
 
-Next: continue bounded collection/dispatch, exercise the first actual recovery
-receipt, finish all canonical coverage, then execute the complete comparison
-with unchanged paired statistics and strength requirements. Adapt the existing
-final-selection layer to this explicit-attempt comparison; it still expects the
-old original coordinator. No candidate has qualified and final seeds remain unused.
+Next: let the current finisher complete the fixed queue and independent comparison.
+The new failure backend will also receive real full raw audits in that comparison.
+Then review all strength requirements and adverse cells using selection adapter
+v2. No candidate has qualified and final seeds remain unused.
 
 ## Persistent evidence
 
 `strong/current-auction-failed-bucket-launch-evidence-v3.json` describes the
 verified private metadata archive. It references existing immutable raw job
-archives instead of rerunning or duplicating them. Goal ACTIVE; previous and
-current turns made progress. User updates should focus on new findings and
+archives instead of rerunning or duplicating them. The automatic objective was
+removed by the user; research continues by their explicit instruction, with only
+the bounded confirmation finisher currently active. User updates should focus on new findings and
 necessary actions, without repeating settled engine-language background.

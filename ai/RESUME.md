@@ -1,5 +1,23 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 14:03 UTC — objective removed by user; existing evaluation continues.**
+
+Read the latest section of [the recovery/attempt handoff](CURRENT-AUCTION-ATTEMPTS-2026-10-29.md).
+Do not recreate the automatic objective. Finisher **PID 502682** now owns the
+existing fixed queue and complete comparison; no new experiment, training or
+reserved evaluation. Verify the actual process and
+`runs/current-auction-confirmation-finisher-v1/state.json` before taking over.
+Do not run a competing collector. Maximum 64 active jobs, eight collections per
+cycle, bounded to 144 cycles / 24 hours; errors stop it without resubmission.
+
+At least **21,116 / 26,880 games audited** before its first cycle. One interrupted
+local promotion was recovered from verified existing files; its STOP and evidence
+are preserved, with both original dispatcher STOPs intact. No games were rerun.
+Selection adapter v2 now supports mixed attempts while preserving the original
+strength, regression-review and AMD gates. 22 selection tests and five finisher
+tests passed; actual incomplete study rejection and existing technical evidence
+checked. Complete-study strength and candidate admission remain unproved.
+
 **29 October, 13:27 UTC — 21,076 / 26,880 audited; all ten explicit recoveries RUNNING.**
 
 Read [the current recovery/attempt handoff](CURRENT-AUCTION-ATTEMPTS-2026-10-29.md).

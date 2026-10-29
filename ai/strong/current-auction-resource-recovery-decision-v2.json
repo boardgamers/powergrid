@@ -1,0 +1,2362 @@
+{
+  "created_at": "2026-10-29T07:52:17.239574+00:00",
+  "status": "resource_recovery_design_recorded_execution_not_admitted",
+  "basis": "All 621 originals terminal; one incomplete timeout, multiple near-deadline successes; resource observations only.",
+  "source_descriptor": "ai/strong/current-auction-grid-source-v1.json",
+  "source_sha256": "a4384b10eb8a4381423731bc0c315673f9214d91c1fb336aa81ef4a7102d1c5a",
+  "unchanged_source_revision": "7db94147918597e1da1e8ee2f4bd12b96aa067b5",
+  "unchanged_source_archive_sha256": "bb2ef01bc09f176c62545971aa02b5e9dadc947fb14dd52ca191667ba456bfe0",
+  "unchanged_protocol_sha256": "d0504c3f92d94fe96a1b336f26fe0e6c991502a3e03ff17fb1b2d00f53067d93",
+  "original_terminal_cycle": "ai/runs/current-auction-timeout-collection-v1/cycles/2026-10-29T07-45-19.458530+00-00.json",
+  "original_terminal_cycle_sha256": "f5d8fb0386c706531bcc03a099f0d26b52b0b7a83d2f4babac31c417f2b12fa2",
+  "original_terminal_state": {
+    "pid": 1753619,
+    "started_at": "2026-10-29T07:45:06.269655+00:00",
+    "stage": "collection_cycle_complete",
+    "context_sha256": "8f3d9005e2944569bcaec2ac368923986848375087b825a14e5b60592b3dd345",
+    "new_jobs": 0,
+    "new_games": 0,
+    "qualified": false,
+    "finished_at": "2026-10-29T07:45:19.526233+00:00",
+    "verified_jobs": 620,
+    "failed_originals": 1,
+    "active_originals": 0,
+    "deferred_terminals": 0,
+    "unsubmitted_jobs": 323,
+    "report": "ai/runs/current-auction-timeout-collection-v1/cycles/2026-10-29T07-45-19.458530+00-00.json",
+    "report_sha256": "f5d8fb0386c706531bcc03a099f0d26b52b0b7a83d2f4babac31c417f2b12fa2"
+  },
+  "original_failed_handle": "6ae2c32f3fb22a235dd50586",
+  "original_audited_shards": 620,
+  "original_audited_games": 19764,
+  "hf_completed_audited": 617,
+  "hf_error_complete_data_audited": 3,
+  "never_submitted_rows": 323,
+  "recovery_rows": 324,
+  "recovery_unique_games": 7116,
+  "full_canonical_shards": 944,
+  "full_canonical_games": 26880,
+  "final_resource_report": "ai/runs/current-auction-timeout-final-cost-review-v1.json",
+  "final_resource_report_sha256": "bb2816748080556850e6f07c749cfb4bce6602a37df40a0a936c40fdc5cf3528",
+  "resource_summary": {
+    "completed_measurement_wall_hours": 375.78704082902556,
+    "completed_measurement_cpu_hours": 1336.6179916666676,
+    "collection_counts": {
+      "audited": 620,
+      "failed": 1,
+      "unsubmitted": 323
+    }
+  },
+  "proposed_external_controls": {
+    "timeout": "24h",
+    "flavor": "cpu-upgrade",
+    "game_workers": 4,
+    "search_workers": 4,
+    "inference_threads": 1,
+    "max_active_jobs": 64,
+    "periodic_completed_raw_game_archives": true,
+    "overwrite_original_evidence": false
+  },
+  "fixed_sequence": [
+    "Implement and test external retention supervisor and immutable attempt controls.",
+    "Archive and review real prepared controls before any new submission.",
+    "One separately identified execution of the same failed 16-game shard; independent raw and retention audit.",
+    "Only after that technical gate, execute the fixed 323 never-submitted rows once each.",
+    "Reconcile 944 canonical shards and 26880 unique games across all original/recovery attempts before comparison or selection."
+  ],
+  "fixed_recovery_rows": [
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-4p-05",
+      "original_row_sha256": "695c5bfdbb58e04dd6e3c836ed55aa03f55a896b442875c940914040368eb170",
+      "games": 16,
+      "reason": "original_timeout_missing_raw_data",
+      "original_handle": "6ae2c32f3fb22a235dd50586"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-5p-29",
+      "original_row_sha256": "fd4df065eb919669c6372c4fd34663eb7a84d2e571dbffa48584869b28ae2b81",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-5p-30",
+      "original_row_sha256": "444facb6038c90755ef7112f467ed6bdb908aa2692dd959a0e4cfb9c7f10182a",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-5p-31",
+      "original_row_sha256": "17a878077e2c750eeef8530488c37801b75248813ba8fc7b76dacd19dfcb148e",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-00",
+      "original_row_sha256": "637d7a36ffdc1f742d41ec88c7681657c1a39e6c27f1ce391c31c30f38323e8e",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-01",
+      "original_row_sha256": "2504af4d2960519f9e80aa563caca035b8057d62da561ee11cb6eee6cdcecb60",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-02",
+      "original_row_sha256": "fd756f14071304522abfe138c5ff1f7eff47b14dfb9da8e30d56704e69f269a1",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-03",
+      "original_row_sha256": "59d5665143ed2025f0e2e308ed4c678b013e21f5ee47523ed6f7c878e0d04c5c",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-04",
+      "original_row_sha256": "9d5c9118a154d276113af97033c29d4a486ae2b6646aa75de8984a6ebc78094b",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-05",
+      "original_row_sha256": "4491d807e2399c7d6fc37c215668586403cf22c073569a62c0487a71dcc3e421",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-06",
+      "original_row_sha256": "fd52bbfa369a67d7fd27e09f4e30ac75eace2232fa7ef15122e592b8389d33d6",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-07",
+      "original_row_sha256": "00fbe77b4143b5b9b285035d6cad9183b3c1d74b4e556e1fb46113f2cac258d9",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-08",
+      "original_row_sha256": "0ddca9fe9b24435071faead9865c88067b890cb1e9903ef6aab16ddae8506d50",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-09",
+      "original_row_sha256": "00d9b9a62e18f3a46f7860f36ac5f3ca3ba98757eac0b2bbc578ce674c513610",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-10",
+      "original_row_sha256": "a4b769ae583a6d0714c3331422bfb3c15c6d911887904cda517bb3580e3daf98",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-11",
+      "original_row_sha256": "e4e1c2378f74ed814a79b8b1cb2455b598165e90e82096ddd55abadeeff076a7",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-12",
+      "original_row_sha256": "b45bffc52be870fb9f900f75bc4969f7ceb283a9ec38cde2ce9067f66102e060",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-13",
+      "original_row_sha256": "f1049430f85268452a77c5e76622605ed4420c3f449ae64dd581c11789ba31a8",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-14",
+      "original_row_sha256": "3928f0a48c6c524b9eba2b90084245f94df3672fe79f09b9cb35fd9b723f253f",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-15",
+      "original_row_sha256": "3a50764a9197f8c63a84b8add5d8308d6b5dcce686834d1bbc4349f40cd32d6c",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-16",
+      "original_row_sha256": "397c3f26696bad7f89218ab620093e1f2feb952b7a76fc8d0db04b67bb8d5560",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-17",
+      "original_row_sha256": "4d9dbcce3b16dcc5b76e50ccfe4216bb500f963a87538d1769ca177c9bc9380c",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-18",
+      "original_row_sha256": "026662bff986a76bfdb9c7b5db4d4a052583b4fbd4de0d185ae08c5b05e1a1b6",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-19",
+      "original_row_sha256": "f1fbb2f49761741f12f61e38e83fb2d04060ecf3767057e463e1df63d111acdd",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-20",
+      "original_row_sha256": "c31071755f6d275aefda009beb64a0027c293180eaf9991815bad2429a64a47f",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-21",
+      "original_row_sha256": "926994fe2374a25019d9c6d6fab4b39d67880831c460daa1807b2dfe906a73bb",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-22",
+      "original_row_sha256": "caf4aec0fb009c8ebf6d50895ffaabb6d1c197472e9b0d06ba5ebb95817b6d78",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-23",
+      "original_row_sha256": "b9cce754ea8a2dab469831c3e8ffdf291479ad7519778fde7e2be7196f72de28",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-24",
+      "original_row_sha256": "ac68fb3042bf54daeef3df47be69f60841876841cd88d69b91bf798ae258ec85",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-25",
+      "original_row_sha256": "31e36320e50471c16d7b110d474c608b504617d458d059cd21ee4f8397faf9d7",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-26",
+      "original_row_sha256": "e91cd1299057f11477ddfca43d0ff1b54e560e5f21f00c34a98a955d44b1d385",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-27",
+      "original_row_sha256": "7e22a8a9c92a5462357fc94379b249c23483f5982ba7cd94d58cbcd031eea29d",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-28",
+      "original_row_sha256": "a813dd769ded56e9f8047a67a82a183e584f75b214acd2f2f52b877a3dc69e19",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-29",
+      "original_row_sha256": "379eb53edea7707e85afc6ab75996ae8c1c112f276f5c59495430d27b4b74d7a",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-30",
+      "original_row_sha256": "9996b1e92e1181660ee20fb012994f074f0c32c2a23911130cdab177be5f5ac6",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-31",
+      "original_row_sha256": "dfe00ac0afc038a6c8f9badc1820152b4065dba6ccc0fdbe59fbdeff58aac86f",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-00",
+      "original_row_sha256": "ee1cabb9f593a02faa25833b5ef0fe4c40409ad77c98b69a94075053e9402bbd",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-01",
+      "original_row_sha256": "b49cc6599c28444a5b2ec2ee01b556415147c5dd2afd2dfa5f01956b9b0f8ead",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-02",
+      "original_row_sha256": "d11ed0944b635d4e556939c546be173d27943900716bb409addbffb8b7dffa1c",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-03",
+      "original_row_sha256": "c04a5f8230b6a3701fb9f22730a21f594a5306fa4921fcfe1d7e4aa5460be853",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-04",
+      "original_row_sha256": "7172bd8fd94dca4578d765cd76c224de0703c149a03cd7e55c7b3bb898afb5f9",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-05",
+      "original_row_sha256": "4c5f84967349e403d4323387ac44abe89c0d3bb37653cf00b51a67a7bd35c385",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-06",
+      "original_row_sha256": "10ce32f18e14698c7f6884159ed95b826a36d1cb9b4c929dd51d4850f5a0a60b",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-07",
+      "original_row_sha256": "432c3c5235c0b62863dd7302a8b227ed4db253b4d21f1a07b2271f8b3dde89fa",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-08",
+      "original_row_sha256": "dca4fe26fcddd9b0a0717626039077483adfe65c2aff292edc41f172092ada5b",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-09",
+      "original_row_sha256": "720c709feb0c1deeb2cc397f6f4a4e773bcd2728d88b90dec9f8a10d7f5f914f",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-10",
+      "original_row_sha256": "1ddc5dd9233fe3e48f7f91f974f7f8ed01cbb8d51090bcd8e626f7ad010fdbb1",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-11",
+      "original_row_sha256": "7e44bfb64a215c4c8d9bae06c63cd32f886a92ba69dc975b182d5c922375a679",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-12",
+      "original_row_sha256": "6d8027dcd7980f740e952a15105043e7705a3727f14b05b38df27d75ac02760a",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-13",
+      "original_row_sha256": "b6b3fe6d642e9876272e4e0801814af355cb65c1ab43598196a0d54706d80145",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-14",
+      "original_row_sha256": "8033b71d3c30def8ace18d3a769aaeec84f1d07f94039d77dddd718a93ae7bbd",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-15",
+      "original_row_sha256": "06cd3c9f65e99ae5eb4362b32eb00bead89185e957f9c898f6e1fe955285ebbe",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-16",
+      "original_row_sha256": "1652e7287c6d2a1c70b7c2a811cbebbb69169ab1dd09cd9b2bcbc7e41cd5e772",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-17",
+      "original_row_sha256": "5e19008fe210a570bf723672ecfb3d799375fba6bb13b0771d83e5e87a909439",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-18",
+      "original_row_sha256": "2660ea8eef413b6417a7e77ce8776de096fc4c3bd69965e8c5bee8389319cd7a",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-19",
+      "original_row_sha256": "247347a139553c4f59b0cefba08fbe0fbcea48052136837cf444495314df0585",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-20",
+      "original_row_sha256": "2876e3997faff36f2b1e9b5961d4e0bd87bf6886c38218f0a49f7621d719cbb8",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-21",
+      "original_row_sha256": "9a5cef65989fa2fdf16d8cf5eabd7e2eddbc12e7a4f829fa5459c4b0fd77f18b",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-22",
+      "original_row_sha256": "51cc345e55c14d02039a0bfda36b0e9f751f8b388a33df60601f232525fe2612",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-23",
+      "original_row_sha256": "60ab32f2491a4b2a1eb591d7adadba7185649bfd9c7f826e092ac8647995cb51",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-24",
+      "original_row_sha256": "05cb751dbbc13e7299cc7c04f6d16c783cbea2c2fc127d8238dcf027a730dd0d",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-25",
+      "original_row_sha256": "829c35ee7dc9e7bcf87e5fa1e923d79050fcc23c5a5e59bbbe1880d54bed6f11",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-26",
+      "original_row_sha256": "f44c5e80eaf03aa1fb46e1275fd3bc808f5b7d66e072ff244bd324606fc126a4",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-27",
+      "original_row_sha256": "eb9d72e936c87eaca1c635a4eacc9d9ce4ff2125e6f0043fece05141f9fbaaa3",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-28",
+      "original_row_sha256": "3069c486521c12ea12bc52db2056e26448b41a53daadc63f8f2ab2faca039eeb",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-29",
+      "original_row_sha256": "882f0850336f77f5fba85e61a1c44c5781de1035bd62570571e8befd0caa448c",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-30",
+      "original_row_sha256": "cee3b7fec2ef889902fb354cb778c1a6f8ca0c7ffbb50ea052e4bcbe0be464ef",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-31",
+      "original_row_sha256": "d520d788322921c784e5e453a63c6d81bb28e1d07beb4e2c1748b4f1eaea3c46",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-00",
+      "original_row_sha256": "2a32463c7d476770d1c77190ba428c507bdae5c62e8ec7249df9bab307fc383e",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-01",
+      "original_row_sha256": "1c8c3ddffc87b077889aff26d62dc240bd9d8d6a35938ab6a5cbd445b271cec9",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-02",
+      "original_row_sha256": "08b57b33cdd7a3c7625bf964f25ca266cf1da530131efddf614891d3413c1a0e",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-03",
+      "original_row_sha256": "f8474566bbce177305e17a6d573e726c0d95b014010ee0b4ebff082792b54938",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-04",
+      "original_row_sha256": "936f8aacbf95c69b21fe076dabd7fb58bac1a7daadf9e966dce65461c4bd64bb",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-05",
+      "original_row_sha256": "4908bf12d10a8545ff7a4d23f5fc39e1d6a61f6074f0fd97ef3bf8284990c3da",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-06",
+      "original_row_sha256": "39e94458de3bc5166528f90f5820e28a049389c5c3bb1fe7e88a09bc576ed259",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-07",
+      "original_row_sha256": "72693459382279f0495f9b2cacf0118cca9dba22dcc153110812abdf78185193",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-08",
+      "original_row_sha256": "f26e0ca064f847ee7eb12badcaae51e4c07c7b6f8285ea2075a0b12a8b8ae44e",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-09",
+      "original_row_sha256": "1626e2aef1d73cdda24fcc112dc27ca0ccb09315ea678224a40ceafe5e622833",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-10",
+      "original_row_sha256": "a8ef1948dfb6bf5a7a049157734ce8f915a8bfc966fb2d3967cf31a426bc02a4",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-11",
+      "original_row_sha256": "ffd53b9d2261e277e3804dd2c68a2262a4547abd731d2fe8f358dae2954cfea4",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-12",
+      "original_row_sha256": "d66c894c6bce7b737618a8a03a169db61318b0f67a991213d4acccac6ae35ae7",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-13",
+      "original_row_sha256": "e0303efafabfdd05efa8cd7fb9b67f5a38d19ae7d06997989106f1cf370a580b",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-14",
+      "original_row_sha256": "6d0325bdcd0f9227496a8a166513283ea0562ba2e354019907ef8f7c2fe43de0",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-15",
+      "original_row_sha256": "b083797cc60c601c73a191a9512609bdecca07689282a2d01fc1a34edfb2bc9d",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-16",
+      "original_row_sha256": "b23c69b49e1a0541e23d2c59047c8dc0275aab074c398fa992e88a90e9800cf0",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-17",
+      "original_row_sha256": "ded9a5f8c1f85ebe8e924fd5a678bc6fb2f95ff7f92a569745e217ff067b338f",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-18",
+      "original_row_sha256": "8eab487be95eba79994b02ce5a4d96ec0c2d7957f697c30bd532b6c09ed3ce85",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-19",
+      "original_row_sha256": "bec8fcba16cdcc6c5f05d51eda05df94570e2d05c7eaa3ea299b9bb31701b2b7",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-20",
+      "original_row_sha256": "5b8850edd902c365a77719a6c0f5f8bed5dda45b49aede58524afd5cd9a10e2f",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-21",
+      "original_row_sha256": "e8835160117fb71f53894072e4070a517186f91870475b22d573ec3edbecd80d",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-22",
+      "original_row_sha256": "af30ecaf2081ed7095b92fc67f671f9bd150aa4488768161e5e0b5beab10db5a",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-23",
+      "original_row_sha256": "d80661a00ed0378b9cc098a10e7b5d0bfbce8c7b85a83f329d3abe106bb1d358",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-24",
+      "original_row_sha256": "46545a0e802000e2bd654b8387f94db5ed85f1104822d92c1e9858363e6a0208",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-25",
+      "original_row_sha256": "3c36103b3046e143e52b0a3b6f772bb2c2985fa491d9d46cef4d4b44c092e17f",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-26",
+      "original_row_sha256": "a429d94610403a4b4b26bd1019d2f490c5bcc0121bab627623914f86d294333c",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-27",
+      "original_row_sha256": "bfa79289084e339e05d4161b2fad1e95458ee6e06bcea3f944a7ac5a5ba4982b",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-28",
+      "original_row_sha256": "f87285ee65ebafdc3f2a36a0ccaa2b61f612fed6da458abe141d8990ac78e7e6",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-29",
+      "original_row_sha256": "3f3cbeaa1021f364e960b50aa02ae15febb8fa5473dd1691b8f04863a35bd775",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-30",
+      "original_row_sha256": "a8eb4af96289f6a4a30baf37463983a06ad03177f620795d3c0c0b76e1331cc5",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-31",
+      "original_row_sha256": "1ddd24faeb762e8e24abce98d9a9f7b5c93d5c534ade98cf9855a449cc7b4b2f",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-00",
+      "original_row_sha256": "709da4195d423cb356c93abcc9e9565fd85268fc60da4e3ca9dfb21dceaef7b9",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-01",
+      "original_row_sha256": "9606199f363d9556bf1611b2ceb6eb1de2f46969303e868638fdab8dda4a049c",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-02",
+      "original_row_sha256": "f3f6990b4450c5afd5ee9c034a6cdc50966906abbd01739a8e20dda7e39daac2",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-03",
+      "original_row_sha256": "1afe87d2c17b0d0789616e1f1cbc2f2094384948bf9b3db97384a6934105edd2",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-04",
+      "original_row_sha256": "7b6e90e2eb2c227fc65325a8b99763a2a3e5ea83b06e1b145f22a0295e4fae06",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-05",
+      "original_row_sha256": "3e63341a26e82be74158d727eca0d980640bfecf375e15d6c0436b6905266146",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-06",
+      "original_row_sha256": "8900856647de2b2dd97fb3055c61eaa1dc37f1b52073cbb7904cd39c63761e8e",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-07",
+      "original_row_sha256": "543f2bb77e02e62e5824063cc37ae88cc362b9f71aab6920d14865a4d3473605",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-08",
+      "original_row_sha256": "37613c35f8ec8afa9ce9ac34206d1520d1eb72dfc212d03a24fd9a19edd15e7c",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-09",
+      "original_row_sha256": "e36eb08d4ab3f477d9bb46d0a93ae164289322401e869e859201783e84b8b700",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-10",
+      "original_row_sha256": "6dabd806ca5a33f9850b1a74b8927eb186a504983006f60f0df7b3c7f53bab3e",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-11",
+      "original_row_sha256": "c2bdc36397874b8b15ae640bd4b88f04af7ce2b5c09d860ca5b852864fa9fd58",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-12",
+      "original_row_sha256": "39eec29127447d4b4e0462423a209d5281c4f00fc0a6a58334f6872f1e061c56",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-13",
+      "original_row_sha256": "e33b0a9fe474a41d2c7caab8ae57297f17c7f0cc97d4598f10e68939451b2f30",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-14",
+      "original_row_sha256": "a616ac9499b6de29adba651f8db3a66d44bfc7ab64da873ec7f744129192fe9f",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-15",
+      "original_row_sha256": "10a653a3692649e24ea925d5f8fef2ab70b00ef8d209a5d52b70207bcbcbc725",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-16",
+      "original_row_sha256": "a8ffef592cdd0e91d2bd6e7eedbbd6d9a4b3bec493da9384307103c735199d08",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-17",
+      "original_row_sha256": "a315d31bf6dc000d6843998c5b932635f9aec355fe7f0908869a4fe94cb8d17f",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-18",
+      "original_row_sha256": "c84af0c27ab674223bfdb4e5470af4f3a40d184f876b864034e389db4861e58f",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-19",
+      "original_row_sha256": "8038e3a23d0deb40bdd497c61e01885b41c6e17c83d0c98bbdce05f3d9668cae",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-20",
+      "original_row_sha256": "55d05a695c83b5ce4954fb008dcf687a423f20e4f4920aae0002b7cde4f6a357",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-21",
+      "original_row_sha256": "1ce2ab3b5fae02b629bcae558b9df1ec62c70bdd5c3d876411dcd8db46b68d37",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-22",
+      "original_row_sha256": "225ba4b2e9d0c9842b7407ea6e5abd5df857fa963c6a4d1ab2046a0640178bd1",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-23",
+      "original_row_sha256": "8825caf378db5fc86a9c277c27b71cc86fa9df26060b809594aab377730b1fe8",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-24",
+      "original_row_sha256": "6668a1b23e1f50f03fd48ae5ba555767208d019d9add417f42778600ad7f07c7",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-25",
+      "original_row_sha256": "d30f78857c888de04c66016e9dd42a9e935314bcc9462fb7a97adceaabbc9e23",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-26",
+      "original_row_sha256": "2269a9f905eb76795742df6597a1d4d8f531781f86876a7c7ba27b3f32fac55f",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-27",
+      "original_row_sha256": "6069f188ff4d5df7e6c19501241a4409d447d1c31a80d64d132d09faaf9ddc95",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-28",
+      "original_row_sha256": "59a8c945df4cd78f071a407854eface7fa4558dcf1a6482286e2b2f118b8e63f",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-29",
+      "original_row_sha256": "e3a97df0cd2e45531504bc1a0ab22c8cd145a4585f94078fd9fa2f68292855f8",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-30",
+      "original_row_sha256": "6bcfaed712d98bd0d7eedd32c0399320525a0fde9c846325e091d121458c5f52",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-5p-31",
+      "original_row_sha256": "339ede1f24ca2a1c4c3dd2bcb716e88d2b4ba709ab3b3ff4343b2f448e38178b",
+      "games": 20,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-00",
+      "original_row_sha256": "65f9268b0dd939df426a5312622f2d0ec8af45d491356f92179cbc41331c6b15",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-01",
+      "original_row_sha256": "91266206e0381624be8816156719850319dfebfc78d4f90909bf115c9704ba4d",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-02",
+      "original_row_sha256": "b8e61de03a3bfe05e7b54d5a0b119fc824482c2721776a9256a4668032238d03",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-03",
+      "original_row_sha256": "b86457eb6d1eb582d7648d94a357a20d9c2d706805cbe37a2ca90413b8492b85",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-04",
+      "original_row_sha256": "0008455a43aed99aca16aaf90dd45a3d6e31b049370d9fbdc895e6f7cc820ab6",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-05",
+      "original_row_sha256": "ba4b546efb9f083faa56c52f5a11ffe2835543972ced9643c6e0feb9572f3550",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-06",
+      "original_row_sha256": "a9e31f37884a3bcf5ef9339555da49132576a7c8a74b281e89e8ae25bc1edb0b",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-07",
+      "original_row_sha256": "0140aef2767537995eca37eae976ac7bee2383abd3c751026837167edbc33a6c",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-08",
+      "original_row_sha256": "3a450937165284ac5a8f0eaa76d9d5f14e6a5305a88e277783c50e005396fed5",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-09",
+      "original_row_sha256": "d3310a62f55491eeca212473b9d3d556c9b18d49fc9f1498af2bba139bca3c6e",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-10",
+      "original_row_sha256": "3b8940a7ff89f57a48adef83b449f41be7f907fb10253ffe3a1aafd8ca61aec1",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-11",
+      "original_row_sha256": "4fa1fbedfcceb650ec80bd750620fa4f2c0a72d5999dfa74a8743b285bfebf49",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-12",
+      "original_row_sha256": "665ad26a15a15a8acfb88fc2d04d83bc20f3acf8a15d0085c4a6e0a67a5ad8cd",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-13",
+      "original_row_sha256": "a849057652c2bb776e7c9255cd88a48e5b2cbfd2c2ade6a7cce9c7dedb22f725",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-14",
+      "original_row_sha256": "ce56673416114ad5fb03366a5f3a8634ab595f5dafb46d292c8036a24ae8b960",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-15",
+      "original_row_sha256": "08b69995369a861e1c87337bf6069089645d445543588d4fe0f217e9f47297ed",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-16",
+      "original_row_sha256": "884f03ae28563a47aba7238b41f1fc3e72b6167cfd7c4f0edb0562e45e2ca017",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-17",
+      "original_row_sha256": "2bc2ed6225b0383efa331b53ced91f5cf5a65ec84d7e418cd5952cb26c738208",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-18",
+      "original_row_sha256": "1333d1a61e1da2fec66c999e4cb375eca459e6d6bf1756d50f6ca9691b26bebd",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-19",
+      "original_row_sha256": "531e9fd3f047ee891ad7b5b029739fc24d7b4a99f0418efc925c82c4e8265646",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-20",
+      "original_row_sha256": "a1c9ba7c4f9a93924e09d68e1f8e94b7fa5f5ebe2f3af9ac0d6244a89791d0bd",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-21",
+      "original_row_sha256": "aa6bcd0618c935c5922815f399f04a2c010dab45bd41ce467d9a4217c0db591c",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-22",
+      "original_row_sha256": "e69a09924d38026a750d66c8a3a7d568b6450ad352674fccb499c1cf932da2f4",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-23",
+      "original_row_sha256": "2e533d3ff5cd8132eca3f34e19c160209ecf100c6e0bc1e87feb9ac4831f41f6",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-24",
+      "original_row_sha256": "d31bd48706aa5593a57470b051cf0020f2b8cfa5e19d517f9738e2c2fbb42672",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-25",
+      "original_row_sha256": "09eb08517c6a0d422f37f15d7e3162669257939c76028e9ad4ede0f4f4b5ed1c",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-26",
+      "original_row_sha256": "d35383bdcba031079b879c3073145c8c9b47d8c0a63959e6b8a0e5b7ea5f2f2e",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-27",
+      "original_row_sha256": "59b1e03dcfc249ef8bac9abbcf3bd3da9d2c4a719e4a23464ac91aeb9eef6bed",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-28",
+      "original_row_sha256": "26f5b6de179f7a4cef19001ee0059d3d28fca16ebc5c68538901815f77b4f974",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-29",
+      "original_row_sha256": "92d29cb64059e915c220c060f9a9a40ad78541a05145f48ea9a56c670eebe67e",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-30",
+      "original_row_sha256": "c5805bb574273c0003ea3c2f20662cf613ae2bff36624aacb43cbd8c27966330",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-31",
+      "original_row_sha256": "d906582bebe5ff89975273d9e58e3f5203fe62147904576bc3e28aed714e1e6e",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-00",
+      "original_row_sha256": "722c4a3ba5a9069ef2cd94928f44f155ce31e65c1356adb7871693212e0c74fc",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-01",
+      "original_row_sha256": "98efd492f0f0272c95434b544b7dd023626dc85f22bf81cca75ab39aef8a7aee",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-02",
+      "original_row_sha256": "78b2b46f58706bd93e187c83fccde1345ffaa36b82a377a20df2086984e46e84",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-03",
+      "original_row_sha256": "053887bd11e9064b7f6b387d7e2f872282f2c5d1dd133db3597423cd3ee24a97",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-04",
+      "original_row_sha256": "9b207874cfcc10cc787175f6a77dc688d7219dfc60c093dfb256f14e103f121e",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-05",
+      "original_row_sha256": "f480a1a73766079f04efd481636727e24705a2b0760e60d94124fbd4c4b8863c",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-06",
+      "original_row_sha256": "4064720047e08d95d05cfed592cdb5a1399922ba9e644cbe00a673cbdc4c7cbf",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-07",
+      "original_row_sha256": "b655ca318a6c6456cebaf305716032c39518773268ac98f6292ea60df30f0d72",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-08",
+      "original_row_sha256": "2132d6b5529528c1e00350af8217b73cfda3339ab7c9146b69d5dd0ffc329834",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-09",
+      "original_row_sha256": "d8907b73f7b05a4d80268b04ad8337570859a79636d46c46e7d06567868406d1",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-10",
+      "original_row_sha256": "eea0aa44a3073309960835f4f79300dc17d2e5f9ae6d9853f35d91b5220a0451",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-11",
+      "original_row_sha256": "555ceceb562df2beda8929c315c11b0e5f3d26b1f57a9f00e34a83896c0c3f92",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-12",
+      "original_row_sha256": "7fb51d0926892e0c4621b3568bf4976eec566e50ae22857f2c50012e2cc5d84d",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-13",
+      "original_row_sha256": "c5d9dc52065ddf2c607e131c8069b20cc26e4230bcc6621bd93ace5124fc34ae",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-14",
+      "original_row_sha256": "554fa0610f9341ae8a18d272e44e7fac9e4848d9768a8df747504b2d63752d56",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-15",
+      "original_row_sha256": "da6fd4f08dc78773df9ad83354d85b7b0a8d9b030c348b7cf81f3c06a4233ab3",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-16",
+      "original_row_sha256": "2d9d4b11a92ac77f8f4dfe1644715594cd86d7465bdda46f80bec2a2a9f3c2da",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-17",
+      "original_row_sha256": "6009f869f06118a5e1fc671a9278d94bf72608f6a8c9e08a47bdc0cbcb3e0133",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-18",
+      "original_row_sha256": "4c118330f4f966fa439d9beaf7cc9358c8b97f667c558b48b4bbb93bc9d4263a",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-19",
+      "original_row_sha256": "d6805d08893079a43b342820cf916b326d6450cd271480b68b5b2cc718a15ef9",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-20",
+      "original_row_sha256": "9a646bc6c829a8129859f984e5ec08896195a516f3242d4e003e30846dcee64e",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-21",
+      "original_row_sha256": "5ddc6de2983d3fc30da9ae50d438720ed388667d2173f75e146e78154936f038",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-22",
+      "original_row_sha256": "7fe032aacc00d3b783fcdce9e2fc33f91c83e6a0fcf2ca0b3ca955033c99a217",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-23",
+      "original_row_sha256": "70601c0f1f0e73b57ad6cff7d052289904386a7a1857989607794301a8ecfa7d",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-24",
+      "original_row_sha256": "f85107cdfe97b5f56777d5a925a546ef602afc61afdbc2aded2d95f5ded344a1",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-25",
+      "original_row_sha256": "2dbcb4c53a64e4b215c9139069b9a442fa1bd707c41c9329ad7700f58303b551",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-26",
+      "original_row_sha256": "7b0092444418030c26168ae87b835c08abe4072ea5574d71e272f3ff320a387e",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-27",
+      "original_row_sha256": "c5c63aeaa03393e3e7f525c94e2ac234f8d558fe4ee8d9795fc5f40d1a0c5932",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-28",
+      "original_row_sha256": "14166d5de86bd694a4fa00d59cb87fe85232729ad8351c347590933fe2717bb5",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-29",
+      "original_row_sha256": "3bc541e8298d7d1713e3d466268563667b1f2700488658fe4d570d5c30ed7b1a",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-30",
+      "original_row_sha256": "eeee4ea6f17979ada26a5a6eaa0301f7a1946419982e373a9e4e856cb30c67be",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-6p-31",
+      "original_row_sha256": "d4f835145a43a49556d92f875ff4fbae6270563975fb7d21c8471180c6a3f2f5",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-00",
+      "original_row_sha256": "da500c0571699540e1b5bbaf3cb585e4618051d2abf3db3474ae3125bc49ee07",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-01",
+      "original_row_sha256": "d7964e5e68479cd212dae079996c7b277ff134301ab0b8f4f959c9199361aa2b",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-02",
+      "original_row_sha256": "7e21298bd4b3b052484c560bd08f50a453c694c9f9f79f79848b838f22db44ef",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-03",
+      "original_row_sha256": "a6d10327db8fb50f6da91634890c0d3de7342c329f4682c8aa992c1e43d9dd53",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-04",
+      "original_row_sha256": "d329380498d87fbaf9b72c856ad83e4f8cc64bad77c91a324fc41047bcf9775b",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-05",
+      "original_row_sha256": "2eabf43d21eae4914b8b4815eae05456656f192efd861e20cc2b201a59afe0da",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-06",
+      "original_row_sha256": "1abb121a4a1aef4856f1fef30bbf5003990d8951e52c1dcf2cc6fba3961dddd0",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-07",
+      "original_row_sha256": "c1e18f706c0b36ca1b92ecb96dfd201bc2ca37b2bd2c6414b64a80f3fe036a59",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-08",
+      "original_row_sha256": "dbdbd642da94346fc4c59fadde5d7cf1d6f7cf862c0c0b500c73c070207dcdb1",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-09",
+      "original_row_sha256": "7d193c0ed5c95f82485faf5f43b7e5fb76c7cce0c59e9f0b12a3087e03eda120",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-10",
+      "original_row_sha256": "73ec912ed61e4d029aa13848b2985d5746f624dc6609392e5e1235f448233268",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-11",
+      "original_row_sha256": "8c7a000280ac7a581086a9711a1b7570d88d135f15bf9c64922c1797caeda9f2",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-12",
+      "original_row_sha256": "ddf5ba16e9fe2daa66619df693843730ba19649f596695c01e95fe6b0d56828f",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-13",
+      "original_row_sha256": "efce2f1f44ff58b8db08820df3c154513465880eeef10a5e3447afb773c2a111",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-14",
+      "original_row_sha256": "0105eb1dfc694ad3b75049eca56d522baa1bf9c2e97f4eb20e9c1f80188ccb53",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-15",
+      "original_row_sha256": "7bc6e39ad8ee52e53c190dfd865f1464f00f42e897eb0d2ab74b5bf9ba22529a",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-16",
+      "original_row_sha256": "54ac315769cecaf5b0b69d5815864df70b869d3af603c314bf82229f4b386c56",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-17",
+      "original_row_sha256": "7e4320de5a783e10d056d939f59b29158990257181fbe600457791944af1c60f",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-18",
+      "original_row_sha256": "4a260729be4a1c6c70afc1f9d1e124016dd0467ad3c3eb0709aedb06a6cefc38",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-19",
+      "original_row_sha256": "fc8caf1fb8a1f3e714fb6a4aeab04302a9aeefda746308c8b7268e2f390d3664",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-20",
+      "original_row_sha256": "e714fc830b1d28467bf241ff66cf040e62a442b71e85c8d860c7e0b92998aaf4",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-21",
+      "original_row_sha256": "599c7db88087624105a85417702d2063d49800a1be0d2a9e3cab3dcd61095b17",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-22",
+      "original_row_sha256": "3651a8199c97c3a0d7ee8f48049b7117040789e38fb32afcdc9d0e58f8673ee5",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-23",
+      "original_row_sha256": "2a41e6813650ae18aeeeca85734a4ac393438cf917d840b79d8c4b64aefcfe09",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-24",
+      "original_row_sha256": "300e0d17fe2f2afb10afceb8952e6b669559d440afdf80595edfbb6af6777391",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-25",
+      "original_row_sha256": "4e343fab1aec2575a3f45225b741b4e15ced276d633f75de871fa6557b2905a5",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-26",
+      "original_row_sha256": "cc0873c1175868dc294787d3041018801a61fd5930f54c8e51e70541eab8b7ae",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-27",
+      "original_row_sha256": "9e57f83ff7f08058796882aa4c93dffd79c4cc68bd07eb27610e1c5519506f4e",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-28",
+      "original_row_sha256": "e0e8d51cadf165b045955f8bc7ab69a74a169dc3b49ff95ce8ff549e59fa8d5b",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-29",
+      "original_row_sha256": "c1b0792520d15bac0c4eb43a2ceae283635d43b1131c29e4af85bb7d7f2e8e2a",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-30",
+      "original_row_sha256": "1b65cd2e4d38563b714585ac90d8e33e5d0f47a39e7115c340b95c114d75cb4d",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-6p-31",
+      "original_row_sha256": "f38d055f31628eaa6cb344cbc76cb430d012af70235aca6e77d8de5790e2e322",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-00",
+      "original_row_sha256": "201abf3df13d914aa9fc2a810395ee01571f011dba97cfdb43b0c98d44289682",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-01",
+      "original_row_sha256": "ba8ed5db28799f17fac5089a0c8f85f50a6884b7c2253be5b9fa6cca557c2d79",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-02",
+      "original_row_sha256": "60da297a3a96d6e44cc695d52cb812b4420e259a1fcb8d076f771578dcecbf1d",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-03",
+      "original_row_sha256": "186a4de0ef8c08f95533be1a1d76d1683108f6ee68286280472bbbeb5180e74b",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-04",
+      "original_row_sha256": "c24fb4f029a88e580b3a06f96496c37674ab4ab50060b024898ab33e0e09737b",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-05",
+      "original_row_sha256": "1bf3ee4e65181e762a60f53739a96ccfa0a544f5c04b0f4020b924413a226584",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-06",
+      "original_row_sha256": "0d82796d2d6fd8d9421c3313b52aed1963ffe0191f4dcd22a90ed32695a71c37",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-07",
+      "original_row_sha256": "839932c9770b5adb7da88bca1f279caed0d411a65af7a44d29792b848d9ee47c",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-08",
+      "original_row_sha256": "27e6091edf2e4c4a149d279a7468a9e377ba6e1ed7b32a50d4bec5e2bb48c0ed",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-09",
+      "original_row_sha256": "579b4ba104d93072975936452d0c0505bcda1bfbdf867e7cfd8b1aa988cb9159",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-10",
+      "original_row_sha256": "49a37a5d179b621c776c56fea68f85883a86b5a0ed9220a896db7536a09b030c",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-11",
+      "original_row_sha256": "3d08971faa7f730b8f5ea980349f3663b16ae53460d265a17b76073230eb1eb6",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-12",
+      "original_row_sha256": "3edc0bb35eb8aa6b2951534a3a6766838f4944ca02930de86e46416bd7b5cf25",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-13",
+      "original_row_sha256": "8dd8757226eb9dec9c815e18ae6e997f964cc7fcce448daefdf13fccddd56412",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-14",
+      "original_row_sha256": "13a19b8be75abe425b8a508b3ebf17330315a33a122f7ab311b929802d26c554",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-15",
+      "original_row_sha256": "df30550562552fa51cd3bdb6d9c9fbb0c8f7b37611fcd28e0927dbf809068b76",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-16",
+      "original_row_sha256": "3ef1211b349a3d6d9d55f72a7cc756913dee6499109d32d57914f9fcdaf91873",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-17",
+      "original_row_sha256": "1ff131f89cc25638c8d0763368c7e3e2e11254b84e9e367f097086ff2d03bf15",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-18",
+      "original_row_sha256": "60c633b8ac4ce3cc7f754f6d90a8b58cdd86f3f4bc57a2249ee3dea228434133",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-19",
+      "original_row_sha256": "a5a3447132cb4b1fba0ee1ec125c6ce10d5bcd379285d67b5acc601fd2e9bee8",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-20",
+      "original_row_sha256": "19ccf9c70ac4fa0f6a595904b0c49b29d267ec2e4a549b3353af365ae1b418d0",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-21",
+      "original_row_sha256": "6a9cbbde1b5a2270e094b7846ed390cb92da40bf7affe69cb43751b4390b11b1",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-22",
+      "original_row_sha256": "8ba3de87b384b08f7b2459ffe19226f89e24dcc71aa0c477ab209832adca599e",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-23",
+      "original_row_sha256": "97513b91f13db783b88573362001aaa2240b454c5281077ef26cc56d84184573",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-24",
+      "original_row_sha256": "0218162c7ec93101b96b656d7c978a98b322c284408713b759e0fe82b6b2c502",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-25",
+      "original_row_sha256": "8bd854faa1d14d2b1cee4ea2899e6409e01fc7a90f4df1102de712fe3adbfba5",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-26",
+      "original_row_sha256": "13b2ecbf01ba9e7528a7f515489833d7d07875d0ad35172a9b664d0154604167",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-27",
+      "original_row_sha256": "897dcac6c8de12f9a6d625f36a1c695a127d0edc1fe8b95cec9b432d0952b455",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-28",
+      "original_row_sha256": "4763255c8009114286a01d54697a841b2079b485668199626118f95f159814d7",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-29",
+      "original_row_sha256": "99cca4e3fcb24a36ae8be2d7bd05275ad753e8d1e545f92e9e95103b0b8a8b77",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-30",
+      "original_row_sha256": "724809edc50e7c44541ec9614b49aade69dc55699d0da8ed31af7854e4cab553",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-heuristic-6p-31",
+      "original_row_sha256": "9ffa6d38d29dc699a6dffb6b766a4125dd37e74d5ca7cc3626f6692e7636a7c7",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-00",
+      "original_row_sha256": "dcd6148d4eaf74b8a3d95471610d17480f47bd9c9169e7bd15c6c44eb6fd5d48",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-01",
+      "original_row_sha256": "072688f59c9af2e61d75e69661a3ef654e326b4923ae41c7d5406d3e941c1166",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-02",
+      "original_row_sha256": "a3cddcecbf84ce9c7a40c562040cfc7ec31aa35170cd3cb332695d84512b3e25",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-03",
+      "original_row_sha256": "e8c22c9a511b698b11780128f87023594405dbbc06250b99d42d49fbdf5e2a3d",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-04",
+      "original_row_sha256": "61dadc7851dc6245e7af7037ec8fd7ae7c7aee6b1161bb870c98798e8e4094e3",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-05",
+      "original_row_sha256": "d5279a4293ca34bffdceb1d3b9943e9a7a52a4d3e2d3b5b4c9d01452a7ae753d",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-06",
+      "original_row_sha256": "8dc69939a1e86c6b5e069b07d7774df20eddf06c01045edf1a18b35864f5370d",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-07",
+      "original_row_sha256": "6c0567418f97b6b7ea2598bb80f90e941591a94ef8e6580b18c41ecdb8791af8",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-08",
+      "original_row_sha256": "def5a2bbe3b32d45fcc2654123d54038946bb52a19d89911bbf849293cf6e7b2",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-09",
+      "original_row_sha256": "7ca925d0260523ba70ef474e4753a824595dbaa9a4954fcdc45fa300bd68a360",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-10",
+      "original_row_sha256": "1dabc80c7e6f318b999788224b00c2a6679c063247c2e88dabbf63450d39a677",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-11",
+      "original_row_sha256": "317b5efc7c7b955c81b24cddd356a0b45816685e54ca76501f3274a68f3eaa87",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-12",
+      "original_row_sha256": "f07dc2b3bc11bcbb29138c0e730560eebdc75c0fe593cd0bfdd092e9b12e80b0",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-13",
+      "original_row_sha256": "c301f5385ffa950d2504598ef8c3dec5ceb176821e9054708efc81e9d4ec8ee7",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-14",
+      "original_row_sha256": "71c104b5bc77d3f276f74d5a6f1e6d7a42ffd8362f11fa69592ac9cc5d1b7b6d",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-15",
+      "original_row_sha256": "960fbcb47c77bdeb0169115602ac480b550babd9755384d37c3b33a3a8dc9cbf",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-16",
+      "original_row_sha256": "a836a9093ef58e2c0981178bb3b80bcc9b3779df0f0ed6946e706c8589e12a82",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-17",
+      "original_row_sha256": "e66474564863f380fa8373bcb8edbb87c0834941c25f2fa54c46eb8cb87eff7b",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-18",
+      "original_row_sha256": "ee01e3935212cf0b36d9a6d455ee87dbff1fb910c585dd7b5383231369003977",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-19",
+      "original_row_sha256": "9fee2bf12be4e4aeaa615f562eaaca42f9ccb372e85a8a596310fc0b99c2813f",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-20",
+      "original_row_sha256": "42d66d6a5400018abfe063a7d7e6b0dfa4326f4d4641d4a7eff219cdc4fb1d8f",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-21",
+      "original_row_sha256": "1fd43f07f0396485d42e1b9eb49ebd777b303497ad756a981da5371d199c6867",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-22",
+      "original_row_sha256": "5ffc8a8839931627e922ed1b7d110c9e8e2f61c72cd538dfb6c33833c0838317",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-23",
+      "original_row_sha256": "0567d3ea5f732051698c9e6a794e4745b58ba61c9a7b540b73c361a5443bc55b",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-24",
+      "original_row_sha256": "3de3c1da1d0babe80bcb4abbb08f69b43a844669a91535b928cde66a3dad723f",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-25",
+      "original_row_sha256": "34a95fb0321c90d5a8d838f499f3d157e9288ecea4901bfeb994a6446f0a9261",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-26",
+      "original_row_sha256": "8d857d7262fc08a8ca0c36cbd628e34107b465cdbeddb070019c4e3b01ebb565",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-27",
+      "original_row_sha256": "f0a77987f2aa2501809173f7fd20bd52b9e4611f4ec41b83de042963f22c4979",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-28",
+      "original_row_sha256": "ae054720896e147ef13492bc00fae3f9515f16fefa7e878cafbe62bd12299a74",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-29",
+      "original_row_sha256": "0cbd8e424da8709593c3e0d60ed264314f2f2eea2270f94bd349e36ac6a21e95",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-30",
+      "original_row_sha256": "ccbecd6cf67a09e270c889461b24acbeb374daf01dc3d021017ad3992a3ee8a5",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-rush-6p-31",
+      "original_row_sha256": "bc8d3075b7e4943031ecd0c87379b847e5b92fff0ebf4433a1359fcd5d634b95",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-a260-3p-00",
+      "original_row_sha256": "16d5e1518c216c3f9f74c079bf146d0d1e4fbf7f31cf81bd2d8244bf09fbec2d",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-a260-3p-02",
+      "original_row_sha256": "bd8f076aa4f181a98874e66cc04eec1a33e039c9cf5f1e021eded356a7ee519d",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-a260-3p-04",
+      "original_row_sha256": "3455773fb7018a868438bf570982458297d39c2b41271c36e21d6fc85643918b",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-a260-3p-06",
+      "original_row_sha256": "d10f7f15297cc9dca2eb7aa3fa0c93e5a6a63a550c0b29d23fe384655dc04164",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-a260-3p-08",
+      "original_row_sha256": "6dafb1705de826eead855506140f600ec5ef62f83f31db6de767e0c5f6f3015b",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-a260-3p-10",
+      "original_row_sha256": "86d2e6ec3e9b8ede8ebe5ac38359cb1db4be563fe75650e4592fb3ec325abd08",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-a260-3p-12",
+      "original_row_sha256": "d0b70675bb3a2b8fc7e3e233c6ef805b0eb12a710e026909ceaf745659915d7c",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-a260-3p-14",
+      "original_row_sha256": "49a725c6ee383fc3507a67cce2bc9ffe15679fdd64c6084f736a804c42571768",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-a260-3p-16",
+      "original_row_sha256": "f995a47595206d0c714b4353dcd98d5d467c8318e2fb2e87bfc3feb5fd8bf0e0",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-a260-3p-18",
+      "original_row_sha256": "4c8caf44d749ca190aa84415d58f84d00fa235e0a1fe0b6308913e49b2c329f1",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-a260-3p-20",
+      "original_row_sha256": "b927f3c2eda30a4da767ad881a0073795612bc92dfb897d4d4a2692ccd9d29a3",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-a260-3p-22",
+      "original_row_sha256": "35a7c2de60442fc82071f0bd46acce8a471ba84589ed6b6a907983ba29349766",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-a260-3p-24",
+      "original_row_sha256": "0cfc7140806cbfde0f73e638d3c4405f76ed8b1dffe84f07900190e006755e0e",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-a260-3p-26",
+      "original_row_sha256": "32e52c3b061036ff5ae5a527a6e51290bbb984f854b3fd36bae1ca15a4afd1f3",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-a260-3p-28",
+      "original_row_sha256": "1569a76caef5b19c3b354ada1cbf5faa2e58754f28e9feb8622dd7d53ab4a2fc",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-a260-3p-30",
+      "original_row_sha256": "cb8c14b2812ace5a0c206f91df2321dffa162518280b184a9dba0f6d180a1395",
+      "games": 24,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-00",
+      "original_row_sha256": "286a77cee5727e9405c64ce47bb4033c2279e67f770f04de11865c26a5a9eeee",
+      "games": 16,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-02",
+      "original_row_sha256": "438183a744558c0703beaabaf895e1d5fe6248e1329ebe477aefc10fd1593e48",
+      "games": 16,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-04",
+      "original_row_sha256": "ee7805e99898c79b49c5cda6a976817804ef3c20e93575aec18ab016eaa1812c",
+      "games": 16,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-06",
+      "original_row_sha256": "51e40e767c5ef72e5a11d63c6f24cd335b2ba5ea8feab33ca06c47872da699a4",
+      "games": 16,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-08",
+      "original_row_sha256": "adc669b63628d86a67484289fd38fce4760b97b86f4694576698cfd2e057935a",
+      "games": 16,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-10",
+      "original_row_sha256": "32f0df51cc195cc240120ac13fad642c36227553893f98defe90628ff3a26b16",
+      "games": 16,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-12",
+      "original_row_sha256": "649dcb5546baa820a70d08f92160acc44cda18876a9471947676aa8a2c8dc14b",
+      "games": 16,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-14",
+      "original_row_sha256": "72179e99dcacb7175d48bb2ec79996478cfb033c3573571e94fcac6b1d6c6724",
+      "games": 16,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-16",
+      "original_row_sha256": "22d1c1cd4a7e7e769c5c82dd2141b9ae4601c36efc033e9c049d43644f4bbbee",
+      "games": 16,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-18",
+      "original_row_sha256": "9983f4e5fc5c4c43e9e3cd7c9a34bf39cc48f829a1f24daafc0432f8652e08e4",
+      "games": 16,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-20",
+      "original_row_sha256": "c57cd0fe285d6fc8848854e7c452df9b7df865ab469c82b31b8dc4e7ed7b7e76",
+      "games": 16,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-22",
+      "original_row_sha256": "124e0283bde788c4d11292b7e83f8b1541e44bfeaa13efe1ae8b8ed55788e239",
+      "games": 16,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-24",
+      "original_row_sha256": "04279cde8f8a6d9f35d9ef5309e6da9fc9bdfe1c0c29b3c942a9a9273b2f51ad",
+      "games": 16,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-26",
+      "original_row_sha256": "20fcdc93b96f665c5a067f35c1450082e50e8554336e11377a29e3528060a9c7",
+      "games": 16,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-28",
+      "original_row_sha256": "be784fbc374c663a430b57d442f8c2bae983fc8a05a1622dc7f712e84a3178a0",
+      "games": 16,
+      "reason": "never_submitted",
+      "original_handle": null
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-30",
+      "original_row_sha256": "ed51415269cd88f5043bd7bfda469f54b37637f62160684d0fd1febd90d04237",
+      "games": 16,
+      "reason": "never_submitted",
+      "original_handle": null
+    }
+  ],
+  "preserve": [
+    "all original handles, guards, failed logs and immutable archives",
+    "frozen engine/source and full policy identity",
+    "weights, features, shortlist, search sample budget and minimum advantage",
+    "opponent population, seeds, deals, seats, rules and worker counts",
+    "all strength thresholds and reserved final seed namespace"
+  ],
+  "stop_conditions": [
+    "Failed or ambiguous recovery execution; no automatic retry.",
+    "Changed source, policy or original guard.",
+    "Incomplete, duplicated, unaudited, outcome-selected or missing evidence.",
+    "Failed raw-retention or actual submission-binding check."
+  ],
+  "strength_outcomes_used_for_decision": false,
+  "original_failure_erased": false,
+  "frozen_inputs_changed": false,
+  "execution_admitted": false,
+  "new_hf_jobs": 0,
+  "new_games": 0,
+  "candidate_selected": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false,
+  "previous_goal_turn_classification": "progress",
+  "current_goal_turn_classification": "progress",
+  "goal_status": "active"
+}

@@ -68763,6 +68763,55 @@
         "current_goal_turn_classification": "progress",
         "goal_status": "active",
         "remaining": "Collect all 621 originals and retain failures; use complete original cost evidence for a separately recorded recovery decision. Do not reuse the stopped coordinator or assume surviving timings bound unfinished/missing jobs. No new evaluation or final qualification admitted."
+    },
+    "current_auction_originals_terminal_recovery_decision_20261029": {
+        "status": "all_originals_terminal_resource_recovery_design_recorded_execution_not_admitted",
+        "doc": "ai/CURRENT-AUCTION-RESOURCE-RECOVERY-2026-10-29.md",
+        "decision": "ai/strong/current-auction-resource-recovery-decision-v2.json",
+        "archive_descriptor": "ai/strong/current-auction-original-terminal-evidence-v1.json",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "dbb8d0502194d109b8c9b0cf65d24a521d89d20a",
+            "archive_path": "archives/current-auction-original-terminal-evidence-v1.tgz",
+            "archive_sha256": "5e82efaa66aef221d7c409fbcc9b13ea840f39255f0ff192d02269447e504d07",
+            "manifest_sha256": "487e4aaf24af2bf2543ec65731152e5fb9dba5505bd5ab3622dde77efece61e7",
+            "archived_files": 2520,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "original_terminal_checkpoint": "2026-10-29T07:45:19.526233+00:00",
+        "original_submitted": 621,
+        "original_audited_shards": 620,
+        "original_audited_games": 19764,
+        "original_hf_completed_audited": 617,
+        "original_hf_error_complete_data_audited": 3,
+        "original_failed": 1,
+        "original_active": 0,
+        "never_submitted": 323,
+        "fixed_recovery_rows": 324,
+        "fixed_recovery_games": 7116,
+        "proposed_external_controls": {
+            "timeout": "24h",
+            "flavor": "cpu-upgrade",
+            "game_workers": 4,
+            "search_workers": 4,
+            "inference_threads": 1,
+            "max_active_jobs": 64,
+            "periodic_completed_raw_game_archives": true,
+            "overwrite_original_evidence": false
+        },
+        "new_hf_jobs": 0,
+        "new_games": 0,
+        "frozen_inputs_changed": false,
+        "partial_strength_analysis": false,
+        "recovery_execution_admitted": false,
+        "candidate_selected": false,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "previous_goal_turn_classification": "progress",
+        "current_goal_turn_classification": "progress",
+        "goal_status": "active",
+        "next_action": "Implement and verify external raw-evidence retention and separately identified recovery attempts; archive/review actual controls before the single same-seed failed-shard recovery. No original job remains live. Do not restart old coordinators or dispatch from the decision document alone."
     }
 
 }

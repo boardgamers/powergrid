@@ -1,5 +1,28 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 07:45 UTC — all originals terminal; resource recovery decision recorded.**
+
+All 621 submitted jobs are terminal. **620 shards / 19,764 games** passed raw
+auditing (617 COMPLETED plus three preserved complete-data shutdown ERRORs).
+The single 16-game HF timeout remains failed. No active/deferred originals remain;
+the final collector PID 1753619 / session 58206 exited. Do not rerun collection or
+restart old coordinators. The frozen 323 unsubmitted rows remain unlaunched.
+
+Read [the terminal record and resource recovery decision](CURRENT-AUCTION-RESOURCE-RECOVERY-2026-10-29.md).
+It preserves the original source/policies/workers and every planned game, proposes
+a separately recorded 24-hour execution allowance with periodic raw-evidence
+retention, and requires auditing the one exact failed shard before the remaining
+323 rows can run. **Decision recorded, execution not admitted.** Implement and
+verify the supervisor, attempt controls and independent coverage checks next;
+archive/review real prepared inputs before any new submission. Do not silently
+feed recovery data to an old comparator or loosen any strength requirement.
+
+Final resource evidence covers all submitted originals; incomplete confirmation
+groups remain explicit. No partial win rates were inspected. Previous goal turn:
+progress (`c1430b7`, measured resource diagnosis). This turn: progress (17 more
+original audits, terminal accounting and separate recovery decision). Goal active;
+no new HF jobs/games, selected/qualified candidate or reserved final seeds used.
+
 **29 October, 07:32 UTC — original collection and resource-only timeout review.**
 
 The fourth bounded collector finished: **603 audited jobs / 19,424 games**, one

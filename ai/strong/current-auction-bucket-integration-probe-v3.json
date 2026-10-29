@@ -1,0 +1,244 @@
+{
+  "created_at": "2026-10-29T11:17:44.048187+00:00",
+  "selection": "first four canonical attempt directories with existing independent reviews; no outcomes read",
+  "source_descriptor_sha256": "e46300b32989c70e45d6a4113b8c636bb9e0a0edbf45712cb3bbb496207f4ce7",
+  "new_games": 0,
+  "new_jobs": 0,
+  "new_inference": 0,
+  "source_reports": [
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-00",
+      "job_id": "6ae31aac3fb22a235dd5744a",
+      "games": 20,
+      "review_sha256": "f783a9d73340291ef375b0a6c18dc74b7d4fb9fa0221545cceabfa215c6e7548",
+      "envelope_evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "6fd5b60de36a4a3850b6d110bce6a0de919fe223",
+        "archive_path": "archives/pg-current-retained-v2-pop-legacy-5p-00-final.tgz",
+        "archive_sha256": "d9e64e27e8081806a6273fcbf045c13548f82023faa4d6b6905c0fd37830e41b",
+        "manifest_sha256": "d7141d555981cd7705cbb0a6a63d41261a38c33af84072ad756dd4d30d5fcc83",
+        "archived_files": 117,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-05",
+      "job_id": "6ae31aae3fb22a235dd57456",
+      "games": 20,
+      "review_sha256": "240726f55236bd8181210efdff7e29a4cac7742a12dc2b43dfb28fb47cce81f8",
+      "envelope_evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "0c7fdeb9bae6ef0be979bca4770fa7f2ab0e13d1",
+        "archive_path": "archives/pg-current-retained-v2-pop-legacy-5p-05-final.tgz",
+        "archive_sha256": "fc8b385dafe1d1f35b85d0d5094917cf76dde69473f6a066bbfa7f77fe4a50a8",
+        "manifest_sha256": "fd403c603fff40b61476d4b3e8bfc62a8e657cd553db712df8dcaf04b95306e1",
+        "archived_files": 119,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-07",
+      "job_id": "6ae31aaf41e90535df789444",
+      "games": 20,
+      "review_sha256": "4a0c7c58b616e6e0296a25abc42073feab5a4d4310d563942098335c163211cd",
+      "envelope_evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "09be479b074059055f87eb6cd8dde4442a80f817",
+        "archive_path": "archives/pg-current-retained-v2-pop-legacy-5p-07-final.tgz",
+        "archive_sha256": "eecb9385c5b5a18148862d82a2bc5ae369fd3c3b30009bd0adbf9fb13a700815",
+        "manifest_sha256": "30e9bba177a494ddef27257646bde0ab0975d08608652ec73bcbc29fcafee93a",
+        "archived_files": 119,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-08",
+      "job_id": "6ae31ab041e90535df789446",
+      "games": 20,
+      "review_sha256": "b508015dcf0ccfa90c5fdcf019429d85555caefd4c8ff0d82a3b61a2c3502970",
+      "envelope_evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "f0569b722e1d7464b58b343a46b7901430f73ed9",
+        "archive_path": "archives/pg-current-retained-v2-pop-legacy-5p-08-final.tgz",
+        "archive_sha256": "68438a33fd5b75d3a8d1ac3ed8da9b9623b4b43a0eb0eb861cc68f933a8bc409",
+        "manifest_sha256": "3186bf04d3b5bb465a201448748f1d3f4244e6b395f49c33341b8e29b98f9591",
+        "archived_files": 119,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    }
+  ],
+  "code_sha256": {
+    "current_auction_bucket_checkpoints_v3.py": "490fc64a3e402f659d80238bd648961abba8f060f09cabf4bf22f7051378e0db",
+    "checkpoint_bucket_archives_v3.py": "d79a4288990ab52bc28496d6e58ae75adaceb069ad0e2757acab8f6cbb9f3d28",
+    "promote_bucket_evidence_v3.py": "622ec656bf47d8a7886958086240e11460634393d8af5b247d8d084186a53488"
+  },
+  "probe_sha256": "90d53f7f143e2eb031817daf00a7f193247e162e816899b6daca15ba1bdf9c88",
+  "production_execution_admitted": false,
+  "passed": true,
+  "finished_at": "2026-10-29T11:18:21.905560+00:00",
+  "seconds": 37.85739796300186,
+  "results": [
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-00",
+      "source_job_id": "6ae31aac3fb22a235dd5744a",
+      "source_review_sha256": "f783a9d73340291ef375b0a6c18dc74b7d4fb9fa0221545cceabfa215c6e7548",
+      "existing_games": 20,
+      "bucket_evidence": {
+        "storage": "hf_bucket",
+        "bucket": "coyotte508/powergrid-ai-checkpoints",
+        "path": "confirmation-v3/pg-bucket-integration-proof-v3-00-checkpoint-0001/bbbac8e7c8532c5c0beede4374947a17c7c5039743700c7fd54dd3382cc73b3a.tgz",
+        "archive_sha256": "bbbac8e7c8532c5c0beede4374947a17c7c5039743700c7fd54dd3382cc73b3a",
+        "manifest_sha256": "11dd72646c1c3e9ebb8f84eb3667b2fc150641dba5d644048535671364533805",
+        "bytes": 19023168,
+        "server_versioning": false,
+        "max_application_upload_calls": 3,
+        "xet_hash": "fabb29ae8a0c02aae1c361fd0fb022fec856bf9c543ef6e0a49710fc2617233c",
+        "download_verified": true,
+        "application_upload_calls": 1,
+        "reconciled_upload_error_or_interruption": false,
+        "raw_audited": false,
+        "qualified": false
+      },
+      "downloaded_directory": "ai/runs/current-auction-bucket-integration-probe-v3/case-00/downloaded/pg-bucket-integration-proof-v3-00-checkpoint-0001",
+      "source_unchanged": true,
+      "new_games": 0,
+      "new_jobs": 0,
+      "raw_audit_repeated": false,
+      "game_strength_evidence_added": false
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-05",
+      "source_job_id": "6ae31aae3fb22a235dd57456",
+      "source_review_sha256": "240726f55236bd8181210efdff7e29a4cac7742a12dc2b43dfb28fb47cce81f8",
+      "existing_games": 20,
+      "bucket_evidence": {
+        "storage": "hf_bucket",
+        "bucket": "coyotte508/powergrid-ai-checkpoints",
+        "path": "confirmation-v3/pg-bucket-integration-proof-v3-01-checkpoint-0001/7d9997f14d08123aa7b7ded7861c5a90ada7b5fc88dfe30cb158fa2cd7b70415.tgz",
+        "archive_sha256": "7d9997f14d08123aa7b7ded7861c5a90ada7b5fc88dfe30cb158fa2cd7b70415",
+        "manifest_sha256": "6d06dd4e738ec93a65327ed86be635830123fa20c23c0f2ebdafb76411b7bebb",
+        "bytes": 18506854,
+        "server_versioning": false,
+        "max_application_upload_calls": 3,
+        "xet_hash": "63d96fbdafa5dd97301bb0131a5517674f8f5d63e94a80835220643c9c26d69c",
+        "download_verified": true,
+        "application_upload_calls": 1,
+        "reconciled_upload_error_or_interruption": false,
+        "raw_audited": false,
+        "qualified": false
+      },
+      "downloaded_directory": "ai/runs/current-auction-bucket-integration-probe-v3/case-01/downloaded/pg-bucket-integration-proof-v3-01-checkpoint-0001",
+      "source_unchanged": true,
+      "new_games": 0,
+      "new_jobs": 0,
+      "raw_audit_repeated": false,
+      "game_strength_evidence_added": false
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-07",
+      "source_job_id": "6ae31aaf41e90535df789444",
+      "source_review_sha256": "4a0c7c58b616e6e0296a25abc42073feab5a4d4310d563942098335c163211cd",
+      "existing_games": 20,
+      "bucket_evidence": {
+        "storage": "hf_bucket",
+        "bucket": "coyotte508/powergrid-ai-checkpoints",
+        "path": "confirmation-v3/pg-bucket-integration-proof-v3-02-checkpoint-0001/87de0aae710f675840359788b8c7a4aa2539f28d17f1e23b16021ade098cbadc.tgz",
+        "archive_sha256": "87de0aae710f675840359788b8c7a4aa2539f28d17f1e23b16021ade098cbadc",
+        "manifest_sha256": "2164b9c26ccd89493e8d8dd9e5ff678b8bcc3df0f593d15484c7d7f50fd34bd2",
+        "bytes": 19752032,
+        "server_versioning": false,
+        "max_application_upload_calls": 3,
+        "xet_hash": "8633095b2e33230d00d3281f5370c534e77bd0164b4a34eb6bed9485e4d66568",
+        "download_verified": true,
+        "application_upload_calls": 1,
+        "reconciled_upload_error_or_interruption": false,
+        "raw_audited": false,
+        "qualified": false
+      },
+      "downloaded_directory": "ai/runs/current-auction-bucket-integration-probe-v3/case-02/downloaded/pg-bucket-integration-proof-v3-02-checkpoint-0001",
+      "source_unchanged": true,
+      "new_games": 0,
+      "new_jobs": 0,
+      "raw_audit_repeated": false,
+      "game_strength_evidence_added": false
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-08",
+      "source_job_id": "6ae31ab041e90535df789446",
+      "source_review_sha256": "b508015dcf0ccfa90c5fdcf019429d85555caefd4c8ff0d82a3b61a2c3502970",
+      "existing_games": 20,
+      "bucket_evidence": {
+        "storage": "hf_bucket",
+        "bucket": "coyotte508/powergrid-ai-checkpoints",
+        "path": "confirmation-v3/pg-bucket-integration-proof-v3-03-checkpoint-0001/6203185d085d961874d3b4af04767f5a80a8df37e5657d03c102dd00b4c900f2.tgz",
+        "archive_sha256": "6203185d085d961874d3b4af04767f5a80a8df37e5657d03c102dd00b4c900f2",
+        "manifest_sha256": "b2e1209d277605544ebe1a62376327ae7d3c9ab8cb130237da0e6b09fc21b228",
+        "bytes": 18660389,
+        "server_versioning": false,
+        "max_application_upload_calls": 3,
+        "xet_hash": "48479cac147b4f14e8c92658b00d9c2a60809e3dee3a0a8c2a6bb0feab2ff5d4",
+        "download_verified": true,
+        "application_upload_calls": 1,
+        "reconciled_upload_error_or_interruption": false,
+        "raw_audited": false,
+        "qualified": false
+      },
+      "downloaded_directory": "ai/runs/current-auction-bucket-integration-probe-v3/case-03/downloaded/pg-bucket-integration-proof-v3-03-checkpoint-0001",
+      "source_unchanged": true,
+      "new_games": 0,
+      "new_jobs": 0,
+      "raw_audit_repeated": false,
+      "game_strength_evidence_added": false
+    }
+  ],
+  "distinct_originals": 4,
+  "existing_games_replayed_as_files": 80,
+  "archive_sizes_bytes": [
+    19023168,
+    18506854,
+    19752032,
+    18660389
+  ],
+  "promotion": {
+    "bucket_evidence": {
+      "storage": "hf_bucket",
+      "bucket": "coyotte508/powergrid-ai-checkpoints",
+      "path": "confirmation-v3/pg-bucket-integration-proof-v3-00-checkpoint-0001/bbbac8e7c8532c5c0beede4374947a17c7c5039743700c7fd54dd3382cc73b3a.tgz",
+      "archive_sha256": "bbbac8e7c8532c5c0beede4374947a17c7c5039743700c7fd54dd3382cc73b3a",
+      "manifest_sha256": "11dd72646c1c3e9ebb8f84eb3667b2fc150641dba5d644048535671364533805",
+      "bytes": 19023168,
+      "server_versioning": false,
+      "max_application_upload_calls": 3,
+      "xet_hash": "fabb29ae8a0c02aae1c361fd0fb022fec856bf9c543ef6e0a49710fc2617233c",
+      "download_verified": true,
+      "application_upload_calls": 1,
+      "reconciled_upload_error_or_interruption": false,
+      "raw_audited": false,
+      "qualified": false
+    },
+    "versioned_evidence": {
+      "repo": "coyotte508/powergrid-ai-germany-v1",
+      "revision": "9352b13e317ba7f756b2eaf6c25df7be346a16e5",
+      "archive_path": "archives/pg-bucket-integration-proof-v3-00-checkpoint-0001.tgz",
+      "archive_sha256": "6f0e0b6262eceef2cfc28edc08678fd9e7de2058ae881e3b6f1875404730699f",
+      "manifest_sha256": "11dd72646c1c3e9ebb8f84eb3667b2fc150641dba5d644048535671364533805",
+      "archived_files": 42,
+      "format": "tar.gz",
+      "remote_archive_verified": true
+    },
+    "manifest_bytes_equal": true,
+    "qualified": false,
+    "job_stage_unchanged": true
+  },
+  "raw_audit_repeated": false,
+  "game_strength_evidence_added": false,
+  "live_game_child_tested": false,
+  "collector_envelope_audit_tested": "separate synthetic fault-injection suite; this probe checks retained raw-pair transport",
+  "worker_admitted": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

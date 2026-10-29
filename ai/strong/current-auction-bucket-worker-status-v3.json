@@ -1,0 +1,290 @@
+{
+  "created_at": "2026-10-29T11:23:19.616874+00:00",
+  "observed_at": "2026-10-29T11:20:28.028347+00:00",
+  "states": {
+    "ERROR": 10,
+    "RUNNING": 39,
+    "COMPLETED": 15
+  },
+  "collection_state_sha256": "0bcb5a0bc8190786c6ed6976b683fcea04e407660a304663c7f6e3621d4d3ac5",
+  "stop_sha256": "07a47d46a5cfb7e36b217f82b33632dd878b3b9deb56120cb8353db12e84ed53",
+  "registry_sha256": "221ef528b2c19bef4212be98e60cb78fd6cee8f620a03bfb0159df4497c92343",
+  "source_descriptor_sha256": "e46300b32989c70e45d6a4113b8c636bb9e0a0edbf45712cb3bbb496207f4ce7",
+  "verified_jobs_in_original_batch": 15,
+  "verified_games_in_original_batch": 300,
+  "total_audited_games": 20080,
+  "required_confirmation_games": 26880,
+  "new_audited_games_this_turn": 160,
+  "never_submitted_rows": 259,
+  "never_submitted_games": 5820,
+  "reviews": [
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-00",
+      "job_id": "6ae31aac3fb22a235dd5744a",
+      "games": 20,
+      "review_sha256": "f783a9d73340291ef375b0a6c18dc74b7d4fb9fa0221545cceabfa215c6e7548",
+      "envelope_evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "6fd5b60de36a4a3850b6d110bce6a0de919fe223",
+        "archive_path": "archives/pg-current-retained-v2-pop-legacy-5p-00-final.tgz",
+        "archive_sha256": "d9e64e27e8081806a6273fcbf045c13548f82023faa4d6b6905c0fd37830e41b",
+        "manifest_sha256": "d7141d555981cd7705cbb0a6a63d41261a38c33af84072ad756dd4d30d5fcc83",
+        "archived_files": 117,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-05",
+      "job_id": "6ae31aae3fb22a235dd57456",
+      "games": 20,
+      "review_sha256": "240726f55236bd8181210efdff7e29a4cac7742a12dc2b43dfb28fb47cce81f8",
+      "envelope_evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "0c7fdeb9bae6ef0be979bca4770fa7f2ab0e13d1",
+        "archive_path": "archives/pg-current-retained-v2-pop-legacy-5p-05-final.tgz",
+        "archive_sha256": "fc8b385dafe1d1f35b85d0d5094917cf76dde69473f6a066bbfa7f77fe4a50a8",
+        "manifest_sha256": "fd403c603fff40b61476d4b3e8bfc62a8e657cd553db712df8dcaf04b95306e1",
+        "archived_files": 119,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-07",
+      "job_id": "6ae31aaf41e90535df789444",
+      "games": 20,
+      "review_sha256": "4a0c7c58b616e6e0296a25abc42073feab5a4d4310d563942098335c163211cd",
+      "envelope_evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "09be479b074059055f87eb6cd8dde4442a80f817",
+        "archive_path": "archives/pg-current-retained-v2-pop-legacy-5p-07-final.tgz",
+        "archive_sha256": "eecb9385c5b5a18148862d82a2bc5ae369fd3c3b30009bd0adbf9fb13a700815",
+        "manifest_sha256": "30e9bba177a494ddef27257646bde0ab0975d08608652ec73bcbc29fcafee93a",
+        "archived_files": 119,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-08",
+      "job_id": "6ae31ab041e90535df789446",
+      "games": 20,
+      "review_sha256": "b508015dcf0ccfa90c5fdcf019429d85555caefd4c8ff0d82a3b61a2c3502970",
+      "envelope_evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "f0569b722e1d7464b58b343a46b7901430f73ed9",
+        "archive_path": "archives/pg-current-retained-v2-pop-legacy-5p-08-final.tgz",
+        "archive_sha256": "68438a33fd5b75d3a8d1ac3ed8da9b9623b4b43a0eb0eb861cc68f933a8bc409",
+        "manifest_sha256": "3186bf04d3b5bb465a201448748f1d3f4244e6b395f49c33341b8e29b98f9591",
+        "archived_files": 119,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-09",
+      "job_id": "6ae31ab041e90535df789448",
+      "games": 20,
+      "review_sha256": "5680be3c2e7f10024e0a2f0b22b26a40339c9ecf1b4e14380bdb03ffba440e09",
+      "envelope_evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "5f37b025419b58335012b299a4fc786b55f82652",
+        "archive_path": "archives/pg-current-retained-v2-pop-legacy-5p-09-final.tgz",
+        "archive_sha256": "5bf66abb7a876dbc96a53040cfe3d3eee488ca9ef3cb0698eac57e437c03ad05",
+        "manifest_sha256": "fe0970e376b866b84a63a90d180608b78bcb475a3a6ada56ec94c2b7df43f072",
+        "archived_files": 117,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-12",
+      "job_id": "6ae31ab23fb22a235dd5745d",
+      "games": 20,
+      "review_sha256": "05d198d0c772f9ea2a20c4f11e4e017c0c378ae8c6a571308b1c6f154ae6da87",
+      "envelope_evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "7edc7669abd0a82a8bc29e41307827c214e3adcf",
+        "archive_path": "archives/pg-current-retained-v2-pop-legacy-5p-12-final.tgz",
+        "archive_sha256": "f3a47e331c8384e051b1bf0f125c8f9a7215205ef3613f642ac88dda18637998",
+        "manifest_sha256": "3a29963b79625fc10be42a28e5cf970a26ce31e6f61f78a249cdc27f13e86962",
+        "archived_files": 117,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-13",
+      "job_id": "6ae31ab33fb22a235dd5745f",
+      "games": 20,
+      "review_sha256": "e27adfc019ae0badc89898445762b951c615b2f88a6cc5c58643002f1d375fec",
+      "envelope_evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "751ef581227c0436addd35c4c4826034ba9ed360",
+        "archive_path": "archives/pg-current-retained-v2-pop-legacy-5p-13-final.tgz",
+        "archive_sha256": "43c1857a856b50cee0f7f79ac22d26cb1d32cd9e1a771ad8762dc05c87fe54b5",
+        "manifest_sha256": "0bd2d8e03f5c15bb4d209c500a5dacf1535b6e4bdae7bfcb21d1fc7d78a8ef45",
+        "archived_files": 119,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-14",
+      "job_id": "6ae31ab341e90535df789452",
+      "games": 20,
+      "review_sha256": "e574ba3307d8836850196f0f4bcccfb4ae21024b29be9d0c6982dc289968dd58",
+      "envelope_evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "8446a0a5321e3387d201e94603c7f24c8fbb55da",
+        "archive_path": "archives/pg-current-retained-v2-pop-legacy-5p-14-final.tgz",
+        "archive_sha256": "9f02427071f793b2e7be365606e01371fa4a78fb264bea8f3cc6f1455fe9c65e",
+        "manifest_sha256": "0469dc3744c7b632452b90e7b2aef8fc2718cba11a3f3c50f1baac747a8d1226",
+        "archived_files": 119,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-15",
+      "job_id": "6ae31ab441e90535df789454",
+      "games": 20,
+      "review_sha256": "75e4ee05a79f94336de8ae49e33380447aec3b4753f2f178fcf8ed898b1acbbf",
+      "envelope_evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "ddbfb702a039c2667191381056a6406b2ee748a1",
+        "archive_path": "archives/pg-current-retained-v2-pop-legacy-5p-15-final.tgz",
+        "archive_sha256": "a94fa5545388f40951c6711c63fda8383a932dfac4269c8b54a6a05b35ae64eb",
+        "manifest_sha256": "f1258ff36939c3df27fb699f15fb01dbbf6ab053933171c28558932ff75e5a6b",
+        "archived_files": 117,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-16",
+      "job_id": "6ae31ab441e90535df789457",
+      "games": 20,
+      "review_sha256": "c237b72b18d654d958a63aee23990a637e4d076210850c4ca7f84e037cae74e1",
+      "envelope_evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "ef42bf23a95a8c901328ace5ec5ce99622662c27",
+        "archive_path": "archives/pg-current-retained-v2-pop-legacy-5p-16-final.tgz",
+        "archive_sha256": "ce836799a2276f1352c653a4d8174508622c1ac5d270396f0c4d7f227518bcdb",
+        "manifest_sha256": "ffa56831ded74d5ef39abdc25d66f0e6c9fcc59a6da3b846db195a55a59ece32",
+        "archived_files": 119,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-19",
+      "job_id": "6ae31ab63fb22a235dd57470",
+      "games": 20,
+      "review_sha256": "845ca5192b6fc2d6aa7652ee9aa0088a25541b37474592143e609717da9c7fcd",
+      "envelope_evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "7cf9e512f0dfc9c946804ff6ec145672d09df505",
+        "archive_path": "archives/pg-current-retained-v2-pop-legacy-5p-19-final.tgz",
+        "archive_sha256": "c574fb2ea388e6fd3b47a6d2c86a9c47ee6eeeb19ca647132bff85de283c8315",
+        "manifest_sha256": "d8d7e02b384e1c5d2eeba488e4e2878b3be252b1d0c09d0cbe0d5cfe1211d15e",
+        "archived_files": 117,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-21",
+      "job_id": "6ae31ab741e90535df78945d",
+      "games": 20,
+      "review_sha256": "cd2e5d9f776866b844a03f0b90c8c9711565ab730f05d7175ccb55f39a8ed049",
+      "envelope_evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "551527cfe62559c2d8953443d1f7bd19dcd15bc3",
+        "archive_path": "archives/pg-current-retained-v2-pop-legacy-5p-21-final.tgz",
+        "archive_sha256": "a5987b69ccf5eafba02d8311a2497e1cf3ff6a21322cb7350f93a86cd3c1cf62",
+        "manifest_sha256": "cbd95accaed4333fa7cc59e183f096422af54dd774314b7f2b6786e35b0ec954",
+        "archived_files": 119,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-25",
+      "job_id": "6ae31ab93fb22a235dd57479",
+      "games": 20,
+      "review_sha256": "5cad5e72898bdae0a44f7bccde33ea59d729cf52178f634d25cb62604fc349f9",
+      "envelope_evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "ba23d6cbcf5539bdf1ad16051a1941060fc8d953",
+        "archive_path": "archives/pg-current-retained-v2-pop-legacy-5p-25-final.tgz",
+        "archive_sha256": "d522267e5738cee0751510129eb7ebf10fd73ea8ae65b2075ebe2901e03058b8",
+        "manifest_sha256": "e1b5e1d947cb0f8f093106686b1885d0ecc462c531b3007268d55c215507da4c",
+        "archived_files": 121,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-26",
+      "job_id": "6ae31aba41e90535df789467",
+      "games": 20,
+      "review_sha256": "90db60c4abb86f510bbb805962d9f1b2c154fe36dd16f35f47776ea1c182ce28",
+      "envelope_evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "b40cc48d219717bcf97a600265149dfc65f01133",
+        "archive_path": "archives/pg-current-retained-v2-pop-legacy-5p-26-final.tgz",
+        "archive_sha256": "117c42083e1810c6d8ac5bfc11aa738389e11994b68d3bd464c29f70cb66ebcf",
+        "manifest_sha256": "8104adf631a25b684df39644d20fb7cab403ad77dad7384eeb62ad1d4d1a052a",
+        "archived_files": 121,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-27",
+      "job_id": "6ae31abb3fb22a235dd5747b",
+      "games": 20,
+      "review_sha256": "3b0b9ee718f4e79ec09604d68fba8f6aa504495c39e8846b2598e14bfaa3d00c",
+      "envelope_evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "ed136df058d3803ceed37f45f6c90231c15cafd3",
+        "archive_path": "archives/pg-current-retained-v2-pop-legacy-5p-27-final.tgz",
+        "archive_sha256": "0c9cdda39017bfdb6c44e3bec199634339a368cd56032f5b7080701fe76160db",
+        "manifest_sha256": "c47996b630dcf383b03016022df98a9efc9a6a03423af6ec62a303d97bd7ebd0",
+        "archived_files": 111,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      }
+    }
+  ],
+  "preflight_sha256": "21829075f6682c685099899c9197cf1250dae7505dccc2b87d182d37e80db11f",
+  "integration_proof_sha256": "33e0dff9e82e2da94446f97f94a73268db7f24bdf9f429db0696ba3e09cbccd8",
+  "new_tests": 48,
+  "larger_distinct_archives": 4,
+  "existing_games_used_for_storage_proof": 80,
+  "proof_added_to_strength_coverage": false,
+  "versioned_promotion": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "9352b13e317ba7f756b2eaf6c25df7be346a16e5",
+    "archive_path": "archives/pg-bucket-integration-proof-v3-00-checkpoint-0001.tgz",
+    "archive_sha256": "6f0e0b6262eceef2cfc28edc08678fd9e7de2058ae881e3b6f1875404730699f",
+    "manifest_sha256": "11dd72646c1c3e9ebb8f84eb3667b2fc150641dba5d644048535671364533805",
+    "archived_files": 42,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "new_jobs": 0,
+  "new_games_launched": 0,
+  "new_inference": 0,
+  "policies_changed": false,
+  "production_execution_admitted": false,
+  "candidate_selected": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false,
+  "previous_goal_turn": "progress",
+  "this_goal_turn": "progress",
+  "goal_status": "active",
+  "next": "Explicit recovery decision and durable HF manager, actual admitted source preparation, then one canonical-row live runtime/collection/promotion proof before broader fixed-grid execution."
+}

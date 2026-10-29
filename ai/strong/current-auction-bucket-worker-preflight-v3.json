@@ -1,0 +1,86 @@
+{
+  "passed": true,
+  "created_at": "2026-10-29T11:20:22.410563+00:00",
+  "scope": "read_only_preflight_no_execution_admission",
+  "results": [
+    {
+      "name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-00",
+      "players": 2,
+      "games": 16,
+      "bundle_manifest_sha256": "44f946e4c46c97669428790c518f730911777ea12ad531693e63c822da282a6d",
+      "core_files_sha256": "b0b281c15c1432f76e82c58ae45c8c3d7cd08ed3fd50bdc011bc3df8568e7e86",
+      "cli_log_sha256": "f23ab7447de304af5e92f29b6938c2b5180df5c1c3c8ffb04b1c79bfd7c9a8b2",
+      "validation_only": true,
+      "missing_admission_rejected": true
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-a260-3p-00",
+      "players": 3,
+      "games": 24,
+      "bundle_manifest_sha256": "17efe74b6a6716d794e2dff9cdf8b237ba2dc733f8855a891568206141c1e629",
+      "core_files_sha256": "91b368151da8fc2d2730c59151d6443f345b0d91bb1dd37773d4d465a8bb0ca3",
+      "cli_log_sha256": "191d74325c96403b90fd5bf925db0a75420306367d0ff0655405a19d55d7166a",
+      "validation_only": true,
+      "missing_admission_rejected": true
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-29",
+      "players": 5,
+      "games": 20,
+      "bundle_manifest_sha256": "8e8c93f52625738b261d22057c3a6fd0d8f34502291f16704eba53eed61b1069",
+      "core_files_sha256": "0b649295a55d06dfa0d04925503d8eefa751ba1546bcc3b5a2311fb86e934ed3",
+      "cli_log_sha256": "9d8d13a71a4a94ca3e1169ccdee9deea92cf8e83c861184a0b94395e8f3ebb76",
+      "validation_only": true,
+      "missing_admission_rejected": true
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-6p-00",
+      "players": 6,
+      "games": 24,
+      "bundle_manifest_sha256": "8b9d68e5f002fd47225e424a0ec9b9767d55e737f3d7c16a10ff07416c9b75d5",
+      "core_files_sha256": "d0822d87d9d288c55b9af55714d2539eb92a3e6caf76710a7733b0615097917c",
+      "cli_log_sha256": "f75c99a18aeec08f88f59cec79b9261884b337aa6efa3659c3d1265f57ffac02",
+      "validation_only": true,
+      "missing_admission_rejected": true
+    }
+  ],
+  "test_logs": {
+    "current-auction-bucket-checkpoints-v3-tests-first.log": {
+      "tests": 13,
+      "sha256": "a3c8496e948ca8b48069004a8fd332f3fec8a942774b270ee1541fc4a3db068b"
+    },
+    "current-auction-bucket-collection-v3-tests-first.log": {
+      "tests": 15,
+      "sha256": "50e15a9d1c888336e3a875b418ab51b26a50ec4539ce50d04731f7ed068e5659"
+    },
+    "checkpoint-bucket-archives-v3-tests-first.log": {
+      "tests": 8,
+      "sha256": "b3102cd6719741917fc8d4761fb268396c3e467803254cff711c71c91191c6b6"
+    },
+    "current-auction-bucket-worker-v3-tests-first.log": {
+      "tests": 10,
+      "sha256": "f1e7c9874faf4aa7c6e0504a4c6a9024e9e081d430a9b5dfdfeaea66170e3819"
+    },
+    "current-auction-bucket-worker-flow-v3-tests-first.log": {
+      "tests": 2,
+      "sha256": "8698f314f8d5c807d3128bab9a181e040c5f8eb4b514170fb1f31179184ef8ae"
+    }
+  },
+  "new_tests": 48,
+  "storage_proof_sha256": "33e0dff9e82e2da94446f97f94a73268db7f24bdf9f429db0696ba3e09cbccd8",
+  "source_descriptor_sha256": "a4384b10eb8a4381423731bc0c315673f9214d91c1fb336aa81ef4a7102d1c5a",
+  "code_sha256": {
+    "current_auction_resource_job_v2.py": "3b0c5f6d764969056a99791f679ab9baecc585daa2f1d99841ab40b2004468d5",
+    "current_auction_recovery_checkpoints_v2.py": "fe1edbf68b2cfda8786d9e68b133db20f4335fedd72816374db486571e37f3fe",
+    "current_auction_bucket_checkpoints_v3.py": "490fc64a3e402f659d80238bd648961abba8f060f09cabf4bf22f7051378e0db",
+    "checkpoint_bucket_archives_v3.py": "d79a4288990ab52bc28496d6e58ae75adaceb069ad0e2757acab8f6cbb9f3d28",
+    "checkpoint_bucket_transport_v3.py": "678cbce931e818f859fabd98a88667269ac66a3dbb4ef6eced7a6d085ea632f2",
+    "current_auction_bucket_worker_v3.py": "f3f813d794279fd76019e449e03d58327ce2f78d1c7bc109c68047c252d0c6e3"
+  },
+  "new_jobs": 0,
+  "new_games": 0,
+  "new_inference": 0,
+  "production_execution_admitted": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

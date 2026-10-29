@@ -1,5 +1,31 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 11:20 UTC — bucket worker/collector implemented and tested; production execution not yet admitted.**
+
+Read [the bucket-worker handoff](CURRENT-AUCTION-BUCKET-WORKER-2026-10-29.md) first.
+Same original batch: **15 COMPLETED/audited, 39 RUNNING, 10 ERROR**. Coverage is
+**20,080 / 26,880** after eight new audits / 160 games this turn. The 259 untouched
+rows remain unsubmitted. Keep v2 STOP and all failed attempts; use only the bounded
+collection helper for the existing handles. No background collector was started.
+
+The new worker uploads checkpoints/final output to the bucket; the independent
+collector validates all evidence and a separate helper makes one versioned archive.
+48 new tests passed. Actual read-only CLI runs passed at 2/3/5/6 players and rejected
+execution without admission. Four different 18–20 MB archives containing 80 existing
+audited games passed real retention/download/hash checks; one passed actual versioned
+promotion. This created no games/inference and adds no strength evidence.
+
+Next build the explicit transport/recovery decision and durable execution manager,
+prepare/archive the real source and controls, then establish a single fixed-row HF
+runtime proof before broader execution. The saved four preflight bundles are not
+production grants. Do not clear v2 STOP or change live source/policies. New jobs this
+turn: zero. Reserved final seeds unused; no candidate selected/qualified. Goal active.
+Both the previous and current goal turns made concrete progress.
+Reports: `strong/current-auction-bucket-worker-preflight-v3.json`,
+`strong/current-auction-bucket-integration-probe-v3.json`, and
+`strong/current-auction-bucket-worker-status-v3.json`.
+Private metadata archive: `strong/current-auction-bucket-worker-evidence-v3.json`.
+
 **29 October, 11:02 UTC — checkpoint Git commits hit HF's concurrency queue; new dispatch STOP remains in force.**
 
 Read [the checkpoint-storage handoff](CURRENT-AUCTION-CHECKPOINT-STORAGE-2026-10-29.md)

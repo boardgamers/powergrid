@@ -1,5 +1,36 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 01:13 UTC — full 8840U replay launched; confirmation advancing.**
+
+All **2,553 original serving fixtures** passed current-engine public-state,
+legal-menu, finite-feature and player-order checks without modification or
+policy calls. A separately pinned full replay is now running on actual target
+**PID 3462824**, remote directory
+`/home/coyotte508/powergrid-ai-current-full-serving-8840u-v1`. Both unchanged
+confirmation policies receive all fixtures: **5,106 requests**. Six unit tests
+passed. Latest actual-process inspection found **2,718 / 5,106** complete:
+all 2,553 filtered-policy requests passed, and population search is underway.
+Full independent target collection/audit is still pending. No candidate selected.
+
+Read [the full-serving handoff](CURRENT-FULL-SERVING-2026-10-29.md). Preserve the
+original target guard/process; do not relaunch on an observation timeout.
+The exact 142,593,866-byte package and 81-file recovery snapshot are privately
+archived and download-verified at model revision
+`46cecc8db0ece1b7013505b5555b0c1106cd7db9`; descriptor
+`strong/current-full-serving-launch-evidence-v1.json`. This work starts no HF
+jobs or full evaluation games, but the hybrid's search simulations are counted.
+It does not replace checkpoint export parity or held-out strength qualification.
+
+The same original confirmation coordinator **PID 2398668 / session 50170** is
+live with all 54 pins unchanged. At **01:13:09 UTC**, **222 jobs / 10,992 games**
+were audited; 286 originals submitted, with all **64 unverified originals
+RUNNING** in fresh HF inspection. Exact handles are in
+`strong/current-auction-confirmation-recovery-progress-v1.json`. Do not compete
+with this owner or analyze partial wins. Await all 944 jobs / 26,880 games, then
+use the separately tested parallel comparator. Research active; no candidate
+qualified, and reserved final seeds unused.
+
+
 **29 October, 00:56:32 UTC — confirmation continues; faster independent audit ready.**
 
 The same original coordinator **PID 2398668 / session 50170** is live, with

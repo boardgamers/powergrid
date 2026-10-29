@@ -6,12 +6,14 @@ slots, policies, current engine, search budget and statistical analysis remain
 unchanged. This recovery does not generate replacement games.
 
 <!-- RECOVERY-STATUS-BEGIN -->
-**Later checkpoint, 00:56:32 UTC:** the same coordinator is live with all 54
-pins unchanged. **176 jobs / 8,760 games** are audited; 240 originals submitted.
-Fresh HF inspection found 63 RUNNING and one COMPLETED awaiting collection
-among the 64 unverified originals, with no new terminal failure. Exact handles
-and guard hashes: `strong/current-auction-confirmation-recovery-progress-v1.json`.
+**Later checkpoint, 01:13:09 UTC:** the same coordinator is live with all 54
+pins unchanged. **222 jobs / 10,992 games** are audited; 286 originals submitted.
+Fresh HF inspection found all 64 unverified originals RUNNING, with no new
+terminal failure. Exact handles and guard hashes:
+`strong/current-auction-confirmation-recovery-progress-v1.json`.
 The original launch snapshot below remains historical recovery evidence.
+A separate [full serving replay](CURRENT-FULL-SERVING-2026-10-29.md) is running
+on the actual 8840U, using both unchanged policies and all original 2,553 fixtures.
 
 **29 October, 00:18:52 UTC: recovery admitted; remaining confirmation is running.**
 All **64 initial originals / 3,456 games** passed their complete data audits:

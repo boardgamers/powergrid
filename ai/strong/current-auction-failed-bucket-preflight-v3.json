@@ -1,0 +1,99 @@
+{
+  "passed": true,
+  "created_at": "2026-10-29T13:09:05.264459+00:00",
+  "rows": [
+    {
+      "name": "pg-current-confirm-v1-pop-economic-5p-29",
+      "players": 5,
+      "games": 20,
+      "core_files_sha256": "64bfc7bc55a2733984b0ee00cfbad376cf070ba8197ac1ae5852dfed698da1be",
+      "control_sha256": "f0252442d2f16b7720f6dfc0ea7bd8dfb331bfd13121246ffdb822486f696ed1"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-economic-5p-31",
+      "players": 5,
+      "games": 20,
+      "core_files_sha256": "48415c80180e70990c8ccecd1404b4a60406a29f030130bb89ac2ff5a95b65e0",
+      "control_sha256": "c4ec5aca774c60f0c8d35a73e1b8d97a5037e55ecf1fd7e65f3323791a2d8d7d"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-search_geo-5p-19",
+      "players": 5,
+      "games": 20,
+      "core_files_sha256": "1eddd3f1b14a59e1e16d8c297dd68e5b6e16a038ec0409355106f83226098240",
+      "control_sha256": "00474c0959f7563e191c5771e55c47abd4c8b203b9625fc6f7a96ff4281a0626"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-01",
+      "players": 5,
+      "games": 20,
+      "core_files_sha256": "1336fe57ded89f7dad1c862cb4a33efd751eb366c519d7dd9f6086228f670fb2",
+      "control_sha256": "ec6f78a05a2a0162f0b4d6c791c8689ed0186faa3253decfd42f6fb7fafe22f8"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-10",
+      "players": 5,
+      "games": 20,
+      "core_files_sha256": "fa3eb157349e05958de91f22ab8818329c66fe95b9293b74dff4d3f00c776aba",
+      "control_sha256": "fd49a22e4022c62c5dc45853c3ac89160997a8f3981c49d627141c1382567f4f"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-20",
+      "players": 5,
+      "games": 20,
+      "core_files_sha256": "a3168ec17620d6010b5185d6cca0a696fba2f0242595376320fc173a66eb2975",
+      "control_sha256": "77a67fde463914143594f39a60cabdc5c0b679fed6c534cb9477f85d5506ff61"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-22",
+      "players": 5,
+      "games": 20,
+      "core_files_sha256": "4aee2611686cf39642ea164274f3ae5abac6d7ea4dc0b5ee54a733a6e0e0a0d2",
+      "control_sha256": "71b7dd732b8cab033bb39e551745faa7761662a433ad118b4f317b413cc990d4"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-23",
+      "players": 5,
+      "games": 20,
+      "core_files_sha256": "c823ab7624d05681d05b83191980a644e31db3816455778f6ff23008dd056e31",
+      "control_sha256": "9621056a48f75d958c917d6423c1559daca86e72572321f2586314f8ebfd009a"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-24",
+      "players": 5,
+      "games": 20,
+      "core_files_sha256": "2f0c3d7ddb7aee9457f8baad41e9815abcb5094c95aaa91170513557f0fce5d5",
+      "control_sha256": "c5af7ec683e5d68dce0ef2b9cae2e706cd4dd918b28ef791a7f31e08d9dc6e5e"
+    },
+    {
+      "name": "pg-current-confirm-v1-pop-legacy-5p-28",
+      "players": 5,
+      "games": 20,
+      "core_files_sha256": "e566c5069959fe29348688ca44d192baeba8a3eaeacd08445d5e8c92b51ed718",
+      "control_sha256": "8f6573c5321c71507a8dbfb977a4f7b05a2ac9fb77e2b40b3086603fe731da51"
+    }
+  ],
+  "actual_original_specs_validated": 10,
+  "games": 200,
+  "first_bucket_result_sha256": "c596072e97c8ffda2969697c8e783fd41541a3807f7925325bfb9586a8c3fa5a",
+  "decision_sha256": "7ab2dc3491b08d6fa56cfc7f57cd8d055f270135179b1f92e3b6d5dd0b798a88",
+  "code_hashes": {
+    "ai/strong/manage_current_auction_failed_bucket_v3.py": "36a472a7815fa2095271beae2f4100102e170b768fbfa1bb8f80b81cba493584",
+    "ai/strong/current_auction_failed_bucket_pack_v3.py": "5c3f524b582ce01c69f2637baee31e68bc127221d92ef871cf6e59e07e232acc",
+    "ai/strong/manage_current_auction_first_bucket_v3.py": "8a8e4c5b62bf7ed5cfa97466df2a309a7627c9253d3d871cb9b6bcbf0fd0fcaf",
+    "ai/strong/current_auction_bucket_collection_v3.py": "195ed1f7940011ff9b1e6ca17c96b74fc26f5a5d7134038f0d6e2efcb726fd27",
+    "ai/strong/current_auction_bucket_worker_v3.py": "f3f813d794279fd76019e449e03d58327ce2f78d1c7bc109c68047c252d0c6e3",
+    "ai/strong/manage_current_auction_bucket_remaining_v3.py": "bfb9a981b58a7cb40eaf4eed6d91d6bb6f24648800792965efc026c611c89a97",
+    "ai/strong/test_current_auction_failed_bucket_v3.py": "6d616d583b439149f59676a78af3ad4e284b28bccbbdee6e6dcc060366369d5d",
+    "ai/strong/current_auction_resource_job_v2.py": "3b0c5f6d764969056a99791f679ab9baecc585daa2f1d99841ab40b2004468d5",
+    "ai/strong/current_auction_recovery_checkpoints_v2.py": "fe1edbf68b2cfda8786d9e68b133db20f4335fedd72816374db486571e37f3fe",
+    "ai/strong/current_auction_bucket_checkpoints_v3.py": "490fc64a3e402f659d80238bd648961abba8f060f09cabf4bf22f7051378e0db",
+    "ai/strong/checkpoint_bucket_archives_v3.py": "d79a4288990ab52bc28496d6e58ae75adaceb069ad0e2757acab8f6cbb9f3d28",
+    "ai/strong/checkpoint_bucket_transport_v3.py": "678cbce931e818f859fabd98a88667269ac66a3dbb4ef6eced7a6d085ea632f2"
+  },
+  "test_log_sha256": "2dc00a954c725da3652af66bad320aa39e17802078b9af7e1a956238c98d5361",
+  "new_jobs": 0,
+  "new_games": 0,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

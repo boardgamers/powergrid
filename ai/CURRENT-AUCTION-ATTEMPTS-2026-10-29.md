@@ -1,101 +1,116 @@
-# Mixed-attempt confirmation — 29 October 2026
+# Explicit transport recovery and current confirmation — 29 October 2026
 
-**20,676 / 26,880 games independently audited; 80 added this turn.**
-At 12:46:07 UTC the bucket batch had **54 submitted jobs / 1,080 games**:
-46 RUNNING, four COMPLETED/audited and four SCHEDULING. Four new fixed rows /
-80 games were submitted this turn. The original retained batch still had
-40 COMPLETED/audited (800 games), 14 RUNNING and ten preserved ERROR attempts.
-The shared 64-active-job limit includes those older jobs. **204 untouched rows /
-4,724 games** remain, plus the ten failed transport attempts requiring recovery.
+**21,076 / 26,880 games independently audited; 400 added this turn.**
+At **13:27:27 UTC**, all ten explicitly admitted recovery jobs were **RUNNING**.
+The untouched bucket batch had 81 submitted jobs: 29 COMPLETED and 52 RUNNING;
+10 jobs / 200 games were independently collected. The older retained batch is
+fully terminal: **54 COMPLETED/audited / 1,080 games**, ten preserved ERROR attempts.
+Total active jobs: **62 / 64**. **177 untouched rows / 4,128 games** remain.
 
-Exact handles, launch hashes, immutable archives and measured runtime are in
-`strong/current-auction-attempt-comparison-status-v3.json`. Original collection
-session 37907, bounded collection/dispatch session 69256 and integration check
-session 82021 completed. No background coordinator was started. Verify actual
-process ownership before another collection cycle. Do not restart the old
-dispatcher or clear its STOP marker.
+This turn submitted **37 jobs / 796 games**: ten recoveries / 200 games and
+27 untouched rows / 596 games (13 five-player and 14 six-player rows). All new
+handles and effective source/resource configurations were checked. Newly submitted
+or merely completed-but-uncollected games do not count toward audited coverage.
+No policy, seed, rule, search budget or inference setting changed. No gradients,
+reserved final seeds, candidate selection, qualification or deployment.
 
-## What changed
+Exact handles, original failed-attempt bindings, current stages, all collected
+bucket archives and source revisions/hashes are in
+`strong/current-auction-failed-bucket-launch-v3.json`.
+The source is immutable and all prepared manager/worker/test files are now frozen.
 
-`strong/current_auction_attempt_comparison_v3.py` integrates the 620 preserved
-originals with the timeout recovery, retained-v2 jobs and both bucket-v3 sources.
-It requires complete canonical coverage before loading recovery reviews or
-running analysis. Four isolated workers reuse the unchanged full raw verifiers;
-preparation checks are cached within each worker. Immutable archives must already
-be locally cached: this analysis cannot submit jobs, download, upload, simulate,
-call a model, or rewrite an old coordinator's completion state.
+## Dispatch and recovery
 
-After all independent audits match the complete saved reviews, the CLI applies
-the unchanged coverage gate, paired statistics and confirmation requirements.
-It checks original policy/seed/rule identities, exact game coverage, original
-failure history, checkpoints, source/command bindings and archived raw bytes.
-Inputs, reviews and raw files are checked again before the exclusive result write.
-Its output is confirmation evidence, never final qualification or selection.
+Use **`strong/manage_current_auction_failed_bucket_v3.py`** for both active batches.
+It prioritizes the ten explicitly admitted recoveries, then follows the unchanged
+untouched-row order, counting every active job in both batches and the originals.
+The old dispatcher cannot count the new recovery batch, so its new STOP marker
+records a transfer to this combined dispatcher. Do not remove either STOP or run
+`manage_current_auction_bucket_remaining_v3.py cycle --execute` independently.
 
-**15 tests passed.** The actual integration check independently re-audited five
-existing jobs / **120 games**: an original ERROR job with complete recovered data,
-the original timeout recovery, a retained-v2 result, the first bucket result and
-a result from the larger bucket batch. All complete reviews match exactly. This
-also exercises the previously untested actual remaining-bucket authentication.
-The four-worker check took **22.65 seconds**. These are repeated audits needed to
-test the new integration, not newly generated games or additional coverage.
-Do not repeat the successful preflight without an implementation change.
+Original v2 STOP: `07a47d46a5cfb7e36b217f82b33632dd878b3b9deb56120cb8353db12e84ed53`.
+Untouched-batch transfer STOP: `9c1fc27a7be4c59390f1ace09b3ef5b8830fdd14175edf2beaecde1653e690b6`.
+Current combined state: `runs/current-auction-failed-bucket-hf-v3/state.json`.
+The old untouched manager's `state.json` is historical; it does not include the
+latest launches or audits. The combined state and individual immutable receipts
+are authoritative. Original failure logs, partial data and ERROR handles remain
+unchanged, with exact terminal/log hashes attached to each new attempt.
 
-The actual incomplete-study entry rejected before building context, loading
-recovery reviews, starting raw audits or computing statistics. A successful full
-26,880-game comparison has **not** run. The existing final-selection adapter also
-still assumes the old coordinator; it must be adapted to the completed explicit
-attempt comparison without weakening any scientific requirements.
+**32 tests passed**, covering pack integrity, explicit failure history, launch
+idempotency, ambiguous submissions, effective HF configuration, shared capacity,
+recovery priority, transferred ownership and preservation of existing STOPs.
+All ten actual original game specifications/policies were validated, followed by
+an actual non-executing five-player CLI check. Preparation evidence is verified
+in private model revision `eeda45ebceb7149638e90ef4544a7bdf09b374e4`, archive
+`archives/current-auction-failed-bucket-preparation-evidence-v3.tgz`, SHA-256
+`20a622530cb053d39d88b62b0bc1211e9d576dcdd36790b1a0dbb8f6b4f57432`.
 
-Reports: `strong/current-auction-attempt-comparison-preflight-v3.json` and
-`strong/current-auction-attempt-comparison-status-v3.json`. Evidence descriptor:
-`strong/current-auction-attempt-comparison-evidence-v3.json`. Prior authentication
-proof and snapshots remain unchanged in their original v3 files.
+Private dataset source revision `7774c71319ccf9c3304469576176b2003c00b7fd`,
+`strong-source-current-auction-failed-bucket-v3.tgz`, SHA-256
+`46d9c517e00b0ac5c411c31f6e027201caee35718832d0a21824d0056ac40c1f`,
+manifest `248906df37670e9c56edebc4662febe5f1ca2025c0bdc17d32068b6e5b8e9c49`.
+Do not repeat preparation/upload or change frozen code. Restore the exact archives.
 
-## Harness observations
+## Collection interruption and bounded continuation
 
-The older checkpoint transport had ten terminal failures: six HTTP 500 errors
-and four HTTP 429 concurrency-queue rejections during model-repository commits.
-All handles, logs and available partial data remain preserved. There is no
-evidence here that these were model failures. Frequent shared Git commits were
-an unsuitable checkpoint path; new execution uses the previously verified bucket
-transport and serial versioned promotion after collection.
+Local collection session **87384 / PID 152949** ended with exit 143 after five
+complete new audits / 100 games, before any submissions. The process was confirmed
+absent. Its last partial folder was `pg-current-bucket-v3-pop-heuristic-5p-06`:
+12 downloaded checkpoints were verified; no raw-review/promotion intent existed.
+No job was restarted. A later bounded pass reused those downloads and completed
+that original job's full audit and archive. Preserve the interrupted log/report.
 
-The first four audited jobs from the larger bucket batch completed **80 games**
-with **69 checkpoints and 69 upload calls**, no repeated application upload calls.
-They took 26.35–34.19 minutes each and averaged 4.49–5.19 CPU cores over their
-measured workflow. Per-job checkpoint-transfer intervals summed to 18.43–23.90
-seconds, with the longest individual transfer 1.87 seconds. Transfers overlap
-child execution; their summed durations are not measured blocking overhead.
-These four completed five-player heuristic-opponent jobs are not a representative
-throughput benchmark, and no speedup against the old transport is claimed.
+The old retained collector session **61621** also reported exit 143 after writing
+its complete durable summary. PID 99384 was absent; a separate read-only check
+bound all 54 saved receipts / 1,080 games to that summary. No recollection occurred.
+These are local process observations, not failed HF game jobs or inferred causes.
 
-## Continue
+Separate dispatch from small collection passes to stay bounded:
 
-Use frozen `strong/manage_current_auction_bucket_remaining_v3.py` with
-`cycle --execute --launch-limit 64 --collect-limit 4` for a bounded collection and
-fixed-order dispatch pass. `--launch-limit 0` disables new submissions. Use the
-separate original collection-only helper
-`collect_current_auction_retained_after_transport_failure_v2.py --limit 8`.
-Both share the original cycle lock; never run competing collectors.
+- `cycle --execute --launch-limit 64 --collect-limit 0` fills available slots.
+- `cycle --execute --launch-limit 0 --collect-limit 1` collects one terminal job.
+- `cycle` without `--execute` only validates preparation; it makes no HF calls.
 
-All commands use `ai/.venv/bin/python -u -B`, `PYTHONPATH=ai/strong` and
-`HF_HUB_DISABLE_PROGRESS_BARS=1`. Latest logs are
-`runs/current-auction-retained-collection-v2-thirteenth.log` and
-`runs/current-auction-bucket-cycle-v3-fourth.log`. Original STOP SHA remains
-`07a47d46a5cfb7e36b217f82b33632dd878b3b9deb56120cb8353db12e84ed53`.
-Remote observation errors are unknown, not job death. Inspect ambiguous
-submission/collection/promotion intents and outcomes before acting.
+Use `exec env HF_HUB_DISABLE_PROGRESS_BARS=1 PYTHONPATH=ai/strong
+ai/.venv/bin/python -u -B ...` in shell commands. Do not run competing collectors.
+Dispatch session **92690** and single-job collection session **67342** completed
+normally and their actual processes exited. No background coordinator was started.
+Check actual process ownership before another pass; a session return alone is
+insufficient. Inspect ambiguous intents/outcomes and preserve failures before
+retrying any collection operation. Never automatically resubmit a game job.
 
-Next priority: explicitly admit bucket-based recovery for the ten failed
-transport attempts, keeping the same canonical games and all original evidence.
-The current routing intentionally still marks those rows missing. Extend its
-authentication and comparison routing for the exact admitted recoveries; never
-pretend failed v2 jobs completed or automatically retry them. Continue the fixed
-untouched rows, then run the complete comparison and adapt final selection.
-The CLI defaults to inventory only; `--execute` refuses incomplete coverage.
+## Complete-study comparison
 
-Goal ACTIVE. Previous and current turns made progress. No candidate selected or
-qualified, no new training updates, no failed jobs restarted, no final seeds used,
-and no deployment. User updates should focus on new findings/actionable blockers;
-do not repeat the engine-language recap or other settled background.
+Use the new `current_auction_attempt_authentication_v4.py` and
+`current_auction_attempt_comparison_v4.py`. Their routing changes only the exact
+ten failed v2 rows: 54 retained successes remain, plus the one timeout recovery,
+one first-bucket result, 258 untouched bucket rows and ten admitted recoveries.
+All 620 preserved earlier originals remain unchanged. Original failure history
+must match across admission, launch, status, raw review and archive.
+
+**44 additional tests passed.** Actual preflight verified the ten-row routing,
+preserved original failure records, a real existing bucket receipt and 144 frozen
+comparison inputs. Incomplete coverage still rejects before loading reviews,
+raw auditing or statistics. This preflight made no new games, inference calls or
+repeated raw audits. The new recovery backend has **no completed real receipt yet**;
+its first actual authentication/full raw re-audit remains to be exercised after
+one of the ten jobs finishes. Do not confuse synthetic tests with that proof.
+
+Reports: `strong/current-auction-attempt-authentication-preflight-v4.json` and
+`runs/current-auction-failure-routing-preflight-v4/`. Previous v3 integration
+(15 tests and 120 existing games independently re-audited) stays preserved.
+Do not repeat successful previous profiles, tests, preparation or source uploads.
+
+Next: continue bounded collection/dispatch, exercise the first actual recovery
+receipt, finish all canonical coverage, then execute the complete comparison
+with unchanged paired statistics and strength requirements. Adapt the existing
+final-selection layer to this explicit-attempt comparison; it still expects the
+old original coordinator. No candidate has qualified and final seeds remain unused.
+
+## Persistent evidence
+
+`strong/current-auction-failed-bucket-launch-evidence-v3.json` describes the
+verified private metadata archive. It references existing immutable raw job
+archives instead of rerunning or duplicating them. Goal ACTIVE; previous and
+current turns made progress. User updates should focus on new findings and
+necessary actions, without repeating settled engine-language background.

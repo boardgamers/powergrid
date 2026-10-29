@@ -1,26 +1,32 @@
 # Power Grid AI — resumed, 27 October 2026
 
-**29 October, 12:46 UTC — 20,676 / 26,880 audited; mixed-attempt raw comparison integration passed.**
+**29 October, 13:27 UTC — 21,076 / 26,880 audited; all ten explicit recoveries RUNNING.**
 
-Read [the current attempt handoff](CURRENT-AUCTION-ATTEMPTS-2026-10-29.md).
-The first four larger-batch bucket jobs passed full collection (80 new audited
-games). Four more fixed rows / 80 games submitted; 54 bucket jobs total, with
-46 RUNNING, four COMPLETED and four SCHEDULING at this snapshot. Old v2:
-40 audited, 14 RUNNING, ten preserved failures. 204 untouched rows / 4,724 games
-remain. Exact handles and archives: `strong/current-auction-attempt-comparison-status-v3.json`.
+Read [the current recovery/attempt handoff](CURRENT-AUCTION-ATTEMPTS-2026-10-29.md).
+400 newly audited games this turn. Old retained batch fully terminal: 54 audited
+successes / 1,080 games, ten original failures preserved. All ten explicit bucket
+recoveries RUNNING; untouched batch 81 submitted (29 COMPLETED, 52 RUNNING),
+10 audited / 200 games. 62 active jobs total; 177 untouched rows / 4,128 games remain.
+37 new jobs / 796 games submitted this turn; uncollected games are not counted.
 
-New comparison integration passed 15 tests plus five real raw audits / 120
-existing games across all current backends, including the first actual larger
-bucket receipt. No new gameplay or strength statistics in that integration check.
-Incomplete coverage refuses before review loading/auditing/statistics. Complete
-comparison and explicit failure-recovery/final-selection integration remain pending.
+Use the new combined `manage_current_auction_failed_bucket_v3.py` only. It shares
+capacity across both batches and preserves all old attempts. Do not remove the
+original v2 STOP or new untouched-dispatcher transfer STOP. The combined state is
+`runs/current-auction-failed-bucket-hf-v3/state.json`; old untouched state is stale.
+Exact handles/archives: `strong/current-auction-failed-bucket-launch-v3.json`.
 
-Sessions 37907, 69256 and 82021 completed; no background coordinator. Verify process
-ownership before continuing. Preserve frozen sources and original STOP. Next:
-admit explicit bucket recovery for the ten failed transport attempts, extend
-routing, continue fixed untouched coverage, then run unchanged comparison/gates.
-Goal active; progress made. No candidate selected/qualified or final seeds used.
-Keep user updates to new findings; do not repeat settled background.
+Separate dispatch (`--launch-limit 64 --collect-limit 0`) from bounded collection
+(`--launch-limit 0 --collect-limit 1`), with `cycle --execute`. Local eight-job
+collection was interrupted after five completed audits; its partial downloads
+were safely reused and the next single-job pass finished normally. Sessions 92690
+and 67342 completed; no background coordinator. Check actual processes before acting.
+
+32 manager/pack tests and 44 routing/comparison tests passed; actual preparation
+validated all ten fixed specs and a non-executing CLI. Use authentication/comparison
+v4, preserving unchanged gates and originals. First real completed recovery receipt
+still needs authentication/full-audit integration; full comparison and adapting
+final selection remain pending. Goal active; progress made. No candidate qualified,
+new training updates or reserved final seeds. Keep user updates to new findings.
 
 **29 October, 12:08 UTC — first bucket job fully audited; 43 remaining jobs submitted (43 RUNNING).**
 

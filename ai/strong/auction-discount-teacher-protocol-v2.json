@@ -1,0 +1,628 @@
+{
+  "current_source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "revision": "7db94147918597e1da1e8ee2f4bd12b96aa067b5",
+    "archive": "strong-source-current-auction-grid-v1.tgz",
+    "sha256": "bb2ef01bc09f176c62545971aa02b5e9dadc947fb14dd52ca191667ba456bfe0",
+    "source_manifest_sha256": "28752635cfaee648b3e6f5ab999132291be575d56d3cbc7fd3e6450ee3b399f5"
+  },
+  "artifact_manifest_sha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+  "teacher_policy": "policies/conservative_population.json",
+  "teacher_policy_sha256": "b9879af9668b3e1b79cac6139b59571a83d838f8e0988627506f9b2eb902a980",
+  "parent_roots": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "96d59920f004d85016c063eb466a1a66611ec593",
+    "prefix": "runs/policy-iteration-selected-v2",
+    "files": {
+      "roots.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902",
+      "selected-index.json": "d6519b92f1da2a20a512444093f040c6a543d48ced1a12a1e89294e9c5e46450",
+      "selection.json": "067c27e80ea61a3cc7dab38bd14904ff72978c08cad8f2b9082e893bbca98769"
+    },
+    "count": 17280,
+    "split_counts": {
+      "validation": 4320,
+      "train": 12960
+    },
+    "selection_protocol_sha256": "fc3da9fd41f2bf41a6e264c867ac163882a704b1f4d82049d333a74cddccc010",
+    "qualification_eligible": false,
+    "file": "ai/strong/data/policy-iteration-roots-v2.jsonl.gz",
+    "sha256": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+  },
+  "historical_roots": [
+    {
+      "file": "ai/runs/auction-training-history-v1/newly-affordable-roots.jsonl",
+      "sha256": "3821829caac7dcb71a1b7ec07342193edda179c9c4b82cc9a177a1d7a30476bc"
+    },
+    {
+      "file": "ai/runs/auction-training-history-v2/newly-affordable-roots.jsonl",
+      "sha256": "aa75b72cf8dccdd33df73f81b9fc322505cd088c6dca8a5d4cef86c8344f72ba"
+    }
+  ],
+  "version": 2,
+  "created_at": "2026-10-29T14:47:26.107041+00:00",
+  "purpose": "Current-engine all-legal nomination labels for a controlled discount/coverage training experiment.",
+  "selection": "All 5760 saved nomination positions plus all ten naturally recovered newly affordable positions. No outcome filtering.",
+  "pilot_results_sha256": "dd68bacea630cab3a7aa1e990ea82df302aa2ca1bb0c294a365b166b8c76d477",
+  "roots": 5770,
+  "splits": {
+    "validation": 1444,
+    "train": 4326
+  },
+  "kinds": {
+    "original_control": 2880,
+    "discount_included": 2099,
+    "discount_excluded": 397,
+    "recharged_no_discount": 384,
+    "newly_affordable": 10
+  },
+  "worlds": 64,
+  "independent_halves": [
+    [
+      0,
+      32
+    ],
+    [
+      32,
+      64
+    ]
+  ],
+  "workers": 4,
+  "threads": 1,
+  "max_steps": 2400,
+  "mode": "neural_population",
+  "shards": [
+    {
+      "shard": 0,
+      "name": "pg-discount-teacher-v2-00",
+      "file": "shards/00.json",
+      "sha256": "78245c0d602924a9a735b4cc1502ed0216aee72add7252bd4a53a598f113ade1",
+      "roots": 96,
+      "rollouts": 32128,
+      "estimated_seconds": 8865.225630018285
+    },
+    {
+      "shard": 1,
+      "name": "pg-discount-teacher-v2-01",
+      "file": "shards/01.json",
+      "sha256": "f96dcf07c216debff62fb003201815edce9662a4bcdaaefa86e8018e4da265ba",
+      "roots": 96,
+      "rollouts": 32128,
+      "estimated_seconds": 8865.225630018285
+    },
+    {
+      "shard": 2,
+      "name": "pg-discount-teacher-v2-02",
+      "file": "shards/02.json",
+      "sha256": "f8848d1535bd5831f0a5ce52bf552245b6bc5de8bbb23e41b8ab88a2ca80429c",
+      "roots": 96,
+      "rollouts": 32192,
+      "estimated_seconds": 8866.775697364474
+    },
+    {
+      "shard": 3,
+      "name": "pg-discount-teacher-v2-03",
+      "file": "shards/03.json",
+      "sha256": "b9684c5e4559a37822d811fae84a4a7d88b3d675a95d7b300ccf75831d2554ca",
+      "roots": 96,
+      "rollouts": 32192,
+      "estimated_seconds": 8866.775697364474
+    },
+    {
+      "shard": 4,
+      "name": "pg-discount-teacher-v2-04",
+      "file": "shards/04.json",
+      "sha256": "b3f7641d51fc8e1d25178cad839bbd95677dd161f5db27aafbebe62acc28a432",
+      "roots": 96,
+      "rollouts": 32192,
+      "estimated_seconds": 8866.775697364474
+    },
+    {
+      "shard": 5,
+      "name": "pg-discount-teacher-v2-05",
+      "file": "shards/05.json",
+      "sha256": "c98f4ff21c4a4c6d3de874554db8c2bf71f8654a8fc06323dcf7069f76328919",
+      "roots": 96,
+      "rollouts": 32192,
+      "estimated_seconds": 8866.775697364474
+    },
+    {
+      "shard": 6,
+      "name": "pg-discount-teacher-v2-06",
+      "file": "shards/06.json",
+      "sha256": "b8954f7c1cef294ffe0a38d33ac46e12c80947b1e433bdea0ebe123d203e94f1",
+      "roots": 96,
+      "rollouts": 32192,
+      "estimated_seconds": 8866.775697364474
+    },
+    {
+      "shard": 7,
+      "name": "pg-discount-teacher-v2-07",
+      "file": "shards/07.json",
+      "sha256": "eabed9cf53604031eedd91339b4a94898de9337e87d60bebe5ee1f1ac393cc56",
+      "roots": 96,
+      "rollouts": 32192,
+      "estimated_seconds": 8866.775697364474
+    },
+    {
+      "shard": 8,
+      "name": "pg-discount-teacher-v2-08",
+      "file": "shards/08.json",
+      "sha256": "054f9eee7a82439a9a26decd247dc08c6a62be356d68e8212b4f6c9937b6fa5f",
+      "roots": 96,
+      "rollouts": 32384,
+      "estimated_seconds": 8866.982002388602
+    },
+    {
+      "shard": 9,
+      "name": "pg-discount-teacher-v2-09",
+      "file": "shards/09.json",
+      "sha256": "3bf51446590d2d4f472517ea571ba15933d0ceafe94b91063ee7ee67f699e42f",
+      "roots": 96,
+      "rollouts": 32384,
+      "estimated_seconds": 8866.982002388602
+    },
+    {
+      "shard": 10,
+      "name": "pg-discount-teacher-v2-10",
+      "file": "shards/10.json",
+      "sha256": "5ec4ddf7bf85803eea94133ca4c7f7fa750f0ef30c6ac789bad9e36c08fdbca4",
+      "roots": 96,
+      "rollouts": 32384,
+      "estimated_seconds": 8866.982002388602
+    },
+    {
+      "shard": 11,
+      "name": "pg-discount-teacher-v2-11",
+      "file": "shards/11.json",
+      "sha256": "a072911a4428bd8b0d27b237ea7941e149fed8c2d8421b43e67675cc2bdc9b87",
+      "roots": 96,
+      "rollouts": 32384,
+      "estimated_seconds": 8866.982002388602
+    },
+    {
+      "shard": 12,
+      "name": "pg-discount-teacher-v2-12",
+      "file": "shards/12.json",
+      "sha256": "959554fc77296e51b21c157d0be50b44709b565e0fd4ed01fc2679a2d6e1ea9d",
+      "roots": 96,
+      "rollouts": 32640,
+      "estimated_seconds": 8864.391261065452
+    },
+    {
+      "shard": 13,
+      "name": "pg-discount-teacher-v2-13",
+      "file": "shards/13.json",
+      "sha256": "226dcb61d6b4bf769390c1a622ea655a44af09389b543b5024a293f875a0475b",
+      "roots": 96,
+      "rollouts": 32320,
+      "estimated_seconds": 8858.597473885204
+    },
+    {
+      "shard": 14,
+      "name": "pg-discount-teacher-v2-14",
+      "file": "shards/14.json",
+      "sha256": "07429767b7f6ed78dcfb71af50ddb1c3dfe68ea3cf5d1ec52eb55f3f50d0423b",
+      "roots": 97,
+      "rollouts": 32448,
+      "estimated_seconds": 8886.105902375866
+    },
+    {
+      "shard": 15,
+      "name": "pg-discount-teacher-v2-15",
+      "file": "shards/15.json",
+      "sha256": "8078e8d2a60bb046363d7976e0964a8a85470501f9ee0ce85aa2ebc046825c64",
+      "roots": 97,
+      "rollouts": 32448,
+      "estimated_seconds": 8886.105902375866
+    },
+    {
+      "shard": 16,
+      "name": "pg-discount-teacher-v2-16",
+      "file": "shards/16.json",
+      "sha256": "dc37cfa635c8997a6bf0f523fb20573ae8f0511c4f143ac849ccb1c42034ccfc",
+      "roots": 97,
+      "rollouts": 32448,
+      "estimated_seconds": 8886.105902375866
+    },
+    {
+      "shard": 17,
+      "name": "pg-discount-teacher-v2-17",
+      "file": "shards/17.json",
+      "sha256": "2dd40b94cfdd541a721e713c9e9853d4ed364282334973d5053b698f4451ec3b",
+      "roots": 97,
+      "rollouts": 32448,
+      "estimated_seconds": 8886.105902375866
+    },
+    {
+      "shard": 18,
+      "name": "pg-discount-teacher-v2-18",
+      "file": "shards/18.json",
+      "sha256": "6c3bad44463b5ced20ad6f1dc84e4975b045da497d094e04df57ab6e9853e798",
+      "roots": 97,
+      "rollouts": 32448,
+      "estimated_seconds": 8886.105902375866
+    },
+    {
+      "shard": 19,
+      "name": "pg-discount-teacher-v2-19",
+      "file": "shards/19.json",
+      "sha256": "8b624f3c376b397566274b8ca30e0ed6f089aac2bc63ccee77f099de975fc8d5",
+      "roots": 97,
+      "rollouts": 32448,
+      "estimated_seconds": 8886.105902375866
+    },
+    {
+      "shard": 20,
+      "name": "pg-discount-teacher-v2-20",
+      "file": "shards/20.json",
+      "sha256": "9aa91adc10297b16a1e70e29292c2ba9b9c2a12c728deeaf16b7e8c9837753c3",
+      "roots": 97,
+      "rollouts": 32448,
+      "estimated_seconds": 8886.105902375866
+    },
+    {
+      "shard": 21,
+      "name": "pg-discount-teacher-v2-21",
+      "file": "shards/21.json",
+      "sha256": "ad2cb82e76f2df3206d9383d3fae6ccdf94ac47560593b6bea0eb8dbdf0ba9c5",
+      "roots": 96,
+      "rollouts": 32256,
+      "estimated_seconds": 8864.479321584651
+    },
+    {
+      "shard": 22,
+      "name": "pg-discount-teacher-v2-22",
+      "file": "shards/22.json",
+      "sha256": "c8fef9dd560f011e329b6cf8d50921af12f15d02963f721f59a40be470b47709",
+      "roots": 96,
+      "rollouts": 32256,
+      "estimated_seconds": 8864.479321584651
+    },
+    {
+      "shard": 23,
+      "name": "pg-discount-teacher-v2-23",
+      "file": "shards/23.json",
+      "sha256": "73877dd433e15ea973191f65d334c74f391e35dc473413038a10c48c24967977",
+      "roots": 96,
+      "rollouts": 32256,
+      "estimated_seconds": 8864.479321584651
+    },
+    {
+      "shard": 24,
+      "name": "pg-discount-teacher-v2-24",
+      "file": "shards/24.json",
+      "sha256": "1507c6b45dcfe9c1d2755492ac4ad7f923830e89fa3246201983901498d63596",
+      "roots": 97,
+      "rollouts": 32384,
+      "estimated_seconds": 8886.102918992485
+    },
+    {
+      "shard": 25,
+      "name": "pg-discount-teacher-v2-25",
+      "file": "shards/25.json",
+      "sha256": "f8a09a1d63de88df0099c10ab37097ee2c6d97a21a4c6e15f8ce9e58c0486f2c",
+      "roots": 97,
+      "rollouts": 32384,
+      "estimated_seconds": 8886.102918992485
+    },
+    {
+      "shard": 26,
+      "name": "pg-discount-teacher-v2-26",
+      "file": "shards/26.json",
+      "sha256": "0134e28bd6c05cd45efe904ab89b2896a0f62db2f2f59fa5e0d8eafa7107f96b",
+      "roots": 97,
+      "rollouts": 32384,
+      "estimated_seconds": 8886.102918992485
+    },
+    {
+      "shard": 27,
+      "name": "pg-discount-teacher-v2-27",
+      "file": "shards/27.json",
+      "sha256": "bb3071562027d9734eb7c72056393b04a24f8ebf462d88c6def3e1b56d120f91",
+      "roots": 96,
+      "rollouts": 32320,
+      "estimated_seconds": 8866.95208315325
+    },
+    {
+      "shard": 28,
+      "name": "pg-discount-teacher-v2-28",
+      "file": "shards/28.json",
+      "sha256": "a4e697f6214530016711c35fbe865b20eef9435c7ed48e0e6ee30652b2260ccc",
+      "roots": 96,
+      "rollouts": 32320,
+      "estimated_seconds": 8866.95208315325
+    },
+    {
+      "shard": 29,
+      "name": "pg-discount-teacher-v2-29",
+      "file": "shards/29.json",
+      "sha256": "d63350673b478b754fa6ae39affc05d582c39e1dc938ea31fd8e70c347bf80de",
+      "roots": 96,
+      "rollouts": 32384,
+      "estimated_seconds": 8864.634833716842
+    },
+    {
+      "shard": 30,
+      "name": "pg-discount-teacher-v2-30",
+      "file": "shards/30.json",
+      "sha256": "b65b5ce2d4fc380b27272a143bf1adaa52e8a84c035fb29d4efe15a884c7239a",
+      "roots": 96,
+      "rollouts": 32384,
+      "estimated_seconds": 8864.634833716842
+    },
+    {
+      "shard": 31,
+      "name": "pg-discount-teacher-v2-31",
+      "file": "shards/31.json",
+      "sha256": "b682406fad683aad99da06f6de9de2030f4e685f0d0658da38035d3ac74de34b",
+      "roots": 96,
+      "rollouts": 32384,
+      "estimated_seconds": 8860.02531880113
+    },
+    {
+      "shard": 32,
+      "name": "pg-discount-teacher-v2-32",
+      "file": "shards/32.json",
+      "sha256": "92f28d16b7a874ffa06b36bdb57c2444ede9a8b24488d40323542de59de1cd4f",
+      "roots": 96,
+      "rollouts": 32384,
+      "estimated_seconds": 8860.02531880113
+    },
+    {
+      "shard": 33,
+      "name": "pg-discount-teacher-v2-33",
+      "file": "shards/33.json",
+      "sha256": "9f784ed6eddbc792e76f571a437b76a1635a818e3b15f4476674bf0a25c6cfa2",
+      "roots": 96,
+      "rollouts": 32448,
+      "estimated_seconds": 8864.338306187927
+    },
+    {
+      "shard": 34,
+      "name": "pg-discount-teacher-v2-34",
+      "file": "shards/34.json",
+      "sha256": "7031fad01d1b7734790d463e8d032fe502f15b25c7ef7358e38a566b35e41ea0",
+      "roots": 96,
+      "rollouts": 32448,
+      "estimated_seconds": 8864.338306187927
+    },
+    {
+      "shard": 35,
+      "name": "pg-discount-teacher-v2-35",
+      "file": "shards/35.json",
+      "sha256": "2fee7cfcea44d6ebaaa4bd0eefc52db158af6398c686385db8e0db3d6c235e3e",
+      "roots": 96,
+      "rollouts": 32448,
+      "estimated_seconds": 8864.338306187927
+    },
+    {
+      "shard": 36,
+      "name": "pg-discount-teacher-v2-36",
+      "file": "shards/36.json",
+      "sha256": "7d754042b21b732adb33b8f3f5e436e6c3f376dea418b9712a01ac8ec7a05de0",
+      "roots": 96,
+      "rollouts": 32448,
+      "estimated_seconds": 8864.338306187927
+    },
+    {
+      "shard": 37,
+      "name": "pg-discount-teacher-v2-37",
+      "file": "shards/37.json",
+      "sha256": "5ed3ef531377d384561fcdff82436e6f74b067b294c8278805b23e177f35ef74",
+      "roots": 96,
+      "rollouts": 32448,
+      "estimated_seconds": 8864.338306187927
+    },
+    {
+      "shard": 38,
+      "name": "pg-discount-teacher-v2-38",
+      "file": "shards/38.json",
+      "sha256": "6ed749f49929b67e494d025b97968fc26dd45e1fe6863db59375979bc8c7fa89",
+      "roots": 96,
+      "rollouts": 32448,
+      "estimated_seconds": 8864.338306187927
+    },
+    {
+      "shard": 39,
+      "name": "pg-discount-teacher-v2-39",
+      "file": "shards/39.json",
+      "sha256": "f88e3260ed05cbf8d61be35a329d686a04c337dbfbc539cfbcb54f5ed0a17d3a",
+      "roots": 96,
+      "rollouts": 32320,
+      "estimated_seconds": 8866.58107258293
+    },
+    {
+      "shard": 40,
+      "name": "pg-discount-teacher-v2-40",
+      "file": "shards/40.json",
+      "sha256": "ecae714a7fcbc3eca9954a34be08169dfe213b0fa7e8550898e94df34640d258",
+      "roots": 96,
+      "rollouts": 32320,
+      "estimated_seconds": 8866.58107258293
+    },
+    {
+      "shard": 41,
+      "name": "pg-discount-teacher-v2-41",
+      "file": "shards/41.json",
+      "sha256": "191c4e12aa725ba84184aecd8c94340d115e6f4912eb672ea2c995108c7eda30",
+      "roots": 96,
+      "rollouts": 32320,
+      "estimated_seconds": 8866.58107258293
+    },
+    {
+      "shard": 42,
+      "name": "pg-discount-teacher-v2-42",
+      "file": "shards/42.json",
+      "sha256": "9a67fe8285048a2eaa95e825d305d9bba42bbff355e018cd34ed573bc255a6b9",
+      "roots": 96,
+      "rollouts": 32256,
+      "estimated_seconds": 8868.050427801827
+    },
+    {
+      "shard": 43,
+      "name": "pg-discount-teacher-v2-43",
+      "file": "shards/43.json",
+      "sha256": "fd282d1aa35b42c760425008340e177704d9e7ff48e75f3adb3b33195a010811",
+      "roots": 96,
+      "rollouts": 32256,
+      "estimated_seconds": 8868.050427801827
+    },
+    {
+      "shard": 44,
+      "name": "pg-discount-teacher-v2-44",
+      "file": "shards/44.json",
+      "sha256": "64f102124d293d046ca92ec362ec2c1c4876b3378514785427cacb5c1b19a8ac",
+      "roots": 96,
+      "rollouts": 32384,
+      "estimated_seconds": 8865.320952909498
+    },
+    {
+      "shard": 45,
+      "name": "pg-discount-teacher-v2-45",
+      "file": "shards/45.json",
+      "sha256": "ad4b446ced13305bfde9a7b54e1a271abd534affe47a6a3430dfa076673d2627",
+      "roots": 96,
+      "rollouts": 32320,
+      "estimated_seconds": 8869.33859432889
+    },
+    {
+      "shard": 46,
+      "name": "pg-discount-teacher-v2-46",
+      "file": "shards/46.json",
+      "sha256": "c5873530047be8793b082f6be34100e00d7d73e02ec5743da71230885190cbd4",
+      "roots": 96,
+      "rollouts": 32320,
+      "estimated_seconds": 8865.072944040805
+    },
+    {
+      "shard": 47,
+      "name": "pg-discount-teacher-v2-47",
+      "file": "shards/47.json",
+      "sha256": "5da7837ebf67339f97ca4ba966ec40bcea849f4430ceb0d2a37be5ba67731077",
+      "roots": 96,
+      "rollouts": 32256,
+      "estimated_seconds": 8868.183114382564
+    },
+    {
+      "shard": 48,
+      "name": "pg-discount-teacher-v2-48",
+      "file": "shards/48.json",
+      "sha256": "205dec2f8b714a90c328521a1fa7d2cb168bb157ef073187fae3f6f3f2f9c065",
+      "roots": 96,
+      "rollouts": 32384,
+      "estimated_seconds": 8866.701267185115
+    },
+    {
+      "shard": 49,
+      "name": "pg-discount-teacher-v2-49",
+      "file": "shards/49.json",
+      "sha256": "807f746e3c9ad705a21c9278df09d7d19504fd5e31b31deedd09ec3514dd7d69",
+      "roots": 96,
+      "rollouts": 32384,
+      "estimated_seconds": 8866.701267185115
+    },
+    {
+      "shard": 50,
+      "name": "pg-discount-teacher-v2-50",
+      "file": "shards/50.json",
+      "sha256": "a3aabf299a7980b11cfaefccef838c25482e381001bf27e3a5045caefb51fe57",
+      "roots": 96,
+      "rollouts": 32384,
+      "estimated_seconds": 8866.701267185115
+    },
+    {
+      "shard": 51,
+      "name": "pg-discount-teacher-v2-51",
+      "file": "shards/51.json",
+      "sha256": "b0b52b91ee8898e54c5fd3d3468dff64d8f4c17aa70a4e45f6b06688c542ae2b",
+      "roots": 96,
+      "rollouts": 32384,
+      "estimated_seconds": 8866.701267185115
+    },
+    {
+      "shard": 52,
+      "name": "pg-discount-teacher-v2-52",
+      "file": "shards/52.json",
+      "sha256": "d21f85514e5a0af6ac249b92723876267e1a181115ebce3a61b6658449cc05c6",
+      "roots": 96,
+      "rollouts": 32320,
+      "estimated_seconds": 8867.792813567161
+    },
+    {
+      "shard": 53,
+      "name": "pg-discount-teacher-v2-53",
+      "file": "shards/53.json",
+      "sha256": "5b399e321ad68134f681a2fda8963d735cc4accaca7064fc08a64f88778b5380",
+      "roots": 96,
+      "rollouts": 32256,
+      "estimated_seconds": 8866.067261343134
+    },
+    {
+      "shard": 54,
+      "name": "pg-discount-teacher-v2-54",
+      "file": "shards/54.json",
+      "sha256": "2dbf116c5374b5540625dc1e74000e5a80d791c4584f53f774e1e030f959bae9",
+      "roots": 96,
+      "rollouts": 32256,
+      "estimated_seconds": 8866.067261343134
+    },
+    {
+      "shard": 55,
+      "name": "pg-discount-teacher-v2-55",
+      "file": "shards/55.json",
+      "sha256": "394ff5e4fab65da4b41c2b2761060291e0be0f89d1b265ba57f94724c45aa1d7",
+      "roots": 96,
+      "rollouts": 32256,
+      "estimated_seconds": 8866.067261343134
+    },
+    {
+      "shard": 56,
+      "name": "pg-discount-teacher-v2-56",
+      "file": "shards/56.json",
+      "sha256": "cde208cdfeeaee684d446b0695b958d3923526133c933df0edf8074de90a78ce",
+      "roots": 96,
+      "rollouts": 32256,
+      "estimated_seconds": 8866.067261343134
+    },
+    {
+      "shard": 57,
+      "name": "pg-discount-teacher-v2-57",
+      "file": "shards/57.json",
+      "sha256": "6d9fcf7df2a9855f66c16a7a1c82e369054bb43b5c0555705ace5d07fb2faf09",
+      "roots": 96,
+      "rollouts": 32384,
+      "estimated_seconds": 8858.615916081395
+    },
+    {
+      "shard": 58,
+      "name": "pg-discount-teacher-v2-58",
+      "file": "shards/58.json",
+      "sha256": "88f75b35a63760e8e55913b05458d4b9035c1406672734ea27203051345396ae",
+      "roots": 96,
+      "rollouts": 32384,
+      "estimated_seconds": 8858.615916081395
+    },
+    {
+      "shard": 59,
+      "name": "pg-discount-teacher-v2-59",
+      "file": "shards/59.json",
+      "sha256": "a0b35d580c30aa63dd702cfffed366fa867723200acf8459cc30c21985085a60",
+      "roots": 96,
+      "rollouts": 32320,
+      "estimated_seconds": 8868.75465675185
+    }
+  ],
+  "planned_rollouts": 1940544,
+  "estimated_job_hours": 147.81510489754717,
+  "estimate_limit": "Linear extrapolation from the small stratified pilot; excludes setup/upload overhead and is not a completion guarantee.",
+  "target_policy": "Retain all terminal outcomes, exact credits and paired margins. Require independent audit and assess agreement between fixed 32-world halves before admitting training targets. Keep capped/failed data as evidence; never treat it as a loss or silently replace it.",
+  "candidate_experiment": "After reliable current-engine labels: compare identical warm starts with/without discount inputs and with old/all-legal nomination coverage; freeze the parent and train correction heads on HF only.",
+  "evaluation": "New whole-game development deals across 2\u20136 players, both editions and auction modes, against unchanged model and independent opponents. Current confirmation and reserved final deals never become training data.",
+  "whole_deal_split_preserved": true,
+  "no_target_reuse_from_old_engine": true,
+  "automatic_retries": false,
+  "gradients_in_teacher_jobs": false,
+  "candidate_selected": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

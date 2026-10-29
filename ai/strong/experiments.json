@@ -71986,5 +71986,52 @@
         "candidate_selected": false,
         "qualified": false,
         "reserved_final_seeds_used": false
+    },
+    "auction_discount_teacher_20261029": {
+        "created_at": "2026-10-29T15:00:59.766471+00:00",
+        "stage": "full_all_legal_nomination_teachers_running",
+        "automatic_objective": "removed_by_user_do_not_recreate",
+        "pilot_job_id": "6ae35877ad9610e5cb311717",
+        "pilot_independently_audited_roots": 70,
+        "pilot_independently_audited_rollouts": 1444,
+        "pilot_evidence": {
+            "repo": "coyotte508/powergrid-ai-training-v1",
+            "repo_type": "dataset",
+            "revision": "4d7a1b2232ae6bb2dcb5da6c9591165645f8bd75",
+            "archive": "evidence/auction-discount-teacher-pilot-v1.tgz",
+            "sha256": "e3f10e6e0912d8dbbdefab1d5e1ac9ff852c398236d972cf7dbf132a6a3ca6cc",
+            "manifest_sha256": "c0833b4723b712b0045a12556bf3b0849586d5d7c2ce21408d8e807b1da575cf",
+            "remote_archive_verified": true,
+            "roots_independently_audited": 70,
+            "rollouts_independently_audited": 1444,
+            "pilot_targets_training_ready": false,
+            "qualified": false,
+            "reserved_final_seeds_used": false
+        },
+        "full_source": {
+            "repo": "coyotte508/powergrid-ai-training-v1",
+            "revision": "b25682a3bcf7d3e33eedc5a1e0d9107036848d9a",
+            "archive": "strong-source-auction-discount-teacher-v2.tgz",
+            "sha256": "8009081e73344d37856d83afd12953b9f5238600a2c96c1d9e364501531a23f8",
+            "manifest_sha256": "9ad529048dddc938112c11aff72ececdd8cca40fbec5ee33f34958683d055f21",
+            "protocol_sha256": "49ba41b9ad56b8842a3658fd67a5869952b1c00cede1a8c363e7e5a403b8dcb6",
+            "preflight_sha256": "e0bff65bccdca7faab0089446997e92766330075a176c897994522758f3bb723",
+            "remote_archive_verified": true
+        },
+        "full_protocol_sha256": "49ba41b9ad56b8842a3658fd67a5869952b1c00cede1a8c363e7e5a403b8dcb6",
+        "launch_file": "ai/strong/auction-discount-teacher-launch-v2.json",
+        "launch_sha256": "025e123e1d2d639b2a6b45e24c2f4b2b4d3c90ae5ba171dafea775f8338faeec",
+        "submitted_jobs": 60,
+        "planned_roots": 5770,
+        "planned_rollouts": 1940544,
+        "train_roots": 4326,
+        "validation_roots": 1444,
+        "initial_full_budget_audit_roots": 3,
+        "initial_full_budget_audit_rollouts": 1344,
+        "audit_tests_passed": 15,
+        "new_gradient_updates": 0,
+        "candidate_selected": false,
+        "qualified": false,
+        "reserved_final_seeds_used": false
     }
 }

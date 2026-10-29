@@ -1,5 +1,22 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October — research continues without an automatic objective; new teacher batch launched.**
+
+Read [the auction training continuation](AUCTION-DISCOUNT-TRAINING-2026-10-29.md).
+The user explicitly requested continued research. The separate frozen confirmation
+finisher below retains its narrow scope; that restriction does not pause the new
+training-data experiment. Do not recreate an objective or change its frozen policies.
+
+The 70-root teacher pilot finished and all 1,444 continuations were independently
+audited with zero caps. All 5,770 full-batch roots passed current-runtime preflight.
+**60 HF jobs** now generate **1,940,544 planned continuations**: every legal
+nomination, 64 sampled worlds, 2–6 players and all four rule combinations.
+The first three full-budget roots / 1,344 continuations are independently audited.
+Fifteen audit tests passed. Source, pilot evidence and handles are persisted;
+see the linked note for immutable revisions, collection and training next steps.
+Whole-deal train/validation splits remain separate. No new gradient updates,
+candidate selection, qualification, reserved final seeds or deployment.
+
 **29 October, 14:03 UTC — objective removed by user; existing evaluation continues.**
 
 Read the latest section of [the recovery/attempt handoff](CURRENT-AUCTION-ATTEMPTS-2026-10-29.md).

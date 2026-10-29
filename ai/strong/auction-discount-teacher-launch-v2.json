@@ -1,0 +1,622 @@
+{
+  "source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "revision": "b25682a3bcf7d3e33eedc5a1e0d9107036848d9a",
+    "archive": "strong-source-auction-discount-teacher-v2.tgz",
+    "sha256": "8009081e73344d37856d83afd12953b9f5238600a2c96c1d9e364501531a23f8",
+    "manifest_sha256": "9ad529048dddc938112c11aff72ececdd8cca40fbec5ee33f34958683d055f21",
+    "protocol_sha256": "49ba41b9ad56b8842a3658fd67a5869952b1c00cede1a8c363e7e5a403b8dcb6",
+    "preflight_sha256": "e0bff65bccdca7faab0089446997e92766330075a176c897994522758f3bb723",
+    "remote_archive_verified": true
+  },
+  "protocol_sha256": "49ba41b9ad56b8842a3658fd67a5869952b1c00cede1a8c363e7e5a403b8dcb6",
+  "jobs": [
+    {
+      "shard": 0,
+      "job_id": "6ae35d96ad9610e5cb311e8e",
+      "name": "pg-discount-teacher-v2-00",
+      "roots": 96,
+      "rollouts": 32128,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "f7c21c8054369e779b14e8750b74da48b3447b960396ae68119f88b9b53c015c",
+      "created_at": "2026-10-29T14:52:06.754785+00:00"
+    },
+    {
+      "shard": 1,
+      "job_id": "6ae35ea95ddcdc08302612f5",
+      "name": "pg-discount-teacher-v2-01",
+      "roots": 96,
+      "rollouts": 32128,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "5eca06c2d09318eefb17f14021c5ccaa02bb2d10a166d69e69eb1bd1f6d023d1",
+      "created_at": "2026-10-29T14:56:41.584868+00:00"
+    },
+    {
+      "shard": 2,
+      "job_id": "6ae35ea9ad9610e5cb311f6d",
+      "name": "pg-discount-teacher-v2-02",
+      "roots": 96,
+      "rollouts": 32192,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "ec0a45a266b64dc3380f9f0a84e7dc73b07aa06be4cc86ad172bf7a6c3ce7c19",
+      "created_at": "2026-10-29T14:56:41.949948+00:00"
+    },
+    {
+      "shard": 3,
+      "job_id": "6ae35eaaad9610e5cb311f6f",
+      "name": "pg-discount-teacher-v2-03",
+      "roots": 96,
+      "rollouts": 32192,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "95e6780bc4509c6de880976a385c1d49d7379bb5cf2d2291031791a31cb91a33",
+      "created_at": "2026-10-29T14:56:42.316327+00:00"
+    },
+    {
+      "shard": 4,
+      "job_id": "6ae35eaa5ddcdc08302612f7",
+      "name": "pg-discount-teacher-v2-04",
+      "roots": 96,
+      "rollouts": 32192,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "3cea4845e41d978812cabf204c761660ffe4f4f6ae7bc699cd7936d905f53337",
+      "created_at": "2026-10-29T14:56:42.683812+00:00"
+    },
+    {
+      "shard": 5,
+      "job_id": "6ae35eaa5ddcdc08302612f9",
+      "name": "pg-discount-teacher-v2-05",
+      "roots": 96,
+      "rollouts": 32192,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "feb50c260d84042c8fb55f30dc09ba8fb9ad8664f3998066b9b5b7a3b2a24640",
+      "created_at": "2026-10-29T14:56:43.054981+00:00"
+    },
+    {
+      "shard": 6,
+      "job_id": "6ae35eab5ddcdc08302612fb",
+      "name": "pg-discount-teacher-v2-06",
+      "roots": 96,
+      "rollouts": 32192,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "cc5a19d028dc460db92ae5ac2b453465557e5d572216969bdef50a83e15a5ab7",
+      "created_at": "2026-10-29T14:56:43.418653+00:00"
+    },
+    {
+      "shard": 7,
+      "job_id": "6ae35eab5ddcdc08302612fd",
+      "name": "pg-discount-teacher-v2-07",
+      "roots": 96,
+      "rollouts": 32192,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "4825258f40cc2f65ecb1cd934fefb1c6ce4561c11b238c586f257ba0fad589c3",
+      "created_at": "2026-10-29T14:56:43.784377+00:00"
+    },
+    {
+      "shard": 8,
+      "job_id": "6ae35eacad9610e5cb311f73",
+      "name": "pg-discount-teacher-v2-08",
+      "roots": 96,
+      "rollouts": 32384,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "7f6237eaafcbf44dd0ad368a266b4e96e840a35d45e6590e8795e9a853c18b65",
+      "created_at": "2026-10-29T14:56:44.152039+00:00"
+    },
+    {
+      "shard": 9,
+      "job_id": "6ae35eacad9610e5cb311f75",
+      "name": "pg-discount-teacher-v2-09",
+      "roots": 96,
+      "rollouts": 32384,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "2fce814025e3da1a6c8de746d4fe089ce66aa243cc957d058b4da3d7ca9d70ed",
+      "created_at": "2026-10-29T14:56:44.513699+00:00"
+    },
+    {
+      "shard": 10,
+      "job_id": "6ae35eac5ddcdc08302612ff",
+      "name": "pg-discount-teacher-v2-10",
+      "roots": 96,
+      "rollouts": 32384,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "53d4b6746799c674806ff57a679cb9b183a37cdee9e247466cd476e152b6003d",
+      "created_at": "2026-10-29T14:56:44.878743+00:00"
+    },
+    {
+      "shard": 11,
+      "job_id": "6ae35ead5ddcdc0830261301",
+      "name": "pg-discount-teacher-v2-11",
+      "roots": 96,
+      "rollouts": 32384,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "dda028241e1cfdacb6338deab837c70d988a4b91bad6d669f50d84e1be8857b1",
+      "created_at": "2026-10-29T14:56:45.240488+00:00"
+    },
+    {
+      "shard": 12,
+      "job_id": "6ae35ead5ddcdc0830261303",
+      "name": "pg-discount-teacher-v2-12",
+      "roots": 96,
+      "rollouts": 32640,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "8a21abe730184d960f6857d3759a31019215abc766553f0776debd55c83bdd48",
+      "created_at": "2026-10-29T14:56:45.606651+00:00"
+    },
+    {
+      "shard": 13,
+      "job_id": "6ae35eadad9610e5cb311f77",
+      "name": "pg-discount-teacher-v2-13",
+      "roots": 96,
+      "rollouts": 32320,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "aed3782bee34e076cf2b1c9bfcd888b7fd87c692ce0d0a2cb37831a69ebf4c87",
+      "created_at": "2026-10-29T14:56:46.016484+00:00"
+    },
+    {
+      "shard": 14,
+      "job_id": "6ae35eaead9610e5cb311f7b",
+      "name": "pg-discount-teacher-v2-14",
+      "roots": 97,
+      "rollouts": 32448,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "a9873a1b3894a7cc56d1dbcf0db45a13ae8cbd64ccd44f92ba23387bd558305d",
+      "created_at": "2026-10-29T14:56:46.385399+00:00"
+    },
+    {
+      "shard": 15,
+      "job_id": "6ae35eae5ddcdc0830261305",
+      "name": "pg-discount-teacher-v2-15",
+      "roots": 97,
+      "rollouts": 32448,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "82b67411c1b9d189e47872826e7ec3a13e10cce5f421b25e30ab09919067228f",
+      "created_at": "2026-10-29T14:56:46.765374+00:00"
+    },
+    {
+      "shard": 16,
+      "job_id": "6ae35eafad9610e5cb311f7d",
+      "name": "pg-discount-teacher-v2-16",
+      "roots": 97,
+      "rollouts": 32448,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "f739813e8338c6e55d4818729484176f04ca90aae4677964b1c4f79af066e6ef",
+      "created_at": "2026-10-29T14:56:47.129081+00:00"
+    },
+    {
+      "shard": 17,
+      "job_id": "6ae35eaf5ddcdc0830261308",
+      "name": "pg-discount-teacher-v2-17",
+      "roots": 97,
+      "rollouts": 32448,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "11b1983ed45cfef05e15f4ed4d90e34f52faec999a4bb81bc728a3ac78b19c33",
+      "created_at": "2026-10-29T14:56:47.494926+00:00"
+    },
+    {
+      "shard": 18,
+      "job_id": "6ae35eafad9610e5cb311f7f",
+      "name": "pg-discount-teacher-v2-18",
+      "roots": 97,
+      "rollouts": 32448,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "b6dc37453ca93468d44f34a3868585fef1dc16ec0fd939f6d0b9815f859eef04",
+      "created_at": "2026-10-29T14:56:47.854074+00:00"
+    },
+    {
+      "shard": 19,
+      "job_id": "6ae35eb0ad9610e5cb311f81",
+      "name": "pg-discount-teacher-v2-19",
+      "roots": 97,
+      "rollouts": 32448,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "aea8e0aa61b985a681c7c84beab6d9df4c1aef2ec3355cbd480f0ddce2f5dc93",
+      "created_at": "2026-10-29T14:56:48.213489+00:00"
+    },
+    {
+      "shard": 20,
+      "job_id": "6ae35eb0ad9610e5cb311f83",
+      "name": "pg-discount-teacher-v2-20",
+      "roots": 97,
+      "rollouts": 32448,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "ca1ad723d385679e7e594a8fc48269bcb7ef0f8c4ee98cc7624ba2af0da975c5",
+      "created_at": "2026-10-29T14:56:48.580316+00:00"
+    },
+    {
+      "shard": 21,
+      "job_id": "6ae35eb05ddcdc083026130a",
+      "name": "pg-discount-teacher-v2-21",
+      "roots": 96,
+      "rollouts": 32256,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "61f491bbcb8f9dd73ec61ac821f13c048968625e6f79d41f959d3fe6135c7067",
+      "created_at": "2026-10-29T14:56:48.940961+00:00"
+    },
+    {
+      "shard": 22,
+      "job_id": "6ae35eb15ddcdc083026130d",
+      "name": "pg-discount-teacher-v2-22",
+      "roots": 96,
+      "rollouts": 32256,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "333a45e7da1a1ef5ac9a6415f8ac6dad15cfbb0d77f4c9e76e8b1b54753676ed",
+      "created_at": "2026-10-29T14:56:49.301040+00:00"
+    },
+    {
+      "shard": 23,
+      "job_id": "6ae35eb1ad9610e5cb311f85",
+      "name": "pg-discount-teacher-v2-23",
+      "roots": 96,
+      "rollouts": 32256,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "429be941fb753a0304128e9bfb7aa9ec195acbeff4b936b4898ffd24f4b3831d",
+      "created_at": "2026-10-29T14:56:49.661584+00:00"
+    },
+    {
+      "shard": 24,
+      "job_id": "6ae35eb15ddcdc083026130f",
+      "name": "pg-discount-teacher-v2-24",
+      "roots": 97,
+      "rollouts": 32384,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "05bad1a1c1c1118c6e731f7eeb7ea0b375c345c053d79d47382af0308698d445",
+      "created_at": "2026-10-29T14:56:50.031791+00:00"
+    },
+    {
+      "shard": 25,
+      "job_id": "6ae35eb2ad9610e5cb311f87",
+      "name": "pg-discount-teacher-v2-25",
+      "roots": 97,
+      "rollouts": 32384,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "f53b51e6889470640b1f1cedff7494c33ef8d856f561814698008c479cbe4dc8",
+      "created_at": "2026-10-29T14:56:50.401684+00:00"
+    },
+    {
+      "shard": 26,
+      "job_id": "6ae35eb25ddcdc0830261313",
+      "name": "pg-discount-teacher-v2-26",
+      "roots": 97,
+      "rollouts": 32384,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "2b3c0402929e5829260b3cd1a462e80027a48842a795680b06ba5cd25358e408",
+      "created_at": "2026-10-29T14:56:50.773145+00:00"
+    },
+    {
+      "shard": 27,
+      "job_id": "6ae35eb3ad9610e5cb311f8b",
+      "name": "pg-discount-teacher-v2-27",
+      "roots": 96,
+      "rollouts": 32320,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "f1a0bf45981c6a8e5b42bfaa228226e04faa3e30d5dd419144a8f5e9c1109f62",
+      "created_at": "2026-10-29T14:56:51.136320+00:00"
+    },
+    {
+      "shard": 28,
+      "job_id": "6ae35eb3ad9610e5cb311f8d",
+      "name": "pg-discount-teacher-v2-28",
+      "roots": 96,
+      "rollouts": 32320,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "293f9505c553863f7e8203cb6ce92e6a6abbc9c3ec3ee12a3057acbf6acc9a24",
+      "created_at": "2026-10-29T14:56:51.530019+00:00"
+    },
+    {
+      "shard": 29,
+      "job_id": "6ae35eb35ddcdc0830261317",
+      "name": "pg-discount-teacher-v2-29",
+      "roots": 96,
+      "rollouts": 32384,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "416ce70818877e3e49158ecc5e51127cce1e972d4ae29883ec83bbafa8eb3033",
+      "created_at": "2026-10-29T14:56:51.900549+00:00"
+    },
+    {
+      "shard": 30,
+      "job_id": "6ae35eb4ad9610e5cb311f90",
+      "name": "pg-discount-teacher-v2-30",
+      "roots": 96,
+      "rollouts": 32384,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "252974598cbf50c828253b83a36c39c1e7ebdb926bc65f70bb72c4f30ab00565",
+      "created_at": "2026-10-29T14:56:52.257950+00:00"
+    },
+    {
+      "shard": 31,
+      "job_id": "6ae35eb45ddcdc0830261319",
+      "name": "pg-discount-teacher-v2-31",
+      "roots": 96,
+      "rollouts": 32384,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "a6d9d24a1864c946566b038a98916b969772e07f494a2979cac299a9099f9914",
+      "created_at": "2026-10-29T14:56:52.618937+00:00"
+    },
+    {
+      "shard": 32,
+      "job_id": "6ae35eb4ad9610e5cb311f92",
+      "name": "pg-discount-teacher-v2-32",
+      "roots": 96,
+      "rollouts": 32384,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "98d9956e0f159901e9bbfe2f37c222aa2c840202b2b5095af909601dab9d20f7",
+      "created_at": "2026-10-29T14:56:52.977962+00:00"
+    },
+    {
+      "shard": 33,
+      "job_id": "6ae35eb55ddcdc083026131b",
+      "name": "pg-discount-teacher-v2-33",
+      "roots": 96,
+      "rollouts": 32448,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "22ae7aad26e508dcc25790b3c526de127a419176373c51ec74b51437f4448bfe",
+      "created_at": "2026-10-29T14:56:53.343591+00:00"
+    },
+    {
+      "shard": 34,
+      "job_id": "6ae35eb5ad9610e5cb311f94",
+      "name": "pg-discount-teacher-v2-34",
+      "roots": 96,
+      "rollouts": 32448,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "a44b2748035db46d296b7a88f76d72b60f16de159059f9fdee731f21df579f0c",
+      "created_at": "2026-10-29T14:56:53.718722+00:00"
+    },
+    {
+      "shard": 35,
+      "job_id": "6ae35eb65ddcdc083026131f",
+      "name": "pg-discount-teacher-v2-35",
+      "roots": 96,
+      "rollouts": 32448,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "011cbd2e6e3b1fedd32a5d58cfe1db51c7a6a8fb00de75729c979b60715beeb3",
+      "created_at": "2026-10-29T14:56:54.093022+00:00"
+    },
+    {
+      "shard": 36,
+      "job_id": "6ae35eb6ad9610e5cb311f96",
+      "name": "pg-discount-teacher-v2-36",
+      "roots": 96,
+      "rollouts": 32448,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "183108a9de0138f2b9618ddd731e56762440ca2412da01515cec0ed01a7c7e98",
+      "created_at": "2026-10-29T14:56:54.455505+00:00"
+    },
+    {
+      "shard": 37,
+      "job_id": "6ae35eb6ad9610e5cb311f98",
+      "name": "pg-discount-teacher-v2-37",
+      "roots": 96,
+      "rollouts": 32448,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "2477612516467b9ba2a49a1caee281aa68deff8c5b7399e942b17f977562a829",
+      "created_at": "2026-10-29T14:56:54.954324+00:00"
+    },
+    {
+      "shard": 38,
+      "job_id": "6ae35eb75ddcdc0830261321",
+      "name": "pg-discount-teacher-v2-38",
+      "roots": 96,
+      "rollouts": 32448,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "710c9b91fc90326abc240c5ef3db7220939f89bed0448ecd3ce349c68b38f3ef",
+      "created_at": "2026-10-29T14:56:55.356005+00:00"
+    },
+    {
+      "shard": 39,
+      "job_id": "6ae35eb7ad9610e5cb311f9a",
+      "name": "pg-discount-teacher-v2-39",
+      "roots": 96,
+      "rollouts": 32320,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "61bc423225fc89ae5e2aaf074b937e7347e0bea83b4ebbee926eee5dc1dc2ff3",
+      "created_at": "2026-10-29T14:56:55.746115+00:00"
+    },
+    {
+      "shard": 40,
+      "job_id": "6ae35eb85ddcdc0830261325",
+      "name": "pg-discount-teacher-v2-40",
+      "roots": 96,
+      "rollouts": 32320,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "d2dde829039a8de2c13e0c532b87b2d51303e797353be3ea09ee5eb88fe481be",
+      "created_at": "2026-10-29T14:56:56.106864+00:00"
+    },
+    {
+      "shard": 41,
+      "job_id": "6ae35eb85ddcdc083026132b",
+      "name": "pg-discount-teacher-v2-41",
+      "roots": 96,
+      "rollouts": 32320,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "61e89a2bebc832abdf9c40c5edd24545293de0698a6100a37128ded034541cb0",
+      "created_at": "2026-10-29T14:56:56.475981+00:00"
+    },
+    {
+      "shard": 42,
+      "job_id": "6ae35eb8ad9610e5cb311f9d",
+      "name": "pg-discount-teacher-v2-42",
+      "roots": 96,
+      "rollouts": 32256,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "c2218184d85f2ea1bb3c2688238373d5bd85e4bf4688d4d2d13ae759e7774a40",
+      "created_at": "2026-10-29T14:56:56.835930+00:00"
+    },
+    {
+      "shard": 43,
+      "job_id": "6ae35eb9ad9610e5cb311f9f",
+      "name": "pg-discount-teacher-v2-43",
+      "roots": 96,
+      "rollouts": 32256,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "b949c608da229f56cc4f4d149577723dffc788d90a54ae6fe70d19de542fe318",
+      "created_at": "2026-10-29T14:56:57.211361+00:00"
+    },
+    {
+      "shard": 44,
+      "job_id": "6ae35eb9ad9610e5cb311fa1",
+      "name": "pg-discount-teacher-v2-44",
+      "roots": 96,
+      "rollouts": 32384,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "cae927a75215c2bd66a79226f0f7ecf61b1e658cb58f77c77fdad4e1111e5beb",
+      "created_at": "2026-10-29T14:56:57.573901+00:00"
+    },
+    {
+      "shard": 45,
+      "job_id": "6ae35eb95ddcdc083026132f",
+      "name": "pg-discount-teacher-v2-45",
+      "roots": 96,
+      "rollouts": 32320,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "22b2aa5fcedd8c0927ea68ee7b1e33ab71ce12c6e22ac4a29d64a1103b16f830",
+      "created_at": "2026-10-29T14:56:57.937122+00:00"
+    },
+    {
+      "shard": 46,
+      "job_id": "6ae35ebaad9610e5cb311fa5",
+      "name": "pg-discount-teacher-v2-46",
+      "roots": 96,
+      "rollouts": 32320,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "5d4f086c115370ea2d27f436b8ebdeb93206e66f3228b57ca054759afcc93e9d",
+      "created_at": "2026-10-29T14:56:58.315666+00:00"
+    },
+    {
+      "shard": 47,
+      "job_id": "6ae35eba5ddcdc0830261331",
+      "name": "pg-discount-teacher-v2-47",
+      "roots": 96,
+      "rollouts": 32256,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "91baed6d3f8b63407a68d827c70a4cedbcf4159e62e47aea6b27be8707f5ba3f",
+      "created_at": "2026-10-29T14:56:58.696941+00:00"
+    },
+    {
+      "shard": 48,
+      "job_id": "6ae35eba5ddcdc0830261335",
+      "name": "pg-discount-teacher-v2-48",
+      "roots": 96,
+      "rollouts": 32384,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "269a92e2aef56197766d8015bf6998ef7be7511b8dc18e49cafd07efb2405c2a",
+      "created_at": "2026-10-29T14:56:59.069767+00:00"
+    },
+    {
+      "shard": 49,
+      "job_id": "6ae35ebbad9610e5cb311fa7",
+      "name": "pg-discount-teacher-v2-49",
+      "roots": 96,
+      "rollouts": 32384,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "a1fd594e750362523fbd6bd385513c1dcdbd2b634e1b55ad9fb6176fc86bda60",
+      "created_at": "2026-10-29T14:56:59.445018+00:00"
+    },
+    {
+      "shard": 50,
+      "job_id": "6ae35ebb5ddcdc0830261338",
+      "name": "pg-discount-teacher-v2-50",
+      "roots": 96,
+      "rollouts": 32384,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "f49e7c6fc038a65ccdeee9cd694ee51e419a739fa629c8839f31298af65086c8",
+      "created_at": "2026-10-29T14:56:59.862372+00:00"
+    },
+    {
+      "shard": 51,
+      "job_id": "6ae35ebcad9610e5cb311fa9",
+      "name": "pg-discount-teacher-v2-51",
+      "roots": 96,
+      "rollouts": 32384,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "8d97e428ec9af9da2f763b1d94e90785523bbfacd9a0baea80d5cba15baad741",
+      "created_at": "2026-10-29T14:57:00.231300+00:00"
+    },
+    {
+      "shard": 52,
+      "job_id": "6ae35ebc5ddcdc083026133b",
+      "name": "pg-discount-teacher-v2-52",
+      "roots": 96,
+      "rollouts": 32320,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "b6eb53bdb8887d151d4dbf998111f090016bad4692f19c01c6cfa1fe55356ff0",
+      "created_at": "2026-10-29T14:57:00.598202+00:00"
+    },
+    {
+      "shard": 53,
+      "job_id": "6ae35ebcad9610e5cb311fab",
+      "name": "pg-discount-teacher-v2-53",
+      "roots": 96,
+      "rollouts": 32256,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "fcb2b4d7192747c9949e60ecbab892df90d125987a1fbb2935a91cf8b76cf791",
+      "created_at": "2026-10-29T14:57:00.968766+00:00"
+    },
+    {
+      "shard": 54,
+      "job_id": "6ae35ebdad9610e5cb311fad",
+      "name": "pg-discount-teacher-v2-54",
+      "roots": 96,
+      "rollouts": 32256,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "7520d87e965538a156a6a0d131903ab6353cb5c6c5cf163e3f78ab1f473d96c8",
+      "created_at": "2026-10-29T14:57:01.333430+00:00"
+    },
+    {
+      "shard": 55,
+      "job_id": "6ae35ebdad9610e5cb311fb1",
+      "name": "pg-discount-teacher-v2-55",
+      "roots": 96,
+      "rollouts": 32256,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "ecee067ade31ed1193bf1f6d3f25a29c195532d5ea68485837648412865851d5",
+      "created_at": "2026-10-29T14:57:01.707041+00:00"
+    },
+    {
+      "shard": 56,
+      "job_id": "6ae35ebe5ddcdc083026133d",
+      "name": "pg-discount-teacher-v2-56",
+      "roots": 96,
+      "rollouts": 32256,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "38f0ca2699a36b35bd4087186af9d53e80072023ece9456f5e6212f8706b28d3",
+      "created_at": "2026-10-29T14:57:02.096485+00:00"
+    },
+    {
+      "shard": 57,
+      "job_id": "6ae35ebe5ddcdc0830261341",
+      "name": "pg-discount-teacher-v2-57",
+      "roots": 96,
+      "rollouts": 32384,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "c0a4e701a18f78965a7b632c1af92b0875580b92d044ef319ae86d5f3a110af9",
+      "created_at": "2026-10-29T14:57:02.532027+00:00"
+    },
+    {
+      "shard": 58,
+      "job_id": "6ae35ebe5ddcdc0830261343",
+      "name": "pg-discount-teacher-v2-58",
+      "roots": 96,
+      "rollouts": 32384,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "84571be23d5962b4182c10edf580aae99a82db3cc2d428d0e2e3ab2ec41ee52e",
+      "created_at": "2026-10-29T14:57:02.938735+00:00"
+    },
+    {
+      "shard": 59,
+      "job_id": "6ae35ebfad9610e5cb311fb6",
+      "name": "pg-discount-teacher-v2-59",
+      "roots": 96,
+      "rollouts": 32320,
+      "source_sha256": "92673a2e12021e7eb953371071b0ff5c9dec6a73b2f66463ac8d81b8eeeeca7a",
+      "intent_sha256": "08f25e28efaa52cd3ad5de5660b66e5d0203586e222c12220fa7f7ff8e75f9f3",
+      "created_at": "2026-10-29T14:57:03.333251+00:00"
+    }
+  ],
+  "planned_jobs": 60,
+  "submitted_jobs": 60,
+  "roots_submitted": 5770,
+  "new_gradient_updates": 0,
+  "automatic_retries": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

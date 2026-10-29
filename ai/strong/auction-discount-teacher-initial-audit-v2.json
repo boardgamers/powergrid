@@ -1,0 +1,354 @@
+{
+  "job_id": "6ae35d96ad9610e5cb311e8e",
+  "roots": 3,
+  "rollouts": 1344,
+  "caps": 0,
+  "independently_audited": true,
+  "protocol_sha256": "49ba41b9ad56b8842a3658fd67a5869952b1c00cede1a8c363e7e5a403b8dcb6",
+  "auditor_sha256": "a0fe767132e83846bc174d1fdc9d8cc96f1217d4873df576751e8da7e2e6d550",
+  "receipts": [
+    {
+      "rootId": "policy-v2:4:parent:economic:162:47",
+      "bucket_evidence": {
+        "storage": "hf_bucket",
+        "bucket": "coyotte508/powergrid-ai-checkpoints",
+        "path": "confirmation-v3/pg-discount-teacher-v2-00-root-000/a7d2d56e9e388325de1fa8402877b93096e8a69f0b884da91a3c1a20a6fe5bce.tgz",
+        "archive_sha256": "a7d2d56e9e388325de1fa8402877b93096e8a69f0b884da91a3c1a20a6fe5bce",
+        "manifest_sha256": "7543c76010f3a80be3ffa447bacb86ab8c9e43dcb0f990cb65eaf6734890b985",
+        "bytes": 31634,
+        "server_versioning": false,
+        "max_application_upload_calls": 3,
+        "xet_hash": "066aaa2969c637503fd32cbbdb02b73826ab2e074fe9ed25e2da3b04a0a58688",
+        "download_verified": true,
+        "application_upload_calls": 1,
+        "reconciled_upload_error_or_interruption": false,
+        "raw_audited": false,
+        "qualified": false
+      }
+    },
+    {
+      "rootId": "policy-v2:4:parent:economic:24:37",
+      "bucket_evidence": {
+        "storage": "hf_bucket",
+        "bucket": "coyotte508/powergrid-ai-checkpoints",
+        "path": "confirmation-v3/pg-discount-teacher-v2-00-root-001/d2bf0f3fc8f7c806b23289dc263aaf2011f17557a207dc6af385b8902e9b424d.tgz",
+        "archive_sha256": "d2bf0f3fc8f7c806b23289dc263aaf2011f17557a207dc6af385b8902e9b424d",
+        "manifest_sha256": "75b0b188a89d197c9801221deab748feb09faba7256bdd6da04843340b28b517",
+        "bytes": 26675,
+        "server_versioning": false,
+        "max_application_upload_calls": 3,
+        "xet_hash": "74227cffd6c173dc5b6a7743316ce0433db4a1f9c483398f78bba17dd40d7b74",
+        "download_verified": true,
+        "application_upload_calls": 1,
+        "reconciled_upload_error_or_interruption": false,
+        "raw_audited": false,
+        "qualified": false
+      }
+    },
+    {
+      "rootId": "policy-v2:4:parent:snapshot0:72:32",
+      "bucket_evidence": {
+        "storage": "hf_bucket",
+        "bucket": "coyotte508/powergrid-ai-checkpoints",
+        "path": "confirmation-v3/pg-discount-teacher-v2-00-root-002/cfdab69f7864518945e65d8b443cc6f1ee9466dcb07b4025fb4c816256b44dd6.tgz",
+        "archive_sha256": "cfdab69f7864518945e65d8b443cc6f1ee9466dcb07b4025fb4c816256b44dd6",
+        "manifest_sha256": "ec9e61221753ee11b23cb26a435688b331b3249e746a2d73d14124ca91df6845",
+        "bytes": 29635,
+        "server_versioning": false,
+        "max_application_upload_calls": 3,
+        "xet_hash": "fadce77144354ad4df2021a5aa42b720935e91fd4a32c4a35b88535f74762de4",
+        "download_verified": true,
+        "application_upload_calls": 1,
+        "reconciled_upload_error_or_interruption": false,
+        "raw_audited": false,
+        "qualified": false
+      }
+    }
+  ],
+  "summaries": [
+    {
+      "rootId": "policy-v2:4:parent:economic:162:47",
+      "split": "train",
+      "players": 4,
+      "kind": "original_control",
+      "all_legal_options": 7,
+      "worlds": 64,
+      "rollouts": 448,
+      "steps": 84383,
+      "neural_decisions": 33054,
+      "seconds": 38.965927463000014,
+      "baseline": 1,
+      "actions": {
+        "0": {
+          "mean_credit": "11/64",
+          "paired_mean_margin": "-5/32",
+          "paired_standard_error": 0.07459796344937072,
+          "half_margins": [
+            "-3/16",
+            "-1/8"
+          ]
+        },
+        "1": {
+          "mean_credit": "21/64",
+          "paired_mean_margin": "0",
+          "paired_standard_error": 0.0,
+          "half_margins": [
+            "0",
+            "0"
+          ]
+        },
+        "2": {
+          "mean_credit": "13/32",
+          "paired_mean_margin": "5/64",
+          "paired_standard_error": 0.08423526053300656,
+          "half_margins": [
+            "-1/32",
+            "3/16"
+          ]
+        },
+        "3": {
+          "mean_credit": "11/64",
+          "paired_mean_margin": "-5/32",
+          "paired_standard_error": 0.06762242718751049,
+          "half_margins": [
+            "-1/16",
+            "-1/4"
+          ]
+        },
+        "4": {
+          "mean_credit": "7/16",
+          "paired_mean_margin": "7/64",
+          "paired_standard_error": 0.09214482298413611,
+          "half_margins": [
+            "3/32",
+            "1/8"
+          ]
+        },
+        "5": {
+          "mean_credit": "3/16",
+          "paired_mean_margin": "-9/64",
+          "paired_standard_error": 0.06996026189236014,
+          "half_margins": [
+            "-1/16",
+            "-7/32"
+          ]
+        },
+        "6": {
+          "mean_credit": "31/64",
+          "paired_mean_margin": "5/32",
+          "paired_standard_error": 0.07785170452100196,
+          "half_margins": [
+            "1/4",
+            "1/16"
+          ]
+        }
+      },
+      "half_best_action_sets": [
+        [
+          6
+        ],
+        [
+          2
+        ]
+      ],
+      "half_best_sets_overlap": false,
+      "independently_audited": true,
+      "training_ready": false,
+      "qualified": false,
+      "result_sha256": "c9de61b2337c69e780bbf7052ebdb0a6c098507a0c92e2150ac556285ade7a1c"
+    },
+    {
+      "rootId": "policy-v2:4:parent:economic:24:37",
+      "split": "train",
+      "players": 4,
+      "kind": "original_control",
+      "all_legal_options": 7,
+      "worlds": 64,
+      "rollouts": 448,
+      "steps": 25239,
+      "neural_decisions": 11652,
+      "seconds": 13.183379403000004,
+      "baseline": 4,
+      "actions": {
+        "0": {
+          "mean_credit": "0",
+          "paired_mean_margin": "-3/64",
+          "paired_standard_error": 0.026630253226448332,
+          "half_margins": [
+            "0",
+            "-3/32"
+          ]
+        },
+        "1": {
+          "mean_credit": "0",
+          "paired_mean_margin": "-3/64",
+          "paired_standard_error": 0.026630253226448332,
+          "half_margins": [
+            "0",
+            "-3/32"
+          ]
+        },
+        "2": {
+          "mean_credit": "1/64",
+          "paired_mean_margin": "-1/32",
+          "paired_standard_error": 0.03125,
+          "half_margins": [
+            "0",
+            "-1/16"
+          ]
+        },
+        "3": {
+          "mean_credit": "0",
+          "paired_mean_margin": "-3/64",
+          "paired_standard_error": 0.026630253226448332,
+          "half_margins": [
+            "0",
+            "-3/32"
+          ]
+        },
+        "4": {
+          "mean_credit": "3/64",
+          "paired_mean_margin": "0",
+          "paired_standard_error": 0.0,
+          "half_margins": [
+            "0",
+            "0"
+          ]
+        },
+        "5": {
+          "mean_credit": "0",
+          "paired_mean_margin": "-3/64",
+          "paired_standard_error": 0.026630253226448332,
+          "half_margins": [
+            "0",
+            "-3/32"
+          ]
+        },
+        "6": {
+          "mean_credit": "0",
+          "paired_mean_margin": "-3/64",
+          "paired_standard_error": 0.026630253226448332,
+          "half_margins": [
+            "0",
+            "-3/32"
+          ]
+        }
+      },
+      "half_best_action_sets": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          4
+        ]
+      ],
+      "half_best_sets_overlap": true,
+      "independently_audited": true,
+      "training_ready": false,
+      "qualified": false,
+      "result_sha256": "1a014534afda17970f6186450455740ac79c6b2031f24ba070049ad7f428fbfc"
+    },
+    {
+      "rootId": "policy-v2:4:parent:snapshot0:72:32",
+      "split": "validation",
+      "players": 4,
+      "kind": "original_control",
+      "all_legal_options": 7,
+      "worlds": 64,
+      "rollouts": 448,
+      "steps": 54343,
+      "neural_decisions": 22405,
+      "seconds": 26.28634282099995,
+      "baseline": 2,
+      "actions": {
+        "0": {
+          "mean_credit": "61/64",
+          "paired_mean_margin": "3/64",
+          "paired_standard_error": 0.046875,
+          "half_margins": [
+            "-1/32",
+            "1/8"
+          ]
+        },
+        "1": {
+          "mean_credit": "59/64",
+          "paired_mean_margin": "1/64",
+          "paired_standard_error": 0.052194821152665424,
+          "half_margins": [
+            "0",
+            "1/32"
+          ]
+        },
+        "2": {
+          "mean_credit": "29/32",
+          "paired_mean_margin": "0",
+          "paired_standard_error": 0.0,
+          "half_margins": [
+            "0",
+            "0"
+          ]
+        },
+        "3": {
+          "mean_credit": "29/32",
+          "paired_mean_margin": "0",
+          "paired_standard_error": 0.0445435403187374,
+          "half_margins": [
+            "1/32",
+            "-1/32"
+          ]
+        },
+        "4": {
+          "mean_credit": "55/64",
+          "paired_mean_margin": "-3/64",
+          "paired_standard_error": 0.06070717307777754,
+          "half_margins": [
+            "-7/32",
+            "1/8"
+          ]
+        },
+        "5": {
+          "mean_credit": "59/64",
+          "paired_mean_margin": "1/64",
+          "paired_standard_error": 0.03515969449616268,
+          "half_margins": [
+            "1/32",
+            "0"
+          ]
+        },
+        "6": {
+          "mean_credit": "59/64",
+          "paired_mean_margin": "1/64",
+          "paired_standard_error": 0.0472045295403628,
+          "half_margins": [
+            "0",
+            "1/32"
+          ]
+        }
+      },
+      "half_best_action_sets": [
+        [
+          3,
+          5
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "half_best_sets_overlap": false,
+      "independently_audited": true,
+      "training_ready": false,
+      "qualified": false,
+      "result_sha256": "ecab3b109f1bd72555c71f77850e9f8bcb0e6afd27043c45bc19d6c9faa9b86b"
+    }
+  ],
+  "training_ready": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

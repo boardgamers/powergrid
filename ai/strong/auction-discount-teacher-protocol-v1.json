@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "created_at": "2026-10-29T14:26:31.449402+00:00",
+  "purpose": "Measure current-engine all-legal nomination teachers before discount-aware training.",
+  "selection": "One SHA-ranked root per split/count/auction/coverage cell, plus all ten separately recovered natural low-cash roots; no outcome filtering.",
+  "roots": {
+    "file": "ai/runs/auction-discount-teacher-prepared-v1/roots.json",
+    "sha256": "1e66902a1864cbb80613d0df0cc527c9af86f3aa3e22f089646bc5c075fc34c7",
+    "count": 70,
+    "splits": {
+      "train": 36,
+      "validation": 34
+    }
+  },
+  "parent_roots": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "96d59920f004d85016c063eb466a1a66611ec593",
+    "prefix": "runs/policy-iteration-selected-v2",
+    "files": {
+      "roots.jsonl.gz": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902",
+      "selected-index.json": "d6519b92f1da2a20a512444093f040c6a543d48ced1a12a1e89294e9c5e46450",
+      "selection.json": "067c27e80ea61a3cc7dab38bd14904ff72978c08cad8f2b9082e893bbca98769"
+    },
+    "count": 17280,
+    "split_counts": {
+      "validation": 4320,
+      "train": 12960
+    },
+    "selection_protocol_sha256": "fc3da9fd41f2bf41a6e264c867ac163882a704b1f4d82049d333a74cddccc010",
+    "qualification_eligible": false,
+    "file": "ai/strong/data/policy-iteration-roots-v2.jsonl.gz",
+    "sha256": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902"
+  },
+  "historical_roots": [
+    {
+      "file": "ai/runs/auction-training-history-v1/newly-affordable-roots.jsonl",
+      "sha256": "3821829caac7dcb71a1b7ec07342193edda179c9c4b82cc9a177a1d7a30476bc"
+    },
+    {
+      "file": "ai/runs/auction-training-history-v2/newly-affordable-roots.jsonl",
+      "sha256": "aa75b72cf8dccdd33df73f81b9fc322505cd088c6dca8a5d4cef86c8344f72ba"
+    }
+  ],
+  "current_source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "revision": "7db94147918597e1da1e8ee2f4bd12b96aa067b5",
+    "archive": "strong-source-current-auction-grid-v1.tgz",
+    "sha256": "bb2ef01bc09f176c62545971aa02b5e9dadc947fb14dd52ca191667ba456bfe0",
+    "source_manifest_sha256": "28752635cfaee648b3e6f5ab999132291be575d56d3cbc7fd3e6450ee3b399f5"
+  },
+  "artifact_manifest_sha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+  "teacher_policy": "policies/conservative_population.json",
+  "teacher_policy_sha256": "b9879af9668b3e1b79cac6139b59571a83d838f8e0988627506f9b2eb902a980",
+  "teacher": "Frozen current-engine population continuations with every legal nomination/Pass; retain full terminal outcomes and negative/uncertain margins.",
+  "pilot": {
+    "worlds": 4,
+    "workers": 4,
+    "threads": 1,
+    "max_steps": 2400,
+    "mode": "neural_population"
+  },
+  "full_teacher_proposal": {
+    "worlds": 64,
+    "independent_halves": [
+      [
+        0,
+        32
+      ],
+      [
+        32,
+        64
+      ]
+    ],
+    "requires_pilot_review": true
+  },
+  "candidate_experiment": "After reliable current-engine labels: compare identical warm starts with/without discount inputs and with old/all-legal nomination coverage; freeze the parent and train correction heads on HF only.",
+  "evaluation": "New whole-game development deals across 2\u20136 players, both editions and auction modes, against unchanged model and independent opponents. Current confirmation and reserved final deals never become training data.",
+  "no_target_reuse_from_old_engine": true,
+  "pilot_targets_training_ready": false,
+  "new_gradient_updates": 0,
+  "candidate_selected": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

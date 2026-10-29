@@ -1,5 +1,13 @@
 # Explicit transport recovery and current confirmation — 29 October 2026
 
+**Separate research continuation:** the user explicitly asked to continue training
+after removing the automatic objective. The new all-legal nomination teacher
+batch is documented in [the auction training note](AUCTION-DISCOUNT-TRAINING-2026-10-29.md).
+This document's restrictions describe the existing confirmation finisher's scope;
+its frozen policies and evaluation remain unchanged. At 14:52 UTC, 21,756 / 26,880
+confirmation games were independently audited. Teacher simulations are separate
+and must never be added to that denominator or used as strength evidence.
+
 ## Latest continuation — 14:03 UTC
 
 The user deleted the automatic objective and explicitly asked to carry on.

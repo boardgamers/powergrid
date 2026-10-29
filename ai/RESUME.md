@@ -1,5 +1,37 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 04:32 UTC — selection prerequisites connected; no candidate selected.**
+
+The read-only selection gate now checks the complete original comparison,
+unchanged confirmation requirements, all adverse cells and the complete
+native/export/AMD proof before a candidate can be frozen. Thirteen tests passed.
+On the actual live state it rejected selection after one state read, before
+opening any outcomes. The saved complete technical proof and raw file bindings
+passed. Positive confirmation test cases are synthetic; a successful end-to-end
+selection check still awaits the real complete comparison and explicit review.
+
+Read [the selection-gate handoff](CURRENT-AUCTION-FINAL-SELECTION-2026-10-29.md).
+Its 21-file proof is privately archived and download/hash verified at revision
+`cfedb1fd0fdf7a2124f1bcb085fd11491b7c4ac6`. No games, inference or HF submissions
+were made by this work. The gate creates no candidate or final launch admission.
+Do not repeat completed tests/preflight/archive operations.
+
+At **04:31:58 UTC**, coordinator **PID 3788704 / session 32582** was verified
+live with **471 unchanged pins**; its checkpoint recorded **449 audited jobs /
+510 original submissions**. This is an owner-state checkpoint, with the previous
+full remote inspection still separately dated in
+`strong/current-auction-network-resume-progress-v1.json`. Preserve the owner and
+original handles. Use the explicit resumed-owner comparison command below only
+after all 944 jobs complete. No partial strength analysis or competing collector.
+
+Previous goal turn: progress (verified storage lifecycle pushed as `bfee540`).
+This turn: progress (selection/technical prerequisite checks and actual early
+rejection verified and archived), plus verified waiting. Research active;
+no candidate selected or qualified; reserved final seeds unused. Real selection,
+source/allocation admission, batch integration and the complete held-out strength
+gate remain required.
+
+
 **29 October, 04:20 UTC — final audit storage verified; original confirmation continues.**
 
 Measured capacity projects approximately 259 GB free after confirmation. Keeping

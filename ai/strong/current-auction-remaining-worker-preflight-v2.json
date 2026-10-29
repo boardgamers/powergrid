@@ -1,0 +1,82 @@
+{
+  "passed": true,
+  "tests": 10,
+  "positive_controls": "first-recovery metadata is synthetic in unit tests; no positive actual first-audit claim",
+  "actual_source_manifest_sha256": "28752635cfaee648b3e6f5ab999132291be575d56d3cbc7fd3e6450ee3b399f5",
+  "actual_specs_policies_contracts_checked": 323,
+  "actual_remaining_games": 7100,
+  "actual_rows_by_player_count": {
+    "5": 131,
+    "6": 160,
+    "3": 16,
+    "2": 16
+  },
+  "actual_validation_commands": [
+    {
+      "players": 2,
+      "name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-00",
+      "original_row_sha256": "286a77cee5727e9405c64ce47bb4033c2279e67f770f04de11865c26a5a9eeee",
+      "original_runner_validation_only": true,
+      "worker_validation_only": true,
+      "execution_rejected": "Complete independently audited first recovery is required before any remaining game",
+      "output_created": false
+    },
+    {
+      "players": 3,
+      "name": "pg-current-confirm-v1-pop-a260-3p-00",
+      "original_row_sha256": "16d5e1518c216c3f9f74c079bf146d0d1e4fbf7f31cf81bd2d8244bf09fbec2d",
+      "original_runner_validation_only": true,
+      "worker_validation_only": true,
+      "execution_rejected": "Complete independently audited first recovery is required before any remaining game",
+      "output_created": false
+    },
+    {
+      "players": 5,
+      "name": "pg-current-confirm-v1-pop-economic-5p-29",
+      "original_row_sha256": "fd4df065eb919669c6372c4fd34663eb7a84d2e571dbffa48584869b28ae2b81",
+      "original_runner_validation_only": true,
+      "worker_validation_only": true,
+      "execution_rejected": "Complete independently audited first recovery is required before any remaining game",
+      "output_created": false
+    },
+    {
+      "players": 6,
+      "name": "pg-current-confirm-v1-pop-economic-6p-00",
+      "original_row_sha256": "65f9268b0dd939df426a5312622f2d0ec8af45d491356f92179cbc41331c6b15",
+      "original_runner_validation_only": true,
+      "worker_validation_only": true,
+      "execution_rejected": "Complete independently audited first recovery is required before any remaining game",
+      "output_created": false
+    }
+  ],
+  "bundle_manifest_sha256": "3cc80b512eb815daa01a40c99152676823b40b441b5b019a1373071ac7577e10",
+  "worker_sha256": "167e951a6b00963ea917affc08934a1bebdf3845cb02a7aa39a223de8739510b",
+  "preflight_sha256": "c5c82ba5c84d6adeaf26c82edaa4011270991527ec1c2418d7b79fede34a0d53",
+  "test_sha256": "fd571165dfd86d9192c6e983e2364a75fbd6a5c49d2372acfee3b9bf18db2cd8",
+  "test_log_sha256": "6f20ecd1cb6b8582efdd15b662b9c6f7da1deb68faf114faf449c628f15ad3bc",
+  "validation_hashes": {
+    "ai/runs/current-auction-remaining-worker-preflight-v2/original-validation-2p.log": "8631795ed8dfb88a53f55bbe32701af887766c8fce2ef9fb8c25b63a39d9738e",
+    "ai/runs/current-auction-remaining-worker-preflight-v2/original-validation-3p.log": "595f44950dc5b630597c33e3221340956c9f82b95d30dedfe3a8773bcdeafbc7",
+    "ai/runs/current-auction-remaining-worker-preflight-v2/original-validation-5p.log": "f13265f6b524a7e64dcc8dcd6ceeb2aabeea5e58ecaf7957598d0908baaa579c",
+    "ai/runs/current-auction-remaining-worker-preflight-v2/original-validation-6p.log": "5f859b8e3aa37165d8f7f8b33f333196e9601136290efdee5a31f40334fc0c32",
+    "ai/runs/current-auction-remaining-worker-preflight-v2/worker-validation-2p.log": "0bc17eef0f89e09303864881c22f5dfde9660f42ec9eaf928adc2acf65df2e62",
+    "ai/runs/current-auction-remaining-worker-preflight-v2/worker-validation-3p.log": "2a33bd131cdf6f7ab23766066b96c7ced8685615a00c59b8af51a93366eedfab",
+    "ai/runs/current-auction-remaining-worker-preflight-v2/worker-validation-5p.log": "5307fc73a61dabe208d438d2d1f721cbe20efcf90e82f469382a6c7a06d92828",
+    "ai/runs/current-auction-remaining-worker-preflight-v2/worker-validation-6p.log": "2ef5595581779b23e32e2f7a11aa5491cdebd4e13cce0750ec635cbeb2c5c399"
+  },
+  "original_source_sha256": "a4384b10eb8a4381423731bc0c315673f9214d91c1fb336aa81ef4a7102d1c5a",
+  "decision_sha256": "4d23adb861704dc2ec3e8e3d358024e026175ccce13dc2efb768742c00a348fb",
+  "first_recovery_handle": "6ae3083f3fb22a235dd56000",
+  "first_recovery_result_available": false,
+  "source_published": false,
+  "remaining_execution_admitted": false,
+  "new_hf_jobs": 0,
+  "new_games": 0,
+  "new_inference": 0,
+  "candidate_selected": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false,
+  "previous_goal_turn_classification": "progress",
+  "current_goal_turn_classification": "progress",
+  "goal_status": "active"
+}

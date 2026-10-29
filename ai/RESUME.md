@@ -1,5 +1,34 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 09:36 UTC — first recovery COMPLETED; full audit passed; no live jobs to wait on.**
+
+Handle **`6ae3083f3fb22a235dd56000`** completed. Collection session 14831 exited
+successfully: **16 games / 14 checkpoints**, unchanged full raw verifier,
+checkpoint/final byte equality and live-child upload proof. Result:
+`strong/current-auction-resource-recovery-results-v2.json`, SHA-256
+`b83b2dfa755d3bc0ea6500461a6ca8166724c6ce2b6071dab282798378a91940`.
+Do not relaunch or re-collect it. Preserve the original timed-out handle as failed.
+Usable confirmation coverage is **19,780 / 26,880 games**; 323 rows / 7,100 games
+remain unsubmitted. No partial strength comparison or candidate selection.
+
+Read [the remaining-worker handoff](CURRENT-AUCTION-REMAINING-WORKER-2026-10-29.md).
+The new unadmitted worker has ten passing tests; actual source validation checked
+all 323 original job/policy/contract bindings plus validation-only CLI commands at
+2/3/5/6 players. Its execution correctly rejected the missing first result during
+preflight. After collection, its first-result gate passed the actual audited
+result. No games/inference/jobs were run by those checks.
+
+Next: finish independent remaining-envelope collection and durable bounded
+dispatch, archive/review actual preparation, then publish the separate supervisor
+and run the fixed remaining rows. The preview is not admitted/published. Preserve
+existing first/original workers and controls. Connect explicit recovery receipts
+to complete raw re-auditing and the unchanged paired comparison/selection gates;
+never fake completion of the stopped original owner.
+
+Previous turn: progress (actual live checkpoints). This turn: progress (full
+first audit and remaining-worker validation). Goal active, no qualified candidate
+or reserved final seeds used.
+
 **29 October, 09:18 UTC — actual periodic recovery archives verified while HF job runs.**
 
 Same handle **`6ae3083f3fb22a235dd56000`**, verified RUNNING before and after the

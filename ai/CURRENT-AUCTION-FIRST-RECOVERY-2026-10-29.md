@@ -1,5 +1,39 @@
 # First exact-shard resource recovery
 
+**09:36 UTC update — recovery COMPLETED and all 16 games independently audited.**
+The final collector (session 14831) exited successfully. It checked the unchanged
+original evaluator's full raw-game/search receipts, all **14 checkpoint archives**,
+complete original episode coverage, checkpoint/final byte equality, and verified
+uploads while the original child remained live. Report:
+`strong/current-auction-resource-recovery-results-v2.json`, SHA-256
+`b83b2dfa755d3bc0ea6500461a6ca8166724c6ce2b6071dab282798378a91940`.
+Do not relaunch or repeat this successful collection.
+
+The original timeout stays failed; this separate same-seed attempt adds 16 usable
+games to the 19,764 preserved originals: **19,780 / 26,880**, with **323 shards /
+7,100 games still unsubmitted**. No win-rate analysis, candidate selection or
+reserved final games. The first recovery's technical gate now passes; actual
+remaining-grid preparation/collection/dispatch integration is still required.
+
+Measured evaluator workflow: **2,163.61 seconds wall**, **9,583.84 CPU-seconds**,
+sampled peak process-tree RSS **7,150,919,680 bytes**. These include evaluator
+startup/validation and exclude HF queue/bootstrap and outer checkpoint/final
+transport overhead; they are not 8840U latency or a billing measure. Keep the
+recorded 24-hour allowance for remaining jobs; one successful case does not
+establish an upper runtime bound.
+
+The 97-file final envelope is private and download/hash verified at model revision
+`0edbe6bae0e616917c8c510429e8e72e8952c6f9`, archive
+`archives/pg-current-recover-v2-pop-search-4p-05-final.tgz`, SHA-256
+`df116215abc929498a9242a213357a1f9bc02ffbd710389ce6aaddce151fe081`.
+The audited raw manifest is
+`a13813805b21f0cb98e24cb78f790b66504f76f6a7e78a5fc7d6276827695e82`.
+Every checkpoint's immutable reference is retained in the final result.
+
+Read [the remaining-worker preparation](CURRENT-AUCTION-REMAINING-WORKER-2026-10-29.md)
+for the next implementation work. The current first-recovery manager must not
+be repurposed to launch the remaining grid.
+
 **09:18 UTC update — real live checkpoints verified.** The same HF job was
 RUNNING before and after independently downloading the first ten immutable
 checkpoint archives. All **11 distinct completed game/decision pairs** passed

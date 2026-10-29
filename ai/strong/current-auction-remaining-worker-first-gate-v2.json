@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "first_recovery_job_id": "6ae3083f3fb22a235dd56000",
+  "original_failed_handle": "6ae2c32f3fb22a235dd50586",
+  "first_recovery_result_sha256": "b83b2dfa755d3bc0ea6500461a6ca8166724c6ce2b6071dab282798378a91940",
+  "first_supervisor_source_sha256": "ee8e98a7f1cb3c0f0cb7f30527ab4c259aa4b0219e121bef98df0cd79096f840",
+  "worker_sha256": "167e951a6b00963ea917affc08934a1bebdf3845cb02a7aa39a223de8739510b",
+  "verified_games": 16,
+  "checkpoint_archives": 14,
+  "envelope_evidence": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "0edbe6bae0e616917c8c510429e8e72e8952c6f9",
+    "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-final.tgz",
+    "archive_sha256": "df116215abc929498a9242a213357a1f9bc02ffbd710389ce6aaddce151fe081",
+    "manifest_sha256": "6349088d6523c0860841e57e72796e78daeaf99da0684f27e13072da9bc654bc",
+    "archived_files": 97,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "first_raw_audit_unchanged": true,
+  "new_hf_jobs": 0,
+  "new_games": 0,
+  "new_inference": 0,
+  "remaining_execution_admitted": false,
+  "source_published": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

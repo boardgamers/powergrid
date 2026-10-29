@@ -1,0 +1,1793 @@
+{
+  "verified": true,
+  "games": 16,
+  "original_name": "pg-current-confirm-v1-pop-search_geo-4p-05",
+  "original_failed_handle": "6ae2c32f3fb22a235dd50586",
+  "attempt_id": "pg-current-recover-v2-pop-search-4p-05",
+  "envelope_evidence": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "0edbe6bae0e616917c8c510429e8e72e8952c6f9",
+    "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-final.tgz",
+    "archive_sha256": "df116215abc929498a9242a213357a1f9bc02ffbd710389ce6aaddce151fe081",
+    "manifest_sha256": "6349088d6523c0860841e57e72796e78daeaf99da0684f27e13072da9bc654bc",
+    "archived_files": 97,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "bundle_manifest_sha256": "632d61da5f80863171f7c3fecb91b6d143e63aeea4a47400e5f283977fcee064",
+  "admission_sha256": "4d73833e2e93f21d295bc602b7d327ff3aea5bce6817d8c92827ccada5c91951",
+  "raw_manifest_sha256": "a13813805b21f0cb98e24cb78f790b66504f76f6a7e78a5fc7d6276827695e82",
+  "review": {
+    "games": 16,
+    "audit": {
+      "audit_version": 1,
+      "all_receipts_verified": true,
+      "identity": {
+        "policySha256": "b9879af9668b3e1b79cac6139b59571a83d838f8e0988627506f9b2eb902a980",
+        "runtimeManifestSha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+        "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+        "featureRevision": "4.3-strategic-correction",
+        "backend": "opponent-auction-v1",
+        "settings": {
+          "arm": "auction",
+          "max_steps": 2400,
+          "minimum_advantage": "1/8",
+          "population_modes": [
+            "neural_population"
+          ],
+          "samples": 8,
+          "threads": 1,
+          "workers": 4
+        },
+        "opponentPolicySha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c"
+      },
+      "expected": {
+        "name": "pg-current-confirm-v1-pop-search_geo-4p-05",
+        "group": "search_geo/4p",
+        "players": 4,
+        "start": 5,
+        "deals": 1,
+        "seed": "current-auction-confirmation-v1-4p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 16
+      },
+      "counts": {
+        "decisions": 2482,
+        "root_filter_overrides": 0,
+        "rollouts": 25992,
+        "rollout_caps": 0,
+        "neural_decisions": 3501500,
+        "search_changes": 168,
+        "search_decisions": 646,
+        "surrogate_decisions": 0
+      },
+      "terminals": [
+        {
+          "env": 0,
+          "episode": 80,
+          "gameSeed": "current-auction-confirmation-v1-4p-5",
+          "truncated": false,
+          "value": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "playerCount": 4,
+          "variant": "original",
+          "sealed": true,
+          "steps": 518,
+          "roles": [
+            "learner",
+            "search_geo",
+            "search_geo",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "ChoosePowerPlant": 5,
+            "Bid": 11,
+            "BuyResource": 27,
+            "Pass": 45,
+            "Build": 13,
+            "UsePowerPlant": 14,
+            "DiscardPowerPlant": 4
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 144,
+              "evaluations": 11808,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 13,
+                "powered": 11,
+                "money": 15,
+                "capacity": 17,
+                "plants": [
+                  28,
+                  31,
+                  46
+                ]
+              },
+              {
+                "cities": 15,
+                "powered": 15,
+                "money": 8,
+                "capacity": 17,
+                "plants": [
+                  25,
+                  36,
+                  34
+                ]
+              },
+              {
+                "cities": 13,
+                "powered": 13,
+                "money": 29,
+                "capacity": 16,
+                "plants": [
+                  24,
+                  32,
+                  50
+                ]
+              },
+              {
+                "cities": 17,
+                "powered": 16,
+                "money": 2,
+                "capacity": 16,
+                "plants": [
+                  27,
+                  38,
+                  39
+                ]
+              }
+            ]
+          },
+          "seat": 0,
+          "win": 0
+        },
+        {
+          "env": 0,
+          "episode": 81,
+          "gameSeed": "current-auction-confirmation-v1-4p-5",
+          "truncated": false,
+          "value": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "playerCount": 4,
+          "variant": "recharged",
+          "sealed": true,
+          "steps": 538,
+          "roles": [
+            "learner",
+            "search_geo",
+            "search_geo",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "ChoosePowerPlant": 8,
+            "Bid": 14,
+            "BuyResource": 37,
+            "Pass": 40,
+            "Build": 18,
+            "UsePowerPlant": 21,
+            "DiscardPowerPlant": 5
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 140,
+              "evaluations": 11536,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 18,
+                "powered": 17,
+                "money": 30,
+                "capacity": 17,
+                "plants": [
+                  29,
+                  38,
+                  40
+                ]
+              },
+              {
+                "cities": 15,
+                "powered": 15,
+                "money": 8,
+                "capacity": 15,
+                "plants": [
+                  31,
+                  33,
+                  44
+                ]
+              },
+              {
+                "cities": 16,
+                "powered": 16,
+                "money": 16,
+                "capacity": 17,
+                "plants": [
+                  28,
+                  36,
+                  50
+                ]
+              },
+              {
+                "cities": 17,
+                "powered": 17,
+                "money": 2,
+                "capacity": 17,
+                "plants": [
+                  32,
+                  37,
+                  46
+                ]
+              }
+            ]
+          },
+          "seat": 0,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 82,
+          "gameSeed": "current-auction-confirmation-v1-4p-5",
+          "truncated": false,
+          "value": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "playerCount": 4,
+          "variant": "original",
+          "sealed": false,
+          "steps": 629,
+          "roles": [
+            "learner",
+            "search_geo",
+            "search_geo",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "ChoosePowerPlant": 11,
+            "Bid": 25,
+            "Pass": 56,
+            "BuyResource": 37,
+            "Build": 17,
+            "UsePowerPlant": 21,
+            "DiscardPowerPlant": 5
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 177,
+              "evaluations": 14192,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 17,
+                "powered": 13,
+                "money": 27,
+                "capacity": 19,
+                "plants": [
+                  38,
+                  32,
+                  50
+                ]
+              },
+              {
+                "cities": 16,
+                "powered": 16,
+                "money": 23,
+                "capacity": 17,
+                "plants": [
+                  35,
+                  44,
+                  46
+                ]
+              },
+              {
+                "cities": 14,
+                "powered": 13,
+                "money": 140,
+                "capacity": 13,
+                "plants": [
+                  28,
+                  27,
+                  39
+                ]
+              },
+              {
+                "cities": 18,
+                "powered": 18,
+                "money": 3,
+                "capacity": 18,
+                "plants": [
+                  36,
+                  40,
+                  34
+                ]
+              }
+            ]
+          },
+          "seat": 0,
+          "win": 0
+        },
+        {
+          "env": 0,
+          "episode": 83,
+          "gameSeed": "current-auction-confirmation-v1-4p-5",
+          "truncated": false,
+          "value": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "playerCount": 4,
+          "variant": "recharged",
+          "sealed": false,
+          "steps": 612,
+          "roles": [
+            "learner",
+            "search_geo",
+            "search_geo",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "ChoosePowerPlant": 13,
+            "Bid": 26,
+            "Pass": 46,
+            "BuyResource": 46,
+            "Build": 18,
+            "UsePowerPlant": 21,
+            "DiscardPowerPlant": 5
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 198,
+              "evaluations": 16256,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 18,
+                "powered": 18,
+                "money": 29,
+                "capacity": 18,
+                "plants": [
+                  30,
+                  44,
+                  46
+                ]
+              },
+              {
+                "cities": 16,
+                "powered": 16,
+                "money": 4,
+                "capacity": 17,
+                "plants": [
+                  32,
+                  35,
+                  50
+                ]
+              },
+              {
+                "cities": 14,
+                "powered": 14,
+                "money": 63,
+                "capacity": 14,
+                "plants": [
+                  29,
+                  33,
+                  39
+                ]
+              },
+              {
+                "cities": 16,
+                "powered": 16,
+                "money": 12,
+                "capacity": 17,
+                "plants": [
+                  31,
+                  37,
+                  38
+                ]
+              }
+            ]
+          },
+          "seat": 0,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 84,
+          "gameSeed": "current-auction-confirmation-v1-4p-5",
+          "truncated": false,
+          "value": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "playerCount": 4,
+          "variant": "original",
+          "sealed": true,
+          "steps": 555,
+          "roles": [
+            "search_geo",
+            "learner",
+            "search_geo",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "Bid": 16,
+            "ChoosePowerPlant": 13,
+            "BuyResource": 43,
+            "Pass": 40,
+            "Build": 16,
+            "UsePowerPlant": 23,
+            "DiscardPowerPlant": 6
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 136,
+              "evaluations": 11472,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 14,
+                "powered": 14,
+                "money": 26,
+                "capacity": 16,
+                "plants": [
+                  28,
+                  31,
+                  40
+                ]
+              },
+              {
+                "cities": 16,
+                "powered": 16,
+                "money": 28,
+                "capacity": 20,
+                "plants": [
+                  32,
+                  36,
+                  38
+                ]
+              },
+              {
+                "cities": 15,
+                "powered": 15,
+                "money": 18,
+                "capacity": 17,
+                "plants": [
+                  30,
+                  35,
+                  50
+                ]
+              },
+              {
+                "cities": 18,
+                "powered": 18,
+                "money": 25,
+                "capacity": 18,
+                "plants": [
+                  25,
+                  46,
+                  39
+                ]
+              }
+            ]
+          },
+          "seat": 1,
+          "win": 0
+        },
+        {
+          "env": 0,
+          "episode": 85,
+          "gameSeed": "current-auction-confirmation-v1-4p-5",
+          "truncated": false,
+          "value": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "playerCount": 4,
+          "variant": "recharged",
+          "sealed": true,
+          "steps": 564,
+          "roles": [
+            "search_geo",
+            "learner",
+            "search_geo",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "Bid": 13,
+            "BuyResource": 39,
+            "Pass": 41,
+            "Build": 20,
+            "UsePowerPlant": 23,
+            "ChoosePowerPlant": 9,
+            "DiscardPowerPlant": 3
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 137,
+              "evaluations": 11504,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 16,
+                "powered": 16,
+                "money": 39,
+                "capacity": 16,
+                "plants": [
+                  33,
+                  39,
+                  42
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 19,
+                "money": 3,
+                "capacity": 19,
+                "plants": [
+                  50,
+                  38,
+                  40
+                ]
+              },
+              {
+                "cities": 16,
+                "powered": 16,
+                "money": 27,
+                "capacity": 20,
+                "plants": [
+                  31,
+                  36,
+                  46
+                ]
+              },
+              {
+                "cities": 15,
+                "powered": 14,
+                "money": 107,
+                "capacity": 14,
+                "plants": [
+                  20,
+                  29,
+                  44
+                ]
+              }
+            ]
+          },
+          "seat": 1,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 86,
+          "gameSeed": "current-auction-confirmation-v1-4p-5",
+          "truncated": false,
+          "value": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "playerCount": 4,
+          "variant": "original",
+          "sealed": false,
+          "steps": 620,
+          "roles": [
+            "search_geo",
+            "learner",
+            "search_geo",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "Bid": 19,
+            "Pass": 54,
+            "BuyResource": 48,
+            "Build": 20,
+            "UsePowerPlant": 23,
+            "ChoosePowerPlant": 8,
+            "DiscardPowerPlant": 3
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 167,
+              "evaluations": 13520,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 17,
+                "powered": 17,
+                "money": 105,
+                "capacity": 17,
+                "plants": [
+                  21,
+                  36,
+                  50
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 16,
+                "money": 11,
+                "capacity": 16,
+                "plants": [
+                  28,
+                  46,
+                  44
+                ]
+              },
+              {
+                "cities": 16,
+                "powered": 16,
+                "money": 107,
+                "capacity": 16,
+                "plants": [
+                  24,
+                  40,
+                  39
+                ]
+              },
+              {
+                "cities": 10,
+                "powered": 10,
+                "money": 20,
+                "capacity": 18,
+                "plants": [
+                  31,
+                  35,
+                  38
+                ]
+              }
+            ]
+          },
+          "seat": 1,
+          "win": 0
+        },
+        {
+          "env": 0,
+          "episode": 87,
+          "gameSeed": "current-auction-confirmation-v1-4p-5",
+          "truncated": false,
+          "value": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "playerCount": 4,
+          "variant": "recharged",
+          "sealed": false,
+          "steps": 539,
+          "roles": [
+            "search_geo",
+            "learner",
+            "search_geo",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "Pass": 46,
+            "ChoosePowerPlant": 14,
+            "Bid": 32,
+            "BuyResource": 30,
+            "Build": 20,
+            "UsePowerPlant": 20,
+            "DiscardPowerPlant": 4
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 153,
+              "evaluations": 12336,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 10,
+            "players": [
+              {
+                "cities": 12,
+                "powered": 12,
+                "money": 23,
+                "capacity": 15,
+                "plants": [
+                  28,
+                  35,
+                  42
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 16,
+                "money": 11,
+                "capacity": 16,
+                "plants": [
+                  33,
+                  30,
+                  50
+                ]
+              },
+              {
+                "cities": 7,
+                "powered": 7,
+                "money": 1,
+                "capacity": 15,
+                "plants": [
+                  29,
+                  34,
+                  39
+                ]
+              },
+              {
+                "cities": 14,
+                "powered": 14,
+                "money": 8,
+                "capacity": 19,
+                "plants": [
+                  31,
+                  32,
+                  46
+                ]
+              }
+            ]
+          },
+          "seat": 1,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 88,
+          "gameSeed": "current-auction-confirmation-v1-4p-5",
+          "truncated": false,
+          "value": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "playerCount": 4,
+          "variant": "original",
+          "sealed": true,
+          "steps": 572,
+          "roles": [
+            "search_geo",
+            "search_geo",
+            "learner",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "Bid": 15,
+            "BuyResource": 43,
+            "Pass": 41,
+            "Build": 17,
+            "UsePowerPlant": 19,
+            "ChoosePowerPlant": 6,
+            "DiscardPowerPlant": 6
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 157,
+              "evaluations": 13056,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 15,
+                "powered": 15,
+                "money": 15,
+                "capacity": 15,
+                "plants": [
+                  28,
+                  50,
+                  44
+                ]
+              },
+              {
+                "cities": 17,
+                "powered": 17,
+                "money": 29,
+                "capacity": 20,
+                "plants": [
+                  38,
+                  39,
+                  46
+                ]
+              },
+              {
+                "cities": 17,
+                "powered": 17,
+                "money": 2,
+                "capacity": 18,
+                "plants": [
+                  25,
+                  32,
+                  36
+                ]
+              },
+              {
+                "cities": 15,
+                "powered": 15,
+                "money": 80,
+                "capacity": 15,
+                "plants": [
+                  27,
+                  31,
+                  40
+                ]
+              }
+            ]
+          },
+          "seat": 2,
+          "win": 0
+        },
+        {
+          "env": 0,
+          "episode": 89,
+          "gameSeed": "current-auction-confirmation-v1-4p-5",
+          "truncated": false,
+          "value": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "playerCount": 4,
+          "variant": "recharged",
+          "sealed": true,
+          "steps": 521,
+          "roles": [
+            "search_geo",
+            "search_geo",
+            "learner",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "Bid": 14,
+            "BuyResource": 26,
+            "Pass": 36,
+            "Build": 21,
+            "UsePowerPlant": 24,
+            "ChoosePowerPlant": 11,
+            "DiscardPowerPlant": 4
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 121,
+              "evaluations": 9696,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 16,
+                "powered": 16,
+                "money": 55,
+                "capacity": 17,
+                "plants": [
+                  32,
+                  35,
+                  42
+                ]
+              },
+              {
+                "cities": 9,
+                "powered": 9,
+                "money": 0,
+                "capacity": 14,
+                "plants": [
+                  21,
+                  23,
+                  38
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 18,
+                "money": 4,
+                "capacity": 18,
+                "plants": [
+                  30,
+                  50,
+                  39
+                ]
+              },
+              {
+                "cities": 14,
+                "powered": 14,
+                "money": 17,
+                "capacity": 18,
+                "plants": [
+                  34,
+                  46,
+                  40
+                ]
+              }
+            ]
+          },
+          "seat": 2,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 90,
+          "gameSeed": "current-auction-confirmation-v1-4p-5",
+          "truncated": false,
+          "value": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "playerCount": 4,
+          "variant": "original",
+          "sealed": false,
+          "steps": 671,
+          "roles": [
+            "search_geo",
+            "search_geo",
+            "learner",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "Bid": 26,
+            "Pass": 59,
+            "ChoosePowerPlant": 10,
+            "BuyResource": 29,
+            "Build": 17,
+            "UsePowerPlant": 22,
+            "DiscardPowerPlant": 5
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 211,
+              "evaluations": 16784,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 13,
+                "powered": 13,
+                "money": 125,
+                "capacity": 13,
+                "plants": [
+                  28,
+                  33,
+                  44
+                ]
+              },
+              {
+                "cities": 16,
+                "powered": 16,
+                "money": 12,
+                "capacity": 18,
+                "plants": [
+                  35,
+                  50,
+                  46
+                ]
+              },
+              {
+                "cities": 17,
+                "powered": 17,
+                "money": 1,
+                "capacity": 17,
+                "plants": [
+                  25,
+                  40,
+                  39
+                ]
+              },
+              {
+                "cities": 15,
+                "powered": 15,
+                "money": 0,
+                "capacity": 20,
+                "plants": [
+                  32,
+                  38,
+                  36
+                ]
+              }
+            ]
+          },
+          "seat": 2,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 91,
+          "gameSeed": "current-auction-confirmation-v1-4p-5",
+          "truncated": false,
+          "value": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "playerCount": 4,
+          "variant": "recharged",
+          "sealed": false,
+          "steps": 620,
+          "roles": [
+            "search_geo",
+            "search_geo",
+            "learner",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "Bid": 20,
+            "Pass": 52,
+            "BuyResource": 43,
+            "Build": 18,
+            "UsePowerPlant": 15,
+            "ChoosePowerPlant": 6,
+            "DiscardPowerPlant": 2
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 211,
+              "evaluations": 17584,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 16,
+                "powered": 16,
+                "money": 9,
+                "capacity": 17,
+                "plants": [
+                  35,
+                  38,
+                  44
+                ]
+              },
+              {
+                "cities": 16,
+                "powered": 16,
+                "money": 30,
+                "capacity": 18,
+                "plants": [
+                  30,
+                  50,
+                  40
+                ]
+              },
+              {
+                "cities": 18,
+                "powered": 16,
+                "money": 0,
+                "capacity": 16,
+                "plants": [
+                  16,
+                  31,
+                  46
+                ]
+              },
+              {
+                "cities": 14,
+                "powered": 14,
+                "money": 114,
+                "capacity": 14,
+                "plants": [
+                  29,
+                  33,
+                  39
+                ]
+              }
+            ]
+          },
+          "seat": 2,
+          "win": 0
+        },
+        {
+          "env": 0,
+          "episode": 92,
+          "gameSeed": "current-auction-confirmation-v1-4p-5",
+          "truncated": false,
+          "value": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "playerCount": 4,
+          "variant": "original",
+          "sealed": true,
+          "steps": 574,
+          "roles": [
+            "search_geo",
+            "search_geo",
+            "search_geo",
+            "learner"
+          ],
+          "policyMoves": {
+            "Bid": 13,
+            "Pass": 45,
+            "ChoosePowerPlant": 7,
+            "BuyResource": 53,
+            "Build": 17,
+            "UsePowerPlant": 22,
+            "DiscardPowerPlant": 4
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 148,
+              "evaluations": 11856,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 14,
+                "powered": 14,
+                "money": 6,
+                "capacity": 16,
+                "plants": [
+                  31,
+                  50,
+                  37
+                ]
+              },
+              {
+                "cities": 16,
+                "powered": 16,
+                "money": 111,
+                "capacity": 16,
+                "plants": [
+                  28,
+                  38,
+                  35
+                ]
+              },
+              {
+                "cities": 14,
+                "powered": 13,
+                "money": 115,
+                "capacity": 13,
+                "plants": [
+                  21,
+                  33,
+                  44
+                ]
+              },
+              {
+                "cities": 17,
+                "powered": 17,
+                "money": 15,
+                "capacity": 19,
+                "plants": [
+                  46,
+                  39,
+                  40
+                ]
+              }
+            ]
+          },
+          "seat": 3,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 93,
+          "gameSeed": "current-auction-confirmation-v1-4p-5",
+          "truncated": false,
+          "value": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "playerCount": 4,
+          "variant": "recharged",
+          "sealed": true,
+          "steps": 532,
+          "roles": [
+            "search_geo",
+            "search_geo",
+            "search_geo",
+            "learner"
+          ],
+          "policyMoves": {
+            "Bid": 11,
+            "BuyResource": 34,
+            "Pass": 40,
+            "Build": 15,
+            "UsePowerPlant": 20,
+            "ChoosePowerPlant": 6,
+            "DiscardPowerPlant": 3
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 141,
+              "evaluations": 11744,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 18,
+                "powered": 18,
+                "money": 5,
+                "capacity": 18,
+                "plants": [
+                  20,
+                  38,
+                  50
+                ]
+              },
+              {
+                "cities": 14,
+                "powered": 14,
+                "money": 3,
+                "capacity": 17,
+                "plants": [
+                  31,
+                  32,
+                  34
+                ]
+              },
+              {
+                "cities": 17,
+                "powered": 17,
+                "money": 25,
+                "capacity": 17,
+                "plants": [
+                  44,
+                  39,
+                  40
+                ]
+              },
+              {
+                "cities": 15,
+                "powered": 15,
+                "money": 20,
+                "capacity": 18,
+                "plants": [
+                  29,
+                  46,
+                  36
+                ]
+              }
+            ]
+          },
+          "seat": 3,
+          "win": 0
+        },
+        {
+          "env": 0,
+          "episode": 94,
+          "gameSeed": "current-auction-confirmation-v1-4p-5",
+          "truncated": false,
+          "value": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "playerCount": 4,
+          "variant": "original",
+          "sealed": false,
+          "steps": 587,
+          "roles": [
+            "search_geo",
+            "search_geo",
+            "search_geo",
+            "learner"
+          ],
+          "policyMoves": {
+            "Bid": 18,
+            "Pass": 48,
+            "ChoosePowerPlant": 15,
+            "BuyResource": 47,
+            "Build": 18,
+            "UsePowerPlant": 18,
+            "DiscardPowerPlant": 4
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 166,
+              "evaluations": 13104,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 13,
+                "powered": 13,
+                "money": 17,
+                "capacity": 15,
+                "plants": [
+                  25,
+                  32,
+                  33
+                ]
+              },
+              {
+                "cities": 13,
+                "powered": 13,
+                "money": 10,
+                "capacity": 17,
+                "plants": [
+                  30,
+                  40,
+                  44
+                ]
+              },
+              {
+                "cities": 14,
+                "powered": 13,
+                "money": 14,
+                "capacity": 17,
+                "plants": [
+                  28,
+                  46,
+                  50
+                ]
+              },
+              {
+                "cities": 18,
+                "powered": 16,
+                "money": 13,
+                "capacity": 16,
+                "plants": [
+                  35,
+                  34,
+                  39
+                ]
+              }
+            ]
+          },
+          "seat": 3,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 95,
+          "gameSeed": "current-auction-confirmation-v1-4p-5",
+          "truncated": false,
+          "value": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "playerCount": 4,
+          "variant": "recharged",
+          "sealed": false,
+          "steps": 606,
+          "roles": [
+            "search_geo",
+            "search_geo",
+            "search_geo",
+            "learner"
+          ],
+          "policyMoves": {
+            "Pass": 49,
+            "Bid": 20,
+            "BuyResource": 50,
+            "Build": 17,
+            "UsePowerPlant": 17,
+            "ChoosePowerPlant": 6,
+            "DiscardPowerPlant": 3
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 186,
+              "evaluations": 15408,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 18,
+                "powered": 18,
+                "money": 3,
+                "capacity": 18,
+                "plants": [
+                  33,
+                  46,
+                  38
+                ]
+              },
+              {
+                "cities": 13,
+                "powered": 13,
+                "money": 132,
+                "capacity": 13,
+                "plants": [
+                  21,
+                  29,
+                  34
+                ]
+              },
+              {
+                "cities": 15,
+                "powered": 15,
+                "money": 103,
+                "capacity": 15,
+                "plants": [
+                  24,
+                  44,
+                  50
+                ]
+              },
+              {
+                "cities": 17,
+                "powered": 17,
+                "money": 21,
+                "capacity": 18,
+                "plants": [
+                  32,
+                  42,
+                  40
+                ]
+              }
+            ]
+          },
+          "seat": 3,
+          "win": 0
+        }
+      ],
+      "input_hashes": {
+        "evaluation.json": "e9645c07e5307e0c8e6704abc11d02a817e198feb756e8070212b61ec6bce1e2",
+        "decisions-80.jsonl": "d00b1d32ce1c4b1205bf1dae5f0397356e2e0c2e6c96b6538db5ff7a0f8138f9",
+        "game-80.json": "fafc9076565c23508656ec884954598c584c57811789bbfb3debf2a48d4bc166",
+        "decisions-81.jsonl": "ae539c3afb07fb3a3ce8503e7244e29ea5c360c918feab1415d635e09b36b087",
+        "game-81.json": "866a68b12650410ab73cf0fc40b03992dbbc5383bbeeace51cfceb2b361757bf",
+        "decisions-82.jsonl": "5cadb182750ac7a93a766b0f673bf26781f5d06c22b3126478678a85e934b252",
+        "game-82.json": "eba151b0997622913207d18e62e5c01b0bd7ef3ae0990333080d1ca694d7329b",
+        "decisions-83.jsonl": "af8dd91c08e7cb56669dbf602eb888709486f3a361a44c9d5ec981b0ac47c2bd",
+        "game-83.json": "e33004f047e2b54439ca0aa4c5e1414eb7343c1d7960d29a06dcd9600e7ef60f",
+        "decisions-84.jsonl": "9564e1778888117fb6bb76374786233bbd1b14a8c41563a910d32e3e87f14b73",
+        "game-84.json": "bf4b6deb53e9233171f562029e6ba9f7d5e433045e6e71d2e0b736a140faea91",
+        "decisions-85.jsonl": "7e4c2a582b45841a489cd19851a0ab900e71413e295e36b8db9b1829c3af14ec",
+        "game-85.json": "159ed028a306e7daa11cce1c8b1fdd6e018a1d9e47bd5822a3b97be28ff1bca0",
+        "decisions-86.jsonl": "350399eca76d68b8336a8227ddbc27a9722d1f026bf257951152bd0f1f82fe41",
+        "game-86.json": "548e50338c373a25e2c3f867b6606578ee857bf9e82d3fe47e9136f12168e248",
+        "decisions-87.jsonl": "91833ab8348f5ba0f3049332096c9beb6cf3736fba1be397609db3d7db6c5f31",
+        "game-87.json": "758d7f144355f114990ea759b7d60c99515a9fd23e300ec6acd46368603ad274",
+        "decisions-88.jsonl": "32680fd6dc608eaa4853766b41e0db4cd99a5e5eb4c223f4ddb95473b1a89a8f",
+        "game-88.json": "263bb3a10be1dd5135cc026d2f8e2a05b8c2b937726bc5a970cb27f5e5f42e15",
+        "decisions-89.jsonl": "fb048ed18a8926ef38fcbfb1b658889097b77d21279c6fac1132d2fef09a6eba",
+        "game-89.json": "053341f4387331b06e72179f64ab9882fcb4705bde2eff1570d541cffb11ac2a",
+        "decisions-90.jsonl": "f59c247b058cc1bd65ad81a06e0ff39832b90eee6253b5e70ebec8dd1379ed72",
+        "game-90.json": "79b3de8a1cce9dc13ac2b61550fc6aebac38a19ac9199d7c1c7f6a85ce83658d",
+        "decisions-91.jsonl": "9064c6ce6749c7aa4c11b04286358cb9b47b9e011815979a765644f30552cda2",
+        "game-91.json": "8690c1142cd1a0ee797ba37b067e0a7a9ef84eac73237fe3eb65d7f572517513",
+        "decisions-92.jsonl": "1e3f3c4ea497b1ba312cf884e2a960db511faf9bcf4455f590e50ce4ff2b3704",
+        "game-92.json": "351f5ec605abe9d56205ffe13d989e12bd9171c96c69e6269a56bd061aad7530",
+        "decisions-93.jsonl": "80750a11e34f1ab72f651a2850dddd3515b0c89f96d6bbb58ab94116b0604a47",
+        "game-93.json": "e3062bc7a1a1f1769e5cc0372f4cacd3a006cb5f398df183faa80c1b9e5d1ee3",
+        "decisions-94.jsonl": "11dda384f446b477ac2813cb80598a250bef41a1060c2ecbd6e717f2a806b9cd",
+        "game-94.json": "b8c1a47062e7068fc70bc73c45c53692f5ad4131a2c09b86aac7f7d5c6b85677",
+        "decisions-95.jsonl": "3e81ca89aecd1a1d513139c909a4230111d406e0d8419a5f4b53bd4152b98e6c",
+        "game-95.json": "c5257769216600c0853ed625078a4525a84b653ea90648d75a4a7347f72175fd"
+      },
+      "reserved_final_seeds_used": false,
+      "qualification_eligible": false
+    },
+    "measurement": {
+      "seconds": 2163.610335222009,
+      "cpu_seconds": 9583.84,
+      "sampled_peak_total_rss_bytes": 7150919680,
+      "memory_samples": 10573,
+      "memory_sampling_period_seconds": 0.2,
+      "includes_startup_and_validation": true
+    }
+  },
+  "checkpoint_archives": [
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "ccd9c9bbdf5ad1365a83ab15e18fca55a7af60c2",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0001.tgz",
+        "archive_sha256": "50a7edfb94d661a8e24c7a4eecbaf630993188851cb03eed0347f55344d8ac34",
+        "manifest_sha256": "377977b3044ebb61e3b6fab091fe3041c3c400d878467e32e6c6a671b02d8a6c",
+        "archived_files": 6,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        80,
+        81
+      ]
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "03a3322571d0543d832ed9413ed6150c82bffd99",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0002.tgz",
+        "archive_sha256": "85e1959526bce672f47d288e617c4c283b50f73c97a09ceaf0c479a682358822",
+        "manifest_sha256": "9ed31063ee2f99e0d20790c1b7ab2c8b0b3e1e7019ec35148204714b0a8c4c62",
+        "archived_files": 4,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        85
+      ]
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "ee9719ae109908e65d21c673ab67fb9c7bce0e0b",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0003.tgz",
+        "archive_sha256": "ca170746440b3a848ada2ff73d9ee58a08051da23a77ab7717110e40c8d05d65",
+        "manifest_sha256": "ef5ce54767b4ae50a4d9955152ebff8ac229233b354b24139791ff303392e249",
+        "archived_files": 4,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        83
+      ]
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "cfbd5629139a2ae8a6e17159c389db9c5a765e7e",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0004.tgz",
+        "archive_sha256": "1c161d4a22b62635ef9fe1cbcc55ab77ece888d4b8b44ecf05eb2e84692ee00d",
+        "manifest_sha256": "8f35bf8508c010f1bed3ae619c2a47efc7a4dbf654cbb63616dfb730fde8251b",
+        "archived_files": 4,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        84
+      ]
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "cee0d02ea0e86d24fdad9c1174d69dfca95287df",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0005.tgz",
+        "archive_sha256": "b6b4dbdac34826e1a40cfa607b8a855d96e0ad6c1688ea5b51803ef41be553a1",
+        "manifest_sha256": "c20d9567dc63d31bfb19015e2838708a38e07d88b19cf78838d448c8b9736fdd",
+        "archived_files": 4,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        82
+      ]
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "77e1726a109c7bb45ff8a7432af8447d676a9aae",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0006.tgz",
+        "archive_sha256": "e4205e5f0986e4d1302db54197fb6287f30f7f45b22c21e4ca87c86e9a7611e0",
+        "manifest_sha256": "2a54ed2978c088353a77ad6531c88189eed33fcc052898e0c504056c3022429f",
+        "archived_files": 4,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        89
+      ]
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "eb46cd5992d96b59815c0c284433138a3c5175fd",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0007.tgz",
+        "archive_sha256": "81154cf5b1ffb3572fd13d1c85210b3902e3dba0fdc411ff215932cce40ac36c",
+        "manifest_sha256": "70a9668cb404b0fabd9f7e5bcf3c4772955b68cda51163124e9ad60b9ebc3b1c",
+        "archived_files": 4,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        88
+      ]
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "e2e7c0f926275450b2fcdda8451c4fcf7235ee70",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0008.tgz",
+        "archive_sha256": "d579e8daa65c875a8de7ef4d34bc66149a7e365f5046d8c2b308e06187a423bd",
+        "manifest_sha256": "06786fcffc49a004f7ef182dd49bed051665947f286a13ae609d17cd756cba90",
+        "archived_files": 4,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        86
+      ]
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "3d3536a787f9b97ba4361440e101598c4c364244",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0009.tgz",
+        "archive_sha256": "e118b550becbbc7f56e316e3a141429b474d40dc9dded7d4442436179431e04e",
+        "manifest_sha256": "6df1f1d049310fb3028dbd3f11d1dbe7af45a8c3d48ef756a8e9b91053c3f4cb",
+        "archived_files": 4,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        87
+      ]
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "78863e28fee4665060cb4dc1a51f6949762765d6",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0010.tgz",
+        "archive_sha256": "414b703ecea8fe698f454802be90cbb22095d0d166da0bde202c6b7cac70f4ee",
+        "manifest_sha256": "174e5d6c51841acd5c654953c18751d5607179aeafb43373e2d4077ce167e0b9",
+        "archived_files": 4,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        92
+      ]
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "94d813547ac8d1a8cc9b2cc1505aa473597dbcec",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0011.tgz",
+        "archive_sha256": "d33f1be424da8c1cc7017833d399db4a35c4bc450b942a8ba272ed2ec3dac4cc",
+        "manifest_sha256": "e880b96347b92110bc3cace29310dfad22dbef119c4cdde0226b442c3cc017d3",
+        "archived_files": 6,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        91,
+        93
+      ]
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "8f9aad607aef149b004cc0b3fe1710cf1eb7996c",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0012.tgz",
+        "archive_sha256": "89b413ea8899344956733e1bde8f0239b46ba6fe9de426ea3c6324da90244e81",
+        "manifest_sha256": "b1eb8dad89dc6ef8fb24492f98a4fca2eba05b1c81491f4b4043dbb80809ddcf",
+        "archived_files": 4,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        90
+      ]
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "d31948f897fa7892de2df7d9241270a2f4689d86",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0013.tgz",
+        "archive_sha256": "1a3a0ff8fb286ad35cfe49ef97a86cb73ba820c5be91fd7ce1a4964be10a40aa",
+        "manifest_sha256": "a74a36c746cc550143bd6cd43e20c200158d2f4f9c763f14944dd98e795ccda2",
+        "archived_files": 4,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        94
+      ]
+    },
+    {
+      "evidence": {
+        "repo": "coyotte508/powergrid-ai-germany-v1",
+        "revision": "9d1918dfb223128993420267415dbcc288f2eafb",
+        "archive_path": "archives/pg-current-recover-v2-pop-search-4p-05-checkpoint-0014.tgz",
+        "archive_sha256": "8a4a88822a4931b645e2b94ce9970eb746ee842da08c24a793832f1de796cd93",
+        "manifest_sha256": "e905cecf58a59d157b761e1ad9cf79b2b9045391d5673291f13af149a1fdf6d6",
+        "archived_files": 4,
+        "format": "tar.gz",
+        "remote_archive_verified": true
+      },
+      "episodes": [
+        95
+      ]
+    }
+  ],
+  "retained_episodes": [
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95
+  ],
+  "original_failure_preserved": true,
+  "qualification_eligible": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false,
+  "job_id": "6ae3083f3fb22a235dd56000",
+  "terminal": {
+    "checked_at": "2026-10-29T09:38:17.093157+00:00",
+    "job_id": "6ae3083f3fb22a235dd56000",
+    "attempt_id": "pg-current-recover-v2-pop-search-4p-05",
+    "stage": "COMPLETED",
+    "timeout_seconds": 86400,
+    "flavor": "cpu-upgrade",
+    "image": "python:3.11-slim-bookworm",
+    "bootstrap_sha256": "604c628ebd57b1d09c6d377e0e501c9c87e4aa0fae10195f116aafe00b13b426",
+    "environment_sha256": "f0e386bfc7ff0f50885f51757753c4dbf7b4df4b8bfabf80d0261c629f60823c",
+    "public_configuration_verified": true,
+    "original_failed_handle": "6ae2c32f3fb22a235dd50586",
+    "log_sha256": "08059fbad903d14f37c3d54d078f009ae521f0f27b6ba1d5deab0bf88b1a7c1b"
+  },
+  "source_descriptor_sha256": "ee8e98a7f1cb3c0f0cb7f30527ab4c259aa4b0219e121bef98df0cd79096f840",
+  "collector_sha256": "c7394e741f6fd9f52b03a9d787f97ffd508e416be466bda3518c9237073ded74",
+  "manager_sha256": "81fb84a584a4efefe01627d85b62adee541489a806e6e2ccdd9d97a5db6d49cf",
+  "remaining_rows_admitted": false
+}

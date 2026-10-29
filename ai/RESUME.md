@@ -1,5 +1,26 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 07:32 UTC — original collection and resource-only timeout review.**
+
+The fourth bounded collector finished: **603 audited jobs / 19,424 games**, one
+explicit timeout failure, **17 originals inspected RUNNING**, no deferred
+terminals, and 323 unsubmitted rows. PID 1649138 / session 41391 has exited. The
+launching coordinator remains stopped; do not restart it. Inspect the collection
+state and actual process before the next bounded original-only collection.
+
+The resource review finds multiple four-player hybrid/search shards near the
+three-hour deadline: the slowest completed one consumed **98.8%**, with amortized
+cost **4.04×** the pilot sizing input. Forty-one of 54 groups have complete cost
+coverage; eleven hybrid groups have no completed confirmation jobs. No partial
+strength statistics were examined. Read
+[the resource diagnosis](CURRENT-AUCTION-TIMEOUT-COSTS-2026-10-29.md) and its
+structured report/archive descriptor. This does not admit resource changes or
+new jobs. Finish original collection, then record a separate recovery decision.
+
+Previous goal turn: progress (timeout evidence pushed as `3999503`). This turn:
+progress (five more original audits and measured resource diagnosis). Goal active;
+no candidate selected/qualified, no reserved final seeds used or new jobs launched.
+
 **29 October — incomplete HF timeout; launching coordinator stopped. Read this first.**
 
 Original job `6ae2c32f3fb22a235dd50586`

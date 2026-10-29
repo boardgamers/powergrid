@@ -68716,6 +68716,53 @@
         "previous_goal_turn_note": "The intervening Rust explanation was informational; preceding research diagnosed the timeout and added verified original collection.",
         "current_goal_turn_classification": "progress",
         "remaining": "Finish evidence collection for all 621 original handles. Separately record the resource/recovery decision before any new evaluation; keep all failures and avoid survivor-only comparisons."
+    },
+    "current_auction_timeout_cost_review_20261029": {
+        "status": "resource_only_diagnosis_original_confirmation_incomplete",
+        "doc": "ai/CURRENT-AUCTION-TIMEOUT-COSTS-2026-10-29.md",
+        "report": "ai/strong/current-auction-timeout-cost-review-v1.json",
+        "archive_descriptor": "ai/strong/current-auction-timeout-cost-evidence-v1.json",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "23f529f4633171b559b8e78ad48f0bb539b38f4a",
+            "archive_path": "archives/current-auction-timeout-cost-evidence-v1.tgz",
+            "archive_sha256": "baccc95e7bd3c8f0f876fb4594f9ba7d7baa7a06a2cf4e2d54a6724776155965",
+            "manifest_sha256": "f1d82241f9cdaa37272389d78b61f15faf0306ba9f3d343f47f2a66b63b11db5",
+            "archived_files": 2447,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "checkpoint": "2026-10-29T07:32:38.441309+00:00",
+        "collection_counts": {
+            "audited": 603,
+            "failed": 1,
+            "active": 17,
+            "unsubmitted": 323
+        },
+        "audited_games": 19424,
+        "completed_measurement_wall_hours": 359.77899172700506,
+        "completed_measurement_cpu_hours": 1272.611402777779,
+        "complete_cost_groups": 41,
+        "planned_cost_groups": 54,
+        "max_completed_search_4p_deadline_fraction": 0.9875998387904622,
+        "max_completed_search_4p_amortized_cost_ratio_to_pilot": 4.044193418086869,
+        "original_owner_pid": 3788704,
+        "original_owner_stopped": true,
+        "collection_pid": 1649138,
+        "collection_session": 41391,
+        "collection_finished": true,
+        "new_hf_jobs": 0,
+        "new_games": 0,
+        "new_policy_calls": 0,
+        "resource_change_admitted": false,
+        "partial_strength_analysis": false,
+        "candidate_selected": false,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "previous_goal_turn_classification": "progress",
+        "current_goal_turn_classification": "progress",
+        "goal_status": "active",
+        "remaining": "Collect all 621 originals and retain failures; use complete original cost evidence for a separately recorded recovery decision. Do not reuse the stopped coordinator or assume surviving timings bound unfinished/missing jobs. No new evaluation or final qualification admitted."
     }
 
 }

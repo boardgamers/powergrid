@@ -68483,6 +68483,61 @@
         "current_goal_turn_classification": "progress",
         "goal_status": "active",
         "remaining": "Wait for all original confirmation jobs and unchanged complete comparison. If requirements pass, assess every adverse cell, run real selection verification, archive review and freeze candidate; then integrate measured immutable-source admission and original-only final batches. The complete independent reserved strength gate remains unpassed."
+    },
+    "selected_public_policy_final_timeout_extension_20261029": {
+        "status": "measured_timeout_validation_fixed_no_final_admission",
+        "document": "ai/SELECTED-PUBLIC-POLICY-FINAL-TIMEOUT-2026-10-29.md",
+        "report": "ai/strong/selected-public-policy-final-timeout-v2.json",
+        "report_sha256": "eeddc9f3b0cd6e844880b341d193ff9916df44b3bd3173dcb51c8e75883099e6",
+        "tests": {
+            "dispatch": 14,
+            "collection": 16,
+            "streaming": 8
+        },
+        "tests_total": 38,
+        "local_max_timeout_hours_before": 12,
+        "local_max_timeout_hours_after": 24,
+        "population_projected_timeout_hours_by_player_count": {
+            "2": 5,
+            "3": 7,
+            "4": 9,
+            "5": 11,
+            "6": 13
+        },
+        "original_runtime_pilots_only": true,
+        "confirmation_outcomes_inspected": false,
+        "old_validator_rejection_reproduced": true,
+        "synthetic_all_320_shards_accepted": true,
+        "actual_final_allocation_admitted": false,
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "866d1827df8e0a5965c75aa9973643d317b9ae4d",
+            "archive_path": "archives/selected-public-policy-final-timeout-evidence-v2.tgz",
+            "archive_sha256": "2cf242b040995fe794fc09ee7ca8cb0fef0fa3c8e55cfca20808dd8f7756cac1",
+            "manifest_sha256": "36f6c5aeae78909f8094b40c579d1aaf02f2d04ff2102b852183b5a7608f29db",
+            "archived_files": 27,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "owner_checkpoint": {
+            "created_at": "2026-10-29T04:45:25.424542+00:00",
+            "owner_pid": 3788704,
+            "owner_verified_live": true,
+            "unchanged_owner_pins": 471,
+            "owner_audited_jobs_at_observation": 461,
+            "owner_submitted_jobs_at_observation": 525
+        },
+        "new_hf_jobs_by_this_work": 0,
+        "new_games": 0,
+        "new_policy_calls": 0,
+        "candidate_selected": false,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "previous_goal_turn_classification": "verified_wait",
+        "previous_goal_turn_note": "Same original coordinator and three exact HF handles rechecked; a completed original was independently collected, reaching 460 audited jobs/17072 games.",
+        "current_goal_turn_classification": "progress",
+        "goal_status": "active",
+        "remaining": "Finish unchanged confirmation and comparison before selection. Reassess measured allocations against complete costs; actual candidate/source/admission and final batch integration remain necessary. The complete independent reserved strength gate remains unpassed."
     }
 
 }

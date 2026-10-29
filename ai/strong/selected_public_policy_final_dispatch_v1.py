@@ -92,7 +92,9 @@ def validate_release(release, bootstrap):
         require(set(allocation) == {'flavor', 'timeout'}, 'Incomplete allocation')
         require(isinstance(allocation['flavor'], str) and re.fullmatch('[a-z0-9-]+', allocation['flavor']) is not None,
                 'Invalid HF flavor')
-        require(re.fullmatch('(?:[1-9]|1[0-2])h', allocation['timeout']) is not None, 'Invalid timeout')
+        # Four-deal final shards can need 13h under the measured six-player
+        # runtime allowance. Actual allocation remains a separate admission.
+        require(re.fullmatch('(?:[1-9]|1[0-9]|2[0-4])h', allocation['timeout']) is not None, 'Invalid timeout')
     return {r['name']: r for r in rows}
 
 

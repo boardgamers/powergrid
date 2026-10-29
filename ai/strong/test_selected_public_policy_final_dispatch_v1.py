@@ -125,6 +125,23 @@ class FinalDispatchTests(unittest.TestCase):
         with self.assertRaises(json.JSONDecodeError): self.launch()
         self.assertEqual(p.read_text(), '{'); self.assertEqual(self.api.run_job.call_count, 1)
 
+    def test_thirteen_and_twenty_four_hour_allocations_are_forwarded_exactly(self):
+        for timeout in ('13h', '24h'):
+            release = deepcopy(self.release)
+            release['allocation'][self.name]['timeout'] = timeout
+            dispatch.dispatch_once(self.api, self.root/timeout, release, self.name,
+                                   'synthetic-private-test-token', self.bootstrap)
+            self.assertEqual(self.api.run_job.call_args.kwargs['timeout'], timeout)
+        self.assertEqual(self.api.run_job.call_count, 2)
+
+    def test_invalid_or_over_day_timeouts_never_submit(self):
+        for timeout in ('0h', '25h', '13.5h', '24hh', '1d', '999h'):
+            release = deepcopy(self.release)
+            release['allocation'][self.name]['timeout'] = timeout
+            with self.subTest(timeout=timeout), self.assertRaisesRegex(ValueError, 'Invalid timeout'):
+                self.launch(release=release)
+        self.api.run_job.assert_not_called()
+
 
 class BootstrapTests(unittest.TestCase):
     @classmethod

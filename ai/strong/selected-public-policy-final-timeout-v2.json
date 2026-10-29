@@ -1,0 +1,169 @@
+{
+  "passed": true,
+  "created_at": "2026-10-29T04:45:25.424542+00:00",
+  "scope": "Original complete runtime-pilot cost extrapolation and synthetic release validation only. Actual final allocation must be reviewed against the complete confirmation costs before admission.",
+  "input_hashes": {
+    "ai/strong/record-selected-public-policy-final-timeout-v2.py": "004770b523d1908bb09f4b9bde0f132fe7c910e8762d7638ae919adf35fb54ff",
+    "ai/strong/selected_public_policy_final_dispatch_v1.py": "d9622c7b19543a5a83cc59ce9c6967c8e61d7a466e68e6244680c894838ca34e",
+    "ai/strong/test_selected_public_policy_final_dispatch_v1.py": "88f951ea4f909ad4c8bd3b8ca90502a1a97ea55a6b4e5b67a98bbca07d9bd558",
+    "ai/strong/selected_public_policy_final_collection_v1.py": "d04d1ebcbefbb94916227c25b2772889f1cc3e5e6094e66b28c8d4f1d0bf8651",
+    "ai/strong/test_selected_public_policy_final_collection_v1.py": "0663b2fbf571389cd70433cfa33d5e1a000c2795501e899a6384f2b97a5422bd",
+    "ai/strong/selected_public_policy_final_streaming_v1.py": "5e4e542760b24d7d62e743e0b54bc680b235f1ed01dae89fd57d3e140a6ace39",
+    "ai/strong/test_selected_public_policy_final_streaming_v1.py": "362614f7ea785884e26841ed9b6ae70a8072f1fab7e221e52db22d5bb048b0c2",
+    "ai/strong/prepare-current-auction-grid-v1.py": "8c2c50c0477fa9e890e52ec531f81728e32d41407a9b652ab15337f5ecd30536",
+    "ai/strong/current-auction-grid-source-v1.json": "a4384b10eb8a4381423731bc0c315673f9214d91c1fb336aa81ef4a7102d1c5a",
+    "ai/strong/current-auction-runtime-results-v1.json": "fe1f794098e0755c61bb321371a133e0cf757e037c33ea462327f7d9f0afef68",
+    "ai/strong/current-auction-runtime-source-v1.json": "d76b90f0ab5156c08c6c312abb7d7f640da79dfdd254f15c698ef049d47857c7",
+    "ai/strong/final-protocol-multiplayer.json": "7f0336c8784faf8f18e046b95b88e0ab1be7c2de1c0ec4d3eec96f0a415286ce",
+    "ai/runs/selected-public-policy-final-dispatch-preflight-v1/synthetic-release.json": "3ac775125c7dcc46b32415c7cca081c0e1a409499aefbf64d1abce4e255623f8",
+    "ai/runs/selected-public-policy-final-dispatch-preflight-v1/final-bootstrap.sh": "609b170a8c499faf84996172b46435102ff9850b6971e51e42e25f8e8ba2b5b4",
+    "ai/runs/selected-public-policy-final-timeout-v2/selected_public_policy_final_dispatch_v1.py": "f9732de6fd7920459a72ba848037f7056b89890eb8809bbe9eb3fe810219890e",
+    "ai/runs/selected-public-policy-final-timeout-v2/test_selected_public_policy_final_dispatch_v1.py": "875a6b66e1a93bfd7b93244bac13ca32a420143f5e9f457670d4d3b58eb78eff",
+    "ai/runs/selected-public-policy-final-timeout-v2/dispatch-tests-first.log": "0a0f3dd3d9aab5b9d7b4ca17ed470fb516ec34d738e957cb9c0f9f7023462343",
+    "ai/runs/selected-public-policy-final-timeout-v2/collection-tests-first.log": "cbde569752302ec415cb0fceab7c7c58303d2031c8cdc4a6bc6551139991b366",
+    "ai/runs/selected-public-policy-final-timeout-v2/streaming-tests-first.log": "ca47018429df3399da02131f42441b31211e4b368dbdc0327bf9e4ee1700a180"
+  },
+  "tests": {
+    "dispatch": 14,
+    "collection": 16,
+    "streaming": 8
+  },
+  "tests_total": 38,
+  "projections": {
+    "filter": {
+      "2": {
+        "games_per_fixed_final_shard": 32,
+        "projected_seconds_with_existing_margin": 5032.945931818646,
+        "timeout_hours": 2,
+        "exceeds_previous_validator_cap": false
+      },
+      "3": {
+        "games_per_fixed_final_shard": 48,
+        "projected_seconds_with_existing_margin": 7099.41889772797,
+        "timeout_hours": 3,
+        "exceeds_previous_validator_cap": false
+      },
+      "4": {
+        "games_per_fixed_final_shard": 64,
+        "projected_seconds_with_existing_margin": 9165.891863637293,
+        "timeout_hours": 4,
+        "exceeds_previous_validator_cap": false
+      },
+      "5": {
+        "games_per_fixed_final_shard": 80,
+        "projected_seconds_with_existing_margin": 11232.364829546616,
+        "timeout_hours": 5,
+        "exceeds_previous_validator_cap": false
+      },
+      "6": {
+        "games_per_fixed_final_shard": 96,
+        "projected_seconds_with_existing_margin": 13298.83779545594,
+        "timeout_hours": 5,
+        "exceeds_previous_validator_cap": false
+      }
+    },
+    "conservative_population": {
+      "2": {
+        "games_per_fixed_final_shard": 32,
+        "projected_seconds_with_existing_margin": 11449.523384549344,
+        "timeout_hours": 5,
+        "exceeds_previous_validator_cap": false
+      },
+      "3": {
+        "games_per_fixed_final_shard": 48,
+        "projected_seconds_with_existing_margin": 16724.285076824017,
+        "timeout_hours": 7,
+        "exceeds_previous_validator_cap": false
+      },
+      "4": {
+        "games_per_fixed_final_shard": 64,
+        "projected_seconds_with_existing_margin": 21999.046769098688,
+        "timeout_hours": 9,
+        "exceeds_previous_validator_cap": false
+      },
+      "5": {
+        "games_per_fixed_final_shard": 80,
+        "projected_seconds_with_existing_margin": 27273.80846137336,
+        "timeout_hours": 11,
+        "exceeds_previous_validator_cap": false
+      },
+      "6": {
+        "games_per_fixed_final_shard": 96,
+        "projected_seconds_with_existing_margin": 32548.570153648034,
+        "timeout_hours": 13,
+        "exceeds_previous_validator_cap": true
+      }
+    }
+  },
+  "unchanged_final_jobs": 320,
+  "unchanged_final_games": 20160,
+  "synthetic_release_sha256": "1dcc538bf4e57dbf45812650195adec0a20d4cc1e2e62ae3a47ea9c6aa654925",
+  "old_validator_rejection": "Invalid timeout",
+  "new_validator_accepts_all_original_shards": true,
+  "projection_timeout_counts": {
+    "5h": 60,
+    "7h": 80,
+    "9h": 60,
+    "11h": 60,
+    "13h": 60
+  },
+  "pilot_jobs": [
+    {
+      "name": "pg-current-auction-runtime-v1-filter-2p",
+      "job_id": "6ae2733541e90535df77d71e",
+      "arm": "filter",
+      "players": 2,
+      "games": 8,
+      "seconds": 78.30777059309185,
+      "sampled_peak_total_rss_bytes": 2297688064
+    },
+    {
+      "name": "pg-current-auction-runtime-v1-filter-6p",
+      "job_id": "6ae273363fb22a235dd4a65d",
+      "arm": "filter",
+      "players": 6,
+      "games": 24,
+      "seconds": 1549.8547244319925,
+      "sampled_peak_total_rss_bytes": 2678063104
+    },
+    {
+      "name": "pg-current-auction-runtime-v1-pop-2p",
+      "job_id": "6ae2733641e90535df77d722",
+      "arm": "conservative_population",
+      "players": 2,
+      "games": 8,
+      "seconds": 589.3831361420162,
+      "sampled_peak_total_rss_bytes": 6772736000
+    },
+    {
+      "name": "pg-current-auction-runtime-v1-pop-6p",
+      "job_id": "6ae273363fb22a235dd4a660",
+      "arm": "conservative_population",
+      "players": 6,
+      "games": 24,
+      "seconds": 3956.071269206004,
+      "sampled_peak_total_rss_bytes": 7332507648
+    }
+  ],
+  "workers": 4,
+  "flavor": "cpu-upgrade",
+  "memory_margin": 2,
+  "doubled_measured_peak_bytes": 14665015296,
+  "existing_memory_envelope_bytes": 27487790694.4,
+  "documentation": [
+    "https://huggingface.co/docs/hub/en/jobs-configuration"
+  ],
+  "new_cap_is_local_validation_bound_not_claimed_hf_maximum": true,
+  "owner_pid": 3788704,
+  "owner_verified_live": true,
+  "unchanged_owner_pins": 471,
+  "owner_audited_jobs_at_observation": 461,
+  "owner_submitted_jobs_at_observation": 525,
+  "new_hf_jobs_by_this_work": 0,
+  "new_games": 0,
+  "new_policy_calls": 0,
+  "candidate_selected": false,
+  "actual_final_allocation_admitted": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

@@ -1,5 +1,37 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 04:45 UTC — measured final-shard timeout mismatch corrected.**
+
+The unchanged final schedule uses four deals per shard. Applying the existing
+complete-pilot runtime allowance projects 5/7/9/11/13-hour timeouts for the
+auction-search policy at 2/3/4/5/6 players. The final transport's 12-hour cap
+would reject the six-player jobs. Its local validation bound now permits 1–24
+whole hours, consistent with the existing confirmation planner. The original
+validator was preserved and reproduced the rejection; all 320 synthetic final
+release rows pass the new validator with the same 20,160-game schedule.
+
+All **38 relevant tests passed** (14 dispatch, 16 collection, eight storage).
+No running job, policy, source or worker count changed. No final game, inference
+or HF submission was made by this work. Actual final allocations still require
+review against the complete confirmation costs before admission.
+
+Read [the timeout handoff](SELECTED-PUBLIC-POLICY-FINAL-TIMEOUT-2026-10-29.md).
+Its 27-file evidence archive was privately upload/download verified at revision
+`866d1827df8e0a5965c75aa9973643d317b9ae4d`. Earlier transport-related archives
+retain their original dependency hashes; use this new proof for the timeout
+extension. Do not rerun completed tests/preflight/archive operations.
+
+At **04:45:25 UTC**, coordinator **PID 3788704 / session 32582** was verified
+live with **471 unchanged pins**, recording **461 audited / 525 submitted**
+original jobs. Preserve the owner and original handles; no partial strength
+analysis or competing collector. The previous goal turn was a verified wait
+on the same original handles, including collection of a newly completed job.
+This turn made progress by resolving the measured final timeout incompatibility.
+Research remains active, no candidate is selected or qualified, and the reserved
+final seeds remain unused. Full confirmation, selection, admission/integration
+and the independent held-out strength gate remain required.
+
+
 **29 October, 04:32 UTC — selection prerequisites connected; no candidate selected.**
 
 The read-only selection gate now checks the complete original comparison,

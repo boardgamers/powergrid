@@ -105,6 +105,17 @@ re-auditing. After this target is collected and audited, bind every saved
 `strong/audit_current_engine_export_v1.py bind_serving`. This adds no inference
 or simulations. The full target collection and binding are still pending.
 
+After the original process exits successfully, preserve the first collection
+log as `runs/current-full-serving-8840u-collect-v1-first.log` and the first
+binding log as `runs/current-full-serving-export-binding-v1-first.log`.
+Then run `strong/archive-current-full-serving-results-v1.py` once. This helper
+requires the completed 5,106-response audit and native-proposal binding, checks
+all raw hashes and archives the original outputs. It references the immutable
+launch package and checkpoint proof for recovery without rerunning anything.
+The helper is prepared and syntax-checked, but has not yet been exercised because
+the original target remains live. Inspect any prior collection/archive intent
+before retrying; an observation timeout never authorizes a replacement replay.
+
 After complete strength confirmation, selection must bind the same exact
 identity/settings to reuse applicable technical evidence. The separate reserved
 strength gate remains required. No candidate is qualified by this benchmark,

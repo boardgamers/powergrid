@@ -1,5 +1,34 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 03:51 UTC — final-job archive verifier tested; original confirmation continues.**
+
+The returned-final-job verifier now checks the original HF completion status,
+launch/release/source bindings, full archive contents, candidate/contract bytes,
+worker settings and independent raw-game audit. Sixteen synthetic transport tests
+passed. A separate check over the real frozen artifact correctly rejected a
+fabricated completion summary with no actual games at the independent raw-audit
+boundary. **No game, inference, HF job or reserved seed was executed by this work.**
+
+Read [the collection-verifier handoff](SELECTED-PUBLIC-POLICY-FINAL-COLLECTION-2026-10-29.md).
+Its 38-file proof is privately archived and verified at model revision
+`0ff65717751ccee3eb3722c5350712c81a2201f6`. This is a single-job verifier;
+real selection/admission, source publication, batch management and complete final
+qualification remain required. Do not confuse its synthetic fixture with final
+game evidence or rerun its completed tests/preflight/upload.
+
+At **03:51:21 UTC**, sole coordinator **PID 3788704 / session 32582** was verified
+live with all **471 pins unchanged**: **405 audited jobs / 15,984 games**,
+469 originals submitted, all **64 uncollected originals RUNNING** in fresh HF
+inspection. Snapshot: `strong/current-auction-network-resume-progress-v1.json`.
+Preserve this owner and use the explicit resumed-owner comparison command below
+only after all 944 originals are complete. No partial strength analysis or
+competing collector; no candidate selected/qualified; final seeds unused.
+
+Previous goal turn: verified wait (the oldest original jobs advanced in their
+actual game logs). This turn: progress (tested independent final-job verification
+and negative integration), plus verified waiting on the original study.
+
+
 **29 October, 03:14 UTC — confirmation deliberately resumed after inspecting the DNS stop.**
 
 Original-only collection passed another 33 jobs / 720 games. All 403 existing

@@ -70,6 +70,9 @@ its artifact again. Do not rerun the preflight or repeat the upload.
    exact selected policy/settings; do not repeat the completed replay.
 4. Execute the reserved strength plan only after admission; independently audit
    every original result and apply the unchanged final qualification gate.
+   The [returned-archive verifier](SELECTED-PUBLIC-POLICY-FINAL-COLLECTION-2026-10-29.md)
+   now checks exact source/launch bindings and invokes the independent raw auditor.
+   It still needs integration into the real original-only batch/collection manager.
 
 The confirmation owner's current status and recovery instructions are in
 [the recovery handoff](CURRENT-AUCTION-RECOVERY-2026-10-29.md). Do not modify its

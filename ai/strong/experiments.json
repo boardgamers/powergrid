@@ -68919,5 +68919,73 @@
         "doc": "ai/CURRENT-AUCTION-FIRST-RECOVERY-2026-10-29.md",
         "report": "ai/strong/current-auction-first-recovery-status-v2.json",
         "next_action": "Check only handle 6ae3083f3fb22a235dd56000. Collect independently after terminal; no remaining-row dispatch before complete 16-game audit and live-child retention proof. No automatic retries."
+    },
+    "current_auction_recovery_coverage_20261029": {
+        "passed": true,
+        "tests": 12,
+        "positive_controls": "small synthetic coverage; review loader mocked",
+        "actual_canonical_shards": 944,
+        "actual_canonical_games": 26880,
+        "actual_shards_by_disposition": {
+            "preserved_original": 620,
+            "failed_original_recovery": 1,
+            "first_execution": 323
+        },
+        "actual_games_by_disposition": {
+            "preserved_original": 19764,
+            "failed_original_recovery": 16,
+            "first_execution": 7100
+        },
+        "original_hf_status_counts": {
+            "COMPLETED": 617,
+            "ERROR": 4
+        },
+        "original_failed_handle": "6ae2c32f3fb22a235dd50586",
+        "current_attempt_handle": "6ae3083f3fb22a235dd56000",
+        "actual_incomplete_study_rejected": "Incomplete recovery coverage; do not read outcomes",
+        "actual_live_attempt_insufficient": "Incomplete recovery coverage; do not read outcomes",
+        "review_loader_calls": 0,
+        "game_outcome_files_read": 0,
+        "plan_sha256": "dfcc80ae1bff4482201bfbf5ea3c51c671b2e5d473bcfe552edd08d439fe9967",
+        "canonical_game_keys_sha256": "5fee4cffe93311894d9e10d1fe959213e3d34e84b680bb44cc4da0bddef7ceb7",
+        "input_hashes": {
+            "ai/strong/current-auction-grid-source-v1.json": "a4384b10eb8a4381423731bc0c315673f9214d91c1fb336aa81ef4a7102d1c5a",
+            "ai/strong/current-auction-resource-recovery-decision-v2.json": "4d23adb861704dc2ec3e8e3d358024e026175ccce13dc2efb768742c00a348fb",
+            "ai/runs/current-auction-timeout-collection-v1/cycles/2026-10-29T07-45-19.458530+00-00.json": "f5d8fb0386c706531bcc03a099f0d26b52b0b7a83d2f4babac31c417f2b12fa2",
+            "ai/runs/current-auction-resource-recovery-hf-v2/launch.json": "54744d68282f2f92a397008d7cb95481b594b8059802e554478c1d4257580446",
+            "ai/strong/current-auction-resource-supervisor-source-v2.json": "ee8e98a7f1cb3c0f0cb7f30527ab4c259aa4b0219e121bef98df0cd79096f840",
+            "ai/strong/current_auction_recovery_coverage_v2.py": "9c16301ea8d66aa2f226f2ca31f4dd3b1d9b66c495180417f76f518f5c835a1d",
+            "ai/strong/prepare_current_auction_recovery_coverage_v2.py": "d49d7c423688919f062faf91ab887ff8ecd6a7cae5096fbe2ff2748099fbdc92",
+            "ai/runs/current-auction-recovery-coverage-tests-v2-handle-pin.log": "8fc02dcca55f9bd41d3ce13c09b12464c68d74270d81e5bcf254e7ab69414088",
+            "ai/strong/test_current_auction_recovery_coverage_v2.py": "2aee6fc3880bb7a0e94dca52906640aa511d37b62ef141aa1efdde89306a1703"
+        },
+        "new_hf_jobs": 0,
+        "new_games": 0,
+        "new_inference": 0,
+        "remaining_grid_admitted": false,
+        "actual_complete_coverage_verified": false,
+        "statistics_admitted": false,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "previous_goal_turn_classification": "progress",
+        "current_goal_turn_classification": "progress",
+        "goal_status": "active",
+        "actual_hf_observation": {
+            "checked_at": "2026-10-29T09:09:12.593610+00:00",
+            "job_id": "6ae3083f3fb22a235dd56000",
+            "attempt_id": "pg-current-recover-v2-pop-search-4p-05",
+            "stage": "RUNNING",
+            "timeout_seconds": 86400,
+            "flavor": "cpu-upgrade",
+            "image": "python:3.11-slim-bookworm",
+            "bootstrap_sha256": "604c628ebd57b1d09c6d377e0e501c9c87e4aa0fae10195f116aafe00b13b426",
+            "environment_sha256": "f0e386bfc7ff0f50885f51757753c4dbf7b4df4b8bfabf80d0261c629f60823c",
+            "public_configuration_verified": true,
+            "original_failed_handle": "6ae2c32f3fb22a235dd50586"
+        },
+        "doc": "ai/CURRENT-AUCTION-RECOVERY-COVERAGE-2026-10-29.md",
+        "report": "ai/strong/current-auction-recovery-coverage-preflight-v2.json",
+        "archive_descriptor": "ai/strong/current-auction-recovery-coverage-evidence-v2.json",
+        "next_action": "Check/collect the same first recovery. Only after its independent raw audit and live-child retention proof may the fixed 323 rows be admitted. Wire authenticated attempt reviews and full raw re-auditing into the eventual comparator; never fake original owner completion."
     }
 }

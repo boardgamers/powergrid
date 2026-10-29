@@ -1,5 +1,28 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 09:09 UTC — canonical recovery coverage verified; same first job still RUNNING.**
+
+The same recovery handle **`6ae3083f3fb22a235dd56000`** remains RUNNING with its
+verified 24-hour allocation. No new jobs were submitted. Check that exact handle;
+collect only after terminal, without restarting or changing its frozen controls.
+
+The new [coverage component and proof](CURRENT-AUCTION-RECOVERY-COVERAGE-2026-10-29.md)
+verifies the actual **944-shard / 26,880-game** partition: 620 preserved audited
+originals / 19,764 games, one failed-original recovery / 16 games, and 323 fixed
+unsubmitted rows / 7,100 games. Twelve tests passed. The real incomplete study
+rejected before any review/outcome access. The first recovery's exact handle is
+pinned; original failures and disjoint canonical game identities remain explicit.
+
+This is a coverage prerequisite, not completed confirmation or an integrated
+comparator. Recovery launch/admission/receipt authentication and full raw
+re-auditing remain mandatory before the unchanged statistics/selection gates.
+Do not fabricate completion of the stopped original owner. The remaining rows
+still await the first recovery's actual audit and live-child retention proof.
+
+Previous goal turn: progress (first recovery launched). This turn: progress
+(coverage implementation and real rejection proof); same handle verified live.
+Goal active, no candidate qualified and final seeds unused.
+
 **29 October, 08:50 UTC — single failed-shard recovery running; HF controls verified.**
 
 The one admitted attempt is **`6ae3083f3fb22a235dd56000`**, named

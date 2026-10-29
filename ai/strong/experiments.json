@@ -68581,6 +68581,48 @@
         "current_goal_turn_classification": "progress",
         "goal_status": "active",
         "remaining": "Complete original confirmation and independent comparison. Select only if requirements pass and adverse cells are substantively reviewed. Actual source preparation/publication and final batch/collection integration remain necessary; full reserved strength gate has not passed."
+    },
+    "selected_public_policy_final_manager_20261029": {
+        "status": "engineering_verified_actual_final_admission_blocked",
+        "doc": "ai/SELECTED-PUBLIC-POLICY-FINAL-MANAGER-2026-10-29.md",
+        "report": "ai/strong/selected-public-policy-final-manager-preflight-v1.json",
+        "tests": 16,
+        "synthetic_positive_cases": true,
+        "actual_incomplete_study_rejected": true,
+        "actual_final_manager_directory_created": false,
+        "unchanged_final_jobs": 320,
+        "unchanged_final_games": 20160,
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "ec74b2b8f689f905d5c583f0465c3732e08e9e9c",
+            "archive_path": "archives/selected-public-policy-final-manager-evidence-v1.tgz",
+            "archive_sha256": "6f9052ed3a3bbf7508f2a49acfc8cb7d9f3d08692645725c1fb9773f1df9c0ce",
+            "manifest_sha256": "46f2e1499ac350b18ea012f952f06568e5ec8bafc585ca08c66139955c9e3e21",
+            "archived_files": 28,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "owner_checkpoint": {
+            "updated_at": "2026-10-29T05:15:45.560390+00:00",
+            "stage": "waiting_for_original_confirmation_jobs",
+            "verified_jobs": 469,
+            "submitted_jobs": 533
+        },
+        "owner_pid": 3788704,
+        "owner_verified_live": true,
+        "unchanged_owner_pins": 471,
+        "new_hf_jobs_by_this_work": 0,
+        "new_games": 0,
+        "new_policy_calls": 0,
+        "candidate_selected": false,
+        "final_launch_admitted": false,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "previous_goal_turn_classification": "progress",
+        "previous_goal_turn_note": "Candidate/source preparation and 16 tests were completed, archived and pushed as 1bc3db7.",
+        "current_goal_turn_classification": "progress",
+        "goal_status": "active",
+        "remaining": "Finish unchanged confirmation and independent comparison, then select/freeze/publish only if justified. Actual final admission remains unproven. Separate full original-archive re-audit, aggregate strength assessment and exact technical qualification integration remain necessary."
     }
 
 }

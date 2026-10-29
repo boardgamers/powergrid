@@ -1,5 +1,33 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 05:16 UTC — final collection/dispatch runner tested; no final admission.**
+
+The new bounded-cycle manager connects reviewed source admission, original-only
+dispatch and streaming raw collection. It rechecks the complete candidate/source
+bindings, collects before submitting, keeps at most 64 original jobs active,
+preserves uncertain submissions and failed-job evidence, and stops for inspection
+without automatic retries or replacements. A collection-only mode cannot launch.
+
+All **16 focused tests passed**. Positive evidence and HF traffic were mocked;
+the real incomplete study rejected manager admission after one state read, before
+network calls or creation of the final-run directory. Its 28-file engineering
+archive was privately upload/download verified at revision
+`ec74b2b8f689f905d5c583f0465c3732e08e9e9c`. Read
+[the manager handoff](SELECTED-PUBLIC-POLICY-FINAL-MANAGER-2026-10-29.md).
+Do not rerun its completed preflight or archive upload.
+
+The sole confirmation coordinator **PID 3788704 / session 32582** was verified
+live with all **471 pins unchanged**. Its 05:15:45 checkpoint recorded **469 audited
+/ 533 submitted** originals. Preserve it; no competing collector or partial
+strength analysis. Actual final selection/source publication/admission remain
+blocked on complete confirmation and review. Separate final archive re-auditing,
+aggregation and strength/technical qualification integration remain to finish.
+
+Previous turn: progress (candidate/source workflow pushed as `1bc3db7`). This
+turn: progress (runner, tests and actual negative admission proof). Research
+active; no candidate selected/qualified, no reserved games used or submitted here.
+
+
 **29 October, 05:05 UTC — candidate/source preparation workflow tested; actual selection still blocked.**
 
 The new preparation helper connects complete reviewed confirmation to candidate

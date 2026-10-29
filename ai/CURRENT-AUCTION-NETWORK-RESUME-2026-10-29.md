@@ -84,7 +84,22 @@ upload have completed: inspect their intent/outcome rather than repeating them.
 Let the unchanged original study finish. Only after all 944 original rows are
 collected should the independent complete comparison run using
 `strong/compare-current-auction-confirmation-parallel-v1.py` and its frozen
-readiness. Do not analyze partial win rates or tune policies on incomplete results.
+readiness. **Pass this owner's state explicitly:** the comparator's unchanged
+default still points to the stopped coordinator. Once this owner reports
+`stage: complete`, `completed_games: 26880`, and the complete result exists, run:
+
+```sh
+ai/.venv/bin/python -u -B ai/strong/compare-current-auction-confirmation-parallel-v1.py \
+  --owner-state ai/runs/current-auction-network-resume-v1/state.json
+```
+
+Its output is `strong/current-auction-confirmation-comparison-parallel-v1.json`.
+Inspect any existing output/intent before running; do not repeat an existing
+analysis or change the frozen comparator merely to change its default path.
+The explicit argument is already supported and binds the new owner's complete
+result hash and all 471 pins into the independent comparison.
+
+Do not analyze partial win rates or tune policies on incomplete results.
 Preserve every failure and adverse cell. Selection still requires the original
 confirmation criteria, then a separately admitted held-out strength evaluation.
 

@@ -28,6 +28,12 @@ and verified original-job execution). Research active; no candidate selected or
 qualified; reserved final seeds unused. Complete comparison, selection and the
 held-out strength gate remain pending. The completed 8840U replay must not be rerun.
 
+Comparison handoff correction: when all 944 original jobs are complete, pass
+`--owner-state ai/runs/current-auction-network-resume-v1/state.json` to the
+existing parallel comparator. Its default still points to the stopped owner.
+The exact command and completion prerequisites are in the network-resumption
+handoff above. This changes no execution, statistics or qualification requirement.
+
 
 **29 October, 02:58 UTC — full 8840U evidence complete; confirmation owner stopped on a network error.**
 

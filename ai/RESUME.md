@@ -1,5 +1,36 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 10:24 UTC — explicit receipt authentication passed; same 64 jobs RUNNING.**
+
+The bounded cycle checked the exact 64 handles again: all RUNNING, zero terminal
+collections and zero new submissions. Their frozen source/allocations remain
+verified. Preserve these handles; 259 rows remain unsubmitted and total audited
+coverage remains 19,780 / 26,880 games. No background coordinator was started.
+
+Read [the authentication handoff](CURRENT-AUCTION-RECOVERY-AUTHENTICATION-2026-10-29.md).
+`strong/current_auction_recovery_authentication_v2.py` now connects canonical
+coverage to actual prepared/launch/terminal/log/envelope receipt identities.
+Sixteen tests passed. Its real preflight authenticated the completed first
+recovery without repeating the raw audit, checked all 64 saved launch/configuration
+bindings, and rejected the actual incomplete study before any comparison context
+or review-loader call. At that snapshot 1 / 324 recovery reviews was available.
+No game outcomes were analyzed, simulations/inference run, or policies changed.
+
+Report and private archive descriptor:
+`strong/current-auction-recovery-authentication-preflight-v2.json` and
+`strong/current-auction-recovery-authentication-evidence-v2.json`. Do not repeat
+the successful preflight, tests or archive operation. The original failure stays
+failed; its separate completed recovery retains the exact admitted handle.
+
+Next: continue bounded collection/dispatch of the current fixed rows and implement
+the complete-attempt comparator/selection integration. Complete authentication
+still requires all 324 recovery reviews and does not itself admit statistics:
+all 620 preserved originals plus 324 attempts require full raw re-auditing and
+the unchanged paired/strength gates. Never fabricate completion of the old
+owner. Previous turn: progress (64 live submissions). This turn: progress
+(actual authentication and incomplete-study rejection), plus a verified live
+check. Goal active; no candidate selected/qualified or reserved final seeds used.
+
 **29 October, 10:09 UTC — remaining confirmation admitted; first 64 jobs confirmed RUNNING.**
 
 Read [the remaining-dispatch handoff](CURRENT-AUCTION-REMAINING-DISPATCH-2026-10-29.md).

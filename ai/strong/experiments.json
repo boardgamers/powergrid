@@ -69184,5 +69184,60 @@
         "candidate_selected": false,
         "qualified": false,
         "reserved_final_seeds_used": false
+    },
+    "current_auction_recovery_authentication_20261029": {
+        "created_at": "2026-10-29T10:28:22.107307+00:00",
+        "status": "authentication_preflight_passed_complete_comparison_still_unadmitted",
+        "goal_status": "active",
+        "previous_goal_turn_classification": "progress",
+        "current_goal_turn_classification": "progress",
+        "document": "ai/CURRENT-AUCTION-RECOVERY-AUTHENTICATION-2026-10-29.md",
+        "preflight": "ai/strong/current-auction-recovery-authentication-preflight-v2.json",
+        "preflight_sha256": "a00779a9d3dcb5d5865fa4e59e486cd5da62d1df42692acc2453b47784604332",
+        "tests": 16,
+        "actual_first_receipt_authenticated": true,
+        "first_job_id": "6ae3083f3fb22a235dd56000",
+        "original_failed_handle_preserved": "6ae2c32f3fb22a235dd50586",
+        "raw_audit_repeated": false,
+        "actual_remaining_launch_bindings_checked": 64,
+        "actual_incomplete_comparison_rejection": "Incomplete recovery coverage; do not read outcomes",
+        "comparison_context_calls_before_rejection": 0,
+        "comparison_review_loader_calls_before_rejection": 0,
+        "inventory": {
+            "required_recovery_receipts": 324,
+            "available_recovery_receipts": 1,
+            "missing_recovery_receipts": 323,
+            "complete": false,
+            "missing_by_kind": {
+                "first_execution": 323
+            },
+            "review_contents_loaded": false,
+            "statistics_admitted": false
+        },
+        "latest_hf_observed_at": "2026-10-29T10:24:21.579292+00:00",
+        "latest_hf_stages": {
+            "RUNNING": 64
+        },
+        "total_audited_games": 19780,
+        "required_confirmation_games": 26880,
+        "remaining_unsubmitted_jobs": 259,
+        "private_evidence_archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "450bd53071eec6e9ee1731196fff086af4f5feda",
+            "archive_path": "archives/current-auction-recovery-authentication-evidence-v2.tgz",
+            "archive_sha256": "8ac8c7d4d706917f43e494e43ef7ce9f89d22759fa8b405e4b57593c9dd03ab9",
+            "manifest_sha256": "21486003796f5c870db0fd3d192bde6498138618065aa774e28959686dce43fe",
+            "archived_files": 156,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "new_jobs": 0,
+        "new_games": 0,
+        "new_inference": 0,
+        "statistics_computed": false,
+        "candidate_selected": false,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "next": "Complete-attempt raw comparator/selection integration and bounded collection/dispatch; no fake completion of stopped original owner."
     }
 }

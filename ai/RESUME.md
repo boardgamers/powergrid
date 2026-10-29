@@ -1,5 +1,31 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 08:50 UTC — single failed-shard recovery running; HF controls verified.**
+
+The one admitted attempt is **`6ae3083f3fb22a235dd56000`**, named
+`pg-current-recover-v2-pop-search-4p-05`, repeating the same failed 16-game shard.
+HF confirms **86,400 seconds / cpu-upgrade**, exact image, bootstrap and source
+environment. HF reported RUNNING at 08:50:35 UTC; inspect the handle for current
+status. No new local coordinator exists. Do not restart old owners, rerun
+preparation/upload, or submit any of the other 323 rows yet.
+
+Read [the first recovery handoff](CURRENT-AUCTION-FIRST-RECOVERY-2026-10-29.md).
+The immutable original evaluator now has an external supervisor for periodic
+verified raw-game retention, a final evidence envelope and independent collection.
+Thirty-five new focused tests passed. Actual original-source validation ran no
+games, and the separately prepared supervisor was privately upload/download
+verified before dispatch. The existing 13 retention tests and real saved-data
+transport proof remain valid and were not repeated.
+
+Next: bounded `manage_current_auction_resource_recovery_v2.py check`; after the
+original recovery handle is terminal, use its `collect`. The actual 16-game audit
+and in-flight retention gate must pass before extending the fixed remaining grid.
+Preserve the original timeout and 620 audited shards / 19,764 games. No partial
+strength comparison, candidate selection, final seeds or deployment.
+
+Previous goal turn: no progress (Rust explanation). This turn: progress (actual
+prepared controls, private publication and verified single submission). Goal active.
+
 **29 October — external completed-game retention verified; actual recovery not admitted.**
 
 The new retention component preserves stable completed game/decision pairs with

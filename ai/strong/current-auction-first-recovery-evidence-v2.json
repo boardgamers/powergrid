@@ -1,0 +1,40 @@
+{
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "303db6b7e1d05a2333f216b2288aa9bd89e00bd9",
+    "archive_path": "archives/current-auction-first-recovery-evidence-v2.tgz",
+    "archive_sha256": "57ca478edbbef4014485dcc216378b975cfde1c5badacef5e714bab15744779c",
+    "manifest_sha256": "49d300dc933d891af846cc69cf5b18464e4ec9fecc0e88f6676fa31edd5858a7",
+    "archived_files": 41,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "report_sha256": "930dd8d8aafbf75e2e306313b71ac4444660e4b6958963ab6088859eb195a2da",
+  "job_id": "6ae3083f3fb22a235dd56000",
+  "original_failed_handle": "6ae2c32f3fb22a235dd50586",
+  "supervisor_source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "revision": "778bae6ba409236528ff2e059de38a9e42423241",
+    "archive": "strong-source-current-auction-resource-supervisor-v2.tgz",
+    "sha256": "97d4722af31a5146845419f0302ba91403b39f50d3f18e36e73a6eb75b3aa170",
+    "manifest_sha256": "632d61da5f80863171f7c3fecb91b6d143e63aeea4a47400e5f283977fcee064",
+    "preparation_sha256": "155b357f367b1fed5ff127881942122d99b076bd699d99177f92e4e58c5f1e88",
+    "remote_archive_verified": true
+  },
+  "preparation_evidence": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "55423a8cb56683a99ba004c7842107dbba36ddac",
+    "archive_path": "archives/current-auction-resource-preparation-evidence-v2.tgz",
+    "archive_sha256": "4e7e6a98d4bd9c6237005ed825320c9f012c731f138355c3f8f9a46a20b81332",
+    "manifest_sha256": "9880188c2617f676cbed0333b77a7a1fb895b9d8b1f917a17a1acbff87fbff55",
+    "archived_files": 29,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "archiving_new_jobs": 0,
+  "archiving_new_games": 0,
+  "attempt_games_audited": 0,
+  "remaining_rows_admitted": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

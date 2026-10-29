@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "created_at": "2026-10-29T08:29:07.222462+00:00",
+  "tests": 14,
+  "unit_positive_controls": "synthetic; no jobs, policy calls or games",
+  "actual_original_source_validated": true,
+  "actual_original_runner_validation_only": true,
+  "actual_execution_without_admission_rejected": "Real prepared-control admission required before execution",
+  "execution_output_created": false,
+  "worker_sha256": "3b0c5f6d764969056a99791f679ab9baecc585daa2f1d99841ab40b2004468d5",
+  "retention_sha256": "fe1edbf68b2cfda8786d9e68b133db20f4335fedd72816374db486571e37f3fe",
+  "test_sha256": "7c7fac155ee1a5c66e7bbb75604cb607a9755eb74242babb87a1e4393ad50b47",
+  "test_log_sha256": "4f598e1fab01d6607c4feeee8aff62ef914df72135efe7355a8b44023ea93c6b",
+  "core_files_sha256": "b2a45c90c3f9cb4487dbd0614394bc977db61fe315b5c5203baa2e4575fa767d",
+  "bundle_manifest_sha256": "b3da891c7b72e6b74b7fc9cab570d6d1ae1bd88656a98e197509945c766225b9",
+  "control_sha256": "50f199a6ea7365275cd0ec2bf06ef1c16903428877cb389d1c267981e1026bc8",
+  "original_source_sha256": "a4384b10eb8a4381423731bc0c315673f9214d91c1fb336aa81ef4a7102d1c5a",
+  "decision_sha256": "4d23adb861704dc2ec3e8e3d358024e026175ccce13dc2efb768742c00a348fb",
+  "original_row_sha256": "695c5bfdbb58e04dd6e3c836ed55aa03f55a896b442875c940914040368eb170",
+  "original_failed_handle": "6ae2c32f3fb22a235dd50586",
+  "validation_hashes": {
+    "ai/runs/current-auction-resource-worker-preflight-v2/worker-validation.log": "57dde584b0a6dc58ef1e1cf7170f6affc026c36d96acd8c8dfbcaacc1169c068",
+    "ai/runs/current-auction-resource-worker-preflight-v2/original-validation.log": "373e33521f40e0fa87991f6800a5675a978b472da320a6a4381a706d845848d5"
+  },
+  "new_hf_jobs": 0,
+  "new_games": 0,
+  "new_policy_calls": 0,
+  "recovery_execution_admitted": false,
+  "candidate_selected": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false,
+  "goal_status": "active"
+}

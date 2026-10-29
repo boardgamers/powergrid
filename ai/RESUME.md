@@ -1,5 +1,32 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 11:02 UTC — checkpoint Git commits hit HF's concurrency queue; new dispatch STOP remains in force.**
+
+Read [the checkpoint-storage handoff](CURRENT-AUCTION-CHECKPOINT-STORAGE-2026-10-29.md)
+and `strong/current-auction-checkpoint-storage-status-v3.json` first. This supersedes
+all older instructions to continue the v2 dispatcher. Preserve its STOP and the
+exact original 64 handles: **7 COMPLETED/audited, 47 RUNNING, 10 ERROR** in the latest
+bounded observation. Seven audits add 140 games: **19,920 / 26,880 verified**.
+259 rows / 5,820 games remain never submitted. Nine failed envelopes preserve
+46 partial raw files; none count toward coverage. One failed job lacks a final
+receipt. No failures have been resubmitted.
+
+The new bucket transport passes 19 fault-injection tests and a real 64-client
+upload/download proof, including eight simulated lost acknowledgements with no
+repeat uploads. Its existing archive was 1.7 MB, repeated from one host; this is
+not proof of sustained distributed-worker load. The module is not yet integrated
+or admitted for production jobs. Buckets are mutable: independent hash verification
+and final versioned evidence promotion remain required.
+
+Continue bounded collection using the collection-only helper, after checking no
+other collector is alive. Do not clear STOP or change live policies/workers.
+Next integrate and audit a new retention supervisor/collector, then record an
+explicit transport/recovery decision before any new executions. No new HF jobs,
+games or inference launched this turn, no candidate selected/qualified, reserved
+final seeds unused. Goal active. Previous turn: informational/no progress; this
+turn: progress through actual collection and verified storage implementation.
+Private metadata archive descriptor: `strong/current-auction-checkpoint-storage-evidence-v3.json`.
+
 **29 October, 10:24 UTC — explicit receipt authentication passed; same 64 jobs RUNNING.**
 
 The bounded cycle checked the exact 64 handles again: all RUNNING, zero terminal

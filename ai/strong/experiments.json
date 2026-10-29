@@ -69239,5 +69239,115 @@
         "qualified": false,
         "reserved_final_seeds_used": false,
         "next": "Complete-attempt raw comparator/selection integration and bounded collection/dispatch; no fake completion of stopped original owner."
+    },
+    "current_auction_checkpoint_storage_20261029": {
+        "created_at": "2026-10-29T11:06:00.989141+00:00",
+        "goal_status": "active",
+        "previous_goal_turn": "no_progress_informational_engine_recap",
+        "this_goal_turn": "progress",
+        "collection_state_sha256": "0eafafb785223e3455ee14d7ce26b3eda1f0cb13a7444c2e1db9d35d97c5a0c0",
+        "observed_at": "2026-10-29T11:02:07.638871+00:00",
+        "states": {
+            "ERROR": 10,
+            "RUNNING": 47,
+            "COMPLETED": 7
+        },
+        "original_registry_sha256": "221ef528b2c19bef4212be98e60cb78fd6cee8f620a03bfb0159df4497c92343",
+        "source_descriptor_sha256": "e46300b32989c70e45d6a4113b8c636bb9e0a0edbf45712cb3bbb496207f4ce7",
+        "stop_sha256": "07a47d46a5cfb7e36b217f82b33632dd878b3b9deb56120cb8353db12e84ed53",
+        "verified_jobs_in_current_batch": 7,
+        "verified_games_in_current_batch": 140,
+        "total_audited_games": 19920,
+        "required_confirmation_games": 26880,
+        "never_submitted_jobs": 259,
+        "never_submitted_games": 5820,
+        "failure_categories": {
+            "500_server_error": 6,
+            "429_commit_queue_timeout": 4
+        },
+        "failures_report_sha256": "553dae36eeff98a30de74c60dc5cf82769893d13df0c49b3df53038c9554e26f",
+        "failure_classification_note": "Classified from full original logs, not truncated exception lines; an initial pre-write metadata assertion rejected the incomplete-line classification without writing state.",
+        "failed_envelopes_preserved": 9,
+        "failed_partial_raw_game_files": 46,
+        "failed_checkpoint_receipts": 29,
+        "failed_partial_games_counted": 0,
+        "jobs_without_final_receipt": 1,
+        "transport_source_sha256": "678cbce931e818f859fabd98a88667269ac66a3dbb4ef6eced7a6d085ea632f2",
+        "transport_tests": 19,
+        "first_test_attempt": "missing httpx import; installed HF 2.0.0 uses httpx2; corrected without installing packages",
+        "concurrency_report_sha256": "3052e6457886e30b53b69bdada1b8c5a0d5a10b9db9f98dbd01b666c12990fde",
+        "concurrent_verified_uploads": 64,
+        "injected_lost_acknowledgements": 8,
+        "application_upload_calls": 64,
+        "actual_upload_exceptions": 0,
+        "new_jobs": 0,
+        "new_games_launched": 0,
+        "new_inference": 0,
+        "worker_integrated": false,
+        "new_execution_admitted": false,
+        "candidate_selected": false,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "policies_changed": false,
+        "next": "Preserve/collect exact original 64; integrate and independently audit bucket retention in a new worker, including final immutable promotion; explicit transport/recovery decision before any new execution. Never lift v2 STOP or overwrite failed attempts.",
+        "status_report": "ai/strong/current-auction-checkpoint-storage-status-v3.json",
+        "handoff": "ai/CURRENT-AUCTION-CHECKPOINT-STORAGE-2026-10-29.md",
+        "private_evidence_archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "8df61c2b4512087445b5dd484594aa54d4726b20",
+            "archive_path": "archives/current-auction-checkpoint-storage-evidence-v3.tgz",
+            "archive_sha256": "8cfe6803e7d97b1256faf6dc0eb74f25dc86fc47a2c78a65bd112eade9a62004",
+            "manifest_sha256": "010b3faf7d171c1424d9c7d70b0ae580909eb36c3558a85432fe9e6a3604b840",
+            "archived_files": 1015,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "successful_audits": [
+            {
+                "name": "pg-current-confirm-v1-pop-legacy-5p-05",
+                "job_id": "6ae31aae3fb22a235dd57456",
+                "games": 20,
+                "review_sha256": "240726f55236bd8181210efdff7e29a4cac7742a12dc2b43dfb28fb47cce81f8"
+            },
+            {
+                "name": "pg-current-confirm-v1-pop-legacy-5p-08",
+                "job_id": "6ae31ab041e90535df789446",
+                "games": 20,
+                "review_sha256": "b508015dcf0ccfa90c5fdcf019429d85555caefd4c8ff0d82a3b61a2c3502970"
+            },
+            {
+                "name": "pg-current-confirm-v1-pop-legacy-5p-12",
+                "job_id": "6ae31ab23fb22a235dd5745d",
+                "games": 20,
+                "review_sha256": "05d198d0c772f9ea2a20c4f11e4e017c0c378ae8c6a571308b1c6f154ae6da87"
+            },
+            {
+                "name": "pg-current-confirm-v1-pop-legacy-5p-13",
+                "job_id": "6ae31ab33fb22a235dd5745f",
+                "games": 20,
+                "review_sha256": "e27adfc019ae0badc89898445762b951c615b2f88a6cc5c58643002f1d375fec"
+            },
+            {
+                "name": "pg-current-confirm-v1-pop-legacy-5p-16",
+                "job_id": "6ae31ab441e90535df789457",
+                "games": 20,
+                "review_sha256": "c237b72b18d654d958a63aee23990a637e4d076210850c4ca7f84e037cae74e1"
+            },
+            {
+                "name": "pg-current-confirm-v1-pop-legacy-5p-26",
+                "job_id": "6ae31aba41e90535df789467",
+                "games": 20,
+                "review_sha256": "90db60c4abb86f510bbb805962d9f1b2c154fe36dd16f35f47776ea1c182ce28"
+            },
+            {
+                "name": "pg-current-confirm-v1-pop-legacy-5p-27",
+                "job_id": "6ae31abb3fb22a235dd5747b",
+                "games": 20,
+                "review_sha256": "3b0b9ee718f4e79ec09604d68fba8f6aa504495c39e8846b2598e14bfaa3d00c"
+            }
+        ],
+        "transport_scope": "one existing archive, 64 concurrent clients on one host; not integrated into workers",
+        "live_v2_source_unchanged": true,
+        "failures_resubmitted": false
     }
 }

@@ -1,5 +1,34 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 01:48 UTC — final source packaging validated; both original runs live.**
+
+The offline complete-policy source builder passed seven unit tests and all
+**320 contracts** passed the actual frozen wrapper/runner in validation-only
+subprocesses. The unchanged plan still contains **20,160 held-out games**.
+Candidate bytes, search settings, all paired shards and the learned opponent
+are preserved. This used the earlier clearly synthetic candidate and worker
+allocation: **no real selection, policy calls, HF submissions or reserved games**.
+
+Read [the source-builder handoff](SELECTED-PUBLIC-POLICY-FINAL-SOURCE-2026-10-29.md).
+The 986-file proof is privately archived and verified at model revision
+`acb27a6a3ad95960bc713ea8a9ea12a83338f2a4`. Do not repeat its completed
+validation or publish its synthetic bundle as an execution source. Actual final
+source admission/publication and original-only launch management still require
+complete confirmation, selection, technical proof and measured allocation.
+
+At 01:48:47 UTC, original coordinator **PID 2398668 / session 50170**
+was confirmed live with all 54 pins unchanged: **271 jobs / 12,912 games**
+audited, 335 originals submitted, and all **64 unverified originals RUNNING**
+in fresh HF inspection. The same actual 8840U process **PID 3462824** remains
+live with **4,170 / 5,106 requests** complete. Preserve both owners.
+No competing collector, restart, partial strength analysis or policy changes.
+
+Previous goal turn: progress (export evidence verified, archived and pushed as
+`3a15b23`). This turn: progress (complete final-source serialization and actual
+contract validation), plus verified waits on both originals. Research active;
+no candidate qualified and reserved seeds unused.
+
+
 **29 October, 01:30 UTC — current-engine export parity complete; both original runs live.**
 
 The exact frozen native checkpoint and ONNX model chose the same legal action

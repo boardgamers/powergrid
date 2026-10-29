@@ -67966,5 +67966,90 @@
         "previous_goal_turn_note": "Verified all original fixtures against current engine, launched full actual-8840U replay, archived and pushed exact recovery package.",
         "current_goal_turn_classification": "progress",
         "next": "Keep both original owners running. Collect/audit target after terminal completion and bind saved model proposals to native parity. Finish complete confirmation and independent comparison before selection; reserve final strength seeds until admission."
+    },
+    "selected_public_policy_final_source_20261029": {
+        "status": "complete_policy_source_packaging_validated_no_final_launch",
+        "date": "2026-10-29",
+        "report": "ai/strong/selected-public-policy-final-source-preflight-v1.json",
+        "report_sha256": "9c1dd21bc8504e50b8ee4cad1f16275155d956244d38b56983f9e8b60cef1f4f",
+        "tests": 7,
+        "validated_contracts": 320,
+        "games_in_unchanged_final_plan": 20160,
+        "identity": {
+            "policySha256": "b9879af9668b3e1b79cac6139b59571a83d838f8e0988627506f9b2eb902a980",
+            "runtimeManifestSha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+            "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+            "featureRevision": "4.3-strategic-correction",
+            "backend": "opponent-auction-v1",
+            "settings": {
+                "arm": "auction",
+                "max_steps": 2400,
+                "minimum_advantage": "1/8",
+                "population_modes": [
+                    "neural_population"
+                ],
+                "samples": 8,
+                "threads": 1,
+                "workers": 4
+            },
+            "opponentPolicySha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c"
+        },
+        "input_hashes": {
+            "ai/strong/check-selected-public-policy-final-source-v1.py": "01315aea43372d5953aeb49345e9aea5cccaea537b036c4968fe47573c2cdc73",
+            "ai/strong/selected_public_policy_final_source_v1.py": "884dfd940043c1178e87b2848a9ecaed9b7531fc1a0415376aaec40fe7460668",
+            "ai/strong/public_policy_selected_final_job_v1.py": "bf40ce31435fc013c6509ad98bec5770568c563894701dbe71046998d107902f",
+            "ai/strong/test_selected_public_policy_final_source_v1.py": "1e134686be8e714fc88a3e0205397906f3476b4e49e757d7afffc9ac7d3d42e7",
+            "ai/runs/selected-public-policy-final-source-tests-v1-first.log": "d34d2835ba5f59d67732df6c9b1f41e5991ac6d7e1679594926a81c44363ed09",
+            "ai/runs/selected-public-policy-final-job-preflight-v1/valid_hybrid/source/synthetic-candidate.json": "8e558f2e05a305edf3bec352b1cddba50fd70c8e965a85c892854b60e2123782",
+            "ai/strong/selected-public-policy-final-job-preflight-v2.json": "7b91cc58e06fc6f3da87700ad9fe3ae3718467fcc72f67e01a54bb0acb0cf8b8",
+            "ai/strong/final-protocol-multiplayer.json": "7f0336c8784faf8f18e046b95b88e0ab1be7c2de1c0ec4d3eec96f0a415286ce",
+            "ai/strong/current-auction-grid-source-v1.json": "a4384b10eb8a4381423731bc0c315673f9214d91c1fb336aa81ef4a7102d1c5a"
+        },
+        "source_manifest_sha256": "8c645d6424a0da37263ba1c9c1bad29ae3ca93501610aab52f412af0afe4c694",
+        "synthetic_candidate_and_allocation_only": true,
+        "archive_descriptor": "ai/strong/selected-public-policy-final-source-evidence-v1.json",
+        "archive_descriptor_sha256": "3a1cdde982905abdef1a38fb2ffdfb7339683beb1016b43e18dab7155aa14eb1",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "acb27a6a3ad95960bc713ea8a9ea12a83338f2a4",
+            "archive_path": "archives/selected-public-policy-final-source-evidence-v1.tgz",
+            "archive_sha256": "9252d1158c4aaa3c136b5b563c917ecd3f2d9e1dea9fb1b9ddd82553ff61d3ff",
+            "manifest_sha256": "8a4c0230b19bbbe1182f3b685b8351793073f3aae294294b4d7513eefaaa9c1f",
+            "archived_files": 986,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "new_hf_jobs_by_source_validation": 0,
+        "new_games_by_source_validation": 0,
+        "new_policy_inference_calls": 0,
+        "target_checkpoint": {
+            "path": "ai/strong/current-full-serving-8840u-progress-v1.json",
+            "sha256": "e5f992d243297cedeb377e07ab0853d84589ec2ba4c52b2da3e3a799ae83c398",
+            "pid": 3462824,
+            "live": true,
+            "requests": 4170
+        },
+        "confirmation_checkpoint": {
+            "path": "ai/strong/current-auction-confirmation-recovery-progress-v1.json",
+            "sha256": "e0d05d4396024e98283221bd532204acf046b2c2756f28c382e3bb6bf77f68fe",
+            "checked_at": "2026-10-29T01:48:47.801699+00:00",
+            "owner_pid": 2398668,
+            "audited_jobs": 271,
+            "audited_games": 12912,
+            "submitted_jobs": 335,
+            "unverified_original_status_counts": {
+                "RUNNING": 64
+            },
+            "free_bytes": 483178795008
+        },
+        "observer_setup_note": "First read-only HF status observer had a missing local module path; corrected before any HF queries. No owner, job or simulation was restarted.",
+        "previous_goal_turn_classification": "progress",
+        "previous_goal_turn_note": "Verified, archived and pushed complete current-engine export parity proof as 3a15b23.",
+        "current_goal_turn_classification": "progress",
+        "goal_status": "active",
+        "candidate_selected": false,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "next": "Preserve both original owners. Collect/audit/bind the target after completion; finish complete confirmation before selection. Real final source admission, measured allocation, immutable publication, original-only launcher and held-out audit remain required."
     }
 }

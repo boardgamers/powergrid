@@ -6,8 +6,8 @@ slots, policies, current engine, search budget and statistical analysis remain
 unchanged. This recovery does not generate replacement games.
 
 <!-- RECOVERY-STATUS-BEGIN -->
-**Later checkpoint, 01:30:07 UTC:** the same coordinator is live with all 54
-pins unchanged. **256 jobs / 12,672 games** are audited; 320 originals submitted.
+**Later checkpoint, 01:48:47 UTC:** the same coordinator is live with all 54
+pins unchanged. **271 jobs / 12,912 games** are audited; 335 originals submitted.
 Fresh HF inspection found all 64 unverified originals RUNNING, with no new
 terminal failure. Exact handles and guard hashes:
 `strong/current-auction-confirmation-recovery-progress-v1.json`.

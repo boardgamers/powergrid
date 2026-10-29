@@ -56,7 +56,9 @@ its artifact again. Do not rerun the preflight or repeat the upload.
 1. Complete and independently audit all 26,880 confirmation games, including all
    adverse cells and original failures. Select/freeze a candidate only if the
    unchanged requirements and review support it.
-2. Build and verify a separate immutable final HF source and launch manager that
+2. The [offline source builder](SELECTED-PUBLIC-POLICY-FINAL-SOURCE-2026-10-29.md)
+   now preserves and validates every unchanged contract using synthetic controls.
+   Build/admit the real immutable final HF source and launch manager that
    bind the selected complete-policy identity, selection archive and original
    launch intents. Preserve the unchanged final schedule of 320 shards / 20,160
    games; derive batch resources from complete measured evidence. The new job

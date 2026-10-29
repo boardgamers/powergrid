@@ -1,0 +1,39 @@
+{
+  "complete": true,
+  "validated_jobs": 320,
+  "tests": 7,
+  "report_sha256": "9c1dd21bc8504e50b8ee4cad1f16275155d956244d38b56983f9e8b60cef1f4f",
+  "identity": {
+    "policySha256": "b9879af9668b3e1b79cac6139b59571a83d838f8e0988627506f9b2eb902a980",
+    "runtimeManifestSha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+    "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+    "featureRevision": "4.3-strategic-correction",
+    "backend": "opponent-auction-v1",
+    "settings": {
+      "arm": "auction",
+      "max_steps": 2400,
+      "minimum_advantage": "1/8",
+      "population_modes": [
+        "neural_population"
+      ],
+      "samples": 8,
+      "threads": 1,
+      "workers": 4
+    },
+    "opponentPolicySha256": "f0bf0ce43c475bd1039558f50b3e693bbc97978398ec8dbb5140490258c7501c"
+  },
+  "candidate_selected": false,
+  "reserved_final_seeds_used": false,
+  "jobs_submitted": 0,
+  "games_executed": 0,
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "acb27a6a3ad95960bc713ea8a9ea12a83338f2a4",
+    "archive_path": "archives/selected-public-policy-final-source-evidence-v1.tgz",
+    "archive_sha256": "9252d1158c4aaa3c136b5b563c917ecd3f2d9e1dea9fb1b9ddd82553ff61d3ff",
+    "manifest_sha256": "8a4c0230b19bbbe1182f3b685b8351793073f3aae294294b4d7513eefaaa9c1f",
+    "archived_files": 986,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  }
+}

@@ -1,11 +1,11 @@
 {
-  "checked_at": "2026-10-29T01:32:09.759992+00:00",
+  "checked_at": "2026-10-29T01:50:09.809042+00:00",
   "target_pid": 3462824,
   "target_verified_live": true,
   "host": "minipc",
   "processor": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
   "stage": "running",
-  "completed_requests": 3570,
+  "completed_requests": 4170,
   "expected_requests": 5106,
   "current_arm": "conservative_population",
   "filtered_positions_completed": 2553,
@@ -26,7 +26,7 @@
       "huggingface_hub": "2.0.0",
       "node": "v24.19.0",
       "manifest_sha256": "9bd471f4c7267dc4a1a8133c4b27ac0b4cfa2fefe2afe5d8408e5bf8129bb9ff",
-      "completed_requests": 3570,
+      "completed_requests": 4170,
       "expected_requests": 5106,
       "new_hf_jobs": 0,
       "new_full_evaluation_games": 0,
@@ -36,9 +36,9 @@
       "reserved_final_seeds_used": false,
       "scope": "All 2553 original public fixtures, both frozen confirmation policies on actual 8840U. Fixed-position serving and latency only; search continuations counted. No strength or checkpoint parity claim.",
       "current_arm": "conservative_population",
-      "current_fixture": 1016
+      "current_fixture": 1616
     },
-    "log_tail": "servative_population\", \"completed_requests\": 2979}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3004}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3029}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3054}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3079}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3104}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3129}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3154}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3179}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3204}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3229}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3254}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3279}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3304}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3329}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3354}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3379}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3404}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3429}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3454}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3479}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3504}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3529}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3554}\n"
+    "log_tail": "servative_population\", \"completed_requests\": 3579}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3604}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3629}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3654}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3679}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3704}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3729}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3754}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3779}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3804}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3829}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3854}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3879}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3904}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3929}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3954}\n{\"arm\": \"conservative_population\", \"completed_requests\": 3979}\n{\"arm\": \"conservative_population\", \"completed_requests\": 4004}\n{\"arm\": \"conservative_population\", \"completed_requests\": 4029}\n{\"arm\": \"conservative_population\", \"completed_requests\": 4054}\n{\"arm\": \"conservative_population\", \"completed_requests\": 4079}\n{\"arm\": \"conservative_population\", \"completed_requests\": 4104}\n{\"arm\": \"conservative_population\", \"completed_requests\": 4129}\n{\"arm\": \"conservative_population\", \"completed_requests\": 4154}\n"
   },
   "candidate_selected": false,
   "qualified": false,

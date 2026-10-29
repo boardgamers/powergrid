@@ -1,5 +1,35 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 11:41 UTC — first bucket-backed job RUNNING; first actual checkpoint independently downloaded and verified.**
+
+Read [the first-bucket handoff](CURRENT-AUCTION-FIRST-BUCKET-2026-10-29.md) first.
+Exact handle **`6ae32f6741e90535df78a8a6`**, fixed 16-game two-player economic-capacity
+row, verified 24h/cpu-upgrade configuration. Its first checkpoint retained one
+game with matching source/configuration and hashes while HF remained RUNNING.
+This is not full raw-audit evidence; the 16 games do not yet count toward coverage.
+
+Original 64-job batch: **31 COMPLETED/audited, 23 RUNNING, 10 ERROR**. Total
+confirmation coverage is **20,400 / 26,880**, up 320 audited games this turn.
+After the one new fixed-row submission, 258 rows / 5,804 games remain never
+submitted. No failed job was restarted; original v2 STOP remains unchanged.
+
+The new frozen manager `strong/manage_current_auction_first_bucket_v3.py` supports
+bounded `check` and terminal `collect` for this one handle. It passed 14 tests and
+actual prepared/source/effective-HF configuration checks. Do not repeat preparation,
+source upload or launch. Collection preserves the entire worker envelope and all
+checkpoint trees in one verified versioned archive after the full independent raw
+audit. Ambiguous submissions/promotions remain recorded for inspection, never retried
+automatically. No background collector was started; original collector session 98561
+completed. Check actual ownership before running another bounded collection.
+
+Next finish this live runtime/collection proof, then prepare the broader fixed-row
+transport/recovery decision and dispatcher. Broader execution is not admitted yet.
+This turn: one new HF job / 16 fixed games requested, no training updates or policy
+changes. Goal active; previous/current turns made progress. No selected/qualified
+candidate or reserved final seeds used. Persistent launch metadata:
+`strong/current-auction-first-bucket-launch-v3.json` and
+`strong/current-auction-first-bucket-launch-evidence-v3.json`.
+
 **29 October, 11:20 UTC — bucket worker/collector implemented and tested; production execution not yet admitted.**
 
 Read [the bucket-worker handoff](CURRENT-AUCTION-BUCKET-WORKER-2026-10-29.md) first.

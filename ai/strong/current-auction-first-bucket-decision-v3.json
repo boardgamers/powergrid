@@ -1,0 +1,45 @@
+{
+  "created_at": "2026-10-29T11:33:11.689231+00:00",
+  "status": "transport_recovery_recorded_execution_not_admitted",
+  "strength_outcomes_used_for_decision": false,
+  "reserved_final_seeds_used": false,
+  "source_descriptor_sha256": "a4384b10eb8a4381423731bc0c315673f9214d91c1fb336aa81ef4a7102d1c5a",
+  "allocation": {
+    "timeout": "24h",
+    "flavor": "cpu-upgrade",
+    "game_workers": 4,
+    "search_workers": 4,
+    "inference_threads": 1,
+    "checkpoint_period_seconds": 30
+  },
+  "transport": {
+    "bucket": "coyotte508/powergrid-ai-checkpoints",
+    "upload_attempts": 3,
+    "read_attempts": 3,
+    "hf_hub_version": "2.0.0",
+    "final_archive_by": "independent_collector",
+    "job_retries": 0
+  },
+  "rows": [
+    {
+      "name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-00",
+      "original_row_sha256": "286a77cee5727e9405c64ce47bb4033c2279e67f770f04de11865c26a5a9eeee",
+      "prior_failed_attempts": [],
+      "reason": "never_submitted",
+      "attempt_id": "pg-current-bucket-v3-pop-economic-capacity-v1-2p-00"
+    }
+  ],
+  "purpose": "First untouched two-player fixed confirmation row; prove live bucket retention, independent audit and versioned collection before broader execution.",
+  "original_v2_stop_sha256": "07a47d46a5cfb7e36b217f82b33632dd878b3b9deb56120cb8353db12e84ed53",
+  "original_v2_registry_sha256": "221ef528b2c19bef4212be98e60cb78fd6cee8f620a03bfb0159df4497c92343",
+  "original_failed_attempts_preserved": true,
+  "failed_jobs_to_resubmit": 0,
+  "admitted_later_only_after_actual_preparation": true,
+  "jobs": 1,
+  "games": 16,
+  "max_active_including_originals": 64,
+  "broad_remaining_dispatch_admitted": false,
+  "worker_evidence_descriptor_sha256": "83ab69dfc257d894b586ac217c5d8443b7b6c925fae2ef4c32a4a6346ec62635",
+  "preflight_only": false,
+  "production_execution_admitted": false
+}

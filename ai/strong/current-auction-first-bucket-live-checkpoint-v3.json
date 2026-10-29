@@ -1,0 +1,60 @@
+{
+  "verified": true,
+  "checked_at": "2026-10-29T11:39:55.397201+00:00",
+  "job_id": "6ae32f6741e90535df78a8a6",
+  "before": {
+    "checked_at": "2026-10-29T11:39:51.570596+00:00",
+    "job_id": "6ae32f6741e90535df78a8a6",
+    "stage": "RUNNING",
+    "attempt_id": "pg-current-bucket-v3-pop-economic-capacity-v1-2p-00",
+    "original_name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-00",
+    "timeout_seconds": 86400,
+    "flavor": "cpu-upgrade",
+    "image": "python:3.11-slim-bookworm",
+    "bootstrap_sha256": "30e41103dbc196e1755277d1c0db5f99c717d0b6be1f9450787ee6ec3661b310",
+    "environment_sha256": "3ba316234cae68d6eb2d59effbea50f53e78bd436ca0fa9774c6f672ca34a9a2",
+    "public_configuration_verified": true
+  },
+  "after": {
+    "checked_at": "2026-10-29T11:39:55.371765+00:00",
+    "job_id": "6ae32f6741e90535df78a8a6",
+    "stage": "RUNNING",
+    "attempt_id": "pg-current-bucket-v3-pop-economic-capacity-v1-2p-00",
+    "original_name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-00",
+    "timeout_seconds": 86400,
+    "flavor": "cpu-upgrade",
+    "image": "python:3.11-slim-bookworm",
+    "bootstrap_sha256": "30e41103dbc196e1755277d1c0db5f99c717d0b6be1f9450787ee6ec3661b310",
+    "environment_sha256": "3ba316234cae68d6eb2d59effbea50f53e78bd436ca0fa9774c6f672ca34a9a2",
+    "public_configuration_verified": true
+  },
+  "checkpoint_evidence": {
+    "storage": "hf_bucket",
+    "bucket": "coyotte508/powergrid-ai-checkpoints",
+    "path": "confirmation-v3/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-checkpoint-0001/6c401570dcc291e6e933b2d857da8879fbbf30dcc93096564d1bac977211ebe6.tgz",
+    "archive_sha256": "6c401570dcc291e6e933b2d857da8879fbbf30dcc93096564d1bac977211ebe6",
+    "manifest_sha256": "38a1117293aa26dd4101b2b9b9292b687a5f5ee87a8c0220496cb7ffa112b8ef",
+    "bytes": 614676,
+    "server_versioning": false,
+    "max_application_upload_calls": 3,
+    "xet_hash": "58517b5666b17d614a326f5bbfae17d89bd4f913f5e832fe176df384d81a0376",
+    "download_verified": true,
+    "application_upload_calls": 1,
+    "reconciled_upload_error_or_interruption": false,
+    "raw_audited": false,
+    "qualified": false
+  },
+  "episodes": [
+    1
+  ],
+  "games_retained": 1,
+  "actual_download_verified": true,
+  "configuration_bound": true,
+  "full_raw_audit_completed": false,
+  "live_child_transport_observations_pending_final_audit": true,
+  "new_jobs": 0,
+  "new_games": 0,
+  "new_inference": 0,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

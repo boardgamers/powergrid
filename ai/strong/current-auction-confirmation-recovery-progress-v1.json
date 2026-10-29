@@ -1,17 +1,74 @@
 {
-  "checked_at": "2026-10-29T00:35:27.380898+00:00",
+  "checked_at": "2026-10-29T00:56:32.541665+00:00",
   "owner_pid": 2398668,
   "exec_session": 50170,
   "owner_verified_live": true,
+  "owner_command": "ai/.venv/bin/python -u -B ai/strong/coordinate-current-auction-confirmation-recovery-v1.py --start ",
   "unchanged_pins": 54,
   "owner_state_snapshot": {
     "pid": 2398668,
     "started_at": "2026-10-29T00:18:04.792202+00:00",
     "stage": "waiting_for_original_confirmation_jobs",
+    "code_hashes": {
+      "ai/strong/prepare-current-auction-grid-v1.py": "8c2c50c0477fa9e890e52ec531f81728e32d41407a9b652ab15337f5ecd30536",
+      "ai/strong/manage-current-auction-grid-v1.py": "3cf829ea9360b41cf706486d2fb54addcb634b82229e88d01fb9c984004ecd71",
+      "ai/strong/coordinate-current-auction-grid-v1.py": "04d7e6635e0835a2c82ac8e65595bdc8f7ee9de1305263b64ee77a80505633b9",
+      "ai/strong/compare-current-auction-confirmation-v1.py": "9f845378a5642dca1afaea07f23164aa5b235293cb449c08fd855929d57ab177",
+      "ai/strong/current_auction_confirmation_analysis_v1.py": "876b6f33d5618b81966430f19b9b5082254965b000fcfc11af23e2ec44b3d8be",
+      "ai/strong/test_current_auction_grid_plan_v1.py": "e9f94b1bfab4e5cabcc7a7872923308c2abd29a1e25f9e395176820301a15d10",
+      "ai/strong/test_current_auction_grid_manager_v1.py": "26531a57bc4a43a880dd22089c451cf0a97d00b724b28417f8ebad1e926e4b59",
+      "ai/strong/test_current_auction_grid_coordinator_v1.py": "62c8deaac4f346fb534715b91007c701f1b69d13d749f50e4fd8939ac57e3867",
+      "ai/strong/test_current_auction_comparison_v1.py": "5b1ce6b4ba88c7968fb2dead7e349008bdacf25ee87f0abea43e8b715b0d2447",
+      "ai/strong/test_current_auction_confirmation_analysis_v1.py": "183d3f64fbe7d4d421e23112949c28b4a7faab185118f2b829584bc47bcb8062",
+      "ai/strong/manage-current-auction-runtime-v1.py": "ad28c7e60ef0159c7a52baa1192049ac67fe5d4a03355b503079d92d19741e7b",
+      "ai/strong/prepare-current-auction-confirmation-v1.py": "947e5b8284c53d180e6257b74e68bb650c37e328796648da697f6cf71ef6fbd0",
+      "ai/strong/manage-conservative-auction-runtime-v2.py": "ce34f174fb6e1c58cddb308c0df3c70e705c4ef23317ea2513e97d9ed20def51",
+      "ai/strong/prepare-conservative-auction-runtime-v2.py": "86eda6f282b0a7557e2cb260d855c48a760ec524d0358981514af2de7a515ffc",
+      "ai/strong/manage-public-policy-development-hf-v1.py": "be2d43c0063e79c7de3b64151a467975573a885c5e962ef7f096956a3dcbd535",
+      "ai/strong/conservative_auction_bootstrap_recovery_v1.py": "27d0c81aadeaf5624540f92ed0f6aa7d549a09d3ea5fb48dfe0d9fb67449ad09",
+      "ai/strong/public_policy_development_job_v1.py": "e216f1558602ff8665da0e712d15f419afaec297a2d5194e4d61c0e74be16f1b",
+      "ai/strong/public_policy_final_audit_v1.py": "a006c43bac3862f29e9e39178324b93c1464059945467461f203e90df196a482",
+      "ai/strong/public_policy_final_contract_v1.py": "211e143a278fe6e5d0eb0b3654061130b6141b1518fd07297162307c39487103",
+      "ai/strong/public_policy_arena_v1.py": "1288ffb3d42a3c351c805c652e7c9c5f63b284f6c7061c7436f6ba06e9fc14eb",
+      "ai/strong/public_policy_runtime_v1.py": "0ded20877badd3f2c0ded746f5f743fbca6447084ed764a1e3b7ad8d6617fd3a",
+      "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+      "ai/strong/opponent_auction_verification_v1.py": "1383f64de5c064459c62b5ba2b8e222bdc2369ed7f8505e7cf96615743416f7c",
+      "ai/strong/opponent_auction_policy_v1.py": "c6f560330eec8035b1356d441a43a8c80e82138a852039b2494f4f827337c688",
+      "ai/strong/current-auction-confirmation-protocol-v1.json": "d0504c3f92d94fe96a1b336f26fe0e6c991502a3e03ff17fb1b2d00f53067d93",
+      "ai/strong/final-protocol-multiplayer.json": "7f0336c8784faf8f18e046b95b88e0ab1be7c2de1c0ec4d3eec96f0a415286ce",
+      "ai/runs/current-auction-grid-plan-tests-v1-final.log": "b0cfd6f865c7a6f8e2d721d8f6ea4eeac5ba4135456be4d32633d9c3ee5723f9",
+      "ai/runs/current-auction-grid-manager-tests-v1-final.log": "f43b452ba904c9d5924c1ff054623db5cd28d445692265690470de6e15af4891",
+      "ai/runs/current-auction-confirmation-analysis-tests-v1-first.log": "0de8494d7a441a2b7ee268e4bd6007e6d2985af41bcd8f42dd720668f5ffd024",
+      "ai/runs/current-auction-comparison-tests-v1-corrected.log": "6e0a6b1f9d8ba3c523aaa437c263cf738d0926d746b743406784fabea9cd3f45",
+      "ai/runs/current-auction-grid-coordinator-tests-v1.log": "5d39b6f5fb012c72aedeb5db2ed452d1b3dbc9c71dee42b40bc8c5e5a42a95ef",
+      "ai/runs/current-auction-grid-plan-tests-v1.log": "b0cfd6f865c7a6f8e2d721d8f6ea4eeac5ba4135456be4d32633d9c3ee5723f9",
+      "ai/runs/current-auction-grid-manager-tests-v1.log": "f43b452ba904c9d5924c1ff054623db5cd28d445692265690470de6e15af4891",
+      "ai/strong/current-auction-grid-readiness-v1.json": "19bb347af99b3370428fb38e9f7e684da53034ea64fa428a23902abdf0072a29",
+      "ai/strong/current-auction-grid-source-v1.json": "a4384b10eb8a4381423731bc0c315673f9214d91c1fb336aa81ef4a7102d1c5a",
+      "ai/strong/current_auction_shutdown_recovery_v1.py": "661cd8a28bec06b85ff5465ac12c255847f0e4f67c6e4600b03ed4340cfaa05c",
+      "ai/strong/manage-current-auction-confirmation-recovery-v1.py": "ff35483b526f55f221370708557de4cc66c85be9adc25e522c203bb091ce3b31",
+      "ai/strong/coordinate-current-auction-confirmation-recovery-v1.py": "6681715e5a398e3c1f83b88eabcb84890d623830fedb0669e8bc3201962baaaf",
+      "ai/strong/compare-current-auction-confirmation-recovered-v1.py": "c7d51c06545f29bd7a590afa4d5b9a72298899f3461070a111dbd1f7dc063286",
+      "ai/strong/test_current_auction_shutdown_recovery_v1.py": "ff39882dc474f1c6200cb700982ebc7da7346f43b5df156833bd8c7479cd090f",
+      "ai/strong/test_current_auction_recovery_manager_v1.py": "a250c9fd6c01235753e4175ffbc55cc407a16a4afe7dc029495db3f557ff91da",
+      "ai/strong/test_current_auction_recovered_comparison_v1.py": "b114e4d0b6a5c8715a4c824998d8982fa86a010cdaab07420b15960c49f453bd",
+      "ai/strong/current-auction-recovery-preflight-v1.json": "e1292a5c62dc9a954c785df1e90065d93bac01e91f5709c517af26d3a76d8643",
+      "ai/strong/current-auction-shutdown-diagnostic-v1.json": "091d0dc9801d679cb3ecb0f90853310df57bcfea5ae617a42d0414f008f9a844",
+      "ai/strong/current-auction-shutdown-diagnostic-evidence-v1.json": "d32eb2af24ee01716d407481ef8fdda37cce04fd024d4bbecd5d557dcea22041",
+      "ai/runs/current-auction-shutdown-recovery-tests-v1-first.log": "eb31b1b20dc80dafebc8c8412d4f9d9369ec815afebf9f6ad6166738cd8af716",
+      "ai/runs/current-auction-recovery-manager-tests-v1-startup-fixed.log": "d4d552d152a92adea199308af91a0dad176445bd085f25a68aecccb56cbb0290",
+      "ai/runs/current-auction-recovered-comparison-tests-v1-first.log": "75ddde9c44d204ab1ce9456a4ee9c7569df864c193d589ea1ab8e685a0bc3898",
+      "ai/runs/current-auction-grid-coordinator-v1/state.json": "70d900e50424a5447ae6bf1c8b51c3e8434ff802996cde05e7c9b967a86df6c8",
+      "ai/runs/current-auction-shutdown-recovery-preflight-v1/intent.json": "39233e9aae4eed318e0f1010352cdd2ab023c3fcc079ec797d50b78288eb5d92",
+      "ai/runs/current-auction-shutdown-recovery-preflight-v1/review.json": "27d9a47a12e283ef62f9ffe43d2f7b57f18e4070f6ac8f5ebe74660579443710",
+      "ai/runs/current-auction-recovery-preflight-v1-first.log": "1ae5f1e289d7c34b2ca7964528c3d222ea9e82f2bfd78a0eac3ddd584ae1808e",
+      "ai/strong/current-auction-confirmation-recovery-readiness-v1.json": "ae3e68d9917dcaeb470b70858a679de8412ee1b44d85b8880d9021b317cee4d2",
+      "ai/strong/current-auction-confirmation-recovery-admission-v1.json": "f9edc987294dd29d81f6593d219f227721d6db9e787896233c21322950bac7db"
+    },
     "source_sha256": "a4384b10eb8a4381423731bc0c315673f9214d91c1fb336aa81ef4a7102d1c5a",
     "expected_jobs": 944,
-    "verified_jobs": 108,
-    "submitted_jobs": 172,
+    "verified_jobs": 176,
+    "submitted_jobs": 240,
     "max_active_jobs": 64,
     "automatic_restarts": false,
     "recovery_rule": "complete_original_terminals_after_policy_shutdown_timeout_v1",
@@ -19,220 +76,161 @@
     "new_gradients": 0,
     "qualified": false,
     "reserved_final_seeds_used": false,
-    "updated_at": "2026-10-29T00:34:34.606556+00:00",
+    "updated_at": "2026-10-29T00:55:46.212385+00:00",
     "active_at_submission": 64,
     "awaiting_collection": []
   },
   "source_sha256": "a4384b10eb8a4381423731bc0c315673f9214d91c1fb336aa81ef4a7102d1c5a",
-  "submitted_jobs": 172,
-  "audited_jobs": 108,
-  "audited_games": 5888,
+  "submitted_jobs": 240,
+  "audited_jobs": 176,
+  "audited_games": 8760,
   "audited_original_hf_stages": {
-    "COMPLETED": 107,
+    "COMPLETED": 175,
     "ERROR": 1
   },
   "unverified_original_status_counts": {
-    "RUNNING": 64
+    "RUNNING": 63,
+    "COMPLETED": 1
   },
   "unverified_originals": [
     {
-      "name": "pg-current-confirm-v1-filter-heuristic-5p-00",
-      "job_id": "6ae2944141e90535df780026",
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-00",
+      "job_id": "6ae2998f41e90535df7804ee",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-heuristic-5p-02",
-      "job_id": "6ae2944141e90535df780029",
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-02",
+      "job_id": "6ae2998f3fb22a235dd4d86d",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-heuristic-5p-04",
-      "job_id": "6ae2944141e90535df78002d",
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-04",
+      "job_id": "6ae2998f41e90535df7804f0",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-heuristic-5p-06",
-      "job_id": "6ae294423fb22a235dd4d302",
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-06",
+      "job_id": "6ae2998f41e90535df7804f2",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-heuristic-5p-08",
-      "job_id": "6ae294423fb22a235dd4d304",
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-08",
+      "job_id": "6ae2999041e90535df7804f4",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-heuristic-5p-10",
-      "job_id": "6ae2944241e90535df780031",
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-10",
+      "job_id": "6ae2999041e90535df7804f6",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-heuristic-5p-12",
-      "job_id": "6ae294433fb22a235dd4d306",
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-12",
+      "job_id": "6ae2999041e90535df7804fa",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-heuristic-5p-14",
-      "job_id": "6ae294433fb22a235dd4d308",
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-14",
+      "job_id": "6ae299913fb22a235dd4d870",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-heuristic-5p-16",
-      "job_id": "6ae2944341e90535df780033",
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-16",
+      "job_id": "6ae2999141e90535df7804fc",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-heuristic-5p-18",
-      "job_id": "6ae2944341e90535df780035",
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-18",
+      "job_id": "6ae299913fb22a235dd4d872",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-heuristic-5p-20",
-      "job_id": "6ae2944441e90535df780037",
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-20",
+      "job_id": "6ae2999141e90535df780500",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-heuristic-5p-22",
-      "job_id": "6ae2944441e90535df780039",
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-22",
+      "job_id": "6ae2999241e90535df780506",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-heuristic-5p-24",
-      "job_id": "6ae2944441e90535df78003b",
+      "name": "pg-current-confirm-v1-filter-legacy-6p-00",
+      "job_id": "6ae2998a41e90535df7804d6",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-heuristic-5p-26",
-      "job_id": "6ae2944541e90535df78003d",
+      "name": "pg-current-confirm-v1-filter-legacy-6p-02",
+      "job_id": "6ae2998a3fb22a235dd4d85b",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-heuristic-5p-28",
-      "job_id": "6ae2944541e90535df780041",
+      "name": "pg-current-confirm-v1-filter-legacy-6p-04",
+      "job_id": "6ae2998b41e90535df7804d9",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-heuristic-5p-30",
-      "job_id": "6ae2944541e90535df780043",
+      "name": "pg-current-confirm-v1-filter-legacy-6p-06",
+      "job_id": "6ae2998b41e90535df7804dc",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-legacy-5p-00",
-      "job_id": "6ae2943c3fb22a235dd4d2f2",
+      "name": "pg-current-confirm-v1-filter-legacy-6p-08",
+      "job_id": "6ae2998b3fb22a235dd4d85d",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-legacy-5p-02",
-      "job_id": "6ae2943d3fb22a235dd4d2f4",
+      "name": "pg-current-confirm-v1-filter-legacy-6p-10",
+      "job_id": "6ae2998c41e90535df7804df",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-legacy-5p-04",
-      "job_id": "6ae2943d41e90535df780011",
+      "name": "pg-current-confirm-v1-filter-legacy-6p-12",
+      "job_id": "6ae2998c3fb22a235dd4d861",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-legacy-5p-06",
-      "job_id": "6ae2943d41e90535df780013",
+      "name": "pg-current-confirm-v1-filter-legacy-6p-14",
+      "job_id": "6ae2998c3fb22a235dd4d863",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-legacy-5p-08",
-      "job_id": "6ae2943e3fb22a235dd4d2f8",
+      "name": "pg-current-confirm-v1-filter-legacy-6p-16",
+      "job_id": "6ae2998c3fb22a235dd4d865",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-legacy-5p-10",
-      "job_id": "6ae2943e3fb22a235dd4d2fa",
+      "name": "pg-current-confirm-v1-filter-legacy-6p-18",
+      "job_id": "6ae2998d3fb22a235dd4d867",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-legacy-5p-12",
-      "job_id": "6ae2943e41e90535df780015",
+      "name": "pg-current-confirm-v1-filter-legacy-6p-20",
+      "job_id": "6ae2998d3fb22a235dd4d869",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-legacy-5p-14",
-      "job_id": "6ae2943e3fb22a235dd4d2fc",
+      "name": "pg-current-confirm-v1-filter-legacy-6p-22",
+      "job_id": "6ae2998d3fb22a235dd4d86b",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-legacy-5p-16",
-      "job_id": "6ae2943f41e90535df780019",
+      "name": "pg-current-confirm-v1-filter-legacy-6p-24",
+      "job_id": "6ae2998d41e90535df7804e6",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-legacy-5p-18",
-      "job_id": "6ae2943f41e90535df78001b",
+      "name": "pg-current-confirm-v1-filter-legacy-6p-26",
+      "job_id": "6ae2998e41e90535df7804e8",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-legacy-5p-20",
-      "job_id": "6ae2943f41e90535df78001d",
+      "name": "pg-current-confirm-v1-filter-legacy-6p-28",
+      "job_id": "6ae2998e41e90535df7804ea",
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-legacy-5p-22",
-      "job_id": "6ae2944041e90535df78001f",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-legacy-5p-24",
-      "job_id": "6ae294403fb22a235dd4d2fe",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-legacy-5p-26",
-      "job_id": "6ae294403fb22a235dd4d300",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-legacy-5p-28",
-      "job_id": "6ae2944041e90535df780022",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-legacy-5p-30",
-      "job_id": "6ae2944141e90535df780024",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-5p-00",
-      "job_id": "6ae294453fb22a235dd4d30d",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-5p-02",
-      "job_id": "6ae2944641e90535df780045",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-5p-04",
-      "job_id": "6ae2944641e90535df780047",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-5p-06",
-      "job_id": "6ae2944641e90535df780049",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-5p-08",
-      "job_id": "6ae294473fb22a235dd4d30f",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-5p-10",
-      "job_id": "6ae2944741e90535df78004b",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-5p-12",
-      "job_id": "6ae2944741e90535df78004d",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-rush-5p-14",
-      "job_id": "6ae294473fb22a235dd4d313",
+      "name": "pg-current-confirm-v1-filter-legacy-6p-30",
+      "job_id": "6ae2998e41e90535df7804ec",
       "stage": "RUNNING"
     },
     {
@@ -271,28 +269,8 @@
       "stage": "RUNNING"
     },
     {
-      "name": "pg-current-confirm-v1-filter-search_geo-4p-28",
-      "job_id": "6ae290c23fb22a235dd4cebb",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-search_geo-5p-00",
-      "job_id": "6ae290cd41e90535df77fc71",
-      "stage": "RUNNING"
-    },
-    {
       "name": "pg-current-confirm-v1-filter-search_geo-5p-02",
       "job_id": "6ae290ce41e90535df77fc73",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-search_geo-5p-04",
-      "job_id": "6ae290ce41e90535df77fc75",
-      "stage": "RUNNING"
-    },
-    {
-      "name": "pg-current-confirm-v1-filter-search_geo-5p-06",
-      "job_id": "6ae290ce41e90535df77fc77",
       "stage": "RUNNING"
     },
     {
@@ -333,7 +311,7 @@
     {
       "name": "pg-current-confirm-v1-filter-search_geo-5p-22",
       "job_id": "6ae290d041e90535df77fc83",
-      "stage": "RUNNING"
+      "stage": "COMPLETED"
     },
     {
       "name": "pg-current-confirm-v1-filter-search_geo-5p-24",
@@ -353,6 +331,86 @@
     {
       "name": "pg-current-confirm-v1-filter-search_geo-5p-30",
       "job_id": "6ae2943c41e90535df78000d",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-00",
+      "job_id": "6ae296ec41e90535df78025d",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-02",
+      "job_id": "6ae296ec3fb22a235dd4d5b7",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-04",
+      "job_id": "6ae296ec41e90535df780261",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-06",
+      "job_id": "6ae296ed3fb22a235dd4d5b9",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-08",
+      "job_id": "6ae296ed3fb22a235dd4d5bb",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-10",
+      "job_id": "6ae296ed41e90535df780263",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-12",
+      "job_id": "6ae296ed41e90535df780265",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-14",
+      "job_id": "6ae296ee3fb22a235dd4d5bd",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-16",
+      "job_id": "6ae296ee3fb22a235dd4d5bf",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-18",
+      "job_id": "6ae296ee3fb22a235dd4d5c1",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-20",
+      "job_id": "6ae296ef41e90535df780268",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-22",
+      "job_id": "6ae296ef3fb22a235dd4d5c3",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-24",
+      "job_id": "6ae296ef3fb22a235dd4d5c5",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-26",
+      "job_id": "6ae296ef3fb22a235dd4d5c7",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-28",
+      "job_id": "6ae296f041e90535df78026a",
+      "stage": "RUNNING"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-30",
+      "job_id": "6ae296f041e90535df78026c",
       "stage": "RUNNING"
     }
   ],
@@ -574,6 +632,102 @@
       "guard_sha256": "8f63f867c0d94ca1ce83e5bc2c72c4326c4a2269c76e438e10928796fa862d75"
     },
     {
+      "name": "pg-current-confirm-v1-filter-economic-6p-00",
+      "job_id": "6ae296e741e90535df780249",
+      "created_at": "2026-10-29T00:44:23.390774+00:00",
+      "guard_sha256": "58d053f3ccb9070c45ac229bf390cc3809195a7cd24e0c78bb311ee33783a924"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-6p-02",
+      "job_id": "6ae296e741e90535df78024b",
+      "created_at": "2026-10-29T00:44:23.654556+00:00",
+      "guard_sha256": "1a457b4c758ca33e2def5b39947f78bbb04b381373e68a723d3e00aa5d5e28b0"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-6p-04",
+      "job_id": "6ae296e841e90535df78024d",
+      "created_at": "2026-10-29T00:44:23.936752+00:00",
+      "guard_sha256": "328853b9883845f6b6d99fae89c756c5ca0bff54e3cb14045eed50fe8f654b30"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-6p-06",
+      "job_id": "6ae296e83fb22a235dd4d5a5",
+      "created_at": "2026-10-29T00:44:24.212054+00:00",
+      "guard_sha256": "d41a46e2dbbd254cdad87734b8d5cc60cb6b81f52bb370641c357ac490242d22"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-6p-08",
+      "job_id": "6ae296e841e90535df78024f",
+      "created_at": "2026-10-29T00:44:24.595715+00:00",
+      "guard_sha256": "f6bfb69745ab2a842df8a33e7ea35314ee4017d96c29ec55fd9c0b84fd9149e3"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-6p-10",
+      "job_id": "6ae296e941e90535df780251",
+      "created_at": "2026-10-29T00:44:24.862392+00:00",
+      "guard_sha256": "cdd540e79046e1aede174be54c5fc7806e34787491f1c19ddd4e23f089cc8726"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-6p-12",
+      "job_id": "6ae296e93fb22a235dd4d5a7",
+      "created_at": "2026-10-29T00:44:25.136610+00:00",
+      "guard_sha256": "16cf241110c7121fe3fd06bd2d5a8e0a00dc3f8bc29027bf348062b3120db86d"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-6p-14",
+      "job_id": "6ae296e93fb22a235dd4d5a9",
+      "created_at": "2026-10-29T00:44:25.413795+00:00",
+      "guard_sha256": "beaa5760c2e8b5e14a23c1aef0e3cb15c48eed2d62587b77adaa8f6c841f87b6"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-6p-16",
+      "job_id": "6ae296e93fb22a235dd4d5ab",
+      "created_at": "2026-10-29T00:44:25.711725+00:00",
+      "guard_sha256": "53df4e972565c802b5eb42ab45dcbe437d9654d30b6a31260f7a93a57935f655"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-6p-18",
+      "job_id": "6ae296ea3fb22a235dd4d5ad",
+      "created_at": "2026-10-29T00:44:26.009717+00:00",
+      "guard_sha256": "baf951bae81af4c5bed16e127f8f88a2dbd2b08c0c36f8a089d73e70021a321e"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-6p-20",
+      "job_id": "6ae296ea41e90535df780253",
+      "created_at": "2026-10-29T00:44:26.278914+00:00",
+      "guard_sha256": "35488680fcc875fc5e7b0b14b2e11018ddf6275954ec908e943897b31168e606"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-6p-22",
+      "job_id": "6ae296ea41e90535df780255",
+      "created_at": "2026-10-29T00:44:26.553291+00:00",
+      "guard_sha256": "0f708c0ca601bd24e0f2ac415d7e7ab98c8136c6e75242564d051cf7e8b6e969"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-6p-24",
+      "job_id": "6ae296eb3fb22a235dd4d5b2",
+      "created_at": "2026-10-29T00:44:26.844295+00:00",
+      "guard_sha256": "565f68454c554e63e2a3cc4f51e0cff0ab18a5b2889f027d8fb596bcd4525409"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-6p-26",
+      "job_id": "6ae296eb3fb22a235dd4d5b4",
+      "created_at": "2026-10-29T00:44:27.141520+00:00",
+      "guard_sha256": "65489e885f31cf2110e36c94ee939a8a3f014a8542d2c425d7df778a6e2c2a55"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-6p-28",
+      "job_id": "6ae296eb41e90535df780259",
+      "created_at": "2026-10-29T00:44:27.448909+00:00",
+      "guard_sha256": "b64e1cefba533d88bc224cdb08f0ceed15628fb08cff55039a9992a9998b76a4"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-economic-6p-30",
+      "job_id": "6ae296eb41e90535df78025b",
+      "created_at": "2026-10-29T00:44:27.731050+00:00",
+      "guard_sha256": "3d554da40e0541747eb3cd87991652d27b03c9357baec54529e681eca7306beb"
+    },
+    {
       "name": "pg-current-confirm-v1-filter-heuristic-2p-00",
       "job_id": "6ae2846f3fb22a235dd4bf18",
       "created_at": "2026-10-28T23:25:35.728526+00:00",
@@ -788,6 +942,78 @@
       "job_id": "6ae2944541e90535df780043",
       "created_at": "2026-10-29T00:33:09.446412+00:00",
       "guard_sha256": "8a175a383c19fedeb176e3cdd4029d3d4856440c7ce583127842b77529e6f4a7"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-00",
+      "job_id": "6ae2998f41e90535df7804ee",
+      "created_at": "2026-10-29T00:55:42.900501+00:00",
+      "guard_sha256": "1ce7efd3d4ae25fb3d7eee3ac5d1b9f873cb84ad851ef1446957b11eaf1b52d3"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-02",
+      "job_id": "6ae2998f3fb22a235dd4d86d",
+      "created_at": "2026-10-29T00:55:43.169906+00:00",
+      "guard_sha256": "ce5a62ef03e683adee9b3a5aaa2a2897cd9560ecca5b7c071fa5f95ca82b73b1"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-04",
+      "job_id": "6ae2998f41e90535df7804f0",
+      "created_at": "2026-10-29T00:55:43.447977+00:00",
+      "guard_sha256": "001072760d6a4b5b3656a8587a72310c5b027cd1e8eaa8b3d817624b1de1d138"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-06",
+      "job_id": "6ae2998f41e90535df7804f2",
+      "created_at": "2026-10-29T00:55:43.715633+00:00",
+      "guard_sha256": "9c9adae06d80ba831678fd7c31cd6d7c35ced8e6c9bbc6410420ca1057b294e5"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-08",
+      "job_id": "6ae2999041e90535df7804f4",
+      "created_at": "2026-10-29T00:55:43.991777+00:00",
+      "guard_sha256": "e5088d03e88a9dc40085533d10cf110ac40d2ae593180b629d52ea4343e8c44e"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-10",
+      "job_id": "6ae2999041e90535df7804f6",
+      "created_at": "2026-10-29T00:55:44.266325+00:00",
+      "guard_sha256": "d5cc3e8ef3906e3e4cc41e408de15175fa2d7cd80744fb1547bdd74d8610cc0f"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-12",
+      "job_id": "6ae2999041e90535df7804fa",
+      "created_at": "2026-10-29T00:55:44.548056+00:00",
+      "guard_sha256": "5486899256ef9d2cd2298657f061d895ffc0080e606befbdc82498f9fc58c98a"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-14",
+      "job_id": "6ae299913fb22a235dd4d870",
+      "created_at": "2026-10-29T00:55:44.830092+00:00",
+      "guard_sha256": "2990794636bdef481b1beb5491d2113f8dbd2c51820b3d08e26648a44e1c5879"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-16",
+      "job_id": "6ae2999141e90535df7804fc",
+      "created_at": "2026-10-29T00:55:45.116121+00:00",
+      "guard_sha256": "660d9eaabb96e8768617a4ebdb76116813108d399aff7aa2a10ccdafc160d5fc"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-18",
+      "job_id": "6ae299913fb22a235dd4d872",
+      "created_at": "2026-10-29T00:55:45.386717+00:00",
+      "guard_sha256": "2e5edc900a226043ce858e7aadb1c003a6ce6fcd42545451b5f95bd344a8581a"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-20",
+      "job_id": "6ae2999141e90535df780500",
+      "created_at": "2026-10-29T00:55:45.657950+00:00",
+      "guard_sha256": "afcd51cfc7f6bd8794659904e36b53e62c1c167bb2d439df4f4bbc0324c34924"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-heuristic-6p-22",
+      "job_id": "6ae2999241e90535df780506",
+      "created_at": "2026-10-29T00:55:45.952634+00:00",
+      "guard_sha256": "c50198dc762231971ad4f85dbd09d2d49e68b4c89b52835e662d9748840290a8"
     },
     {
       "name": "pg-current-confirm-v1-filter-legacy-2p-00",
@@ -1006,6 +1232,102 @@
       "guard_sha256": "9faef188aba09965d3499cd249973fb4dabd8bbe21c91866fc1aab8a2ce94f75"
     },
     {
+      "name": "pg-current-confirm-v1-filter-legacy-6p-00",
+      "job_id": "6ae2998a41e90535df7804d6",
+      "created_at": "2026-10-29T00:55:38.275552+00:00",
+      "guard_sha256": "de6d2545cfe86bfa0a0c0aa28dc0c2a5475ac059bee93da62e03c5a501e2fa61"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-6p-02",
+      "job_id": "6ae2998a3fb22a235dd4d85b",
+      "created_at": "2026-10-29T00:55:38.584566+00:00",
+      "guard_sha256": "859870ff165b135c39f127c2890f338f04e78e0914c0778819247110d519c0cc"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-6p-04",
+      "job_id": "6ae2998b41e90535df7804d9",
+      "created_at": "2026-10-29T00:55:38.909309+00:00",
+      "guard_sha256": "5656d1750bac03c0a8d4e8cc7318a2bbaeaca6d9dcf75744ebc494e3980754f6"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-6p-06",
+      "job_id": "6ae2998b41e90535df7804dc",
+      "created_at": "2026-10-29T00:55:39.308784+00:00",
+      "guard_sha256": "a51e687f5ea35b520a2db1b153251c89a417eec844af169dc9346d3f0dcb25a5"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-6p-08",
+      "job_id": "6ae2998b3fb22a235dd4d85d",
+      "created_at": "2026-10-29T00:55:39.579580+00:00",
+      "guard_sha256": "fdbb672355a0059c07e43e669d6164f90199e709d9ca7ec5c3ce1e82d1fdf185"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-6p-10",
+      "job_id": "6ae2998c41e90535df7804df",
+      "created_at": "2026-10-29T00:55:39.848956+00:00",
+      "guard_sha256": "f50fceb82e75993141c9dd065aef6806feb5a1fa504140360b487b61ab2de936"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-6p-12",
+      "job_id": "6ae2998c3fb22a235dd4d861",
+      "created_at": "2026-10-29T00:55:40.124735+00:00",
+      "guard_sha256": "b9dda1db1afb02fcf82bf4f8f22dcdf4f798ef18ddc9ee6feafebc7ffc4b04d6"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-6p-14",
+      "job_id": "6ae2998c3fb22a235dd4d863",
+      "created_at": "2026-10-29T00:55:40.401590+00:00",
+      "guard_sha256": "8a021792f4262b0c50366ec8d473f2c2d86f639940d1c8c7eb97b1fdcae22218"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-6p-16",
+      "job_id": "6ae2998c3fb22a235dd4d865",
+      "created_at": "2026-10-29T00:55:40.678824+00:00",
+      "guard_sha256": "d9398c0c683918aaeb8ed769d3b5b3593183dba6d9af48166a063fba3a564eca"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-6p-18",
+      "job_id": "6ae2998d3fb22a235dd4d867",
+      "created_at": "2026-10-29T00:55:40.957296+00:00",
+      "guard_sha256": "6ef0ba3bb86c904fb339a8fa57d8a0e31a850e8704d267a1abd5c7cb0c67f463"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-6p-20",
+      "job_id": "6ae2998d3fb22a235dd4d869",
+      "created_at": "2026-10-29T00:55:41.222508+00:00",
+      "guard_sha256": "c65481c7891776d392da1cc3a4f0b8aae2bfb66f0be8a7340c2e787aafdfa274"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-6p-22",
+      "job_id": "6ae2998d3fb22a235dd4d86b",
+      "created_at": "2026-10-29T00:55:41.502010+00:00",
+      "guard_sha256": "33b13b3450123f8a9eff7923d6c3f9383cef040d48b10b5af1a99df97b7ef9d7"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-6p-24",
+      "job_id": "6ae2998d41e90535df7804e6",
+      "created_at": "2026-10-29T00:55:41.806927+00:00",
+      "guard_sha256": "7ca805b01f1240443b6733cf1ecb4176379f685645fe131f64fcd3797647ac7a"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-6p-26",
+      "job_id": "6ae2998e41e90535df7804e8",
+      "created_at": "2026-10-29T00:55:42.083115+00:00",
+      "guard_sha256": "10b0c880e6c41fe6da9369722aad7b32b36ea15650b6ba49e0012f72a4ba555d"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-6p-28",
+      "job_id": "6ae2998e41e90535df7804ea",
+      "created_at": "2026-10-29T00:55:42.358653+00:00",
+      "guard_sha256": "217f1ab9d24d6145085f9554288dac3c3cf7c1dc1e43ce590ac5d8a253a852fa"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-legacy-6p-30",
+      "job_id": "6ae2998e41e90535df7804ec",
+      "created_at": "2026-10-29T00:55:42.622593+00:00",
+      "guard_sha256": "c2dea284d71d80269b6d094e662b6cb0f10139922cae6f74617859d3a51be060"
+    },
+    {
       "name": "pg-current-confirm-v1-filter-rush-2p-00",
       "job_id": "6ae2847141e90535df77edd5",
       "created_at": "2026-10-28T23:25:36.915143+00:00",
@@ -1172,6 +1494,54 @@
       "job_id": "6ae294473fb22a235dd4d313",
       "created_at": "2026-10-29T00:33:11.680965+00:00",
       "guard_sha256": "0ace19b47bf58f9ddbe4777158f81fb9697d98569face77f362f46240004c8b8"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-rush-5p-16",
+      "job_id": "6ae296e53fb22a235dd4d594",
+      "created_at": "2026-10-29T00:44:20.943740+00:00",
+      "guard_sha256": "6e67d1f4d7c53b3e9b9e93ba510f1bee67af642c42ca49920202f8129ca2dfaa"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-rush-5p-18",
+      "job_id": "6ae296e53fb22a235dd4d596",
+      "created_at": "2026-10-29T00:44:21.373384+00:00",
+      "guard_sha256": "ccd3b44c51bf5e6a1b365e19ea20e6dadff2d055ca812dba0d1e220ab2f47df0"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-rush-5p-20",
+      "job_id": "6ae296e53fb22a235dd4d599",
+      "created_at": "2026-10-29T00:44:21.651961+00:00",
+      "guard_sha256": "b0a8dee97a60ead9706e75d01f57395d8dbeb55d2dfcf52355dfbc70e15d5b9c"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-rush-5p-22",
+      "job_id": "6ae296e63fb22a235dd4d59b",
+      "created_at": "2026-10-29T00:44:22.013839+00:00",
+      "guard_sha256": "667242eec91b671ebe2f597450969820cebaf6bd1f05c2bb6d8f4a1fc42b94aa"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-rush-5p-24",
+      "job_id": "6ae296e63fb22a235dd4d59d",
+      "created_at": "2026-10-29T00:44:22.288986+00:00",
+      "guard_sha256": "9bfbdf630eebae37a26f4ac75e82fc81cae5ccaadbd96691202d01cf054823f8"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-rush-5p-26",
+      "job_id": "6ae296e641e90535df780247",
+      "created_at": "2026-10-29T00:44:22.555828+00:00",
+      "guard_sha256": "e5e055afe78516f76701a2546c2256167e71746ad1ac8535e14692e462b8f323"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-rush-5p-28",
+      "job_id": "6ae296e73fb22a235dd4d59f",
+      "created_at": "2026-10-29T00:44:22.828927+00:00",
+      "guard_sha256": "61926ec45ba23ae0ce3acb62c9aa3d767cf26b44a0454192a275ad4c1b424e42"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-rush-5p-30",
+      "job_id": "6ae296e73fb22a235dd4d5a1",
+      "created_at": "2026-10-29T00:44:23.119928+00:00",
+      "guard_sha256": "74f538f4791ea6f1b2c3b0f0b29f5c8f3b7846ab67831065c920a45f8b35664c"
     },
     {
       "name": "pg-current-confirm-v1-filter-search_geo-2p-00",
@@ -1388,9 +1758,105 @@
       "job_id": "6ae2943c41e90535df78000d",
       "created_at": "2026-10-29T00:33:00.453779+00:00",
       "guard_sha256": "638283f71a01b8de19702d8134abea7c11b445c0400ace4376c6ff470f8f4ce6"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-00",
+      "job_id": "6ae296ec41e90535df78025d",
+      "created_at": "2026-10-29T00:44:28.004260+00:00",
+      "guard_sha256": "97ed5ebc89144eca6c1a31b466784b1a0a473cc57156436c616f57ce08635765"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-02",
+      "job_id": "6ae296ec3fb22a235dd4d5b7",
+      "created_at": "2026-10-29T00:44:28.284258+00:00",
+      "guard_sha256": "354d6423e93c8688d87ea43c1082ebf01d4cc7d17eaf74b11a3170d8a27335b2"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-04",
+      "job_id": "6ae296ec41e90535df780261",
+      "created_at": "2026-10-29T00:44:28.561018+00:00",
+      "guard_sha256": "fc6ca31b5aed36d0bf6a1a256af0deb1b89d849b17ee98e1093ff9345c866b77"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-06",
+      "job_id": "6ae296ed3fb22a235dd4d5b9",
+      "created_at": "2026-10-29T00:44:28.873032+00:00",
+      "guard_sha256": "e8815ac6c434dacfd770abd349017bb384d09d3ac81d3280c7c2c4f6d89dfe03"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-08",
+      "job_id": "6ae296ed3fb22a235dd4d5bb",
+      "created_at": "2026-10-29T00:44:29.186723+00:00",
+      "guard_sha256": "0b1d542dc8df52e86bc59d565f2821a35f383cadf984e41edb0223e60277b736"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-10",
+      "job_id": "6ae296ed41e90535df780263",
+      "created_at": "2026-10-29T00:44:29.509455+00:00",
+      "guard_sha256": "ea7a42abf75e4450667d53796f6754423ad414623e546457cc5d1fe45b90c368"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-12",
+      "job_id": "6ae296ed41e90535df780265",
+      "created_at": "2026-10-29T00:44:29.815026+00:00",
+      "guard_sha256": "57d1b93b5cc071d5bfc9785eed6edbdd31f3c14757705fbda88722d8e5155aef"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-14",
+      "job_id": "6ae296ee3fb22a235dd4d5bd",
+      "created_at": "2026-10-29T00:44:30.081298+00:00",
+      "guard_sha256": "edfd5e567deee1e26dbc8424bf4c138f5709788508046ea4d8cd13a10acdd650"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-16",
+      "job_id": "6ae296ee3fb22a235dd4d5bf",
+      "created_at": "2026-10-29T00:44:30.368716+00:00",
+      "guard_sha256": "b64890d89e775de2c27c33d5cf00f96a3a0fa4db3155f38dded800f490a43585"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-18",
+      "job_id": "6ae296ee3fb22a235dd4d5c1",
+      "created_at": "2026-10-29T00:44:30.653069+00:00",
+      "guard_sha256": "501ecbe38c7e735120f5ccf9532a0b7d4f86817eab81fd0943b27abd6e7bc889"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-20",
+      "job_id": "6ae296ef41e90535df780268",
+      "created_at": "2026-10-29T00:44:30.929815+00:00",
+      "guard_sha256": "549d50bff983945ea5caedf051964d5e8aef9146db8776938906c6213b52eda9"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-22",
+      "job_id": "6ae296ef3fb22a235dd4d5c3",
+      "created_at": "2026-10-29T00:44:31.193878+00:00",
+      "guard_sha256": "3619de4a2482d1714ee333af701251319682eabd2c29646cf368343b606f9ae4"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-24",
+      "job_id": "6ae296ef3fb22a235dd4d5c5",
+      "created_at": "2026-10-29T00:44:31.470387+00:00",
+      "guard_sha256": "b7bb329160a522485800c2ac47daf43bd563a8d319318485277dbf5566a60084"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-26",
+      "job_id": "6ae296ef3fb22a235dd4d5c7",
+      "created_at": "2026-10-29T00:44:31.749568+00:00",
+      "guard_sha256": "03f1bf7e8cb6db3fa8b6ecb5c1457fe3025d48d695cc6351f176cbfd3d5e45ee"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-28",
+      "job_id": "6ae296f041e90535df78026a",
+      "created_at": "2026-10-29T00:44:32.025991+00:00",
+      "guard_sha256": "82ab865582179b149c8a8a6ed8bacd6f8384b6fe58045ef7671817cd71635444"
+    },
+    {
+      "name": "pg-current-confirm-v1-filter-search_geo-6p-30",
+      "job_id": "6ae296f041e90535df78026c",
+      "created_at": "2026-10-29T00:44:32.361073+00:00",
+      "guard_sha256": "6212f41d8fd3195530ccad94e995c080bf3bf551dbab0f0ccdd95811503ae982"
     }
   ],
-  "free_bytes": 573976649728,
+  "free_bytes": 538470244352,
   "new_submissions_by_observer": 0,
   "qualified": false,
   "reserved_final_seeds_used": false

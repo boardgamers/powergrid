@@ -1,5 +1,31 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 00:56:32 UTC — confirmation continues; faster independent audit ready.**
+
+The same original coordinator **PID 2398668 / session 50170** is live, with
+all 54 pins unchanged. **176 jobs / 8,760 games** are audited; 240 originals
+submitted. Fresh HF inspection found **63 RUNNING and one COMPLETED awaiting
+collection** among the 64 unverified originals. No new terminal failure at this
+check. Exact handles, original guards and process proof are saved in
+`strong/current-auction-confirmation-recovery-progress-v1.json`. Do not compete
+with or restart this owner. No partial win analysis or policy changes.
+
+The four-process independent audit matched every original review on six saved
+archives / 248 games per pass, with **2.09x lower wall time** in the fixed ABBA
+benchmark. Fourteen admission/provenance/failure tests passed. This is an audit
+speedup, not an engine, inference or strength result. The live coordinator is
+unchanged. After all 944 jobs / 26,880 games finish, use the separately pinned
+parallel comparator described in [the audit handoff](CURRENT-AUCTION-PARALLEL-AUDIT-2026-10-29.md).
+The original serial comparator and statistical analysis remain unchanged.
+
+The 97-file evidence snapshot is privately archived and download-verified at
+model revision `deca89b2566cb5392dfdbe02e9bd3ff320508daf`; descriptor
+`strong/current-auction-parallel-audit-evidence-v1.json`. It references all six
+original raw archives and the unchanged source bundles. No new games, policy
+calls or HF jobs were needed for this audit experiment. Research remains active;
+no candidate selected or qualified, and final seeds remain unused.
+
+
 **29 October, 00:35:27 UTC — confirmation healthy; complete-policy final transport validated.**
 
 The same original recovery coordinator **PID 2398668 / session 50170** is live,

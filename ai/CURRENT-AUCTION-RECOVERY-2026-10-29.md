@@ -6,12 +6,12 @@ slots, policies, current engine, search budget and statistical analysis remain
 unchanged. This recovery does not generate replacement games.
 
 <!-- RECOVERY-STATUS-BEGIN -->
-**Later checkpoint, 00:35:27 UTC:** the same coordinator is live with all 54
-pins unchanged. **108 jobs / 5,888 games** are audited; 172 originals submitted.
-Fresh HF inspection found all 64 unverified originals RUNNING, with no new
-terminal failure. Exact handles and guard hashes:
-`strong/current-auction-confirmation-recovery-progress-v1.json`. The original
-launch snapshot below remains historical recovery evidence.
+**Later checkpoint, 00:56:32 UTC:** the same coordinator is live with all 54
+pins unchanged. **176 jobs / 8,760 games** are audited; 240 originals submitted.
+Fresh HF inspection found 63 RUNNING and one COMPLETED awaiting collection
+among the 64 unverified originals, with no new terminal failure. Exact handles
+and guard hashes: `strong/current-auction-confirmation-recovery-progress-v1.json`.
+The original launch snapshot below remains historical recovery evidence.
 
 **29 October, 00:18:52 UTC: recovery admitted; remaining confirmation is running.**
 All **64 initial originals / 3,456 games** passed their complete data audits:
@@ -131,10 +131,15 @@ regenerated. Inspect existing archive intents/outcomes before any retry.
    It audits collection before launching, never retries, and stops on any
    unadmitted failure. The old coordinator must not be restarted.
 4. After all **944 jobs / 26,880 games** have verified complete data, use
-   `strong/compare-current-auction-confirmation-recovered-v1.py`. It independently
-   re-audits every immutable raw archive, explicitly reports every original
-   ERROR/recovery, and uses the unchanged paired whole-deal analysis and
-   requirements. Do not analyze partial wins or tune the frozen policies.
+   `strong/compare-current-auction-confirmation-parallel-v1.py`. Its four isolated
+   workers run the same complete raw verifier and bind every full review to the
+   original receipt. Archive checks, original ERROR/recovery reporting, paired
+   whole-deal analysis and requirements are unchanged. Fourteen tests passed;
+   the six-artifact audit benchmark matched all reviews and reduced wall time
+   by 2.09x. The original serial comparator remains unchanged as a reference.
+   Read [the audit handoff](CURRENT-AUCTION-PARALLEL-AUDIT-2026-10-29.md) and inspect
+   existing analysis intents/results before execution. Do not analyze partial
+   wins or tune the frozen policies.
 5. Confirmation is not final qualification. The separate held-out strength,
    export/serving and target-machine gates remain required.
 

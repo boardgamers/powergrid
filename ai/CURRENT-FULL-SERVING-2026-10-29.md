@@ -54,8 +54,8 @@ The package is 142,593,866 bytes, SHA-256
 `a255e5f5bf21df18f667d2d0791c6ec8039087479e30178053d6df805f73cbde`.
 Full serving verification remains unfinished. Preserve this original process,
 remote directory and launch guard; do not launch another copy.
-Later live inspection at the 01:48 UTC checkpoint found
-**4,170 / 5,106** complete: the filtered-policy pass finished all 2,553
+Later live inspection at the 02:08 UTC checkpoint found
+**4,741 / 5,106** complete: the filtered-policy pass finished all 2,553
 positions and population search is underway. Snapshot:
 `strong/current-full-serving-8840u-progress-v1.json`. Independent collection and
 full re-audit remain pending.

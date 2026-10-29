@@ -1,5 +1,37 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 02:08 UTC — final dispatch transport tested; original runs continue.**
+
+The complete-policy final dispatch layer now passes **12 tests**, covering
+durable intents, duplicate prevention, uncertain API results, receipt/disk
+failures, competing owners and exact setup/bootstrap wiring. It was also checked
+against all 320 rows of the previously validated source plan. The API calls and
+release/admission fields are synthetic fixtures: **no actual final submission,
+policy inference, selection or reserved games**. The first bootstrap extension
+failed its exact setup-byte check because of an added blank line; the correction
+keeps the original setup pin, and both logs/code versions are preserved.
+
+Read [the dispatch handoff](SELECTED-PUBLIC-POLICY-FINAL-DISPATCH-2026-10-29.md).
+Its 25-file proof is privately archived and verified at model revision
+`2f7d97248c2d212d062d177430a9ccbf191ac6d1`. Actual confirmation,
+selection, complete selected-policy technical proof, measured sizing, real-source
+publication/admission and batch/collection integration remain required. This
+module binds an admission hash; it does not itself prove the admission is valid.
+
+Original HF coordinator **PID 2398668 / session 50170** was confirmed live at
+02:06:31 UTC with all 54 pins unchanged. Its state reported **316 audited
+jobs / 339 submitted**, collecting original completions before replenishing.
+That is an owner-state checkpoint; the earlier full remote inspection remains
+separately dated in `strong/current-auction-confirmation-recovery-progress-v1.json`.
+The original actual 8840U **PID 3462824** remains live with
+**4,741 / 5,106 requests** complete at the latest direct target inspection.
+Preserve both owners; collect/bind the target only after terminal completion.
+
+Previous goal turn: progress (source builder and all 320 contract validations
+pushed as `4799062`). This turn: progress (tested dispatch and bootstrap), plus
+verified waits. Research active; no candidate qualified; final seeds unused.
+
+
 **29 October, 01:48 UTC — final source packaging validated; both original runs live.**
 
 The offline complete-policy source builder passed seven unit tests and all

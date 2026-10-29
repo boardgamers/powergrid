@@ -60,7 +60,9 @@ Evidence:
    and emits a full file manifest. It does not validate the substantive contents
    of selection/technical archives: that remains an explicit launch prerequisite.
 5. Validate and independently admit the real source, then publish its immutable
-   archive. The separate original-only launch manager still needs integration:
+   archive. The [durable dispatch layer](SELECTED-PUBLIC-POLICY-FINAL-DISPATCH-2026-10-29.md)
+   now has tested intent/receipt handling and the pinned final bootstrap.
+   The separate admission/batch/collection manager still needs integration:
    bind source/selection/technical evidence and every original launch intent;
    reconcile ambiguous submissions rather than retry them. Only then execute
    the reserved plan and apply the unchanged final strength gate.

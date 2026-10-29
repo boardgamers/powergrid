@@ -1,5 +1,31 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 12:08 UTC — first bucket job fully audited; 43 remaining jobs submitted (43 RUNNING).**
+
+Read [the remaining-bucket handoff](CURRENT-AUCTION-BUCKET-REMAINING-2026-10-29.md)
+first. First proof: 16 games / 11 checkpoints verified and privately archived;
+result SHA `c596072e97c8ffda2969697c8e783fd41541a3807f7925325bfb9586a8c3fa5a`. Original v2 batch: 33 audited jobs,
+660 games; ten failures preserved. Coverage **20,456 / 26,880**.
+New 43 fixed five-player rows request 860 games; they do not yet count toward
+coverage. All exact handles are in `strong/current-auction-bucket-remaining-launch-v3.json`.
+**215 rows / 4,944 games** remain untouched. No failed job restarted.
+
+New bounded manager `strong/manage_current_auction_bucket_remaining_v3.py` is
+prepared/published and frozen. 25 tests, all 258 spec checks, four actual count
+CLI validations, and effective HF source/resource checks passed. It counts older
+live jobs toward max 64. Default `cycle` validates only; explicit `cycle --execute`
+can collect and fill remaining fixed rows. Use `--launch-limit 0` for no new jobs.
+Preserve old v2 STOP; never run its dispatcher. Separate original collection-only
+helper and new manager share its lock. No background coordinator was started;
+current sessions completed. Confirm actual process ownership before collecting.
+
+Ten prior upload failures remain outside this grant and require separate explicit
+recovery with their original evidence. Complete attempt-aware statistics and the
+reserved final strength test remain pending. No candidate selected/qualified;
+no policy changes, training updates or reserved seeds. Previous turn: informational
+recap/no progress. This turn: actual proof, audits and 43 submissions. Goal active.
+
+
 **29 October, 11:41 UTC — first bucket-backed job RUNNING; first actual checkpoint independently downloaded and verified.**
 
 Read [the first-bucket handoff](CURRENT-AUCTION-FIRST-BUCKET-2026-10-29.md) first.

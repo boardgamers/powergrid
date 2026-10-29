@@ -1,5 +1,35 @@
 # First live bucket-backed confirmation shard — 29 October 2026
 
+**Completed and independently audited on 29 October 2026.** Original handle
+`6ae32f6741e90535df78a8a6` completed; all **16 games**, **11 checkpoints** and
+original public/legal/search decision receipts passed. Ten checkpoint uploads
+finished while the evaluator child remained live. Every checkpoint used one
+application upload call. All original game/checkpoint bytes match. The result
+contains zero rollout caps and no surrogate decisions.
+
+Result: `strong/current-auction-first-bucket-results-v3.json`, SHA-256
+`c596072e97c8ffda2969697c8e783fd41541a3807f7925325bfb9586a8c3fa5a`.
+The actual evaluator used **802.10 seconds wall / 3,743.39 CPU seconds**, with
+sampled peak total RSS **6,206,517,248 bytes**. These are resource measurements
+for this fixed two-player row, not strength statistics or a general speed estimate.
+
+The independently collected envelope, all checkpoint trees and raw audit are
+upload/download-verified in the private model repository at revision
+`2769e975d02b497c1f7b5f408aab5b2986c35f34`, path
+`archives/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-collected.tgz`,
+SHA-256 `878d62b02b7b32bade7f13ab8662f1ce30abff86ae6c1a1696bd74da68fd9419`,
+manifest `ec26dbc2109edba0de4dc4a57c666e4757657a7617717059b6b61840dbdedd9d`,
+**203 files**. Collection session 20787 completed. Do not repeat its launch,
+raw audit, source upload or successful evidence promotion.
+
+The first worker/manager and prepared bundle stay frozen. Broader execution
+uses a separate decision/source/manager; see
+[the remaining-bucket handoff](CURRENT-AUCTION-BUCKET-REMAINING-2026-10-29.md).
+No strength comparison or candidate selection was made from this one row.
+The complete confirmation and reserved final strength gate remain required.
+
+## Historical launch snapshot — superseded by the completed audit above
+
 **One admitted HF job is RUNNING: `6ae32f6741e90535df78a8a6`.**
 The 11:39:55 UTC read-only check independently downloaded its first checkpoint,
 verified the archive/member hashes and exact frozen configuration, and confirmed

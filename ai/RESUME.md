@@ -1,27 +1,26 @@
 # Power Grid AI — resumed, 27 October 2026
 
-**29 October, 12:27 UTC — 20,596 / 26,880 audited; mixed-attempt authentication passed.**
+**29 October, 12:46 UTC — 20,676 / 26,880 audited; mixed-attempt raw comparison integration passed.**
 
 Read [the current attempt handoff](CURRENT-AUCTION-ATTEMPTS-2026-10-29.md).
-New provenance adapter passed 23 tests and actual retained-v2/first-bucket receipt
-bindings, including sealed archive bytes. The incomplete study rejects before
-recovery review loading; no statistics or repeated raw audits were run. A completed
-remaining-bucket receipt still needs its first real authentication check.
+The first four larger-batch bucket jobs passed full collection (80 new audited
+games). Four more fixed rows / 80 games submitted; 54 bucket jobs total, with
+46 RUNNING, four COMPLETED and four SCHEDULING at this snapshot. Old v2:
+40 audited, 14 RUNNING, ten preserved failures. 204 untouched rows / 4,724 games
+remain. Exact handles and archives: `strong/current-auction-attempt-comparison-status-v3.json`.
 
-Original v2 batch: 40 audited / 800 games, ten failures preserved.
-Bucket batch: 50 jobs / 1000 games submitted (48 RUNNING, 2 SCHEDULING);
-7 new jobs / 140 fixed games this turn. Latest exact handles are in
-`strong/current-auction-attempt-authentication-status-v3.json`. 208 rows /
-4804 games remain untouched. No background coordinator was started.
-Current bounded collection/dispatch sessions completed; verify actual process
-ownership before the next pass. Preserve original STOP and frozen live sources.
+New comparison integration passed 15 tests plus five real raw audits / 120
+existing games across all current backends, including the first actual larger
+bucket receipt. No new gameplay or strength statistics in that integration check.
+Incomplete coverage refuses before review loading/auditing/statistics. Complete
+comparison and explicit failure-recovery/final-selection integration remain pending.
 
-Continue bounded collection/dispatch, explicit failed-transport recovery, then
-complete attempt-aware raw re-audit/comparison and unchanged final strength gates.
-No candidate selected/qualified or final seeds used. Goal active; previous and
-current turns made progress. Keep user updates to new results and actionable
-blockers; do not repeat settled background.
-
+Sessions 37907, 69256 and 82021 completed; no background coordinator. Verify process
+ownership before continuing. Preserve frozen sources and original STOP. Next:
+admit explicit bucket recovery for the ten failed transport attempts, extend
+routing, continue fixed untouched coverage, then run unchanged comparison/gates.
+Goal active; progress made. No candidate selected/qualified or final seeds used.
+Keep user updates to new findings; do not repeat settled background.
 
 **29 October, 12:08 UTC — first bucket job fully audited; 43 remaining jobs submitted (43 RUNNING).**
 

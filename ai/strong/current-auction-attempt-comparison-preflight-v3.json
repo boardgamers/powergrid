@@ -1,0 +1,646 @@
+{
+  "passed": true,
+  "checked_at": "2026-10-29T12:48:48.539658+00:00",
+  "complete_comparison_executed": false,
+  "incomplete_gate_rejected_before_context_and_reviews": true,
+  "actual_backends_checked": [
+    "original",
+    "timeout_v2",
+    "retained_v2",
+    "bucket_remaining_v3",
+    "bucket_first_v3"
+  ],
+  "independent_audits": {
+    "pg-current-confirm-v1-filter-heuristic-3p-20": {
+      "name": "pg-current-confirm-v1-filter-heuristic-3p-20",
+      "backend": "original",
+      "job_id": "6ae2847a41e90535df77edf5",
+      "original_hf_stage": "ERROR",
+      "games": 48,
+      "review_sha256": "9ac778d8da0e9e0e83314bd02908ea15c692a90ae3c4fa5fbbd7a90c727b81d8",
+      "counts": {
+        "decisions": 6486,
+        "root_filter_overrides": 0,
+        "rollouts": 0,
+        "rollout_caps": 0,
+        "neural_decisions": 0,
+        "search_changes": 0,
+        "search_decisions": 0
+      },
+      "receipt_sha256": "77103eb7babba4fa4c8c99c0138d2ebaeadd7e762bb21fc2788e1b7fc8692521",
+      "raw_trees": [
+        {
+          "directory": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-heuristic-3p-20/artifacts",
+          "manifest_sha256": "4114e92670ca286300f4c496232d10543b0b397a7f7babaa58b3675ad61634e4"
+        }
+      ],
+      "evaluation_file": "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-heuristic-3p-20/terminal-recovery-v1/evaluation/evaluation.json",
+      "evaluation_sha256": "6a757a36568b4920585427f40a4c2b6d7d09d49a671281a86c8676e5d61d2fa6",
+      "seconds": 8.27845807200356,
+      "cpu_seconds": 8.191573,
+      "process_lifetime_peak_rss_bytes": 90275840
+    },
+    "pg-current-confirm-v1-pop-search_geo-4p-05": {
+      "name": "pg-current-confirm-v1-pop-search_geo-4p-05",
+      "backend": "timeout_v2",
+      "job_id": "6ae3083f3fb22a235dd56000",
+      "original_hf_stage": "COMPLETED",
+      "games": 16,
+      "review_sha256": "19710e9c933eb97ae97e75de67103c333f2a598d145d3478ca01ad4e680b21f2",
+      "counts": {
+        "decisions": 2482,
+        "root_filter_overrides": 0,
+        "rollouts": 25992,
+        "rollout_caps": 0,
+        "neural_decisions": 3501500,
+        "search_changes": 168,
+        "search_decisions": 646,
+        "surrogate_decisions": 0
+      },
+      "receipt_sha256": "b83b2dfa755d3bc0ea6500461a6ca8166724c6ce2b6071dab282798378a91940",
+      "raw_trees": [
+        {
+          "directory": "ai/runs/current-auction-resource-recovery-hf-v2/checkpoints/pg-current-recover-v2-pop-search-4p-05-checkpoint-0001",
+          "manifest_sha256": "377977b3044ebb61e3b6fab091fe3041c3c400d878467e32e6c6a671b02d8a6c"
+        },
+        {
+          "directory": "ai/runs/current-auction-resource-recovery-hf-v2/checkpoints/pg-current-recover-v2-pop-search-4p-05-checkpoint-0002",
+          "manifest_sha256": "9ed31063ee2f99e0d20790c1b7ab2c8b0b3e1e7019ec35148204714b0a8c4c62"
+        },
+        {
+          "directory": "ai/runs/current-auction-resource-recovery-hf-v2/checkpoints/pg-current-recover-v2-pop-search-4p-05-checkpoint-0003",
+          "manifest_sha256": "ef5ce54767b4ae50a4d9955152ebff8ac229233b354b24139791ff303392e249"
+        },
+        {
+          "directory": "ai/runs/current-auction-resource-recovery-hf-v2/checkpoints/pg-current-recover-v2-pop-search-4p-05-checkpoint-0004",
+          "manifest_sha256": "8f35bf8508c010f1bed3ae619c2a47efc7a4dbf654cbb63616dfb730fde8251b"
+        },
+        {
+          "directory": "ai/runs/current-auction-resource-recovery-hf-v2/checkpoints/pg-current-recover-v2-pop-search-4p-05-checkpoint-0005",
+          "manifest_sha256": "c20d9567dc63d31bfb19015e2838708a38e07d88b19cf78838d448c8b9736fdd"
+        },
+        {
+          "directory": "ai/runs/current-auction-resource-recovery-hf-v2/checkpoints/pg-current-recover-v2-pop-search-4p-05-checkpoint-0006",
+          "manifest_sha256": "2a54ed2978c088353a77ad6531c88189eed33fcc052898e0c504056c3022429f"
+        },
+        {
+          "directory": "ai/runs/current-auction-resource-recovery-hf-v2/checkpoints/pg-current-recover-v2-pop-search-4p-05-checkpoint-0007",
+          "manifest_sha256": "70a9668cb404b0fabd9f7e5bcf3c4772955b68cda51163124e9ad60b9ebc3b1c"
+        },
+        {
+          "directory": "ai/runs/current-auction-resource-recovery-hf-v2/checkpoints/pg-current-recover-v2-pop-search-4p-05-checkpoint-0008",
+          "manifest_sha256": "06786fcffc49a004f7ef182dd49bed051665947f286a13ae609d17cd756cba90"
+        },
+        {
+          "directory": "ai/runs/current-auction-resource-recovery-hf-v2/checkpoints/pg-current-recover-v2-pop-search-4p-05-checkpoint-0009",
+          "manifest_sha256": "6df1f1d049310fb3028dbd3f11d1dbe7af45a8c3d48ef756a8e9b91053c3f4cb"
+        },
+        {
+          "directory": "ai/runs/current-auction-resource-recovery-hf-v2/checkpoints/pg-current-recover-v2-pop-search-4p-05-checkpoint-0010",
+          "manifest_sha256": "174e5d6c51841acd5c654953c18751d5607179aeafb43373e2d4077ce167e0b9"
+        },
+        {
+          "directory": "ai/runs/current-auction-resource-recovery-hf-v2/checkpoints/pg-current-recover-v2-pop-search-4p-05-checkpoint-0011",
+          "manifest_sha256": "e880b96347b92110bc3cace29310dfad22dbef119c4cdde0226b442c3cc017d3"
+        },
+        {
+          "directory": "ai/runs/current-auction-resource-recovery-hf-v2/checkpoints/pg-current-recover-v2-pop-search-4p-05-checkpoint-0012",
+          "manifest_sha256": "b1eb8dad89dc6ef8fb24492f98a4fca2eba05b1c81491f4b4043dbb80809ddcf"
+        },
+        {
+          "directory": "ai/runs/current-auction-resource-recovery-hf-v2/checkpoints/pg-current-recover-v2-pop-search-4p-05-checkpoint-0013",
+          "manifest_sha256": "a74a36c746cc550143bd6cd43e20c200158d2f4f9c763f14944dd98e795ccda2"
+        },
+        {
+          "directory": "ai/runs/current-auction-resource-recovery-hf-v2/checkpoints/pg-current-recover-v2-pop-search-4p-05-checkpoint-0014",
+          "manifest_sha256": "e905cecf58a59d157b761e1ad9cf79b2b9045391d5673291f13af149a1fdf6d6"
+        },
+        {
+          "directory": "ai/runs/current-auction-resource-recovery-hf-v2/artifacts",
+          "manifest_sha256": "6349088d6523c0860841e57e72796e78daeaf99da0684f27e13072da9bc654bc"
+        }
+      ],
+      "evaluation_file": "ai/runs/current-auction-resource-recovery-hf-v2/artifacts/raw/job/evaluation/evaluation.json",
+      "evaluation_sha256": "e9645c07e5307e0c8e6704abc11d02a817e198feb756e8070212b61ec6bce1e2",
+      "seconds": 14.711565906996839,
+      "cpu_seconds": 14.688047000000001,
+      "process_lifetime_peak_rss_bytes": 98713600
+    },
+    "pg-current-confirm-v1-pop-economic-5p-30": {
+      "name": "pg-current-confirm-v1-pop-economic-5p-30",
+      "backend": "retained_v2",
+      "job_id": "6ae31a993fb22a235dd57406",
+      "original_hf_stage": "COMPLETED",
+      "games": 20,
+      "review_sha256": "8de1ef80b3fee70d3cd3c3ac12e3cefa5340056deb7d192ab1c9c6b2f889c8bd",
+      "counts": {
+        "decisions": 2336,
+        "root_filter_overrides": 1,
+        "rollouts": 25784,
+        "rollout_caps": 0,
+        "neural_decisions": 3073771,
+        "search_changes": 131,
+        "search_decisions": 623,
+        "surrogate_decisions": 0
+      },
+      "receipt_sha256": "535c94d75890ae53398becc39c0b79a367d202624cee01c1336168f337e298a9",
+      "raw_trees": [
+        {
+          "directory": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/checkpoints/pg-current-retained-v2-pop-economic-5p-30-checkpoint-0001",
+          "manifest_sha256": "9a6d7bc6eb1b1367606813b150fb279e9c6865ece3a2823753faee8475a1a7c4"
+        },
+        {
+          "directory": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/checkpoints/pg-current-retained-v2-pop-economic-5p-30-checkpoint-0002",
+          "manifest_sha256": "14161965f1d505ed06d054641ca4360af1f1daf83cf6f5f67af433b57136fe24"
+        },
+        {
+          "directory": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/checkpoints/pg-current-retained-v2-pop-economic-5p-30-checkpoint-0003",
+          "manifest_sha256": "a05062f900a80ec915d5c2c266bf02ab5698f4c435c17eeba2ae68463024eb51"
+        },
+        {
+          "directory": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/checkpoints/pg-current-retained-v2-pop-economic-5p-30-checkpoint-0004",
+          "manifest_sha256": "fd547da24521cacfc93a58e66cf3fd8d2acee4bbcac471d372c6b01112092124"
+        },
+        {
+          "directory": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/checkpoints/pg-current-retained-v2-pop-economic-5p-30-checkpoint-0005",
+          "manifest_sha256": "27dd9d0bc5f485f197828a5aa7c9b42c1b722546a17d79564e704f5e0e826153"
+        },
+        {
+          "directory": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/checkpoints/pg-current-retained-v2-pop-economic-5p-30-checkpoint-0006",
+          "manifest_sha256": "ae0a1d2598dbdbf8bf64b9a1d5970beaf47039b2dc847fe5a5600a78441d97f4"
+        },
+        {
+          "directory": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/checkpoints/pg-current-retained-v2-pop-economic-5p-30-checkpoint-0007",
+          "manifest_sha256": "7aa254f4f1299640441e7ed1b7e8330cea45164dd87286a22ba18ddff940ae32"
+        },
+        {
+          "directory": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/checkpoints/pg-current-retained-v2-pop-economic-5p-30-checkpoint-0008",
+          "manifest_sha256": "202569a7f0f687f1ec03a67b07f40a337e2efa01c842a4f92184237bf3eff605"
+        },
+        {
+          "directory": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/checkpoints/pg-current-retained-v2-pop-economic-5p-30-checkpoint-0009",
+          "manifest_sha256": "17daf44c8beaf72c722aed9b8e8151b0a6d0e13a7a46d562bbbea071cf31a7b2"
+        },
+        {
+          "directory": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/checkpoints/pg-current-retained-v2-pop-economic-5p-30-checkpoint-0010",
+          "manifest_sha256": "008cd2781c0a466306858da9032c70cb75be51fffff908df155de2e1895742a6"
+        },
+        {
+          "directory": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/checkpoints/pg-current-retained-v2-pop-economic-5p-30-checkpoint-0011",
+          "manifest_sha256": "a40c4661c284f94985d4a6418642b63fc29b7e0cb2c5fd27621038afd1f0d813"
+        },
+        {
+          "directory": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/checkpoints/pg-current-retained-v2-pop-economic-5p-30-checkpoint-0012",
+          "manifest_sha256": "4218cbda13093cf89eb5ad9f5f60ed5ada0c1e27f4fa7b5ec303ee9f1a9e5950"
+        },
+        {
+          "directory": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/checkpoints/pg-current-retained-v2-pop-economic-5p-30-checkpoint-0013",
+          "manifest_sha256": "e7c0233d6d6acb0e8cfa83207374c837947c40680b830c30452aaf6e981dd856"
+        },
+        {
+          "directory": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/checkpoints/pg-current-retained-v2-pop-economic-5p-30-checkpoint-0014",
+          "manifest_sha256": "34e6f66780141243b700ddbb27f5cf5e64c3de33e5043f0af6bbf53a9be23ae1"
+        },
+        {
+          "directory": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/checkpoints/pg-current-retained-v2-pop-economic-5p-30-checkpoint-0015",
+          "manifest_sha256": "cd148a8b023f6b672726d919c3b0d6499902a74b297176b6335d9c2a7be4c535"
+        },
+        {
+          "directory": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/checkpoints/pg-current-retained-v2-pop-economic-5p-30-checkpoint-0016",
+          "manifest_sha256": "d04f11159714ff24a586bd373baea655fa594d8d3034b73b3a983b6a75246dad"
+        },
+        {
+          "directory": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/checkpoints/pg-current-retained-v2-pop-economic-5p-30-checkpoint-0017",
+          "manifest_sha256": "0a90bd3c149d997672f365f15cc80e6b3dd6fa2776d8d13b56a3d686dfb9ef87"
+        },
+        {
+          "directory": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/checkpoints/pg-current-retained-v2-pop-economic-5p-30-checkpoint-0018",
+          "manifest_sha256": "79ee7277bd51b5284488d35f183d1a42b347b48cf2cec13caa3be5e450cdde38"
+        },
+        {
+          "directory": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/checkpoints/pg-current-retained-v2-pop-economic-5p-30-checkpoint-0019",
+          "manifest_sha256": "14226547d8cdccc314e113763e5b88feb1c39c018c57ef147e11f7a1d8972bb4"
+        },
+        {
+          "directory": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/checkpoints/pg-current-retained-v2-pop-economic-5p-30-checkpoint-0020",
+          "manifest_sha256": "3b6262f6c44c1d0730c0da53f12f71423ba092b7d7f7ecc8fe003c7a3090c1a8"
+        },
+        {
+          "directory": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/artifacts",
+          "manifest_sha256": "23a57766e3763618fc9ab0b1990ca4dc7e217ae05c1b14b09ec31c626fe1aee7"
+        }
+      ],
+      "evaluation_file": "ai/runs/current-auction-remaining-hf-v2/jobs/pg-current-retained-v2-pop-economic-5p-30/artifacts/raw/job/evaluation/evaluation.json",
+      "evaluation_sha256": "bfcc64166af5232e712254871c21ee9409400648791e00f12b06595ae2e0043a",
+      "seconds": 13.307698912991327,
+      "cpu_seconds": 13.352635000000001,
+      "process_lifetime_peak_rss_bytes": 99282944
+    },
+    "pg-current-confirm-v1-pop-heuristic-5p-13": {
+      "name": "pg-current-confirm-v1-pop-heuristic-5p-13",
+      "backend": "bucket_remaining_v3",
+      "job_id": "6ae336893fb22a235dd595b8",
+      "original_hf_stage": "COMPLETED",
+      "games": 20,
+      "review_sha256": "96c274d89e481239bb66921339413422df34e5f38793144ef4422782a6441f3b",
+      "counts": {
+        "decisions": 2279,
+        "root_filter_overrides": 0,
+        "rollouts": 22688,
+        "rollout_caps": 0,
+        "neural_decisions": 2556214,
+        "search_changes": 57,
+        "search_decisions": 564,
+        "surrogate_decisions": 0
+      },
+      "receipt_sha256": "aba0fbb62896f728288cda4cdb02045e93cbd227a20d5e2906cb6204818464cf",
+      "raw_trees": [
+        {
+          "directory": "ai/runs/current-auction-bucket-remaining-hf-v3/jobs/pg-current-bucket-v3-pop-heuristic-5p-13/pg-current-bucket-v3-pop-heuristic-5p-13-collected/checkpoints/pg-current-bucket-v3-pop-heuristic-5p-13-checkpoint-0001",
+          "manifest_sha256": "ff4efbc056ae11b9061a14fe58015b9fcd54bfac38806f4bc6f64d8dfb08524b"
+        },
+        {
+          "directory": "ai/runs/current-auction-bucket-remaining-hf-v3/jobs/pg-current-bucket-v3-pop-heuristic-5p-13/pg-current-bucket-v3-pop-heuristic-5p-13-collected/checkpoints/pg-current-bucket-v3-pop-heuristic-5p-13-checkpoint-0002",
+          "manifest_sha256": "673438a28c6fb04cf0ad74b5d767d9695f44d0d8aa1178f9d1f2e793d62f5b82"
+        },
+        {
+          "directory": "ai/runs/current-auction-bucket-remaining-hf-v3/jobs/pg-current-bucket-v3-pop-heuristic-5p-13/pg-current-bucket-v3-pop-heuristic-5p-13-collected/checkpoints/pg-current-bucket-v3-pop-heuristic-5p-13-checkpoint-0003",
+          "manifest_sha256": "4c4be56c633d9eee26a094848f8ffb81d304de9cb643f1735722d5ab16ed3490"
+        },
+        {
+          "directory": "ai/runs/current-auction-bucket-remaining-hf-v3/jobs/pg-current-bucket-v3-pop-heuristic-5p-13/pg-current-bucket-v3-pop-heuristic-5p-13-collected/checkpoints/pg-current-bucket-v3-pop-heuristic-5p-13-checkpoint-0004",
+          "manifest_sha256": "c26250d7f5ee0f27d227948920a896aa9103ac7d149cecf2155398fa0a291738"
+        },
+        {
+          "directory": "ai/runs/current-auction-bucket-remaining-hf-v3/jobs/pg-current-bucket-v3-pop-heuristic-5p-13/pg-current-bucket-v3-pop-heuristic-5p-13-collected/checkpoints/pg-current-bucket-v3-pop-heuristic-5p-13-checkpoint-0005",
+          "manifest_sha256": "55afce8e2ecea57bc299030229597dc3324024de1f87c72c4b713d079a32a2fb"
+        },
+        {
+          "directory": "ai/runs/current-auction-bucket-remaining-hf-v3/jobs/pg-current-bucket-v3-pop-heuristic-5p-13/pg-current-bucket-v3-pop-heuristic-5p-13-collected/checkpoints/pg-current-bucket-v3-pop-heuristic-5p-13-checkpoint-0006",
+          "manifest_sha256": "544a43d54d5ec2da7b9ae232335fa991ef8a4ca361f4ffedf6d18b51a943140a"
+        },
+        {
+          "directory": "ai/runs/current-auction-bucket-remaining-hf-v3/jobs/pg-current-bucket-v3-pop-heuristic-5p-13/pg-current-bucket-v3-pop-heuristic-5p-13-collected/checkpoints/pg-current-bucket-v3-pop-heuristic-5p-13-checkpoint-0007",
+          "manifest_sha256": "f184df0f13476fe84c4de5c55c7468abe3b0f88908adda11aaea1499c2cb0abd"
+        },
+        {
+          "directory": "ai/runs/current-auction-bucket-remaining-hf-v3/jobs/pg-current-bucket-v3-pop-heuristic-5p-13/pg-current-bucket-v3-pop-heuristic-5p-13-collected/checkpoints/pg-current-bucket-v3-pop-heuristic-5p-13-checkpoint-0008",
+          "manifest_sha256": "6f73851f62ad51a023bec43d196928b8354a155e120e7007f72d0cae32921575"
+        },
+        {
+          "directory": "ai/runs/current-auction-bucket-remaining-hf-v3/jobs/pg-current-bucket-v3-pop-heuristic-5p-13/pg-current-bucket-v3-pop-heuristic-5p-13-collected/checkpoints/pg-current-bucket-v3-pop-heuristic-5p-13-checkpoint-0009",
+          "manifest_sha256": "826a67b1e765c16ba3c5a3ac433407e59b8e8b93a1d6968716438ae6971bd169"
+        },
+        {
+          "directory": "ai/runs/current-auction-bucket-remaining-hf-v3/jobs/pg-current-bucket-v3-pop-heuristic-5p-13/pg-current-bucket-v3-pop-heuristic-5p-13-collected/checkpoints/pg-current-bucket-v3-pop-heuristic-5p-13-checkpoint-0010",
+          "manifest_sha256": "e51dbe52827d0b4636482af526e487a66784be662867813a1fddcf597a32eefc"
+        },
+        {
+          "directory": "ai/runs/current-auction-bucket-remaining-hf-v3/jobs/pg-current-bucket-v3-pop-heuristic-5p-13/pg-current-bucket-v3-pop-heuristic-5p-13-collected/checkpoints/pg-current-bucket-v3-pop-heuristic-5p-13-checkpoint-0011",
+          "manifest_sha256": "d7451c9c3fbeca1970e9a42f968a908e114514f06017644599aeef20bd44029d"
+        },
+        {
+          "directory": "ai/runs/current-auction-bucket-remaining-hf-v3/jobs/pg-current-bucket-v3-pop-heuristic-5p-13/pg-current-bucket-v3-pop-heuristic-5p-13-collected/checkpoints/pg-current-bucket-v3-pop-heuristic-5p-13-checkpoint-0012",
+          "manifest_sha256": "f129fa7d822ec22f1534ec468baaf4a1b8af224a08fb97d2af0fe91f25414268"
+        },
+        {
+          "directory": "ai/runs/current-auction-bucket-remaining-hf-v3/jobs/pg-current-bucket-v3-pop-heuristic-5p-13/pg-current-bucket-v3-pop-heuristic-5p-13-collected/checkpoints/pg-current-bucket-v3-pop-heuristic-5p-13-checkpoint-0013",
+          "manifest_sha256": "6c042fb38a77ca276d8cfd0ab1ad3616efcc7c5a0182b66241786864377a8ce5"
+        },
+        {
+          "directory": "ai/runs/current-auction-bucket-remaining-hf-v3/jobs/pg-current-bucket-v3-pop-heuristic-5p-13/pg-current-bucket-v3-pop-heuristic-5p-13-collected/checkpoints/pg-current-bucket-v3-pop-heuristic-5p-13-checkpoint-0014",
+          "manifest_sha256": "84be60147c405e1f732167ebeb6828b82bc6baa7a8d5186ba0ad7765b2ba2489"
+        },
+        {
+          "directory": "ai/runs/current-auction-bucket-remaining-hf-v3/jobs/pg-current-bucket-v3-pop-heuristic-5p-13/pg-current-bucket-v3-pop-heuristic-5p-13-collected/checkpoints/pg-current-bucket-v3-pop-heuristic-5p-13-checkpoint-0015",
+          "manifest_sha256": "78112aceb8998cb57822f2d3b4058aad3273deffdd8ad93e79f57e509ec9dcfe"
+        },
+        {
+          "directory": "ai/runs/current-auction-bucket-remaining-hf-v3/jobs/pg-current-bucket-v3-pop-heuristic-5p-13/pg-current-bucket-v3-pop-heuristic-5p-13-collected/checkpoints/pg-current-bucket-v3-pop-heuristic-5p-13-checkpoint-0016",
+          "manifest_sha256": "2879b5dd8c0999f195849b74be50398becadf4dd99fc350b38f67fbff4d6bd7d"
+        },
+        {
+          "directory": "ai/runs/current-auction-bucket-remaining-hf-v3/jobs/pg-current-bucket-v3-pop-heuristic-5p-13/pg-current-bucket-v3-pop-heuristic-5p-13-collected/envelope",
+          "manifest_sha256": "870746239f53f9a289d2409cf0d1971c854be8a320dee7f99d894ecf2d0f7cdb"
+        },
+        {
+          "directory": "ai/runs/current-auction-bucket-remaining-hf-v3/jobs/pg-current-bucket-v3-pop-heuristic-5p-13/pg-current-bucket-v3-pop-heuristic-5p-13-collected",
+          "manifest_sha256": "82b77cbca201553b5e4d464b75545be764fd1f17beac7a5915b1d8e1dc5c6768"
+        }
+      ],
+      "evaluation_file": "ai/runs/current-auction-bucket-remaining-hf-v3/jobs/pg-current-bucket-v3-pop-heuristic-5p-13/pg-current-bucket-v3-pop-heuristic-5p-13-collected/envelope/raw/job/evaluation/evaluation.json",
+      "evaluation_sha256": "6b9da9cf0c53d64266f155c1e379d8e37c6ed412ccec00ffd4b9525edb518dfc",
+      "seconds": 17.631539982990944,
+      "cpu_seconds": 17.678459,
+      "process_lifetime_peak_rss_bytes": 100003840
+    },
+    "pg-current-confirm-v1-pop-economic_capacity_v1-2p-00": {
+      "name": "pg-current-confirm-v1-pop-economic_capacity_v1-2p-00",
+      "backend": "bucket_first_v3",
+      "job_id": "6ae32f6741e90535df78a8a6",
+      "original_hf_stage": "COMPLETED",
+      "games": 16,
+      "review_sha256": "bd8a4799461a3a4bf3590cfe46e5178e58a6128bd2dc66e86bc17246fd31d5f4",
+      "counts": {
+        "decisions": 2707,
+        "root_filter_overrides": 0,
+        "rollouts": 21288,
+        "rollout_caps": 0,
+        "neural_decisions": 2083325,
+        "search_changes": 93,
+        "search_decisions": 524,
+        "surrogate_decisions": 0
+      },
+      "receipt_sha256": "c596072e97c8ffda2969697c8e783fd41541a3807f7925325bfb9586a8c3fa5a",
+      "raw_trees": [
+        {
+          "directory": "ai/runs/current-auction-first-bucket-hf-v3/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-collected/checkpoints/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-checkpoint-0001",
+          "manifest_sha256": "38a1117293aa26dd4101b2b9b9292b687a5f5ee87a8c0220496cb7ffa112b8ef"
+        },
+        {
+          "directory": "ai/runs/current-auction-first-bucket-hf-v3/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-collected/checkpoints/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-checkpoint-0002",
+          "manifest_sha256": "0d7434484af0c2e3f3e5fce32a728e734527b1e910d350dd37ade9c41eebd01e"
+        },
+        {
+          "directory": "ai/runs/current-auction-first-bucket-hf-v3/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-collected/checkpoints/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-checkpoint-0003",
+          "manifest_sha256": "8915c38dd003a631560cdfd244f1412779457cd7fde8b22426152f41a4bb6d42"
+        },
+        {
+          "directory": "ai/runs/current-auction-first-bucket-hf-v3/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-collected/checkpoints/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-checkpoint-0004",
+          "manifest_sha256": "658221ff22734c85865d031f9583962e2d73cf76a167b7433f8a69b8457c8bf3"
+        },
+        {
+          "directory": "ai/runs/current-auction-first-bucket-hf-v3/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-collected/checkpoints/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-checkpoint-0005",
+          "manifest_sha256": "6f782c0f4795b56971d8fa516feec36c5f44faffc6bc93b3597c79bff5051c87"
+        },
+        {
+          "directory": "ai/runs/current-auction-first-bucket-hf-v3/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-collected/checkpoints/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-checkpoint-0006",
+          "manifest_sha256": "eb0463c76ff15a484934b6abc9ea9dfa8ddd3f4dd125df23964ab3dc8b3671b1"
+        },
+        {
+          "directory": "ai/runs/current-auction-first-bucket-hf-v3/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-collected/checkpoints/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-checkpoint-0007",
+          "manifest_sha256": "4ba6367fb8b3ddf0dab3a709e184523e962ab28a299bb2f7690e3f56e98cd368"
+        },
+        {
+          "directory": "ai/runs/current-auction-first-bucket-hf-v3/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-collected/checkpoints/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-checkpoint-0008",
+          "manifest_sha256": "235869322221b68a141f194c9b53349bb171cce6c4ae08e890333a551475f6a3"
+        },
+        {
+          "directory": "ai/runs/current-auction-first-bucket-hf-v3/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-collected/checkpoints/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-checkpoint-0009",
+          "manifest_sha256": "b1a2443a2043b1e91b83cd8c637c23bcb98c40c89846d1c31820895a22b640f5"
+        },
+        {
+          "directory": "ai/runs/current-auction-first-bucket-hf-v3/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-collected/checkpoints/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-checkpoint-0010",
+          "manifest_sha256": "657651edf891c1980ce8a7b19f0a6baafa0ec3d77126a88d0a35ebb7c54f2d0b"
+        },
+        {
+          "directory": "ai/runs/current-auction-first-bucket-hf-v3/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-collected/checkpoints/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-checkpoint-0011",
+          "manifest_sha256": "5994734782ae78124e7b38202e95ac76d58e076ee756b6764fc3f264b50d48f7"
+        },
+        {
+          "directory": "ai/runs/current-auction-first-bucket-hf-v3/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-collected/envelope",
+          "manifest_sha256": "cff343246f1e554f91f969d4269a6658bda88f7a3df251b64832e0ebfb4aec7d"
+        },
+        {
+          "directory": "ai/runs/current-auction-first-bucket-hf-v3/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-collected",
+          "manifest_sha256": "ec26dbc2109edba0de4dc4a57c666e4757657a7617717059b6b61840dbdedd9d"
+        }
+      ],
+      "evaluation_file": "ai/runs/current-auction-first-bucket-hf-v3/pg-current-bucket-v3-pop-economic-capacity-v1-2p-00-collected/envelope/raw/job/evaluation/evaluation.json",
+      "evaluation_sha256": "97382ac09e3975e4ec4158d91be770833bb11b455746b58b46b2f9eb0e6a834f",
+      "seconds": 13.756568197990418,
+      "cpu_seconds": 13.803159999999997,
+      "process_lifetime_peak_rss_bytes": 99131392
+    }
+  },
+  "jobs_reaudited": 5,
+  "existing_games_reaudited": 120,
+  "raw_audit_wall_seconds": 22.65121516599902,
+  "all_saved_full_reviews_exact": true,
+  "workers": 4,
+  "tests_passed": 15,
+  "input_hashes": {
+    "ai/strong/current-auction-grid-source-v1.json": "a4384b10eb8a4381423731bc0c315673f9214d91c1fb336aa81ef4a7102d1c5a",
+    "ai/strong/current-auction-resource-recovery-decision-v2.json": "4d23adb861704dc2ec3e8e3d358024e026175ccce13dc2efb768742c00a348fb",
+    "ai/runs/current-auction-timeout-collection-v1/cycles/2026-10-29T07-45-19.458530+00-00.json": "f5d8fb0386c706531bcc03a099f0d26b52b0b7a83d2f4babac31c417f2b12fa2",
+    "ai/runs/current-auction-resource-recovery-hf-v2/launch.json": "54744d68282f2f92a397008d7cb95481b594b8059802e554478c1d4257580446",
+    "ai/strong/current-auction-resource-supervisor-source-v2.json": "ee8e98a7f1cb3c0f0cb7f30527ab4c259aa4b0219e121bef98df0cd79096f840",
+    "ai/strong/current_auction_recovery_coverage_v2.py": "9c16301ea8d66aa2f226f2ca31f4dd3b1d9b66c495180417f76f518f5c835a1d",
+    "ai/strong/prepare-current-auction-grid-v1.py": "8c2c50c0477fa9e890e52ec531f81728e32d41407a9b652ab15337f5ecd30536",
+    "ai/strong/manage-current-auction-grid-v1.py": "3cf829ea9360b41cf706486d2fb54addcb634b82229e88d01fb9c984004ecd71",
+    "ai/strong/coordinate-current-auction-grid-v1.py": "04d7e6635e0835a2c82ac8e65595bdc8f7ee9de1305263b64ee77a80505633b9",
+    "ai/strong/compare-current-auction-confirmation-v1.py": "9f845378a5642dca1afaea07f23164aa5b235293cb449c08fd855929d57ab177",
+    "ai/strong/current_auction_confirmation_analysis_v1.py": "876b6f33d5618b81966430f19b9b5082254965b000fcfc11af23e2ec44b3d8be",
+    "ai/strong/test_current_auction_grid_plan_v1.py": "e9f94b1bfab4e5cabcc7a7872923308c2abd29a1e25f9e395176820301a15d10",
+    "ai/strong/test_current_auction_grid_manager_v1.py": "26531a57bc4a43a880dd22089c451cf0a97d00b724b28417f8ebad1e926e4b59",
+    "ai/strong/test_current_auction_grid_coordinator_v1.py": "62c8deaac4f346fb534715b91007c701f1b69d13d749f50e4fd8939ac57e3867",
+    "ai/strong/test_current_auction_comparison_v1.py": "5b1ce6b4ba88c7968fb2dead7e349008bdacf25ee87f0abea43e8b715b0d2447",
+    "ai/strong/test_current_auction_confirmation_analysis_v1.py": "183d3f64fbe7d4d421e23112949c28b4a7faab185118f2b829584bc47bcb8062",
+    "ai/strong/manage-current-auction-runtime-v1.py": "ad28c7e60ef0159c7a52baa1192049ac67fe5d4a03355b503079d92d19741e7b",
+    "ai/strong/prepare-current-auction-confirmation-v1.py": "947e5b8284c53d180e6257b74e68bb650c37e328796648da697f6cf71ef6fbd0",
+    "ai/strong/manage-conservative-auction-runtime-v2.py": "ce34f174fb6e1c58cddb308c0df3c70e705c4ef23317ea2513e97d9ed20def51",
+    "ai/strong/prepare-conservative-auction-runtime-v2.py": "86eda6f282b0a7557e2cb260d855c48a760ec524d0358981514af2de7a515ffc",
+    "ai/strong/manage-public-policy-development-hf-v1.py": "be2d43c0063e79c7de3b64151a467975573a885c5e962ef7f096956a3dcbd535",
+    "ai/strong/conservative_auction_bootstrap_recovery_v1.py": "27d0c81aadeaf5624540f92ed0f6aa7d549a09d3ea5fb48dfe0d9fb67449ad09",
+    "ai/strong/public_policy_development_job_v1.py": "e216f1558602ff8665da0e712d15f419afaec297a2d5194e4d61c0e74be16f1b",
+    "ai/strong/public_policy_final_audit_v1.py": "a006c43bac3862f29e9e39178324b93c1464059945467461f203e90df196a482",
+    "ai/strong/public_policy_final_contract_v1.py": "211e143a278fe6e5d0eb0b3654061130b6141b1518fd07297162307c39487103",
+    "ai/strong/public_policy_arena_v1.py": "1288ffb3d42a3c351c805c652e7c9c5f63b284f6c7061c7436f6ba06e9fc14eb",
+    "ai/strong/public_policy_runtime_v1.py": "0ded20877badd3f2c0ded746f5f743fbca6447084ed764a1e3b7ad8d6617fd3a",
+    "ai/strong/population_policy_verification.py": "30d776fee570f1c46ca13d4164b62c8b973b8933d5cb7c3b5bbd514955385e7b",
+    "ai/strong/opponent_auction_verification_v1.py": "1383f64de5c064459c62b5ba2b8e222bdc2369ed7f8505e7cf96615743416f7c",
+    "ai/strong/opponent_auction_policy_v1.py": "c6f560330eec8035b1356d441a43a8c80e82138a852039b2494f4f827337c688",
+    "ai/strong/current-auction-confirmation-protocol-v1.json": "d0504c3f92d94fe96a1b336f26fe0e6c991502a3e03ff17fb1b2d00f53067d93",
+    "ai/strong/final-protocol-multiplayer.json": "7f0336c8784faf8f18e046b95b88e0ab1be7c2de1c0ec4d3eec96f0a415286ce",
+    "ai/runs/current-auction-grid-plan-tests-v1-final.log": "b0cfd6f865c7a6f8e2d721d8f6ea4eeac5ba4135456be4d32633d9c3ee5723f9",
+    "ai/runs/current-auction-grid-manager-tests-v1-final.log": "f43b452ba904c9d5924c1ff054623db5cd28d445692265690470de6e15af4891",
+    "ai/runs/current-auction-confirmation-analysis-tests-v1-first.log": "0de8494d7a441a2b7ee268e4bd6007e6d2985af41bcd8f42dd720668f5ffd024",
+    "ai/runs/current-auction-comparison-tests-v1-corrected.log": "6e0a6b1f9d8ba3c523aaa437c263cf738d0926d746b743406784fabea9cd3f45",
+    "ai/runs/current-auction-grid-coordinator-tests-v1.log": "5d39b6f5fb012c72aedeb5db2ed452d1b3dbc9c71dee42b40bc8c5e5a42a95ef",
+    "ai/runs/current-auction-grid-plan-tests-v1.log": "b0cfd6f865c7a6f8e2d721d8f6ea4eeac5ba4135456be4d32633d9c3ee5723f9",
+    "ai/runs/current-auction-grid-manager-tests-v1.log": "f43b452ba904c9d5924c1ff054623db5cd28d445692265690470de6e15af4891",
+    "ai/strong/current-auction-grid-readiness-v1.json": "19bb347af99b3370428fb38e9f7e684da53034ea64fa428a23902abdf0072a29",
+    "ai/strong/current_auction_shutdown_recovery_v1.py": "661cd8a28bec06b85ff5465ac12c255847f0e4f67c6e4600b03ed4340cfaa05c",
+    "ai/strong/manage-current-auction-confirmation-recovery-v1.py": "ff35483b526f55f221370708557de4cc66c85be9adc25e522c203bb091ce3b31",
+    "ai/strong/coordinate-current-auction-confirmation-recovery-v1.py": "6681715e5a398e3c1f83b88eabcb84890d623830fedb0669e8bc3201962baaaf",
+    "ai/strong/compare-current-auction-confirmation-recovered-v1.py": "c7d51c06545f29bd7a590afa4d5b9a72298899f3461070a111dbd1f7dc063286",
+    "ai/strong/test_current_auction_shutdown_recovery_v1.py": "ff39882dc474f1c6200cb700982ebc7da7346f43b5df156833bd8c7479cd090f",
+    "ai/strong/test_current_auction_recovery_manager_v1.py": "a250c9fd6c01235753e4175ffbc55cc407a16a4afe7dc029495db3f557ff91da",
+    "ai/strong/test_current_auction_recovered_comparison_v1.py": "b114e4d0b6a5c8715a4c824998d8982fa86a010cdaab07420b15960c49f453bd",
+    "ai/strong/current-auction-recovery-preflight-v1.json": "e1292a5c62dc9a954c785df1e90065d93bac01e91f5709c517af26d3a76d8643",
+    "ai/strong/current-auction-shutdown-diagnostic-v1.json": "091d0dc9801d679cb3ecb0f90853310df57bcfea5ae617a42d0414f008f9a844",
+    "ai/strong/current-auction-shutdown-diagnostic-evidence-v1.json": "d32eb2af24ee01716d407481ef8fdda37cce04fd024d4bbecd5d557dcea22041",
+    "ai/runs/current-auction-shutdown-recovery-tests-v1-first.log": "eb31b1b20dc80dafebc8c8412d4f9d9369ec815afebf9f6ad6166738cd8af716",
+    "ai/runs/current-auction-recovery-manager-tests-v1-startup-fixed.log": "d4d552d152a92adea199308af91a0dad176445bd085f25a68aecccb56cbb0290",
+    "ai/runs/current-auction-recovered-comparison-tests-v1-first.log": "75ddde9c44d204ab1ce9456a4ee9c7569df864c193d589ea1ab8e685a0bc3898",
+    "ai/runs/current-auction-grid-coordinator-v1/state.json": "70d900e50424a5447ae6bf1c8b51c3e8434ff802996cde05e7c9b967a86df6c8",
+    "ai/runs/current-auction-shutdown-recovery-preflight-v1/intent.json": "39233e9aae4eed318e0f1010352cdd2ab023c3fcc079ec797d50b78288eb5d92",
+    "ai/runs/current-auction-shutdown-recovery-preflight-v1/review.json": "27d9a47a12e283ef62f9ffe43d2f7b57f18e4070f6ac8f5ebe74660579443710",
+    "ai/runs/current-auction-recovery-preflight-v1-first.log": "1ae5f1e289d7c34b2ca7964528c3d222ea9e82f2bfd78a0eac3ddd584ae1808e",
+    "ai/strong/current-auction-confirmation-recovery-readiness-v1.json": "ae3e68d9917dcaeb470b70858a679de8412ee1b44d85b8880d9021b317cee4d2",
+    "ai/strong/current-auction-confirmation-recovery-admission-v1.json": "f9edc987294dd29d81f6593d219f227721d6db9e787896233c21322950bac7db",
+    "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-5p-02/verified.json": "48292ef6301e77771415438ae37a93e3220de2fd14ea71cd1cd678bd9cf9cd89",
+    "ai/runs/current-auction-runtime-hf-v1/pg-current-auction-runtime-v1-pop-2p/verified.json": "ac458c14eaf34cc7720ae2fd5634c642b271d0d14692ffd2fdc5fda4af659183",
+    "ai/runs/current-auction-runtime-hf-v1/pg-current-auction-runtime-v1-pop-6p/verified.json": "568627607d4b6d29be9110a7df045c41d5d0c2e202d6b8ae78d6b95c1d05454d",
+    "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-heuristic-3p-20/launch.json": "31e2da70da2305c562f7e8acbb0b712b3f5c00c732be80e313f7c5105c86fb6f",
+    "ai/runs/current-auction-runtime-hf-v1/pg-current-auction-runtime-v1-pop-2p/artifacts/manifest.json": "d32da6db72850370cdd56fdd5ad124202ff95d3f44bdb5c71af1c3bfdeaba359",
+    "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-2p-00/verified.json": "717ba7b1191350d0c4a9cb3934bbfc75328bdb1f4be32e1d2db84fb8ad4d5039",
+    "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-4p-00/launch.json": "8da9d3d7c2ff6326359f30520f3aa9a0904225959620e154c84185cdaf050acc",
+    "ai/strong/current-auction-runtime-source-v1.json": "d76b90f0ab5156c08c6c312abb7d7f640da79dfdd254f15c698ef049d47857c7",
+    "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-4p-00/artifacts/manifest.json": "d1a80592523a3864a2f6ce57480a40284229cc5fd807ca3831803dfdcabc2d21",
+    "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-5p-02/artifacts/manifest.json": "bbae16b9ddfeb2613ee24981c735bb8e9c1ace0ed64dc2ee19f807cd1caa7a26",
+    "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-heuristic-3p-20/artifacts/manifest.json": "4114e92670ca286300f4c496232d10543b0b397a7f7babaa58b3675ad61634e4",
+    "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-heuristic-3p-20/verified-terminal-recovery-v1.json": "77103eb7babba4fa4c8c99c0138d2ebaeadd7e762bb21fc2788e1b7fc8692521",
+    "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-5p-02/launch.json": "93e77189371c5257bf6188827b02228d25d0a09ced52fe817b6c616ddc4ba910",
+    "ai/runs/current-auction-runtime-hf-v1/pg-current-auction-runtime-v1-pop-2p/launch.json": "77c95a5420f0abffc71bc713e708678fa998f0a6169106343251818349ec1579",
+    "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-2p-00/artifacts/manifest.json": "e8951cd2c71eae12cd4c178dc37592a5a9212fe5c8ea82e6661c30f292bb2544",
+    "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-4p-00/verified.json": "64f51310cc895400c569ec2012ea5c074685b0deddf04d96401c5b491b63b94a",
+    "ai/strong/current_auction_parallel_audit_v1.py": "5f0ae1c7c2bfb7ce356e6b6ccc39f47282c9546ec12caf4f6c3127722b9b1df7",
+    "ai/runs/current-auction-runtime-hf-v1/pg-current-auction-runtime-v1-pop-6p/launch.json": "9cc6043524ec91e52c3a96c78b396320a508576880ff98a2d667a0dbfc8e9439",
+    "ai/runs/current-auction-runtime-hf-v1/pg-current-auction-runtime-v1-pop-6p/artifacts/manifest.json": "30ea26b8613d4735bb6f4197761a1a6f47b5352c47ce7338aaa3a69ec59b365a",
+    "ai/runs/current-auction-grid-hf-v1/pg-current-confirm-v1-filter-economic-2p-00/launch.json": "73839b4c1e474cb61f1f921d22c2df71910ca0f65e46987020725c13445ce5fb",
+    "ai/strong/profile-current-auction-audit-parallel-v1.py": "bc7d120d45bee3a8807fa7071bd609b5c56559cbc36f40b8c8847d921fa7b70c",
+    "ai/strong/current-auction-audit-parallel-profile-v1.json": "59c3eaf94af3be0c81147f0748b813e51b3e86a09073a384ea0c42680b0c8143",
+    "ai/strong/compare-current-auction-confirmation-parallel-v1.py": "4238949a90907c63ebce96d81d31735c5553acb4f3842166abf3a85a45e8603e",
+    "ai/strong/test_current_auction_parallel_comparison_v1.py": "8183992adb27481cf278b1a4bc2f377001add9890b4e3a70a43458d7aeaa2198",
+    "ai/runs/current-auction-parallel-comparison-tests-v1-first.log": "dd692b7a59f05da8639fab64f89ee9753d380b4c093c53016d074bbba17f9e05",
+    "ai/strong/current_auction_recovery_authentication_v2.py": "57a8b7e45e14df99acd9a459bd164e63518d04ce5c21d54c9df2de0c3973e2fc",
+    "ai/strong/manage_current_auction_first_bucket_v3.py": "8a8e4c5b62bf7ed5cfa97466df2a309a7627c9253d3d871cb9b6bcbf0fd0fcaf",
+    "ai/strong/manage_current_auction_bucket_remaining_v3.py": "bfb9a981b58a7cb40eaf4eed6d91d6bb6f24648800792965efc026c611c89a97",
+    "ai/strong/current_auction_bucket_collection_v3.py": "195ed1f7940011ff9b1e6ca17c96b74fc26f5a5d7134038f0d6e2efcb726fd27",
+    "ai/strong/current-auction-first-bucket-source-v3.json": "05875a6eb6e7ea4c00f621dc1fbdd7e4d11cb3cb6edaa43cda0f8e953d00559d",
+    "ai/strong/current-auction-bucket-remaining-source-v3.json": "fb240382a306ca2b640f8a2d0d4bcfc760a88a47e720c7144731b07dcd4238cc",
+    "ai/strong/current-auction-bucket-remaining-decision-v3.json": "e5d97672096b249dd16ba36bf4efe7150c39e6560ffaf70782ef37d011741629",
+    "ai/strong/current-auction-remaining-dispatch-v2.json": "221ef528b2c19bef4212be98e60cb78fd6cee8f620a03bfb0159df4497c92343",
+    "ai/strong/manage_current_auction_resource_recovery_v2.py": "81fb84a584a4efefe01627d85b62adee541489a806e6e2ccdd9d97a5db6d49cf",
+    "ai/strong/current_auction_resource_job_v2.py": "3b0c5f6d764969056a99791f679ab9baecc585daa2f1d99841ab40b2004468d5",
+    "ai/strong/current_auction_recovery_checkpoints_v2.py": "fe1edbf68b2cfda8786d9e68b133db20f4335fedd72816374db486571e37f3fe",
+    "ai/strong/current_auction_resource_collection_v2.py": "c7394e741f6fd9f52b03a9d787f97ffd508e416be466bda3518c9237073ded74",
+    "ai/strong/policy_iteration_evidence_archive.py": "83177b7f9a35af6467e09509e80024ef5fc258a1030ad23ebfd71c876fac635a",
+    "ai/strong/collect_current_auction_originals_after_timeout_v1.py": "297828839b6c0f7673b8c6b3fc57f0dbbc5c9c9cd6806a618b689c0cb5057af7",
+    "ai/strong/test_current_auction_resource_job_v2.py": "7c7fac155ee1a5c66e7bbb75604cb607a9755eb74242babb87a1e4393ad50b47",
+    "ai/runs/current-auction-resource-job-tests-v2-first.log": "4f598e1fab01d6607c4feeee8aff62ef914df72135efe7355a8b44023ea93c6b",
+    "ai/strong/test_current_auction_resource_collection_v2.py": "d8e1c8200e1cb11f9e0887b4ac1473f8046fd3ebea80aaba9625b7bc388a2314",
+    "ai/runs/current-auction-resource-collection-tests-v2-first.log": "977f8a9e6834dc3b6c6511dfbafa5932942c1657cedf9620d3c23aeb951cdeac",
+    "ai/strong/test_current_auction_resource_recovery_v2.py": "e365935609be67da56708f998f9c11c73ec0ddc307facb3dc4439746e058568a",
+    "ai/runs/current-auction-resource-manager-tests-v2-first.log": "c822b2b049f7edb3bc9221bd6b64e81443ae4837a963b4e03e8c9845246f998d",
+    "ai/strong/manage_current_auction_remaining_v2.py": "87acb5faebc107fc03726a564208152fdec19a90634ed5378afdae3a93797650",
+    "ai/strong/current_auction_remaining_collection_v2.py": "1b46a211da3325dcf6821dac4aeadb611cfec1a0088eb03218cb250b9ee44786",
+    "ai/strong/current_auction_remaining_resource_job_v2.py": "167e951a6b00963ea917affc08934a1bebdf3845cb02a7aa39a223de8739510b",
+    "ai/strong/preflight_current_auction_remaining_worker_v2.py": "c5c82ba5c84d6adeaf26c82edaa4011270991527ec1c2418d7b79fede34a0d53",
+    "ai/strong/test_current_auction_remaining_resource_job_v2.py": "fd571165dfd86d9192c6e983e2364a75fbd6a5c49d2372acfee3b9bf18db2cd8",
+    "ai/runs/current-auction-remaining-worker-tests-v2-first.log": "6f20ecd1cb6b8582efdd15b662b9c6f7da1deb68faf114faf449c628f15ad3bc",
+    "ai/strong/test_current_auction_remaining_collection_v2.py": "0b147ba561a4a2c50a60dff210fff55594bf75109c5a677e0da7eeebed8f3db9",
+    "ai/runs/current-auction-remaining-collection-tests-v2-first.log": "31ad6e3f831bdb973435335ec63cd7b3ff167eb58afa2ce0e814b9f01243f54c",
+    "ai/strong/test_current_auction_remaining_manager_v2.py": "33ce1dc27fd97d15fdb79932e9b6a943ff5b21d8f9c2e9998c6405c43ca333e5",
+    "ai/runs/current-auction-remaining-manager-tests-v2-second.log": "47758c8a09ed5d65f91c16867d514259c72268b88958c0aea2d297e63d1d990d",
+    "ai/strong/current_auction_bucket_worker_v3.py": "f3f813d794279fd76019e449e03d58327ce2f78d1c7bc109c68047c252d0c6e3",
+    "ai/strong/test_current_auction_first_bucket_manager_v3.py": "c0b4a2989f36e161ade03e6c896a4f16886a9d3bd60485cb9931972f3945f902",
+    "ai/strong/current_auction_bucket_checkpoints_v3.py": "490fc64a3e402f659d80238bd648961abba8f060f09cabf4bf22f7051378e0db",
+    "ai/strong/checkpoint_bucket_archives_v3.py": "d79a4288990ab52bc28496d6e58ae75adaceb069ad0e2757acab8f6cbb9f3d28",
+    "ai/strong/checkpoint_bucket_transport_v3.py": "678cbce931e818f859fabd98a88667269ac66a3dbb4ef6eced7a6d085ea632f2",
+    "ai/strong/current_auction_bucket_pack_v3.py": "4e0de097c1d6bc09eb41a1fbcdc3506d736cfeca0fab5255f3f307063bb4660f",
+    "ai/strong/test_current_auction_bucket_remaining_v3.py": "9b10272fa7a162f5863a47e92964f1f5e942afd24845af6bdf286766cde931bf",
+    "ai/strong/current_auction_attempt_comparison_v3.py": "70210ee2b56469873f0f6f3ef0a46d4f828cb2c1840a5fec0b4f3df944ee06ab",
+    "ai/strong/current_auction_attempt_authentication_v3.py": "803f1dc36bb2ad272df601fe4be3e138a653e1acf42825e3aa958b9f35d03beb",
+    "ai/strong/current-auction-parallel-comparison-readiness-v1.json": "0336bc76d6e60f0cf6742baaeffd7add373e3d53a29bd5f75fba7fb689fd89bd",
+    "ai/strong/current-auction-attempt-authentication-preflight-v3.json": "2bda07b752ce8fa8e7f0fd5470942e7437b9361bc919716414a90ec4cca1ba95",
+    "ai/runs/current-auction-resource-recovery-prepared-v2/prepared.json": "155b357f367b1fed5ff127881942122d99b076bd699d99177f92e4e58c5f1e88",
+    "ai/strong/current-auction-remaining-source-v2.json": "e46300b32989c70e45d6a4113b8c636bb9e0a0edbf45712cb3bbb496207f4ce7",
+    "ai/runs/current-auction-remaining-prepared-v2/prepared.json": "9c3914e49d3173d563b296d11a11c6b1f87dae9c683b60ba321027c791dcc0d3",
+    "ai/runs/current-auction-first-bucket-prepared-v3/prepared.json": "228ea78ec7028a0832c4f6e2c8b00a8c44797e40adcd555e3495559682b5653d",
+    "ai/runs/current-auction-bucket-remaining-prepared-v3/prepared.json": "ede719ea15ea5ba0a797dc5a2623cf0281bcf329b6dbd743e243356f55c349a4",
+    "ai/strong/test_current_auction_attempt_comparison_v3.py": "e7ceab2d97cea8a2afd1260eaaff39266665dda54cbcfecef2462077ac01357f",
+    "ai/strong/preflight_current_auction_attempt_comparison_v3.py": "157fc76fee05309369f8eb8cc97af6cb1614b06295daf869912f83859d5e5d8c",
+    "ai/runs/current-auction-attempt-comparison-tests-v3-first.log": "474dae795f951822d9efb3cb10d4f6cb5ba05f2e84b3534f42c92c4745add0d8"
+  },
+  "code_sha256": "70210ee2b56469873f0f6f3ef0a46d4f828cb2c1840a5fec0b4f3df944ee06ab",
+  "inventory": {
+    "required_recovery_receipts": 324,
+    "available_recovery_receipts": 46,
+    "missing_recovery_receipts": 278,
+    "available_by_backend": {
+      "timeout_v2": 1,
+      "retained_v2": 40,
+      "bucket_remaining_v3": 4,
+      "bucket_first_v3": 1
+    },
+    "missing_by_backend": {
+      "retained_v2": 24,
+      "bucket_remaining_v3": 254
+    },
+    "failed_attempts_preserved": [
+      {
+        "name": "pg-current-confirm-v1-pop-economic-5p-29",
+        "backend": "retained_v2",
+        "terminal_stage": "ERROR",
+        "failed_handle": "6ae31a9841e90535df789411"
+      },
+      {
+        "name": "pg-current-confirm-v1-pop-economic-5p-31",
+        "backend": "retained_v2",
+        "terminal_stage": "ERROR",
+        "failed_handle": "6ae31a993fb22a235dd5740c"
+      },
+      {
+        "name": "pg-current-confirm-v1-pop-search_geo-5p-19",
+        "backend": "retained_v2",
+        "terminal_stage": "ERROR",
+        "failed_handle": "6ae31aa441e90535df78942c"
+      },
+      {
+        "name": "pg-current-confirm-v1-pop-legacy-5p-01",
+        "backend": "retained_v2",
+        "terminal_stage": "ERROR",
+        "failed_handle": "6ae31aac41e90535df78943c"
+      },
+      {
+        "name": "pg-current-confirm-v1-pop-legacy-5p-10",
+        "backend": "retained_v2",
+        "terminal_stage": "ERROR",
+        "failed_handle": "6ae31ab141e90535df78944a"
+      },
+      {
+        "name": "pg-current-confirm-v1-pop-legacy-5p-20",
+        "backend": "retained_v2",
+        "terminal_stage": "ERROR",
+        "failed_handle": "6ae31ab641e90535df789459"
+      },
+      {
+        "name": "pg-current-confirm-v1-pop-legacy-5p-22",
+        "backend": "retained_v2",
+        "terminal_stage": "ERROR",
+        "failed_handle": "6ae31ab83fb22a235dd57472"
+      },
+      {
+        "name": "pg-current-confirm-v1-pop-legacy-5p-23",
+        "backend": "retained_v2",
+        "terminal_stage": "ERROR",
+        "failed_handle": "6ae31ab841e90535df789463"
+      },
+      {
+        "name": "pg-current-confirm-v1-pop-legacy-5p-24",
+        "backend": "retained_v2",
+        "terminal_stage": "ERROR",
+        "failed_handle": "6ae31ab93fb22a235dd57476"
+      },
+      {
+        "name": "pg-current-confirm-v1-pop-legacy-5p-28",
+        "backend": "retained_v2",
+        "terminal_stage": "ERROR",
+        "failed_handle": "6ae31abb3fb22a235dd5747d"
+      }
+    ],
+    "complete": false,
+    "review_contents_loaded": false,
+    "statistics_admitted": false
+  },
+  "remaining_bucket_actual_authentication_verified": true,
+  "new_jobs": 0,
+  "new_games": 0,
+  "inference_requests": 0,
+  "statistics_admitted": false,
+  "candidate_selected": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

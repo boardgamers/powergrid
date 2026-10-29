@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "a4d8d65e7cf7d708720081fc16893bdd91084b55",
+    "archive_path": "archives/current-auction-remaining-preparation-evidence-v2.tgz",
+    "archive_sha256": "a1e30b7ce7412045732e7c4feb65016050fa9244995aee7c59422a2ebe465d86",
+    "manifest_sha256": "9357526f250286460f4394f738919040045621957acfe11dd4db54abcb768aaf",
+    "archived_files": 39,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "tests": 40,
+  "unit_positive_controls": "synthetic; HF APIs and raw auditor mocked",
+  "actual_original_specs_validated": 323,
+  "first_completed_raw_audit_sha256": "b83b2dfa755d3bc0ea6500461a6ca8166724c6ce2b6071dab282798378a91940",
+  "new_hf_jobs": 0,
+  "new_games": 0,
+  "qualified": false
+}

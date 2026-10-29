@@ -1,4 +1,9 @@
-# Remaining fixed-shard worker, not yet admitted for execution
+# Remaining fixed-shard worker validation
+
+**Update, 29 October 10:09 UTC:** the separate real preparation/admission and
+publication are complete; the first 64 fixed remaining jobs are confirmed live.
+See [the dispatch handoff](CURRENT-AUCTION-REMAINING-DISPATCH-2026-10-29.md).
+The original validation evidence below is historical and remains unchanged.
 
 The [first recovery](CURRENT-AUCTION-FIRST-RECOVERY-2026-10-29.md) completed and
 passed its actual full 16-game audit, including all 14 checkpoint archives and

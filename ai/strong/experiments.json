@@ -69107,5 +69107,82 @@
         "current_goal_turn_classification": "progress",
         "goal_status": "active",
         "next_action": "No live first/original jobs remain. Finish independent remaining-envelope collector and durable bounded dispatch; archive/review actual preparation before separate source publication and fixed-grid launch. Preserve first recovery and original error evidence; no repeat collection or new seeds."
+    },
+    "current_auction_remaining_dispatch_20261029": {
+        "created_at": "2026-10-29T10:11:53.020933+00:00",
+        "status": "fixed_remaining_first_64_running",
+        "goal_status": "active",
+        "previous_goal_turn_classification": "no progress (Rust explanation)",
+        "current_goal_turn_classification": "progress",
+        "document": "ai/CURRENT-AUCTION-REMAINING-DISPATCH-2026-10-29.md",
+        "source_descriptor": "ai/strong/current-auction-remaining-source-v2.json",
+        "source_descriptor_sha256": "e46300b32989c70e45d6a4113b8c636bb9e0a0edbf45712cb3bbb496207f4ce7",
+        "first_completed_recovery_handle": "6ae3083f3fb22a235dd56000",
+        "first_completed_recovery_sha256": "b83b2dfa755d3bc0ea6500461a6ca8166724c6ce2b6071dab282798378a91940",
+        "original_failed_handle_preserved": "6ae2c32f3fb22a235dd50586",
+        "prepared_sha256": "9c3914e49d3173d563b296d11a11c6b1f87dae9c683b60ba321027c791dcc0d3",
+        "remaining_rows": 323,
+        "remaining_games": 7100,
+        "submitted_jobs": 64,
+        "submitted_games": 1280,
+        "verified_new_jobs": 0,
+        "verified_new_games": 0,
+        "confirmed_hf_stages": {
+            "RUNNING": 64
+        },
+        "observed_at": "2026-10-29T10:08:59.604308+00:00",
+        "initial_register": "ai/strong/current-auction-remaining-dispatch-v2.json",
+        "initial_register_sha256": "221ef528b2c19bef4212be98e60cb78fd6cee8f620a03bfb0159df4497c92343",
+        "remaining_unsubmitted_jobs": 259,
+        "remaining_unsubmitted_games": 5820,
+        "total_canonical_audited_games": 19780,
+        "required_games": 26880,
+        "new_collector_tests": 12,
+        "new_dispatch_tests": 18,
+        "prior_worker_tests_reused": 10,
+        "first_dispatch_test_run_failure": "one missing synthetic source fixture; fixed; failed first log archived",
+        "actual_prepared_configurations_players": [
+            2,
+            3,
+            5,
+            6
+        ],
+        "actual_source_specs_policies_checked": 323,
+        "original_policy_source_and_seeds_unchanged": true,
+        "new_background_coordinator": false,
+        "automatic_retries": false,
+        "allocation": {
+            "timeout": "24h",
+            "flavor": "cpu-upgrade",
+            "game_workers": 4,
+            "search_workers": 4,
+            "inference_threads": 1,
+            "checkpoint_period_seconds": 30
+        },
+        "max_active_jobs": 64,
+        "preparation_archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "a4d8d65e7cf7d708720081fc16893bdd91084b55",
+            "archive_path": "archives/current-auction-remaining-preparation-evidence-v2.tgz",
+            "archive_sha256": "a1e30b7ce7412045732e7c4feb65016050fa9244995aee7c59422a2ebe465d86",
+            "manifest_sha256": "9357526f250286460f4394f738919040045621957acfe11dd4db54abcb768aaf",
+            "archived_files": 39,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "launch_recovery_archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "4d616de8cd02eadff2edb1948013b5bc4e3eb649",
+            "archive_path": "archives/current-auction-remaining-launch-evidence-v2.tgz",
+            "archive_sha256": "92d88bf1a20417f8424db20bdbb0b551efa56872b1a37734fbaef4e14ee3b5a9",
+            "manifest_sha256": "153d6fecb551b827dfb58b56481362e2f2eab507ae853c716854475270c25765",
+            "archived_files": 297,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "no_partial_strength_comparison": true,
+        "candidate_selected": false,
+        "qualified": false,
+        "reserved_final_seeds_used": false
     }
 }

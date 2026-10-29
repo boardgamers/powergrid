@@ -1,5 +1,39 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 10:09 UTC — remaining confirmation admitted; first 64 jobs confirmed RUNNING.**
+
+Read [the remaining-dispatch handoff](CURRENT-AUCTION-REMAINING-DISPATCH-2026-10-29.md).
+The exact fixed remaining worker/source is prepared, privately archived, published
+and upload/download verified. The first **64 rows / 1,280 games** were submitted
+once; all 64 effective 24h/cpu-upgrade configurations were verified, and a second
+bounded observation confirmed all 64 RUNNING. Handles and launch identities are
+in `strong/current-auction-remaining-dispatch-v2.json` and
+`runs/current-auction-remaining-hf-v2/jobs/`. No new background coordinator exists.
+Do not resubmit these jobs, rerun preparation/upload, or restart old owners.
+
+Verified coverage stays **19,780 / 26,880 games**; the new jobs remain unaudited.
+**259 rows / 5,820 games** remain unsubmitted after this first batch. The bounded
+manager `strong/manage_current_auction_remaining_v2.py cycle --execute` independently
+collects terminal originals and fills at most 64 active slots in the recorded
+fixed order. Use `--launch-limit 0` to observe/collect without new jobs. Durable
+intents prevent retries after uncertain submission responses; audit/terminal
+failure stops further dispatch. Observe exact handles; transient observation
+failure is not terminal. Keep local collection bounded and measure storage.
+
+Twelve independent envelope-collector tests and eighteen dispatcher tests passed;
+the latter's initial missing synthetic-source fixture failure remains archived.
+The previously completed worker/source checks were reused, and actual admitted
+configuration checks passed at 2/3/5/6 players without executing games. Preparation
+and launch evidence descriptors are `strong/current-auction-remaining-preparation-evidence-v2.json`
+and `strong/current-auction-remaining-launch-evidence-v2.json`.
+
+After complete coverage, explicit receipt authentication, full raw re-auditing,
+unchanged paired analysis/selection and the untouched reserved final strength
+gate remain. Never fabricate completion of the stopped original owner. Previous
+goal turn: no progress (Rust explanation). This turn: progress (actual admitted
+source, collection controls and 64 live submissions). Goal active, no selected
+or qualified candidate, reserved final seeds unused.
+
 **29 October, 09:36 UTC — first recovery COMPLETED; full audit passed; no live jobs to wait on.**
 
 Handle **`6ae3083f3fb22a235dd56000`** completed. Collection session 14831 exited

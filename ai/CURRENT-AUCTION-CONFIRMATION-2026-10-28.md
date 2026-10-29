@@ -1,5 +1,14 @@
 # Current-engine auction strength confirmation
 
+**29 October, 00:18:52 UTC update:** all 64 initial originals / 3,456 games are
+now audited, retaining the original ERROR with complete terminal-data recovery.
+Explicit admission is recorded. New coordinator **PID 2398668 / session 50170**
+was verified live, and HF confirmed all 64 new originals RUNNING (128 total
+submissions). See [the recovery handoff](CURRENT-AUCTION-RECOVERY-2026-10-29.md)
+for exact recovery, process, collection and immutable evidence references. No
+reruns or replacements. The historical stopped-owner record below must not be
+restarted; its unchanged source and 35 pins are preserved.
+
 **28 October, 23:43 UTC: all 64 submitted originals are terminal; coordinator stopped after a shutdown timeout, with complete game data audited separately.**
 Research remains active. No candidate is qualified or deployed, and reserved
 final seeds remain unused.
@@ -41,13 +50,13 @@ Logs, original state, later HF snapshot, the diagnostic script and its successfu
 audit are under `runs/current-auction-grid-first-stop-v1/`. Original raw files
 remain unchanged. Do not rerun this diagnosis or the failed batch.
 
-Next: implement and test a narrowly admitted recovery path that retains all
+The next action at this historical stop was to implement and test a narrowly admitted recovery path that retains all
 original failure evidence and independently audits complete terminal data.
 It must reject missing, partial, capped, mismatched or non-shutdown failures,
 preserve all 26,880 planned games, and leave frozen policies, source and seeds
 unchanged. Record a separate recovery decision before any resumed submission.
-The research goal remains active; neither the original owner nor any replacement
-owner is currently running.
+At that stop no owner was running. The separately admitted recovery owner
+listed above now continues the unchanged grid; the research goal remains active.
 
 ## Original execution owner
 

@@ -1,0 +1,27 @@
+{
+  "status": "original_terminal_recovery_admitted_and_remaining_confirmation_started",
+  "initial_jobs": 64,
+  "initial_games": 3456,
+  "original_hf_stages": {
+    "COMPLETED": 63,
+    "ERROR": 1
+  },
+  "original_error_preserved": true,
+  "game_reruns": 0,
+  "recovery_rule": "complete_original_terminals_after_policy_shutdown_timeout_v1",
+  "admission_sha256": "f9edc987294dd29d81f6593d219f227721d6db9e787896233c21322950bac7db",
+  "launch_snapshot_sha256": "acc64f82d08700c82c04a8920302eca4b976146d3b1c99c1f03cf97b5921fc52",
+  "source_sha256": "a4384b10eb8a4381423731bc0c315673f9214d91c1fb336aa81ef4a7102d1c5a",
+  "archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "5d8b4c90af3a7b0925add6a92f44afac5ee93389",
+    "archive_path": "archives/current-auction-confirmation-recovery-evidence-v1.tgz",
+    "archive_sha256": "37d17c844984bd8c6345cf1ea13744027308b2424fd96ac4649a66fa3ccaf128",
+    "manifest_sha256": "a66499bc3bcc9a6070a4fe47fa573833ecaa9ce2468df41b807a5c21efa38933",
+    "archived_files": 334,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

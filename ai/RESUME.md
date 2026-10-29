@@ -1,5 +1,33 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 00:18:52 UTC — recovery admitted; confirmation continues with unchanged policies.**
+
+Read [the recovery handoff](CURRENT-AUCTION-RECOVERY-2026-10-29.md). All **64
+initial originals / 3,456 games** passed their complete data audits. The failed
+48-game original keeps HF ERROR and its failed report; a separate full audit
+admits its unchanged terminal records. No game reruns. All 26 recovery tests
+passed, including the coordinator startup interface; original execution/source
+pins remain unchanged. Explicit admission is saved and hash-bound.
+
+The sole new owner is **PID 2398668 / session 50170**. Actual process, 54 pins
+and fresh HF inspection were verified: **64 new originals RUNNING**, 128 total
+submissions, 816 still unsubmitted at the snapshot. It owns at most 64 active
+jobs and audits before adding work. Inspect its actual process and
+`runs/current-auction-confirmation-recovery-v1/state.json` / corresponding
+`-first.log`. Do not run a competing collector, restart the old owner, or rerun
+failed games. Initial collector PID 2299815 / session 43290 completed and exited.
+
+Next let this exact owner finish all 944 jobs / 26,880 games, then run the
+separate recovered comparison for a complete independent raw re-audit and the
+unchanged paired statistics. No partial win analysis or policy changes. Research
+active; no candidate qualified; reserved final seeds remain unused.
+
+The 334-file recovery/launch snapshot is privately archived and download-verified
+at model revision `5d8b4c90af3a7b0925add6a92f44afac5ee93389`; descriptor
+`strong/current-auction-confirmation-recovery-evidence-v1.json`. It references
+all 64 immutable original raw archives and the unchanged source. Do not repeat
+archive uploads or source preparation.
+
 **28 October, 23:43 UTC — all 64 originals terminal; owner stopped and shutdown failure diagnosed.**
 
 Original coordinator PID 1981427 / session 28315 exited at 23:29:44 UTC after

@@ -66480,5 +66480,1134 @@
         "previous_goal_turn_note": "Finished and independently audited all 320 current-engine 8840U responses, archived evidence and pushed the result.",
         "current_goal_turn_classification": "progress",
         "next": "Test and independently review a narrow terminal-receipt recovery path, preserving original ERROR and all 48 games without reruns. Record explicit recovery admission before resuming any submissions; collect/audit the other 63 completed originals; retain the unchanged 26880-game plan."
+    },
+    "current_auction_confirmation_recovery_v1": {
+        "created_at": "2026-10-29T00:21:05.831338+00:00",
+        "status": "complete_initial_original_audit_and_admitted_continuation_running",
+        "scope": "Frozen Germany current-engine confirmation, 2-6 players, all four rules; 32 independent deals per count; 944 planned original jobs and 26880 games. No partial strength analysis.",
+        "initial_originals": {
+            "jobs": 64,
+            "games": 3456,
+            "counts": {
+                "decisions": 528366,
+                "root_filter_overrides": 83,
+                "rollouts": 0,
+                "rollout_caps": 0,
+                "neural_decisions": 0,
+                "search_changes": 0,
+                "search_decisions": 0
+            },
+            "hf_stages": {
+                "COMPLETED": 63,
+                "ERROR": 1
+            },
+            "recovered_original_error": "6ae2847a41e90535df77edf5",
+            "recovered_games": 48,
+            "recovered_decisions": 6486,
+            "original_error_and_failed_report_retained": true,
+            "archive_references": {
+                "pg-current-confirm-v1-filter-economic-2p-00": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "2d10886db7e278c93a373ef6489dfe47ba4f0e56",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-economic-2p-00.tgz",
+                    "archive_sha256": "01bf176ed47bb4bba822c48ae131150600ce26a3c1dd4da8f953af906cd1e1b6",
+                    "manifest_sha256": "e8951cd2c71eae12cd4c178dc37592a5a9212fe5c8ea82e6661c30f292bb2544",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-economic-2p-08": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "46f591463cb3b94dc13c5feef31a9dc4e7ef2fa4",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-economic-2p-08.tgz",
+                    "archive_sha256": "ebc6227c6d32c6644f2d7b5e5ad0ca17a4a14c3bec0e44ce47b19d03f18797ce",
+                    "manifest_sha256": "2a69ca19cb99a2110fb6adc33e90b39898f2722e9ca625231e70a857058df63a",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-economic-2p-16": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "9e703c4e9cf8d9059b5b4656b6f733b3500d8147",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-economic-2p-16.tgz",
+                    "archive_sha256": "0a38cc29251842e4c1944ab2bf87acadac2b928b0d470d1ff4483eeaf687be3e",
+                    "manifest_sha256": "81e43695b5905fa273816b90d762288f744202ea8627c363c0b74319b45d1b84",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-economic-2p-24": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "9232e90814763131c6926fec21592e93591bb31e",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-economic-2p-24.tgz",
+                    "archive_sha256": "caec6f39cccd50b4bc27d812a69ddfa382830108ec8d07a8d637386c66a9b64c",
+                    "manifest_sha256": "d4c9b771d81ed01099a834863e7ecde1f9342aa442d51d9f8b9ad28bca94d847",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-search_geo-2p-00": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "f2db3722a15545fe5b47de6b6f3d1fe958bfd80c",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-search_geo-2p-00.tgz",
+                    "archive_sha256": "525adcb50da09891e8b3f756a2b1622d29f0576713fecd641accf8fad8a55616",
+                    "manifest_sha256": "d406c443af6afb98ce4e5cde55643414587ace0b54dba508cc1e97edb0191cdd",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-search_geo-2p-08": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "758138bafbb3b89ea55c11b7d49516abb2315b28",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-search_geo-2p-08.tgz",
+                    "archive_sha256": "397f4a058ac170143a46fc4606db6b0095ebcbaa015629011f8339ff3d21710c",
+                    "manifest_sha256": "b9b2b7cd25cba9029b3686ef7e14665405881ebe598e216f44e29bd019343fbb",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-search_geo-2p-16": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "5f927a9731ef50922c3e8bc5f089e44c52434f8f",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-search_geo-2p-16.tgz",
+                    "archive_sha256": "d182f59ddbff8eba16ea2673113d81997b246fb7859d8f2cfae08bcd563485ea",
+                    "manifest_sha256": "18ab50e1baa5083e956b13384b945bef68493025ac43b9e8cd71c103d8ac684c",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-search_geo-2p-24": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "f90b58eae090ac653fe03bbf0b3f743d787a6099",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-search_geo-2p-24.tgz",
+                    "archive_sha256": "119a81dfb06f78034e99dd3a250f8b6d500b65b296b58e9121d14a60f8cedd87",
+                    "manifest_sha256": "c03303968023cdd22a4c3f06927e159e3547c3e5a2e2e6011963763e3f9e2d46",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-legacy-2p-00": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "7321f6cedecf1e94e07e1a6156f932b23bcf4746",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-legacy-2p-00.tgz",
+                    "archive_sha256": "bf191dd4ee63b4b52f9042824a869ddd231db6157d16f1993b93ec1fde889592",
+                    "manifest_sha256": "f0da09c6b33d6dc55ffea373ccdf071343bea82cdec0a001ec52fab756dfa879",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-legacy-2p-08": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "40fe5ba398922ab6801e7eb19425d5c84f831b08",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-legacy-2p-08.tgz",
+                    "archive_sha256": "d55875bbd24aacf278cbd2737db804b2e5c4cb8333bd36b3f5e02e2000eb9682",
+                    "manifest_sha256": "3ff9747ba9b8c9869c8b37d3c9274a59ce05099c470cfadcedd242c5ce5c9324",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-legacy-2p-16": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "8d3fb277d586431bda125b8c8d5d5ea53cffb9b3",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-legacy-2p-16.tgz",
+                    "archive_sha256": "49f1f38513c0630bbd83d8c8981c89e44f803537186d360f30b553f152bab928",
+                    "manifest_sha256": "2b8329123b663bb36306d265e5ab0ab90d90949ff88fd5ae5376a84f28d41fb1",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-legacy-2p-24": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "ea0303fe729d1350f10e7aedbb4bb5b9e1255c63",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-legacy-2p-24.tgz",
+                    "archive_sha256": "6f453e101ddfefc50b8d0ec69e03402383c124e7b32a3cb6290e006fe83be681",
+                    "manifest_sha256": "64dc94de2839c53bf58c4c3c707d32129387f8160bbc7677a09488da19bc0563",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-heuristic-2p-00": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "d6d50e2ced5e728242683015dd87362ed462025c",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-heuristic-2p-00.tgz",
+                    "archive_sha256": "e034843632735ecebc9f10b322a3cb93e8a59be42c2b732887657359067fba65",
+                    "manifest_sha256": "60d535974db94334295e4fbc47a6b972328a0c9a06b1e7d5e2f60cc8dca98378",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-heuristic-2p-08": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "e97b587dc44a9143a1756093d9387fc373b81c9c",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-heuristic-2p-08.tgz",
+                    "archive_sha256": "c310bbdd772b91aabc2f0f0aea9f2a92f57dbf863b8b87eaa5ebc10bf1497287",
+                    "manifest_sha256": "a85336cd7455f9e6e1e6d19e4ea2c8755ed8caf5c750834b3512377cdb2f6f9b",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-heuristic-2p-16": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "4b65ce9be6ef60dd7b1879aee895240a5e875218",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-heuristic-2p-16.tgz",
+                    "archive_sha256": "c8a18ad7e83516ee031acf1e22b2ddfdcedd7f7c3cc138d2e76d10d850bd5ce2",
+                    "manifest_sha256": "212aace9936fd723586bd10d65136c0904fac73723b7726e9c76cafd0b49e71e",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-heuristic-2p-24": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "3c21ae441895458a4fd3da577ecc37710db2cd83",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-heuristic-2p-24.tgz",
+                    "archive_sha256": "f82a677990b60b00709aa9ad7ba1fcdb0cb4fd4013e5e31e0e27c14a52c07e21",
+                    "manifest_sha256": "9fbd54f91fa7f561d209e5d4157ff01c9c9e6e51680a4d3407e220d16ab5553e",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-rush-2p-00": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "d312a4eb8807014c94006de1472e7e58f5743ed6",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-rush-2p-00.tgz",
+                    "archive_sha256": "bf8dae7a22bf282e9fb7aa6618a4af97dc37e4e3559752f3b5809f24270f1f7c",
+                    "manifest_sha256": "35ef694978406b1f0b0a868567c4638e4f55de8d78c3e8a154b951c4156339c4",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-rush-2p-08": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "d7ff04a575402583ed10ed3e7ba6f46f976d8c8b",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-rush-2p-08.tgz",
+                    "archive_sha256": "ceed1335f0f2de16d5f78d130318a58fae853b1a56d3c301df3f5d794cbea519",
+                    "manifest_sha256": "53c2b5e7b6fe2da4d230dceb5c025aa97507d8355edf4202a10bcd28b980e685",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-rush-2p-16": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "f755b07adfd4a9010cfc5c8dc32fc98c0fb70d35",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-rush-2p-16.tgz",
+                    "archive_sha256": "06b8eddf5016135b2e3f28152c551da72fb34e5fc12f90a51fce5928e32f726c",
+                    "manifest_sha256": "15ce23b20c5451b31fb22eb479bfd2f8fb6a815edde7ccf9c74ff2912918728e",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-rush-2p-24": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "4be48e7c0d633ca20c8f9ca879b9a84391f0eefb",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-rush-2p-24.tgz",
+                    "archive_sha256": "c88b491d2115a1a002d2c5f7e6bd26f8f1290c24c952d9d96db3190885eff3b9",
+                    "manifest_sha256": "ed07f9572ef6279d87e063931e55a918179861abe37f27b677559791a1b2cd3e",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-economic-3p-00": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "2987db33623920232eadbc5210b6604cf6bad8fb",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-economic-3p-00.tgz",
+                    "archive_sha256": "d7a23e1382b7284734a9059f0322b958bfde555c34e962f185880c137e9d04b0",
+                    "manifest_sha256": "759efd12a7e90f2a55923e7f58b2103ee19ebd00c8468ed1339e29b8f78575bb",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-economic-3p-04": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "dd6203b7448edc2bc06409c797b3b00ad0c5d815",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-economic-3p-04.tgz",
+                    "archive_sha256": "6145a8a9046a0c6c49f3f4e7cacf18454e4ab333905c6238235e3ee5c79e7a6b",
+                    "manifest_sha256": "d22630c611aab89800a961a55fb3c2fa643d98a503cb86fc8328759ca082d5e3",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-economic-3p-08": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "efccad7ba8a35358b51e70e5bc0edd79d6f30410",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-economic-3p-08.tgz",
+                    "archive_sha256": "e410279e35e6ba2ebebe6fada36273832cc5256c6f85640d2b45bab1dda1670b",
+                    "manifest_sha256": "c0bdfb7134fd10ce48a1bd5cf7d317539dd1ef2c325751f3044f9e8331bb5070",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-economic-3p-12": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "9b95c8a806f00a5d1636d3d11fe29508867ed7b0",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-economic-3p-12.tgz",
+                    "archive_sha256": "447d8b0ae035e2bd51c30a80ecf2755ab1ff34047082959acea37162ee33ef6c",
+                    "manifest_sha256": "4644342a4120b11abfb7f54115a23a1a1c497e9050d7d2c5b811d257327a56a6",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-economic-3p-16": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "0efd1743f62a51d92980dba2f56534ee57b5dd38",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-economic-3p-16.tgz",
+                    "archive_sha256": "6e5e2330db1fee828feb892ff28428049a33c82afb91da63dfa209c9e8d760f4",
+                    "manifest_sha256": "e51c3e7fbbc8159b984ece5fbaae3c2def0afb7902b8c3690181ee4f794a9018",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-economic-3p-20": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "b70e3c28a1d0badc49135c36d8ba868c34e02992",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-economic-3p-20.tgz",
+                    "archive_sha256": "a994d3c0a353ba53bd82f2cc8856dab482fed5151737cc1ace90f7004ea5cfaa",
+                    "manifest_sha256": "7686282ece73857556fee4ddd98016844478b49ca18330fcc0da901f97ab0db4",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-economic-3p-24": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "00b63ba7b7e017bf6a718858997300f674c1b841",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-economic-3p-24.tgz",
+                    "archive_sha256": "998f9ffaae0a0bf133605b56ac9e73b9e6b89ddda5e2a3dfd6d6e8304a3451c6",
+                    "manifest_sha256": "1c3b2f42e90fd08eb9abe480ffdd3b40a81fc1ba5336af95cfd8e04669c63a2e",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-economic-3p-28": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "51f3cc7c09c961b89c7507c739d69f06ea6ed47d",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-economic-3p-28.tgz",
+                    "archive_sha256": "4ff8543a0a353ce479288b762e827c9ffce35eb067e43a560e184315f9408673",
+                    "manifest_sha256": "b5333ecdd8bde575d49206dd91eed5d551c235912d2dcb338b9add704e66644a",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-search_geo-3p-00": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "15d4d4b9743e5d7c6b542906a8261e32c827e424",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-search_geo-3p-00.tgz",
+                    "archive_sha256": "0c577a57ee1bf43cff4b8247475c466a6db020ed71d6f966931125a88767e759",
+                    "manifest_sha256": "172cfd1ffcad78b6df511ec83b96327c4b61dac0a5b53f67a3407bfa5219a5fc",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-search_geo-3p-04": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "f82cf24b5ceb244535b2891fd66edf690cbb8338",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-search_geo-3p-04.tgz",
+                    "archive_sha256": "93d390b9af9540563d6ab404e6586b895a038dec7d10dd8e093897f96a84de9b",
+                    "manifest_sha256": "71c315195eb7f796c11ff0513b96229b522c9ff2aa231501fd2a910d02a8c05c",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-search_geo-3p-08": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "07c65bfddd059f6243fe6e5b30bad18acd1e536c",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-search_geo-3p-08.tgz",
+                    "archive_sha256": "e41be75e9204c925241e32bfdeaa85888ecf4895336361e165710fe08bf58a5e",
+                    "manifest_sha256": "df271123f3f5646a03f9841491ce241e3708d8778b595e84ec00e6e756103ece",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-search_geo-3p-12": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "99ee44030d5fa33553510c0ab629397488e60677",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-search_geo-3p-12.tgz",
+                    "archive_sha256": "f334f7f4749aee4cb8dbd2cb387a579771e6c803d9473dbfcc07b3c0243dad29",
+                    "manifest_sha256": "db9d82fc83c1870fd3381e270ee6dd64557836d4320772b480b9e74ad891caf5",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-search_geo-3p-16": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "3a944819259ae90d1a6338bbe4571b4202e66dda",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-search_geo-3p-16.tgz",
+                    "archive_sha256": "8a5b1fc6fb1a0c603b408e16b1111e291f27d825a975cebed21c5b4939255da5",
+                    "manifest_sha256": "f075932abc5554e77dea33dae5143f9dfbc8fa42afe3fe9db6d8eda0c87e2839",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-search_geo-3p-20": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "083ff16c1c7434f1fe79e44ff33b89ded0f43e9b",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-search_geo-3p-20.tgz",
+                    "archive_sha256": "4a9149bcc1b3bccd9d792304cc9850eeec354e14b0c1c03f8fa5a609daa4c384",
+                    "manifest_sha256": "2632bde558629505a6dcdb5886c6fa46bf68ebe3cb402102602a7ef69b22b764",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-search_geo-3p-24": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "6a1d0af741a8327b71dc13f15e4b73dc6a95ed2d",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-search_geo-3p-24.tgz",
+                    "archive_sha256": "3b6604218a7503341df9f359ae43fc84d73ab1e77ce4d785b81ee52bf99831d0",
+                    "manifest_sha256": "808789dedf56f2ac8d6e69c3a1fd2b6935567d272d0087c4fb2a63c5a7b25acd",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-search_geo-3p-28": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "858e2b84198ae60b0627c7a4a8555955c19f514d",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-search_geo-3p-28.tgz",
+                    "archive_sha256": "5fde9e87b696b86552b38ea3bd9c440b9b9935aa4d1620147dd19ecfd4b5d7f4",
+                    "manifest_sha256": "84e2b5240aa62f79a1928b2307af5b41118d507d87024676153db61b77cb651c",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-legacy-3p-00": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "e156eac059c3445e94ceae7a087fd6e1fab5e251",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-legacy-3p-00.tgz",
+                    "archive_sha256": "cf495fe8032ef4facaf30f19dd9b78aff9fb21b1345dfb96311d65f02480732a",
+                    "manifest_sha256": "2a90e896afd9ba7812848a5f7f0ba06db420603f140bcfd36f2e90c1cec0677f",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-legacy-3p-04": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "cc6ce58f2e9233cc77cceb2604358d9f69ebd14d",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-legacy-3p-04.tgz",
+                    "archive_sha256": "6b869001eefafe2a1a7fa4fdcd38bab0cf9f763126a48080c890c630e17c270a",
+                    "manifest_sha256": "62beecb87d0127d892968aed16bb4efd90c41cc253902f082e09cdcabb06584c",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-legacy-3p-08": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "d5ab0cbf6b8cc9302953eec27015dc5666e14520",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-legacy-3p-08.tgz",
+                    "archive_sha256": "69ff409c0675aa37077d0fcf000993c65b1250fbe7664c4cc82c93caa953f852",
+                    "manifest_sha256": "8b4dfe829ea58137d1f8d1da247baac74ab54bd9c89b4da77a490f3abc6928e7",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-legacy-3p-12": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "e1072bc7543a8faf3163ec1ba7929f51ceb6a7cb",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-legacy-3p-12.tgz",
+                    "archive_sha256": "967635d03a84985a04caf07113d541ef2b1029d52e0eadd060fe53d55491ac96",
+                    "manifest_sha256": "99cf7aa7609cad8fc3b86e142dc01f4f3dcf515ee44599be89ae612d20f8d856",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-legacy-3p-16": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "1febbaf0eb80e6172c5ffa16717ff7012de780b4",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-legacy-3p-16.tgz",
+                    "archive_sha256": "e18c9e9961e96841b4085761b2a8a200ca7852688bcb6d5558484ff2f82767c2",
+                    "manifest_sha256": "5f1b42de89856cddd1e2ef9270e985966e2c62f037e24a54cceda4fb07308da6",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-legacy-3p-20": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "ee0290ac6213f524f6af21020849792c7094a2f4",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-legacy-3p-20.tgz",
+                    "archive_sha256": "ccb93be5e80b94c784c0a5e1d31d7d23316cffd82918f1835c7fc1615a7259f5",
+                    "manifest_sha256": "e137cbcf416603e283a824ec16c3a77d54a4dc12106e1d7b5bd507d1832770a3",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-legacy-3p-24": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "ab854403847116e08b1aa8bea82a50267941f06a",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-legacy-3p-24.tgz",
+                    "archive_sha256": "dc2ded32f7eff40d525df3e44aa0f0f271abc5112faf0af0bae1f9ef2299dec3",
+                    "manifest_sha256": "1cc9d4dc893b57effe76eaf302b7ca0f1edbffd090e005635e98788018cdb279",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-legacy-3p-28": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "4892dad7466b7cf1f2b1023c833a4b753c99de60",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-legacy-3p-28.tgz",
+                    "archive_sha256": "ebe165130c461b1500c0b03ecf56fe3d88582d72a1116a18d5a4a586d8584e8d",
+                    "manifest_sha256": "c40ac5b7c5043c858d4b7a24d3677ab477df1d0d127ca632e54aeb1bc5135d03",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-heuristic-3p-00": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "2b10a5947be1a80b9dfb2052e82ee9574c33766b",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-heuristic-3p-00.tgz",
+                    "archive_sha256": "f37dd65b13b6bd718cb719b235ba08142d72053cdbc041fecc96a7a4053cede0",
+                    "manifest_sha256": "e76d5132d4a08a9506abda4242987b72e0ea05331ab06012d3c97f8736b1e061",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-heuristic-3p-04": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "3ab72a10cfec33877df5000401430fb8ff758c0a",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-heuristic-3p-04.tgz",
+                    "archive_sha256": "41b7bca961efcbbcbe5bc01f44e22957f8c75b7de94b8658d37509a5a464b83e",
+                    "manifest_sha256": "7baa462cd050126cbad34f4a1c57ec34840fe1f6b581e02f6e5283eb83e5376f",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-heuristic-3p-08": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "0292edf8412f913e5a8404e1727042d4b486a4dd",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-heuristic-3p-08.tgz",
+                    "archive_sha256": "d294b1d659d10c2f0fb45d938257d21a6133114a650b4359158813d118830cad",
+                    "manifest_sha256": "bd1c5ffb5c0cff11456656e7f72aacdf2212d877c31890b42f93bcbb30064e23",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-heuristic-3p-12": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "a71e935b866405fec785ae30ca0a2292e276d106",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-heuristic-3p-12.tgz",
+                    "archive_sha256": "87ce6420218d8e696a134883b37eafa77c43ffea4ead0ece10603cddae01b1db",
+                    "manifest_sha256": "5ab1bfe302eec5ac5423c6ef572bcad619dc9de4c6bd9c525e52a48e442da582",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-heuristic-3p-16": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "71cd6319b1654009b97602d434ef881d9f87872b",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-heuristic-3p-16.tgz",
+                    "archive_sha256": "5f581a7ecaa088edaaa13660ec6e4b0b65af3e975a7561e0cd5b72a2c1eb4f1f",
+                    "manifest_sha256": "44d9f3b752a222b2e3dc13f95119aa200591a2fba9357719664b5cec3a0ed47c",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-heuristic-3p-20": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "c544b8a6006ee5be60b90e7362962a2c7f39bcd1",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-heuristic-3p-20.tgz",
+                    "archive_sha256": "ea6c72626c478058b62e025bebc7dded141726554022a1d4ab7a51a60ecda903",
+                    "manifest_sha256": "4114e92670ca286300f4c496232d10543b0b397a7f7babaa58b3675ad61634e4",
+                    "archived_files": 156,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-heuristic-3p-24": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "d5c5331c25318afa45c362bff01f1cb862d971e8",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-heuristic-3p-24.tgz",
+                    "archive_sha256": "7037223f75cdf69c56cced8a82af596967c7035e34214e52238f52680fc6d333",
+                    "manifest_sha256": "805bf0387abd98d66294cc9756cb9ae25684de64407791426ab0eaa1c006dfaa",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-heuristic-3p-28": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "77ea037c411261ec8025efdfc16377412e084f0b",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-heuristic-3p-28.tgz",
+                    "archive_sha256": "1bce99a7a1bf118566f346d74af71f40a8fbbd8760a5eb4b4d1134db33a7d90d",
+                    "manifest_sha256": "1f03c67e59bf2932b173ec73923ae4b6eb9a3277fb45fb37fbc27b86bec585e0",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-rush-3p-00": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "3ac46e4a456b8d48d1ca0bdaa80abae9716f0623",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-rush-3p-00.tgz",
+                    "archive_sha256": "3b8579ffde19e35950a944d56f93a17e12582bdfeef5d795f622e41b4a341524",
+                    "manifest_sha256": "09027e2c71d2cd53da8ff874491524de8efd2fb8cab4992cbc19afed50e29daa",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-rush-3p-04": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "bfae661aedc94dc559ae9027cc9206b128bced7d",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-rush-3p-04.tgz",
+                    "archive_sha256": "5108e765f664d1ae8711047556cddcf768619e0a93f86581447356af118de14e",
+                    "manifest_sha256": "31a562365b3ed638a3c73a43b764520264143e081ded0781bfa59bc35bc18f81",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-rush-3p-08": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "b935f60cd446d04c5f790c34cf83abfdda07a566",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-rush-3p-08.tgz",
+                    "archive_sha256": "b83d542f05c979176b431923de3c4a450752bff7039ea283facb820d617462b7",
+                    "manifest_sha256": "c8c326ff4c1a91aac343e4cb9edc2991959b2a111451923041c76bda0070ddd9",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-rush-3p-12": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "2e79d003d28cc57c947d219783582d317d96702e",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-rush-3p-12.tgz",
+                    "archive_sha256": "b3f08dabbc732f6271dcf16c52712f2b6f56b5f7c2b4f8f41771bc14f47efc0f",
+                    "manifest_sha256": "08101bbbff8d6bda83923877f312255d25feaa815969904d81448e3773e2856a",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-rush-3p-16": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "63c129ae1d6df4eb8544ffdcf33ea6824af30bf7",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-rush-3p-16.tgz",
+                    "archive_sha256": "7c59e3e2c4b8599d5353b69e72a6ede30d1066c02a77afc61b04123112745deb",
+                    "manifest_sha256": "400c089da78ca4f87d7671684f9ea04b0d86b1da698118357e7aee5a50716e21",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-rush-3p-20": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "ff9557c173addc272832c90eff3a9fd5289b5f4d",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-rush-3p-20.tgz",
+                    "archive_sha256": "0d023126b3135b66dad796db1241461a3647ece37148db497868e24b81ae6142",
+                    "manifest_sha256": "8f267fb696f27f5322b3642952c44aee74a29ac8f55859add948a0c948febda0",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-rush-3p-24": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "e402c992c0e34325cb2a54439e1ee4f77e192e3f",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-rush-3p-24.tgz",
+                    "archive_sha256": "561b1523854927f7341d2fb9c42dd085f4bdbf709040ddb0205181141f34d183",
+                    "manifest_sha256": "a9107f854105391580a5ecf57273e617f77f6123fd5b1a131e49c1cbc0581a56",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-rush-3p-28": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "d1681c3bdc69f25ccd5007bbc0754b7d67124b53",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-rush-3p-28.tgz",
+                    "archive_sha256": "a4ece919c8818e93ae12811f3516d73b427a5e2bdb3ad4965c517b119215280d",
+                    "manifest_sha256": "16ade56ce37b3366cfd474df3e126e01c91a92932bc9d535009152ef38081543",
+                    "archived_files": 157,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-economic-4p-00": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "1084c69fe53187628f7d0bf5f27828071b8a6e46",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-economic-4p-00.tgz",
+                    "archive_sha256": "452d80142baca62131de359ac05d8f6ec376e9101a2a276413e5cc5af6b03a26",
+                    "manifest_sha256": "d1a80592523a3864a2f6ce57480a40284229cc5fd807ca3831803dfdcabc2d21",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-economic-4p-04": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "bfcd8db97d8c327e8d12700c294b4dcb2591487f",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-economic-4p-04.tgz",
+                    "archive_sha256": "47e1635485dacd3b6e68e42836f8283799e2b55bbbea785b847a3e710ab0e2b3",
+                    "manifest_sha256": "3333df0bf64b857e282336f1b765ab810d638afb950f0340a8c156335effa81d",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-economic-4p-08": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "31f04f3e8197355f2e143dc2da84df931bc5b245",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-economic-4p-08.tgz",
+                    "archive_sha256": "1bddfc9da03c64c06c1f7a1244d6ca46bd861a385a614d67a281ceafc59a4871",
+                    "manifest_sha256": "a36a024733a75db0164e997bb4ffb5bf56dc789bc17945436e3c92d49a4eaac0",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                },
+                "pg-current-confirm-v1-filter-economic-4p-12": {
+                    "repo": "coyotte508/powergrid-ai-germany-v1",
+                    "revision": "ac95a1b1a2c7d71d3d45e57129f919b972bc03a9",
+                    "archive_path": "archives/pg-current-confirm-v1-filter-economic-4p-12.tgz",
+                    "archive_sha256": "c84c01495816f9c9ca85f13764d88472df69a9a7624b41a1c77dc3ae66c8e85a",
+                    "manifest_sha256": "45e1c3a7eb12d485bd7561ad7ec1b590583b389ef8478451ffd22bba7a53f567",
+                    "archived_files": 205,
+                    "format": "tar.gz",
+                    "remote_archive_verified": true
+                }
+            }
+        },
+        "rule": "complete_original_terminals_after_policy_shutdown_timeout_v1",
+        "readiness": {
+            "path": "ai/strong/current-auction-confirmation-recovery-readiness-v1.json",
+            "sha256": "ae3e68d9917dcaeb470b70858a679de8412ee1b44d85b8880d9021b317cee4d2",
+            "tests": 26,
+            "pins": 52,
+            "original_execution_pins_unchanged": 35
+        },
+        "preflight": {
+            "path": "ai/strong/current-auction-recovery-preflight-v1.json",
+            "sha256": "e1292a5c62dc9a954c785df1e90065d93bac01e91f5709c517af26d3a76d8643",
+            "new_games": 0,
+            "new_inference": 0
+        },
+        "admission": {
+            "path": "ai/strong/current-auction-confirmation-recovery-admission-v1.json",
+            "sha256": "f9edc987294dd29d81f6593d219f227721d6db9e787896233c21322950bac7db",
+            "initial_collection": "ai/runs/current-auction-confirmation-recovery-initial-collection-v1.json",
+            "initial_collection_sha256": "9be06349c3fdb91328ebdc05f95a516627ef6e3291a755deab71d8b2e6168a28"
+        },
+        "source_descriptor_sha256": "a4384b10eb8a4381423731bc0c315673f9214d91c1fb336aa81ef4a7102d1c5a",
+        "previous_owner": {
+            "pid": 1981427,
+            "session": 28315,
+            "stopped": true,
+            "restarted": false
+        },
+        "initial_collector": {
+            "pid": 2299815,
+            "session": 43290,
+            "exited_successfully": true
+        },
+        "recovery_owner": {
+            "pid": 2398668,
+            "session": 50170,
+            "started_at": "2026-10-29T00:18:04.792202+00:00",
+            "verified_live_at": "2026-10-29T00:18:52.114211+00:00",
+            "code_pins": 54,
+            "max_active_jobs": 64,
+            "automatic_restarts": false
+        },
+        "launch": {
+            "snapshot": "ai/runs/current-auction-confirmation-recovery-launch-v1.json",
+            "sha256": "acc64f82d08700c82c04a8920302eca4b976146d3b1c99c1f03cf97b5921fc52",
+            "new_jobs": 64,
+            "total_submitted": 128,
+            "remaining_unsubmitted": 816,
+            "new_hf_status_counts": {
+                "RUNNING": 64
+            },
+            "new_handles": [
+                {
+                    "job_id": "6ae290bf3fb22a235dd4cea9",
+                    "name": "pg-current-confirm-v1-filter-economic-4p-16",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290bf41e90535df77fc2a",
+                    "name": "pg-current-confirm-v1-filter-economic-4p-20",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c03fb22a235dd4ceac",
+                    "name": "pg-current-confirm-v1-filter-economic-4p-24",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c03fb22a235dd4ceae",
+                    "name": "pg-current-confirm-v1-filter-economic-4p-28",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c941e90535df77fc57",
+                    "name": "pg-current-confirm-v1-filter-economic-5p-00",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c93fb22a235dd4cee5",
+                    "name": "pg-current-confirm-v1-filter-economic-5p-02",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c941e90535df77fc59",
+                    "name": "pg-current-confirm-v1-filter-economic-5p-04",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290ca3fb22a235dd4cee7",
+                    "name": "pg-current-confirm-v1-filter-economic-5p-06",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290ca41e90535df77fc5b",
+                    "name": "pg-current-confirm-v1-filter-economic-5p-08",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290ca41e90535df77fc5d",
+                    "name": "pg-current-confirm-v1-filter-economic-5p-10",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290ca41e90535df77fc5f",
+                    "name": "pg-current-confirm-v1-filter-economic-5p-12",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290cb41e90535df77fc61",
+                    "name": "pg-current-confirm-v1-filter-economic-5p-14",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290cb3fb22a235dd4ceea",
+                    "name": "pg-current-confirm-v1-filter-economic-5p-16",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290cb3fb22a235dd4ceec",
+                    "name": "pg-current-confirm-v1-filter-economic-5p-18",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290cc41e90535df77fc67",
+                    "name": "pg-current-confirm-v1-filter-economic-5p-20",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290cc3fb22a235dd4cef0",
+                    "name": "pg-current-confirm-v1-filter-economic-5p-22",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290cc3fb22a235dd4cef2",
+                    "name": "pg-current-confirm-v1-filter-economic-5p-24",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290cc41e90535df77fc6a",
+                    "name": "pg-current-confirm-v1-filter-economic-5p-26",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290cd41e90535df77fc6c",
+                    "name": "pg-current-confirm-v1-filter-economic-5p-28",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290cd41e90535df77fc6e",
+                    "name": "pg-current-confirm-v1-filter-economic-5p-30",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c43fb22a235dd4cecc",
+                    "name": "pg-current-confirm-v1-filter-heuristic-4p-00",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c541e90535df77fc41",
+                    "name": "pg-current-confirm-v1-filter-heuristic-4p-04",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c53fb22a235dd4cecf",
+                    "name": "pg-current-confirm-v1-filter-heuristic-4p-08",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c541e90535df77fc45",
+                    "name": "pg-current-confirm-v1-filter-heuristic-4p-12",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c53fb22a235dd4ced1",
+                    "name": "pg-current-confirm-v1-filter-heuristic-4p-16",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c641e90535df77fc49",
+                    "name": "pg-current-confirm-v1-filter-heuristic-4p-20",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c63fb22a235dd4ced5",
+                    "name": "pg-current-confirm-v1-filter-heuristic-4p-24",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c641e90535df77fc4b",
+                    "name": "pg-current-confirm-v1-filter-heuristic-4p-28",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c23fb22a235dd4cebd",
+                    "name": "pg-current-confirm-v1-filter-legacy-4p-00",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c33fb22a235dd4cebf",
+                    "name": "pg-current-confirm-v1-filter-legacy-4p-04",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c33fb22a235dd4cec1",
+                    "name": "pg-current-confirm-v1-filter-legacy-4p-08",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c33fb22a235dd4cec3",
+                    "name": "pg-current-confirm-v1-filter-legacy-4p-12",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c341e90535df77fc39",
+                    "name": "pg-current-confirm-v1-filter-legacy-4p-16",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c441e90535df77fc3b",
+                    "name": "pg-current-confirm-v1-filter-legacy-4p-20",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c43fb22a235dd4cec8",
+                    "name": "pg-current-confirm-v1-filter-legacy-4p-24",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c43fb22a235dd4ceca",
+                    "name": "pg-current-confirm-v1-filter-legacy-4p-28",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c73fb22a235dd4ced8",
+                    "name": "pg-current-confirm-v1-filter-rush-4p-00",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c741e90535df77fc4f",
+                    "name": "pg-current-confirm-v1-filter-rush-4p-04",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c741e90535df77fc51",
+                    "name": "pg-current-confirm-v1-filter-rush-4p-08",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c73fb22a235dd4cedc",
+                    "name": "pg-current-confirm-v1-filter-rush-4p-12",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c841e90535df77fc53",
+                    "name": "pg-current-confirm-v1-filter-rush-4p-16",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c83fb22a235dd4cedf",
+                    "name": "pg-current-confirm-v1-filter-rush-4p-20",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c841e90535df77fc55",
+                    "name": "pg-current-confirm-v1-filter-rush-4p-24",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c83fb22a235dd4cee1",
+                    "name": "pg-current-confirm-v1-filter-rush-4p-28",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c03fb22a235dd4ceb2",
+                    "name": "pg-current-confirm-v1-filter-search_geo-4p-00",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c03fb22a235dd4ceb5",
+                    "name": "pg-current-confirm-v1-filter-search_geo-4p-04",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c141e90535df77fc2c",
+                    "name": "pg-current-confirm-v1-filter-search_geo-4p-08",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c141e90535df77fc2e",
+                    "name": "pg-current-confirm-v1-filter-search_geo-4p-12",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c141e90535df77fc30",
+                    "name": "pg-current-confirm-v1-filter-search_geo-4p-16",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c13fb22a235dd4ceb7",
+                    "name": "pg-current-confirm-v1-filter-search_geo-4p-20",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c241e90535df77fc34",
+                    "name": "pg-current-confirm-v1-filter-search_geo-4p-24",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290c23fb22a235dd4cebb",
+                    "name": "pg-current-confirm-v1-filter-search_geo-4p-28",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290cd41e90535df77fc71",
+                    "name": "pg-current-confirm-v1-filter-search_geo-5p-00",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290ce41e90535df77fc73",
+                    "name": "pg-current-confirm-v1-filter-search_geo-5p-02",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290ce41e90535df77fc75",
+                    "name": "pg-current-confirm-v1-filter-search_geo-5p-04",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290ce41e90535df77fc77",
+                    "name": "pg-current-confirm-v1-filter-search_geo-5p-06",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290ce3fb22a235dd4cef8",
+                    "name": "pg-current-confirm-v1-filter-search_geo-5p-08",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290cf41e90535df77fc79",
+                    "name": "pg-current-confirm-v1-filter-search_geo-5p-10",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290cf41e90535df77fc7b",
+                    "name": "pg-current-confirm-v1-filter-search_geo-5p-12",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290cf41e90535df77fc7d",
+                    "name": "pg-current-confirm-v1-filter-search_geo-5p-14",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290d03fb22a235dd4cefa",
+                    "name": "pg-current-confirm-v1-filter-search_geo-5p-16",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290d041e90535df77fc81",
+                    "name": "pg-current-confirm-v1-filter-search_geo-5p-18",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290d03fb22a235dd4cefc",
+                    "name": "pg-current-confirm-v1-filter-search_geo-5p-20",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                },
+                {
+                    "job_id": "6ae290d041e90535df77fc83",
+                    "name": "pg-current-confirm-v1-filter-search_geo-5p-22",
+                    "stage": "RUNNING",
+                    "initial_original": false
+                }
+            ]
+        },
+        "archive_descriptor": "ai/strong/current-auction-confirmation-recovery-evidence-v1.json",
+        "archive_descriptor_sha256": "b0cc484fada68f9c47e56fc2fb045b1576a860e64a852c5ef722bdaf49ea8bbb",
+        "archive": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "revision": "5d8b4c90af3a7b0925add6a92f44afac5ee93389",
+            "archive_path": "archives/current-auction-confirmation-recovery-evidence-v1.tgz",
+            "archive_sha256": "37d17c844984bd8c6345cf1ea13744027308b2424fd96ac4649a66fa3ccaf128",
+            "manifest_sha256": "a66499bc3bcc9a6070a4fe47fa573833ecaa9ce2468df41b807a5c21efa38933",
+            "archived_files": 334,
+            "format": "tar.gz",
+            "remote_archive_verified": true
+        },
+        "storage_review": "ai/strong/current-auction-recovery-storage-review-v1.json",
+        "resubmissions": 0,
+        "game_reruns": 0,
+        "new_gradients": 0,
+        "weights_or_search_policy_changed": false,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "goal_status": "active",
+        "previous_goal_turn_classification": "no progress",
+        "previous_goal_turn_note": "Answered the user engine/Rust question from saved evidence; no research state changed. Revalidated the unfinished recovery and live process state this turn.",
+        "current_goal_turn_classification": "progress",
+        "next": "Keep the exact admitted owner running; inspect its real process before action. Complete all 944 originals/26880 games, then independently re-audit every archive with the recovered comparator and unchanged statistics, retaining all failures and adverse cells. No partial tuning, replacements or final seeds."
     }
 }

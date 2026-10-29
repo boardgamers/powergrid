@@ -1,0 +1,53 @@
+{
+  "created_at": "2026-10-29T00:10:01.159056+00:00",
+  "source_sha256": "a4384b10eb8a4381423731bc0c315673f9214d91c1fb336aa81ef4a7102d1c5a",
+  "pilot_observations": [
+    {
+      "name": "pg-current-auction-runtime-v1-filter-2p",
+      "arm": "filter",
+      "players": 2,
+      "games": 8,
+      "raw_bytes": 94397994,
+      "cached_archive_bytes": 5660517,
+      "combined_bytes_per_game": 12507313.875
+    },
+    {
+      "name": "pg-current-auction-runtime-v1-filter-6p",
+      "arm": "filter",
+      "players": 6,
+      "games": 24,
+      "raw_bytes": 307011332,
+      "cached_archive_bytes": 18116710,
+      "combined_bytes_per_game": 13547001.75
+    },
+    {
+      "name": "pg-current-auction-runtime-v1-pop-2p",
+      "arm": "conservative_population",
+      "players": 2,
+      "games": 8,
+      "raw_bytes": 112915991,
+      "cached_archive_bytes": 7364185,
+      "combined_bytes_per_game": 15035022.0
+    },
+    {
+      "name": "pg-current-auction-runtime-v1-pop-6p",
+      "arm": "conservative_population",
+      "players": 6,
+      "games": 24,
+      "raw_bytes": 379550280,
+      "cached_archive_bytes": 24915601,
+      "combined_bytes_per_game": 16852745.041666668
+    }
+  ],
+  "planned_games_by_arm": {
+    "filter": 13440,
+    "conservative_population": 13440
+  },
+  "whole_grid_endpoint_projection_bytes": 408572596880.0,
+  "projection_with_50_percent_margin_bytes": 612858895320.0,
+  "free_bytes": 625776320512,
+  "projection_with_margin_fits_now": true,
+  "scope": "Pilot endpoint extrapolation, not a guaranteed upper bound. Includes raw originals and one cached compressed archive. Some initial grid data are already collected, so this projects the entire grid against remaining free space conservatively. Monitor actual sizes as collection proceeds; do not delete unarchived evidence.",
+  "new_hf_jobs": 0,
+  "new_games": 0
+}

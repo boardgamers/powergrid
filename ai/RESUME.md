@@ -1,5 +1,34 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 03:14 UTC — confirmation deliberately resumed after inspecting the DNS stop.**
+
+Original-only collection passed another 33 jobs / 720 games. All 403 existing
+submissions were reconciled, with no ambiguous launch intent or replacement job.
+Ten mocked safety tests passed. The stopped owner, source/policy pins, launch
+receipts and review were privately archived and verified at model revision
+`dacc0d05572417eaad2d781211a19ef6a336c509` before starting a new owner.
+
+New sole coordinator **PID 3788704 / session 32582** is verified live with
+**471 unchanged pins**. Fresh HF inspection at **03:14:57 UTC** found
+**378 audited jobs / 15,344 games**, **442 original submissions**, and all
+**64 uncollected originals RUNNING**. The additional 39 submissions were
+never-submitted rows from the unchanged plan; no original job was retried.
+502 original rows remain unsubmitted at this checkpoint.
+
+Read [the network-resumption handoff](CURRENT-AUCTION-NETWORK-RESUME-2026-10-29.md)
+and `strong/current-auction-network-resume-progress-v1.json`. Preserve the new
+owner and do not run a competing collector/launcher. Its state/log live under
+`runs/current-auction-network-resume-v1*`. The previous owner remains stopped;
+its old progress file is now frozen evidence and must not be updated. No
+automatic restart is allowed after another failure: inspect original handles.
+
+Previous goal turn: progress (full target proof and stopped-network snapshot
+pushed as `c98e4a4`). This turn: progress (original collection, reviewed resumption
+and verified original-job execution). Research active; no candidate selected or
+qualified; reserved final seeds unused. Complete comparison, selection and the
+held-out strength gate remain pending. The completed 8840U replay must not be rerun.
+
+
 **29 October, 02:58 UTC — full 8840U evidence complete; confirmation owner stopped on a network error.**
 
 Both unchanged policies completed all 2,553 original public positions on the

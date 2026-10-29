@@ -6,7 +6,16 @@ slots, policies, current engine, search budget and statistical analysis remain
 unchanged. This recovery does not generate replacement games.
 
 <!-- RECOVERY-STATUS-BEGIN -->
-**Latest checkpoint, 29 October 02:58:07 UTC:** coordinator PID 2398668 has
+**Current owner, 29 October 03:14:57 UTC:** the network stop below was inspected
+and original handles reconciled. A separate reviewed owner, **PID 3788704 /
+session 32582**, is live with 471 unchanged pins: **378 audited jobs / 15,344
+games**, 442 originals submitted, and 64 uncollected originals confirmed RUNNING.
+See [the network-resumption handoff](CURRENT-AUCTION-NETWORK-RESUME-2026-10-29.md).
+Do not restart the stopped owner below, modify its frozen progress file, or run
+a competing collector. New status belongs in
+`strong/current-auction-network-resume-progress-v1.json`.
+
+**Stopped-owner checkpoint, 29 October 02:58:07 UTC:** coordinator PID 2398668 has
 exited. It stopped at **02:36:24 UTC** on a DNS `ConnectError` during an HF
 status lookup; its state/log and all 54 unchanged pins are preserved. This is
 an observation failure, not evidence that a remote job failed. A fresh bounded

@@ -73,5 +73,5 @@ its artifact again. Do not rerun the preflight or repeat the upload.
 
 The confirmation owner's current status and recovery instructions are in
 [the recovery handoff](CURRENT-AUCTION-RECOVERY-2026-10-29.md). Do not modify its
-54 pinned inputs or run a competing collector. This transport work does not
+pinned inputs or run a competing collector. This transport work does not
 change its policies, source, budget or analysis.

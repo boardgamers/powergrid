@@ -1,5 +1,34 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**29 October, 05:05 UTC — candidate/source preparation workflow tested; actual selection still blocked.**
+
+The new preparation helper connects complete reviewed confirmation to candidate
+freezing, private immutable selection evidence and final source publication.
+It derives resource allowances from all 672 completed selected-arm cost records
+and the original pilots, keeps the original 320-shard / 20,160-game final schedule,
+and verifies every bundled control before upload. Separate durable intents and
+receipts preserve uncertain upload outcomes without automatic retries.
+
+All **16 tests passed** with synthetic positive selections and mocked HF traffic.
+The actual incomplete study rejected the real preparation call after one state
+read, before outcomes or API calls, and created no candidate directory. The
+26-file engineering archive was privately upload/download verified at revision
+`85448366142104dc8aaf3c531c37d9721850d1b2`. Read
+[the preparation handoff](SELECTED-PUBLIC-POLICY-FINAL-PREPARATION-2026-10-29.md).
+Do not rerun its completed tests/preflight/archive operation.
+
+Coordinator **PID 3788704 / session 32582** was verified live with all **471 pins
+unchanged**; its 05:04:35 checkpoint recorded **464 audited / 526 submitted** jobs.
+Preserve the owner; no competing collector or partial strength analysis. Actual
+selection/preparation/publication await complete confirmation and a substantive
+results review. Final batch/collection integration and the independent reserved
+strength gate are still required. No final jobs or games were launched here.
+
+The intervening engine recap was informational (no progress); this turn
+revalidated the live owner and completed preparation workflow engineering
+(progress). Research active, no candidate selected or qualified, final seeds unused.
+
+
 **29 October, 04:45 UTC — measured final-shard timeout mismatch corrected.**
 
 The unchanged final schedule uses four deals per shard. Applying the existing

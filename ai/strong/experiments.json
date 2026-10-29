@@ -72033,5 +72033,96 @@
         "candidate_selected": false,
         "qualified": false,
         "reserved_final_seeds_used": false
+    },
+    "nomination_discount_training_20261029": {
+        "created_at": "2026-10-29T20:37:40.005713+00:00",
+        "stage": "teacher_fully_audited_four_gpu_jobs_scheduling",
+        "automatic_objective": "removed_by_user_do_not_recreate",
+        "teacher_roots": 5770,
+        "independently_audited_teacher_continuations": 1940544,
+        "caps": 0,
+        "teacher_program_seconds": 615244.3858694882,
+        "teacher_evidence": {
+            "repo": "coyotte508/powergrid-ai-training-v1",
+            "repo_type": "dataset",
+            "revision": "f1d17a40e4ff6a188617a5dc7fac43cc20735393",
+            "archive": "evidence/auction-discount-teacher-complete-v2.tgz",
+            "sha256": "13866325028a7de6af5b1035e6847e62070932880d66bee8aef913210e9eb342",
+            "manifest_sha256": "1169233e271673bf5d545eaa81b28190d98cff65460247e6475dc510a1fd7030",
+            "remote_archive_verified": true,
+            "roots": 5770,
+            "rollouts": 1940544,
+            "independently_audited": true,
+            "caps": 0,
+            "qualified": false,
+            "reserved_final_seeds_used": false
+        },
+        "training_source": {
+            "repo": "coyotte508/powergrid-ai-training-v1",
+            "revision": "e534cbd61c2bfa1f506c37dd195be9725f376639",
+            "archive": "strong-source-nomination-discount-training-v1.tgz",
+            "sha256": "1fa646d432ce7ae34f04328b317fb3ae56aa883a7c7a3d1ed88e66a5e5609682",
+            "manifest_sha256": "62ecfdcb29feb22c39876a457bb5afccd917732304554bfee443f21c60ec336c",
+            "design_sha256": "cc669a077b3446b6234d38dc433b2428a333ac8f0b41f137a3e9b055c916d3ea",
+            "data_report_sha256": "dedec991de80c2615ce6306f7ca561804a59d464b2180fd42ca1fbba0fda718d",
+            "remote_archive_verified": true,
+            "teacher_evidence": {
+                "repo": "coyotte508/powergrid-ai-training-v1",
+                "repo_type": "dataset",
+                "revision": "f1d17a40e4ff6a188617a5dc7fac43cc20735393",
+                "archive": "evidence/auction-discount-teacher-complete-v2.tgz",
+                "sha256": "13866325028a7de6af5b1035e6847e62070932880d66bee8aef913210e9eb342",
+                "manifest_sha256": "1169233e271673bf5d545eaa81b28190d98cff65460247e6475dc510a1fd7030",
+                "remote_archive_verified": true,
+                "roots": 5770,
+                "rollouts": 1940544,
+                "independently_audited": true,
+                "caps": 0,
+                "qualified": false,
+                "reserved_final_seeds_used": false
+            }
+        },
+        "launch_file": "ai/strong/nomination-discount-training-launch-v1.json",
+        "launch_sha256": "db93a992307b276b8ad7488bf6770ff66812d3e0eb2d8a878efeedd930f1b623",
+        "jobs": [
+            {
+                "arm": "d0-all0",
+                "job_id": "6ae3ac9d0e0338d1bb7c2560",
+                "stage": "SCHEDULING",
+                "final_receipts": 0
+            },
+            {
+                "arm": "d0-all1",
+                "job_id": "6ae3ad90c78863f9c62dd3cd",
+                "stage": "SCHEDULING",
+                "final_receipts": 0
+            },
+            {
+                "arm": "d1-all0",
+                "job_id": "6ae3ad98c78863f9c62dd3db",
+                "stage": "SCHEDULING",
+                "final_receipts": 0
+            },
+            {
+                "arm": "d1-all1",
+                "job_id": "6ae3ad9c0e0338d1bb7c26c8",
+                "stage": "SCHEDULING",
+                "final_receipts": 0
+            }
+        ],
+        "status_file": "ai/strong/nomination-discount-training-status-v1.json",
+        "status_sha256": "73abfa433bda314e9d4c2bf0f52b7f6117f32766f25b489193b04a7f06ccbb0c",
+        "design_sha256": "cc669a077b3446b6234d38dc433b2428a333ac8f0b41f137a3e9b055c916d3ea",
+        "tests_passed": 25,
+        "initial_exact_nomination_checks": 23080,
+        "mutated_head_other_phase_checks": 1024,
+        "observed_gradient_updates": 0,
+        "expected_gradient_updates_if_completed": 32640,
+        "new_whole_game_development_runs": 0,
+        "confirmation_finisher": "stopped_missing_hf_log_receipt_preserved",
+        "confirmation_recovery": "ai/strong/current-auction-log-availability-recovery-v1.json",
+        "candidate_selected": false,
+        "qualified": false,
+        "reserved_final_seeds_used": false
     }
 }

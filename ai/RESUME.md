@@ -1,21 +1,31 @@
 # Power Grid AI — resumed, 27 October 2026
 
-**29 October — research continues without an automatic objective; new teacher batch launched.**
+**29 October — all teacher data audited; four GPU training jobs submitted.**
 
 Read [the auction training continuation](AUCTION-DISCOUNT-TRAINING-2026-10-29.md).
-The user explicitly requested continued research. The separate frozen confirmation
-finisher below retains its narrow scope; that restriction does not pause the new
-training-data experiment. Do not recreate an objective or change its frozen policies.
+The user explicitly requested continued research. Do not recreate an automatic
+objective or change the separate confirmation study's frozen policies.
 
-The 70-root teacher pilot finished and all 1,444 continuations were independently
-audited with zero caps. All 5,770 full-batch roots passed current-runtime preflight.
-**60 HF jobs** now generate **1,940,544 planned continuations**: every legal
-nomination, 64 sampled worlds, 2–6 players and all four rule combinations.
-The first three full-budget roots / 1,344 continuations are independently audited.
-Fifteen audit tests passed. Source, pilot evidence and handles are persisted;
-see the linked note for immutable revisions, collection and training next steps.
-Whole-deal train/validation splits remain separate. No new gradient updates,
-candidate selection, qualification, reserved final seeds or deployment.
+All 60 teacher jobs completed: **5,770 roots / 1,940,544 independently audited
+continuations, zero caps**, archived at private dataset revision
+`f1d17a40e4ff6a188617a5dc7fac43cc20735393`. Whole-deal splits remain separate.
+The new nomination-only model compares discount inputs off/on and old/all-legal
+coverage, four seeds in each of four GPU jobs. All configurations are verified;
+initially SCHEDULING for L4 capacity, with no gradients observed at that snapshot.
+See `strong/nomination-discount-training-launch-v1.json` for exact handles,
+`runs/nomination-discount-training-collected-v1/state.json` for current observations,
+and `strong/collect_nomination_training_v1.py` for bounded status/collection only.
+25 tests and actual-input initialization/scope checks passed. Training outputs
+still need independent audit, immutable archive, export checks and fresh whole-game
+development evaluation. No candidate selection, qualification, reserved seeds or deployment.
+
+**Separate confirmation finisher stopped at 19:22:01 UTC; former PID 502682 is gone.**
+Job `6ae381225ddcdc083026324a` is COMPLETED but HF returned no logs/final receipt.
+Its discovered archive is hash-verified; the 24 games remain unaudited/unadmitted.
+Preserve the combined manager STOP and original records. Do not blindly restart
+the finisher or rerun games. Recovery metadata:
+`strong/current-auction-log-availability-recovery-v1.json`.
+The older notices below are historical snapshots, not a live process status.
 
 **29 October, 14:03 UTC — objective removed by user; existing evaluation continues.**
 

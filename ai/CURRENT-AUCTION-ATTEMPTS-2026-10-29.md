@@ -1,5 +1,37 @@
 # Explicit transport recovery and current confirmation — 29 October 2026
 
+## Latest status — collection stopped, original data found
+
+The finisher (former PID 502682) stopped at **19:22:01 UTC** on missing HF logs
+for original job `6ae381225ddcdc083026324a`, canonical row
+`pg-current-confirm-v1-pop-heuristic-6p-01`. HF marks it COMPLETED; two log
+observations returned `No logs available`. The actual finisher process is gone.
+Keep the STOP in `runs/current-auction-failed-bucket-hf-v3/STOP.json`, the original
+log and terminal record. No automatic restart or game retry was performed.
+
+Independent bucket discovery found one final object for that attempt. Downloaded
+SHA-256 `ff22f4f4c178edbb444d6525c8c695929df992a99f8a8384cf13d962dcec8f0d`
+and all 253 manifest files passed verification. The envelope records a successful
+child, 24 retained games (episodes 24–47) and 23 checkpoint transports. **These
+games have not yet passed the full semantic audit or entered canonical counts.**
+This discovery is not a producer log receipt and does not establish the producer's
+final upload-call count; do not fabricate one to satisfy the frozen collector.
+Source, original handle, bucket identity and recovery pins are recorded in
+`strong/current-auction-log-availability-recovery-v1.json`. Raw recovery files are
+in `runs/current-auction-log-availability-recovery-v1/`.
+
+Last completed manager snapshot at 19:17:14 UTC: ten failed-attempt recoveries
+fully verified / 200 games; untouched batch 247 submitted, 160 verified / 3,572
+games, 11 still unsubmitted. Two further six-player rows were collected before
+the subsequent failure. These are batch-specific snapshots, not the full
+26,880-game study result or a current live-job count. Existing remote jobs are
+not cancelled. Complete comparison, candidate admission and final seeds remain
+untouched. Resolve missing-log provenance before resuming the fixed collector.
+
+Separately, all new nomination teacher data has passed its independent audit and
+four GPU training jobs are submitted; see the training note. Teacher continuations
+are never added to confirmation coverage.
+
 **Separate research continuation:** the user explicitly asked to continue training
 after removing the automatic objective. The new all-legal nomination teacher
 batch is documented in [the auction training note](AUCTION-DISCOUNT-TRAINING-2026-10-29.md).

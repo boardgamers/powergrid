@@ -1,0 +1,57 @@
+{
+  "created_at": "2026-10-29T20:20:40.419306+00:00",
+  "purpose": "Separate explicit discount inputs from broader nomination coverage.",
+  "architecture": "nomination_discount_correction_v1",
+  "feature_revision": "4.4-auction-discount",
+  "state_dim": 1218,
+  "action_dim": 103,
+  "parent_sha256": "6de3a433103a5cce4b88f54dd68ae8b4b4371d4e317ad9d8de1c5e3d4ea182fa",
+  "data_report_sha256": "dedec991de80c2615ce6306f7ca561804a59d464b2180fd42ca1fbba0fda718d",
+  "model_check_sha256": "687a42d9d961456813da39ebb72762900ec6137c3e16c9b16db88f1fba357cf9",
+  "arms": [
+    {
+      "name": "d0-all0",
+      "discount_inputs": false,
+      "all_legal": false
+    },
+    {
+      "name": "d0-all1",
+      "discount_inputs": false,
+      "all_legal": true
+    },
+    {
+      "name": "d1-all0",
+      "discount_inputs": true,
+      "all_legal": false
+    },
+    {
+      "name": "d1-all1",
+      "discount_inputs": true,
+      "all_legal": true
+    }
+  ],
+  "seeds": [
+    15101,
+    15102,
+    15103,
+    15104
+  ],
+  "epochs": 120,
+  "batch_size": 256,
+  "evaluate_every": 5,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.001,
+  "max_grad_norm": 1.0,
+  "margin": 0.025,
+  "ensemble_disagreement_penalty": 1.0,
+  "loss": "Root-normalized paired advantage MSE; uncertainty weights clip(0.05^2/(0.05^2+variance_of_mean),0.25,1). Keep negative and uncertain targets. The old-coverage arm masks unavailable correction choices during fitting and routing.",
+  "checkpoint_selection": "Minimum validation simulated regret over the complete legal menu; earliest epoch on ties. Each arm retains all four fixed seeds; no best-seed selection.",
+  "initialization": "Identical frozen trained parent in every arm. Copy parent head-0 hidden layers, zero the new output layer and discount projections. Seed changes minibatch order, not initial weights.",
+  "scope": "Nomination only. Non-nomination logits and all value outputs use the frozen parent exactly.",
+  "reliability_review": "All 1940544 continuations passed. Best-action sets overlap between 32-world halves on 3844/5770 roots; 12451/16734 action margins exceeding 0.025 have the same sign in both halves. Use soft uncertainty-weighted targets and fixed seed ensemble, not hard winners or claimed confidence. All ten natural low-cash roots have zero sampled action advantages and are retained.",
+  "evaluation": "All four trained ensembles are development candidates. New independent whole-game development deals across 2-6 players and Original/Recharged x open/sealed; existing confirmation and reserved final seeds remain separate. No strength claim from target fit.",
+  "training_location": "HF Jobs only",
+  "new_gradient_updates_at_design": 0,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

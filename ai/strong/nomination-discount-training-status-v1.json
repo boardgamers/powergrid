@@ -1,0 +1,40 @@
+{
+  "checked_at": "2026-10-29T20:37:06.918192+00:00",
+  "jobs": [
+    {
+      "arm": "d0-all0",
+      "job_id": "6ae3ac9d0e0338d1bb7c2560",
+      "stage": "SCHEDULING",
+      "final_receipts": 0
+    },
+    {
+      "arm": "d0-all1",
+      "job_id": "6ae3ad90c78863f9c62dd3cd",
+      "stage": "SCHEDULING",
+      "final_receipts": 0
+    },
+    {
+      "arm": "d1-all0",
+      "job_id": "6ae3ad98c78863f9c62dd3db",
+      "stage": "SCHEDULING",
+      "final_receipts": 0
+    },
+    {
+      "arm": "d1-all1",
+      "job_id": "6ae3ad9c0e0338d1bb7c26c8",
+      "stage": "SCHEDULING",
+      "final_receipts": 0
+    }
+  ],
+  "collected": 0,
+  "automatic_retries": false,
+  "source_sha256": "d51cec11490895abcdba8790c037f05b109199a7f42376c18ffdcf7c79188f85",
+  "launch_sha256": "db93a992307b276b8ad7488bf6770ff66812d3e0eb2d8a878efeedd930f1b623",
+  "design_sha256": "cc669a077b3446b6234d38dc433b2428a333ac8f0b41f137a3e9b055c916d3ea",
+  "collector_sha256": "7e4ae0a2b9ef0814e9cbe6c599e145403795c79b9fea8f8b50d28138a97ffe91",
+  "observed_gradient_updates": 0,
+  "tests_passed": 25,
+  "qualified": false,
+  "reserved_final_seeds_used": false,
+  "note": "Four originals queued for L4 availability. No background collector or automatic objective. Observe before any resubmission."
+}

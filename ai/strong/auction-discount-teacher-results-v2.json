@@ -1,0 +1,466 @@
+{
+  "created_at": "2026-10-29T20:18:38.739727+00:00",
+  "complete": true,
+  "jobs": 60,
+  "roots": 5770,
+  "rollouts": 1940544,
+  "splits": {
+    "validation": 1444,
+    "train": 4326
+  },
+  "caps": 0,
+  "protocol_sha256": "49ba41b9ad56b8842a3658fd67a5869952b1c00cede1a8c363e7e5a403b8dcb6",
+  "source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "revision": "b25682a3bcf7d3e33eedc5a1e0d9107036848d9a",
+    "archive": "strong-source-auction-discount-teacher-v2.tgz",
+    "sha256": "8009081e73344d37856d83afd12953b9f5238600a2c96c1d9e364501531a23f8",
+    "manifest_sha256": "9ad529048dddc938112c11aff72ececdd8cca40fbec5ee33f34958683d055f21",
+    "protocol_sha256": "49ba41b9ad56b8842a3658fd67a5869952b1c00cede1a8c363e7e5a403b8dcb6",
+    "preflight_sha256": "e0bff65bccdca7faab0089446997e92766330075a176c897994522758f3bb723",
+    "remote_archive_verified": true
+  },
+  "launch_sha256": "025e123e1d2d639b2a6b45e24c2f4b2b4d3c90ae5ba171dafea775f8338faeec",
+  "state_sha256": "a733bce81758a6a65515473fe54b4fb329310a6517aa157d3a8f5eda8b04d001",
+  "auditor_sha256": "a0fe767132e83846bc174d1fdc9d8cc96f1217d4873df576751e8da7e2e6d550",
+  "collector_sha256": "460a8ba343865b4184ebba7e6ac9c05b238307705e952d4f514e02583f2f283a",
+  "independently_audited": true,
+  "job_program_seconds": 615244.3858694882,
+  "groups": {
+    "all": {
+      "roots": 5770,
+      "half_best_sets_overlap": 3844,
+      "nonbaseline_actions_abs_margin_over_0025": 16734,
+      "same_sign_in_both_halves": 12451,
+      "negative_action_margins": 12211,
+      "mean_best_sampled_advantage": 0.07248925837666088,
+      "continuation_seconds": 607289.657100392,
+      "scope": "Diagnostic simulated targets, not whole-game strength or calibrated confidence."
+    },
+    "kind/discount_excluded": {
+      "roots": 397,
+      "half_best_sets_overlap": 299,
+      "nonbaseline_actions_abs_margin_over_0025": 1335,
+      "same_sign_in_both_halves": 1034,
+      "negative_action_margins": 899,
+      "mean_best_sampled_advantage": 0.1024677267002519,
+      "continuation_seconds": 34550.866965356196,
+      "scope": "Diagnostic simulated targets, not whole-game strength or calibrated confidence."
+    },
+    "kind/discount_included": {
+      "roots": 2099,
+      "half_best_sets_overlap": 1445,
+      "nonbaseline_actions_abs_margin_over_0025": 5472,
+      "same_sign_in_both_halves": 4087,
+      "negative_action_margins": 4057,
+      "mean_best_sampled_advantage": 0.06760287636969986,
+      "continuation_seconds": 216004.86116912792,
+      "scope": "Diagnostic simulated targets, not whole-game strength or calibrated confidence."
+    },
+    "kind/newly_affordable": {
+      "roots": 10,
+      "half_best_sets_overlap": 10,
+      "nonbaseline_actions_abs_margin_over_0025": 0,
+      "same_sign_in_both_halves": 0,
+      "negative_action_margins": 0,
+      "mean_best_sampled_advantage": 0.0,
+      "continuation_seconds": 164.4032710051979,
+      "scope": "Diagnostic simulated targets, not whole-game strength or calibrated confidence."
+    },
+    "kind/original_control": {
+      "roots": 2880,
+      "half_best_sets_overlap": 1805,
+      "nonbaseline_actions_abs_margin_over_0025": 8961,
+      "same_sign_in_both_halves": 6592,
+      "negative_action_margins": 6548,
+      "mean_best_sampled_advantage": 0.07432635271990741,
+      "continuation_seconds": 315053.2472641935,
+      "scope": "Diagnostic simulated targets, not whole-game strength or calibrated confidence."
+    },
+    "kind/recharged_no_discount": {
+      "roots": 384,
+      "half_best_sets_overlap": 285,
+      "nonbaseline_actions_abs_margin_over_0025": 966,
+      "same_sign_in_both_halves": 738,
+      "negative_action_margins": 707,
+      "mean_best_sampled_advantage": 0.056315104166666664,
+      "continuation_seconds": 41516.278430708415,
+      "scope": "Diagnostic simulated targets, not whole-game strength or calibrated confidence."
+    },
+    "players/2": {
+      "roots": 1152,
+      "half_best_sets_overlap": 672,
+      "nonbaseline_actions_abs_margin_over_0025": 3834,
+      "same_sign_in_both_halves": 2765,
+      "negative_action_margins": 2654,
+      "mean_best_sampled_advantage": 0.08580186631944445,
+      "continuation_seconds": 106203.30488026698,
+      "scope": "Diagnostic simulated targets, not whole-game strength or calibrated confidence."
+    },
+    "players/3": {
+      "roots": 1152,
+      "half_best_sets_overlap": 751,
+      "nonbaseline_actions_abs_margin_over_0025": 3687,
+      "same_sign_in_both_halves": 2720,
+      "negative_action_margins": 2648,
+      "mean_best_sampled_advantage": 0.0793117947048611,
+      "continuation_seconds": 99114.15683623099,
+      "scope": "Diagnostic simulated targets, not whole-game strength or calibrated confidence."
+    },
+    "players/4": {
+      "roots": 1152,
+      "half_best_sets_overlap": 737,
+      "nonbaseline_actions_abs_margin_over_0025": 3489,
+      "same_sign_in_both_halves": 2593,
+      "negative_action_margins": 2582,
+      "mean_best_sampled_advantage": 0.07262505425347222,
+      "continuation_seconds": 132738.78656350082,
+      "scope": "Diagnostic simulated targets, not whole-game strength or calibrated confidence."
+    },
+    "players/5": {
+      "roots": 1154,
+      "half_best_sets_overlap": 824,
+      "nonbaseline_actions_abs_margin_over_0025": 2932,
+      "same_sign_in_both_halves": 2203,
+      "negative_action_margins": 2201,
+      "mean_best_sampled_advantage": 0.06948431181398036,
+      "continuation_seconds": 133581.0079743596,
+      "scope": "Diagnostic simulated targets, not whole-game strength or calibrated confidence."
+    },
+    "players/6": {
+      "roots": 1160,
+      "half_best_sets_overlap": 860,
+      "nonbaseline_actions_abs_margin_over_0025": 2792,
+      "same_sign_in_both_halves": 2170,
+      "negative_action_margins": 2126,
+      "mean_best_sampled_advantage": 0.055347521551724135,
+      "continuation_seconds": 135652.40084603278,
+      "scope": "Diagnostic simulated targets, not whole-game strength or calibrated confidence."
+    },
+    "train": {
+      "roots": 4326,
+      "half_best_sets_overlap": 2887,
+      "nonbaseline_actions_abs_margin_over_0025": 12591,
+      "same_sign_in_both_halves": 9355,
+      "negative_action_margins": 9168,
+      "mean_best_sampled_advantage": 0.07248986265218062,
+      "continuation_seconds": 455813.9423303879,
+      "scope": "Diagnostic simulated targets, not whole-game strength or calibrated confidence."
+    },
+    "validation": {
+      "roots": 1444,
+      "half_best_sets_overlap": 957,
+      "nonbaseline_actions_abs_margin_over_0025": 4143,
+      "same_sign_in_both_halves": 3096,
+      "negative_action_margins": 3043,
+      "mean_best_sampled_advantage": 0.07248744806094183,
+      "continuation_seconds": 151475.71477000386,
+      "scope": "Diagnostic simulated targets, not whole-game strength or calibrated confidence."
+    }
+  },
+  "shards": [
+    {
+      "shard": 0,
+      "job_id": "6ae35d96ad9610e5cb311e8e",
+      "audit_sha256": "38306194e59d30df8cafb329feee329498536a103e88944d5ad1bd489fccda25"
+    },
+    {
+      "shard": 1,
+      "job_id": "6ae35ea95ddcdc08302612f5",
+      "audit_sha256": "1e0b4588295d50f7fdb217ccddb7443ed1f74c13cdd7bafa32a3c04e977aab28"
+    },
+    {
+      "shard": 2,
+      "job_id": "6ae35ea9ad9610e5cb311f6d",
+      "audit_sha256": "736ae70c50fdc123a92d9f2b1a07459d32e06a90312aa3662d446ff80dd0f05a"
+    },
+    {
+      "shard": 3,
+      "job_id": "6ae35eaaad9610e5cb311f6f",
+      "audit_sha256": "88d8ef66084fcf75aa5cedebd4e808776ab36752968d7e7285eb91b0584e7e2a"
+    },
+    {
+      "shard": 4,
+      "job_id": "6ae35eaa5ddcdc08302612f7",
+      "audit_sha256": "878ab7ee726fb28d904c795cf5f875403fdd02eb5f9b763e4a0982235b0c8179"
+    },
+    {
+      "shard": 5,
+      "job_id": "6ae35eaa5ddcdc08302612f9",
+      "audit_sha256": "9c53372626e2a437cc16893249394d9c436be1f9de1bed5819a562260ec4e64c"
+    },
+    {
+      "shard": 6,
+      "job_id": "6ae35eab5ddcdc08302612fb",
+      "audit_sha256": "2812f18d02a1c068cf290633ed7bcedced59dcb170c962c358c15b6b7842d08c"
+    },
+    {
+      "shard": 7,
+      "job_id": "6ae35eab5ddcdc08302612fd",
+      "audit_sha256": "f62dab1eba59bfadcd5da7b416c9e9658ef21e7c8c39dfcd1a52c9f87c969c7d"
+    },
+    {
+      "shard": 8,
+      "job_id": "6ae35eacad9610e5cb311f73",
+      "audit_sha256": "1762b05771e78fda495c3dec87c4d14c6f33740ed3d52c66500d71a958f64442"
+    },
+    {
+      "shard": 9,
+      "job_id": "6ae35eacad9610e5cb311f75",
+      "audit_sha256": "15d8b294e683beb35fe2f0356c302ea5e903c7077718c4996aea672119365795"
+    },
+    {
+      "shard": 10,
+      "job_id": "6ae35eac5ddcdc08302612ff",
+      "audit_sha256": "58c403c7bbc7e88f3eb376ba0b688f5d4048b37e5951b356c290d69c49937a19"
+    },
+    {
+      "shard": 11,
+      "job_id": "6ae35ead5ddcdc0830261301",
+      "audit_sha256": "e8c3aa1a9e3c904b09dbd893992fa2959824f3d94e62900a61ff524c9a73d71f"
+    },
+    {
+      "shard": 12,
+      "job_id": "6ae35ead5ddcdc0830261303",
+      "audit_sha256": "a1a43943e52dc12a43407dfe285e112e509117858b8ce16568864e428bf01c8d"
+    },
+    {
+      "shard": 13,
+      "job_id": "6ae35eadad9610e5cb311f77",
+      "audit_sha256": "83e8f3c261786bc7b292b52c087283838c0fe4bdba5de62225f156b3a5619ddc"
+    },
+    {
+      "shard": 14,
+      "job_id": "6ae35eaead9610e5cb311f7b",
+      "audit_sha256": "b8a0e4a1a98c0f4e7fe90a2c405e1dac49dcd22b51fe729f70916f7d616738b3"
+    },
+    {
+      "shard": 15,
+      "job_id": "6ae35eae5ddcdc0830261305",
+      "audit_sha256": "b29d2f8e568d52fd1fd683406b4ce01621ec3ea74a18dda8baf7c34af0314505"
+    },
+    {
+      "shard": 16,
+      "job_id": "6ae35eafad9610e5cb311f7d",
+      "audit_sha256": "6494c3248ebb5af62554e3676d1fc08219b40ac52dc86d7032f178512935affb"
+    },
+    {
+      "shard": 17,
+      "job_id": "6ae35eaf5ddcdc0830261308",
+      "audit_sha256": "550b3ce918deb1eb9021bbebb1172c059da3ccd93d39754b413357681c1a1cb8"
+    },
+    {
+      "shard": 18,
+      "job_id": "6ae35eafad9610e5cb311f7f",
+      "audit_sha256": "7b5de49bde6592acec7cb996446be7c820f013cf1820018e32580ecc42e4faf1"
+    },
+    {
+      "shard": 19,
+      "job_id": "6ae35eb0ad9610e5cb311f81",
+      "audit_sha256": "a27da0be569537b60d307d656de0e7238bd9db20906495bafa79878bea14ca4f"
+    },
+    {
+      "shard": 20,
+      "job_id": "6ae35eb0ad9610e5cb311f83",
+      "audit_sha256": "b62c52e6b158a243e7ed79e423b39a25eccb60e9546bd97a0c4228db6276bc18"
+    },
+    {
+      "shard": 21,
+      "job_id": "6ae35eb05ddcdc083026130a",
+      "audit_sha256": "0d34a3e778f79d7948920598d014cafeef1dcb9da4fdd06ff5a646ff340ecef2"
+    },
+    {
+      "shard": 22,
+      "job_id": "6ae35eb15ddcdc083026130d",
+      "audit_sha256": "3c36cf6b499624c1a85ce6c556558af8c39fd5c75d2b8af7a460ed72a4980990"
+    },
+    {
+      "shard": 23,
+      "job_id": "6ae35eb1ad9610e5cb311f85",
+      "audit_sha256": "39f5f15800de92af5875ce87e08b8411ec5273f381ed2cf69600310918d84c62"
+    },
+    {
+      "shard": 24,
+      "job_id": "6ae35eb15ddcdc083026130f",
+      "audit_sha256": "f3029d1b55ecf2aa1bdd1b79560e8bdb6987ae99aa435ec4e3ac532d9f4c9571"
+    },
+    {
+      "shard": 25,
+      "job_id": "6ae35eb2ad9610e5cb311f87",
+      "audit_sha256": "ef77a98852d3b1c3810366c108f68a6005d2ecd6302670f83c926ccaee29977f"
+    },
+    {
+      "shard": 26,
+      "job_id": "6ae35eb25ddcdc0830261313",
+      "audit_sha256": "a68f8f6b82ce89a2230964873cfd76bbc78709b92288a0c656ecd018cb696560"
+    },
+    {
+      "shard": 27,
+      "job_id": "6ae35eb3ad9610e5cb311f8b",
+      "audit_sha256": "4594d10fce135fdc4fdc55403501116bbadb89caa0e91991a199ccaf69632e5e"
+    },
+    {
+      "shard": 28,
+      "job_id": "6ae35eb3ad9610e5cb311f8d",
+      "audit_sha256": "651a63a0366ca1354ea1c4a4e8140dbc7acbd9c957500acc502c9358296023b8"
+    },
+    {
+      "shard": 29,
+      "job_id": "6ae35eb35ddcdc0830261317",
+      "audit_sha256": "064a12a19dbc33a1089565758ed21ba9dd97447e63622610781b8be96b864fb2"
+    },
+    {
+      "shard": 30,
+      "job_id": "6ae35eb4ad9610e5cb311f90",
+      "audit_sha256": "40521296284f4e9025e047f4e531b693b27e9b47c52fcdd6115ed2b1db790ccd"
+    },
+    {
+      "shard": 31,
+      "job_id": "6ae35eb45ddcdc0830261319",
+      "audit_sha256": "763668fba03352c43144cb4a6c3f8c0d0280bb074115f977c87198012e46b5b8"
+    },
+    {
+      "shard": 32,
+      "job_id": "6ae35eb4ad9610e5cb311f92",
+      "audit_sha256": "6d43a1286968263ad504746e11ae615b9892dd22946d0234e23d74e57d4264be"
+    },
+    {
+      "shard": 33,
+      "job_id": "6ae35eb55ddcdc083026131b",
+      "audit_sha256": "44e2af6b317cc3d9a682f4687662e1d45d27afdc4ea151fbe12bbdae6f790e85"
+    },
+    {
+      "shard": 34,
+      "job_id": "6ae35eb5ad9610e5cb311f94",
+      "audit_sha256": "72b9ea29341018f8d0452d5f1cf2c81a0bc663d861d334bd8b281d2bd5303ae7"
+    },
+    {
+      "shard": 35,
+      "job_id": "6ae35eb65ddcdc083026131f",
+      "audit_sha256": "42bab6fab627be2daf42cea3f9869aad1a238138f3e8d330a19ba16d8e0a43e1"
+    },
+    {
+      "shard": 36,
+      "job_id": "6ae35eb6ad9610e5cb311f96",
+      "audit_sha256": "d295a62c95ca8f68a8fdab8043a5357bec175ff2485358ff84ac5b867ce8ba81"
+    },
+    {
+      "shard": 37,
+      "job_id": "6ae35eb6ad9610e5cb311f98",
+      "audit_sha256": "6bfc6a3d4c8f4d76e317115e23ba3dbd951ef60d8ffa9b7992b6f016f8fd7789"
+    },
+    {
+      "shard": 38,
+      "job_id": "6ae35eb75ddcdc0830261321",
+      "audit_sha256": "d2f235a505ff5745b3ab56a6bb5dc4d1d9fc4bc4286dcdd99f3a8a993090a6fc"
+    },
+    {
+      "shard": 39,
+      "job_id": "6ae35eb7ad9610e5cb311f9a",
+      "audit_sha256": "5b34b2c18fd87facf1b064b8aa8fc409c5c3ad7ee000a99fd82a984875087703"
+    },
+    {
+      "shard": 40,
+      "job_id": "6ae35eb85ddcdc0830261325",
+      "audit_sha256": "3beea9ed58917d910ad067975456bcfb9731ae69c4bf183e51fb1436140dd25e"
+    },
+    {
+      "shard": 41,
+      "job_id": "6ae35eb85ddcdc083026132b",
+      "audit_sha256": "785a2ccc35846bf18dc01f94a5b751ead6a431c68581e0dc3875565f78081865"
+    },
+    {
+      "shard": 42,
+      "job_id": "6ae35eb8ad9610e5cb311f9d",
+      "audit_sha256": "896b8fb076eaf97520f5cfd042c9a57745ff7bdc1519eed65807aafdf212b407"
+    },
+    {
+      "shard": 43,
+      "job_id": "6ae35eb9ad9610e5cb311f9f",
+      "audit_sha256": "63b59e4a086aa7b53b0f7d83de60742fb9ab8d51787edfd80283a822b8caca80"
+    },
+    {
+      "shard": 44,
+      "job_id": "6ae35eb9ad9610e5cb311fa1",
+      "audit_sha256": "b3a9944608ac552f7384610e7f96fae7328b20c1ec6ef2f65bada878dd2d8f53"
+    },
+    {
+      "shard": 45,
+      "job_id": "6ae35eb95ddcdc083026132f",
+      "audit_sha256": "c4d08cc9545042426cca547fb409aaa766bdaff1b283b18247ec1bafd9b7e2cf"
+    },
+    {
+      "shard": 46,
+      "job_id": "6ae35ebaad9610e5cb311fa5",
+      "audit_sha256": "95f9b7334582282039ddca9e06ed6e914b28d08b8534e3f17215047eb5b6e465"
+    },
+    {
+      "shard": 47,
+      "job_id": "6ae35eba5ddcdc0830261331",
+      "audit_sha256": "ab69f245433619c7b3b1ac575a5d126b037b0b520b1919a9acda65309dd01f90"
+    },
+    {
+      "shard": 48,
+      "job_id": "6ae35eba5ddcdc0830261335",
+      "audit_sha256": "2a6bfade8ba93e2389b7b8a1ef508ed68f6685b60948eeb9bdc2a4dcaed075c4"
+    },
+    {
+      "shard": 49,
+      "job_id": "6ae35ebbad9610e5cb311fa7",
+      "audit_sha256": "b584dd12cb945ff8c5da76e6acc9851433770f4835be8e13b4d19562f22aebdf"
+    },
+    {
+      "shard": 50,
+      "job_id": "6ae35ebb5ddcdc0830261338",
+      "audit_sha256": "77870164f90c50600683dd3ab8a5ad467bcfc5ba2376ce28792b569e0c965d94"
+    },
+    {
+      "shard": 51,
+      "job_id": "6ae35ebcad9610e5cb311fa9",
+      "audit_sha256": "2997fce369cc010374cb1a3b09785cbf3a7659e67d36bf9257ada55784fcf855"
+    },
+    {
+      "shard": 52,
+      "job_id": "6ae35ebc5ddcdc083026133b",
+      "audit_sha256": "aabd5391132c98d6210bf31ba46c92818e7122f40bdf41bdd7f077e187ae3f72"
+    },
+    {
+      "shard": 53,
+      "job_id": "6ae35ebcad9610e5cb311fab",
+      "audit_sha256": "2c31ef9434e1d32c664fb7ff84a55032ef4681df3f4db941490f954f193bd0d5"
+    },
+    {
+      "shard": 54,
+      "job_id": "6ae35ebdad9610e5cb311fad",
+      "audit_sha256": "e0b77641bced4134035aa71c3fc77659e3904a7445f6ddb5fdf7be8bc9dc97b2"
+    },
+    {
+      "shard": 55,
+      "job_id": "6ae35ebdad9610e5cb311fb1",
+      "audit_sha256": "aa46401e2b8087b6604b924587dcbc096a1ca9e6c5379bf28813b05808a64928"
+    },
+    {
+      "shard": 56,
+      "job_id": "6ae35ebe5ddcdc083026133d",
+      "audit_sha256": "589f29caaf81c3d058fd6204d1b94c13239c7f437ee4535c0299cc6e15336436"
+    },
+    {
+      "shard": 57,
+      "job_id": "6ae35ebe5ddcdc0830261341",
+      "audit_sha256": "f9f398341ead40a8d53cb4a2e6c2953106e8548d73ec579cbdc5550c4880f708"
+    },
+    {
+      "shard": 58,
+      "job_id": "6ae35ebe5ddcdc0830261343",
+      "audit_sha256": "8a77cd1a850b6eb6ec87ace7147f6a715f2cf35d309013087ac12e2bc1cb04ca"
+    },
+    {
+      "shard": 59,
+      "job_id": "6ae35ebfad9610e5cb311fb6",
+      "audit_sha256": "f5cc15d2f9989310b8868bd275b15aee4eff57cf59809923b20d9f5c8681b87e"
+    }
+  ],
+  "new_gradient_updates": 0,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

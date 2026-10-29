@@ -1,0 +1,25 @@
+{
+  "repo": "coyotte508/powergrid-ai-training-v1",
+  "revision": "e534cbd61c2bfa1f506c37dd195be9725f376639",
+  "archive": "strong-source-nomination-discount-training-v1.tgz",
+  "sha256": "1fa646d432ce7ae34f04328b317fb3ae56aa883a7c7a3d1ed88e66a5e5609682",
+  "manifest_sha256": "62ecfdcb29feb22c39876a457bb5afccd917732304554bfee443f21c60ec336c",
+  "design_sha256": "cc669a077b3446b6234d38dc433b2428a333ac8f0b41f137a3e9b055c916d3ea",
+  "data_report_sha256": "dedec991de80c2615ce6306f7ca561804a59d464b2180fd42ca1fbba0fda718d",
+  "remote_archive_verified": true,
+  "teacher_evidence": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "repo_type": "dataset",
+    "revision": "f1d17a40e4ff6a188617a5dc7fac43cc20735393",
+    "archive": "evidence/auction-discount-teacher-complete-v2.tgz",
+    "sha256": "13866325028a7de6af5b1035e6847e62070932880d66bee8aef913210e9eb342",
+    "manifest_sha256": "1169233e271673bf5d545eaa81b28190d98cff65460247e6475dc510a1fd7030",
+    "remote_archive_verified": true,
+    "roots": 5770,
+    "rollouts": 1940544,
+    "independently_audited": true,
+    "caps": 0,
+    "qualified": false,
+    "reserved_final_seeds_used": false
+  }
+}

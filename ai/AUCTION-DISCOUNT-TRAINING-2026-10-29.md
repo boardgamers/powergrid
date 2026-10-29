@@ -1,9 +1,91 @@
 # Auction training resumed — 29 October 2026
 
 The user removed the automatic objective and explicitly asked to continue
-research and training in this chat. Do not recreate an objective. The existing
-confirmation finisher continues independently; its frozen policies, deals and
-selection criteria are unchanged. No game deployment is part of this work.
+research and training in this chat. Do not recreate an objective. The separate
+confirmation finisher stopped on a missing HF log receipt; its frozen policies,
+deals and selection criteria are unchanged. No game deployment is part of this work.
+
+## Latest continuation — teacher audit complete, GPU training submitted
+
+All **60 original teacher jobs completed**. The independent collector checked
+**5,770 roots / 1,940,544 action-world continuations**, with **zero truncations**.
+Aggregate worker-program time was **615,244.39 seconds / 170.90 job-hours**;
+continuation computation accounted for 607,289.66 seconds. These are summed job
+times, not elapsed wall time or a monetary bill.
+
+The two fixed 32-world halves share a best action on **3,844 / 5,770 roots (66.6%)**.
+For nonbaseline margins exceeding 0.025 in magnitude, **12,451 / 16,734 (74.4%)**
+have the same sign in both halves. All ten natural low-cash roots have zero sampled
+advantages. Targets therefore remain soft, uncertainty-weighted paired advantages;
+there are no forced winner labels or claims that these targets establish strength.
+
+Full raw evidence is downloaded, independently audited, and archived immutably in
+private dataset `coyotte508/powergrid-ai-training-v1`, revision
+`f1d17a40e4ff6a188617a5dc7fac43cc20735393`,
+`evidence/auction-discount-teacher-complete-v2.tgz` (139,419,264 bytes).
+The descriptor `strong/auction-discount-teacher-evidence-v2.json` binds archive,
+manifest and revision; do not re-upload or regenerate the completed teacher set.
+
+The frozen four-way comparison trains a **new nomination-only correction** over
+the unchanged parent. Its inputs are explicit Recharged discount off/on crossed
+with old/all-legal nomination coverage. Other phases and value outputs remain
+the frozen parent. Every arm starts with identical hidden weights and zero new
+outputs; four seeds vary minibatch order. The old coverage mask matches all
+historical option sets available for comparison. There are 4,326 training roots
+and 1,444 validation roots, split by whole deal as before.
+
+| Arm | Discount inputs | Nomination menu | Original HF job |
+| --- | --- | --- | --- |
+| d0-all0 | Off | Old shortlist + parent | `6ae3ac9d0e0338d1bb7c2560` |
+| d0-all1 | Off | Every legal choice | `6ae3ad90c78863f9c62dd3cd` |
+| d1-all0 | On | Old shortlist + parent | `6ae3ad98c78863f9c62dd3db` |
+| d1-all1 | On | Every legal choice | `6ae3ad9c0e0338d1bb7c26c8` |
+
+All four effective source/resource configurations were independently verified.
+They request one L4 each with a three-hour timeout. **At submission they were
+SCHEDULING, waiting for requested hardware; no gradients were observed yet.**
+Check `runs/nomination-discount-training-collected-v1/state.json` for the latest
+bounded observation rather than assuming they are running. No failed-job retries,
+automatic objective, or background collector was started.
+
+Recipe: seeds 15101–15104; 120 epochs each; batch 256; AdamW learning rate 0.0003,
+weight decay 0.001; gradient norm limit 1. Checkpoint selection is each seed's
+lowest validation simulated regret, with earliest ties. All four seeds enter
+their arm's ensemble, using mean minus seed standard deviation and margin 0.025.
+This penalty is not calibrated confidence. Expected updates are 2,040 per seed /
+8,160 per arm / 32,640 total if all runs finish; verify actual counts.
+The complete frozen recipe is `strong/nomination-discount-training-design-v1.json`.
+
+Initialization and scope checks passed on **23,080 actual nomination cases** and
+**1,024 non-nomination cases after changing the new heads**. All values and other
+phases stayed exact; discount-off arms ignore the appended discount features.
+Twenty-five tests passed, covering teacher corruption rejection, legal menus,
+uncertainty routing, negative outcomes and transport identity checks.
+
+Training source, data and parent are archived at private dataset revision
+`e534cbd61c2bfa1f506c37dd195be9725f376639`,
+`strong-source-nomination-discount-training-v1.tgz`, SHA-256
+`1fa646d432ce7ae34f04328b317fb3ae56aa883a7c7a3d1ed88e66a5e5609682`.
+Descriptor: `strong/nomination-discount-training-source-v1.json`.
+Exact handles: `strong/nomination-discount-training-launch-v1.json`.
+Original intents/configuration checks: `runs/nomination-discount-training-source-v1/launches/`.
+
+Next resume, use `PYTHONPATH=ai/strong ai/.venv/bin/python -u -B
+ai/strong/collect_nomination_training_v1.py` for a bounded status check, or add
+`--collect` for completed original jobs. It never submits jobs. Inspect existing
+reports/receipts first; preserve partial work and failures. The collector verifies
+remote hashes, all four retained members, frozen parent tensors, optimizer counts,
+checkpoint selection and independently recomputed CPU metrics. It also checks
+trained non-nomination routing on actual stored inputs. **This collector has unit
+coverage but has not yet been exercised on completed training output.**
+
+After all four training audits, archive outputs immutably, verify export/serving
+parity and run fresh whole-game development comparisons across 2–6 players and
+all four rule combinations. Do not select a winner from target fit alone or reuse
+the frozen confirmation/reserved final deals. No candidate is qualified.
+
+The sections below describe the original teacher launch and its recovery paths;
+the completion figures above supersede their in-flight snapshots.
 
 ## New experiment
 
@@ -118,11 +200,17 @@ Private dataset: `coyotte508/powergrid-ai-training-v1`.
 - Pilot raw collection: `runs/auction-discount-teacher-collected-v1/`.
   First full-budget raw audit: `runs/auction-discount-teacher-first-v2/`.
 
-The separate fixed confirmation finisher is PID **502682**. Verify its actual
-process and `runs/current-auction-confirmation-finisher-v1/state.json` before
-acting; do not run a competing collector. At 14:52 UTC, **21,756 / 26,880** games
-were independently audited, with 64 confirmation jobs active. That count
-excludes the new teacher continuations and is a timestamped snapshot.
+The separate fixed confirmation finisher, former PID **502682**, stopped at
+**19:22:01 UTC**. HF marks original job `6ae381225ddcdc083026324a` COMPLETED but
+returns `No logs available`, so its final receipt was unavailable. Preserve
+`runs/current-auction-failed-bucket-hf-v3/STOP.json`, original logs and terminal
+records. An independently discovered final archive was downloaded and all 253
+manifest files verified; its 24 games have **not** passed the full independent
+audit or been admitted by the frozen comparison. See
+`strong/current-auction-log-availability-recovery-v1.json` and
+`runs/current-auction-log-availability-recovery-v1/`. No games were rerun and the
+finisher was not restarted. Resolve this collection provenance separately from
+the new training experiment.
 
 Do not stage the pre-existing modified `policy-iteration-development-status-v2`,
 `policy-iteration-labels-results-v2` or `policy-iteration-labels-status-v2` JSON

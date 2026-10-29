@@ -1,0 +1,60 @@
+{
+  "source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "revision": "e534cbd61c2bfa1f506c37dd195be9725f376639",
+    "archive": "strong-source-nomination-discount-training-v1.tgz",
+    "sha256": "1fa646d432ce7ae34f04328b317fb3ae56aa883a7c7a3d1ed88e66a5e5609682",
+    "manifest_sha256": "62ecfdcb29feb22c39876a457bb5afccd917732304554bfee443f21c60ec336c",
+    "design_sha256": "cc669a077b3446b6234d38dc433b2428a333ac8f0b41f137a3e9b055c916d3ea",
+    "data_report_sha256": "dedec991de80c2615ce6306f7ca561804a59d464b2180fd42ca1fbba0fda718d",
+    "remote_archive_verified": true,
+    "teacher_evidence": {
+      "repo": "coyotte508/powergrid-ai-training-v1",
+      "repo_type": "dataset",
+      "revision": "f1d17a40e4ff6a188617a5dc7fac43cc20735393",
+      "archive": "evidence/auction-discount-teacher-complete-v2.tgz",
+      "sha256": "13866325028a7de6af5b1035e6847e62070932880d66bee8aef913210e9eb342",
+      "manifest_sha256": "1169233e271673bf5d545eaa81b28190d98cff65460247e6475dc510a1fd7030",
+      "remote_archive_verified": true,
+      "roots": 5770,
+      "rollouts": 1940544,
+      "independently_audited": true,
+      "caps": 0,
+      "qualified": false,
+      "reserved_final_seeds_used": false
+    }
+  },
+  "jobs": [
+    {
+      "arm": "d0-all0",
+      "job_id": "6ae3ac9d0e0338d1bb7c2560",
+      "source_sha256": "d51cec11490895abcdba8790c037f05b109199a7f42376c18ffdcf7c79188f85",
+      "intent_sha256": "8bd32ea191791638783d491f8fb2f92d11bb061fa306c966209c9740175b2ad9",
+      "created_at": "2026-10-29T20:29:17.228886+00:00"
+    },
+    {
+      "arm": "d0-all1",
+      "job_id": "6ae3ad90c78863f9c62dd3cd",
+      "source_sha256": "d51cec11490895abcdba8790c037f05b109199a7f42376c18ffdcf7c79188f85",
+      "intent_sha256": "75c0920c0feda1356d4b9bacc05e9a8ea1c63ce612e3cc6a6f52cdc324c30540",
+      "created_at": "2026-10-29T20:33:20.100967+00:00"
+    },
+    {
+      "arm": "d1-all0",
+      "job_id": "6ae3ad98c78863f9c62dd3db",
+      "source_sha256": "d51cec11490895abcdba8790c037f05b109199a7f42376c18ffdcf7c79188f85",
+      "intent_sha256": "3101699136d45378d752ca34a8c9054fca8d8be267cb005200d7185295981d14",
+      "created_at": "2026-10-29T20:33:28.686441+00:00"
+    },
+    {
+      "arm": "d1-all1",
+      "job_id": "6ae3ad9c0e0338d1bb7c26c8",
+      "source_sha256": "d51cec11490895abcdba8790c037f05b109199a7f42376c18ffdcf7c79188f85",
+      "intent_sha256": "94b3899a023b010bfceed0d584a56e93cb9eb1e5e49905db382928f0ac49afd1",
+      "created_at": "2026-10-29T20:33:32.954986+00:00"
+    }
+  ],
+  "design_sha256": "cc669a077b3446b6234d38dc433b2428a333ac8f0b41f137a3e9b055c916d3ea",
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

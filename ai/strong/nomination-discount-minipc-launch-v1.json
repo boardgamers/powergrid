@@ -1,0 +1,40 @@
+{
+  "created_at": "2026-10-30T08:21:47.017415+00:00",
+  "name": "pg-nom-dev-v1-parent-search-geo-2p",
+  "host": "minipc",
+  "remote": "/home/coyotte508/powergrid-ai-nomination-development-minipc-v1",
+  "protocol_sha256": "2f7fe04791c0cb6ac0bb0f8712b73dde3714cf96693c9cd3a1f68fe8bd785251",
+  "adapter_sha256": "5ffbcf961a7f93e63120b51c13ced56b083ad0f1494da434121c57c9d93555f9",
+  "row": {
+    "name": "pg-nom-dev-v1-parent-search-geo-2p",
+    "arm": "parent",
+    "descriptor": "policies/nomination-parent.json",
+    "shard": {
+      "name": "pg-nom-dev-v1-parent-search-geo-2p",
+      "group": "search_geo/2p",
+      "players": 2,
+      "start": 0,
+      "deals": 4,
+      "seed": "nomination-discount-development-v1-2p",
+      "opponent": "search_geo",
+      "opponent_sha256": null,
+      "games": 32
+    },
+    "candidate": "controls/parent.candidate.json",
+    "contract": "controls/pg-nom-dev-v1-parent-search-geo-2p.contract.json",
+    "opponent_model": null
+  },
+  "automatic_retries": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false,
+  "pid": 118249,
+  "started_at": "2026-10-30T08:21:47.488550+00:00",
+  "intent_sha256": "e6ceed03f8af089e9669156c113213ec8de164a5287beabf7665f602da7f9d13",
+  "expected_duration_minutes": [
+    5,
+    15
+  ],
+  "estimate_basis": "Matching 32-game HF shard took 5.3 minutes; first mini-PC whole-game batch, provisional.",
+  "hard_timeout_seconds": 18000,
+  "progress_log": "/home/coyotte508/powergrid-ai-nomination-development-minipc-v1/outputs/pg-nom-dev-v1-parent-search-geo-2p/runner.log"
+}

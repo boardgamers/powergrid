@@ -5,7 +5,76 @@ research and training in this chat. Do not recreate an objective. The separate
 confirmation finisher stopped on a missing HF log receipt; its frozen policies,
 deals and selection criteria are unchanged. No game deployment is part of this work.
 
-## Latest continuation — GPU training audited, full-game screen prepared
+## 30 October, 09:31 Paris — mini-PC pilot audited, next three arms running
+
+The parent comparison shard finished in **172.37 seconds** on the actual 8840U;
+all **32 games** passed independent raw auditing, with zero caps. The paired
+parent and d1-all1 two-player/search screen both won **19/32**; every paired
+win-credit difference is zero. No strength gain is established by this small
+four-deal screen. See `strong/nomination-discount-parent-2p-comparison-v1.json`.
+
+The next finite queue runs **d0-all0, d0-all1 and d1-all0 vs search_geo, 2p**:
+three original shards / **96 games**, four workers within each shard, sequential
+shards. It started at **09:30:15 Paris, 30 October**, PID **126379** on `minipc`.
+Estimated **10–20 minutes**, suggested ping **09:50 Paris** (supersedes the earlier
+09:40 suggestion). Six games had completed at 09:31. **160 games audited** so far;
+**256 games assigned**, with **44 shards / 2,944 games unsubmitted**.
+
+The copied runtime, models, seeds and auditor are byte-identical to the frozen
+screen. The new queue changes only which already-authorized names may execute.
+All three runner contracts passed non-executing validation with the dependency
+fix before launch; the copied artifact retains the prior 2,010 exact-choice proof.
+It stops on first failure, never retries, and cannot expand its three-name list.
+Five focused tests cover reservations, progress accounting and failure stopping.
+
+Use `strong/manage_nomination_minipc_batch_v1.py status` / `collect` with the usual
+Python/PYTHONPATH prefix. Active handles:
+`strong/nomination-discount-minipc-batch-launch-v1.json`.
+Remote root: `/home/coyotte508/powergrid-ai-nomination-development-minipc-batch-v1/`.
+Check `state.json`, `run.log` and `outputs/<name>/runner.log`; keep original logs,
+intents and partial evidence on any failure. No new HF jobs or automatic objective.
+
+## 30 October, earlier — HF endpoints audited, mini-PC parent comparison started
+
+All 128 games from the two original HF endpoint jobs passed independent raw
+auditing with zero caps. The 32-game two-player shard took 318.74 worker seconds;
+the 96-game six-player shard took 11,097.73 seconds. The runtime difference matters
+for allocation; saved-position inference speed alone does not predict game speed.
+`strong/nomination-discount-development-pilots-v1.json` retains exact original
+handles, immutable bucket receipts and independent audit contents/hashes.
+
+At the user's request, the next original shard runs on the 8840U mini PC:
+`pg-nom-dev-v1-parent-search-geo-2p`, 32 games, four workers, unchanged protocol,
+seeds, model, opponents, engine, legal menus and independent audit. This supplies
+the matching parent comparison and a whole-game throughput measurement. All 2,010
+saved choices (402 for each of five policies) matched before game execution.
+Node remains 24.14.0; remote Python 3.12.3, NumPy 2.5.3, ONNX Runtime 1.30.0.
+
+Actual game supervisor **PID 118285**, started **30 October at 09:23:23 Paris**;
+4/32 games completed by 09:23:58. Estimated duration **5–15 minutes** based on the
+matching HF shard, still provisional. User advised to ping at **09:40 Paris**.
+No further automatic dispatch. The five-hour safety timeout is not the expected
+duration. After launch, 160 games are assigned in total and 3,040 games / 47
+shards remain unsubmitted. Only the original HF 128 are independently audited.
+
+The first mini-PC supervisor (PID 118249) stopped on a missing huggingface_hub
+import in the runner's non-executing validation, before its output existed.
+Zero games ran. Original failure log, intent and launch record remain intact.
+An explicit recovery added the already installed dependency directory to
+PYTHONPATH, passed non-executing contract validation, and started the game process.
+It did not replace, rerun or discard game results. Frozen runtime/package unchanged.
+
+Use `PYTHONPATH=ai/strong ai/.venv/bin/python -u -B
+ai/strong/manage_nomination_minipc_v1.py status`, then `collect` after completion.
+The latter downloads original output, checks the complete file manifest and runs
+the same independent raw auditor as the HF collector. Active launch and progress:
+`strong/nomination-discount-minipc-launch-recovery-v1.json` and
+`strong/nomination-discount-minipc-progress-v1.json`.
+Remote logs are under `/home/coyotte508/powergrid-ai-nomination-development-minipc-v1/`.
+The shared reservation prevents the HF launcher from duplicating this shard.
+Do not repeat prepare/launch/recovery or assume these results establish improvement.
+
+## 29 October — GPU training audited, full-game screen prepared
 
 All four original GPU jobs **COMPLETED**. All 16 prescribed seed fits ran their
 120 epochs: **32,640 optimizer updates**. Independent collection verified the
@@ -83,6 +152,13 @@ checked (4 CPU workers, one inference thread, `cpu-upgrade`, five-hour timeout):
 - `6ae3c67d0e0338d1bb7c3df2` — d1-all1 vs search_geo, 6 players, 96 games.
 
 The other 48 shards remain unsubmitted until both originals pass collection.
+The user's subsequent compute preference permits running these CPU evaluations
+on `minipc`. Leave the original two HF jobs intact. Before releasing the other
+48 to HF, assess mini-PC whole-game throughput on an original unsubmitted shard
+using an adapter with the same pinned inputs and raw audit. Existing 8840U
+saved-position timings support trying this, but do not establish batch duration.
+The current launcher below is HF-specific; no mini-PC game was launched when
+recording this preference, and the frozen protocol/source were not changed.
 Use `strong/collect_nomination_development_v1.py --collect` with the usual
 `PYTHONPATH=ai/strong ai/.venv/bin/python -u -B` prefix. It observes only original
 handles, verifies retained archives and reruns the raw game/decision audit in the

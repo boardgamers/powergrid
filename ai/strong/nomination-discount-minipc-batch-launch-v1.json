@@ -1,0 +1,24 @@
+{
+  "pid": 126379,
+  "started_at": "2026-10-30T08:30:15.614814+00:00",
+  "host": "minipc",
+  "remote": "/home/coyotte508/powergrid-ai-nomination-development-minipc-batch-v1",
+  "names": [
+    "pg-nom-dev-v1-d0-all0-search-geo-2p",
+    "pg-nom-dev-v1-d0-all1-search-geo-2p",
+    "pg-nom-dev-v1-d1-all0-search-geo-2p"
+  ],
+  "games": 96,
+  "workers": 4,
+  "shards_run_sequentially": true,
+  "launch_intent_sha256": "29b597e6b37194fce15cbbc5bd23eb4be221d390be01ca2b60394c707d7a00f2",
+  "protocol_sha256": "2f7fe04791c0cb6ac0bb0f8712b73dde3714cf96693c9cd3a1f68fe8bd785251",
+  "expected_minutes": [
+    10,
+    20
+  ],
+  "estimate_basis": "Parent 32-game shard measured 172.37 seconds on this mini PC; allow overhead/trajectory differences.",
+  "automatic_retries": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

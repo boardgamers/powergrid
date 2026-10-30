@@ -1,0 +1,102 @@
+{
+  "created_at": "2026-10-30T08:25:33.600832+00:00",
+  "stage": "complete_and_independently_audited",
+  "host": "minipc",
+  "name": "pg-nom-dev-v1-parent-search-geo-2p",
+  "pid": 118285,
+  "started_at": "2026-10-30T08:23:23.511213+00:00",
+  "games": 32,
+  "cpu_workers": 4,
+  "progress_log": "/home/coyotte508/powergrid-ai-nomination-development-minipc-v1/outputs/pg-nom-dev-v1-parent-search-geo-2p/runner.log",
+  "last_observation": {
+    "name": "pg-nom-dev-v1-parent-search-geo-2p",
+    "checked_at": "2026-10-30T08:27:36.405135+00:00",
+    "completed_games": 32,
+    "expected_games": 32,
+    "supervisor_alive": false,
+    "pid": 118285,
+    "started_at": "2026-10-30T08:23:23.511213+00:00",
+    "terminal": {
+      "returncode": 0,
+      "complete": true,
+      "seconds": 172.3716776203364,
+      "finished_at": "2026-10-30T08:26:16.952238+00:00",
+      "timed_out": false,
+      "failure": null,
+      "qualified": false,
+      "raw_independently_audited": false
+    }
+  },
+  "estimated_duration_minutes": [
+    5,
+    15
+  ],
+  "suggested_ping_paris": "2026-10-30T09:50:00+01:00",
+  "estimate_basis": "Matching 32-game HF shard took 5.3 minutes; first mini-PC whole-game batch, provisional.",
+  "original_failed_start": {
+    "pid": 118249,
+    "games": 0,
+    "reason": "Missing huggingface_hub on runner import, before execute/output creation. Existing dependency directory supplied via PYTHONPATH.",
+    "launch_path": "ai/strong/nomination-discount-minipc-launch-v1.json"
+  },
+  "recovery_launch_sha256": "6b2e92fd092e0cd4fef751d528f853fda7bac377bbc7038e6a3023e8ea5b2386",
+  "serving_check": {
+    "complete": true,
+    "created_at": "2026-10-30T08:21:16.624821+00:00",
+    "versions": {
+      "cpu": "AMD Ryzen 7 8840U w/ Radeon 780M Graphics",
+      "python": "3.12.3",
+      "numpy": "2.5.3",
+      "onnxruntime": "1.30.0",
+      "node": "v24.14.0"
+    },
+    "adapter_sha256": "5ffbcf961a7f93e63120b51c13ced56b083ad0f1494da434121c57c9d93555f9",
+    "protocol_sha256": "2f7fe04791c0cb6ac0bb0f8712b73dde3714cf96693c9cd3a1f68fe8bd785251",
+    "reports": [
+      {
+        "arm": "parent",
+        "exact_choices": 402,
+        "trace_sha256": "202ef326721efc71ee84e4be459ca80adb7a38efec4596f9a4f4a4f39db59b5f"
+      },
+      {
+        "arm": "d0-all0",
+        "exact_choices": 402,
+        "trace_sha256": "31457f5327274da7660575bc257b84b3ea6c4ac8efa7a00878d9fda850596ede"
+      },
+      {
+        "arm": "d0-all1",
+        "exact_choices": 402,
+        "trace_sha256": "241b199e3a6f3276438bfefed669915328603b46e26b59b6ea81e70de5342d40"
+      },
+      {
+        "arm": "d1-all0",
+        "exact_choices": 402,
+        "trace_sha256": "a04c66fee7acac8a4c3b7dd07e70ca2b3224562bef18d7d51fb1623b8ff4b078"
+      },
+      {
+        "arm": "d1-all1",
+        "exact_choices": 402,
+        "trace_sha256": "84ac951ecb72aa61f54b4bd9dd034b04cac74bdaa0f3a966710b01577d45e111"
+      }
+    ],
+    "new_games": 0,
+    "new_gradients": 0
+  },
+  "hf_pilots": {
+    "jobs": 2,
+    "audited_games": 128,
+    "report_sha256": "1370b24d3100504ba1351c1292059a090a3be31eee40dc966807d4ae018983d5"
+  },
+  "planned_games": 3200,
+  "submitted_games": 256,
+  "unsubmitted_games": 2944,
+  "unsubmitted_shards": 44,
+  "new_hf_jobs": 0,
+  "qualified": false,
+  "reserved_final_seeds_used": false,
+  "completed_at": "2026-10-30T08:26:16.952238+00:00",
+  "actual_seconds": 172.3716776203364,
+  "independently_audited_games": 32,
+  "audit_sha256": "eef60936ef419c2a34d22ceff730aad376580af48190cb3750a1498dd9816088",
+  "next_batch_launch_sha256": "752fac7e1fd70df161771e1f92c0c20d33e0234c386f16f7155ef8de265c79c8"
+}

@@ -77,6 +77,11 @@ def launch(limit):
     rows = sorted(protocol['rows'], key=lambda r: (pilot_names.index(r['name']) if r['name'] in pilot_names else 2, r['name']))
     for row in rows:
         name = row['name']; receipt = folder/(name+'.json'); intent = folder/(name+'.intent.json')
+        if (folder/(name+'.minipc.intent.json')).exists():
+            # A launch intent reserves the shard even if SSH returned no outcome.
+            # Inspect that original mini-PC attempt; never duplicate it on HF.
+            assert not receipt.exists() and not intent.exists(), 'Conflicting executor claims'
+            continue
         if receipt.exists():
             record = read(receipt); check = read(folder/(name+'.checked.json'))
             assert record['source_sha256'] == digest(SOURCE) and check['job_id'] == record['job_id'] and check['effective_configuration_verified']

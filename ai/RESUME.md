@@ -1,5 +1,89 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**30 October, 09:31 Paris — mini-PC pilot complete/audited; next 96 games running.**
+
+The first 32-game mini-PC shard completed successfully in **172.37 seconds** and
+passed the same independent raw audit as HF. Total audited so far: **160 games**.
+On the paired 32 two-player games, parent and d1-all1 each won **19/32**, zero
+paired win-credit difference. This small screen establishes no strength gain;
+the other three arms and wider player-count coverage remain to compare.
+Details: `strong/nomination-discount-parent-2p-comparison-v1.json`.
+
+The remaining three two-player/search_geo arms now run as a **finite sequential
+queue of 96 games**, four workers per shard, on `minipc`: **PID 126379**, started
+**09:30:15 Paris**. Six games completed by 09:31. Estimated **10–20 minutes**;
+the updated suggested user ping is **09:50 Paris, 30 October**. The queue stops
+after these three shards or on the first failure; it does not retry, submit HF
+jobs or extend itself. **44 shards / 2,944 games remain unsubmitted**.
+
+Use `PYTHONPATH=ai/strong ai/.venv/bin/python -u -B
+ai/strong/manage_nomination_minipc_batch_v1.py status`, then `collect` for terminal
+shards. Exact names, source pins and PID:
+`strong/nomination-discount-minipc-batch-launch-v1.json`.
+Remote root: `/home/coyotte508/powergrid-ai-nomination-development-minipc-batch-v1/`;
+`state.json` shows the queue and `outputs/<name>/runner.log` shows game progress.
+The isolated copied artifact/interpreter retains the 2,010-choice parity proof;
+all three actual runner contracts passed non-executing validation with the fixed
+dependency environment before launch. Do not call `launch` again.
+
+Next: collect/audit these 96 original games, compare all five two-player arms on
+paired deals, archive them, then decide the next bounded allocation. No candidate
+selected/qualified, reserved seeds used, new training launched or game deployed.
+
+**30 October, 09:24 Paris — both HF pilots audited; first mini-PC game batch running.**
+
+Both original HF endpoint jobs completed and all **128 games** passed independent
+raw audits, zero caps. Two-player elapsed worker time was 318.74 seconds;
+six-player time was 11,097.73 seconds (3.08 hours). Report and immutable raw bucket
+references: `strong/nomination-discount-development-pilots-v1.json`.
+
+The original unsubmitted **parent vs search_geo, 2p / 32 games** shard now runs on
+`minipc`, PID **118285**, started **09:23:23 Paris**. Four games had completed by
+09:23:58. Provisional duration **5–15 minutes**, suggested user ping **09:40 Paris,
+30 October**. This measures whole-game throughput and supplies the paired parent
+comparison. No other new games or HF jobs were launched; **47 shards / 3,040 games
+remain unsubmitted**. All five policies matched their original 402 saved choices
+on the mini PC (2,010 total) with pinned Node 24.14.0 before game execution.
+
+Use `PYTHONPATH=ai/strong ai/.venv/bin/python -u -B
+ai/strong/manage_nomination_minipc_v1.py status`, then `collect` once terminal.
+Collection uses the same independent raw auditor as HF. Remote output/log:
+`/home/coyotte508/powergrid-ai-nomination-development-minipc-v1/outputs/pg-nom-dev-v1-parent-search-geo-2p/`.
+Active record: `strong/nomination-discount-minipc-launch-recovery-v1.json`.
+Original launch PID 118249 failed importing huggingface_hub before creating game
+output; zero games ran. Its log/intent/record are preserved. A non-executing runner
+validation passed after supplying the existing dependency directory; one explicit
+environment recovery started PID 118285. Do not repeat either launch/recovery.
+
+The HF launcher now skips mini-PC reservations, including ambiguous attempts.
+Do not blindly release all remaining shards to HF: measure this batch and choose
+the next bounded allocation. No strength improvement established, candidate
+qualified, new training, reserved final seeds, deployment or automation.
+
+**29 October — compute preference: mini PC authorized for CPU evaluation.**
+
+The user explicitly permits launching work like the development game evaluations
+directly on `minipc` (AMD 8840U). Prefer it for small CPU checks/evaluation batches;
+use HF for GPU training and large parallel simulation workloads when useful.
+Read-only SSH check at 23:30 CET found 16 logical CPUs, load 0.04 and about 88 GiB
+available RAM. Previous saved-position policy benchmark measured 6.20 ms median /
+15.46 ms p95 without rollout search; this is not whole-game throughput or a
+benchmark of the newly trained heads. Measure a bounded original, unsubmitted
+development shard before deciding how much of the remaining screen to run there.
+Keep the two existing HF endpoint jobs and their independent audit gate; do not
+duplicate them. A mini-PC execution adapter still needs to preserve source,
+contract, seeds, model identities and raw audits. Do not reinterpret execution
+location as permission to relax evidence checks or alter the frozen experiment.
+
+For every future job launch, tell the user where it is running, its estimated
+duration/finish window, and a concrete suggested time to ping this chat again
+(Europe/Paris, with the date if crossing midnight). This is especially important
+for mini-PC jobs because the user has no progress dashboard. Base estimates on
+measured throughput where available, allow for setup/queue time, and clearly
+label uncertain estimates; a hard timeout is not an expected finish time. Record
+the run handle/PID and progress-log location so the next turn can check it. This
+preference does not request automatic monitoring or reminders.
+
 **29 October, latest — GPU training complete and audited; development endpoint jobs submitted.**
 
 Read the top of [the auction training continuation](AUCTION-DISCOUNT-TRAINING-2026-10-29.md).

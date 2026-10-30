@@ -1,0 +1,2265 @@
+{
+  "repo": "coyotte508/powergrid-ai-germany-v1",
+  "revision": "09fb5c11549a77d3fdff673f27cba80d010ea45f",
+  "archive_path": "archives/pg-nom-dev-v1-parent-search-geo-2p.tgz",
+  "archive_sha256": "d9c884ef46459dd788217d53fff415f69b0b501337066d1676c3267629e898d3",
+  "manifest_sha256": "2e18374248aed81b6d59194a4ce47e93c29c5b3c2adadc4c47198dc54ef9216f",
+  "archived_files": 106,
+  "format": "tar.gz",
+  "remote_archive_verified": true,
+  "audit": {
+    "independently_audited": true,
+    "name": "pg-nom-dev-v1-parent-search-geo-2p",
+    "row": {
+      "name": "pg-nom-dev-v1-parent-search-geo-2p",
+      "arm": "parent",
+      "descriptor": "policies/nomination-parent.json",
+      "shard": {
+        "name": "pg-nom-dev-v1-parent-search-geo-2p",
+        "group": "search_geo/2p",
+        "players": 2,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-2p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 32
+      },
+      "candidate": "controls/parent.candidate.json",
+      "contract": "controls/pg-nom-dev-v1-parent-search-geo-2p.contract.json",
+      "opponent_model": null
+    },
+    "games": 32,
+    "caps": 0,
+    "protocol_sha256": "2f7fe04791c0cb6ac0bb0f8712b73dde3714cf96693c9cd3a1f68fe8bd785251",
+    "runtime_manifest_sha256": "d16f282ec72929643df4cae189d0bb1163ce1459a74a7528cf2028200c7a7625",
+    "raw_manifest_sha256": "2e18374248aed81b6d59194a4ce47e93c29c5b3c2adadc4c47198dc54ef9216f",
+    "independent_audit": {
+      "audit_version": 1,
+      "all_receipts_verified": true,
+      "identity": {
+        "policySha256": "491b478dc77bb811317e9abdd80c636a2449225f910d2bc1a33f547bcafe252f",
+        "runtimeManifestSha256": "d16f282ec72929643df4cae189d0bb1163ce1459a74a7528cf2028200c7a7625",
+        "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+        "featureRevision": "4.3-strategic-correction",
+        "backend": "population-v1",
+        "settings": {
+          "arm": "filter",
+          "max_steps": 2400,
+          "samples": 8,
+          "threads": 1,
+          "workers": 4
+        }
+      },
+      "expected": {
+        "name": "pg-nom-dev-v1-parent-search-geo-2p",
+        "group": "search_geo/2p",
+        "players": 2,
+        "start": 0,
+        "deals": 4,
+        "seed": "nomination-discount-development-v1-2p",
+        "opponent": "search_geo",
+        "opponent_sha256": null,
+        "games": 32
+      },
+      "counts": {
+        "decisions": 5531,
+        "root_filter_overrides": 1,
+        "rollouts": 0,
+        "rollout_caps": 0,
+        "neural_decisions": 0,
+        "search_changes": 0,
+        "search_decisions": 0
+      },
+      "terminals": [
+        {
+          "env": 0,
+          "episode": 0,
+          "gameSeed": "nomination-discount-development-v1-2p-0",
+          "truncated": false,
+          "value": [
+            1,
+            0
+          ],
+          "playerCount": 2,
+          "variant": "original",
+          "sealed": true,
+          "steps": 288,
+          "roles": [
+            "learner",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "ChoosePowerPlant": 11,
+            "Bid": 7,
+            "BuyResource": 48,
+            "Pass": 36,
+            "Build": 21,
+            "UsePowerPlant": 25,
+            "DiscardPowerPlant": 4
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 38,
+              "evaluations": 3264,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 36,
+                "capacity": 21,
+                "plants": [
+                  29,
+                  24,
+                  46,
+                  30
+                ]
+              },
+              {
+                "cities": 18,
+                "powered": 17,
+                "money": 20,
+                "capacity": 21,
+                "plants": [
+                  33,
+                  21,
+                  39,
+                  38
+                ]
+              }
+            ]
+          },
+          "seat": 0,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 1,
+          "gameSeed": "nomination-discount-development-v1-2p-0",
+          "truncated": false,
+          "value": [
+            1,
+            0
+          ],
+          "playerCount": 2,
+          "variant": "recharged",
+          "sealed": true,
+          "steps": 315,
+          "roles": [
+            "learner",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "ChoosePowerPlant": 14,
+            "Bid": 10,
+            "BuyResource": 61,
+            "Pass": 38,
+            "Build": 21,
+            "UsePowerPlant": 28,
+            "DiscardPowerPlant": 5
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 42,
+              "evaluations": 3232,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 121,
+                "capacity": 23,
+                "plants": [
+                  21,
+                  38,
+                  44,
+                  46
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 95,
+                "capacity": 20,
+                "plants": [
+                  18,
+                  50,
+                  39,
+                  42
+                ]
+              }
+            ]
+          },
+          "seat": 0,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 2,
+          "gameSeed": "nomination-discount-development-v1-2p-0",
+          "truncated": false,
+          "value": [
+            1,
+            0
+          ],
+          "playerCount": 2,
+          "variant": "original",
+          "sealed": false,
+          "steps": 349,
+          "roles": [
+            "learner",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "ChoosePowerPlant": 14,
+            "Bid": 17,
+            "BuyResource": 56,
+            "Pass": 41,
+            "Build": 21,
+            "UsePowerPlant": 28,
+            "DiscardPowerPlant": 7
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 51,
+              "evaluations": 4240,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 79,
+                "capacity": 22,
+                "plants": [
+                  30,
+                  50,
+                  26,
+                  35
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 76,
+                "capacity": 21,
+                "plants": [
+                  29,
+                  33,
+                  46,
+                  39
+                ]
+              }
+            ]
+          },
+          "seat": 0,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 3,
+          "gameSeed": "nomination-discount-development-v1-2p-0",
+          "truncated": false,
+          "value": [
+            1,
+            0
+          ],
+          "playerCount": 2,
+          "variant": "recharged",
+          "sealed": false,
+          "steps": 306,
+          "roles": [
+            "learner",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "ChoosePowerPlant": 15,
+            "Bid": 20,
+            "Pass": 38,
+            "BuyResource": 51,
+            "Build": 21,
+            "UsePowerPlant": 25,
+            "DiscardPowerPlant": 6
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 48,
+              "evaluations": 3984,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 19,
+                "money": 10,
+                "capacity": 22,
+                "plants": [
+                  16,
+                  50,
+                  39,
+                  46
+                ]
+              },
+              {
+                "cities": 19,
+                "powered": 19,
+                "money": 9,
+                "capacity": 19,
+                "plants": [
+                  27,
+                  29,
+                  35,
+                  38
+                ]
+              }
+            ]
+          },
+          "seat": 0,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 4,
+          "gameSeed": "nomination-discount-development-v1-2p-0",
+          "truncated": false,
+          "value": [
+            1,
+            0
+          ],
+          "playerCount": 2,
+          "variant": "original",
+          "sealed": true,
+          "steps": 345,
+          "roles": [
+            "search_geo",
+            "learner"
+          ],
+          "policyMoves": {
+            "Pass": 42,
+            "ChoosePowerPlant": 12,
+            "BuyResource": 51,
+            "Build": 20,
+            "UsePowerPlant": 34,
+            "Bid": 10,
+            "DiscardPowerPlant": 6
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 49,
+              "evaluations": 4080,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 13,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 54,
+                "capacity": 21,
+                "plants": [
+                  29,
+                  24,
+                  46,
+                  31
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 56,
+                "capacity": 24,
+                "plants": [
+                  21,
+                  50,
+                  38,
+                  36
+                ]
+              }
+            ]
+          },
+          "seat": 1,
+          "win": 0
+        },
+        {
+          "env": 0,
+          "episode": 5,
+          "gameSeed": "nomination-discount-development-v1-2p-0",
+          "truncated": false,
+          "value": [
+            1,
+            0
+          ],
+          "playerCount": 2,
+          "variant": "recharged",
+          "sealed": true,
+          "steps": 332,
+          "roles": [
+            "search_geo",
+            "learner"
+          ],
+          "policyMoves": {
+            "Pass": 45,
+            "ChoosePowerPlant": 9,
+            "BuyResource": 55,
+            "Build": 20,
+            "UsePowerPlant": 25,
+            "Bid": 7,
+            "DiscardPowerPlant": 5
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 50,
+              "evaluations": 3808,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 13,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 193,
+                "capacity": 21,
+                "plants": [
+                  29,
+                  35,
+                  38,
+                  44
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 1,
+                "capacity": 26,
+                "plants": [
+                  36,
+                  40,
+                  50,
+                  46
+                ]
+              }
+            ]
+          },
+          "seat": 1,
+          "win": 0
+        },
+        {
+          "env": 0,
+          "episode": 6,
+          "gameSeed": "nomination-discount-development-v1-2p-0",
+          "truncated": false,
+          "value": [
+            0,
+            1
+          ],
+          "playerCount": 2,
+          "variant": "original",
+          "sealed": false,
+          "steps": 324,
+          "roles": [
+            "search_geo",
+            "learner"
+          ],
+          "policyMoves": {
+            "Bid": 13,
+            "BuyResource": 55,
+            "Pass": 42,
+            "Build": 21,
+            "UsePowerPlant": 27,
+            "ChoosePowerPlant": 11,
+            "DiscardPowerPlant": 6
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 50,
+              "evaluations": 4128,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 17,
+                "powered": 15,
+                "money": 9,
+                "capacity": 20,
+                "plants": [
+                  22,
+                  34,
+                  46,
+                  50
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 29,
+                "capacity": 23,
+                "plants": [
+                  29,
+                  30,
+                  36,
+                  39
+                ]
+              }
+            ]
+          },
+          "seat": 1,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 7,
+          "gameSeed": "nomination-discount-development-v1-2p-0",
+          "truncated": false,
+          "value": [
+            1,
+            0
+          ],
+          "playerCount": 2,
+          "variant": "recharged",
+          "sealed": false,
+          "steps": 368,
+          "roles": [
+            "search_geo",
+            "learner"
+          ],
+          "policyMoves": {
+            "Bid": 31,
+            "BuyResource": 49,
+            "Pass": 45,
+            "Build": 21,
+            "UsePowerPlant": 26,
+            "ChoosePowerPlant": 11,
+            "DiscardPowerPlant": 6
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 72,
+              "evaluations": 5968,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 13,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 37,
+                "capacity": 21,
+                "plants": [
+                  27,
+                  36,
+                  37,
+                  38
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 17,
+                "money": 32,
+                "capacity": 20,
+                "plants": [
+                  15,
+                  39,
+                  50,
+                  44
+                ]
+              }
+            ]
+          },
+          "seat": 1,
+          "win": 0
+        },
+        {
+          "env": 0,
+          "episode": 8,
+          "gameSeed": "nomination-discount-development-v1-2p-1",
+          "truncated": false,
+          "value": [
+            0,
+            1
+          ],
+          "playerCount": 2,
+          "variant": "original",
+          "sealed": true,
+          "steps": 333,
+          "roles": [
+            "learner",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "ChoosePowerPlant": 16,
+            "Bid": 11,
+            "BuyResource": 61,
+            "Pass": 37,
+            "Build": 20,
+            "UsePowerPlant": 29,
+            "DiscardPowerPlant": 6
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 44,
+              "evaluations": 3760,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 58,
+                "capacity": 25,
+                "plants": [
+                  31,
+                  36,
+                  50,
+                  40
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 68,
+                "capacity": 21,
+                "plants": [
+                  27,
+                  34,
+                  30,
+                  46
+                ]
+              }
+            ]
+          },
+          "seat": 0,
+          "win": 0
+        },
+        {
+          "env": 0,
+          "episode": 9,
+          "gameSeed": "nomination-discount-development-v1-2p-1",
+          "truncated": false,
+          "value": [
+            0,
+            1
+          ],
+          "playerCount": 2,
+          "variant": "recharged",
+          "sealed": true,
+          "steps": 279,
+          "roles": [
+            "learner",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "ChoosePowerPlant": 11,
+            "Bid": 9,
+            "BuyResource": 47,
+            "Pass": 34,
+            "Build": 21,
+            "UsePowerPlant": 21,
+            "DiscardPowerPlant": 5
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 40,
+              "evaluations": 3504,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 18,
+                "money": 12,
+                "capacity": 21,
+                "plants": [
+                  16,
+                  26,
+                  50,
+                  38
+                ]
+              },
+              {
+                "cities": 18,
+                "powered": 18,
+                "money": 83,
+                "capacity": 18,
+                "plants": [
+                  27,
+                  34,
+                  37,
+                  39
+                ]
+              }
+            ]
+          },
+          "seat": 0,
+          "win": 0
+        },
+        {
+          "env": 0,
+          "episode": 10,
+          "gameSeed": "nomination-discount-development-v1-2p-1",
+          "truncated": false,
+          "value": [
+            1,
+            0
+          ],
+          "playerCount": 2,
+          "variant": "original",
+          "sealed": false,
+          "steps": 368,
+          "roles": [
+            "learner",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "ChoosePowerPlant": 12,
+            "Bid": 13,
+            "Pass": 50,
+            "BuyResource": 51,
+            "Build": 21,
+            "UsePowerPlant": 29,
+            "DiscardPowerPlant": 4
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 51,
+              "evaluations": 4240,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 13,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 20,
+                "money": 120,
+                "capacity": 20,
+                "plants": [
+                  20,
+                  29,
+                  35,
+                  40
+                ]
+              },
+              {
+                "cities": 19,
+                "powered": 19,
+                "money": 8,
+                "capacity": 20,
+                "plants": [
+                  18,
+                  21,
+                  38,
+                  36
+                ]
+              }
+            ]
+          },
+          "seat": 0,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 11,
+          "gameSeed": "nomination-discount-development-v1-2p-1",
+          "truncated": false,
+          "value": [
+            1,
+            0
+          ],
+          "playerCount": 2,
+          "variant": "recharged",
+          "sealed": false,
+          "steps": 337,
+          "roles": [
+            "learner",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "ChoosePowerPlant": 16,
+            "Bid": 20,
+            "Pass": 40,
+            "BuyResource": 61,
+            "Build": 21,
+            "UsePowerPlant": 26,
+            "DiscardPowerPlant": 6
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 44,
+              "evaluations": 3728,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 74,
+                "capacity": 24,
+                "plants": [
+                  26,
+                  34,
+                  38,
+                  46
+                ]
+              },
+              {
+                "cities": 18,
+                "powered": 18,
+                "money": 1,
+                "capacity": 19,
+                "plants": [
+                  24,
+                  27,
+                  50,
+                  40
+                ]
+              }
+            ]
+          },
+          "seat": 0,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 12,
+          "gameSeed": "nomination-discount-development-v1-2p-1",
+          "truncated": false,
+          "value": [
+            0,
+            1
+          ],
+          "playerCount": 2,
+          "variant": "original",
+          "sealed": true,
+          "steps": 340,
+          "roles": [
+            "search_geo",
+            "learner"
+          ],
+          "policyMoves": {
+            "Bid": 12,
+            "BuyResource": 59,
+            "Pass": 35,
+            "Build": 21,
+            "UsePowerPlant": 33,
+            "ChoosePowerPlant": 13,
+            "DiscardPowerPlant": 8
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 48,
+              "evaluations": 3744,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 53,
+                "capacity": 20,
+                "plants": [
+                  18,
+                  20,
+                  50,
+                  46
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 20,
+                "money": 56,
+                "capacity": 20,
+                "plants": [
+                  24,
+                  29,
+                  31,
+                  40
+                ]
+              }
+            ]
+          },
+          "seat": 1,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 13,
+          "gameSeed": "nomination-discount-development-v1-2p-1",
+          "truncated": false,
+          "value": [
+            0,
+            1
+          ],
+          "playerCount": 2,
+          "variant": "recharged",
+          "sealed": true,
+          "steps": 355,
+          "roles": [
+            "search_geo",
+            "learner"
+          ],
+          "policyMoves": {
+            "Pass": 41,
+            "ChoosePowerPlant": 12,
+            "BuyResource": 63,
+            "Build": 21,
+            "UsePowerPlant": 31,
+            "Bid": 11,
+            "DiscardPowerPlant": 7
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 48,
+              "evaluations": 3648,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 13,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 20,
+                "capacity": 21,
+                "plants": [
+                  34,
+                  38,
+                  44,
+                  37
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 60,
+                "capacity": 24,
+                "plants": [
+                  24,
+                  36,
+                  50,
+                  46
+                ]
+              }
+            ]
+          },
+          "seat": 1,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 14,
+          "gameSeed": "nomination-discount-development-v1-2p-1",
+          "truncated": false,
+          "value": [
+            0,
+            1
+          ],
+          "playerCount": 2,
+          "variant": "original",
+          "sealed": false,
+          "steps": 411,
+          "roles": [
+            "search_geo",
+            "learner"
+          ],
+          "policyMoves": {
+            "Bid": 11,
+            "Pass": 49,
+            "ChoosePowerPlant": 15,
+            "BuyResource": 83,
+            "Build": 21,
+            "UsePowerPlant": 39,
+            "DiscardPowerPlant": 9
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 57,
+              "evaluations": 4560,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 14,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 17,
+                "money": 134,
+                "capacity": 23,
+                "plants": [
+                  28,
+                  36,
+                  50,
+                  31
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 120,
+                "capacity": 25,
+                "plants": [
+                  20,
+                  38,
+                  46,
+                  40
+                ]
+              }
+            ]
+          },
+          "seat": 1,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 15,
+          "gameSeed": "nomination-discount-development-v1-2p-1",
+          "truncated": false,
+          "value": [
+            0,
+            1
+          ],
+          "playerCount": 2,
+          "variant": "recharged",
+          "sealed": false,
+          "steps": 319,
+          "roles": [
+            "search_geo",
+            "learner"
+          ],
+          "policyMoves": {
+            "Pass": 38,
+            "ChoosePowerPlant": 9,
+            "BuyResource": 41,
+            "Build": 21,
+            "UsePowerPlant": 22,
+            "Bid": 23,
+            "DiscardPowerPlant": 5
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 59,
+              "evaluations": 4944,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 19,
+                "powered": 19,
+                "money": 22,
+                "capacity": 20,
+                "plants": [
+                  24,
+                  20,
+                  39,
+                  44
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 80,
+                "capacity": 24,
+                "plants": [
+                  31,
+                  35,
+                  50,
+                  36
+                ]
+              }
+            ]
+          },
+          "seat": 1,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 16,
+          "gameSeed": "nomination-discount-development-v1-2p-2",
+          "truncated": false,
+          "value": [
+            1,
+            0
+          ],
+          "playerCount": 2,
+          "variant": "original",
+          "sealed": true,
+          "steps": 324,
+          "roles": [
+            "learner",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "ChoosePowerPlant": 12,
+            "Bid": 9,
+            "BuyResource": 59,
+            "Pass": 38,
+            "Build": 21,
+            "UsePowerPlant": 30,
+            "DiscardPowerPlant": 5
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 43,
+              "evaluations": 3680,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 40,
+                "capacity": 24,
+                "plants": [
+                  25,
+                  30,
+                  40,
+                  38
+                ]
+              },
+              {
+                "cities": 17,
+                "powered": 17,
+                "money": 95,
+                "capacity": 17,
+                "plants": [
+                  17,
+                  18,
+                  46,
+                  39
+                ]
+              }
+            ]
+          },
+          "seat": 0,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 17,
+          "gameSeed": "nomination-discount-development-v1-2p-2",
+          "truncated": false,
+          "value": [
+            1,
+            0
+          ],
+          "playerCount": 2,
+          "variant": "recharged",
+          "sealed": true,
+          "steps": 296,
+          "roles": [
+            "learner",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "ChoosePowerPlant": 13,
+            "Bid": 9,
+            "BuyResource": 44,
+            "Pass": 34,
+            "Build": 21,
+            "UsePowerPlant": 29,
+            "DiscardPowerPlant": 5
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 37,
+              "evaluations": 3200,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 19,
+                "money": 78,
+                "capacity": 19,
+                "plants": [
+                  18,
+                  29,
+                  40,
+                  38
+                ]
+              },
+              {
+                "cities": 17,
+                "powered": 17,
+                "money": 147,
+                "capacity": 23,
+                "plants": [
+                  20,
+                  30,
+                  50,
+                  39
+                ]
+              }
+            ]
+          },
+          "seat": 0,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 18,
+          "gameSeed": "nomination-discount-development-v1-2p-2",
+          "truncated": false,
+          "value": [
+            0,
+            1
+          ],
+          "playerCount": 2,
+          "variant": "original",
+          "sealed": false,
+          "steps": 360,
+          "roles": [
+            "learner",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "ChoosePowerPlant": 16,
+            "Bid": 14,
+            "BuyResource": 68,
+            "Pass": 42,
+            "Build": 20,
+            "UsePowerPlant": 32,
+            "DiscardPowerPlant": 7
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 46,
+              "evaluations": 3488,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 131,
+                "capacity": 24,
+                "plants": [
+                  25,
+                  30,
+                  40,
+                  38
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 74,
+                "capacity": 21,
+                "plants": [
+                  29,
+                  35,
+                  39,
+                  50
+                ]
+              }
+            ]
+          },
+          "seat": 0,
+          "win": 0
+        },
+        {
+          "env": 0,
+          "episode": 19,
+          "gameSeed": "nomination-discount-development-v1-2p-2",
+          "truncated": false,
+          "value": [
+            1,
+            0
+          ],
+          "playerCount": 2,
+          "variant": "recharged",
+          "sealed": false,
+          "steps": 343,
+          "roles": [
+            "learner",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "ChoosePowerPlant": 14,
+            "Bid": 17,
+            "BuyResource": 49,
+            "Pass": 44,
+            "Build": 21,
+            "UsePowerPlant": 29,
+            "DiscardPowerPlant": 6
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 55,
+              "evaluations": 4464,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 132,
+                "capacity": 21,
+                "plants": [
+                  25,
+                  26,
+                  29,
+                  46
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 19,
+                "money": 107,
+                "capacity": 19,
+                "plants": [
+                  24,
+                  28,
+                  35,
+                  39
+                ]
+              }
+            ]
+          },
+          "seat": 0,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 20,
+          "gameSeed": "nomination-discount-development-v1-2p-2",
+          "truncated": false,
+          "value": [
+            1,
+            0
+          ],
+          "playerCount": 2,
+          "variant": "original",
+          "sealed": true,
+          "steps": 339,
+          "roles": [
+            "search_geo",
+            "learner"
+          ],
+          "policyMoves": {
+            "Bid": 8,
+            "BuyResource": 61,
+            "Pass": 39,
+            "Build": 20,
+            "UsePowerPlant": 26,
+            "ChoosePowerPlant": 11,
+            "DiscardPowerPlant": 7
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 50,
+              "evaluations": 3904,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 41,
+                "capacity": 21,
+                "plants": [
+                  18,
+                  40,
+                  50,
+                  46
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 18,
+                "money": 14,
+                "capacity": 20,
+                "plants": [
+                  11,
+                  35,
+                  38,
+                  31
+                ]
+              }
+            ]
+          },
+          "seat": 1,
+          "win": 0
+        },
+        {
+          "env": 0,
+          "episode": 21,
+          "gameSeed": "nomination-discount-development-v1-2p-2",
+          "truncated": false,
+          "value": [
+            1,
+            0
+          ],
+          "playerCount": 2,
+          "variant": "recharged",
+          "sealed": true,
+          "steps": 283,
+          "roles": [
+            "search_geo",
+            "learner"
+          ],
+          "policyMoves": {
+            "Pass": 31,
+            "ChoosePowerPlant": 11,
+            "BuyResource": 43,
+            "Build": 21,
+            "UsePowerPlant": 29,
+            "Bid": 8,
+            "DiscardPowerPlant": 5
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 40,
+              "evaluations": 3312,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 10,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 18,
+                "money": 6,
+                "capacity": 21,
+                "plants": [
+                  25,
+                  19,
+                  30,
+                  46
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 17,
+                "money": 111,
+                "capacity": 17,
+                "plants": [
+                  18,
+                  26,
+                  28,
+                  40
+                ]
+              }
+            ]
+          },
+          "seat": 1,
+          "win": 0
+        },
+        {
+          "env": 0,
+          "episode": 22,
+          "gameSeed": "nomination-discount-development-v1-2p-2",
+          "truncated": false,
+          "value": [
+            0,
+            1
+          ],
+          "playerCount": 2,
+          "variant": "original",
+          "sealed": false,
+          "steps": 355,
+          "roles": [
+            "search_geo",
+            "learner"
+          ],
+          "policyMoves": {
+            "Bid": 15,
+            "BuyResource": 59,
+            "Pass": 41,
+            "Build": 21,
+            "UsePowerPlant": 29,
+            "ChoosePowerPlant": 13,
+            "DiscardPowerPlant": 7
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 54,
+              "evaluations": 4432,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 1,
+                "capacity": 21,
+                "plants": [
+                  18,
+                  46,
+                  40,
+                  39
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 120,
+                "capacity": 23,
+                "plants": [
+                  29,
+                  31,
+                  38,
+                  50
+                ]
+              }
+            ]
+          },
+          "seat": 1,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 23,
+          "gameSeed": "nomination-discount-development-v1-2p-2",
+          "truncated": false,
+          "value": [
+            0,
+            1
+          ],
+          "playerCount": 2,
+          "variant": "recharged",
+          "sealed": false,
+          "steps": 288,
+          "roles": [
+            "search_geo",
+            "learner"
+          ],
+          "policyMoves": {
+            "Pass": 32,
+            "ChoosePowerPlant": 12,
+            "BuyResource": 48,
+            "Build": 21,
+            "UsePowerPlant": 30,
+            "Bid": 15,
+            "DiscardPowerPlant": 6
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 46,
+              "evaluations": 3744,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 10,
+            "players": [
+              {
+                "cities": 18,
+                "powered": 15,
+                "money": 3,
+                "capacity": 19,
+                "plants": [
+                  24,
+                  26,
+                  28,
+                  50
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 94,
+                "capacity": 24,
+                "plants": [
+                  29,
+                  31,
+                  38,
+                  46
+                ]
+              }
+            ]
+          },
+          "seat": 1,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 24,
+          "gameSeed": "nomination-discount-development-v1-2p-3",
+          "truncated": false,
+          "value": [
+            1,
+            0
+          ],
+          "playerCount": 2,
+          "variant": "original",
+          "sealed": true,
+          "steps": 265,
+          "roles": [
+            "learner",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "ChoosePowerPlant": 16,
+            "Bid": 9,
+            "BuyResource": 37,
+            "Pass": 30,
+            "Build": 21,
+            "UsePowerPlant": 26,
+            "DiscardPowerPlant": 5
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 28,
+              "evaluations": 2432,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 10,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 20,
+                "money": 71,
+                "capacity": 20,
+                "plants": [
+                  29,
+                  25,
+                  35,
+                  42
+                ]
+              },
+              {
+                "cities": 16,
+                "powered": 16,
+                "money": 13,
+                "capacity": 22,
+                "plants": [
+                  24,
+                  26,
+                  31,
+                  46
+                ]
+              }
+            ]
+          },
+          "seat": 0,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 25,
+          "gameSeed": "nomination-discount-development-v1-2p-3",
+          "truncated": false,
+          "value": [
+            0,
+            1
+          ],
+          "playerCount": 2,
+          "variant": "recharged",
+          "sealed": true,
+          "steps": 307,
+          "roles": [
+            "learner",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "ChoosePowerPlant": 9,
+            "Bid": 9,
+            "BuyResource": 50,
+            "Pass": 34,
+            "Build": 20,
+            "UsePowerPlant": 21,
+            "DiscardPowerPlant": 6
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 46,
+              "evaluations": 3680,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 8,
+                "capacity": 20,
+                "plants": [
+                  26,
+                  19,
+                  42,
+                  40
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 34,
+                "capacity": 22,
+                "plants": [
+                  22,
+                  50,
+                  38,
+                  46
+                ]
+              }
+            ]
+          },
+          "seat": 0,
+          "win": 0
+        },
+        {
+          "env": 0,
+          "episode": 26,
+          "gameSeed": "nomination-discount-development-v1-2p-3",
+          "truncated": false,
+          "value": [
+            0,
+            1
+          ],
+          "playerCount": 2,
+          "variant": "original",
+          "sealed": false,
+          "steps": 302,
+          "roles": [
+            "learner",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "ChoosePowerPlant": 13,
+            "Bid": 12,
+            "Pass": 40,
+            "BuyResource": 44,
+            "Build": 21,
+            "UsePowerPlant": 24,
+            "DiscardPowerPlant": 5
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 45,
+              "evaluations": 3520,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 20,
+                "money": 29,
+                "capacity": 20,
+                "plants": [
+                  27,
+                  25,
+                  46,
+                  35
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 30,
+                "capacity": 20,
+                "plants": [
+                  26,
+                  29,
+                  44,
+                  40
+                ]
+              }
+            ]
+          },
+          "seat": 0,
+          "win": 0
+        },
+        {
+          "env": 0,
+          "episode": 27,
+          "gameSeed": "nomination-discount-development-v1-2p-3",
+          "truncated": false,
+          "value": [
+            1,
+            0
+          ],
+          "playerCount": 2,
+          "variant": "recharged",
+          "sealed": false,
+          "steps": 355,
+          "roles": [
+            "learner",
+            "search_geo"
+          ],
+          "policyMoves": {
+            "ChoosePowerPlant": 12,
+            "Bid": 8,
+            "Pass": 46,
+            "BuyResource": 51,
+            "Build": 21,
+            "UsePowerPlant": 31,
+            "DiscardPowerPlant": 6
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 50,
+              "evaluations": 3840,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 122,
+                "capacity": 21,
+                "plants": [
+                  29,
+                  50,
+                  35,
+                  40
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 57,
+                "capacity": 21,
+                "plants": [
+                  26,
+                  27,
+                  30,
+                  46
+                ]
+              }
+            ]
+          },
+          "seat": 0,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 28,
+          "gameSeed": "nomination-discount-development-v1-2p-3",
+          "truncated": false,
+          "value": [
+            0,
+            1
+          ],
+          "playerCount": 2,
+          "variant": "original",
+          "sealed": true,
+          "steps": 336,
+          "roles": [
+            "search_geo",
+            "learner"
+          ],
+          "policyMoves": {
+            "Bid": 9,
+            "ChoosePowerPlant": 11,
+            "BuyResource": 60,
+            "Pass": 37,
+            "Build": 21,
+            "UsePowerPlant": 33,
+            "DiscardPowerPlant": 7
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 50,
+              "evaluations": 3904,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 45,
+                "capacity": 21,
+                "plants": [
+                  27,
+                  25,
+                  46,
+                  40
+                ]
+              },
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 77,
+                "capacity": 22,
+                "plants": [
+                  26,
+                  28,
+                  38,
+                  32
+                ]
+              }
+            ]
+          },
+          "seat": 1,
+          "win": 1
+        },
+        {
+          "env": 0,
+          "episode": 29,
+          "gameSeed": "nomination-discount-development-v1-2p-3",
+          "truncated": false,
+          "value": [
+            1,
+            0
+          ],
+          "playerCount": 2,
+          "variant": "recharged",
+          "sealed": true,
+          "steps": 307,
+          "roles": [
+            "search_geo",
+            "learner"
+          ],
+          "policyMoves": {
+            "Bid": 9,
+            "ChoosePowerPlant": 6,
+            "BuyResource": 55,
+            "Pass": 33,
+            "Build": 20,
+            "UsePowerPlant": 27,
+            "DiscardPowerPlant": 6
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 50,
+              "evaluations": 3936,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 78,
+                "capacity": 21,
+                "plants": [
+                  27,
+                  34,
+                  38,
+                  50
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 23,
+                "capacity": 21,
+                "plants": [
+                  28,
+                  30,
+                  37,
+                  46
+                ]
+              }
+            ]
+          },
+          "seat": 1,
+          "win": 0
+        },
+        {
+          "env": 0,
+          "episode": 30,
+          "gameSeed": "nomination-discount-development-v1-2p-3",
+          "truncated": false,
+          "value": [
+            1,
+            0
+          ],
+          "playerCount": 2,
+          "variant": "original",
+          "sealed": false,
+          "steps": 361,
+          "roles": [
+            "search_geo",
+            "learner"
+          ],
+          "policyMoves": {
+            "Pass": 44,
+            "ChoosePowerPlant": 12,
+            "BuyResource": 59,
+            "Build": 20,
+            "UsePowerPlant": 31,
+            "Bid": 15,
+            "DiscardPowerPlant": 7
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 57,
+              "evaluations": 4496,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 12,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 3,
+                "capacity": 21,
+                "plants": [
+                  25,
+                  28,
+                  38,
+                  44
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 42,
+                "capacity": 24,
+                "plants": [
+                  26,
+                  46,
+                  40,
+                  42
+                ]
+              }
+            ]
+          },
+          "seat": 1,
+          "win": 0
+        },
+        {
+          "env": 0,
+          "episode": 31,
+          "gameSeed": "nomination-discount-development-v1-2p-3",
+          "truncated": false,
+          "value": [
+            1,
+            0
+          ],
+          "playerCount": 2,
+          "variant": "recharged",
+          "sealed": false,
+          "steps": 304,
+          "roles": [
+            "search_geo",
+            "learner"
+          ],
+          "policyMoves": {
+            "Pass": 38,
+            "ChoosePowerPlant": 12,
+            "BuyResource": 47,
+            "Build": 20,
+            "UsePowerPlant": 28,
+            "Bid": 10,
+            "DiscardPowerPlant": 5
+          },
+          "searchStats": {
+            "search_geo": {
+              "decisions": 41,
+              "evaluations": 3248,
+              "truncated": 0
+            }
+          },
+          "final": {
+            "round": 11,
+            "players": [
+              {
+                "cities": 21,
+                "powered": 21,
+                "money": 64,
+                "capacity": 22,
+                "plants": [
+                  29,
+                  50,
+                  31,
+                  40
+                ]
+              },
+              {
+                "cities": 20,
+                "powered": 20,
+                "money": 76,
+                "capacity": 24,
+                "plants": [
+                  21,
+                  38,
+                  42,
+                  46
+                ]
+              }
+            ]
+          },
+          "seat": 1,
+          "win": 0
+        }
+      ],
+      "input_hashes": {
+        "evaluation.json": "1efaa8abf9b66d43d5c089c412c81d973aeaafdd41783cc5487bc83ad34d2f4e",
+        "decisions-0.jsonl": "de7dc57b43b3ae84066c879b2e7f858c73c99705f6254b300f7a7d9111c326ab",
+        "game-0.json": "162b5891335b45b0fc956a583c2c2769f5f8a82c67b2557620253975af3fc8c8",
+        "decisions-1.jsonl": "dbfdaec79ca0ff57e7e76fe205670e70dd8f105b72364ba82fcbd06f32afdc7c",
+        "game-1.json": "a840c27122a75cc70248ffa7c44cf10c54ecb0cb6c8cacba22f40c4d4143939c",
+        "decisions-2.jsonl": "5d1d1e0e742345dad001d2c9c4db15678144723c998e6a413d87964e36bbc6c2",
+        "game-2.json": "9bdb58f91d0eaf631d55735b0dc97c076d828a6961f8d57d85f28af3821f35b8",
+        "decisions-3.jsonl": "19d066e528b7dbbeb9b7b0edda870e32e51796db2526d527c7f5eae094f4d433",
+        "game-3.json": "92e25ba4c47d8428f365afacf22266b8ea6367a9eef76a0b65ace55da4200e64",
+        "decisions-4.jsonl": "42911cd407c0389040546052427b785682982b4a77d264e5ddb86ea8cdd483b2",
+        "game-4.json": "9ffe390c5e1902dbeb60602d4466d63b7bc70367626c185c807cbfa72dcd1f46",
+        "decisions-5.jsonl": "4bfe112805b95765149efcb9cf0fa27c21f6f2dd156b87b24de480aa9087f255",
+        "game-5.json": "127c71cd262ce38f97d3f2afcd46c889b9f34e3ba3025d1f4f1e551b7e866948",
+        "decisions-6.jsonl": "ffd601e6c9d2c62523f56965338673a7aa5d48a32e29512289ae556067227180",
+        "game-6.json": "334845d5e81d963fa6887fdf1c6bc90203110e78f3e88127130a2ee2886dfba0",
+        "decisions-7.jsonl": "aafdf366a18ae325c2708913c827fab67fdf93300675787f5d167a8a8690a8f7",
+        "game-7.json": "630e000f0e7a067f20cccb56f7772e9582424fe120b7872ac4b2ce92dc441433",
+        "decisions-8.jsonl": "e580d0b4fe335a23aa42ea1367af69a90a38677b7af3681aa84844f104d8d99a",
+        "game-8.json": "86582f41d74d4cff2ad3794e7c97d53c196dce558f1bbbad28e32dc954724112",
+        "decisions-9.jsonl": "bcf6a296c841a6ed1f197f3dc9a07520bd9a84526c1f7eb9afa6f66800e29bd1",
+        "game-9.json": "0ac477d081b88ca55ffb4d9875594841678cb544b899538a81bbf6f9a16931d9",
+        "decisions-10.jsonl": "493f3029c208d04485e1ae75d22bcf9158d5d61a5b5fb9ff64d6c46079cdce18",
+        "game-10.json": "fd1975c1b4fa2e97a890cbc4ec069e305812101cda75aa8f4eaecef9f900799a",
+        "decisions-11.jsonl": "8f20aa6b0e9a7a5cc42316264ded018f330c3eb3c7fde757becfab0ef5380de1",
+        "game-11.json": "6aa396c42ee03e0dea36b44b0baf3a9ae7b64d4dd1cc267cd39542d89dc71263",
+        "decisions-12.jsonl": "3c659acd67d38942b8cb947d64a92ad9df51f2e82d6b0ba84ab212fa5cad6358",
+        "game-12.json": "b017dcadf89482a80d5fc91b6c843843541a5369b76c259308a04637f30a1f0b",
+        "decisions-13.jsonl": "8253ff9cf2ac7bf2f8254346f9034c41e5d2f1dc49ceeb8f3303bc51d475f919",
+        "game-13.json": "cf90edfa0f272ea6cf529f7fcd620ab7fb09ab93fd0a5f9f0bcf9ce262087563",
+        "decisions-14.jsonl": "9fa88aafca3a5dd24c96fb692836d399e914752a804d03110a591e92a2fe6c45",
+        "game-14.json": "1bef095d0207d821c1b061880a2d66611fa7e88fcc2d9ee53ee508e05f55c7a6",
+        "decisions-15.jsonl": "83259ca85c6598b2d964049fc17dc666be3bb7eb1f3d009721e76102a187f531",
+        "game-15.json": "fb39ceb012adcc07498cd3b28c8e70942f7fa8c196473881f572851068873206",
+        "decisions-16.jsonl": "b2fc7c4dc376940eb2d4dd696ca256e1d3083dba907ffb676534e68685bdae23",
+        "game-16.json": "52c25f668f457c280e06bb6af9724e53f65f8848057595ad2e0ba762e7d5ac38",
+        "decisions-17.jsonl": "fecdb519450060257e24079e140281da27f2ca5ce59d8caa3a06e8a46034eca6",
+        "game-17.json": "27f3739bb0a7a9922564b0c7a6f66e163e087db723e489c204b9f297fd73420c",
+        "decisions-18.jsonl": "771bfc931dd00dd48b2b18c1a7076f02a9d9caaf267750aa699a8e326e019329",
+        "game-18.json": "54a0a940537b8516fbbf4a2eb107ffcf62a7556431132c3081c54b0c43179d76",
+        "decisions-19.jsonl": "bf550cfe45dd36b52d96a09e7ba0b30c5a78e0058ebcc9d598efc9d3143e4b0a",
+        "game-19.json": "a3ccfc8404af83d82cd6fd7df0a332db2090ce47e37fbff36d1d47d4159f85c8",
+        "decisions-20.jsonl": "98a371cda89569281893981a0f940229976bc320bc64e11270433d7ef7f0b54b",
+        "game-20.json": "8e5f7a4d3147eb588a02d4e99ecedb15be172c8632afc4bea85c3cc161ed3d2f",
+        "decisions-21.jsonl": "14e95c92ea4bd43f143a5ba745aa65ccc25194d8668f3153e135ae4ae6c74a95",
+        "game-21.json": "b802469ee5aa066cd3de72844237ce2dc93de75f1cf7a160842a53043b368178",
+        "decisions-22.jsonl": "d4f915a73fedfbd024836d7ca367c062609c94906034dc572b328cd1848a6a65",
+        "game-22.json": "c5bef56d4a3b6a2cd2b6089dc320a3dfd22b7dab6c844a283c3c127917a09717",
+        "decisions-23.jsonl": "dac2ec05622911f3b4b0d5d46903b73acaa1fd341425d82f3a30cd4a0d3edce9",
+        "game-23.json": "9e9e22c96c1fbe0e9d97a952deadb004f107bd769cdd15038d9936d361b8a175",
+        "decisions-24.jsonl": "943fd6a69a9db996990b27e35391c529c265339b97507a19be10e4988c5c1bc5",
+        "game-24.json": "97cf3ff0ed7f860cc220263491ddf1ea259d030bb79629c185e604fceaab0938",
+        "decisions-25.jsonl": "c50a3b57e290d7c5ed2dc4a112b1f1cee378c87a46af00d25bc7ff9d6ba90414",
+        "game-25.json": "4f8e8d7107918c0c798f6a769bd1b4f2f6b2373f4e7d4de5f6806efd57d6e92e",
+        "decisions-26.jsonl": "9441131549d962f1b183848e8937e4ecee91287a015e1c305a53d69c430256ef",
+        "game-26.json": "9789491f24224d46e44345aa174f8a04abfd034b07026816d13d354b179863b8",
+        "decisions-27.jsonl": "33ff7973cf394821671576d1d3093983c87038205a68e235c5973c7d94b82937",
+        "game-27.json": "1ed7c615c53469d873e29814e38b26bec83af7330d2fd84138b295efaed1e701",
+        "decisions-28.jsonl": "75f91e00bfd0c6fc66ef64fd67b9df44bb8a54dc4c97bc2a39d65d5a94723379",
+        "game-28.json": "6830232c4d9212bb2ae05d50f67ad37d289f5d54423afa169b3a2e4a52c30644",
+        "decisions-29.jsonl": "a54e540191f871f6910404a5f822d73c994c95a0e5e6fef9e6de1aed8afed916",
+        "game-29.json": "bc6224f853d17cbf48c7858e993b339ac395ee9713678371f4b7a6497444462a",
+        "decisions-30.jsonl": "3aadb2077249be4d55a49ba072b476e658774fd94901896a0e4a12d0051a83cb",
+        "game-30.json": "e8667517c9c04cb451b5d7217235c8b1a2f3eb782c64f8f60983a498b3338014",
+        "decisions-31.jsonl": "dc82f61eb68d8984f32bfc45a4660bbde93fbe8bab53757f4ab173e7115b1eed",
+        "game-31.json": "127dc98503e8d0d6add601431d5e466be1e4afb00f5cc2fbc7935cc23c2ed2c2"
+      },
+      "reserved_final_seeds_used": false,
+      "qualification_eligible": false,
+      "execution_binding": {
+        "reserved": false,
+        "shard": {
+          "name": "pg-nom-dev-v1-parent-search-geo-2p",
+          "group": "search_geo/2p",
+          "players": 2,
+          "start": 0,
+          "deals": 4,
+          "seed": "nomination-discount-development-v1-2p",
+          "opponent": "search_geo",
+          "opponent_sha256": null,
+          "games": 32
+        },
+        "run_fingerprint": "38179e71154b9f635855de41fab68fc2395d4a62734b5ff8191291a6e1717601",
+        "candidate_sha256": "c984926a12036777398cd13ef78d791eb6a01a1125aa425dc9a9e0dcd3a9379c",
+        "identity": {
+          "policySha256": "491b478dc77bb811317e9abdd80c636a2449225f910d2bc1a33f547bcafe252f",
+          "runtimeManifestSha256": "d16f282ec72929643df4cae189d0bb1163ce1459a74a7528cf2028200c7a7625",
+          "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+          "featureRevision": "4.3-strategic-correction",
+          "backend": "population-v1",
+          "settings": {
+            "arm": "filter",
+            "max_steps": 2400,
+            "samples": 8,
+            "threads": 1,
+            "workers": 4
+          }
+        },
+        "contract_sha256": "a350e5bc5b108cb93648473f79d853286775328f4b14415913db51181dcf21c7",
+        "runner_sha256": "aecb5804d52adf78e268bdd093b7b7339ca7a2469bcab555470532e09050ccdd",
+        "purpose": "engineering"
+      }
+    },
+    "auditor_sha256": "6c95ca4439bdae58e4627f0fc706f4f91911324b2439cc2bb3a5ea1b563a2ac6",
+    "seconds": 172.3716776203364,
+    "qualified": false,
+    "reserved_final_seeds_used": false
+  },
+  "comparison_sha256": "2450dea220afad9f68ea5805af22d2b1ddfd8b34b772c83d1a7ec56b314f5b54"
+}

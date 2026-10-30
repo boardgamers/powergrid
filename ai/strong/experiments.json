@@ -72194,5 +72194,29 @@
         "candidate_selected": false,
         "qualified": false,
         "reserved_final_seeds_used": false
+    },
+    "nomination_discount_minipc_20261030": {
+        "created_at": "2026-10-30T08:26:22.098774+00:00",
+        "hf_pilots_complete": true,
+        "hf_audited_games": 128,
+        "hf_pilot_report_sha256": "1370b24d3100504ba1351c1292059a090a3be31eee40dc966807d4ae018983d5",
+        "minipc_name": "pg-nom-dev-v1-parent-search-geo-2p",
+        "minipc_games": 32,
+        "minipc_pid": 118285,
+        "status": "pilot_audited_next_three_shards_running",
+        "active_launch_sha256": "6b2e92fd092e0cd4fef751d528f853fda7bac377bbc7038e6a3023e8ea5b2386",
+        "preexecution_failure_games": 0,
+        "scope": "First mini-PC parent shard independently audited; three original two-player/search shards running in a finite queue. No additional HF submissions.",
+        "unsubmitted_shards": 44,
+        "unsubmitted_games": 2944,
+        "qualified": false,
+        "reserved_final_seeds_used": false,
+        "minipc_pilot_seconds": 172.3716776203364,
+        "minipc_pilot_audit_sha256": "eef60936ef419c2a34d22ceff730aad376580af48190cb3750a1498dd9816088",
+        "total_audited_games": 160,
+        "parent_comparison_sha256": "2450dea220afad9f68ea5805af22d2b1ddfd8b34b772c83d1a7ec56b314f5b54",
+        "next_batch_launch_sha256": "752fac7e1fd70df161771e1f92c0c20d33e0234c386f16f7155ef8de265c79c8",
+        "next_batch_games": 96,
+        "next_batch_pid": 126379
     }
 }

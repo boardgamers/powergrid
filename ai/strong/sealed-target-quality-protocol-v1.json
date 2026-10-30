@@ -1,0 +1,81 @@
+{
+  "created_at": "2026-10-30T23:22:07.396421+00:00",
+  "purpose": "Assess sealed-bid target reliability with disjoint action-selection/evaluation worlds under neural population and exact search opponents. No gradients or strength qualification.",
+  "selection": "Reuse all ten outcome-independently selected training roots from the runtime pilot, unchanged options. Do not select roots/actions using four-world pilot outcomes.",
+  "source_roots_sha256": "09e138bd61c8e52092f77c1c63cf47df32e78b58375960ab8d04915afd813902",
+  "runtime_manifest_sha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+  "source_descriptor_sha256": "a4384b10eb8a4381423731bc0c315673f9214d91c1fb336aa81ef4a7102d1c5a",
+  "prior_evidence_archive": {
+    "repo": "coyotte508/powergrid-ai-germany-v1",
+    "revision": "19651f6c29e5c1e5449f4e86c06f55f53d2d54f4",
+    "archive_path": "archives/sealed-target-diagnostic-evidence-v1.tgz",
+    "archive_sha256": "b02c42bf2112ddea4ed1bdc2618d7401676343514bb984abab3df1b23db36c12",
+    "manifest_sha256": "b5f5a9a8e61ae6e04cf00394476683ca9ea23fb1e488094bf4f97a8f1bc31cd0",
+    "archived_files": 31,
+    "format": "tar.gz",
+    "remote_archive_verified": true
+  },
+  "pilot_report_sha256": "f7cc88818ab839948de4882e76c0e8965a2a922eab98d39844dc842984b4c95a",
+  "pilot_cost_sha256": "118a274da62be6a5a9227d6f1e373b2ed673d4628751de2ac025e4bda93ff28f",
+  "roots_sha256": "16ffe544b9051466ee3810be0a1b1467013b15df5dd72ea89fa42084305e5c21",
+  "worker_sha256": "87d19b7169ab61d84f2409dd8e114f4e5fee43e65da91b3143b0fa701ba16019",
+  "modes": [
+    "neural_population",
+    "reference_opponent_v1"
+  ],
+  "samples": 60,
+  "begins": [
+    4,
+    32
+  ],
+  "count": 28,
+  "excluded_pilot_samples": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "sample_semantics": "The frozen sampler seeds each world by public_seed(root) plus sample index, independently of samples. Same numbered worlds paired across actions/populations; halves contain disjoint seed indices, each balanced over four population modes.",
+  "selection_rule": "Choose max mean terminal credit only if its advantage over parent exceeds 1/40; favour parent on ties, otherwise smallest legal index. Fixed before new outcomes.",
+  "analysis": "Both cross-fit directions: choose on 4..31, evaluate 32..59; choose on 32..59, evaluate 4..31. Select under neural_population, reference_opponent_v1 and their equal-weight mixture; report each on both held-out populations. Average directions within root, equal weight roots. Report all roots, overrides, sign disagreements and selection optimism. Do not tune threshold on evaluation halves.",
+  "limitations": "Only ten training roots, one per count/rules stratum. Cross-fit directions share roots and are not independent observations. Conditional terminal credit is not a game win-rate gain. Opponent identity is a diagnostic intervention, not a policy feature. No model selected; broader whole-deal-heldout data needed before training/promotion.",
+  "workers_per_lane": 4,
+  "lanes": 2,
+  "lane_roots": [
+    [
+      9,
+      6,
+      0,
+      5,
+      7,
+      2
+    ],
+    [
+      8,
+      4,
+      1,
+      3
+    ]
+  ],
+  "threads": 1,
+  "nice": 10,
+  "max_steps": 2400,
+  "roots": 10,
+  "planned_rollouts": 6160,
+  "estimate_hours": [
+    5,
+    8
+  ],
+  "lane_projected_seconds": [
+    16231.603090400808,
+    16266.251146196388
+  ],
+  "estimate_basis": "Four-world pilot time times 14, LPT partition on runtime only. Two four-worker lanes; extrapolation, not measured concurrent throughput.",
+  "suggested_ping_paris": "2026-10-31T09:00:00+01:00",
+  "hard_timeout_seconds": 43200,
+  "failure": "Stop both lanes on first cap/failure or at twelve hours; preserve all raw/partial output. No automatic retries or follow-on jobs.",
+  "next_gate": "Independent raw audit, then examine repeatability and cross-population transfer on all roots. No four-world pilot labels admitted. Decide a broader target/learning experiment before HF training.",
+  "new_gradients": 0,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

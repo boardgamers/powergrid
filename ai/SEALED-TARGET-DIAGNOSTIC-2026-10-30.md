@@ -50,7 +50,7 @@ Results: `strong/sealed-decision-diagnostic-v1.json` and
 `strong/nomination-target-diagnostic-v1.json`. This evidence motivates examining
 opponent assumptions and learning quality before spending on another large fit.
 
-## Current finite mini-PC pilot
+## Completed mini-PC runtime pilot
 
 Started **30 October at 22:14:37 Paris**, supervisor **PID 704669**, host `minipc`.
 It uses **10 saved training-only bid positions**, one per player count 2–6 and
@@ -72,28 +72,77 @@ target-host preflights independently matched all ten saved legal menus, parent
 choices, shortlists and prior-bid actors. The pinned current-engine runtime and
 Node executable were verified. Existing files and models were not edited.
 
-Estimated **45–120 minutes**, with a **three-hour hard timeout**. Suggested user
-ping: **00:30 Paris, 31 October**. No automatic retries or follow-on jobs. There
-are no new HF jobs or gradient updates in this step.
+The original pilot completed **30 October at 22:53:20 Paris**, taking **38m43s**
+(2,322.97 seconds). PID 704669 is no longer running. All **440 continuations /
+20 components** were downloaded and independently audited, including exact
+terminal tie credits, coverage, shared initial worlds, raw hashes and source pins.
+**Zero outer or nested caps**. Report: `strong/sealed-target-pilot-complete-v1.json`;
+measured costs: `strong/sealed-target-pilot-cost-v1.json`. Neural-population work
+took 19.28 seconds in aggregate; reference-search work took 2,302.00 seconds.
+Four-world values remain runtime/correctness evidence only, not admitted labels.
 
-Remote directory: `/home/coyotte508/powergrid-ai-sealed-target-pilot-v1`.
+The original remote directory is
+`/home/coyotte508/powergrid-ai-sealed-target-pilot-v1`; collected raw originals are
+in `ai/runs/sealed-target-pilot-v1/collected`. Do not relaunch or recollect over
+these files. Earlier estimated completion was 45–120 minutes; it finished sooner.
+
+## Current finite target-reliability assessment — 31 October
+
+Started **31 October at 00:22:56 Paris**, supervisor **PID 961705**, host `minipc`.
+This uses all ten original training roots and fixed candidate actions. The first
+pilot's four sample indices (0–3) are excluded. For each root and each opponent
+population, it runs **28 worlds at indices 4–31** and **28 at 32–59**:
+**6,160 continuations**, two queues of four CPU workers, one inference thread per
+queue, nice 10. Each half is balanced over the four neural-population modes.
+The frozen sampler's world seed depends on the public root and sample index,
+independently of the total sample count. Policies, engine and hidden-data rules
+are unchanged; existing public-money assumptions still apply.
+
+The analysis rule is fixed before these new outcomes: choose the highest mean
+terminal-credit action only when its margin over the parent exceeds **1/40**;
+favour the parent on ties, then the smallest legal index. Select on one half and
+measure on the other, in both directions. Report selectors from the neural
+population, reference search and their equal-weight mixture against **both**
+evaluation populations. Keep every root and adverse result. Do not tune the
+margin or choose a deployable policy using these ten roots. The two directions
+share roots and are not independent observations. These are conditional sampled
+terminal-credit margins, **not full-game win-rate gains**.
+
+The two queues were balanced by measured runtime only, with projected loads of
+4.51 and 4.52 hours before contention/variation. Estimated **5–8 hours** from
+launch; suggested ping **09:00 Paris, 31 October**. Hard stop after **12 hours**
+(12:22:56 Paris), or on the first failure/cap. No automatic retries or follow-on
+jobs. Seven focused audit/selection tests passed; local and mini-PC preflights
+independently matched all ten legal menus, parent choices, candidate sets and
+prior-bid actors, verifying the complete frozen runtime and Node executable.
+Preflights ran no simulated games.
+
+Protocol: `strong/sealed-target-quality-protocol-v1.json`.
+Original launch: `strong/sealed-target-quality-launch-v1.json`.
+Remote directory: `/home/coyotte508/powergrid-ai-sealed-target-quality-v1`.
 Runtime: `/home/coyotte508/powergrid-ai-current-full-serving-8840u-v1/artifact`.
-Protocol: `strong/sealed-target-pilot-protocol-v1.json`.
-Original launch: `strong/sealed-target-pilot-launch-v1.json`.
-
-From the repository, observe with:
+From the repository:
 
 ```sh
-PYTHONPATH=ai/strong ai/.venv/bin/python -u -B ai/strong/manage_sealed_target_pilot_v1.py status
+PYTHONPATH=ai/strong ai/.venv/bin/python -u -B ai/strong/manage_sealed_target_quality_v1.py status
 ```
 
-When terminal, use the same command with `collect`. It downloads original raw
-outputs and independently recomputes terminal credits, candidate/world coverage,
-shared-world hashes and cap checks. On failure, retain partial evidence and
-inspect the original logs; do not blindly relaunch or replace failed cases.
+Once terminal, use `collect` instead of `status`. It downloads the original raw
+outputs, independently recomputes credits and paired worlds, checks all 40
+components and produces `strong/sealed-target-quality-complete-v1.json`. If the
+run fails, preserve partial outputs and inspect the original logs; do not blindly
+relaunch, retry collection over existing files, or replace failed roots. Remote
+`lane-0.log`, `lane-1.log`, `execution.json`, and `state.json` record progress and
+termination. Do not rerun `prepare` or `launch` for the existing run.
 
-After successful collection, use the measured costs to predeclare a larger
-assessment with separate action-selection and evaluation worlds before any new
-bid-head training on HF. Keep both opponent populations and adverse results;
-do not choose a policy from these four-world pilot scores. No candidate qualified,
-no final seeds used, no game deployment.
+Completed pilot evidence and this run's recovery package are privately archived;
+immutable revision, SHA and download verification are recorded in
+`strong/sealed-target-quality-start-evidence-v1.json`. The prior diagnostic/source
+references remain in `strong/sealed-target-diagnostic-evidence-v1.json`.
+
+Next: audit this finite assessment and examine repeatability and transfer across
+opponent assumptions, with explicit uncertainty from ten roots. Then define a
+broader learning experiment if warranted. Any gradient training belongs on HF.
+The nomination-only candidate iteration remains closed; its 35 deferred shards
+stay unsubmitted. No new HF jobs, gradients, objective, automation, final-seed
+use, candidate qualification or deployment in this step.

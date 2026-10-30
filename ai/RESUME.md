@@ -1,5 +1,34 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**31 October, 00:23 Paris — pilot audited; larger sealed-bid target assessment running.**
+
+The original mini-PC pilot finished at **22:53:20 Paris, 30 October**, in
+**38m43s**. All **440 continuations / 20 components** independently audited,
+zero outer/nested caps; original PID 704669 stopped. Runtime cost is concentrated
+in exact search opponents (2,302 seconds versus 19 seconds for neural population).
+Reports: `strong/sealed-target-pilot-complete-v1.json` and
+`strong/sealed-target-pilot-cost-v1.json`. No four-world labels admitted.
+
+Next finite run started **00:22:56 Paris**, mini-PC supervisor **PID 961705**:
+**6,160 continuations**, same ten training-only sealed-bid roots, both editions,
+all counts 2–6, both opponent populations. Exclude pilot indices 0–3; select
+on 28 fresh worlds and evaluate on a separate 28, both cross-fit directions.
+Fixed rule/analysis before new outcomes; no model or threshold tuning. Two queues
+of four workers, one inference thread each, nice 10, **12-hour hard timeout**.
+Estimate **5–8 hours**; user ping **09:00 Paris, 31 October**. No automatic retries,
+objective, automation, HF jobs or gradient updates. Parent and final seeds frozen.
+
+Read `SEALED-TARGET-DIAGNOSTIC-2026-10-30.md` and the exact protocol/launch in
+`strong/sealed-target-quality-{protocol,launch}-v1.json`.
+Use `PYTHONPATH=ai/strong ai/.venv/bin/python -u -B
+ai/strong/manage_sealed_target_quality_v1.py status`, then `collect` once terminal.
+Do not relaunch originals or overwrite a prior collection. Preserve failures.
+Recovery/archive descriptor: `strong/sealed-target-quality-start-evidence-v1.json`.
+Next: audit originals and assess target repeatability/opponent transfer; ten roots
+cannot qualify a policy or establish a full-game strength gain. Nomination-only
+iteration stays closed and deferred game shards unsubmitted. Earlier notices
+below describe historical runs, not additional active jobs.
+
 **30 October, 22:15 Paris — sealed-bid target pilot running on mini-PC.**
 
 The user authorized continued research. Existing-data diagnostics are complete:

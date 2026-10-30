@@ -72427,5 +72427,41 @@
         "new_gradients": 0,
         "qualified": false,
         "reserved_final_seeds_used": false
+    },
+    "sealed_target_quality_assessment_20261031": {
+        "created_at": "2026-10-30T23:24:05.004245+00:00",
+        "pilot_audited_rollouts": 440,
+        "pilot_caps": 0,
+        "pilot_seconds": 2322.965926454868,
+        "pilot_report_sha256": "f7cc88818ab839948de4882e76c0e8965a2a922eab98d39844dc842984b4c95a",
+        "pilot_cost_sha256": "118a274da62be6a5a9227d6f1e373b2ed673d4628751de2ac025e4bda93ff28f",
+        "decision": "Run a disjoint-world sealed-bidding target assessment on all ten unchanged pilot training roots; use only runtime for scheduling. No deployment or new nomination fit.",
+        "protocol_sha256": "0b859c665a24db079a33d9910125bf97b60c46f3917be45becd62874cb8adbc7",
+        "launch": {
+            "created_at": "2026-10-30T23:22:56.394045+00:00",
+            "remote": "/home/coyotte508/powergrid-ai-sealed-target-quality-v1",
+            "runtime": "/home/coyotte508/powergrid-ai-current-full-serving-8840u-v1/artifact",
+            "protocol_sha256": "0b859c665a24db079a33d9910125bf97b60c46f3917be45becd62874cb8adbc7",
+            "planned_rollouts": 6160,
+            "automatic_retries": false,
+            "manager_sha256": "346aec6c4158641de17022ff5dc7a1f63d0e75bd3d4a5585ba6a5d68e0b9c869",
+            "transport_helper_sha256": "e9c335b9bd40500fca50b093bd9fac8fb0f65b46906044ee86dbb93cb47b4790",
+            "pid": 961705,
+            "started_at": "2026-10-30T23:22:56.712551+00:00",
+            "host": "minipc",
+            "expected_hours": [
+                5,
+                8
+            ],
+            "hard_timeout_seconds": 43200,
+            "lanes": 2,
+            "workers_per_lane": 4,
+            "suggested_ping_paris": "2026-10-31T09:00:00+01:00",
+            "scope": "Ten-root target reliability assessment, not gameplay qualification or gradient training."
+        },
+        "new_hf_jobs": 0,
+        "new_gradients": 0,
+        "qualified": false,
+        "reserved_final_seeds_used": false
     }
 }

@@ -1,0 +1,18 @@
+{
+  "created_at": "2026-10-30T21:14:37.221003+00:00",
+  "remote": "/home/coyotte508/powergrid-ai-sealed-target-pilot-v1",
+  "runtime": "/home/coyotte508/powergrid-ai-current-full-serving-8840u-v1/artifact",
+  "protocol_sha256": "f56b364c810799f37e7da0185ec9877e27beb2b0953403797a97f1539cd8246b",
+  "planned_rollouts": 440,
+  "automatic_retries": false,
+  "manager_sha256": "e9c335b9bd40500fca50b093bd9fac8fb0f65b46906044ee86dbb93cb47b4790",
+  "pid": 704669,
+  "started_at": "2026-10-30T21:14:37.516469+00:00",
+  "host": "minipc",
+  "expected_minutes": [
+    45,
+    120
+  ],
+  "hard_timeout_seconds": 10800,
+  "scope": "Runtime/correctness pilot only; no training or action-quality conclusion."
+}

@@ -1,5 +1,29 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**30 October, 22:15 Paris — sealed-bid target pilot running on mini-PC.**
+
+The user authorized continued research. Existing-data diagnostics are complete:
+all 96 sealed parent games / 1,468 bid decisions checked, including second-price
+resolution and actual expenditure; no blanket overbidding explanation found.
+Nomination targets retain cross-half signal, but model ranking/transfer remains
+weak and relaxing its override rule is not a consistent fix. No weights changed.
+Read `SEALED-TARGET-DIAGNOSTIC-2026-10-30.md` for findings and exact recovery steps.
+
+One finite mini-PC pilot: **PID 704669**, started **22:14:37 Paris**, **440
+continuations / ten training-only sealed-bid roots**, all counts 2–6 and both
+editions, paired existing-population and reference-search opponents. Four workers,
+four worlds, three-hour hard timeout; correctness/cost evidence only, not labels
+or strength evidence. No HF jobs, gradients, automatic objective or retries.
+Estimated **45–120 minutes**; user ping **00:30 Paris, 31 October**.
+
+Use `PYTHONPATH=ai/strong ai/.venv/bin/python -u -B
+ai/strong/manage_sealed_target_pilot_v1.py status`, then `collect` once terminal.
+Original handle and pins: `strong/sealed-target-pilot-launch-v1.json` and
+`strong/sealed-target-pilot-protocol-v1.json`. Preserve failures/partial output;
+do not rerun `prepare` or `launch`. Next: audit originals and budget a larger
+disjoint-world bidding-target assessment before any HF training. Keep the old
+nomination iteration closed and deferred evaluation shards unsubmitted.
+
 **30 October, 18:22 Paris — all assigned games audited; close the nomination-only iteration.**
 
 All four latest six-player jobs completed, taking **98.0–100.2 minutes** each.

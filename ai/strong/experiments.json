@@ -72393,5 +72393,39 @@
         "new_jobs_this_check": 0,
         "qualified": false,
         "reserved_final_seeds_used": false
+    },
+    "sealed_target_diagnostic_and_pilot_20261030": {
+        "created_at": "2026-10-30T21:16:10.711158+00:00",
+        "decision": "Diagnose sealed bidding and target reliability; no nomination-only retuning or expanded game screen.",
+        "saved_sealed_games": 96,
+        "saved_sealed_decisions": 1468,
+        "saved_target_positions": 5770,
+        "sealed_diagnostic_sha256": "4655957c63d82dde3722f67327d489a99561595ad6889b9f8c3bac4ab835f94a",
+        "target_diagnostic_sha256": "cfeb28e7876cab3c8dc47f6fed9b6d852df7daf8aada0fb253db62a2673bbd95",
+        "pilot_protocol_sha256": "f56b364c810799f37e7da0185ec9877e27beb2b0953403797a97f1539cd8246b",
+        "pilot_launch": {
+            "created_at": "2026-10-30T21:14:37.221003+00:00",
+            "remote": "/home/coyotte508/powergrid-ai-sealed-target-pilot-v1",
+            "runtime": "/home/coyotte508/powergrid-ai-current-full-serving-8840u-v1/artifact",
+            "protocol_sha256": "f56b364c810799f37e7da0185ec9877e27beb2b0953403797a97f1539cd8246b",
+            "planned_rollouts": 440,
+            "automatic_retries": false,
+            "manager_sha256": "e9c335b9bd40500fca50b093bd9fac8fb0f65b46906044ee86dbb93cb47b4790",
+            "pid": 704669,
+            "started_at": "2026-10-30T21:14:37.516469+00:00",
+            "host": "minipc",
+            "expected_minutes": [
+                45,
+                120
+            ],
+            "hard_timeout_seconds": 10800,
+            "scope": "Runtime/correctness pilot only; no training or action-quality conclusion."
+        },
+        "suggested_ping_paris": "2026-10-31T00:30:00+01:00",
+        "pilot_only": true,
+        "new_hf_jobs": 0,
+        "new_gradients": 0,
+        "qualified": false,
+        "reserved_final_seeds_used": false
     }
 }

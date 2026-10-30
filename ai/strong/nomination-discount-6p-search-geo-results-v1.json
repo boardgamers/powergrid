@@ -1,0 +1,5151 @@
+{
+  "created_at": "2026-10-30T17:21:04.125182+00:00",
+  "complete": true,
+  "players": 6,
+  "opponent": "search_geo",
+  "games": 480,
+  "protocol_sha256": "2f7fe04791c0cb6ac0bb0f8712b73dde3714cf96693c9cd3a1f68fe8bd785251",
+  "analysis_sha256": "50bc16511b5fcbe691838a67c5826f7d43b7f6bd9be7da265c1bc65a252a05bd",
+  "proofs": {
+    "parent": {
+      "audit_path": "ai/runs/nomination-discount-development-collected-v1/pg-nom-dev-v1-parent-search-geo-6p/audit.json",
+      "audit_sha256": "f55222548256142facc3976abc65acf035e03c16044361ef1fc48b7b6e605ca5",
+      "raw_manifest_sha256": "8abf52aaf77279a0011fb78a4eb47584a4770ecb6a33815e127e0ebde9d39d0c",
+      "original_raw_archive": {
+        "storage": "hf_bucket",
+        "bucket": "coyotte508/powergrid-ai-checkpoints",
+        "path": "confirmation-v3/pg-nom-dev-v1-parent-search-geo-6p/858f16f3b83cf7d41bd36c4f3fb872b1bdd4aca81551c302212fa1913cc7f18b.tgz",
+        "archive_sha256": "858f16f3b83cf7d41bd36c4f3fb872b1bdd4aca81551c302212fa1913cc7f18b",
+        "manifest_sha256": "8abf52aaf77279a0011fb78a4eb47584a4770ecb6a33815e127e0ebde9d39d0c",
+        "bytes": 74735171,
+        "server_versioning": false,
+        "max_application_upload_calls": 3,
+        "xet_hash": "05789694e5046b61d5093cd016b5ae55faac6d19c7270c282e592ef531895559",
+        "download_verified": true,
+        "application_upload_calls": 1,
+        "reconciled_upload_error_or_interruption": false,
+        "raw_audited": false,
+        "qualified": false
+      },
+      "worker_seconds": 6007.522556538694
+    },
+    "d0-all0": {
+      "audit_path": "ai/runs/nomination-discount-development-collected-v1/pg-nom-dev-v1-d0-all0-search-geo-6p/audit.json",
+      "audit_sha256": "404dd302509e698a942f1ac47eeac0f913e2014c524e04e081eb6046022faf1e",
+      "raw_manifest_sha256": "3e7b7e0d5f72a6100e0f02c4c3912972556f0d291d99757291399e2317b0c503",
+      "original_raw_archive": {
+        "storage": "hf_bucket",
+        "bucket": "coyotte508/powergrid-ai-checkpoints",
+        "path": "confirmation-v3/pg-nom-dev-v1-d0-all0-search-geo-6p/d796a20017aa8e14c8f3f23069241e2c6335428e90079fba2e662c1ccc9f99a9.tgz",
+        "archive_sha256": "d796a20017aa8e14c8f3f23069241e2c6335428e90079fba2e662c1ccc9f99a9",
+        "manifest_sha256": "3e7b7e0d5f72a6100e0f02c4c3912972556f0d291d99757291399e2317b0c503",
+        "bytes": 73268471,
+        "server_versioning": false,
+        "max_application_upload_calls": 3,
+        "xet_hash": "32b1ec8e7ce580aeec7e77ddfb30904751a8b653bc4a4bbca8a38d01ecc95bc5",
+        "download_verified": true,
+        "application_upload_calls": 1,
+        "reconciled_upload_error_or_interruption": false,
+        "raw_audited": false,
+        "qualified": false
+      },
+      "worker_seconds": 5969.666559946723
+    },
+    "d0-all1": {
+      "audit_path": "ai/runs/nomination-discount-development-collected-v1/pg-nom-dev-v1-d0-all1-search-geo-6p/audit.json",
+      "audit_sha256": "caf8eb0fa5cba1aa0c547abe4e4f4ba034112c5db2ea93b9816db81e441a9090",
+      "raw_manifest_sha256": "d2b3ed853ddc1efc464992688bb6e8c21e2fc2dca2e0aabece18a85317292149",
+      "original_raw_archive": {
+        "storage": "hf_bucket",
+        "bucket": "coyotte508/powergrid-ai-checkpoints",
+        "path": "confirmation-v3/pg-nom-dev-v1-d0-all1-search-geo-6p/09fae2f7207cc4f00b4bfad3489cf49c2ca7983e7230a77914b9d3c56b5a7873.tgz",
+        "archive_sha256": "09fae2f7207cc4f00b4bfad3489cf49c2ca7983e7230a77914b9d3c56b5a7873",
+        "manifest_sha256": "d2b3ed853ddc1efc464992688bb6e8c21e2fc2dca2e0aabece18a85317292149",
+        "bytes": 73185550,
+        "server_versioning": false,
+        "max_application_upload_calls": 3,
+        "xet_hash": "22ed562556bc849e2883b71f2ac4457f2170e8271885651f4aa2024e3fc22372",
+        "download_verified": true,
+        "application_upload_calls": 1,
+        "reconciled_upload_error_or_interruption": false,
+        "raw_audited": false,
+        "qualified": false
+      },
+      "worker_seconds": 5878.167363165878
+    },
+    "d1-all0": {
+      "audit_path": "ai/runs/nomination-discount-development-collected-v1/pg-nom-dev-v1-d1-all0-search-geo-6p/audit.json",
+      "audit_sha256": "a7f368bf2bbe4cec73089bff91633bb11ed1a1093873684c5a3766045d5e9c9d",
+      "raw_manifest_sha256": "cc5166a5a0fa96e7399f940de878affcfe0c19543a7d92b5c49ac74f4c5955bf",
+      "original_raw_archive": {
+        "storage": "hf_bucket",
+        "bucket": "coyotte508/powergrid-ai-checkpoints",
+        "path": "confirmation-v3/pg-nom-dev-v1-d1-all0-search-geo-6p/3e79930d7789b20534ac752b877d7ff0a4745ef69d6d352537fe571e0c1718a9.tgz",
+        "archive_sha256": "3e79930d7789b20534ac752b877d7ff0a4745ef69d6d352537fe571e0c1718a9",
+        "manifest_sha256": "cc5166a5a0fa96e7399f940de878affcfe0c19543a7d92b5c49ac74f4c5955bf",
+        "bytes": 73308202,
+        "server_versioning": false,
+        "max_application_upload_calls": 3,
+        "xet_hash": "6e4f4a6b6c3c06160cb88f416423b3527a66a6485423a35c8865318fb75d404b",
+        "download_verified": true,
+        "application_upload_calls": 1,
+        "reconciled_upload_error_or_interruption": false,
+        "raw_audited": false,
+        "qualified": false
+      },
+      "worker_seconds": 6011.066669085063
+    },
+    "d1-all1": {
+      "audit_path": "ai/runs/nomination-discount-development-collected-v1/pg-nom-dev-v1-d1-all1-search-geo-6p/audit.json",
+      "audit_sha256": "de8b00693194d6f2132a60140c9a648f3edc49f3baf0e4e07a832f9c3efe6b8d",
+      "raw_manifest_sha256": "c3a39e3faac9e3dd52be7ac7ce71aaef6323439135ed63bcb56343c000928e69",
+      "original_raw_archive": {
+        "storage": "hf_bucket",
+        "bucket": "coyotte508/powergrid-ai-checkpoints",
+        "path": "confirmation-v3/pg-nom-dev-v1-d1-all1-search-geo-6p/88270a6bd58d0714a36b587c56601f8587bfc7d7805d159a91dd272642a43db1.tgz",
+        "archive_sha256": "88270a6bd58d0714a36b587c56601f8587bfc7d7805d159a91dd272642a43db1",
+        "manifest_sha256": "c3a39e3faac9e3dd52be7ac7ce71aaef6323439135ed63bcb56343c000928e69",
+        "bytes": 72677388,
+        "server_versioning": false,
+        "max_application_upload_calls": 3,
+        "xet_hash": "54dfd258f91f3431fa28c7e47a62ae28579d8772a689bdf976f057e7e3e859e3",
+        "download_verified": true,
+        "application_upload_calls": 1,
+        "reconciled_upload_error_or_interruption": false,
+        "raw_audited": false,
+        "qualified": false
+      },
+      "worker_seconds": 11097.725646420993
+    }
+  },
+  "arms": {
+    "parent": {
+      "games": 96,
+      "independent_deals": 4,
+      "win_credit": 51,
+      "win_rate": 0.53125,
+      "paired_win_rate_difference": 0.0,
+      "gained_games": 0,
+      "lost_games": 0,
+      "unchanged_credit_games": 96,
+      "different_final_state_games": 0,
+      "deal_mean_differences": {
+        "nomination-discount-development-v1-6p-0": 0.0,
+        "nomination-discount-development-v1-6p-1": 0.0,
+        "nomination-discount-development-v1-6p-2": 0.0,
+        "nomination-discount-development-v1-6p-3": 0.0
+      },
+      "rule_cells": {
+        "original/open": {
+          "games": 24,
+          "win_credit": 14,
+          "parent_win_credit": 14,
+          "paired_difference": 0.0
+        },
+        "original/sealed": {
+          "games": 24,
+          "win_credit": 10,
+          "parent_win_credit": 10,
+          "paired_difference": 0.0
+        },
+        "recharged/open": {
+          "games": 24,
+          "win_credit": 16,
+          "parent_win_credit": 16,
+          "paired_difference": 0.0
+        },
+        "recharged/sealed": {
+          "games": 24,
+          "win_credit": 11,
+          "parent_win_credit": 11,
+          "paired_difference": 0.0
+        }
+      },
+      "pairs": [
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        }
+      ]
+    },
+    "d0-all0": {
+      "games": 96,
+      "independent_deals": 4,
+      "win_credit": 51,
+      "win_rate": 0.53125,
+      "paired_win_rate_difference": 0.0,
+      "gained_games": 9,
+      "lost_games": 9,
+      "unchanged_credit_games": 78,
+      "different_final_state_games": 43,
+      "deal_mean_differences": {
+        "nomination-discount-development-v1-6p-0": 0.08333333333333333,
+        "nomination-discount-development-v1-6p-1": -0.08333333333333333,
+        "nomination-discount-development-v1-6p-2": 0.041666666666666664,
+        "nomination-discount-development-v1-6p-3": -0.041666666666666664
+      },
+      "rule_cells": {
+        "original/open": {
+          "games": 24,
+          "win_credit": 14,
+          "parent_win_credit": 14,
+          "paired_difference": 0.0
+        },
+        "original/sealed": {
+          "games": 24,
+          "win_credit": 10,
+          "parent_win_credit": 10,
+          "paired_difference": 0.0
+        },
+        "recharged/open": {
+          "games": 24,
+          "win_credit": 18,
+          "parent_win_credit": 16,
+          "paired_difference": 0.08333333333333333
+        },
+        "recharged/sealed": {
+          "games": 24,
+          "win_credit": 9,
+          "parent_win_credit": 11,
+          "paired_difference": -0.08333333333333333
+        }
+      },
+      "pairs": [
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        }
+      ]
+    },
+    "d0-all1": {
+      "games": 96,
+      "independent_deals": 4,
+      "win_credit": 53,
+      "win_rate": 0.5520833333333334,
+      "paired_win_rate_difference": 0.020833333333333332,
+      "gained_games": 15,
+      "lost_games": 13,
+      "unchanged_credit_games": 68,
+      "different_final_state_games": 61,
+      "deal_mean_differences": {
+        "nomination-discount-development-v1-6p-0": 0.041666666666666664,
+        "nomination-discount-development-v1-6p-1": -0.041666666666666664,
+        "nomination-discount-development-v1-6p-2": 0.16666666666666666,
+        "nomination-discount-development-v1-6p-3": -0.08333333333333333
+      },
+      "rule_cells": {
+        "original/open": {
+          "games": 24,
+          "win_credit": 16,
+          "parent_win_credit": 14,
+          "paired_difference": 0.08333333333333333
+        },
+        "original/sealed": {
+          "games": 24,
+          "win_credit": 11,
+          "parent_win_credit": 10,
+          "paired_difference": 0.041666666666666664
+        },
+        "recharged/open": {
+          "games": 24,
+          "win_credit": 17,
+          "parent_win_credit": 16,
+          "paired_difference": 0.041666666666666664
+        },
+        "recharged/sealed": {
+          "games": 24,
+          "win_credit": 9,
+          "parent_win_credit": 11,
+          "paired_difference": -0.08333333333333333
+        }
+      },
+      "pairs": [
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        }
+      ]
+    },
+    "d1-all0": {
+      "games": 96,
+      "independent_deals": 4,
+      "win_credit": 48.5,
+      "win_rate": 0.5052083333333334,
+      "paired_win_rate_difference": -0.026041666666666668,
+      "gained_games": 10,
+      "lost_games": 13,
+      "unchanged_credit_games": 73,
+      "different_final_state_games": 67,
+      "deal_mean_differences": {
+        "nomination-discount-development-v1-6p-0": 0.0,
+        "nomination-discount-development-v1-6p-1": 0.0,
+        "nomination-discount-development-v1-6p-2": 0.0625,
+        "nomination-discount-development-v1-6p-3": -0.16666666666666666
+      },
+      "rule_cells": {
+        "original/open": {
+          "games": 24,
+          "win_credit": 13,
+          "parent_win_credit": 14,
+          "paired_difference": -0.041666666666666664
+        },
+        "original/sealed": {
+          "games": 24,
+          "win_credit": 11.5,
+          "parent_win_credit": 10,
+          "paired_difference": 0.0625
+        },
+        "recharged/open": {
+          "games": 24,
+          "win_credit": 16,
+          "parent_win_credit": 16,
+          "paired_difference": 0.0
+        },
+        "recharged/sealed": {
+          "games": 24,
+          "win_credit": 8,
+          "parent_win_credit": 11,
+          "paired_difference": -0.125
+        }
+      },
+      "pairs": [
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0.5,
+          "parent_credit": 1,
+          "difference": -0.5,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        }
+      ]
+    },
+    "d1-all1": {
+      "games": 96,
+      "independent_deals": 4,
+      "win_credit": 51,
+      "win_rate": 0.53125,
+      "paired_win_rate_difference": 0.0,
+      "gained_games": 6,
+      "lost_games": 6,
+      "unchanged_credit_games": 84,
+      "different_final_state_games": 35,
+      "deal_mean_differences": {
+        "nomination-discount-development-v1-6p-0": 0.125,
+        "nomination-discount-development-v1-6p-1": -0.08333333333333333,
+        "nomination-discount-development-v1-6p-2": 0.041666666666666664,
+        "nomination-discount-development-v1-6p-3": -0.08333333333333333
+      },
+      "rule_cells": {
+        "original/open": {
+          "games": 24,
+          "win_credit": 15,
+          "parent_win_credit": 14,
+          "paired_difference": 0.041666666666666664
+        },
+        "original/sealed": {
+          "games": 24,
+          "win_credit": 9,
+          "parent_win_credit": 10,
+          "paired_difference": -0.041666666666666664
+        },
+        "recharged/open": {
+          "games": 24,
+          "win_credit": 17,
+          "parent_win_credit": 16,
+          "paired_difference": 0.041666666666666664
+        },
+        "recharged/sealed": {
+          "games": 24,
+          "win_credit": 10,
+          "parent_win_credit": 11,
+          "paired_difference": -0.041666666666666664
+        }
+      },
+      "pairs": [
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 2,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 3,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 4,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 5,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 2,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 3,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1,
+          "different_final_state": true
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 4,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0,
+          "different_final_state": false
+        },
+        {
+          "seed": "nomination-discount-development-v1-6p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 5,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0,
+          "different_final_state": false
+        }
+      ]
+    }
+  },
+  "scope": "Four independent deals with all seats/rules; descriptive development screen. No selection or qualification.",
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

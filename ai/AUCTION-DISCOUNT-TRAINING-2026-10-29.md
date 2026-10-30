@@ -5,6 +5,48 @@ research and training in this chat. Do not recreate an objective. The separate
 confirmation finisher stopped on a missing HF log receipt; its frozen policies,
 deals and selection criteria are unchanged. No game deployment is part of this work.
 
+## 30 October, 18:22 Paris — six-player check complete; end this candidate iteration
+
+All four latest original jobs completed in **98.0–100.2 minutes**. Their 384 games
+passed independent raw auditing, with zero game or rollout caps. Reusing the
+previously audited d1-all1 pilot gives **480 six-player games**, and **960 audited
+games overall**. Every assigned job is terminal; no new jobs were launched.
+
+| Arm | Two-player credit / 32 | Four-player credit / 64 | Six-player credit / 96 | Six-player Recharged sealed / 24 |
+| --- | ---: | ---: | ---: | ---: |
+| Parent | 19 | 32.5 | 51 | 11 |
+| d0-all0 | 18 | 30 | 51 | 9 |
+| d0-all1 | 19 | 31 | 53 | 9 |
+| d1-all0 | 20 | 31 | 48.5 | 8 |
+| d1-all1 | 19 | 32.5 | 51 | 10 |
+
+The six-player maximum, d0-all1, is **55.21% vs parent 53.13%**: 15 improved
+outcomes and 13 worsened, net +2 wins. It improves on two deal seeds and worsens
+on two, and its four-player result was below parent. No candidate consistently
+improves across counts. Every candidate is below parent in Recharged sealed at
+four and six players. The policy changes do affect games (35–67 changed final
+states out of 96 at six players), but there is no convincing net strength gain.
+
+These are descriptive development results against search_geo on Germany with
+public money, four independent deal seeds per count reused across all seats and
+rules. They neither establish a statistically reliable regression nor confirm
+the best observed arm as stronger. Prior win rates from different experiments
+are not directly comparable. Reserved final seeds remain unused.
+
+**Stop this nomination-only candidate iteration; keep the parent.** The remaining
+**35 shards / 2,240 games** stay deferred. More epochs on the same targets are not
+justified. The next investigation should examine sealed-bid decisions and the
+reliability of simulated training targets, including their opponent population,
+using existing traces first. These are proposed diagnoses, not established
+causes. The broader AI research has not been abandoned, but no new training or
+evaluation was launched during this check, and no model is selected or qualified.
+
+Evidence: `strong/nomination-discount-6p-search-geo-results-v1.json` and
+`strong/nomination-discount-six-player-complete-v1.json`. The completion report
+binds all five original six-player handles, audit hashes, raw bucket archives,
+measured times, and the earlier two/four-player comparisons. The separately
+stopped confirmation finisher and missing log receipt are unchanged.
+
 ## 30 October, 14:42 Paris — no four-player gain; final count-endpoint cross-check running
 
 All five original four-player jobs completed in **30.6–35.3 minutes** and all

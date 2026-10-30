@@ -1,5 +1,32 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**30 October, 18:22 Paris — all assigned games audited; close the nomination-only iteration.**
+
+All four latest six-player jobs completed, taking **98.0–100.2 minutes** each.
+Their **384 games** passed independent raw audits, zero caps. Together with the
+original 96-game pilot, all **480 six-player games** are verified. Across the
+two/four/six-player screen, **960 assigned / 960 audited / zero pending**.
+Original handles, measured runtimes, immutable raw archives and cross-count
+results: `strong/nomination-discount-six-player-complete-v1.json`.
+Six-player comparison: `strong/nomination-discount-6p-search-geo-results-v1.json`.
+
+Six-player wins: parent **51/96 (53.13%)**, d0-all0 **51**, d0-all1 **53 (55.21%)**,
+d1-all0 **48.5**, d1-all1 **51**. The maximum is only +2 wins, with gains on two
+deal seeds and losses on two; that model was below parent at four players. All
+four candidates score lower than parent in Recharged sealed at both four and
+six players. Four independent deals per count, repeated across seats/rules, do
+not establish a strength gain or regression. No candidate selected/qualified.
+
+**Decision: end this nomination-only candidate iteration.** Keep the parent;
+defer the remaining **35 shards / 2,240 games** and do not add epochs on the same
+targets. Next research should inspect sealed-bid decisions and simulated-target
+reliability/opponent mismatch using existing traces before defining another
+bounded training experiment. These are hypotheses to investigate, not proven
+causes. The user was told this approach looks stalled and no jobs were launched
+during this check. No research objective or automation has been recreated.
+Reserved final seeds unused; no deployment. The separate older confirmation
+receipt/log issue remains unchanged. Earlier timestamped notices below are history.
+
 **30 October, 14:42 Paris — four-player results flat/negative; six-player cross-check submitted.**
 
 All five four-player HF jobs completed in **30.6–35.3 minutes**. Every one of the

@@ -72331,5 +72331,67 @@
         "no_new_training": true,
         "qualified": false,
         "reserved_final_seeds_used": false
+    },
+    "nomination_discount_six_player_audited_20261030": {
+        "created_at": "2026-10-30T17:21:55.251729+00:00",
+        "six_player_audited_games": 480,
+        "newly_audited_games": 384,
+        "total_audited_games": 960,
+        "pending_games": 0,
+        "jobs": [
+            {
+                "name": "pg-nom-dev-v1-parent-search-geo-6p",
+                "job_id": "6ae49e2cc78863f9c62e7ed8",
+                "games": 96,
+                "seconds": 6007.522556538694,
+                "audit_sha256": "f55222548256142facc3976abc65acf035e03c16044361ef1fc48b7b6e605ca5"
+            },
+            {
+                "name": "pg-nom-dev-v1-d0-all0-search-geo-6p",
+                "job_id": "6ae49e2a0e0338d1bb7cb338",
+                "games": 96,
+                "seconds": 5969.666559946723,
+                "audit_sha256": "404dd302509e698a942f1ac47eeac0f913e2014c524e04e081eb6046022faf1e"
+            },
+            {
+                "name": "pg-nom-dev-v1-d0-all1-search-geo-6p",
+                "job_id": "6ae49e2b0e0338d1bb7cb33a",
+                "games": 96,
+                "seconds": 5878.167363165878,
+                "audit_sha256": "caf8eb0fa5cba1aa0c547abe4e4f4ba034112c5db2ea93b9816db81e441a9090"
+            },
+            {
+                "name": "pg-nom-dev-v1-d1-all0-search-geo-6p",
+                "job_id": "6ae49e2b0e0338d1bb7cb33c",
+                "games": 96,
+                "seconds": 6011.066669085063,
+                "audit_sha256": "a7f368bf2bbe4cec73089bff91633bb11ed1a1093873684c5a3766045d5e9c9d"
+            },
+            {
+                "name": "pg-nom-dev-v1-d1-all1-search-geo-6p",
+                "job_id": "6ae3c67d0e0338d1bb7c3df2",
+                "games": 96,
+                "seconds": 11097.725646420993,
+                "audit_sha256": "de8b00693194d6f2132a60140c9a648f3edc49f3baf0e4e07a832f9c3efe6b8d"
+            }
+        ],
+        "comparison_sha256": "bbf28aca5bbc1446b4696c81902314dbe5c9b96b0265ea89e21d0cfc5b99d92f",
+        "complete_report_sha256": "aeb2598f1a1c152b014034d2b58708e7b2d58f51dea340455be13bd76a03e69e",
+        "six_player_win_credit": {
+            "parent": 51,
+            "d0-all0": 51,
+            "d0-all1": 53,
+            "d1-all0": 48.5,
+            "d1-all1": 51
+        },
+        "games_per_arm": 96,
+        "independent_deals": 4,
+        "decision": "End this nomination-only candidate iteration without selecting or qualifying a model. Do not release deferred jobs or spend more epochs on the same targets. The six-player maximum gains only two wins with mixed deal-level signs; all four candidates score lower than parent in Recharged sealed at both four and six players.",
+        "next_research": "Diagnose sealed-bid decisions and simulated-target reliability/opponent mismatch from existing traces before defining a new bounded training experiment. This is a proposed diagnosis, not an established cause.",
+        "deferred_shards": 35,
+        "deferred_games": 2240,
+        "new_jobs_this_check": 0,
+        "qualified": false,
+        "reserved_final_seeds_used": false
     }
 }

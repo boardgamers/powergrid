@@ -1,0 +1,23 @@
+{
+  "created_at": "2026-10-30T13:39:53.559832+00:00",
+  "names": [
+    "pg-nom-dev-v1-parent-search-geo-6p",
+    "pg-nom-dev-v1-d0-all0-search-geo-6p",
+    "pg-nom-dev-v1-d0-all1-search-geo-6p",
+    "pg-nom-dev-v1-d1-all0-search-geo-6p"
+  ],
+  "games": 384,
+  "hardware": "HF cpu-upgrade, four CPU workers/job",
+  "protocol_sha256": "2f7fe04791c0cb6ac0bb0f8712b73dde3714cf96693c9cd3a1f68fe8bd785251",
+  "purpose": "Finish 2/4/6-player search coverage using the already completed d1-all1 six-player pilot. Do not automatically expand all remaining shards after flat/negative 2p and 4p results.",
+  "existing_pilot_job_id": "6ae3c67d0e0338d1bb7c3df2",
+  "estimated_hours_including_setup": [
+    2.5,
+    4
+  ],
+  "estimate_basis": "The identical 96-game six-player d1-all1 protocol shard took 11097.73 seconds (3.08 hours). Runtime can vary with trajectories and queue availability.",
+  "hard_timeout_hours": 5,
+  "automatic_retries": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

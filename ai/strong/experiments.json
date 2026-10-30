@@ -72278,5 +72278,58 @@
         "suggested_ping_paris": "2026-10-30T12:30:00+01:00",
         "qualified": false,
         "reserved_final_seeds_used": false
+    },
+    "nomination_discount_four_player_audited_20261030": {
+        "created_at": "2026-10-30T13:43:41.519959+00:00",
+        "audited_4p_games": 320,
+        "total_audited_games": 576,
+        "four_player_win_credit": {
+            "parent": 32.5,
+            "d0-all0": 30,
+            "d0-all1": 31,
+            "d1-all0": 31,
+            "d1-all1": 32.5
+        },
+        "games_per_arm": 64,
+        "independent_deals": 4,
+        "comparison_sha256": "6e596a52b8b436ed376d588fed28cf07df3864beb4586eaa1365be918fc1c8dd",
+        "complete_report_sha256": "36697e2590ea17d09586c6809e3f411a99cdbdb1f47dc2f839a13811ab8f761c",
+        "decision": "No demonstrated gain at 2p/4p, all candidates lower in 4p Recharged sealed. Nomination-only approach appears stalled. Finish one six-player cross-check before changing training targets.",
+        "six_player_jobs": [
+            {
+                "name": "pg-nom-dev-v1-parent-search-geo-6p",
+                "job_id": "6ae49e2cc78863f9c62e7ed8",
+                "stage": "RUNNING",
+                "games": 96
+            },
+            {
+                "name": "pg-nom-dev-v1-d0-all0-search-geo-6p",
+                "job_id": "6ae49e2a0e0338d1bb7cb338",
+                "stage": "RUNNING",
+                "games": 96
+            },
+            {
+                "name": "pg-nom-dev-v1-d0-all1-search-geo-6p",
+                "job_id": "6ae49e2b0e0338d1bb7cb33a",
+                "stage": "RUNNING",
+                "games": 96
+            },
+            {
+                "name": "pg-nom-dev-v1-d1-all0-search-geo-6p",
+                "job_id": "6ae49e2b0e0338d1bb7cb33c",
+                "stage": "RUNNING",
+                "games": 96
+            }
+        ],
+        "reused_original_pilot": "6ae3c67d0e0338d1bb7c3df2",
+        "six_player_launch_sha256": "b7862c7787a0dfe6e33d5174767beb2f82d45e2abab0d71ff1915cfe9914f66d",
+        "new_hf_games": 384,
+        "total_assigned_games": 960,
+        "deferred_shards": 35,
+        "deferred_games": 2240,
+        "suggested_ping_paris": "2026-10-30T19:00:00+01:00",
+        "no_new_training": true,
+        "qualified": false,
+        "reserved_final_seeds_used": false
     }
 }

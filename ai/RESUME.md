@@ -1,5 +1,38 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**30 October, 14:42 Paris — four-player results flat/negative; six-player cross-check submitted.**
+
+All five four-player HF jobs completed in **30.6–35.3 minutes**. Every one of the
+**320 games** passed independent raw auditing with zero caps. **576 games** are
+now independently audited in this screen. Original handles and immutable raw
+bucket archives: `strong/nomination-discount-four-player-complete-v1.json`.
+Paired comparison: `strong/nomination-discount-4p-search-geo-results-v1.json`.
+
+Four-player win-credit rates: parent **50.78%**, d0-all0 **46.88%**, d0-all1
+**48.44%**, d1-all0 **48.44%**, d1-all1 **50.78%**. In Recharged sealed auctions,
+parent is **4/16**, candidates **2/16, 2/16, 3/16, 3/16** respectively. These are
+small four-deal samples, not precise strength estimates, but none supports a gain.
+The user was explicitly told this nomination-only direction looks stalled.
+More epochs on the same heads are not justified by current gameplay evidence.
+
+Finish the six-player comparison by reusing the already audited d1-all1 pilot
+`6ae3c67d0e0338d1bb7c3df2` and **four new parallel HF cpu-upgrade jobs / 384 games**
+for parent, d0-all0, d0-all1 and d1-all0. Exact handles:
+`strong/nomination-discount-six-player-launch-v1.json`.
+Submitted around **14:40 Paris**. Estimated **2.5–4 hours plus queue delay**;
+the original matching pilot took 3.08 hours. Suggested ping **19:00 Paris today**.
+No new mini-PC jobs, training, policies, automatic objective or deployment.
+
+Use `PYTHONPATH=ai/strong ai/.venv/bin/python -u -B
+ai/strong/collect_nomination_development_v1.py --collect`; after all five 6p arms
+are audited, use `ai/strong/compare_nomination_multiplayer_v1.py --players 6`
+with the same prefix. Preserve originals; no automatic replacement on failure.
+**960 games assigned / 576 audited; 35 shards / 2,240 games deferred.** If six
+players also shows no useful gain, end this candidate iteration and investigate
+sealed-bid decisions and the reliability of simulated training targets before
+further training or releasing the deferred screen. Reserved final seeds unused;
+no candidate selected/qualified. The separate older confirmation log issue remains.
+
 **30 October, 11:09 Paris — mini-PC queue audited; five four-player HF jobs submitted.**
 
 All three original mini-PC shards finished successfully at **09:39:57 Paris**,

@@ -1,0 +1,56 @@
+{
+  "created_at": "2026-10-30T13:42:48.804479+00:00",
+  "plan_sha256": "026493437fb5a1f68a10db744ac7f8cf6d1160bf48f1e0fe2a4d51dfc439041f",
+  "protocol_sha256": "2f7fe04791c0cb6ac0bb0f8712b73dde3714cf96693c9cd3a1f68fe8bd785251",
+  "source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "revision": "b2f0cc2e891f63efd0772376132328520659fef9",
+    "archive": "strong-source-nomination-discount-development-v1.tgz",
+    "sha256": "738b855e02970c0986f947b10cb7011bdc146e92580a4c0f85968361eb4b9261",
+    "manifest_sha256": "b6e419726bce8a3dad4d5dd17e38b8802b0b72cd5ae272ea02cd37c8bcdc2fe4",
+    "protocol_sha256": "2f7fe04791c0cb6ac0bb0f8712b73dde3714cf96693c9cd3a1f68fe8bd785251",
+    "serving_check_sha256": "5d4a1fcc0e1c94dc7c94e190836b96ec0330b763c02e3d234b56ada326a60b52",
+    "remote_archive_verified": true
+  },
+  "jobs": [
+    {
+      "name": "pg-nom-dev-v1-parent-search-geo-6p",
+      "job_id": "6ae49e2cc78863f9c62e7ed8",
+      "stage": "RUNNING",
+      "games": 96
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all0-search-geo-6p",
+      "job_id": "6ae49e2a0e0338d1bb7cb338",
+      "stage": "RUNNING",
+      "games": 96
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all1-search-geo-6p",
+      "job_id": "6ae49e2b0e0338d1bb7cb33a",
+      "stage": "RUNNING",
+      "games": 96
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all0-search-geo-6p",
+      "job_id": "6ae49e2b0e0338d1bb7cb33c",
+      "stage": "RUNNING",
+      "games": 96
+    }
+  ],
+  "existing_pilot_job_id": "6ae3c67d0e0338d1bb7c3df2",
+  "submitted_games": 384,
+  "total_assigned_games": 960,
+  "total_audited_games": 576,
+  "remaining_unsubmitted_shards": 35,
+  "remaining_unsubmitted_games": 2240,
+  "estimated_hours_including_setup": [
+    2.5,
+    4
+  ],
+  "queue_delay_additional": true,
+  "suggested_ping_paris": "2026-10-30T19:00:00+01:00",
+  "next_if_no_gain": "End this nomination-only candidate iteration; inspect sealed-bid decisions and simulated-target reliability before new training or expanding deferred evaluation.",
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

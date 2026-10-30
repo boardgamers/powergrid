@@ -5,6 +5,51 @@ research and training in this chat. Do not recreate an objective. The separate
 confirmation finisher stopped on a missing HF log receipt; its frozen policies,
 deals and selection criteria are unchanged. No game deployment is part of this work.
 
+## 30 October, 14:42 Paris — no four-player gain; final count-endpoint cross-check running
+
+All five original four-player jobs completed in **30.6–35.3 minutes** and all
+**320 games** passed independent raw audits with zero caps. The frozen parent
+remains at least as good as every candidate on this small paired screen:
+
+| Arm | Win credit / 64 | Rate | Recharged sealed / 16 |
+| --- | ---: | ---: | ---: |
+| Parent | 32.5 | 50.78% | 4 |
+| d0-all0 | 30 | 46.88% | 2 |
+| d0-all1 | 31 | 48.44% | 2 |
+| d1-all0 | 31 | 48.44% | 3 |
+| d1-all1 | 32.5 | 50.78% | 3 |
+
+Fractional credit reflects shared wins. There are four independent deals with
+all seats/rules, so do not treat the 64 repetitions as independent observations.
+The d1-all0 candidate that had a +1 two-player margin regresses by 1.5 win credits
+here; its final state differs from the parent in 52/64 games. Its changes therefore
+affect play, but the learned corrections have not delivered a net improvement.
+All candidates are lower in the small Recharged sealed subgroup.
+
+Comparison and proofs: `strong/nomination-discount-4p-search-geo-results-v1.json`,
+`strong/nomination-discount-four-player-complete-v1.json`. Each binds all original
+handles, raw bucket receipts, immutable hashes and independent audits. This is
+not evidence of a statistically established regression, nor evidence that any
+candidate is stronger. **Current nomination-only training appears stalled**;
+the user was informed. More epochs on these same targets is not the next action.
+
+One bounded endpoint check remains: four original **six-player/search_geo** shards
+for parent, d0-all0, d0-all1 and d1-all0, **384 games** on parallel HF cpu-upgrade
+jobs. Reuse the previously completed/audited 96-game d1-all1 pilot; no games are
+repeated. Exact handles: `strong/nomination-discount-six-player-launch-v1.json`.
+Original source, heads, settings, seeds, legal menus and rules remain unchanged.
+
+Submitted around **14:40 Paris, 30 October**. Expected **2.5–4 hours plus queue
+delay**, based on the matching pilot's 3.08-hour runtime; five-hour hard timeout.
+Suggested user ping **19:00 Paris today**. Collect with the existing bounded HF
+collector, then compare via `strong/compare_nomination_multiplayer_v1.py --players 6`.
+This closes the two/four/six-player search comparison across all five arms.
+If gains remain absent, finish this candidate iteration and diagnose sealed-bid
+decisions and simulated-target reliability before new training or more evaluation.
+Remaining **35 shards / 2,240 games** are deferred, not silently completed.
+**576 audited / 960 assigned / 3,200 planned**. No candidate qualification, final
+seed use, new gradients, mini-PC jobs, automatic objective or deployment.
+
 ## 30 October, 11:09 Paris — two-player results audited, four-player comparison submitted
 
 The finite mini-PC queue completed all 96 original games in **9m41s**, finishing

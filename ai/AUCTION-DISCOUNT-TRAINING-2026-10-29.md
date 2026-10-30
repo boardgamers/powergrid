@@ -5,6 +5,49 @@ research and training in this chat. Do not recreate an objective. The separate
 confirmation finisher stopped on a missing HF log receipt; its frozen policies,
 deals and selection criteria are unchanged. No game deployment is part of this work.
 
+## 30 October, 11:09 Paris — two-player results audited, four-player comparison submitted
+
+The finite mini-PC queue completed all 96 original games in **9m41s**, finishing
+at **09:39:57 Paris**. The same independent raw auditor used for HF passed every
+game with zero caps. Original output is archived in the private model repo;
+`strong/nomination-discount-minipc-batch-results-v1.json` binds all three immutable
+archive revisions/hashes and audit hashes. The queue is terminal; do not restart it.
+
+All five arms now have the same 32 two-player/search games:
+
+| Arm | Win credit / 32 | Paired gains / losses vs parent |
+| --- | ---: | ---: |
+| Parent | 19 | — |
+| No discount input, old shortlist (d0-all0) | 18 | 4 / 5 |
+| No discount input, all choices (d0-all1) | 19 | 0 / 0 |
+| Discount input, old shortlist (d1-all0) | 20 | 7 / 6 |
+| Discount input, all choices (d1-all1) | 19 | 0 / 0 |
+
+Report: `strong/nomination-discount-two-player-results-v1.json`, generated from
+all five verified original raw outputs. All paired keys, seats, rules and model
+identities checked. There are only **four independent deals**, with eight
+seat/rule repetitions each. The apparent +1 win does not establish superiority;
+the leading arm changes many trajectories and has both positive and negative
+deal-level differences. No model was selected or qualified. Current evidence
+does not justify claiming that training has delivered a strength improvement.
+
+The next bounded allocation retains **all five frozen arms at four players**:
+five HF `cpu-upgrade` jobs, four workers each, **320 games** against search_geo.
+Exact handles/configuration checks are in
+`strong/nomination-discount-four-player-launch-v1.json`. Only the existing fixed
+protocol names were submitted; the source, models, seeds and game rules are
+unchanged. The launcher now supports an explicit `--name` filter; three focused
+tests check exact selection, rejection of invalid/duplicate names and unchanged
+default ordering. Earlier handles remain in the aggregate launch file.
+
+Expected **45–75 minutes plus queue delay**, based on eight previous current-engine
+parent/search/4p shards taking 32.9–41.2 minutes for 64 games. Suggested user ping:
+**12:30 Paris, 30 October**. Use the existing bounded HF collector with `--collect`;
+do not resubmit originals. After collection, audit and compare all arms at four
+players before another allocation. **256 audited / 576 assigned / 3,200 planned**;
+39 shards / 2,624 games remain unsubmitted. No new mini-PC jobs, gradients,
+reserved final seeds, automatic objective, candidate qualification or deployment.
+
 ## 30 October, 09:31 Paris — mini-PC pilot audited, next three arms running
 
 The parent comparison shard finished in **172.37 seconds** on the actual 8840U;

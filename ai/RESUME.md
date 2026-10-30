@@ -1,5 +1,37 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**30 October, 11:09 Paris — mini-PC queue audited; five four-player HF jobs submitted.**
+
+All three original mini-PC shards finished successfully at **09:39:57 Paris**,
+in **581.13 seconds / 9m41s** total. All **96 games** passed independent raw
+audits with zero caps and are privately archived. The mini-PC queue stopped;
+PID 126379 is no longer running. Total independently audited screen games: **256**.
+Archive descriptors: `strong/nomination-discount-minipc-batch-results-v1.json`.
+
+The complete paired two-player/search comparison is now available in
+`strong/nomination-discount-two-player-results-v1.json`: parent **19/32**,
+d0-all0 **18/32**, d0-all1 **19/32**, d1-all0 **20/32**, d1-all1 **19/32**.
+The strongest point estimate (discount-aware, old shortlist) gains seven games
+and loses six against the parent, net +1. Deal-level differences include both
+signs. Four independent deals with repeated seats/rules do not establish an
+improvement; no arm selected, no qualification. Keep all four trained arms.
+
+Next bounded allocation: **five parallel HF cpu-upgrade jobs, 320 four-player
+games**, parent + all four trained models vs search_geo, four deals / all seats
+and rules. Exact original handles: `strong/nomination-discount-four-player-launch-v1.json`.
+Estimated **45–75 minutes plus any queue delay**; comparable prior 64-game
+parent/search/4p shards took 32.9–41.2 minutes. Suggested ping **12:30 Paris,
+30 October**. The mini PC has no remaining jobs from these runs.
+
+Use `PYTHONPATH=ai/strong ai/.venv/bin/python -u -B
+ai/strong/collect_nomination_development_v1.py --collect` to observe/collect the
+original HF jobs. Do not resubmit them. The launcher supports `--name` filters
+for fixed protocol shards and preserves all earlier handles in its aggregate.
+After auditing, compare all five arms at four players and assess the next fixed
+allocation. **576 games assigned, 256 audited, 320 pending; 39 shards / 2,624
+games remain unsubmitted.** No new training, final seeds, candidate qualification,
+automatic objective, deployment or game publishing.
+
 **30 October, 09:31 Paris — mini-PC pilot complete/audited; next 96 games running.**
 
 The first 32-game mini-PC shard completed successfully in **172.37 seconds** and

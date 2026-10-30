@@ -72218,5 +72218,65 @@
         "next_batch_launch_sha256": "752fac7e1fd70df161771e1f92c0c20d33e0234c386f16f7155ef8de265c79c8",
         "next_batch_games": 96,
         "next_batch_pid": 126379
+    },
+    "nomination_discount_two_player_audited_20261030": {
+        "created_at": "2026-10-30T10:10:33.543818+00:00",
+        "mini_pc_batch_complete": true,
+        "mini_pc_batch_seconds": 581.1278298618272,
+        "mini_pc_batch_audited_games": 96,
+        "total_audited_games": 256,
+        "two_player_win_credit": {
+            "parent": 19,
+            "d0-all0": 18,
+            "d0-all1": 19,
+            "d1-all0": 20,
+            "d1-all1": 19
+        },
+        "games_per_arm": 32,
+        "independent_deals": 4,
+        "interpretation": "Net +1 win for d1-all0, with seven gained and six lost games; no established strength improvement. Keep all arms at four players.",
+        "comparison_sha256": "8ed387c16d134f7b82871e8bfe1915d85cf2972e98612761f88a1b38f4140e89",
+        "raw_archive_descriptor_sha256": "ab3891a37335075da7fffddeb4fda2bcb03947995bba7d18b69742b874da6b89",
+        "four_player_jobs": [
+            {
+                "name": "pg-nom-dev-v1-parent-search-geo-4p",
+                "job_id": "6ae46c0ec78863f9c62e67ee",
+                "stage": "RUNNING",
+                "games": 64
+            },
+            {
+                "name": "pg-nom-dev-v1-d0-all0-search-geo-4p",
+                "job_id": "6ae46c0d0e0338d1bb7ca26a",
+                "stage": "RUNNING",
+                "games": 64
+            },
+            {
+                "name": "pg-nom-dev-v1-d0-all1-search-geo-4p",
+                "job_id": "6ae46c0dc78863f9c62e67ea",
+                "stage": "RUNNING",
+                "games": 64
+            },
+            {
+                "name": "pg-nom-dev-v1-d1-all0-search-geo-4p",
+                "job_id": "6ae46c0ec78863f9c62e67ec",
+                "stage": "RUNNING",
+                "games": 64
+            },
+            {
+                "name": "pg-nom-dev-v1-d1-all1-search-geo-4p",
+                "job_id": "6ae46c0e0e0338d1bb7ca26c",
+                "stage": "RUNNING",
+                "games": 64
+            }
+        ],
+        "four_player_launch_sha256": "0951cdd12417bf86abd6a0107483d7cb0af3ef1c818cc8b7f7f683cc2b6edc74",
+        "new_hf_games": 320,
+        "new_mini_pc_jobs": 0,
+        "total_assigned_games": 576,
+        "unsubmitted_games": 2624,
+        "unsubmitted_shards": 39,
+        "suggested_ping_paris": "2026-10-30T12:30:00+01:00",
+        "qualified": false,
+        "reserved_final_seeds_used": false
     }
 }

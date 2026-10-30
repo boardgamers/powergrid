@@ -1,0 +1,22 @@
+{
+  "created_at": "2026-10-30T10:06:04.104391+00:00",
+  "names": [
+    "pg-nom-dev-v1-parent-search-geo-4p",
+    "pg-nom-dev-v1-d0-all0-search-geo-4p",
+    "pg-nom-dev-v1-d0-all1-search-geo-4p",
+    "pg-nom-dev-v1-d1-all0-search-geo-4p",
+    "pg-nom-dev-v1-d1-all1-search-geo-4p"
+  ],
+  "games": 320,
+  "hardware": "HF cpu-upgrade, four CPU workers/job",
+  "protocol_sha256": "2f7fe04791c0cb6ac0bb0f8712b73dde3714cf96693c9cd3a1f68fe8bd785251",
+  "purpose": "Keep all five frozen arms in the next count comparison; no arm selection from the small 2p screen.",
+  "estimated_minutes_including_setup": [
+    45,
+    75
+  ],
+  "estimate_basis": "Eight prior current-engine parent/search 4p shards of 64 games took 32.9\u201341.2 minutes each; five shards run in parallel. Queue availability and new deal trajectories remain uncertain.",
+  "automatic_retries": false,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

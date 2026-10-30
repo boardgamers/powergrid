@@ -1,0 +1,1709 @@
+{
+  "created_at": "2026-10-30T10:05:09.112008+00:00",
+  "complete": true,
+  "games": 160,
+  "protocol_sha256": "2f7fe04791c0cb6ac0bb0f8712b73dde3714cf96693c9cd3a1f68fe8bd785251",
+  "analysis_sha256": "d428ce2e67baaabc595308afa3aec00a723c654d148b1be8f60f2fa792d201ae",
+  "proofs": {
+    "parent": {
+      "audit_path": "ai/runs/nomination-discount-minipc-v1/audit.json",
+      "audit_sha256": "eef60936ef419c2a34d22ceff730aad376580af48190cb3750a1498dd9816088",
+      "raw_manifest_sha256": "2e18374248aed81b6d59194a4ce47e93c29c5b3c2adadc4c47198dc54ef9216f",
+      "worker_seconds": 172.3716776203364
+    },
+    "d0-all0": {
+      "audit_path": "ai/runs/nomination-discount-minipc-batch-v1/pg-nom-dev-v1-d0-all0-search-geo-2p.audit.json",
+      "audit_sha256": "d11ef04992d1dd509414080e3dcb6a509935652662f7d89a0a3ee0b5ae067329",
+      "raw_manifest_sha256": "5c4f3498b1946129ef4b2eda99f0280c214362c6fcd008af91bb28ef9844205a",
+      "worker_seconds": 200.56529820524156
+    },
+    "d0-all1": {
+      "audit_path": "ai/runs/nomination-discount-minipc-batch-v1/pg-nom-dev-v1-d0-all1-search-geo-2p.audit.json",
+      "audit_sha256": "2abb327776943b2c915431b6a6777185fae604861f63253b7f0584b69060430d",
+      "raw_manifest_sha256": "fdf89dacf108b92e90fc7aa3cd049ef6c90305f9c812d3880253487350de71c4",
+      "worker_seconds": 183.61266940226778
+    },
+    "d1-all0": {
+      "audit_path": "ai/runs/nomination-discount-minipc-batch-v1/pg-nom-dev-v1-d1-all0-search-geo-2p.audit.json",
+      "audit_sha256": "8ee22d7df282e3508eeb44c18050d272914c51880cb0b5e658e59326d1c8c1d0",
+      "raw_manifest_sha256": "5b28f8558d9de2560aea77a00ab8c33818f4c9d26b56ad913b8e6d07c83b8e15",
+      "worker_seconds": 192.9878483847715
+    },
+    "d1-all1": {
+      "audit_path": "ai/runs/nomination-discount-development-collected-v1/pg-nom-dev-v1-d1-all1-search-geo-2p/audit.json",
+      "audit_sha256": "61e8346aabdbcb71ed916ace51eecc4229d99bb87f50d7cac7a698d2b4bc93f3",
+      "raw_manifest_sha256": "c8a7e0abbd219dd2139c2b3a5dd184e3db61d36ebfd14fd4a935647606f6aea2",
+      "worker_seconds": 318.73511400001007
+    }
+  },
+  "arms": {
+    "parent": {
+      "games": 32,
+      "independent_deals": 4,
+      "win_credit": 19,
+      "win_rate": 0.59375,
+      "paired_win_rate_difference": 0.0,
+      "gained_games": 0,
+      "lost_games": 0,
+      "unchanged_credit_games": 32,
+      "different_final_state_games": 0,
+      "deal_mean_differences": {
+        "nomination-discount-development-v1-2p-0": 0.0,
+        "nomination-discount-development-v1-2p-1": 0.0,
+        "nomination-discount-development-v1-2p-2": 0.0,
+        "nomination-discount-development-v1-2p-3": 0.0
+      },
+      "rule_cells": {
+        "original/open": {
+          "games": 8,
+          "win_credit": 5,
+          "parent_win_credit": 5,
+          "paired_difference": 0.0
+        },
+        "original/sealed": {
+          "games": 8,
+          "win_credit": 5,
+          "parent_win_credit": 5,
+          "paired_difference": 0.0
+        },
+        "recharged/open": {
+          "games": 8,
+          "win_credit": 6,
+          "parent_win_credit": 6,
+          "paired_difference": 0.0
+        },
+        "recharged/sealed": {
+          "games": 8,
+          "win_credit": 3,
+          "parent_win_credit": 3,
+          "paired_difference": 0.0
+        }
+      },
+      "pairs": [
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        }
+      ]
+    },
+    "d0-all0": {
+      "games": 32,
+      "independent_deals": 4,
+      "win_credit": 18,
+      "win_rate": 0.5625,
+      "paired_win_rate_difference": -0.03125,
+      "gained_games": 4,
+      "lost_games": 5,
+      "unchanged_credit_games": 23,
+      "different_final_state_games": 14,
+      "deal_mean_differences": {
+        "nomination-discount-development-v1-2p-0": -0.375,
+        "nomination-discount-development-v1-2p-1": 0.0,
+        "nomination-discount-development-v1-2p-2": 0.125,
+        "nomination-discount-development-v1-2p-3": 0.125
+      },
+      "rule_cells": {
+        "original/open": {
+          "games": 8,
+          "win_credit": 4,
+          "parent_win_credit": 5,
+          "paired_difference": -0.125
+        },
+        "original/sealed": {
+          "games": 8,
+          "win_credit": 3,
+          "parent_win_credit": 5,
+          "paired_difference": -0.25
+        },
+        "recharged/open": {
+          "games": 8,
+          "win_credit": 7,
+          "parent_win_credit": 6,
+          "paired_difference": 0.125
+        },
+        "recharged/sealed": {
+          "games": 8,
+          "win_credit": 4,
+          "parent_win_credit": 3,
+          "paired_difference": 0.125
+        }
+      },
+      "pairs": [
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        }
+      ]
+    },
+    "d0-all1": {
+      "games": 32,
+      "independent_deals": 4,
+      "win_credit": 19,
+      "win_rate": 0.59375,
+      "paired_win_rate_difference": 0.0,
+      "gained_games": 0,
+      "lost_games": 0,
+      "unchanged_credit_games": 32,
+      "different_final_state_games": 2,
+      "deal_mean_differences": {
+        "nomination-discount-development-v1-2p-0": 0.0,
+        "nomination-discount-development-v1-2p-1": 0.0,
+        "nomination-discount-development-v1-2p-2": 0.0,
+        "nomination-discount-development-v1-2p-3": 0.0
+      },
+      "rule_cells": {
+        "original/open": {
+          "games": 8,
+          "win_credit": 5,
+          "parent_win_credit": 5,
+          "paired_difference": 0.0
+        },
+        "original/sealed": {
+          "games": 8,
+          "win_credit": 5,
+          "parent_win_credit": 5,
+          "paired_difference": 0.0
+        },
+        "recharged/open": {
+          "games": 8,
+          "win_credit": 6,
+          "parent_win_credit": 6,
+          "paired_difference": 0.0
+        },
+        "recharged/sealed": {
+          "games": 8,
+          "win_credit": 3,
+          "parent_win_credit": 3,
+          "paired_difference": 0.0
+        }
+      },
+      "pairs": [
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        }
+      ]
+    },
+    "d1-all0": {
+      "games": 32,
+      "independent_deals": 4,
+      "win_credit": 20,
+      "win_rate": 0.625,
+      "paired_win_rate_difference": 0.03125,
+      "gained_games": 7,
+      "lost_games": 6,
+      "unchanged_credit_games": 19,
+      "different_final_state_games": 26,
+      "deal_mean_differences": {
+        "nomination-discount-development-v1-2p-0": -0.25,
+        "nomination-discount-development-v1-2p-1": 0.125,
+        "nomination-discount-development-v1-2p-2": 0.0,
+        "nomination-discount-development-v1-2p-3": 0.25
+      },
+      "rule_cells": {
+        "original/open": {
+          "games": 8,
+          "win_credit": 7,
+          "parent_win_credit": 5,
+          "paired_difference": 0.25
+        },
+        "original/sealed": {
+          "games": 8,
+          "win_credit": 4,
+          "parent_win_credit": 5,
+          "paired_difference": -0.125
+        },
+        "recharged/open": {
+          "games": 8,
+          "win_credit": 6,
+          "parent_win_credit": 6,
+          "paired_difference": 0.0
+        },
+        "recharged/sealed": {
+          "games": 8,
+          "win_credit": 3,
+          "parent_win_credit": 3,
+          "paired_difference": 0.0
+        }
+      },
+      "pairs": [
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 1,
+          "difference": -1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 0,
+          "difference": 1
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        }
+      ]
+    },
+    "d1-all1": {
+      "games": 32,
+      "independent_deals": 4,
+      "win_credit": 19,
+      "win_rate": 0.59375,
+      "paired_win_rate_difference": 0.0,
+      "gained_games": 0,
+      "lost_games": 0,
+      "unchanged_credit_games": 32,
+      "different_final_state_games": 1,
+      "deal_mean_differences": {
+        "nomination-discount-development-v1-2p-0": 0.0,
+        "nomination-discount-development-v1-2p-1": 0.0,
+        "nomination-discount-development-v1-2p-2": 0.0,
+        "nomination-discount-development-v1-2p-3": 0.0
+      },
+      "rule_cells": {
+        "original/open": {
+          "games": 8,
+          "win_credit": 5,
+          "parent_win_credit": 5,
+          "paired_difference": 0.0
+        },
+        "original/sealed": {
+          "games": 8,
+          "win_credit": 5,
+          "parent_win_credit": 5,
+          "paired_difference": 0.0
+        },
+        "recharged/open": {
+          "games": 8,
+          "win_credit": 6,
+          "parent_win_credit": 6,
+          "paired_difference": 0.0
+        },
+        "recharged/sealed": {
+          "games": 8,
+          "win_credit": 3,
+          "parent_win_credit": 3,
+          "paired_difference": 0.0
+        }
+      },
+      "pairs": [
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-0",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-1",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-2",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "original",
+          "sealed": false,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "original",
+          "sealed": true,
+          "seat": 1,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 0,
+          "credit": 1,
+          "parent_credit": 1,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "recharged",
+          "sealed": false,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 0,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        },
+        {
+          "seed": "nomination-discount-development-v1-2p-3",
+          "variant": "recharged",
+          "sealed": true,
+          "seat": 1,
+          "credit": 0,
+          "parent_credit": 0,
+          "difference": 0
+        }
+      ]
+    }
+  },
+  "interpretation": "Four independent deals with all seats/rules. Differences of one game do not establish superiority. Keep all arms for wider-count screening; no selection or qualification.",
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

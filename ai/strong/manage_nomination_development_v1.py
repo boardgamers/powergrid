@@ -68,13 +68,23 @@ def publish():
     print({'published': True, 'revision': commit.oid, 'bytes': archive.stat().st_size}, flush=True)
 
 
-def launch(limit):
+def selected_rows(protocol, names=None):
+    """Select existing frozen shards only; never create or silently replace one."""
+    rows = protocol['rows']
+    if names is None:
+        return rows
+    assert names and len(names) == len(set(names)), 'Duplicate or empty shard selection'
+    assert set(names) <= {r['name'] for r in rows}, 'Unknown frozen shard name'
+    return [r for r in rows if r['name'] in set(names)]
+
+
+def launch(limit, names=None):
     assert 1 <= limit <= 50
     protocol = checked(); source = read(SOURCE); assert source['protocol_sha256'] == digest(PROTOCOL)
     folder = OUT/'launches'; folder.mkdir(exist_ok=True); api = HfApi(); submitted = 0
     # The first two are the new all-legal model against search at the count endpoints.
     pilot_names = [f'pg-nom-dev-v1-d1-all1-search-geo-{n}p' for n in (2, 6)]
-    rows = sorted(protocol['rows'], key=lambda r: (pilot_names.index(r['name']) if r['name'] in pilot_names else 2, r['name']))
+    rows = sorted(selected_rows(protocol, names), key=lambda r: (pilot_names.index(r['name']) if r['name'] in pilot_names else 2, r['name']))
     for row in rows:
         name = row['name']; receipt = folder/(name+'.json'); intent = folder/(name+'.intent.json')
         if (folder/(name+'.minipc.intent.json')).exists():
@@ -109,7 +119,7 @@ def launch(limit):
         assert raw['dockerImage'] == config['image'] and raw['flavor'] == config['flavor'] and raw['timeout'] == 18000
         assert raw['command'] == config['command'] and raw['environment'] == env and raw['labels']['name'] == name
         save(folder/(name+'.checked.json'), {'job_id': job.id, 'stage': raw['status']['stage'], 'effective_configuration_verified': True})
-        records = [read(folder/(r['name']+'.json')) for r in rows if (folder/(r['name']+'.json')).exists()]
+        records = [read(folder/(r['name']+'.json')) for r in protocol['rows'] if (folder/(r['name']+'.json')).exists()]
         summary = {'source': source, 'protocol_sha256': digest(PROTOCOL), 'jobs': records, 'planned_jobs': 50,
                    'submitted_jobs': len(records), 'planned_games': 3200, 'submitted_games': sum(r['row']['shard']['games'] for r in records),
                    'automatic_retries': False, 'qualified': False, 'reserved_final_seeds_used': False}
@@ -121,6 +131,8 @@ def launch(limit):
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser(__doc__); g = p.add_mutually_exclusive_group(required=True)
-    g.add_argument('--publish-source', action='store_true'); g.add_argument('--launch', type=int); a = p.parse_args()
+    g.add_argument('--publish-source', action='store_true'); g.add_argument('--launch', type=int)
+    p.add_argument('--name', action='append', help='Restrict launch to these existing frozen shard names')
+    a = p.parse_args(); assert not a.publish_source or a.name is None
     if a.publish_source: publish()
-    else: launch(a.launch)
+    else: launch(a.launch, a.name)

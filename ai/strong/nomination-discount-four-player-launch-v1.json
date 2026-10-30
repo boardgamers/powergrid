@@ -1,0 +1,60 @@
+{
+  "created_at": "2026-10-30T10:08:20.549327+00:00",
+  "plan_sha256": "bb9ea9cf13cc36616f0db33852c39dba645e84d54f68b6d74d7f1129eef25592",
+  "protocol_sha256": "2f7fe04791c0cb6ac0bb0f8712b73dde3714cf96693c9cd3a1f68fe8bd785251",
+  "source": {
+    "repo": "coyotte508/powergrid-ai-training-v1",
+    "revision": "b2f0cc2e891f63efd0772376132328520659fef9",
+    "archive": "strong-source-nomination-discount-development-v1.tgz",
+    "sha256": "738b855e02970c0986f947b10cb7011bdc146e92580a4c0f85968361eb4b9261",
+    "manifest_sha256": "b6e419726bce8a3dad4d5dd17e38b8802b0b72cd5ae272ea02cd37c8bcdc2fe4",
+    "protocol_sha256": "2f7fe04791c0cb6ac0bb0f8712b73dde3714cf96693c9cd3a1f68fe8bd785251",
+    "serving_check_sha256": "5d4a1fcc0e1c94dc7c94e190836b96ec0330b763c02e3d234b56ada326a60b52",
+    "remote_archive_verified": true
+  },
+  "jobs": [
+    {
+      "name": "pg-nom-dev-v1-parent-search-geo-4p",
+      "job_id": "6ae46c0ec78863f9c62e67ee",
+      "stage": "RUNNING",
+      "games": 64
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all0-search-geo-4p",
+      "job_id": "6ae46c0d0e0338d1bb7ca26a",
+      "stage": "RUNNING",
+      "games": 64
+    },
+    {
+      "name": "pg-nom-dev-v1-d0-all1-search-geo-4p",
+      "job_id": "6ae46c0dc78863f9c62e67ea",
+      "stage": "RUNNING",
+      "games": 64
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all0-search-geo-4p",
+      "job_id": "6ae46c0ec78863f9c62e67ec",
+      "stage": "RUNNING",
+      "games": 64
+    },
+    {
+      "name": "pg-nom-dev-v1-d1-all1-search-geo-4p",
+      "job_id": "6ae46c0e0e0338d1bb7ca26c",
+      "stage": "RUNNING",
+      "games": 64
+    }
+  ],
+  "submitted_games": 320,
+  "total_assigned_games": 576,
+  "total_audited_games": 256,
+  "remaining_unsubmitted_shards": 39,
+  "remaining_unsubmitted_games": 2624,
+  "estimated_minutes_including_setup": [
+    45,
+    75
+  ],
+  "queue_delay_additional": true,
+  "suggested_ping_paris": "2026-10-30T12:30:00+01:00",
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

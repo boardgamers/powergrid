@@ -1,5 +1,34 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**31 October — this iteration is complete; no jobs remain from these runs.**
+
+The 6,160-continuation sealed-bid assessment passed every independent audit in
+3h29m41s, but reference-search-selected actions offered little held-out gain.
+Historical neural fits overfit: all sixteen improved training error and worsened
+final-epoch validation error. One bounded alternative-learner experiment then
+completed on HF: **job `6ae5bddf0e0338d1bb7d1fe6`**, four regularized tree fits,
+**11.52 worker seconds** excluding setup/queue. All four models and their CPU
+predictions, choices, checkpoint selection and metrics independently verified.
+
+Depth-3 mean sampled validation advantage: **−0.001558**; depth-6: **+0.002775**.
+The earlier best neural arm was +0.002862 on the same historically used validation
+targets. These are conditional sampled-credit margins, not game win-rate gains.
+No compelling improvement justifies more fitting or another game screen on this
+batch. **Keep the parent; close this fixed-target learner probe.** No model
+qualified/deployed, no final seeds used, no new jobs after completion.
+
+Read `TARGET-GENERALIZATION-2026-10-31.md`,
+`strong/target-learner-probe-{results,decision}-v1.json`, and backup descriptor
+`strong/target-learner-probe-complete-evidence-v1.json`. Preserve original logs,
+models, handles and receipts. Do not relaunch or recollect completed runs.
+
+Next research hypothesis: fresh, more varied training-only trajectories, then
+an explicit data-diversity/target-quality experiment. Do not turn past development,
+confirmation or final games into training labels. Define a whole-deal holdout and
+a separate fresh gameplay screen. No fresh-data collection has yet been launched.
+The user's broader research authorization persists; no goal or automation was
+created. Earlier timestamped entries below are history, not active work.
+
 **31 October, 11:08 Paris — sealed assessment audited; one HF learner probe submitted.**
 
 The mini-PC assessment completed at **03:52:37 Paris**, in **3h29m41s**.

@@ -1,5 +1,49 @@
 # Target reliability and learner generalization — 31 October 2026
 
+**Completion update:** both the mini-PC assessment and HF learner probe are
+finished and independently audited. There are no remaining jobs from this
+iteration. Keep the existing parent; no new policy was qualified or deployed.
+
+## Final HF result and decision
+
+Original HF job **`6ae5bddf0e0338d1bb7d1fe6`** completed successfully. All four
+models passed an independent local CPU re-evaluation: predictions, action choices,
+internal-tuning checkpoint selection, saved tree counts, metrics and raw archive
+hashes matched. Fitting/checking all four models took **11.52 worker seconds**,
+excluding HF scheduling, setup and transfer. The job finished much sooner than
+the provisional 15–30 minute estimate. **1,871 boosting rounds** were fitted and
+**1,817 trees** retained across the four checkpoints; these are tree fits, not
+neural gradient-update counts.
+
+| Fixed mean ensemble | Validation MSE | Changed actions / 1,444 | Positive / negative changes | Mean sampled advantage |
+| --- | ---: | ---: | ---: | ---: |
+| Depth 3 | 0.025921 | 52 | 14 / 25 | −0.001558 |
+| Depth 6 | 0.025272 | 202 | 91 / 66 | +0.002775 |
+
+For context, the earlier best neural arm reported +0.002862 on these legacy
+validation targets. This is not a controlled causal comparison: training folds,
+model classes and regularization differ. Nevertheless, the new method's modest
+prediction-error reduction does not translate into a clearly stronger decision
+signal. Neither result is a whole-game win-rate improvement; this validation set
+has been used before, and no fresh game qualification was attempted.
+
+**Decision: close this learner probe and stop expanding this fixed-target
+training approach.** Keep all raw evidence and the existing bot. Do not tune tree
+depths, routing thresholds or epochs against these validation results, and do not
+launch another full-game screen for these models solely from the observed gain.
+The next worthwhile hypothesis is fresher and more varied training trajectories,
+with explicit separation of data diversity from label quality. That experiment
+must have new training-only seeds, a whole-deal holdout and later independent
+whole-game evaluation. Existing development/confirmation/final games stay excluded
+from training. No fresh-data job is launched by this handoff.
+
+Final reports: `strong/target-learner-probe-results-v1.json` and
+`strong/target-learner-probe-decision-v1.json`. Original models/logs/receipt:
+`runs/target-learner-probe-v1/collected`. Completed private backup descriptor:
+`strong/target-learner-probe-complete-evidence-v1.json`. Read these reports directly;
+do not rerun collection over the existing final report or relaunch the job.
+The source, launch and initial estimate below are retained as historical evidence.
+
 ## Completed sealed-bid assessment
 
 The original mini-PC run (supervisor **961705**) completed at **03:52:37 Paris**,
@@ -54,7 +98,7 @@ long-horizon labels and opponent mismatch may all contribute. The previous
 nomination-only neural candidate iteration remains closed; its deferred 35 game
 shards remain unsubmitted. More epochs on those models is not the next action.
 
-## Current bounded HF learner probe
+## Completed bounded HF learner probe
 
 One HF **L4** job, submitted **11:07:27 Paris**, 31 October:
 **`6ae5bddf0e0338d1bb7d1fe6`**, name `pg-target-learner-probe-v1`.

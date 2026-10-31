@@ -1,0 +1,3054 @@
+{
+  "created_at": "2026-10-31T09:55:13.651199+00:00",
+  "complete": true,
+  "roots": 10,
+  "reports": [
+    {
+      "rootId": "policy-v2:2:11102:snapshot0:124:9",
+      "players": 2,
+      "variant": "original",
+      "raw_files": {
+        "root-00-neural_population-4.json": "c574a1caf9c37045390cfa458a7b6149d3e832d18789beb1fa953b286e977d52",
+        "root-00-reference_opponent_v1-4.json": "0088a7bb279d795da85e1cfb4fa7da3b4f19bc07ecdba01900989114c45eb9e2",
+        "root-00-neural_population-32.json": "5722d640e6237158d1b9fb34ef33ae50ad84ba21446ea927ed9ee91c2fa4eab1",
+        "root-00-reference_opponent_v1-32.json": "a2370a7f7a78727458fe0685c29fb343406aff622066a57c3a32d8ae7838d096"
+      },
+      "audits": {
+        "neural_population-4": {
+          "rollouts": 168,
+          "caps": 0,
+          "begin": 4,
+          "count": 28,
+          "mean_credits": {
+            "10": "5/7",
+            "9": "5/7",
+            "8": "5/7",
+            "7": "5/7",
+            "0": "4/7",
+            "23": "5/7"
+          },
+          "paired_margins": {
+            "10": "0",
+            "9": "0",
+            "8": "0",
+            "7": "0",
+            "0": "-1/7",
+            "23": "0"
+          },
+          "worlds": {
+            "4": "dfab0beedd272f6a110aeea34c61bdbcd6746f27265338c77b14b35a866b2d1d",
+            "5": "66340d5143d164a5873e5603e78e49d158f370a0b924c30b00f2d05a204179a8",
+            "6": "3489b6be319a9bb762cc46f50f8a9accc1b8133d69fca427c81df7e21ca4d9c3",
+            "7": "edb3ce2e7614a217b2fd3f78d5facab5ca8100d2c5006c02c578c2c51ba3c238",
+            "8": "8e3a04af112da1723e13ca2285423867f144a2928e1e6686de78d6e7abfba9fa",
+            "9": "393c8cff6f704a3562de1951ccb6a6f0dffafc678be7b36dabb353ebce675ac8",
+            "10": "994d11cc724186d53f8515f1139fa7a94508b7f6491bce96fbd1ba7a8514e36d",
+            "11": "f709cd2fe37bbcb88b11df3291445e59eb85974bb202df288a423ca857b991f3",
+            "12": "5fa829bfaf7e55dce891f3f8221d98b9a103d324a3c42ee86a29b3eaef34ed39",
+            "13": "e83ad4665bf2b5b48eb3f9a62223942324acb6dd68b263e240ae88f0c889c0b9",
+            "14": "947b1bf2ecf43c04cb74c71da0a1c232941e5be639df301711c91e60fd583b81",
+            "15": "2b6f577348d5225389fbb429a211b96048559cbcc040596d45dbd8f63c3b3a96",
+            "16": "b4290715583c3362216b60db90dc96eda4523e5c51fb8b6d49b9bd00f2f1e305",
+            "17": "4aa109a5fd8f47239cb5c3bf673eb9c1b791f2ad5147025c7032f3d29780c288",
+            "18": "230fa5b4698f9cb36f6092df54f2d3c035bacfe8b1d4f980a527daa25491f2a3",
+            "19": "ce10eb0d7c466d5968efba3a0d15b08292bf264a1e0f4e6b42ac9c09150b5ab6",
+            "20": "5ef6cd4c02a04dbdfa0d3a511105f49b27a48b27d731f113842e7e941932f7cf",
+            "21": "91cf84ffecbd33e1e8d575227e73f2a6da6f472861eaf11aa260a32d11d30de8",
+            "22": "9f5dafebc18bc0732a36e4a9217aae69f5ba1b875b683423b8165c35ca79101e",
+            "23": "f9240dbecd47e7828fe4c324f8cf912d390b35f918f419e2dcb9a723d8e204c7",
+            "24": "b3c1f20b7f9b6cf2555d1cf32157f761711e1d6e236f8da1b31d3863a283d985",
+            "25": "a31cf179604153edf3c9cb4fb49fb37028e20c16765ed0fef9a130622f24707c",
+            "26": "3eb12a5fc1af7dfd228390d26be8335fbdd89b32185be6c9d65536a630d95344",
+            "27": "a8dbd889a30857c4980fe19a123f90a79bf1ca2fec35bcd51e735234fb4dea64",
+            "28": "0a5d4c7d6744f61891592a793b31acfcb5b84778bf75a4e4c40511b4bd2bd424",
+            "29": "c8e692f3a7759c5e2ae05c460982f03954a548ef157f57a99f77fff5e48ca59a",
+            "30": "630f227ca3efaff8c082aedfc1fe063ee8f8cb9ccad038fda16289db7b91255f",
+            "31": "65f4a0f53f91bd01fb21d502c83177fef2dd6ad87f3012d56527ac6b8b3578d8"
+          },
+          "seconds": 22.580642392858863
+        },
+        "reference_opponent_v1-4": {
+          "rollouts": 168,
+          "caps": 0,
+          "begin": 4,
+          "count": 28,
+          "mean_credits": {
+            "10": "1/4",
+            "9": "1/4",
+            "8": "1/4",
+            "7": "1/4",
+            "0": "9/28",
+            "23": "1/4"
+          },
+          "paired_margins": {
+            "10": "0",
+            "9": "0",
+            "8": "0",
+            "7": "0",
+            "0": "1/14",
+            "23": "0"
+          },
+          "worlds": {
+            "4": "dfab0beedd272f6a110aeea34c61bdbcd6746f27265338c77b14b35a866b2d1d",
+            "5": "66340d5143d164a5873e5603e78e49d158f370a0b924c30b00f2d05a204179a8",
+            "6": "3489b6be319a9bb762cc46f50f8a9accc1b8133d69fca427c81df7e21ca4d9c3",
+            "7": "edb3ce2e7614a217b2fd3f78d5facab5ca8100d2c5006c02c578c2c51ba3c238",
+            "8": "8e3a04af112da1723e13ca2285423867f144a2928e1e6686de78d6e7abfba9fa",
+            "9": "393c8cff6f704a3562de1951ccb6a6f0dffafc678be7b36dabb353ebce675ac8",
+            "10": "994d11cc724186d53f8515f1139fa7a94508b7f6491bce96fbd1ba7a8514e36d",
+            "11": "f709cd2fe37bbcb88b11df3291445e59eb85974bb202df288a423ca857b991f3",
+            "12": "5fa829bfaf7e55dce891f3f8221d98b9a103d324a3c42ee86a29b3eaef34ed39",
+            "13": "e83ad4665bf2b5b48eb3f9a62223942324acb6dd68b263e240ae88f0c889c0b9",
+            "14": "947b1bf2ecf43c04cb74c71da0a1c232941e5be639df301711c91e60fd583b81",
+            "15": "2b6f577348d5225389fbb429a211b96048559cbcc040596d45dbd8f63c3b3a96",
+            "16": "b4290715583c3362216b60db90dc96eda4523e5c51fb8b6d49b9bd00f2f1e305",
+            "17": "4aa109a5fd8f47239cb5c3bf673eb9c1b791f2ad5147025c7032f3d29780c288",
+            "18": "230fa5b4698f9cb36f6092df54f2d3c035bacfe8b1d4f980a527daa25491f2a3",
+            "19": "ce10eb0d7c466d5968efba3a0d15b08292bf264a1e0f4e6b42ac9c09150b5ab6",
+            "20": "5ef6cd4c02a04dbdfa0d3a511105f49b27a48b27d731f113842e7e941932f7cf",
+            "21": "91cf84ffecbd33e1e8d575227e73f2a6da6f472861eaf11aa260a32d11d30de8",
+            "22": "9f5dafebc18bc0732a36e4a9217aae69f5ba1b875b683423b8165c35ca79101e",
+            "23": "f9240dbecd47e7828fe4c324f8cf912d390b35f918f419e2dcb9a723d8e204c7",
+            "24": "b3c1f20b7f9b6cf2555d1cf32157f761711e1d6e236f8da1b31d3863a283d985",
+            "25": "a31cf179604153edf3c9cb4fb49fb37028e20c16765ed0fef9a130622f24707c",
+            "26": "3eb12a5fc1af7dfd228390d26be8335fbdd89b32185be6c9d65536a630d95344",
+            "27": "a8dbd889a30857c4980fe19a123f90a79bf1ca2fec35bcd51e735234fb4dea64",
+            "28": "0a5d4c7d6744f61891592a793b31acfcb5b84778bf75a4e4c40511b4bd2bd424",
+            "29": "c8e692f3a7759c5e2ae05c460982f03954a548ef157f57a99f77fff5e48ca59a",
+            "30": "630f227ca3efaff8c082aedfc1fe063ee8f8cb9ccad038fda16289db7b91255f",
+            "31": "65f4a0f53f91bd01fb21d502c83177fef2dd6ad87f3012d56527ac6b8b3578d8"
+          },
+          "seconds": 818.6924855364487
+        },
+        "neural_population-32": {
+          "rollouts": 168,
+          "caps": 0,
+          "begin": 32,
+          "count": 28,
+          "mean_credits": {
+            "10": "9/14",
+            "9": "9/14",
+            "8": "9/14",
+            "7": "9/14",
+            "0": "19/28",
+            "23": "9/14"
+          },
+          "paired_margins": {
+            "10": "0",
+            "9": "0",
+            "8": "0",
+            "7": "0",
+            "0": "1/28",
+            "23": "0"
+          },
+          "worlds": {
+            "32": "c5650d5f3fb8df4e44f5afb106aa6401b96147b77511f7241b61ca128eadfdfb",
+            "33": "78b866d1656d1fc74350da190281cb856d0e098bf42dd281fc3761f5321e3037",
+            "34": "7c3dc232d315718be6a54e1bca2f5eb71540c9216d05486f1e475b52c1daa5d2",
+            "35": "15f7386b3e9b364b82e16d276ffaba623c91d3e334ff32799ce0dfa1ea450dbd",
+            "36": "1dccea3c0d5087cc18f77a508097dfa7f39d35a609f90a7709330852bbaff94d",
+            "37": "4872424bbd31d02f332e1656a1850f177fc368df342aeaec17192f850e2c3c37",
+            "38": "c2abb61645c7f83d25d131b69d29d7a0653bf197565902a7192b630d15c12dbd",
+            "39": "66d60e475232490debbc63b9f2881eceb73c5d5605abbdeb9ab00c985dbca70d",
+            "40": "56c4fa89aeaf86dcf84a8b5e3d392c4f9b158b82db16eac7318871732a48af0d",
+            "41": "2d6f4751b920358c22b6f4fef1c02c3a2f46623e8ed7e9400645f62639943f2c",
+            "42": "490d324dbe439a2dcf5609c5cdfaae3160ca89948448b53b14f0e1d1cf767b2a",
+            "43": "7e489b6bbd2c6798b88d5ee15e8d635bd7e2bb3880e181cfb629a68f240d33e8",
+            "44": "14bf1d77cb81ce102a149fafd0a84a2ae642586cc40eacb9f2b5d0acff09d4f3",
+            "45": "8ba2b45c664871cf772afb48c5af7faaea32f0fcb8db82a4ffda0766ec2735bd",
+            "46": "b94c59a356f094af8e67899d8d73df3bfaf811d2b4ab949b6a88087545a83517",
+            "47": "c9a00e087773459a3ea43cda7694bb0574fea3679f7867bf5e833e6168ed4360",
+            "48": "8907825b022e33bc854fbda278ad99c5b11d5fd7379752da5e8468508ff3ef0a",
+            "49": "20c2d1458c110e601b2d0de67f6ad8362cd0ff5df4fe7067a097374760aa4bcc",
+            "50": "6e343314108e6869fe1ebf4c1fed66e8e4680b1f0b4de4ab795ce5647c826227",
+            "51": "e687c359936b4a8ba670383672cb7ca7d00c3a9a66a844493cb5fa78e489ff7a",
+            "52": "550200af208fcbdf0c105e4e5ced301d5f7fd268465617d3db1e958846696b5d",
+            "53": "7715f9ea4dfd80ed1d6373c0e14ce97e4561b5739c6a19fe2c666309b81bf2b3",
+            "54": "004b1ecbd65e54e667a7fd06c85869f16e7ed346c382e7d297f85fc257d37cc9",
+            "55": "9d9b883e1f0b1907d9dac678347c5c67a79cbcf1c02a9e09fa57cfede16ab5bc",
+            "56": "1f94f0ccb5436df3080745ea459e037dbb8891687bc3555392e06c66aeda0493",
+            "57": "e982e32bd206de7765cb20add7b3a602390ac93901c318eb4098262eacb90e06",
+            "58": "aabdbfa7928b1c7a9fe7bd5d1156a9036610a457f46e8523a17f93b111e011d3",
+            "59": "fb8776080243e4697f19cfcbef3633eb301b47d875a8500e4aa59e525c4917d3"
+          },
+          "seconds": 21.434628698043525
+        },
+        "reference_opponent_v1-32": {
+          "rollouts": 168,
+          "caps": 0,
+          "begin": 32,
+          "count": 28,
+          "mean_credits": {
+            "10": "5/14",
+            "9": "5/14",
+            "8": "5/14",
+            "7": "5/14",
+            "0": "5/14",
+            "23": "5/14"
+          },
+          "paired_margins": {
+            "10": "0",
+            "9": "0",
+            "8": "0",
+            "7": "0",
+            "0": "0",
+            "23": "0"
+          },
+          "worlds": {
+            "32": "c5650d5f3fb8df4e44f5afb106aa6401b96147b77511f7241b61ca128eadfdfb",
+            "33": "78b866d1656d1fc74350da190281cb856d0e098bf42dd281fc3761f5321e3037",
+            "34": "7c3dc232d315718be6a54e1bca2f5eb71540c9216d05486f1e475b52c1daa5d2",
+            "35": "15f7386b3e9b364b82e16d276ffaba623c91d3e334ff32799ce0dfa1ea450dbd",
+            "36": "1dccea3c0d5087cc18f77a508097dfa7f39d35a609f90a7709330852bbaff94d",
+            "37": "4872424bbd31d02f332e1656a1850f177fc368df342aeaec17192f850e2c3c37",
+            "38": "c2abb61645c7f83d25d131b69d29d7a0653bf197565902a7192b630d15c12dbd",
+            "39": "66d60e475232490debbc63b9f2881eceb73c5d5605abbdeb9ab00c985dbca70d",
+            "40": "56c4fa89aeaf86dcf84a8b5e3d392c4f9b158b82db16eac7318871732a48af0d",
+            "41": "2d6f4751b920358c22b6f4fef1c02c3a2f46623e8ed7e9400645f62639943f2c",
+            "42": "490d324dbe439a2dcf5609c5cdfaae3160ca89948448b53b14f0e1d1cf767b2a",
+            "43": "7e489b6bbd2c6798b88d5ee15e8d635bd7e2bb3880e181cfb629a68f240d33e8",
+            "44": "14bf1d77cb81ce102a149fafd0a84a2ae642586cc40eacb9f2b5d0acff09d4f3",
+            "45": "8ba2b45c664871cf772afb48c5af7faaea32f0fcb8db82a4ffda0766ec2735bd",
+            "46": "b94c59a356f094af8e67899d8d73df3bfaf811d2b4ab949b6a88087545a83517",
+            "47": "c9a00e087773459a3ea43cda7694bb0574fea3679f7867bf5e833e6168ed4360",
+            "48": "8907825b022e33bc854fbda278ad99c5b11d5fd7379752da5e8468508ff3ef0a",
+            "49": "20c2d1458c110e601b2d0de67f6ad8362cd0ff5df4fe7067a097374760aa4bcc",
+            "50": "6e343314108e6869fe1ebf4c1fed66e8e4680b1f0b4de4ab795ce5647c826227",
+            "51": "e687c359936b4a8ba670383672cb7ca7d00c3a9a66a844493cb5fa78e489ff7a",
+            "52": "550200af208fcbdf0c105e4e5ced301d5f7fd268465617d3db1e958846696b5d",
+            "53": "7715f9ea4dfd80ed1d6373c0e14ce97e4561b5739c6a19fe2c666309b81bf2b3",
+            "54": "004b1ecbd65e54e667a7fd06c85869f16e7ed346c382e7d297f85fc257d37cc9",
+            "55": "9d9b883e1f0b1907d9dac678347c5c67a79cbcf1c02a9e09fa57cfede16ab5bc",
+            "56": "1f94f0ccb5436df3080745ea459e037dbb8891687bc3555392e06c66aeda0493",
+            "57": "e982e32bd206de7765cb20add7b3a602390ac93901c318eb4098262eacb90e06",
+            "58": "aabdbfa7928b1c7a9fe7bd5d1156a9036610a457f46e8523a17f93b111e011d3",
+            "59": "fb8776080243e4697f19cfcbef3633eb301b47d875a8500e4aa59e525c4917d3"
+          },
+          "seconds": 764.3454138170928
+        }
+      },
+      "cross_fit": [
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "neural_population",
+          "action": 10,
+          "parent": 10,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "reference_opponent_v1",
+          "action": 0,
+          "parent": 10,
+          "overridden": true,
+          "selection_margin": "1/14",
+          "heldout_margins": {
+            "neural_population": "1/28",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "equal_mixture",
+          "action": 10,
+          "parent": 10,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "neural_population",
+          "action": 0,
+          "parent": 10,
+          "overridden": true,
+          "selection_margin": "1/28",
+          "heldout_margins": {
+            "neural_population": "-1/7",
+            "reference_opponent_v1": "1/14"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "reference_opponent_v1",
+          "action": 10,
+          "parent": 10,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "equal_mixture",
+          "action": 10,
+          "parent": 10,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        }
+      ]
+    },
+    {
+      "rootId": "policy-v2:2:11101:economic:9:35",
+      "players": 2,
+      "variant": "recharged",
+      "raw_files": {
+        "root-01-neural_population-4.json": "888681f254bbb3ae7fcfa668ecde113173a56d34a8456ea8a122406f0af85de7",
+        "root-01-reference_opponent_v1-4.json": "c233f58fc0b40f58961fcfd5cc964b2165d26ba0ab45137daad0bf0656d19b4d",
+        "root-01-neural_population-32.json": "02e8c7b09c1c4acf188b6d0cf80207fd19bd8d1c452ea8086c0b0fe598315ff8",
+        "root-01-reference_opponent_v1-32.json": "a176d496a98652b50a448661ec0677ab27dade1ea6b4281249e40e138c941f74"
+      },
+      "audits": {
+        "neural_population-4": {
+          "rollouts": 140,
+          "caps": 0,
+          "begin": 4,
+          "count": 28,
+          "mean_credits": {
+            "7": "17/28",
+            "6": "17/28",
+            "5": "17/28",
+            "4": "9/14",
+            "10": "3/7"
+          },
+          "paired_margins": {
+            "7": "0",
+            "6": "0",
+            "5": "0",
+            "4": "1/28",
+            "10": "-5/28"
+          },
+          "worlds": {
+            "4": "2f6d4775b70c58acf367207f3359fa2375d5d5439caaa2788e3e126d83b122d3",
+            "5": "097f48c28291165d87a538b2d4aecaadda61a889b130ca7569e6a6cb62e09e88",
+            "6": "bf1c43039b6c457fa7d7490f7d66482957c4d06a09b596f74fa9ff1cc911daf3",
+            "7": "4522e7475e43e63cc726a833bfe0eda4d5605e08a3456c44a0d1eae9a1966143",
+            "8": "a8f52e3bb37a114446d8df977678b2a7668df2f60f6b3cc2ad0d22e85648ba3c",
+            "9": "0f5d978329fd877ad22447d5403d6cf853487e24da249acbcde743670e0c3d09",
+            "10": "7fcf5c0836d5023f7b0999234f3ab60fc5c275b3f483e3af87d4d8d3e51b8980",
+            "11": "97b7de0edc6edfa0db571f5f9f0eed96e81edc2fe6b3013cbedd33c9008e25f9",
+            "12": "6e86776db57b571b10fc265e8944dcec6fead9a030f661fe062b7d4a65a9a9b6",
+            "13": "291a099b56f172cb7343ac022a3aaf687542e7629cd6679b2237aa9ce1857373",
+            "14": "10a47914c14b643ee19230600010c4e98d2012924abe473c839d0f79aabd8e68",
+            "15": "40d1548fa7c4bccc389ef93e7adb1f91c3c04aade46cda1374b57b1b637f71da",
+            "16": "6cca623601c2ea17c4861b05ae400dc4932b9a0f5625271976c5910e127c5851",
+            "17": "ceb44087ddf81c79b7dc6fc6b71b109bf7b4ee05ad890aa67c63f687e9d7c3d5",
+            "18": "3f2abba5f1fa672dc7c8f42f9786bbb1b9c45620c73467783b04ce3485e9374b",
+            "19": "61f9096c253910b23c771a9a4685d30686fc0302910d8e18220c7713c6726e6d",
+            "20": "ceebcca002cf7f2f48e553b5a2996ad88d1b0f454d96d59ab84b56a8e88b1dc4",
+            "21": "f7dfbae36ca66ef6636f1ca5bca84515f1a77ae7ccf97259abaa7059487ec6ba",
+            "22": "a894b9d72b785f7197ebab6d90c99424922eedb94305864f941f0b4a48430894",
+            "23": "d8757d32c7b1b62bce27730f22c9c399b5fba0e2fd3d74b7183e6f5f55e4fa72",
+            "24": "e454d09dbb5aeab84b630b6712e2742e7c05647d3ffa22f3b21e1b7d98ce34e3",
+            "25": "815bf4e44aa2cd73e19b3559f7c4a4736b050ebcd2695832cf9d8489b0ff5153",
+            "26": "646974b9b2b61929dd9ac05cc2458b5f557ce933e1e2e35945ba2cabccae3d0e",
+            "27": "428f0257651d211ede090286eebaea0a2be4b65271000333fc8db14698627c42",
+            "28": "cded7ed9f40eb072413670e16cb3ef42a247c6eb2c095e2e83e17707409b3551",
+            "29": "b7ce44066a0a70634f3783e651e1b66bf0eae7296ace09f48eb6bdb360673140",
+            "30": "019bf8b12fbd82a3235b5edbdff3785c083613c4d58fd6e77001a2de369d5f0f",
+            "31": "853a8541fbe4034f282e4727cda04fb4d725486f937c300a7f0ec85f736c0fd7"
+          },
+          "seconds": 5.582529406994581
+        },
+        "reference_opponent_v1-4": {
+          "rollouts": 140,
+          "caps": 0,
+          "begin": 4,
+          "count": 28,
+          "mean_credits": {
+            "7": "11/28",
+            "6": "5/14",
+            "5": "5/14",
+            "4": "9/28",
+            "10": "13/28"
+          },
+          "paired_margins": {
+            "7": "0",
+            "6": "-1/28",
+            "5": "-1/28",
+            "4": "-1/14",
+            "10": "1/14"
+          },
+          "worlds": {
+            "4": "2f6d4775b70c58acf367207f3359fa2375d5d5439caaa2788e3e126d83b122d3",
+            "5": "097f48c28291165d87a538b2d4aecaadda61a889b130ca7569e6a6cb62e09e88",
+            "6": "bf1c43039b6c457fa7d7490f7d66482957c4d06a09b596f74fa9ff1cc911daf3",
+            "7": "4522e7475e43e63cc726a833bfe0eda4d5605e08a3456c44a0d1eae9a1966143",
+            "8": "a8f52e3bb37a114446d8df977678b2a7668df2f60f6b3cc2ad0d22e85648ba3c",
+            "9": "0f5d978329fd877ad22447d5403d6cf853487e24da249acbcde743670e0c3d09",
+            "10": "7fcf5c0836d5023f7b0999234f3ab60fc5c275b3f483e3af87d4d8d3e51b8980",
+            "11": "97b7de0edc6edfa0db571f5f9f0eed96e81edc2fe6b3013cbedd33c9008e25f9",
+            "12": "6e86776db57b571b10fc265e8944dcec6fead9a030f661fe062b7d4a65a9a9b6",
+            "13": "291a099b56f172cb7343ac022a3aaf687542e7629cd6679b2237aa9ce1857373",
+            "14": "10a47914c14b643ee19230600010c4e98d2012924abe473c839d0f79aabd8e68",
+            "15": "40d1548fa7c4bccc389ef93e7adb1f91c3c04aade46cda1374b57b1b637f71da",
+            "16": "6cca623601c2ea17c4861b05ae400dc4932b9a0f5625271976c5910e127c5851",
+            "17": "ceb44087ddf81c79b7dc6fc6b71b109bf7b4ee05ad890aa67c63f687e9d7c3d5",
+            "18": "3f2abba5f1fa672dc7c8f42f9786bbb1b9c45620c73467783b04ce3485e9374b",
+            "19": "61f9096c253910b23c771a9a4685d30686fc0302910d8e18220c7713c6726e6d",
+            "20": "ceebcca002cf7f2f48e553b5a2996ad88d1b0f454d96d59ab84b56a8e88b1dc4",
+            "21": "f7dfbae36ca66ef6636f1ca5bca84515f1a77ae7ccf97259abaa7059487ec6ba",
+            "22": "a894b9d72b785f7197ebab6d90c99424922eedb94305864f941f0b4a48430894",
+            "23": "d8757d32c7b1b62bce27730f22c9c399b5fba0e2fd3d74b7183e6f5f55e4fa72",
+            "24": "e454d09dbb5aeab84b630b6712e2742e7c05647d3ffa22f3b21e1b7d98ce34e3",
+            "25": "815bf4e44aa2cd73e19b3559f7c4a4736b050ebcd2695832cf9d8489b0ff5153",
+            "26": "646974b9b2b61929dd9ac05cc2458b5f557ce933e1e2e35945ba2cabccae3d0e",
+            "27": "428f0257651d211ede090286eebaea0a2be4b65271000333fc8db14698627c42",
+            "28": "cded7ed9f40eb072413670e16cb3ef42a247c6eb2c095e2e83e17707409b3551",
+            "29": "b7ce44066a0a70634f3783e651e1b66bf0eae7296ace09f48eb6bdb360673140",
+            "30": "019bf8b12fbd82a3235b5edbdff3785c083613c4d58fd6e77001a2de369d5f0f",
+            "31": "853a8541fbe4034f282e4727cda04fb4d725486f937c300a7f0ec85f736c0fd7"
+          },
+          "seconds": 139.84880328224972
+        },
+        "neural_population-32": {
+          "rollouts": 140,
+          "caps": 0,
+          "begin": 32,
+          "count": 28,
+          "mean_credits": {
+            "7": "17/28",
+            "6": "19/28",
+            "5": "19/28",
+            "4": "19/28",
+            "10": "1/2"
+          },
+          "paired_margins": {
+            "7": "0",
+            "6": "1/14",
+            "5": "1/14",
+            "4": "1/14",
+            "10": "-3/28"
+          },
+          "worlds": {
+            "32": "32803df71adafd6e8a8525d3737721b536b5e9a89e8878414045e05af0817d22",
+            "33": "8eb27921c8467a39d49ab815e14e163f0b71a782183685cb14dd68ca739254f7",
+            "34": "fe478b6e43783ff8739183bf3ba011bde41dc01fed1bc0806ba2c180ca53366d",
+            "35": "44b593c98074f23630985bb162a1dec4694cb2fa0103abbd198d46d3b5648391",
+            "36": "3a4461362a76b46710ef2ce552300630bcd891672f83e79d7b2427ba0a988f71",
+            "37": "79e412e345d99e0e00a7b78ef822edae0164961f4e17b722da3e5bff216bfa20",
+            "38": "c44651045a57823f77916d0a0dc362947321ac614a38804d2b0f4b6ca76daa8f",
+            "39": "9da3af0920a49dd2b4998ea0ab3e6316b5f85b53d0436a4dff7ca61f7d44f880",
+            "40": "2bc205eea0767f08d30ecb0102c8d9d6804083cd447d8776538051aa87bb5a38",
+            "41": "76ad315e3ef674e502a0b0297df7bc1f13e60f4ea6579d6b0b09bd5e245ef953",
+            "42": "adb3f2e0b6031f9b2e9ee60c294aec72fb4fc7f21ab3153c7d01313c146cebaf",
+            "43": "6e58b7152be0f1311a216dd9ef7664e997e350e124b8d15369c6b73af376c2a2",
+            "44": "a2f707ad6b074c448a1265939e1a57ae5a87c13c8233c86e90552f41a06f8c58",
+            "45": "7cfcfd7af95f5b28ecbc8db7ba006e3639094888825d61b3da4e2dca6b14c841",
+            "46": "77e991310130c514186a35aed105d7ae52bbd38593cca2d087b0bd5379bdf8e0",
+            "47": "de81e74e263502e2dd573036ce0445a66df22036e908bae58f290b8940ffea49",
+            "48": "3c71485f5e09916f0de3844eac5d5b2f56d90d23e06ca208023b7e6d6980b7a2",
+            "49": "20b076b87610f53012f2277a07fd23c6a0aa67e3f6ab67f897d5efe85c9d0eec",
+            "50": "0bc2361cf7d4759b8beb68e3fc36fda49f20511abcdf8bb53f4fbb9e0bf23afd",
+            "51": "9961a287842ce6a0fd95d62c723115c5ad2feecb552ad3d976eed50e66dff5c7",
+            "52": "34adf97e2b07c4044b2fab726f2d351b35536b9102728148d5ba36508f4318f2",
+            "53": "696461ed0838b4a346a6751777206ad89fa97d66d07892ab953d8fcb7483e457",
+            "54": "c18654eaf9d3a8c1541fcc70b3de32587a1de0e12318c31401103d869d79c5d1",
+            "55": "ac3b9da6b627975fc87fe5ba8d074bf38b9f49604e288c00b682df15d27d2912",
+            "56": "fbb271b7832edaee7d537ee2f2e2bdfc5d8a7ec6e26c0006dc6396e28bb591a9",
+            "57": "dd9b346ddd3bdcbb7a01c27077a6973dedb87f7985f53ad8b538e2a00faa4f16",
+            "58": "906ff5c800ff261e4c2174673a95414ba158a2263cc59f5f7027ab08b6014ce6",
+            "59": "f4fae3d45d8fbe74136848cafa8ebaea2127732a13cbb20d591c28a3910c3336"
+          },
+          "seconds": 5.877367590088397
+        },
+        "reference_opponent_v1-32": {
+          "rollouts": 140,
+          "caps": 0,
+          "begin": 32,
+          "count": 28,
+          "mean_credits": {
+            "7": "11/28",
+            "6": "2/7",
+            "5": "3/7",
+            "4": "1/2",
+            "10": "15/28"
+          },
+          "paired_margins": {
+            "7": "0",
+            "6": "-3/28",
+            "5": "1/28",
+            "4": "3/28",
+            "10": "1/7"
+          },
+          "worlds": {
+            "32": "32803df71adafd6e8a8525d3737721b536b5e9a89e8878414045e05af0817d22",
+            "33": "8eb27921c8467a39d49ab815e14e163f0b71a782183685cb14dd68ca739254f7",
+            "34": "fe478b6e43783ff8739183bf3ba011bde41dc01fed1bc0806ba2c180ca53366d",
+            "35": "44b593c98074f23630985bb162a1dec4694cb2fa0103abbd198d46d3b5648391",
+            "36": "3a4461362a76b46710ef2ce552300630bcd891672f83e79d7b2427ba0a988f71",
+            "37": "79e412e345d99e0e00a7b78ef822edae0164961f4e17b722da3e5bff216bfa20",
+            "38": "c44651045a57823f77916d0a0dc362947321ac614a38804d2b0f4b6ca76daa8f",
+            "39": "9da3af0920a49dd2b4998ea0ab3e6316b5f85b53d0436a4dff7ca61f7d44f880",
+            "40": "2bc205eea0767f08d30ecb0102c8d9d6804083cd447d8776538051aa87bb5a38",
+            "41": "76ad315e3ef674e502a0b0297df7bc1f13e60f4ea6579d6b0b09bd5e245ef953",
+            "42": "adb3f2e0b6031f9b2e9ee60c294aec72fb4fc7f21ab3153c7d01313c146cebaf",
+            "43": "6e58b7152be0f1311a216dd9ef7664e997e350e124b8d15369c6b73af376c2a2",
+            "44": "a2f707ad6b074c448a1265939e1a57ae5a87c13c8233c86e90552f41a06f8c58",
+            "45": "7cfcfd7af95f5b28ecbc8db7ba006e3639094888825d61b3da4e2dca6b14c841",
+            "46": "77e991310130c514186a35aed105d7ae52bbd38593cca2d087b0bd5379bdf8e0",
+            "47": "de81e74e263502e2dd573036ce0445a66df22036e908bae58f290b8940ffea49",
+            "48": "3c71485f5e09916f0de3844eac5d5b2f56d90d23e06ca208023b7e6d6980b7a2",
+            "49": "20b076b87610f53012f2277a07fd23c6a0aa67e3f6ab67f897d5efe85c9d0eec",
+            "50": "0bc2361cf7d4759b8beb68e3fc36fda49f20511abcdf8bb53f4fbb9e0bf23afd",
+            "51": "9961a287842ce6a0fd95d62c723115c5ad2feecb552ad3d976eed50e66dff5c7",
+            "52": "34adf97e2b07c4044b2fab726f2d351b35536b9102728148d5ba36508f4318f2",
+            "53": "696461ed0838b4a346a6751777206ad89fa97d66d07892ab953d8fcb7483e457",
+            "54": "c18654eaf9d3a8c1541fcc70b3de32587a1de0e12318c31401103d869d79c5d1",
+            "55": "ac3b9da6b627975fc87fe5ba8d074bf38b9f49604e288c00b682df15d27d2912",
+            "56": "fbb271b7832edaee7d537ee2f2e2bdfc5d8a7ec6e26c0006dc6396e28bb591a9",
+            "57": "dd9b346ddd3bdcbb7a01c27077a6973dedb87f7985f53ad8b538e2a00faa4f16",
+            "58": "906ff5c800ff261e4c2174673a95414ba158a2263cc59f5f7027ab08b6014ce6",
+            "59": "f4fae3d45d8fbe74136848cafa8ebaea2127732a13cbb20d591c28a3910c3336"
+          },
+          "seconds": 119.66243950463831
+        }
+      },
+      "cross_fit": [
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "neural_population",
+          "action": 4,
+          "parent": 7,
+          "overridden": true,
+          "selection_margin": "1/28",
+          "heldout_margins": {
+            "neural_population": "1/14",
+            "reference_opponent_v1": "3/28"
+          }
+        },
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "reference_opponent_v1",
+          "action": 10,
+          "parent": 7,
+          "overridden": true,
+          "selection_margin": "1/14",
+          "heldout_margins": {
+            "neural_population": "-3/28",
+            "reference_opponent_v1": "1/7"
+          }
+        },
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "equal_mixture",
+          "action": 7,
+          "parent": 7,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "neural_population",
+          "action": 4,
+          "parent": 7,
+          "overridden": true,
+          "selection_margin": "1/14",
+          "heldout_margins": {
+            "neural_population": "1/28",
+            "reference_opponent_v1": "-1/14"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "reference_opponent_v1",
+          "action": 10,
+          "parent": 7,
+          "overridden": true,
+          "selection_margin": "1/7",
+          "heldout_margins": {
+            "neural_population": "-5/28",
+            "reference_opponent_v1": "1/14"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "equal_mixture",
+          "action": 4,
+          "parent": 7,
+          "overridden": true,
+          "selection_margin": "5/56",
+          "heldout_margins": {
+            "neural_population": "1/28",
+            "reference_opponent_v1": "-1/14"
+          }
+        }
+      ]
+    },
+    {
+      "rootId": "policy-v2:3:11102:economic:24:39",
+      "players": 3,
+      "variant": "original",
+      "raw_files": {
+        "root-02-neural_population-4.json": "d55c5f9dd35e80bb1ac251d64045a97da8fe5f9efabd3b9ba30e51d9539b15f1",
+        "root-02-reference_opponent_v1-4.json": "bcd5a205e23a57f1b47bb84274302fae497d41838585d0a3570657dfa6f5bf39",
+        "root-02-neural_population-32.json": "d2f805a4b2918b43b23d468236bca5b3dff5ea8767e04578a3468c54993db79e",
+        "root-02-reference_opponent_v1-32.json": "021b3392793ed3d81b377c7839a622be0d539e33fa0905aca2aa177e3cea97df"
+      },
+      "audits": {
+        "neural_population-4": {
+          "rollouts": 168,
+          "caps": 0,
+          "begin": 4,
+          "count": 28,
+          "mean_credits": {
+            "8": "2/7",
+            "7": "9/28",
+            "6": "15/28",
+            "5": "15/28",
+            "9": "1/4",
+            "0": "15/28"
+          },
+          "paired_margins": {
+            "8": "0",
+            "7": "1/28",
+            "6": "1/4",
+            "5": "1/4",
+            "9": "-1/28",
+            "0": "1/4"
+          },
+          "worlds": {
+            "4": "034b06d2089a83d63983bc4647ce6f767ce1d151b0dc442631030e93d3ea452f",
+            "5": "af1d48ff8cb4c4de5ecb92caae9225c2a5989706a84560987d6e0c6df315bd98",
+            "6": "b31089c97ec7df45821513763c0799f6b8de36dfc3972714caaf54ddc7490797",
+            "7": "a0ecd9147f378af74073aa6c6e24ac4fd1516ad3ea8de4fb7a7bd95e6c5fa67f",
+            "8": "03c2e68e31a27978439ade57d2a0aed2ed7862dcf2ae118cf6e265d778956eac",
+            "9": "0d44c148e0e1bb3ae4ca83e17e9a9da0576933064b9bbcb54d8e3852ac30b5c1",
+            "10": "d7f27ed1792f01b7d6456723461f1d3b034a6998df22cbbf83c955a30f1a79ae",
+            "11": "aaf8f72c53611fd9822041e90ee3999850e2c5848588da04729c4e79b8f32f64",
+            "12": "6e30b688e1951556a8f3fe114c5be07bad9bc04522d6a38fa610dd7e25e8876d",
+            "13": "d469e9c3df988c3f832aa815a6eef3c513088cf5eda68c498d71dfbfacd43df7",
+            "14": "042c9b6b35bd4f1ef5e32f0261915bb43bb9ed403572a272265e225fed55057b",
+            "15": "f6d8d48ad933b7f19ff8d57ddcc04811d8eaa9d099a08b7eef14987627623496",
+            "16": "d52bdde6f78dad797c627f61fb70857df0d49bb720321c5758a928347f151bfb",
+            "17": "b8be73dd70f3bfd898aee8212d0d3ed524dd0f8aa9be3272a93d07215aafa033",
+            "18": "4e6f4ddfa11afc14702d961ae84b7cc8372bc01475a6f00a41a6603d96188ae6",
+            "19": "a8d0b773afa4682cb71d0f28fcd14ba113e126389e48599da06d87a08e5807c5",
+            "20": "a31eb99f5f996ace373cea52ef61dbb08ee19c7a26836580a2abdd7228aa9ef9",
+            "21": "98597b8e6fed10bccc6d44ce711dac47a55feeb1cff94ae0922b5544499af425",
+            "22": "0df4d6aff6c6e129bd7ade8ca049591d2d9880471fe34c0f59776d6c74038b90",
+            "23": "d01e833307cf00d30c96795129d039de322e5f622c1c6174a27654809d6c1e00",
+            "24": "80be3b9302950ab2bd1646369288f6edf7db4669e348f0d518794dc964c6e2a2",
+            "25": "f2e10f943b57935ffa919a2ad3898e32830b7a0ce5fe1c952f2a8412875637e5",
+            "26": "2805b15fe705974883854cc4d5dcf41d04c4540ff4cac57b1ff3959802f7fb66",
+            "27": "f64996c0050cd100a365085fd84a8ed4115b8fbfb999bcf8dddb33611cdab6f0",
+            "28": "9d6465c8e210c9589c1ddaf64cd0bfc1c22d7a634d205bad815aa2430c5bab9f",
+            "29": "c4026cd15d9d67eb70141ec341e64a36bbd6b24ff5bf93b171d8ccbc52a3a8a5",
+            "30": "b13432acac1764babf77691c883b3436382f25ae623de4b5833a075ea384c911",
+            "31": "54b8b219747f66979f63ece55bf20014e335614a6b5fe4d66644279e6888056d"
+          },
+          "seconds": 2.3726386837661266
+        },
+        "reference_opponent_v1-4": {
+          "rollouts": 168,
+          "caps": 0,
+          "begin": 4,
+          "count": 28,
+          "mean_credits": {
+            "8": "0",
+            "7": "0",
+            "6": "0",
+            "5": "0",
+            "9": "0",
+            "0": "0"
+          },
+          "paired_margins": {
+            "8": "0",
+            "7": "0",
+            "6": "0",
+            "5": "0",
+            "9": "0",
+            "0": "0"
+          },
+          "worlds": {
+            "4": "034b06d2089a83d63983bc4647ce6f767ce1d151b0dc442631030e93d3ea452f",
+            "5": "af1d48ff8cb4c4de5ecb92caae9225c2a5989706a84560987d6e0c6df315bd98",
+            "6": "b31089c97ec7df45821513763c0799f6b8de36dfc3972714caaf54ddc7490797",
+            "7": "a0ecd9147f378af74073aa6c6e24ac4fd1516ad3ea8de4fb7a7bd95e6c5fa67f",
+            "8": "03c2e68e31a27978439ade57d2a0aed2ed7862dcf2ae118cf6e265d778956eac",
+            "9": "0d44c148e0e1bb3ae4ca83e17e9a9da0576933064b9bbcb54d8e3852ac30b5c1",
+            "10": "d7f27ed1792f01b7d6456723461f1d3b034a6998df22cbbf83c955a30f1a79ae",
+            "11": "aaf8f72c53611fd9822041e90ee3999850e2c5848588da04729c4e79b8f32f64",
+            "12": "6e30b688e1951556a8f3fe114c5be07bad9bc04522d6a38fa610dd7e25e8876d",
+            "13": "d469e9c3df988c3f832aa815a6eef3c513088cf5eda68c498d71dfbfacd43df7",
+            "14": "042c9b6b35bd4f1ef5e32f0261915bb43bb9ed403572a272265e225fed55057b",
+            "15": "f6d8d48ad933b7f19ff8d57ddcc04811d8eaa9d099a08b7eef14987627623496",
+            "16": "d52bdde6f78dad797c627f61fb70857df0d49bb720321c5758a928347f151bfb",
+            "17": "b8be73dd70f3bfd898aee8212d0d3ed524dd0f8aa9be3272a93d07215aafa033",
+            "18": "4e6f4ddfa11afc14702d961ae84b7cc8372bc01475a6f00a41a6603d96188ae6",
+            "19": "a8d0b773afa4682cb71d0f28fcd14ba113e126389e48599da06d87a08e5807c5",
+            "20": "a31eb99f5f996ace373cea52ef61dbb08ee19c7a26836580a2abdd7228aa9ef9",
+            "21": "98597b8e6fed10bccc6d44ce711dac47a55feeb1cff94ae0922b5544499af425",
+            "22": "0df4d6aff6c6e129bd7ade8ca049591d2d9880471fe34c0f59776d6c74038b90",
+            "23": "d01e833307cf00d30c96795129d039de322e5f622c1c6174a27654809d6c1e00",
+            "24": "80be3b9302950ab2bd1646369288f6edf7db4669e348f0d518794dc964c6e2a2",
+            "25": "f2e10f943b57935ffa919a2ad3898e32830b7a0ce5fe1c952f2a8412875637e5",
+            "26": "2805b15fe705974883854cc4d5dcf41d04c4540ff4cac57b1ff3959802f7fb66",
+            "27": "f64996c0050cd100a365085fd84a8ed4115b8fbfb999bcf8dddb33611cdab6f0",
+            "28": "9d6465c8e210c9589c1ddaf64cd0bfc1c22d7a634d205bad815aa2430c5bab9f",
+            "29": "c4026cd15d9d67eb70141ec341e64a36bbd6b24ff5bf93b171d8ccbc52a3a8a5",
+            "30": "b13432acac1764babf77691c883b3436382f25ae623de4b5833a075ea384c911",
+            "31": "54b8b219747f66979f63ece55bf20014e335614a6b5fe4d66644279e6888056d"
+          },
+          "seconds": 43.90424661478028
+        },
+        "neural_population-32": {
+          "rollouts": 168,
+          "caps": 0,
+          "begin": 32,
+          "count": 28,
+          "mean_credits": {
+            "8": "13/28",
+            "7": "13/28",
+            "6": "9/14",
+            "5": "9/14",
+            "9": "2/7",
+            "0": "9/14"
+          },
+          "paired_margins": {
+            "8": "0",
+            "7": "0",
+            "6": "5/28",
+            "5": "5/28",
+            "9": "-5/28",
+            "0": "5/28"
+          },
+          "worlds": {
+            "32": "c0a3bad716ad258916e65d036fef3cee79656d067fa53de0c8a0292f567b8b8c",
+            "33": "18008dd365721c92450659412f10bca152d0fd6532e3f9868bbe506f9a21a917",
+            "34": "dcfd8f6232f82c1b1982220ff21e496d3980f14156abf5b9373ab6bc7a7006e2",
+            "35": "100b4d5e6b51dbe3b34186f768ada6cef907cefe8cac0682929cf47d48abd98d",
+            "36": "6614e325a300919cbadc4fca6c8a86bf6455ad26319922ed5c7c3a4f414ee89b",
+            "37": "6ac9fd1b744efc30cc0d04c78c94543319983f047e547490e7881f2f11fc4f5c",
+            "38": "4543d77ed5600419e67b41d95c62db03fdc64084760925b1f60851467161ab8c",
+            "39": "a583b776092ed812c10adc5d7a10fce8df13442548251b4e48e30153f55cb551",
+            "40": "8337c5e1e6406fd83d104758558658703da02ba077a3f55ad799b1477b992c55",
+            "41": "419f2a9dc51ce6185de13f0e985b24c918a8cb6fe0f440a68fd2c0d168157fdf",
+            "42": "77cfb0b838f52c3afa05ec8b888034bf37666465ef3cf50377090fc6c02eeba0",
+            "43": "ce02e607b4a79f822bcdbb174ec23ff2e1b8b0a34718c341352cae711d8669f2",
+            "44": "550b574a69ecd52a05df6304f509e0e7ec51ef273337cf27eac6e2ba9e6bf7a9",
+            "45": "d81ba03f8bf16b18b8e670156f95fc19f1119f4e9dd37048b32429453220f34c",
+            "46": "a9027d1e56cbfefe0f3699e96b73b133094705ba95b43f655ab2dcb4f4ea02ed",
+            "47": "ee3be76ad6da7201a59fcc916693e09ce6589beade297b447b72e1c62e29aabc",
+            "48": "b67ba4b226229d3301d6022c99333bf05f54c6e18e9b8a55bb54a427099865db",
+            "49": "2cad2e64c3853114db6d56323264c89a7def765bb17b4208b809675927b677fa",
+            "50": "587a79b1488f119841be935863176f4a5d90062b0ffcd58263d54642f8e0fa98",
+            "51": "4d1011ae73432298e3c28233f1ed549472f137f767530827c171e1e0824de44d",
+            "52": "badc736ed4fcfb07b9b77fdeeae13b09bbb47adecc2ed8bbcd02066bd26bc371",
+            "53": "26bb0c2a5a5d348dcca6058dab3c34f71cf85c3fb38042099ca84b924ce5fba5",
+            "54": "f5b7c2afe0d26f8b9cbcf2814514eba3e678090fd455dc54476d2e0579841b86",
+            "55": "f2ef5ad6a54e4122689205d5f255c82b22e1dcaf02d3fab0e6755f8938a6438b",
+            "56": "7d25ad89d1bdcbc2731d97f2014a78f0312ff0506d66880f160d16ac993881f0",
+            "57": "95df3a462e2ac8f35b6ac221ec2b13511143ad2dff072298de6d4b64defdb5f9",
+            "58": "032e1a6903f6f4aa665302b92057bb7ee09422b0643c25a0db13eee5d7211c30",
+            "59": "eaa6e1876884f16005d8fc541aa7b701326c8350750c5abd0b5f036843ce3e8e"
+          },
+          "seconds": 2.5057533332146704
+        },
+        "reference_opponent_v1-32": {
+          "rollouts": 168,
+          "caps": 0,
+          "begin": 32,
+          "count": 28,
+          "mean_credits": {
+            "8": "0",
+            "7": "0",
+            "6": "0",
+            "5": "0",
+            "9": "0",
+            "0": "0"
+          },
+          "paired_margins": {
+            "8": "0",
+            "7": "0",
+            "6": "0",
+            "5": "0",
+            "9": "0",
+            "0": "0"
+          },
+          "worlds": {
+            "32": "c0a3bad716ad258916e65d036fef3cee79656d067fa53de0c8a0292f567b8b8c",
+            "33": "18008dd365721c92450659412f10bca152d0fd6532e3f9868bbe506f9a21a917",
+            "34": "dcfd8f6232f82c1b1982220ff21e496d3980f14156abf5b9373ab6bc7a7006e2",
+            "35": "100b4d5e6b51dbe3b34186f768ada6cef907cefe8cac0682929cf47d48abd98d",
+            "36": "6614e325a300919cbadc4fca6c8a86bf6455ad26319922ed5c7c3a4f414ee89b",
+            "37": "6ac9fd1b744efc30cc0d04c78c94543319983f047e547490e7881f2f11fc4f5c",
+            "38": "4543d77ed5600419e67b41d95c62db03fdc64084760925b1f60851467161ab8c",
+            "39": "a583b776092ed812c10adc5d7a10fce8df13442548251b4e48e30153f55cb551",
+            "40": "8337c5e1e6406fd83d104758558658703da02ba077a3f55ad799b1477b992c55",
+            "41": "419f2a9dc51ce6185de13f0e985b24c918a8cb6fe0f440a68fd2c0d168157fdf",
+            "42": "77cfb0b838f52c3afa05ec8b888034bf37666465ef3cf50377090fc6c02eeba0",
+            "43": "ce02e607b4a79f822bcdbb174ec23ff2e1b8b0a34718c341352cae711d8669f2",
+            "44": "550b574a69ecd52a05df6304f509e0e7ec51ef273337cf27eac6e2ba9e6bf7a9",
+            "45": "d81ba03f8bf16b18b8e670156f95fc19f1119f4e9dd37048b32429453220f34c",
+            "46": "a9027d1e56cbfefe0f3699e96b73b133094705ba95b43f655ab2dcb4f4ea02ed",
+            "47": "ee3be76ad6da7201a59fcc916693e09ce6589beade297b447b72e1c62e29aabc",
+            "48": "b67ba4b226229d3301d6022c99333bf05f54c6e18e9b8a55bb54a427099865db",
+            "49": "2cad2e64c3853114db6d56323264c89a7def765bb17b4208b809675927b677fa",
+            "50": "587a79b1488f119841be935863176f4a5d90062b0ffcd58263d54642f8e0fa98",
+            "51": "4d1011ae73432298e3c28233f1ed549472f137f767530827c171e1e0824de44d",
+            "52": "badc736ed4fcfb07b9b77fdeeae13b09bbb47adecc2ed8bbcd02066bd26bc371",
+            "53": "26bb0c2a5a5d348dcca6058dab3c34f71cf85c3fb38042099ca84b924ce5fba5",
+            "54": "f5b7c2afe0d26f8b9cbcf2814514eba3e678090fd455dc54476d2e0579841b86",
+            "55": "f2ef5ad6a54e4122689205d5f255c82b22e1dcaf02d3fab0e6755f8938a6438b",
+            "56": "7d25ad89d1bdcbc2731d97f2014a78f0312ff0506d66880f160d16ac993881f0",
+            "57": "95df3a462e2ac8f35b6ac221ec2b13511143ad2dff072298de6d4b64defdb5f9",
+            "58": "032e1a6903f6f4aa665302b92057bb7ee09422b0643c25a0db13eee5d7211c30",
+            "59": "eaa6e1876884f16005d8fc541aa7b701326c8350750c5abd0b5f036843ce3e8e"
+          },
+          "seconds": 45.4733702740632
+        }
+      },
+      "cross_fit": [
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "neural_population",
+          "action": 0,
+          "parent": 8,
+          "overridden": true,
+          "selection_margin": "1/4",
+          "heldout_margins": {
+            "neural_population": "5/28",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "reference_opponent_v1",
+          "action": 8,
+          "parent": 8,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "equal_mixture",
+          "action": 0,
+          "parent": 8,
+          "overridden": true,
+          "selection_margin": "1/8",
+          "heldout_margins": {
+            "neural_population": "5/28",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "neural_population",
+          "action": 0,
+          "parent": 8,
+          "overridden": true,
+          "selection_margin": "5/28",
+          "heldout_margins": {
+            "neural_population": "1/4",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "reference_opponent_v1",
+          "action": 8,
+          "parent": 8,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "equal_mixture",
+          "action": 0,
+          "parent": 8,
+          "overridden": true,
+          "selection_margin": "5/56",
+          "heldout_margins": {
+            "neural_population": "1/4",
+            "reference_opponent_v1": "0"
+          }
+        }
+      ]
+    },
+    {
+      "rootId": "policy-v2:3:11102:economic:117:36",
+      "players": 3,
+      "variant": "recharged",
+      "raw_files": {
+        "root-03-neural_population-4.json": "275ee648d50f6476b416806e1ebad0945e3daf6138ddf9638d2a216f46ba438e",
+        "root-03-reference_opponent_v1-4.json": "a1fb34d5c7baf4aee6b1a2cb8e9b47a1f11661a02524760953161d246cdcc40c",
+        "root-03-neural_population-32.json": "ed9000e74b25535eaf1af9db8f44a3380fa4f05da218d7b44e30ee5592dede20",
+        "root-03-reference_opponent_v1-32.json": "2347da001f0cf13b4ea6b6f884b4a27a4698d4a4db60ad0c50e04e8566e94326"
+      },
+      "audits": {
+        "neural_population-4": {
+          "rollouts": 168,
+          "caps": 0,
+          "begin": 4,
+          "count": 28,
+          "mean_credits": {
+            "24": "27/28",
+            "0": "27/28",
+            "1": "27/28",
+            "2": "27/28",
+            "8": "27/28",
+            "12": "17/28"
+          },
+          "paired_margins": {
+            "24": "0",
+            "0": "0",
+            "1": "0",
+            "2": "0",
+            "8": "0",
+            "12": "-5/14"
+          },
+          "worlds": {
+            "4": "b585801963fbdf02f28ce039bf4227aeeb5321cb2c92492b3d67c052a8fbe4c0",
+            "5": "906cc8ad8ddff51d3370a2b52c09da1a80cceddd872fea2174f66bbad400cbe3",
+            "6": "52d7f9c8d60cc29d294cd8c13bc6f889e9ddfbd365cd879db1c80a016b6b0555",
+            "7": "a744aa634e89d1c1db44d05401c827ec0f4289029e4e74de37382e04f7534187",
+            "8": "1b79e686feb842e0826c0349881a665ce2ce8177d8b8d760cdebc12d7f9c19e1",
+            "9": "ce4c51f04c7b74eeeb704946b0cbb7047a15552a0de2c37c210f26b8b2574f04",
+            "10": "178fb9ab7e3a1b7882d5243161ff773e8ac774a2b2abaf8dea0ae7ebf4c27289",
+            "11": "4255262b9734aad95b3918f54cf3fe809e19a8b9e26a1e84363a51b84796aa92",
+            "12": "a59e7a882fae551b55a89aaab182959f05279d32a3c03b4a306fc7a86e16801e",
+            "13": "bc6e95e4a7594d3057176413bbdcebb0bf3df4a3f9779778ee818fa92f36c122",
+            "14": "be57a36e59e13805ca3a875856b200f286e2dbf3efb901d339fec363064be323",
+            "15": "93b84f805b698f515256e11f2326ddcd7166e199dc495d2b1b99db162ebe81d9",
+            "16": "48fc59608192c0eeb80f54b95c598d1e994b8f57fe00beba7e5e522085406867",
+            "17": "03072fe511983caad3492d8df88ffeed50d33a7000271c1ea60b55ca8a92f8c3",
+            "18": "78c3e83bd31a94a4403642d8e5231edf978566a3a343c45e4d82c1ccc9d154b5",
+            "19": "3e8bfecf1faa983f86b32fc141a9616984dcd68a71cf4dc85ea0f7a98404b990",
+            "20": "ba987f30d0b04c11091b5f8dced9a80716c2ed867206e43ffc2c4a55e0f25eb8",
+            "21": "25754438612febc88c4d04b83758032a16e7be8824dea3a1cfa2ed1d52449e60",
+            "22": "2f6bc5f289e22b979c6bdad92253691efc50b346fdc7436c30ee462386212c4c",
+            "23": "1ce5b987dee321875ff28c7cd9ae3c24f29379193a865880739417a80944742c",
+            "24": "c1d70e2a98284087b63a02ed08ef2a4cae70c77fa0de4a45e8d7910465e1d5cb",
+            "25": "8c5ad40eeb224695e28a882905b76bf26f047025ec963cca933b90de7288f224",
+            "26": "8dd8e333c3451355b06d37578cdeb024a23a141c9afee7de444a414a6ca1e8ab",
+            "27": "ff4466a21a73498c3594be9b119cdee5a2d5e9517a9399eab328ba1da526ee02",
+            "28": "cbbd920139fac46f9e8ece1390aa865ebf5a06c02433728e35d93305b374c3f5",
+            "29": "ed72aa8bf3e0a1d020b25799162fa883bb1787567cee42f86e89285895decc31",
+            "30": "962c9fc59318a43dd44ebf4093cfcba8d181be28fe480f15426beefa749930a3",
+            "31": "bc041509ba0fc5e37928965c6650bdb2a9c9b6d8f19dfb052a84a60b71fc9307"
+          },
+          "seconds": 5.4475490199401975
+        },
+        "reference_opponent_v1-4": {
+          "rollouts": 168,
+          "caps": 0,
+          "begin": 4,
+          "count": 28,
+          "mean_credits": {
+            "24": "0",
+            "0": "0",
+            "1": "0",
+            "2": "0",
+            "8": "0",
+            "12": "0"
+          },
+          "paired_margins": {
+            "24": "0",
+            "0": "0",
+            "1": "0",
+            "2": "0",
+            "8": "0",
+            "12": "0"
+          },
+          "worlds": {
+            "4": "b585801963fbdf02f28ce039bf4227aeeb5321cb2c92492b3d67c052a8fbe4c0",
+            "5": "906cc8ad8ddff51d3370a2b52c09da1a80cceddd872fea2174f66bbad400cbe3",
+            "6": "52d7f9c8d60cc29d294cd8c13bc6f889e9ddfbd365cd879db1c80a016b6b0555",
+            "7": "a744aa634e89d1c1db44d05401c827ec0f4289029e4e74de37382e04f7534187",
+            "8": "1b79e686feb842e0826c0349881a665ce2ce8177d8b8d760cdebc12d7f9c19e1",
+            "9": "ce4c51f04c7b74eeeb704946b0cbb7047a15552a0de2c37c210f26b8b2574f04",
+            "10": "178fb9ab7e3a1b7882d5243161ff773e8ac774a2b2abaf8dea0ae7ebf4c27289",
+            "11": "4255262b9734aad95b3918f54cf3fe809e19a8b9e26a1e84363a51b84796aa92",
+            "12": "a59e7a882fae551b55a89aaab182959f05279d32a3c03b4a306fc7a86e16801e",
+            "13": "bc6e95e4a7594d3057176413bbdcebb0bf3df4a3f9779778ee818fa92f36c122",
+            "14": "be57a36e59e13805ca3a875856b200f286e2dbf3efb901d339fec363064be323",
+            "15": "93b84f805b698f515256e11f2326ddcd7166e199dc495d2b1b99db162ebe81d9",
+            "16": "48fc59608192c0eeb80f54b95c598d1e994b8f57fe00beba7e5e522085406867",
+            "17": "03072fe511983caad3492d8df88ffeed50d33a7000271c1ea60b55ca8a92f8c3",
+            "18": "78c3e83bd31a94a4403642d8e5231edf978566a3a343c45e4d82c1ccc9d154b5",
+            "19": "3e8bfecf1faa983f86b32fc141a9616984dcd68a71cf4dc85ea0f7a98404b990",
+            "20": "ba987f30d0b04c11091b5f8dced9a80716c2ed867206e43ffc2c4a55e0f25eb8",
+            "21": "25754438612febc88c4d04b83758032a16e7be8824dea3a1cfa2ed1d52449e60",
+            "22": "2f6bc5f289e22b979c6bdad92253691efc50b346fdc7436c30ee462386212c4c",
+            "23": "1ce5b987dee321875ff28c7cd9ae3c24f29379193a865880739417a80944742c",
+            "24": "c1d70e2a98284087b63a02ed08ef2a4cae70c77fa0de4a45e8d7910465e1d5cb",
+            "25": "8c5ad40eeb224695e28a882905b76bf26f047025ec963cca933b90de7288f224",
+            "26": "8dd8e333c3451355b06d37578cdeb024a23a141c9afee7de444a414a6ca1e8ab",
+            "27": "ff4466a21a73498c3594be9b119cdee5a2d5e9517a9399eab328ba1da526ee02",
+            "28": "cbbd920139fac46f9e8ece1390aa865ebf5a06c02433728e35d93305b374c3f5",
+            "29": "ed72aa8bf3e0a1d020b25799162fa883bb1787567cee42f86e89285895decc31",
+            "30": "962c9fc59318a43dd44ebf4093cfcba8d181be28fe480f15426beefa749930a3",
+            "31": "bc041509ba0fc5e37928965c6650bdb2a9c9b6d8f19dfb052a84a60b71fc9307"
+          },
+          "seconds": 129.27019270090386
+        },
+        "neural_population-32": {
+          "rollouts": 168,
+          "caps": 0,
+          "begin": 32,
+          "count": 28,
+          "mean_credits": {
+            "24": "1",
+            "0": "1",
+            "1": "1",
+            "2": "27/28",
+            "8": "27/28",
+            "12": "1/2"
+          },
+          "paired_margins": {
+            "24": "0",
+            "0": "0",
+            "1": "0",
+            "2": "-1/28",
+            "8": "-1/28",
+            "12": "-1/2"
+          },
+          "worlds": {
+            "32": "0d3280112dd075dc79f8319a98338aaa8f62e005775ffb8d1b70dd6b4a9a049d",
+            "33": "2fdb99d68fd7dadcde68623aee5ce45ed9f2b41de9098169ed7bf6b3e3f4af79",
+            "34": "94e4b9ed126d4575838691e9c3c61e2c9939715d80c72165c7f8691af1126f88",
+            "35": "09c4a3f8bc6db5673927078ce386172694188b887e25ec673a4adb607288b0bb",
+            "36": "2c10f3172846823c996a88d1eba0366abd8c000822246fd48190358a2a4a1acf",
+            "37": "b8ddabd15ac4d6229523684fd54bda45394b1198bbb9eb76b0dd86283487e64e",
+            "38": "31c96f98afac6a62a9f1e5dafc46f3775a773b6dbc2ce4a6628b7c7f3e5bf490",
+            "39": "a1aa2ed73f6270659d43a240775672452ea5c7464c42a344856bf448d8c1144a",
+            "40": "6858b085cf67f0949a720f0e4e94a1164e580e86c8513b314e030efcfc2af36e",
+            "41": "9a46c43c220acb7dcc9f5fe88a0c63525f44a7e0b9f7b2936627131f73e900f8",
+            "42": "c7e76205a5a41588991e53d54a95afc549750b2ebf0698be75bd5944f2696644",
+            "43": "a2897048db42eb197e75ac8d11cb8f6f10f2d8d6d3b28e38cc63a61ad44ce39e",
+            "44": "d6a3ce3390e3c2ac92181538ff94aa3e8a262edd2ddc501da9da9a6ebab20a1f",
+            "45": "d42135e6235a674147685ab026b8354f89c761c3b689ca90451353c2ad3f3122",
+            "46": "e51191c8dff810399aeb4d81fb5c85d1464adcc2af8f284235de5d429db5e628",
+            "47": "eb404bf34315afc16692ebb354b6d5d146d6f3ae3804fab72c2873b5ed574102",
+            "48": "a00714adc46d008e52102a88e72a3bdde240335559b20bd4cd39ab23f906fec4",
+            "49": "c44fed04373a20ed31c9378b0b7300aab40402f50b1886bbd1d802f56e59caca",
+            "50": "0ff95607cec545282839043c5578e52341131fe799eb24efa3a20255b889b854",
+            "51": "e31b12649147067a11859653e4f43d70f270ce7acdf995babd3facf88008567f",
+            "52": "48188b4dfe59ef11dc33826e6b663061b91345671336e051279d8c3cb1e6ea76",
+            "53": "9438d92ce2a07182bdf61abf770d984bcaa8b9846f2b4c778aa0af7e809fdd64",
+            "54": "c2c2b065e5bd655e5fddd7600a107798e0d55a81f85540d1f5a85bcc67ef0b10",
+            "55": "7967823c3a0e577ed2f17fb7da08e0e6916c83dc5f08aa2d79d4f10ed01ed7fd",
+            "56": "ccc32d08f93ec74f74f17175ecb49b653abb4a4e75261e644809c31767ad21de",
+            "57": "cfcccd9f4368ad964d7390df80877b56ba8ab0bcafcf494bf315450e830a000c",
+            "58": "576ff0a911a4234bc3f3e666f868ae845ba9899a13eafbbd06b012949730b5ef",
+            "59": "f42125cd8b53f864d0d7e5e5cada48caffef1357ceef793431962b039042082a"
+          },
+          "seconds": 5.781153684016317
+        },
+        "reference_opponent_v1-32": {
+          "rollouts": 168,
+          "caps": 0,
+          "begin": 32,
+          "count": 28,
+          "mean_credits": {
+            "24": "0",
+            "0": "0",
+            "1": "0",
+            "2": "0",
+            "8": "0",
+            "12": "0"
+          },
+          "paired_margins": {
+            "24": "0",
+            "0": "0",
+            "1": "0",
+            "2": "0",
+            "8": "0",
+            "12": "0"
+          },
+          "worlds": {
+            "32": "0d3280112dd075dc79f8319a98338aaa8f62e005775ffb8d1b70dd6b4a9a049d",
+            "33": "2fdb99d68fd7dadcde68623aee5ce45ed9f2b41de9098169ed7bf6b3e3f4af79",
+            "34": "94e4b9ed126d4575838691e9c3c61e2c9939715d80c72165c7f8691af1126f88",
+            "35": "09c4a3f8bc6db5673927078ce386172694188b887e25ec673a4adb607288b0bb",
+            "36": "2c10f3172846823c996a88d1eba0366abd8c000822246fd48190358a2a4a1acf",
+            "37": "b8ddabd15ac4d6229523684fd54bda45394b1198bbb9eb76b0dd86283487e64e",
+            "38": "31c96f98afac6a62a9f1e5dafc46f3775a773b6dbc2ce4a6628b7c7f3e5bf490",
+            "39": "a1aa2ed73f6270659d43a240775672452ea5c7464c42a344856bf448d8c1144a",
+            "40": "6858b085cf67f0949a720f0e4e94a1164e580e86c8513b314e030efcfc2af36e",
+            "41": "9a46c43c220acb7dcc9f5fe88a0c63525f44a7e0b9f7b2936627131f73e900f8",
+            "42": "c7e76205a5a41588991e53d54a95afc549750b2ebf0698be75bd5944f2696644",
+            "43": "a2897048db42eb197e75ac8d11cb8f6f10f2d8d6d3b28e38cc63a61ad44ce39e",
+            "44": "d6a3ce3390e3c2ac92181538ff94aa3e8a262edd2ddc501da9da9a6ebab20a1f",
+            "45": "d42135e6235a674147685ab026b8354f89c761c3b689ca90451353c2ad3f3122",
+            "46": "e51191c8dff810399aeb4d81fb5c85d1464adcc2af8f284235de5d429db5e628",
+            "47": "eb404bf34315afc16692ebb354b6d5d146d6f3ae3804fab72c2873b5ed574102",
+            "48": "a00714adc46d008e52102a88e72a3bdde240335559b20bd4cd39ab23f906fec4",
+            "49": "c44fed04373a20ed31c9378b0b7300aab40402f50b1886bbd1d802f56e59caca",
+            "50": "0ff95607cec545282839043c5578e52341131fe799eb24efa3a20255b889b854",
+            "51": "e31b12649147067a11859653e4f43d70f270ce7acdf995babd3facf88008567f",
+            "52": "48188b4dfe59ef11dc33826e6b663061b91345671336e051279d8c3cb1e6ea76",
+            "53": "9438d92ce2a07182bdf61abf770d984bcaa8b9846f2b4c778aa0af7e809fdd64",
+            "54": "c2c2b065e5bd655e5fddd7600a107798e0d55a81f85540d1f5a85bcc67ef0b10",
+            "55": "7967823c3a0e577ed2f17fb7da08e0e6916c83dc5f08aa2d79d4f10ed01ed7fd",
+            "56": "ccc32d08f93ec74f74f17175ecb49b653abb4a4e75261e644809c31767ad21de",
+            "57": "cfcccd9f4368ad964d7390df80877b56ba8ab0bcafcf494bf315450e830a000c",
+            "58": "576ff0a911a4234bc3f3e666f868ae845ba9899a13eafbbd06b012949730b5ef",
+            "59": "f42125cd8b53f864d0d7e5e5cada48caffef1357ceef793431962b039042082a"
+          },
+          "seconds": 130.1808061338961
+        }
+      },
+      "cross_fit": [
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "neural_population",
+          "action": 24,
+          "parent": 24,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "reference_opponent_v1",
+          "action": 24,
+          "parent": 24,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "equal_mixture",
+          "action": 24,
+          "parent": 24,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "neural_population",
+          "action": 24,
+          "parent": 24,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "reference_opponent_v1",
+          "action": 24,
+          "parent": 24,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "equal_mixture",
+          "action": 24,
+          "parent": 24,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        }
+      ]
+    },
+    {
+      "rootId": "policy-v2:4:11101:snapshot0:172:6",
+      "players": 4,
+      "variant": "original",
+      "raw_files": {
+        "root-04-neural_population-4.json": "a3583cbf241626ccf0cc73b4f906714c10620011572fffca291ea1bfa7168da1",
+        "root-04-reference_opponent_v1-4.json": "8ec3d9f8e4fc9f36e52918653f3233de4093618ec6dded4141b2ed5d1311c211",
+        "root-04-neural_population-32.json": "28d23010202a1f7722b3f1216d8bb2cd6abb3ddf382e19840aafeb3adb3912b7",
+        "root-04-reference_opponent_v1-32.json": "3ec93e30f7943fddaa7d244f4afbe56e962f20a7255a4308f6c45889e7ff1001"
+      },
+      "audits": {
+        "neural_population-4": {
+          "rollouts": 168,
+          "caps": 0,
+          "begin": 4,
+          "count": 28,
+          "mean_credits": {
+            "4": "1/4",
+            "3": "5/14",
+            "2": "11/28",
+            "1": "5/14",
+            "24": "5/14",
+            "5": "2/7"
+          },
+          "paired_margins": {
+            "4": "0",
+            "3": "3/28",
+            "2": "1/7",
+            "1": "3/28",
+            "24": "3/28",
+            "5": "1/28"
+          },
+          "worlds": {
+            "4": "c6caf79f3de7450f1125011456be2135a4ef254206c456bd027bd0d538d02886",
+            "5": "ebf03b98a5ce2eb2ac694fc2c8071e058f0d5c98127f82a1e5d92483d301a30d",
+            "6": "835e2ed9cde9856929625e7393df66e7a2267069e26bea1cb62342c9d083b920",
+            "7": "81946ca41d6079bcd3a2d3ca93e803e1458595cd91818641dc646625dba32325",
+            "8": "9d4912a0950e1ca02552db97bc1302df4e42d0e73ce8d30268c970af1b361467",
+            "9": "3d65a0a6103206ea831992b61713927be28005e4932c987582a3beb9ab27f0d7",
+            "10": "8fd5960a60e338b7569813128e3bd53c7fc453c392e571a78c09051bd29d5446",
+            "11": "43f6243c55cbc7bf260c48c0dce30e854318ed0b97fe4eb4df3cb7de0e20cccd",
+            "12": "7953fa36986c6eed35219540c27bffbe8e6dc0aef2c695bb32ec989555967d6a",
+            "13": "998d6d487a1dd40562e08f6a2f76afb774fca37431df7624ef84c6ec0f62f510",
+            "14": "3e7a84cbdce9f26b5ff9441276269733486a3b6daf13866c34854081e27203e7",
+            "15": "f3ccb482c763f0f0a736d344af2724a6b75c51125c9c5aa355c237fe401964f1",
+            "16": "f9331b3613f868e4d355fe6b7c5381c26573748e1d3b610820148937d44d1295",
+            "17": "bd131870b0a3eef206078672b27e7064619c3eabfad5e54bc6aadbed3dd7b7e3",
+            "18": "9f22ce1dcc7e05059fd71ff8da9ae56275f78311ff4438960ee4ec8ed8445af2",
+            "19": "328ab64a69e935615186d6a82e7dbab845e7a695b5137a49fff952a3a773a149",
+            "20": "b8849c2ab879f1c41cb93c76b33c837a1a36aea4b6115d5d7bab35bc648b3ef5",
+            "21": "f1b0befcdd8cb40e027b16143d6a6aa335b8bdb9cc40adccfdefe68e0cf1b9a4",
+            "22": "c5f722279e753524d740938e192efa9e2e324a896c4392744f38a68fa4d553b9",
+            "23": "6c0fba33180940a27b51d22d03025a21bc0103fb2b92e926b8b0bd2cf9bbad78",
+            "24": "e831f9534fe2c3be429a49a5d47353d0169184b136f0e87e36c6a02710e09bc8",
+            "25": "cc139a5b0911019f99602fffe59c0800ebf782900e40cd85834df0afa4a35344",
+            "26": "3ab761c06cdd346588acb01aa255f51f88f8e530c67f1023d04df8316abd9cc7",
+            "27": "994031141c2802ad89c1a9c414b68d143a305b6c569115a0b375d9bbb4dd4b49",
+            "28": "5ec6b4b4ebc9ac41116dc49266061c91cbe08546b09035f9bb88d4fc0de4c053",
+            "29": "4ff887a4ea8cc8bea5cf501ea9db9242765038c023c86cec160c8e96901c1ae2",
+            "30": "42a6598ef11f88867907b34247143cd7263bc40529c0e4fa6e46647f4de6f90e",
+            "31": "a41454cdecc174f73faccbc40e5a85c6cf36309a5c3c9b5420e5e19f40bdfb7f"
+          },
+          "seconds": 28.70732290437445
+        },
+        "reference_opponent_v1-4": {
+          "rollouts": 168,
+          "caps": 0,
+          "begin": 4,
+          "count": 28,
+          "mean_credits": {
+            "4": "1/14",
+            "3": "1/4",
+            "2": "5/28",
+            "1": "1/14",
+            "24": "5/28",
+            "5": "3/28"
+          },
+          "paired_margins": {
+            "4": "0",
+            "3": "5/28",
+            "2": "3/28",
+            "1": "0",
+            "24": "3/28",
+            "5": "1/28"
+          },
+          "worlds": {
+            "4": "c6caf79f3de7450f1125011456be2135a4ef254206c456bd027bd0d538d02886",
+            "5": "ebf03b98a5ce2eb2ac694fc2c8071e058f0d5c98127f82a1e5d92483d301a30d",
+            "6": "835e2ed9cde9856929625e7393df66e7a2267069e26bea1cb62342c9d083b920",
+            "7": "81946ca41d6079bcd3a2d3ca93e803e1458595cd91818641dc646625dba32325",
+            "8": "9d4912a0950e1ca02552db97bc1302df4e42d0e73ce8d30268c970af1b361467",
+            "9": "3d65a0a6103206ea831992b61713927be28005e4932c987582a3beb9ab27f0d7",
+            "10": "8fd5960a60e338b7569813128e3bd53c7fc453c392e571a78c09051bd29d5446",
+            "11": "43f6243c55cbc7bf260c48c0dce30e854318ed0b97fe4eb4df3cb7de0e20cccd",
+            "12": "7953fa36986c6eed35219540c27bffbe8e6dc0aef2c695bb32ec989555967d6a",
+            "13": "998d6d487a1dd40562e08f6a2f76afb774fca37431df7624ef84c6ec0f62f510",
+            "14": "3e7a84cbdce9f26b5ff9441276269733486a3b6daf13866c34854081e27203e7",
+            "15": "f3ccb482c763f0f0a736d344af2724a6b75c51125c9c5aa355c237fe401964f1",
+            "16": "f9331b3613f868e4d355fe6b7c5381c26573748e1d3b610820148937d44d1295",
+            "17": "bd131870b0a3eef206078672b27e7064619c3eabfad5e54bc6aadbed3dd7b7e3",
+            "18": "9f22ce1dcc7e05059fd71ff8da9ae56275f78311ff4438960ee4ec8ed8445af2",
+            "19": "328ab64a69e935615186d6a82e7dbab845e7a695b5137a49fff952a3a773a149",
+            "20": "b8849c2ab879f1c41cb93c76b33c837a1a36aea4b6115d5d7bab35bc648b3ef5",
+            "21": "f1b0befcdd8cb40e027b16143d6a6aa335b8bdb9cc40adccfdefe68e0cf1b9a4",
+            "22": "c5f722279e753524d740938e192efa9e2e324a896c4392744f38a68fa4d553b9",
+            "23": "6c0fba33180940a27b51d22d03025a21bc0103fb2b92e926b8b0bd2cf9bbad78",
+            "24": "e831f9534fe2c3be429a49a5d47353d0169184b136f0e87e36c6a02710e09bc8",
+            "25": "cc139a5b0911019f99602fffe59c0800ebf782900e40cd85834df0afa4a35344",
+            "26": "3ab761c06cdd346588acb01aa255f51f88f8e530c67f1023d04df8316abd9cc7",
+            "27": "994031141c2802ad89c1a9c414b68d143a305b6c569115a0b375d9bbb4dd4b49",
+            "28": "5ec6b4b4ebc9ac41116dc49266061c91cbe08546b09035f9bb88d4fc0de4c053",
+            "29": "4ff887a4ea8cc8bea5cf501ea9db9242765038c023c86cec160c8e96901c1ae2",
+            "30": "42a6598ef11f88867907b34247143cd7263bc40529c0e4fa6e46647f4de6f90e",
+            "31": "a41454cdecc174f73faccbc40e5a85c6cf36309a5c3c9b5420e5e19f40bdfb7f"
+          },
+          "seconds": 2540.763081475161
+        },
+        "neural_population-32": {
+          "rollouts": 168,
+          "caps": 0,
+          "begin": 32,
+          "count": 28,
+          "mean_credits": {
+            "4": "2/7",
+            "3": "5/14",
+            "2": "11/28",
+            "1": "3/7",
+            "24": "2/7",
+            "5": "1/7"
+          },
+          "paired_margins": {
+            "4": "0",
+            "3": "1/14",
+            "2": "3/28",
+            "1": "1/7",
+            "24": "0",
+            "5": "-1/7"
+          },
+          "worlds": {
+            "32": "1c5a8cc33c72ae425133a5413443ccd5b68f2abe92ddefecdd160a7a83fef4dd",
+            "33": "221d657e8225f12db204020f28bea0fe779be5799bb942742deb3e5c0d4b4577",
+            "34": "41cc2cb3f0ad883ec7314f13b5c8b7c931fa48bb213a47b2b1ab4e47254e7d69",
+            "35": "af55bc3cbb7c216508efda2d1e00f7c9a614cf969a5ee0567a6040370409882e",
+            "36": "9c1a7e9a8eb554ddc0d50c4b0e0ee48ae8a8df06333e65e0d5724f43fac9447e",
+            "37": "19470e4bf04de9d98e342f0ae632ec1f4e066289bc774d338b567cf734125142",
+            "38": "55ddb904f89996e40b2d3c326404687dd16c9b95e71a450ecba7d6b100f9da76",
+            "39": "f0b0476bb0c431fdbca1cb2be064521281ec302a81383c06efa55d7009f94aeb",
+            "40": "00f01b4700b354ff4219e067852a4bfaa0aa9ea49d32bcfaf00bd34eee8449a8",
+            "41": "6500e3af62c3f8ba3f2575ef3921ac0124c1a7b88e93a050cc5e0f2f8cfbc856",
+            "42": "329258ee4a749de2940eb43c51cb694bdb4d596ba351ec50efadd1a2aaac2c3e",
+            "43": "039c142eb6bda60a116894a3ace4d4a8e5d160afca49152537659b0c0c4617f6",
+            "44": "752a39ef11739b23a4a9ce2ca137cd08415e0a82a0eaaccbaa35014fc8596a32",
+            "45": "5e60ee571ff66b73f4da0c4bd105eae48c985e90c3f76594bfe1c85578b31aa0",
+            "46": "7e4f66e5b16ed3e292a558c9e3ff42ba649d9bf7ed018e9fc78b92d989141304",
+            "47": "22414a8b67c8944c462a85c702ad6427e254474b61d440f5a5e7db5b29a53e8c",
+            "48": "6198694dba000808da1526e52668315adb78102612fb53accb0785b70c8295e4",
+            "49": "576d4bdf1686ffb975da5bd837574ac09ed6612c110138ba02e786f130c2bc71",
+            "50": "6af39beeb63f5cb9433e471cf0bd535323f1847757f3bec9526078153b137098",
+            "51": "f42501fe5bc148966c4a468a1736e848d6d5cd53252de3376371f40882907513",
+            "52": "9188fc9de6fd327877758fd7e4f6c8d158f28b84b182e09f524dc593cd436825",
+            "53": "2e5621bab3a902a4cfd170984c318fa9106b4944a1fecbb8978ebb0c359c4826",
+            "54": "b10683b6f903f482251aec622541aee44a457f251c55ef32be200d8b1fd5255e",
+            "55": "7e76af9cbb67366db1307649c2abfd336b97c34a8c0ffc5134474960e4c61392",
+            "56": "87898f0568fc667587ed2f37b764d87afc9c13ca89d2c174f615f88aabd6852e",
+            "57": "d1a10ace171856b09defb402e39e91d2fea0d77f3b026faec29f6aeaf045a62e",
+            "58": "5e2a25be8efb2ada39e6656f153a97de4c59de07dc4ccbf24076ad1c99fa9d9d",
+            "59": "0a060bc2c1d57ceb3ba97a2b312610a5a55835f56f46b81c5c4ee79473513aae"
+          },
+          "seconds": 30.649707105010748
+        },
+        "reference_opponent_v1-32": {
+          "rollouts": 168,
+          "caps": 0,
+          "begin": 32,
+          "count": 28,
+          "mean_credits": {
+            "4": "5/28",
+            "3": "1/14",
+            "2": "1/8",
+            "1": "1/7",
+            "24": "3/28",
+            "5": "3/28"
+          },
+          "paired_margins": {
+            "4": "0",
+            "3": "-3/28",
+            "2": "-3/56",
+            "1": "-1/28",
+            "24": "-1/14",
+            "5": "-1/14"
+          },
+          "worlds": {
+            "32": "1c5a8cc33c72ae425133a5413443ccd5b68f2abe92ddefecdd160a7a83fef4dd",
+            "33": "221d657e8225f12db204020f28bea0fe779be5799bb942742deb3e5c0d4b4577",
+            "34": "41cc2cb3f0ad883ec7314f13b5c8b7c931fa48bb213a47b2b1ab4e47254e7d69",
+            "35": "af55bc3cbb7c216508efda2d1e00f7c9a614cf969a5ee0567a6040370409882e",
+            "36": "9c1a7e9a8eb554ddc0d50c4b0e0ee48ae8a8df06333e65e0d5724f43fac9447e",
+            "37": "19470e4bf04de9d98e342f0ae632ec1f4e066289bc774d338b567cf734125142",
+            "38": "55ddb904f89996e40b2d3c326404687dd16c9b95e71a450ecba7d6b100f9da76",
+            "39": "f0b0476bb0c431fdbca1cb2be064521281ec302a81383c06efa55d7009f94aeb",
+            "40": "00f01b4700b354ff4219e067852a4bfaa0aa9ea49d32bcfaf00bd34eee8449a8",
+            "41": "6500e3af62c3f8ba3f2575ef3921ac0124c1a7b88e93a050cc5e0f2f8cfbc856",
+            "42": "329258ee4a749de2940eb43c51cb694bdb4d596ba351ec50efadd1a2aaac2c3e",
+            "43": "039c142eb6bda60a116894a3ace4d4a8e5d160afca49152537659b0c0c4617f6",
+            "44": "752a39ef11739b23a4a9ce2ca137cd08415e0a82a0eaaccbaa35014fc8596a32",
+            "45": "5e60ee571ff66b73f4da0c4bd105eae48c985e90c3f76594bfe1c85578b31aa0",
+            "46": "7e4f66e5b16ed3e292a558c9e3ff42ba649d9bf7ed018e9fc78b92d989141304",
+            "47": "22414a8b67c8944c462a85c702ad6427e254474b61d440f5a5e7db5b29a53e8c",
+            "48": "6198694dba000808da1526e52668315adb78102612fb53accb0785b70c8295e4",
+            "49": "576d4bdf1686ffb975da5bd837574ac09ed6612c110138ba02e786f130c2bc71",
+            "50": "6af39beeb63f5cb9433e471cf0bd535323f1847757f3bec9526078153b137098",
+            "51": "f42501fe5bc148966c4a468a1736e848d6d5cd53252de3376371f40882907513",
+            "52": "9188fc9de6fd327877758fd7e4f6c8d158f28b84b182e09f524dc593cd436825",
+            "53": "2e5621bab3a902a4cfd170984c318fa9106b4944a1fecbb8978ebb0c359c4826",
+            "54": "b10683b6f903f482251aec622541aee44a457f251c55ef32be200d8b1fd5255e",
+            "55": "7e76af9cbb67366db1307649c2abfd336b97c34a8c0ffc5134474960e4c61392",
+            "56": "87898f0568fc667587ed2f37b764d87afc9c13ca89d2c174f615f88aabd6852e",
+            "57": "d1a10ace171856b09defb402e39e91d2fea0d77f3b026faec29f6aeaf045a62e",
+            "58": "5e2a25be8efb2ada39e6656f153a97de4c59de07dc4ccbf24076ad1c99fa9d9d",
+            "59": "0a060bc2c1d57ceb3ba97a2b312610a5a55835f56f46b81c5c4ee79473513aae"
+          },
+          "seconds": 2652.9780293791555
+        }
+      },
+      "cross_fit": [
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "neural_population",
+          "action": 2,
+          "parent": 4,
+          "overridden": true,
+          "selection_margin": "1/7",
+          "heldout_margins": {
+            "neural_population": "3/28",
+            "reference_opponent_v1": "-3/56"
+          }
+        },
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "reference_opponent_v1",
+          "action": 3,
+          "parent": 4,
+          "overridden": true,
+          "selection_margin": "5/28",
+          "heldout_margins": {
+            "neural_population": "1/14",
+            "reference_opponent_v1": "-3/28"
+          }
+        },
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "equal_mixture",
+          "action": 3,
+          "parent": 4,
+          "overridden": true,
+          "selection_margin": "1/7",
+          "heldout_margins": {
+            "neural_population": "1/14",
+            "reference_opponent_v1": "-3/28"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "neural_population",
+          "action": 1,
+          "parent": 4,
+          "overridden": true,
+          "selection_margin": "1/7",
+          "heldout_margins": {
+            "neural_population": "3/28",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "reference_opponent_v1",
+          "action": 4,
+          "parent": 4,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "equal_mixture",
+          "action": 1,
+          "parent": 4,
+          "overridden": true,
+          "selection_margin": "3/56",
+          "heldout_margins": {
+            "neural_population": "3/28",
+            "reference_opponent_v1": "0"
+          }
+        }
+      ]
+    },
+    {
+      "rootId": "policy-v2:4:11101:snapshot0:217:26",
+      "players": 4,
+      "variant": "recharged",
+      "raw_files": {
+        "root-05-neural_population-4.json": "b98a80d18ff9a74638c1a9290a7ac3ac2b7244c432299f6c51716fbd234d3641",
+        "root-05-reference_opponent_v1-4.json": "27df378f697caa02b5ac9d148e3a5fb665974d232d0fd5d90f4dd529f1d3dde6",
+        "root-05-neural_population-32.json": "f2a19713d7ea55536cdd67924f8ef07f54aab0e8d0bb2218d60035824f70fdea",
+        "root-05-reference_opponent_v1-32.json": "dad394d0396f61fc010b423b935caad29582a2998a843e50b8eada07c551ac9a"
+      },
+      "audits": {
+        "neural_population-4": {
+          "rollouts": 140,
+          "caps": 0,
+          "begin": 4,
+          "count": 28,
+          "mean_credits": {
+            "7": "3/28",
+            "6": "1/7",
+            "5": "1/7",
+            "4": "1/7",
+            "8": "1/28"
+          },
+          "paired_margins": {
+            "7": "0",
+            "6": "1/28",
+            "5": "1/28",
+            "4": "1/28",
+            "8": "-1/14"
+          },
+          "worlds": {
+            "4": "a24f34c8efa0dc3882dbbb7351e9362cfbfcb673f1c6f47c2db3a5f44239ea2f",
+            "5": "7d7ce0eb4514153a2b5bd4d1abe2535e299a5158601d13c34f5a8a7b0795b912",
+            "6": "5cc7ee873b24815d4aad893da6bda3e1e0d3753e3543f2e9963c0d681ed6156d",
+            "7": "f37b6119d2574831556f1fe4d129908fb40432d7486d313e1ace5834d3cafcec",
+            "8": "ea21325e108386705d74b482493e85229a31e98b7c8bc5e3b03b93ec4719102e",
+            "9": "7f8189a0fc9b17d890458da29114908c87b33b982857cf1ee5eb183f0d220db4",
+            "10": "4ecc73ca22d389694eedeea7e10b38b257cba37d4184bd6d4d9d8506f945527f",
+            "11": "ae772e9d86c179c60550d0ee3b33e7bd6d461a2fafdfa03950a90ee64196d0ab",
+            "12": "5f97bd770723dcaed85f47d6151ba2443b1681372e9b19a14746c9558d704abb",
+            "13": "d20dd791731bccb0142001547ce81a5fb5d4656936aeb659b9eaf5d1a6ce655f",
+            "14": "00f46ee999ed250b9d6976d2214eacf8b642a5c3d0f3738b654866a292b5f5de",
+            "15": "0a7990acf1d4a526fab062fb55f7a9697794c5094b562820367b222ab4b2f730",
+            "16": "b213c706d9dbb5d556e66043d6fa2cc4a57dcea509b5c1107226e2fcc0e0ca62",
+            "17": "c8017a247b15d297f265f42403eff0bf71c923042b8228f4da01f0ecf1e0d024",
+            "18": "17c9412aa9367b9d29166746d4c82d8f01b3507eebd1c39f8997528222867edc",
+            "19": "b1d9afd78616020dee2e7f9de85109745558f28b5e49aa886738bee41809a36f",
+            "20": "a88b948b829665afe5aa6099ee3f7c161c2fa2e70033985ca6b5f0c247f4aec1",
+            "21": "99c4fd420dae9430ea246796ca3494ce11b1ea0a7e73da282c43c5b68b525cdb",
+            "22": "414c545a6275261d6ff23248c86cf2bc0a142b6c8c16299df2344674e86c7e76",
+            "23": "330d0a3121c2930c47aa91d57104743cd066e31b5e028ecfe3d3a4a5015f5fc3",
+            "24": "b1b2880744973185328ea01c3e91ed3a77f0be6d0145c4bf3003eefa1bd93483",
+            "25": "5ac3a8982a2b5f5eb5dc2c86ed663861097f6edaf51b78dfb286f4ef259ea7fe",
+            "26": "9964fe020dc09772a316654a09a6f8efda784de45778704221e88ffda2cefd9e",
+            "27": "d46a914d4943cfe89fe01b6b98a08a36d8001127801d0b3f124843460ab47b7a",
+            "28": "debbcb959b5c122da004eca00fdfbc79cefb74cd2633709a79fde6a8ef732585",
+            "29": "2fe96f7325cd62b9c3a899ba3ada837f863dff8dcf03c4d4ea7ca2a51f963d77",
+            "30": "9a869afa31bc7b889ead2e9c8f5ef393d5e9b3081c798e45cdda947a9e949ead",
+            "31": "64507aacc2efe9d4439859fa58d59c9aa520db7321c73e3a801ede6f09172dad"
+          },
+          "seconds": 8.37085364991799
+        },
+        "reference_opponent_v1-4": {
+          "rollouts": 140,
+          "caps": 0,
+          "begin": 4,
+          "count": 28,
+          "mean_credits": {
+            "7": "0",
+            "6": "0",
+            "5": "1/28",
+            "4": "0",
+            "8": "0"
+          },
+          "paired_margins": {
+            "7": "0",
+            "6": "0",
+            "5": "1/28",
+            "4": "0",
+            "8": "0"
+          },
+          "worlds": {
+            "4": "a24f34c8efa0dc3882dbbb7351e9362cfbfcb673f1c6f47c2db3a5f44239ea2f",
+            "5": "7d7ce0eb4514153a2b5bd4d1abe2535e299a5158601d13c34f5a8a7b0795b912",
+            "6": "5cc7ee873b24815d4aad893da6bda3e1e0d3753e3543f2e9963c0d681ed6156d",
+            "7": "f37b6119d2574831556f1fe4d129908fb40432d7486d313e1ace5834d3cafcec",
+            "8": "ea21325e108386705d74b482493e85229a31e98b7c8bc5e3b03b93ec4719102e",
+            "9": "7f8189a0fc9b17d890458da29114908c87b33b982857cf1ee5eb183f0d220db4",
+            "10": "4ecc73ca22d389694eedeea7e10b38b257cba37d4184bd6d4d9d8506f945527f",
+            "11": "ae772e9d86c179c60550d0ee3b33e7bd6d461a2fafdfa03950a90ee64196d0ab",
+            "12": "5f97bd770723dcaed85f47d6151ba2443b1681372e9b19a14746c9558d704abb",
+            "13": "d20dd791731bccb0142001547ce81a5fb5d4656936aeb659b9eaf5d1a6ce655f",
+            "14": "00f46ee999ed250b9d6976d2214eacf8b642a5c3d0f3738b654866a292b5f5de",
+            "15": "0a7990acf1d4a526fab062fb55f7a9697794c5094b562820367b222ab4b2f730",
+            "16": "b213c706d9dbb5d556e66043d6fa2cc4a57dcea509b5c1107226e2fcc0e0ca62",
+            "17": "c8017a247b15d297f265f42403eff0bf71c923042b8228f4da01f0ecf1e0d024",
+            "18": "17c9412aa9367b9d29166746d4c82d8f01b3507eebd1c39f8997528222867edc",
+            "19": "b1d9afd78616020dee2e7f9de85109745558f28b5e49aa886738bee41809a36f",
+            "20": "a88b948b829665afe5aa6099ee3f7c161c2fa2e70033985ca6b5f0c247f4aec1",
+            "21": "99c4fd420dae9430ea246796ca3494ce11b1ea0a7e73da282c43c5b68b525cdb",
+            "22": "414c545a6275261d6ff23248c86cf2bc0a142b6c8c16299df2344674e86c7e76",
+            "23": "330d0a3121c2930c47aa91d57104743cd066e31b5e028ecfe3d3a4a5015f5fc3",
+            "24": "b1b2880744973185328ea01c3e91ed3a77f0be6d0145c4bf3003eefa1bd93483",
+            "25": "5ac3a8982a2b5f5eb5dc2c86ed663861097f6edaf51b78dfb286f4ef259ea7fe",
+            "26": "9964fe020dc09772a316654a09a6f8efda784de45778704221e88ffda2cefd9e",
+            "27": "d46a914d4943cfe89fe01b6b98a08a36d8001127801d0b3f124843460ab47b7a",
+            "28": "debbcb959b5c122da004eca00fdfbc79cefb74cd2633709a79fde6a8ef732585",
+            "29": "2fe96f7325cd62b9c3a899ba3ada837f863dff8dcf03c4d4ea7ca2a51f963d77",
+            "30": "9a869afa31bc7b889ead2e9c8f5ef393d5e9b3081c798e45cdda947a9e949ead",
+            "31": "64507aacc2efe9d4439859fa58d59c9aa520db7321c73e3a801ede6f09172dad"
+          },
+          "seconds": 468.0994134969078
+        },
+        "neural_population-32": {
+          "rollouts": 140,
+          "caps": 0,
+          "begin": 32,
+          "count": 28,
+          "mean_credits": {
+            "7": "15/56",
+            "6": "15/56",
+            "5": "17/56",
+            "4": "17/56",
+            "8": "11/56"
+          },
+          "paired_margins": {
+            "7": "0",
+            "6": "0",
+            "5": "1/28",
+            "4": "1/28",
+            "8": "-1/14"
+          },
+          "worlds": {
+            "32": "ecd5812d7e7207f0528e8176ebabc0546b2e8ff57228d97783c752effeeb5f9a",
+            "33": "ba95ec8e99c244b3346290bcec925336454505cf36b938ecfa620d94efd7903d",
+            "34": "6b6209850359754f6a3855cedb0046a6e7ab163eca9aa76633d05d09e6c41729",
+            "35": "8e13840f1e481ebe652d5d5adf3f3d12bcb9bdff476d1b0e261f2c0886194a8f",
+            "36": "551fcf7ca4842ac915fdff4f50d845f437d6fdd5b118029a72cb4832afaacc50",
+            "37": "9565aedbb9fd6865b8aead167b3de07af1f046024211d32f35cc6344c3284d3b",
+            "38": "a549bd54959405d69924d2ab9561914be9e0da1942c114110b69a7ed3a40d4bf",
+            "39": "25f51f367b956a0848b225f8842e46ab632fcce369094ac95eac6804f8b02ff0",
+            "40": "c4d8ee91850735dd513920ffbde4de985013b9a17ae59fabb3c612edf418fa25",
+            "41": "565f0de8c8a13a8fb019eeedda0faf1dfb7597edd66e39f0e09d00c8930da336",
+            "42": "dc871bf813a4a55402a87b873642a2f053cd0180c2967ba330ab623636a1ecb8",
+            "43": "921a6d180b714f02989c0bfb02fb46fab0bbb216bd344e2d6cdbd45c7af4c049",
+            "44": "39b2205c7964dd5e8e56053405fee7c062b484a527d88ca58719cbf521b0abf0",
+            "45": "56ad305d8378eb047ac8e8bef08a70f7a3e06f729b80f878bee86149a5374f89",
+            "46": "34ad18c00c82fc24e64ef0ec0406ae18230f9916d60f0d54598803d7d475becf",
+            "47": "29d7e12bf0ea6242fce4e6065f1154c9614abae1e4833f210abb2c5daef3a469",
+            "48": "27963e5ecc807471c24ad535d7d3c322860a23fa4e01c1dd454b616224061aa0",
+            "49": "4b77307acf2b2a339a5e0e9093cb5af019f954e8999477141094709014255dd6",
+            "50": "9283907eeb2c3583c20a7c8d5442c4ad88f58c8991bcaa52261dd4786b22d901",
+            "51": "f2ff8d5bb3e46714efa99b7486b42baef45713c74baa9e378a830ed8ab9f4133",
+            "52": "5d4e7e9ed9e7b00e67d121e92fc3a61d1de5e1298ec24289d0f0dcda4591efef",
+            "53": "57e73b737197a38f8dbeee3ee21bb4185038fc70d795d2d5a8da2b5689211bcb",
+            "54": "39fcf69ea28e4fd693621540143a4118694b1157f7e0eb6571203cface043c00",
+            "55": "3f92a6b0832bc43dfaa83870bd048d98f1ac2ac1418f698356e4437156b18b99",
+            "56": "49ed91e667150943c4e333c153a5198f690c0e4300ca7ca3311f9de01b5f5194",
+            "57": "8a3c402d2126538ab7ec59a113948c986a9d91922d59cfdd1fcf549561797da0",
+            "58": "0552ddf0cb098cc72907a1863d39271403809a085196dfa7c51bb0eb4743f571",
+            "59": "14875c5a547a9e24e1419280f0d961e2cd481c22099fe32ba688c457db3bac23"
+          },
+          "seconds": 8.201402310281992
+        },
+        "reference_opponent_v1-32": {
+          "rollouts": 140,
+          "caps": 0,
+          "begin": 32,
+          "count": 28,
+          "mean_credits": {
+            "7": "0",
+            "6": "0",
+            "5": "0",
+            "4": "0",
+            "8": "0"
+          },
+          "paired_margins": {
+            "7": "0",
+            "6": "0",
+            "5": "0",
+            "4": "0",
+            "8": "0"
+          },
+          "worlds": {
+            "32": "ecd5812d7e7207f0528e8176ebabc0546b2e8ff57228d97783c752effeeb5f9a",
+            "33": "ba95ec8e99c244b3346290bcec925336454505cf36b938ecfa620d94efd7903d",
+            "34": "6b6209850359754f6a3855cedb0046a6e7ab163eca9aa76633d05d09e6c41729",
+            "35": "8e13840f1e481ebe652d5d5adf3f3d12bcb9bdff476d1b0e261f2c0886194a8f",
+            "36": "551fcf7ca4842ac915fdff4f50d845f437d6fdd5b118029a72cb4832afaacc50",
+            "37": "9565aedbb9fd6865b8aead167b3de07af1f046024211d32f35cc6344c3284d3b",
+            "38": "a549bd54959405d69924d2ab9561914be9e0da1942c114110b69a7ed3a40d4bf",
+            "39": "25f51f367b956a0848b225f8842e46ab632fcce369094ac95eac6804f8b02ff0",
+            "40": "c4d8ee91850735dd513920ffbde4de985013b9a17ae59fabb3c612edf418fa25",
+            "41": "565f0de8c8a13a8fb019eeedda0faf1dfb7597edd66e39f0e09d00c8930da336",
+            "42": "dc871bf813a4a55402a87b873642a2f053cd0180c2967ba330ab623636a1ecb8",
+            "43": "921a6d180b714f02989c0bfb02fb46fab0bbb216bd344e2d6cdbd45c7af4c049",
+            "44": "39b2205c7964dd5e8e56053405fee7c062b484a527d88ca58719cbf521b0abf0",
+            "45": "56ad305d8378eb047ac8e8bef08a70f7a3e06f729b80f878bee86149a5374f89",
+            "46": "34ad18c00c82fc24e64ef0ec0406ae18230f9916d60f0d54598803d7d475becf",
+            "47": "29d7e12bf0ea6242fce4e6065f1154c9614abae1e4833f210abb2c5daef3a469",
+            "48": "27963e5ecc807471c24ad535d7d3c322860a23fa4e01c1dd454b616224061aa0",
+            "49": "4b77307acf2b2a339a5e0e9093cb5af019f954e8999477141094709014255dd6",
+            "50": "9283907eeb2c3583c20a7c8d5442c4ad88f58c8991bcaa52261dd4786b22d901",
+            "51": "f2ff8d5bb3e46714efa99b7486b42baef45713c74baa9e378a830ed8ab9f4133",
+            "52": "5d4e7e9ed9e7b00e67d121e92fc3a61d1de5e1298ec24289d0f0dcda4591efef",
+            "53": "57e73b737197a38f8dbeee3ee21bb4185038fc70d795d2d5a8da2b5689211bcb",
+            "54": "39fcf69ea28e4fd693621540143a4118694b1157f7e0eb6571203cface043c00",
+            "55": "3f92a6b0832bc43dfaa83870bd048d98f1ac2ac1418f698356e4437156b18b99",
+            "56": "49ed91e667150943c4e333c153a5198f690c0e4300ca7ca3311f9de01b5f5194",
+            "57": "8a3c402d2126538ab7ec59a113948c986a9d91922d59cfdd1fcf549561797da0",
+            "58": "0552ddf0cb098cc72907a1863d39271403809a085196dfa7c51bb0eb4743f571",
+            "59": "14875c5a547a9e24e1419280f0d961e2cd481c22099fe32ba688c457db3bac23"
+          },
+          "seconds": 463.3878155038692
+        }
+      },
+      "cross_fit": [
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "neural_population",
+          "action": 4,
+          "parent": 7,
+          "overridden": true,
+          "selection_margin": "1/28",
+          "heldout_margins": {
+            "neural_population": "1/28",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "reference_opponent_v1",
+          "action": 5,
+          "parent": 7,
+          "overridden": true,
+          "selection_margin": "1/28",
+          "heldout_margins": {
+            "neural_population": "1/28",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "equal_mixture",
+          "action": 5,
+          "parent": 7,
+          "overridden": true,
+          "selection_margin": "1/28",
+          "heldout_margins": {
+            "neural_population": "1/28",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "neural_population",
+          "action": 4,
+          "parent": 7,
+          "overridden": true,
+          "selection_margin": "1/28",
+          "heldout_margins": {
+            "neural_population": "1/28",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "reference_opponent_v1",
+          "action": 7,
+          "parent": 7,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "equal_mixture",
+          "action": 7,
+          "parent": 7,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        }
+      ]
+    },
+    {
+      "rootId": "policy-v2:5:parent:economic:216:27",
+      "players": 5,
+      "variant": "original",
+      "raw_files": {
+        "root-06-neural_population-4.json": "92764e8662078df410ebe37b15cff1cdaa64133ced650163bc44334bb5e287a3",
+        "root-06-reference_opponent_v1-4.json": "a32ac15629ee3abd1e1ac02c1518ddf79eadce9f60a9eb4f09abfeb6ce554a0c",
+        "root-06-neural_population-32.json": "5b5cea0d3569d27032fabd6b54ea3e11bcb73dccc3e9bfe41f521b1ffc917d2d",
+        "root-06-reference_opponent_v1-32.json": "0145cb5e4b2bdd56ec1e5f4aea868406b653f67f7bbcd219fb85bfbb6033ce30"
+      },
+      "audits": {
+        "neural_population-4": {
+          "rollouts": 140,
+          "caps": 0,
+          "begin": 4,
+          "count": 28,
+          "mean_credits": {
+            "5": "15/28",
+            "4": "15/28",
+            "3": "15/28",
+            "2": "5/7",
+            "8": "13/28"
+          },
+          "paired_margins": {
+            "5": "0",
+            "4": "0",
+            "3": "0",
+            "2": "5/28",
+            "8": "-1/14"
+          },
+          "worlds": {
+            "4": "5604ba729db8eebb3db84dfdc8a7dd12e4befee9ab5175994c54fa82ef5f016c",
+            "5": "b9a05ec56f21e9ec51673276f1dbab8af56fd311d580d4e5a25ece5d29a46e01",
+            "6": "27a85e7dd7e24895b759682fa23a8d2d809d7cf123a04863217709e386ba9507",
+            "7": "263af22ac7a3af80e5218aace3596642adec24a19a83b06349e9c2460f9d05e1",
+            "8": "e68c7dd98584c828575bd9f622ea9041be6aae192639c847c0d689bbae6cde8f",
+            "9": "512e20c483ebb0f2c1f8ae1bea29349c3e1d4465d7758f7a1e43b62f0d3edd13",
+            "10": "c4bebaa4b0c988ee5c81a15807f22a0e09826867ee792474bb3e456800e5adee",
+            "11": "93f504bf335959fac09cc6a00779560b6b1ac358eb98dcaf56bd2934e31ee270",
+            "12": "b45539f3426243d9df2b8a3b4d246ae0d5c2597e63609aaaa0bd5cc3d10520e1",
+            "13": "2d0f294fb4bd5f8bdf8fde37be7c2c1ddcf419089210742e4b026d18ef8f6135",
+            "14": "ff7314f0d38bfe3f28db723653ec32c87cc365ff82b946917252e0ae89d60f98",
+            "15": "caaa71778a804edfd208eab01fd3a8c26c3052c10fa2ff740c5aec74a9d76549",
+            "16": "97571449e090cf4a8861e95fe57546e9b914121ec72ede9e5adce56f98338237",
+            "17": "963ad316c69a6952f0aac097fe0142c073dbcf2f90dac7c2d16e235a999af46c",
+            "18": "5ebb5b1e86ac72da5f203e9ed09a1b70b0f08f5c2cfa7dc83538340c700ca585",
+            "19": "0a2a0b359e86789650b3adb56a78b2e47878f70a9240eb01f9cfb66b89f6636f",
+            "20": "35057e324e33122cc1a98791b639dc6f9629c2775f5c176d1b84c954ea7ccb78",
+            "21": "9e70032501dd1923e4fc1a570f27565c995659c1b5469a55ef490bf5b95114cf",
+            "22": "190905d402438916064253091eb7f03ca38c0ea566be103c3241b49624f903dd",
+            "23": "6ceac0e40191ab511a0d85974b124c6fce7104ee63c4f07a9167d51f912e96bb",
+            "24": "72c7c3a0ded1e5760f6508e534343b419e8e16e1aed6ecc58ca624655f9ea35b",
+            "25": "c0a6cacab8570fb082d4f37f27dad28a25ce356699ae855cd67c376253536c06",
+            "26": "cebc1ef75cc9ebbf2e18bedef143b2969d92440bf3b347504614691ce176c23b",
+            "27": "b6dc546b9df5198de14f46dff8bd575d7cd7d3e0d66c2f751c3810057a31c459",
+            "28": "a866d5c9764cc3b36e332499b843c5b5a92a0903c921e07591170f5ef9a78a2d",
+            "29": "187b731cad5582eca3ad05a86b0bd01f7d141603434cd1b12f587f9092b841e7",
+            "30": "83a13d435852250cd3c6d18d7ae8aedec371707a5dc85737f8a34e20f846c299",
+            "31": "6d5b31065be243e93c8813cd42f35e51bdf88cde4c0c929f8e7d252b73c14e2c"
+          },
+          "seconds": 11.261704437900335
+        },
+        "reference_opponent_v1-4": {
+          "rollouts": 140,
+          "caps": 0,
+          "begin": 4,
+          "count": 28,
+          "mean_credits": {
+            "5": "15/28",
+            "4": "4/7",
+            "3": "4/7",
+            "2": "25/28",
+            "8": "1/2"
+          },
+          "paired_margins": {
+            "5": "0",
+            "4": "1/28",
+            "3": "1/28",
+            "2": "5/14",
+            "8": "-1/28"
+          },
+          "worlds": {
+            "4": "5604ba729db8eebb3db84dfdc8a7dd12e4befee9ab5175994c54fa82ef5f016c",
+            "5": "b9a05ec56f21e9ec51673276f1dbab8af56fd311d580d4e5a25ece5d29a46e01",
+            "6": "27a85e7dd7e24895b759682fa23a8d2d809d7cf123a04863217709e386ba9507",
+            "7": "263af22ac7a3af80e5218aace3596642adec24a19a83b06349e9c2460f9d05e1",
+            "8": "e68c7dd98584c828575bd9f622ea9041be6aae192639c847c0d689bbae6cde8f",
+            "9": "512e20c483ebb0f2c1f8ae1bea29349c3e1d4465d7758f7a1e43b62f0d3edd13",
+            "10": "c4bebaa4b0c988ee5c81a15807f22a0e09826867ee792474bb3e456800e5adee",
+            "11": "93f504bf335959fac09cc6a00779560b6b1ac358eb98dcaf56bd2934e31ee270",
+            "12": "b45539f3426243d9df2b8a3b4d246ae0d5c2597e63609aaaa0bd5cc3d10520e1",
+            "13": "2d0f294fb4bd5f8bdf8fde37be7c2c1ddcf419089210742e4b026d18ef8f6135",
+            "14": "ff7314f0d38bfe3f28db723653ec32c87cc365ff82b946917252e0ae89d60f98",
+            "15": "caaa71778a804edfd208eab01fd3a8c26c3052c10fa2ff740c5aec74a9d76549",
+            "16": "97571449e090cf4a8861e95fe57546e9b914121ec72ede9e5adce56f98338237",
+            "17": "963ad316c69a6952f0aac097fe0142c073dbcf2f90dac7c2d16e235a999af46c",
+            "18": "5ebb5b1e86ac72da5f203e9ed09a1b70b0f08f5c2cfa7dc83538340c700ca585",
+            "19": "0a2a0b359e86789650b3adb56a78b2e47878f70a9240eb01f9cfb66b89f6636f",
+            "20": "35057e324e33122cc1a98791b639dc6f9629c2775f5c176d1b84c954ea7ccb78",
+            "21": "9e70032501dd1923e4fc1a570f27565c995659c1b5469a55ef490bf5b95114cf",
+            "22": "190905d402438916064253091eb7f03ca38c0ea566be103c3241b49624f903dd",
+            "23": "6ceac0e40191ab511a0d85974b124c6fce7104ee63c4f07a9167d51f912e96bb",
+            "24": "72c7c3a0ded1e5760f6508e534343b419e8e16e1aed6ecc58ca624655f9ea35b",
+            "25": "c0a6cacab8570fb082d4f37f27dad28a25ce356699ae855cd67c376253536c06",
+            "26": "cebc1ef75cc9ebbf2e18bedef143b2969d92440bf3b347504614691ce176c23b",
+            "27": "b6dc546b9df5198de14f46dff8bd575d7cd7d3e0d66c2f751c3810057a31c459",
+            "28": "a866d5c9764cc3b36e332499b843c5b5a92a0903c921e07591170f5ef9a78a2d",
+            "29": "187b731cad5582eca3ad05a86b0bd01f7d141603434cd1b12f587f9092b841e7",
+            "30": "83a13d435852250cd3c6d18d7ae8aedec371707a5dc85737f8a34e20f846c299",
+            "31": "6d5b31065be243e93c8813cd42f35e51bdf88cde4c0c929f8e7d252b73c14e2c"
+          },
+          "seconds": 1357.4662818009965
+        },
+        "neural_population-32": {
+          "rollouts": 140,
+          "caps": 0,
+          "begin": 32,
+          "count": 28,
+          "mean_credits": {
+            "5": "4/7",
+            "4": "4/7",
+            "3": "4/7",
+            "2": "27/28",
+            "8": "13/28"
+          },
+          "paired_margins": {
+            "5": "0",
+            "4": "0",
+            "3": "0",
+            "2": "11/28",
+            "8": "-3/28"
+          },
+          "worlds": {
+            "32": "b83df0799eb2a1edf05e82e9ac686f5b2f2d6c7b9c06f61493a7ad62c39b2c7f",
+            "33": "f2926237ffe170525b6ce5ec5a8af3986e670bf41a42193910c48fa29d2597c7",
+            "34": "663dd89264facbd18240201e99ad6eb3edb12faca09784ad3a7fc2136c3adcb3",
+            "35": "9592edacbe172fdfbd9d70488d25b43931c7c9068b6b8d440ff2a9fe5f8e1157",
+            "36": "5e368e5c0c48d487e305ac1dd039f0e131fccf9173ef0596384477ef8a940b74",
+            "37": "8213603f2db7eba20d8b750c16d1be38a71a924f25d6420b1a8a6df3000e9010",
+            "38": "4b526b4e8be139cc7d5e897938f771e45c0c4debfc65965b8a5f5815b8fd7398",
+            "39": "ab347e140f968c827c85f4a31cdbe457e1bc47f21bd7bcafaa00e4ef5fa993ac",
+            "40": "52b3f861fa517af6d886508c0071d60e88ce129910fd728e8467215eb980659c",
+            "41": "8347a9d9cfc034735e97732c9d229a9c7efc23585fcf4b9cf7a1e2da3ca6197e",
+            "42": "d0b439ac09b38f1669236c4021901f78a2a326e48aca115148c7f8cf6098f0e4",
+            "43": "3159fe4a9c680593f377b56838ecf99d27998cc0ec3822e4754217158ae1eedf",
+            "44": "ba528b62b614689594211b81ddbab7408077f3fa80b6b404a66358d497e4ba28",
+            "45": "9eca7c82bd8a0b709d4ed1feae528823db3801decc126634b2953a6278355a61",
+            "46": "536d7c8a5f3d9178b7bdd9c0a29a8d8b542e33336fe9a913ee466d3bff088b6a",
+            "47": "b6ee2472ddd62b6448d7afe26463f7b4fedf54b56ffb16985f0b6775935b0151",
+            "48": "1d0909b951c6a82e4c4384c84aafb05003db60c2e105f21a2f70811cd7716f0d",
+            "49": "83b360e466ac8862c99a8a2bf1ddf62f1887186a63128d2aacc9eeab5782bb1e",
+            "50": "b0ca283e74286f46805b2673eecfbd5348a4e46da96298514baad663ebcdffbb",
+            "51": "8ed01236c8a1a612bbdd3f65b14eaf39cce513f68a66d127ed7fbdd51c0817d7",
+            "52": "7faf38b6ccaf392d5aa38007c59f633f7f28ed14b0ac1e319d89a8afd8772ad4",
+            "53": "3c0dea2b69ed20f7eb0290a6e0bcc4334e31aac840df4df0fe0d9a78796bf55c",
+            "54": "2aa8c0f7906c8e502849e4f6294ec0776fcbfadd746a513c53e895a8dcf3d9e9",
+            "55": "ad09f25393bae676f0797f1dc9f9ec0b7126da9f33883b0f87a0871e36d3a415",
+            "56": "6f587e94214b2a46dd4209a928e260e8d58112e49f5f73e496517530406816e6",
+            "57": "494c81f1068e12ba3deb92d3b4037a485b8f1a6bfca94a4165945275b037ec9d",
+            "58": "5c0b8e88dd58bcf280b4a076d61d9b00a5df3f578f41837e98b31312cd1febfb",
+            "59": "da4ad53d9e584d82165d9a40a46e14b0eeb7ce711708060a8b754a621cb65cef"
+          },
+          "seconds": 11.269519607070833
+        },
+        "reference_opponent_v1-32": {
+          "rollouts": 140,
+          "caps": 0,
+          "begin": 32,
+          "count": 28,
+          "mean_credits": {
+            "5": "23/28",
+            "4": "23/28",
+            "3": "23/28",
+            "2": "3/4",
+            "8": "3/4"
+          },
+          "paired_margins": {
+            "5": "0",
+            "4": "0",
+            "3": "0",
+            "2": "-1/14",
+            "8": "-1/14"
+          },
+          "worlds": {
+            "32": "b83df0799eb2a1edf05e82e9ac686f5b2f2d6c7b9c06f61493a7ad62c39b2c7f",
+            "33": "f2926237ffe170525b6ce5ec5a8af3986e670bf41a42193910c48fa29d2597c7",
+            "34": "663dd89264facbd18240201e99ad6eb3edb12faca09784ad3a7fc2136c3adcb3",
+            "35": "9592edacbe172fdfbd9d70488d25b43931c7c9068b6b8d440ff2a9fe5f8e1157",
+            "36": "5e368e5c0c48d487e305ac1dd039f0e131fccf9173ef0596384477ef8a940b74",
+            "37": "8213603f2db7eba20d8b750c16d1be38a71a924f25d6420b1a8a6df3000e9010",
+            "38": "4b526b4e8be139cc7d5e897938f771e45c0c4debfc65965b8a5f5815b8fd7398",
+            "39": "ab347e140f968c827c85f4a31cdbe457e1bc47f21bd7bcafaa00e4ef5fa993ac",
+            "40": "52b3f861fa517af6d886508c0071d60e88ce129910fd728e8467215eb980659c",
+            "41": "8347a9d9cfc034735e97732c9d229a9c7efc23585fcf4b9cf7a1e2da3ca6197e",
+            "42": "d0b439ac09b38f1669236c4021901f78a2a326e48aca115148c7f8cf6098f0e4",
+            "43": "3159fe4a9c680593f377b56838ecf99d27998cc0ec3822e4754217158ae1eedf",
+            "44": "ba528b62b614689594211b81ddbab7408077f3fa80b6b404a66358d497e4ba28",
+            "45": "9eca7c82bd8a0b709d4ed1feae528823db3801decc126634b2953a6278355a61",
+            "46": "536d7c8a5f3d9178b7bdd9c0a29a8d8b542e33336fe9a913ee466d3bff088b6a",
+            "47": "b6ee2472ddd62b6448d7afe26463f7b4fedf54b56ffb16985f0b6775935b0151",
+            "48": "1d0909b951c6a82e4c4384c84aafb05003db60c2e105f21a2f70811cd7716f0d",
+            "49": "83b360e466ac8862c99a8a2bf1ddf62f1887186a63128d2aacc9eeab5782bb1e",
+            "50": "b0ca283e74286f46805b2673eecfbd5348a4e46da96298514baad663ebcdffbb",
+            "51": "8ed01236c8a1a612bbdd3f65b14eaf39cce513f68a66d127ed7fbdd51c0817d7",
+            "52": "7faf38b6ccaf392d5aa38007c59f633f7f28ed14b0ac1e319d89a8afd8772ad4",
+            "53": "3c0dea2b69ed20f7eb0290a6e0bcc4334e31aac840df4df0fe0d9a78796bf55c",
+            "54": "2aa8c0f7906c8e502849e4f6294ec0776fcbfadd746a513c53e895a8dcf3d9e9",
+            "55": "ad09f25393bae676f0797f1dc9f9ec0b7126da9f33883b0f87a0871e36d3a415",
+            "56": "6f587e94214b2a46dd4209a928e260e8d58112e49f5f73e496517530406816e6",
+            "57": "494c81f1068e12ba3deb92d3b4037a485b8f1a6bfca94a4165945275b037ec9d",
+            "58": "5c0b8e88dd58bcf280b4a076d61d9b00a5df3f578f41837e98b31312cd1febfb",
+            "59": "da4ad53d9e584d82165d9a40a46e14b0eeb7ce711708060a8b754a621cb65cef"
+          },
+          "seconds": 1271.2049949406646
+        }
+      },
+      "cross_fit": [
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "neural_population",
+          "action": 2,
+          "parent": 5,
+          "overridden": true,
+          "selection_margin": "5/28",
+          "heldout_margins": {
+            "neural_population": "11/28",
+            "reference_opponent_v1": "-1/14"
+          }
+        },
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "reference_opponent_v1",
+          "action": 2,
+          "parent": 5,
+          "overridden": true,
+          "selection_margin": "5/14",
+          "heldout_margins": {
+            "neural_population": "11/28",
+            "reference_opponent_v1": "-1/14"
+          }
+        },
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "equal_mixture",
+          "action": 2,
+          "parent": 5,
+          "overridden": true,
+          "selection_margin": "15/56",
+          "heldout_margins": {
+            "neural_population": "11/28",
+            "reference_opponent_v1": "-1/14"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "neural_population",
+          "action": 2,
+          "parent": 5,
+          "overridden": true,
+          "selection_margin": "11/28",
+          "heldout_margins": {
+            "neural_population": "5/28",
+            "reference_opponent_v1": "5/14"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "reference_opponent_v1",
+          "action": 5,
+          "parent": 5,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "equal_mixture",
+          "action": 2,
+          "parent": 5,
+          "overridden": true,
+          "selection_margin": "9/56",
+          "heldout_margins": {
+            "neural_population": "5/28",
+            "reference_opponent_v1": "5/14"
+          }
+        }
+      ]
+    },
+    {
+      "rootId": "policy-v2:5:11101:snapshot0:181:34",
+      "players": 5,
+      "variant": "recharged",
+      "raw_files": {
+        "root-07-neural_population-4.json": "ba3adceb8cdbd134f46d21ba9aa9fcdc1b7d3218341a9a00d7adccdcff3dfc6f",
+        "root-07-reference_opponent_v1-4.json": "6d223bb917f9bb72da1b30fad1c07569e11ce0cb632678332263b9bc1939e2be",
+        "root-07-neural_population-32.json": "0a96487e99f5d057683ef0ed55628d0786f1f663cd0133051e9e3efc09070c10",
+        "root-07-reference_opponent_v1-32.json": "a5d9a9ba89303aa9ad8a0affd4d564ef28a422f5b460b016772a35f6de180a70"
+      },
+      "audits": {
+        "neural_population-4": {
+          "rollouts": 140,
+          "caps": 0,
+          "begin": 4,
+          "count": 28,
+          "mean_credits": {
+            "15": "0",
+            "0": "0",
+            "1": "0",
+            "2": "0",
+            "7": "0"
+          },
+          "paired_margins": {
+            "15": "0",
+            "0": "0",
+            "1": "0",
+            "2": "0",
+            "7": "0"
+          },
+          "worlds": {
+            "4": "579cae474297972ef2239648d7bd73d2b95a5ce169e1ec31533c995e20c9456b",
+            "5": "fdd2c74f9c4c50fe915a93e17f8263d93150d9a9ca2a819c180ab1d0cac69831",
+            "6": "7ee60a2aa8843040e425edec421754d92a2168548701bdc553143da9434230fa",
+            "7": "e8029a0117173b48ab3f88ba9c5e5bcc33d94de58f4244af0aff1d3bb7c608c8",
+            "8": "25ea71ba9edef80f2e8c16d0a4e7170f5415b34ee074a2764a2899242365c689",
+            "9": "1c534394665590986fd6381ce7435ed168443750f26dd1aa683af4933a5b17da",
+            "10": "acedc5c1a2bc9248e2a472662f113fcfa60623a5999f4f774cfa5c8b31338826",
+            "11": "18a367adcc92b137291fb89c9d81633dc715695688f52278bf2395d10e673177",
+            "12": "8fde36b668bbcc6c5a28346c0f0818c4516ec387b8cee4add79aaa73b1598d36",
+            "13": "978f98ba68ae874d33100cdc0221eee7e99436808a9090fc5111f592018beda2",
+            "14": "68a123cc8b90a640be415ac39d09828b683081c8af098feebe1c95b0b86876a8",
+            "15": "d0911ad5521cb3c850ddebc0f6c37e72c5bdb0e697a66eab741f65cbbe10d0bf",
+            "16": "5235fe5d784f9a06424fee5552a5d680cfecbf69b1853a65cd011069bc397fb7",
+            "17": "fcc72a17ab0b5379b9ff827bd1169094b172fc7684ab8ef08a6af39db5e14df6",
+            "18": "e241cdb8001b2e920ce1bd1dcc1854f01a1bbaff9c1d122b3f854cd71150f1b6",
+            "19": "1ff6e4fb8287142e24f5bc52969473f9950a2ebc421647f543b22397295d5bc8",
+            "20": "b4ca250261f598bf4d5516640c176ea435cc1f280ff44bdec147675a7ba09560",
+            "21": "d8920fc8da4898ce6aa3809caebd55eafcc7cc021112bc185f9e7d5faa4f1893",
+            "22": "8163a0acbabc2100e90caf458bff49068bcb109c3fa156401239e1ccc93a795d",
+            "23": "bc7aa68fd5f8c442a2afbde24157e4d735caa1e85d7a3231eefe5abc8bde4590",
+            "24": "dc41f5fe559ddbd67e01f54fda1f4bf8db4ffd005ebf0b9aab400aee29057e69",
+            "25": "d47aeacbf3407a75db1956c1028df360b7b74a19f01a5e6cabbfae225387f56a",
+            "26": "381de4b206ff7fc802469591284a21e9690105425e087b3627a2f8392e0c5f66",
+            "27": "e0d3cf4b264c41b967a4c2f5caef1248c823d39985c21a3a149086d6a1cdb973",
+            "28": "1c4afc95c8d2191aeb189e07f861f03641b5cb586a8cfe432693ad94dc287523",
+            "29": "7dd6d14673168bb9aa96449f92e4069ead3d06ac660e2986d68ee30d546dd822",
+            "30": "0dc1fbcd95d0763687757c54ba10ec042eab44ccfea56730529001ac4a6ed9d1",
+            "31": "97212eac2862a6426f4d74bd035c86cc1bff4e66aa6ad7862ff5b63ff744216f"
+          },
+          "seconds": 5.511171578895301
+        },
+        "reference_opponent_v1-4": {
+          "rollouts": 140,
+          "caps": 0,
+          "begin": 4,
+          "count": 28,
+          "mean_credits": {
+            "15": "0",
+            "0": "0",
+            "1": "0",
+            "2": "0",
+            "7": "0"
+          },
+          "paired_margins": {
+            "15": "0",
+            "0": "0",
+            "1": "0",
+            "2": "0",
+            "7": "0"
+          },
+          "worlds": {
+            "4": "579cae474297972ef2239648d7bd73d2b95a5ce169e1ec31533c995e20c9456b",
+            "5": "fdd2c74f9c4c50fe915a93e17f8263d93150d9a9ca2a819c180ab1d0cac69831",
+            "6": "7ee60a2aa8843040e425edec421754d92a2168548701bdc553143da9434230fa",
+            "7": "e8029a0117173b48ab3f88ba9c5e5bcc33d94de58f4244af0aff1d3bb7c608c8",
+            "8": "25ea71ba9edef80f2e8c16d0a4e7170f5415b34ee074a2764a2899242365c689",
+            "9": "1c534394665590986fd6381ce7435ed168443750f26dd1aa683af4933a5b17da",
+            "10": "acedc5c1a2bc9248e2a472662f113fcfa60623a5999f4f774cfa5c8b31338826",
+            "11": "18a367adcc92b137291fb89c9d81633dc715695688f52278bf2395d10e673177",
+            "12": "8fde36b668bbcc6c5a28346c0f0818c4516ec387b8cee4add79aaa73b1598d36",
+            "13": "978f98ba68ae874d33100cdc0221eee7e99436808a9090fc5111f592018beda2",
+            "14": "68a123cc8b90a640be415ac39d09828b683081c8af098feebe1c95b0b86876a8",
+            "15": "d0911ad5521cb3c850ddebc0f6c37e72c5bdb0e697a66eab741f65cbbe10d0bf",
+            "16": "5235fe5d784f9a06424fee5552a5d680cfecbf69b1853a65cd011069bc397fb7",
+            "17": "fcc72a17ab0b5379b9ff827bd1169094b172fc7684ab8ef08a6af39db5e14df6",
+            "18": "e241cdb8001b2e920ce1bd1dcc1854f01a1bbaff9c1d122b3f854cd71150f1b6",
+            "19": "1ff6e4fb8287142e24f5bc52969473f9950a2ebc421647f543b22397295d5bc8",
+            "20": "b4ca250261f598bf4d5516640c176ea435cc1f280ff44bdec147675a7ba09560",
+            "21": "d8920fc8da4898ce6aa3809caebd55eafcc7cc021112bc185f9e7d5faa4f1893",
+            "22": "8163a0acbabc2100e90caf458bff49068bcb109c3fa156401239e1ccc93a795d",
+            "23": "bc7aa68fd5f8c442a2afbde24157e4d735caa1e85d7a3231eefe5abc8bde4590",
+            "24": "dc41f5fe559ddbd67e01f54fda1f4bf8db4ffd005ebf0b9aab400aee29057e69",
+            "25": "d47aeacbf3407a75db1956c1028df360b7b74a19f01a5e6cabbfae225387f56a",
+            "26": "381de4b206ff7fc802469591284a21e9690105425e087b3627a2f8392e0c5f66",
+            "27": "e0d3cf4b264c41b967a4c2f5caef1248c823d39985c21a3a149086d6a1cdb973",
+            "28": "1c4afc95c8d2191aeb189e07f861f03641b5cb586a8cfe432693ad94dc287523",
+            "29": "7dd6d14673168bb9aa96449f92e4069ead3d06ac660e2986d68ee30d546dd822",
+            "30": "0dc1fbcd95d0763687757c54ba10ec042eab44ccfea56730529001ac4a6ed9d1",
+            "31": "97212eac2862a6426f4d74bd035c86cc1bff4e66aa6ad7862ff5b63ff744216f"
+          },
+          "seconds": 261.0883633662015
+        },
+        "neural_population-32": {
+          "rollouts": 140,
+          "caps": 0,
+          "begin": 32,
+          "count": 28,
+          "mean_credits": {
+            "15": "0",
+            "0": "0",
+            "1": "0",
+            "2": "0",
+            "7": "0"
+          },
+          "paired_margins": {
+            "15": "0",
+            "0": "0",
+            "1": "0",
+            "2": "0",
+            "7": "0"
+          },
+          "worlds": {
+            "32": "2be2dd83b5ef2f04a65a73bd3d5ae41bbc0eed066879121e686ce79a2af23062",
+            "33": "a4fbc0fb8aaba42a1006eceaea44bc03eeee1f77f1e08a5f2b256fc04a71909f",
+            "34": "bc4d99aa871705e3cab27697495ac9d0b7d0cd83603727cae5084ccf29f6c477",
+            "35": "c6727d84a97209de3eb80917ac3ca52796029365b7b6b209544af2a1c56e76fe",
+            "36": "ffe10be46ef31732effaa4bf2328723bd3d1fbe6e7f5671484ea2b29b207db27",
+            "37": "0335f7e26af81304c3290dc4ecf07f8f0d0a2e48f8b59ddf2d17538721d8faa0",
+            "38": "44a6a123f1f670b6ac98d1377d233284eaa699e555cc14afdce5153f11d90019",
+            "39": "e8efb287ad1616e942d41023ae48598c1858b33fe2671e0a4c463c506ef17ddc",
+            "40": "5733aead84c669fff2e11223fc81a11f92de7102cae18d291ea121ae672e3139",
+            "41": "3049d031d24765d3e5ce2ef822183093d6afdd2b047b2d25e155abf13695a6df",
+            "42": "bf051e390bfda449458e5b5759db953a3e5b5ba25f564c8d1f78c48e8e1322a2",
+            "43": "2a9c0374c19ac16bf40b4f0a37ca518ed36c19e092076d8b4e0428d91a214a6a",
+            "44": "05cc79cf0cb56908876170114fbe3804075f6fa42f0ca9f20e25733d909e84c7",
+            "45": "91d954e4323bdc6c54456e82f689bb5c230510509157f5475bc44fe29bef60db",
+            "46": "5b6d9585ea191ccd1e52082cfc1e61d9ea77d02477483b4c3815371f76bbc945",
+            "47": "6204e5a563b29b68d69a558b117c969f7d6b26426e778c19e93e693487ddfa1a",
+            "48": "ebea186ea15c899513938f25fa7f7f9e43935f4c83bf9f9fae00f9c0cf0b3939",
+            "49": "f6496799be68820716e486ff8bfd370622d4782824c79f3fb414aaa85c5c1388",
+            "50": "994cda8eca9c9dda5860be467c9d1712834a5bfa506a25b68ecbed085980e684",
+            "51": "416d6b0a976afce794dd15195907c51a3208a224ae8e19a1029504fb168c7b6f",
+            "52": "3bacf725ff274282f9f192f017b61c8c6d4884f4b42af032492913f559fb7618",
+            "53": "066b2996740d2e0439a572810d5df6b4287d4af530ebbeb1acf55a0f3db08554",
+            "54": "8298e46e47ef7aa3dd73a8faaa58a77013f9194467788f75c1ba2c61ba2ab102",
+            "55": "dd0420e02f67681872b647cdfb66ad96a1df16131df8206a1f480d3b210c00d1",
+            "56": "e359c7d2e30c4f9759024a364be4abd8abdc7ea465c6fae08e2c1d6e0a161ad9",
+            "57": "4c4db24eaa741493d25a946285bfd4e18763dd08697358086861c9255a7553ae",
+            "58": "4d2d77d68967c34132532df3f02c1dcc0204475d2a7a9af5b257e5ff99660479",
+            "59": "44c68eb4868d18903039e438d4ef68d48ef1e5e89bd0ca355e9c53312637c4b9"
+          },
+          "seconds": 4.138492439407855
+        },
+        "reference_opponent_v1-32": {
+          "rollouts": 140,
+          "caps": 0,
+          "begin": 32,
+          "count": 28,
+          "mean_credits": {
+            "15": "0",
+            "0": "0",
+            "1": "0",
+            "2": "0",
+            "7": "0"
+          },
+          "paired_margins": {
+            "15": "0",
+            "0": "0",
+            "1": "0",
+            "2": "0",
+            "7": "0"
+          },
+          "worlds": {
+            "32": "2be2dd83b5ef2f04a65a73bd3d5ae41bbc0eed066879121e686ce79a2af23062",
+            "33": "a4fbc0fb8aaba42a1006eceaea44bc03eeee1f77f1e08a5f2b256fc04a71909f",
+            "34": "bc4d99aa871705e3cab27697495ac9d0b7d0cd83603727cae5084ccf29f6c477",
+            "35": "c6727d84a97209de3eb80917ac3ca52796029365b7b6b209544af2a1c56e76fe",
+            "36": "ffe10be46ef31732effaa4bf2328723bd3d1fbe6e7f5671484ea2b29b207db27",
+            "37": "0335f7e26af81304c3290dc4ecf07f8f0d0a2e48f8b59ddf2d17538721d8faa0",
+            "38": "44a6a123f1f670b6ac98d1377d233284eaa699e555cc14afdce5153f11d90019",
+            "39": "e8efb287ad1616e942d41023ae48598c1858b33fe2671e0a4c463c506ef17ddc",
+            "40": "5733aead84c669fff2e11223fc81a11f92de7102cae18d291ea121ae672e3139",
+            "41": "3049d031d24765d3e5ce2ef822183093d6afdd2b047b2d25e155abf13695a6df",
+            "42": "bf051e390bfda449458e5b5759db953a3e5b5ba25f564c8d1f78c48e8e1322a2",
+            "43": "2a9c0374c19ac16bf40b4f0a37ca518ed36c19e092076d8b4e0428d91a214a6a",
+            "44": "05cc79cf0cb56908876170114fbe3804075f6fa42f0ca9f20e25733d909e84c7",
+            "45": "91d954e4323bdc6c54456e82f689bb5c230510509157f5475bc44fe29bef60db",
+            "46": "5b6d9585ea191ccd1e52082cfc1e61d9ea77d02477483b4c3815371f76bbc945",
+            "47": "6204e5a563b29b68d69a558b117c969f7d6b26426e778c19e93e693487ddfa1a",
+            "48": "ebea186ea15c899513938f25fa7f7f9e43935f4c83bf9f9fae00f9c0cf0b3939",
+            "49": "f6496799be68820716e486ff8bfd370622d4782824c79f3fb414aaa85c5c1388",
+            "50": "994cda8eca9c9dda5860be467c9d1712834a5bfa506a25b68ecbed085980e684",
+            "51": "416d6b0a976afce794dd15195907c51a3208a224ae8e19a1029504fb168c7b6f",
+            "52": "3bacf725ff274282f9f192f017b61c8c6d4884f4b42af032492913f559fb7618",
+            "53": "066b2996740d2e0439a572810d5df6b4287d4af530ebbeb1acf55a0f3db08554",
+            "54": "8298e46e47ef7aa3dd73a8faaa58a77013f9194467788f75c1ba2c61ba2ab102",
+            "55": "dd0420e02f67681872b647cdfb66ad96a1df16131df8206a1f480d3b210c00d1",
+            "56": "e359c7d2e30c4f9759024a364be4abd8abdc7ea465c6fae08e2c1d6e0a161ad9",
+            "57": "4c4db24eaa741493d25a946285bfd4e18763dd08697358086861c9255a7553ae",
+            "58": "4d2d77d68967c34132532df3f02c1dcc0204475d2a7a9af5b257e5ff99660479",
+            "59": "44c68eb4868d18903039e438d4ef68d48ef1e5e89bd0ca355e9c53312637c4b9"
+          },
+          "seconds": 216.09183555701748
+        }
+      },
+      "cross_fit": [
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "neural_population",
+          "action": 15,
+          "parent": 15,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "reference_opponent_v1",
+          "action": 15,
+          "parent": 15,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "equal_mixture",
+          "action": 15,
+          "parent": 15,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "neural_population",
+          "action": 15,
+          "parent": 15,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "reference_opponent_v1",
+          "action": 15,
+          "parent": 15,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "equal_mixture",
+          "action": 15,
+          "parent": 15,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        }
+      ]
+    },
+    {
+      "rootId": "policy-v2:6:11102:snapshot0:344:24",
+      "players": 6,
+      "variant": "original",
+      "raw_files": {
+        "root-08-neural_population-4.json": "175d92e490591ced0ba5ffcd3a3e9e331ac447ff340f37a90bff6c8bd929eff9",
+        "root-08-reference_opponent_v1-4.json": "0a308d2da2e55a30f2719afc34ebc0d48451e7b6929bdd8a4d647bf5197ed418",
+        "root-08-neural_population-32.json": "696b47e918103785a4a2b92caef23c435bec2fe5fdc1823859d590ca8030a060",
+        "root-08-reference_opponent_v1-32.json": "ae34252c708e29ff27d9d6731bcefc8ef79ba66515c46dc5d4aa46a14fbbf66a"
+      },
+      "audits": {
+        "neural_population-4": {
+          "rollouts": 140,
+          "caps": 0,
+          "begin": 4,
+          "count": 28,
+          "mean_credits": {
+            "7": "3/4",
+            "6": "3/4",
+            "5": "19/28",
+            "4": "5/7",
+            "1": "19/28"
+          },
+          "paired_margins": {
+            "7": "0",
+            "6": "0",
+            "5": "-1/14",
+            "4": "-1/28",
+            "1": "-1/14"
+          },
+          "worlds": {
+            "4": "3c5b119668c5a19a32c0b001ade21d16c9fe547637626ebe458af23f47b2dd3d",
+            "5": "bfd01809971d0d7aea81f24591f4cb081dc9e7df4ba42d817419c4da73054657",
+            "6": "21306af1bef463a49245d6ba40e02c52f4cb5e56b0d3ef2370a2d9c6e18660cf",
+            "7": "6d296e0ab4337f83e87e166ac0410c9c730838ff2cbcb1e533c32540ee907023",
+            "8": "7bce7d05e38f95ddc7e8863a18189109ca88390e2daef16c0027ac11f9232b09",
+            "9": "e1ea579b2449a1977d403adba77a7f4903d13a0dec87509e46064b4b9349931b",
+            "10": "23a39d1965e5d5c7920b92a9430ab986bc28e64c2450b1f0f401621cf2a7d0a1",
+            "11": "5c9c27a67379e90042b01b1dde36125fdfa76022c23b8dca718af97739412705",
+            "12": "ac85679948ff57a423c49612a1cc1e761a73ee7803ee37eb24df2cefe0d68b89",
+            "13": "06ee33164faa1901ed40def445ef98d2a744f55344a6e94c17850cb87cf126e3",
+            "14": "79a1df5ebf67f2422235726f0442cb44c298c0bbabcf50e565c6735b38edd637",
+            "15": "a5e19d2958e762d4e293a0b44c444e3db57e6a76dc747d24e35c6c81c919ccb3",
+            "16": "b8c6a2d5255ef501b21c709fc35b419fdfe94ba76e25410f589f4a0698b996d6",
+            "17": "a5a0f49bbff82f5ebc99b61672a2f8c4cbb8958be8510b89ef4d2c3f606efaee",
+            "18": "a1aa81cf57a126a2b8dcbb1d911105356dda515afd245889bb5f587f4b0132c8",
+            "19": "62b32b98ce403b8e824d5c8dfecd20c603c2615841903dc12f90da780295f0c8",
+            "20": "bebae4a5198837c8f10951026079b246ee2e5a84d3fdfdc3b4b77131e7f94823",
+            "21": "3f7285a53f246dfaf77f3ca2794b5ad22bc7344747e1eac2093edd2942c0b6de",
+            "22": "6dbdebe15b0114bf96ae43dadac6d74b35dd80558bf3ae3bf90ff79f9977a29e",
+            "23": "fd8da347d95b0ece7605550be9572ecdc2dfd981565976813159fb8dfd64046b",
+            "24": "edd9151ac384b848e0ac15bec4a4ca409b86d11848b5bef77fe0570183c8d885",
+            "25": "58b53be1eff7d3f5693b2c97d62f5986d7c591097bbd08899c03f188750c5aa5",
+            "26": "8c210e9b02947a6a144ca17bfe9ff0f4c05616942d8557254baedb082d5f96fb",
+            "27": "04c01f0acd7f8cda011a0454e3d354e7f80bfc1d58fa637960a57e10ea5cc9d5",
+            "28": "527625c54411f0ad99cb73fac1bc4405060741905e0e5fdaa4ff9c920754931e",
+            "29": "1123905cdefb8a278ed00d40032539db4498e6cdced207b5262a91a2e9a900ca",
+            "30": "182bffce2224b64a9c0ef3f377e7f4156ed06d9cd7d031e1f3f92cf3b6ffe3d1",
+            "31": "8bde65a9212d1a2a4f826b8230f947ea38fd79f3922e59b51c25f2491ffde9d3"
+          },
+          "seconds": 17.819125345908105
+        },
+        "reference_opponent_v1-4": {
+          "rollouts": 140,
+          "caps": 0,
+          "begin": 4,
+          "count": 28,
+          "mean_credits": {
+            "7": "3/14",
+            "6": "3/14",
+            "5": "5/28",
+            "4": "1/4",
+            "1": "3/14"
+          },
+          "paired_margins": {
+            "7": "0",
+            "6": "0",
+            "5": "-1/28",
+            "4": "1/28",
+            "1": "0"
+          },
+          "worlds": {
+            "4": "3c5b119668c5a19a32c0b001ade21d16c9fe547637626ebe458af23f47b2dd3d",
+            "5": "bfd01809971d0d7aea81f24591f4cb081dc9e7df4ba42d817419c4da73054657",
+            "6": "21306af1bef463a49245d6ba40e02c52f4cb5e56b0d3ef2370a2d9c6e18660cf",
+            "7": "6d296e0ab4337f83e87e166ac0410c9c730838ff2cbcb1e533c32540ee907023",
+            "8": "7bce7d05e38f95ddc7e8863a18189109ca88390e2daef16c0027ac11f9232b09",
+            "9": "e1ea579b2449a1977d403adba77a7f4903d13a0dec87509e46064b4b9349931b",
+            "10": "23a39d1965e5d5c7920b92a9430ab986bc28e64c2450b1f0f401621cf2a7d0a1",
+            "11": "5c9c27a67379e90042b01b1dde36125fdfa76022c23b8dca718af97739412705",
+            "12": "ac85679948ff57a423c49612a1cc1e761a73ee7803ee37eb24df2cefe0d68b89",
+            "13": "06ee33164faa1901ed40def445ef98d2a744f55344a6e94c17850cb87cf126e3",
+            "14": "79a1df5ebf67f2422235726f0442cb44c298c0bbabcf50e565c6735b38edd637",
+            "15": "a5e19d2958e762d4e293a0b44c444e3db57e6a76dc747d24e35c6c81c919ccb3",
+            "16": "b8c6a2d5255ef501b21c709fc35b419fdfe94ba76e25410f589f4a0698b996d6",
+            "17": "a5a0f49bbff82f5ebc99b61672a2f8c4cbb8958be8510b89ef4d2c3f606efaee",
+            "18": "a1aa81cf57a126a2b8dcbb1d911105356dda515afd245889bb5f587f4b0132c8",
+            "19": "62b32b98ce403b8e824d5c8dfecd20c603c2615841903dc12f90da780295f0c8",
+            "20": "bebae4a5198837c8f10951026079b246ee2e5a84d3fdfdc3b4b77131e7f94823",
+            "21": "3f7285a53f246dfaf77f3ca2794b5ad22bc7344747e1eac2093edd2942c0b6de",
+            "22": "6dbdebe15b0114bf96ae43dadac6d74b35dd80558bf3ae3bf90ff79f9977a29e",
+            "23": "fd8da347d95b0ece7605550be9572ecdc2dfd981565976813159fb8dfd64046b",
+            "24": "edd9151ac384b848e0ac15bec4a4ca409b86d11848b5bef77fe0570183c8d885",
+            "25": "58b53be1eff7d3f5693b2c97d62f5986d7c591097bbd08899c03f188750c5aa5",
+            "26": "8c210e9b02947a6a144ca17bfe9ff0f4c05616942d8557254baedb082d5f96fb",
+            "27": "04c01f0acd7f8cda011a0454e3d354e7f80bfc1d58fa637960a57e10ea5cc9d5",
+            "28": "527625c54411f0ad99cb73fac1bc4405060741905e0e5fdaa4ff9c920754931e",
+            "29": "1123905cdefb8a278ed00d40032539db4498e6cdced207b5262a91a2e9a900ca",
+            "30": "182bffce2224b64a9c0ef3f377e7f4156ed06d9cd7d031e1f3f92cf3b6ffe3d1",
+            "31": "8bde65a9212d1a2a4f826b8230f947ea38fd79f3922e59b51c25f2491ffde9d3"
+          },
+          "seconds": 3195.6110048089176
+        },
+        "neural_population-32": {
+          "rollouts": 140,
+          "caps": 0,
+          "begin": 32,
+          "count": 28,
+          "mean_credits": {
+            "7": "5/7",
+            "6": "5/7",
+            "5": "11/14",
+            "4": "5/7",
+            "1": "3/4"
+          },
+          "paired_margins": {
+            "7": "0",
+            "6": "0",
+            "5": "1/14",
+            "4": "0",
+            "1": "1/28"
+          },
+          "worlds": {
+            "32": "7d4324b4df7c8f2b284a6a5fb7c5477a2e6d102ebdb412de0b633c29376f2ddd",
+            "33": "29eedea11d84505376faefc09123bd70112d8b09cf4a6fa3d146464c46604856",
+            "34": "24a9a500132c10cf4d63ddb52c0c05f58b6cfb96bf951c5a08b604bf3cbd81ff",
+            "35": "12daf168271934ab4794b9377d5a9f8d4e375e13a058f77cee878ae5549baf6a",
+            "36": "a30c5b681640b29b01753a71ccda7c2976385e0555bdd5d0668b576022c9a4c7",
+            "37": "e00d9571048b658bb87849887fe94bef7a10df26e08beef058fb5f8bca6625bc",
+            "38": "03871ee45247829568a41ab57275af44e950a793e61414721f81b47cd80d9c3e",
+            "39": "0d1fd3c0e02716125a43e6b8899c79b04ea3dd0fb8afdc11754ed3a94fac67d8",
+            "40": "b78cdeceb3f393b6bea603db01930b3be2a0c769aadfb22f13e214e162e0afea",
+            "41": "0265d8f1a55281ba5730c290a5a308318093aad2de7ed0ef60f1ac3340a4da1c",
+            "42": "8e183631dbaa2c7d8a8933608a753a30673af2d2ddef6b6b1c265df148c9fcc6",
+            "43": "7de6e0510d01ed2c7d322112b4aad11fa399bb6868f923a03db5ba399a935a77",
+            "44": "110b24aee1a4e25e3db6af0e5dc180d3193e19312ecf96191a588f56017fa8ee",
+            "45": "c1b95d3840feed055c7cf49e1c1f43e2b45da6eeb542fc151ef1d9fa76b00b4a",
+            "46": "2a79d5dba9ddc34176ebab7dc1a3bc8c08ae1eca44bac444db97eb51098fa155",
+            "47": "2da863be14859f8ab805568618f3c4b4cd306f6d3d44ec8a088341a562dae3ec",
+            "48": "9f469f5f31769f050f78e9d521654195f156db156e48d49b25e7c501f65fe7f7",
+            "49": "438725fd60516e08fec843d084dafae3217a6ca97c6adb09d63e5e8389765964",
+            "50": "961d29ec7c2161323b7f66c43a7bfa174765615478a0d3081406ff9b511ad0ec",
+            "51": "c04c745b645e5fad52ce73ec3030cbb3afcefe90002d412677f1e8fa8b983042",
+            "52": "b5246521d4f088da00b71f011a4f240abf8a01b3d5ac28754ac825d50a73bed0",
+            "53": "de19d7df4e3d449c75ee3a13fbbd486d55e15d71b80b8af9609ba891cf9d30fc",
+            "54": "f463fc9589c12231ebc69e3674592ae2eefc5a76218f88c519595693530ec859",
+            "55": "0f80fd58d172eb8f91304fd9e7a538e870d22b4d6a1789c5d5857c9469fdcac2",
+            "56": "29886b01177eb54fa3a7b3bd4b9989e1d8ff1f2b80347ed04e30952a4ac62937",
+            "57": "f5f99ffabd2d7fe1c4ff4d5693647477fa1a7c9aaac0a1c98602bcaa59648fef",
+            "58": "be3805f326a843a86c068276b46edffa4cfef406d0ef1227d08240147491e0c3",
+            "59": "630d768501a4dc70bb48aad5746b752ce5ec131928c77360d8d4fd8610449ee5"
+          },
+          "seconds": 15.83614221168682
+        },
+        "reference_opponent_v1-32": {
+          "rollouts": 140,
+          "caps": 0,
+          "begin": 32,
+          "count": 28,
+          "mean_credits": {
+            "7": "9/28",
+            "6": "9/28",
+            "5": "9/28",
+            "4": "9/28",
+            "1": "5/14"
+          },
+          "paired_margins": {
+            "7": "0",
+            "6": "0",
+            "5": "0",
+            "4": "0",
+            "1": "1/28"
+          },
+          "worlds": {
+            "32": "7d4324b4df7c8f2b284a6a5fb7c5477a2e6d102ebdb412de0b633c29376f2ddd",
+            "33": "29eedea11d84505376faefc09123bd70112d8b09cf4a6fa3d146464c46604856",
+            "34": "24a9a500132c10cf4d63ddb52c0c05f58b6cfb96bf951c5a08b604bf3cbd81ff",
+            "35": "12daf168271934ab4794b9377d5a9f8d4e375e13a058f77cee878ae5549baf6a",
+            "36": "a30c5b681640b29b01753a71ccda7c2976385e0555bdd5d0668b576022c9a4c7",
+            "37": "e00d9571048b658bb87849887fe94bef7a10df26e08beef058fb5f8bca6625bc",
+            "38": "03871ee45247829568a41ab57275af44e950a793e61414721f81b47cd80d9c3e",
+            "39": "0d1fd3c0e02716125a43e6b8899c79b04ea3dd0fb8afdc11754ed3a94fac67d8",
+            "40": "b78cdeceb3f393b6bea603db01930b3be2a0c769aadfb22f13e214e162e0afea",
+            "41": "0265d8f1a55281ba5730c290a5a308318093aad2de7ed0ef60f1ac3340a4da1c",
+            "42": "8e183631dbaa2c7d8a8933608a753a30673af2d2ddef6b6b1c265df148c9fcc6",
+            "43": "7de6e0510d01ed2c7d322112b4aad11fa399bb6868f923a03db5ba399a935a77",
+            "44": "110b24aee1a4e25e3db6af0e5dc180d3193e19312ecf96191a588f56017fa8ee",
+            "45": "c1b95d3840feed055c7cf49e1c1f43e2b45da6eeb542fc151ef1d9fa76b00b4a",
+            "46": "2a79d5dba9ddc34176ebab7dc1a3bc8c08ae1eca44bac444db97eb51098fa155",
+            "47": "2da863be14859f8ab805568618f3c4b4cd306f6d3d44ec8a088341a562dae3ec",
+            "48": "9f469f5f31769f050f78e9d521654195f156db156e48d49b25e7c501f65fe7f7",
+            "49": "438725fd60516e08fec843d084dafae3217a6ca97c6adb09d63e5e8389765964",
+            "50": "961d29ec7c2161323b7f66c43a7bfa174765615478a0d3081406ff9b511ad0ec",
+            "51": "c04c745b645e5fad52ce73ec3030cbb3afcefe90002d412677f1e8fa8b983042",
+            "52": "b5246521d4f088da00b71f011a4f240abf8a01b3d5ac28754ac825d50a73bed0",
+            "53": "de19d7df4e3d449c75ee3a13fbbd486d55e15d71b80b8af9609ba891cf9d30fc",
+            "54": "f463fc9589c12231ebc69e3674592ae2eefc5a76218f88c519595693530ec859",
+            "55": "0f80fd58d172eb8f91304fd9e7a538e870d22b4d6a1789c5d5857c9469fdcac2",
+            "56": "29886b01177eb54fa3a7b3bd4b9989e1d8ff1f2b80347ed04e30952a4ac62937",
+            "57": "f5f99ffabd2d7fe1c4ff4d5693647477fa1a7c9aaac0a1c98602bcaa59648fef",
+            "58": "be3805f326a843a86c068276b46edffa4cfef406d0ef1227d08240147491e0c3",
+            "59": "630d768501a4dc70bb48aad5746b752ce5ec131928c77360d8d4fd8610449ee5"
+          },
+          "seconds": 3192.738868974149
+        }
+      },
+      "cross_fit": [
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "neural_population",
+          "action": 7,
+          "parent": 7,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "reference_opponent_v1",
+          "action": 4,
+          "parent": 7,
+          "overridden": true,
+          "selection_margin": "1/28",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "equal_mixture",
+          "action": 7,
+          "parent": 7,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "neural_population",
+          "action": 5,
+          "parent": 7,
+          "overridden": true,
+          "selection_margin": "1/14",
+          "heldout_margins": {
+            "neural_population": "-1/14",
+            "reference_opponent_v1": "-1/28"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "reference_opponent_v1",
+          "action": 1,
+          "parent": 7,
+          "overridden": true,
+          "selection_margin": "1/28",
+          "heldout_margins": {
+            "neural_population": "-1/14",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "equal_mixture",
+          "action": 1,
+          "parent": 7,
+          "overridden": true,
+          "selection_margin": "1/28",
+          "heldout_margins": {
+            "neural_population": "-1/14",
+            "reference_opponent_v1": "0"
+          }
+        }
+      ]
+    },
+    {
+      "rootId": "policy-v2:6:11101:snapshot0:81:24",
+      "players": 6,
+      "variant": "recharged",
+      "raw_files": {
+        "root-09-neural_population-4.json": "f6e263ddb50df8cd2e9ae9a283f30ba6c4a62199f438c321b7237f426e94d710",
+        "root-09-reference_opponent_v1-4.json": "ec70809b073eb17f05e812a194cd2efbdea22c02b23a65facfd07678d533bbbf",
+        "root-09-neural_population-32.json": "cbc5311fa49fbd729b1bb5fc6e943f423ca84cc8ce4403d200b5699d87a8cd33",
+        "root-09-reference_opponent_v1-32.json": "2411b8107855be61e4e2056886fa2bc6d71b5f8555dc39099eb02108926be70e"
+      },
+      "audits": {
+        "neural_population-4": {
+          "rollouts": 168,
+          "caps": 0,
+          "begin": 4,
+          "count": 28,
+          "mean_credits": {
+            "23": "2/7",
+            "0": "2/7",
+            "1": "2/7",
+            "2": "2/7",
+            "4": "2/7",
+            "11": "2/7"
+          },
+          "paired_margins": {
+            "23": "0",
+            "0": "0",
+            "1": "0",
+            "2": "0",
+            "4": "0",
+            "11": "0"
+          },
+          "worlds": {
+            "4": "fcd52f0268c20197d6efbe954c01ee5b4d79d85a4d7c563163b7a57577772484",
+            "5": "96d1398418cb431f6ab5aceaedfa504671d4989119ed6f5ad0e177dfa0efde57",
+            "6": "05c2d259c0ace47ef4a0198e6cce669b1f6dd0ea96831ce4424533c465c63835",
+            "7": "b8d28eeabb60916643a6cd6be6fefc090182ae61209ffe071dfa90075facde2d",
+            "8": "060f1f0997fd561412d2fc6441106489cb595ceb4e3a03e63b4f32245d4662f2",
+            "9": "0e7639176f9c605bb4ee79ec0e8129b6b55e74bd3eebcb17788b9ad4b7036717",
+            "10": "eacdef68f5a5ab5a7374af31afa209746957019d79514067694bfefc64d9270b",
+            "11": "4c5b528678d1e0687f99bf2ce190921c59175ca0ef80d44645f2d82a5d04f818",
+            "12": "d094c62e39737f32d051c97d40eeddd338bce5d320ba516438ab6811b6e6a6ac",
+            "13": "d20573b836fa2871a612878058790e4744519c32dc5a9061c5830fe5ddccbdd7",
+            "14": "5aa37062063249611dfd037f8cef1f589fae38c3424d8accd8d0a6c321fbcd37",
+            "15": "cd0a8d95373b62e452b566067477ae963d5474e301b0d18b8e413f5af449c190",
+            "16": "63f20db28ef4de9636c0d8f5a4297248f9266417d7dccfebdb7fb4804958b3ae",
+            "17": "f6c2d58d11f451f30f994b23902a9ceee3834bc6ca5bedfb1b114bf74a713364",
+            "18": "27be58e0582b91482c88c01f25b23173ebd31186217270b5efcb5251c78dee4e",
+            "19": "00fe5f97f6ab9d6bd97f77b0662afd008d2349c0c1d53c98f8329d87b4ea9781",
+            "20": "1714451465ba2680548cbbe56e800575aee8b568400965f6bcc801c34700c6d2",
+            "21": "c648d581242688ed393ee02eb3e8a4c2250d91202d818fd86b374977b978ade5",
+            "22": "f917f3866d2913d7389b034d6a793dad5b73ae1ee9b7f1316e80535d2abc7aee",
+            "23": "e3ab7a2396faa756dd191a3cf2659583a16e8137e373f76a2914fc09cd1c2f89",
+            "24": "1e0aa4c7865a54bfad0bcc966c4f9ce708a20caa3384ee2e4db41475e23d3f94",
+            "25": "a50a9af56446e0788e8fa3bc19b97122a84be542069b47079298f77d581f2b2b",
+            "26": "7373ef3e7e740ba4fd2b04af04c54a5d08e9e6449291024b455282279ca7c2da",
+            "27": "0757460ca11d10c14066db89720d4037f189403362afec34fec2ba41df42feaf",
+            "28": "ef48d2a0747f3ece4bc4b03704ddad373b15170e4e3e041d08dfe9dee545eb50",
+            "29": "0286b85792dd5ec72fab66840077a184a2a12e06836fc17aec001be35bf5cc2d",
+            "30": "5a6a8025f9d064bc0ad4e2abec2af9d5c6dfc067a0e1f5cee5dbbd7b4dde3493",
+            "31": "7dcfc1fd826a0588b9cf8d08fb5b05968a0290a102862af2efeed8b8ae886403"
+          },
+          "seconds": 20.96141461096704
+        },
+        "reference_opponent_v1-4": {
+          "rollouts": 168,
+          "caps": 0,
+          "begin": 4,
+          "count": 28,
+          "mean_credits": {
+            "23": "1/28",
+            "0": "1/28",
+            "1": "1/28",
+            "2": "1/28",
+            "4": "1/28",
+            "11": "1/28"
+          },
+          "paired_margins": {
+            "23": "0",
+            "0": "0",
+            "1": "0",
+            "2": "0",
+            "4": "0",
+            "11": "0"
+          },
+          "worlds": {
+            "4": "fcd52f0268c20197d6efbe954c01ee5b4d79d85a4d7c563163b7a57577772484",
+            "5": "96d1398418cb431f6ab5aceaedfa504671d4989119ed6f5ad0e177dfa0efde57",
+            "6": "05c2d259c0ace47ef4a0198e6cce669b1f6dd0ea96831ce4424533c465c63835",
+            "7": "b8d28eeabb60916643a6cd6be6fefc090182ae61209ffe071dfa90075facde2d",
+            "8": "060f1f0997fd561412d2fc6441106489cb595ceb4e3a03e63b4f32245d4662f2",
+            "9": "0e7639176f9c605bb4ee79ec0e8129b6b55e74bd3eebcb17788b9ad4b7036717",
+            "10": "eacdef68f5a5ab5a7374af31afa209746957019d79514067694bfefc64d9270b",
+            "11": "4c5b528678d1e0687f99bf2ce190921c59175ca0ef80d44645f2d82a5d04f818",
+            "12": "d094c62e39737f32d051c97d40eeddd338bce5d320ba516438ab6811b6e6a6ac",
+            "13": "d20573b836fa2871a612878058790e4744519c32dc5a9061c5830fe5ddccbdd7",
+            "14": "5aa37062063249611dfd037f8cef1f589fae38c3424d8accd8d0a6c321fbcd37",
+            "15": "cd0a8d95373b62e452b566067477ae963d5474e301b0d18b8e413f5af449c190",
+            "16": "63f20db28ef4de9636c0d8f5a4297248f9266417d7dccfebdb7fb4804958b3ae",
+            "17": "f6c2d58d11f451f30f994b23902a9ceee3834bc6ca5bedfb1b114bf74a713364",
+            "18": "27be58e0582b91482c88c01f25b23173ebd31186217270b5efcb5251c78dee4e",
+            "19": "00fe5f97f6ab9d6bd97f77b0662afd008d2349c0c1d53c98f8329d87b4ea9781",
+            "20": "1714451465ba2680548cbbe56e800575aee8b568400965f6bcc801c34700c6d2",
+            "21": "c648d581242688ed393ee02eb3e8a4c2250d91202d818fd86b374977b978ade5",
+            "22": "f917f3866d2913d7389b034d6a793dad5b73ae1ee9b7f1316e80535d2abc7aee",
+            "23": "e3ab7a2396faa756dd191a3cf2659583a16e8137e373f76a2914fc09cd1c2f89",
+            "24": "1e0aa4c7865a54bfad0bcc966c4f9ce708a20caa3384ee2e4db41475e23d3f94",
+            "25": "a50a9af56446e0788e8fa3bc19b97122a84be542069b47079298f77d581f2b2b",
+            "26": "7373ef3e7e740ba4fd2b04af04c54a5d08e9e6449291024b455282279ca7c2da",
+            "27": "0757460ca11d10c14066db89720d4037f189403362afec34fec2ba41df42feaf",
+            "28": "ef48d2a0747f3ece4bc4b03704ddad373b15170e4e3e041d08dfe9dee545eb50",
+            "29": "0286b85792dd5ec72fab66840077a184a2a12e06836fc17aec001be35bf5cc2d",
+            "30": "5a6a8025f9d064bc0ad4e2abec2af9d5c6dfc067a0e1f5cee5dbbd7b4dde3493",
+            "31": "7dcfc1fd826a0588b9cf8d08fb5b05968a0290a102862af2efeed8b8ae886403"
+          },
+          "seconds": 3473.8400783352554
+        },
+        "neural_population-32": {
+          "rollouts": 168,
+          "caps": 0,
+          "begin": 32,
+          "count": 28,
+          "mean_credits": {
+            "23": "3/28",
+            "0": "3/28",
+            "1": "3/28",
+            "2": "3/28",
+            "4": "3/28",
+            "11": "3/28"
+          },
+          "paired_margins": {
+            "23": "0",
+            "0": "0",
+            "1": "0",
+            "2": "0",
+            "4": "0",
+            "11": "0"
+          },
+          "worlds": {
+            "32": "c5095003b5ba96bc999329d7dc51b2aa9306eecb8c61198a1927dc901bceed31",
+            "33": "a4cb2a62f00c86e673ec53cfb50b21e3533b1dfdd975b4ed6c9513e03cc0e984",
+            "34": "1311aa16520b6ef38e2f2d991d6546b9443d7398331b7079ad2baf56bfd6339d",
+            "35": "4255cd684aa01ae1e91db6abe7bac068596836be85c0280cce18014030293766",
+            "36": "a9d31c954fa2f7e8a2ca953c4ee996529a6e890f8638a09dd8d41b95fc834294",
+            "37": "d1381739444b98f5776e50fc56216b6ee36e7976088bd17de73382a67617e6e9",
+            "38": "d4300758538abe493a9fd08d14773c2b0a88312fd1e5070637db50f59fe9810f",
+            "39": "49bd9231e7bdfa3ee6776bf570e5bd1c0920221ce4ddd201e7bba32637e147e7",
+            "40": "33af02bcd10933c400eee94e34d6e24a7806e93319b2bada7528c6058784c6e9",
+            "41": "20b03587ee4d80640f168605b71f054c15317672947496201e6068ae8f459a1d",
+            "42": "9e15b62ae49e779ee1a5fc33ccf92a538d7ce95891a227a288448b9ea1101901",
+            "43": "1f88977113768942fc91a873d8abdfc9254b03c4c25691e64788b9b419d94bc9",
+            "44": "61423e8612699b82b0f389e4a5d254b1c2de295b521c30f69e9a182f6cda6ccb",
+            "45": "3b8c835a47e2bf98a5dd2769eeb87ec6485dcf6254bd4c4f64de4a4d3531430c",
+            "46": "7c594cea8837d9f7f8cc9e2d6a1c6399167544189a0a71b9745c0eeb2e00f08a",
+            "47": "d93ccafa224edb10812d892de66d79e624ab79f14d71885283b28cb186889e0c",
+            "48": "1dee4dba93f3d3b5ce055c4d137c00d7830868eeae18eb6d1574532b52066a18",
+            "49": "11542cef8e0c4ec8415512cdd55609ee2209045c2f61adbdc871403cb3c03254",
+            "50": "f42bc0b40de883ad586711ffceb427d75c5ba1587261bebd89d4a6401114597a",
+            "51": "874f63d6fd44134a5716efc2c614635b06ebd2a90fe2bfa0f7bd5b0f0344a454",
+            "52": "5192af3a0ea28161931fb5b5c347d7dcd1e098eb3b96fe12756c185c304dd8a4",
+            "53": "c477439e1845b957f2c010c64677a9914ee36236621932fe07f0e6298f6febe0",
+            "54": "58565114ab7fca83a556c8300a73e358f651341dd621ecf5d3d767dfca58f0fc",
+            "55": "9fd0733609d2bcd9a7b4ce30bc10d03a753f0401997ee99d4315fe2d40f93096",
+            "56": "2ce840d17f9c638ab38e79cea07764b7efedf71c92dd0e1023dcbf1f00086213",
+            "57": "56ae656ee2533a41fbd7568ae83d71cde8eea0bf84a19a33c00c0cd046878756",
+            "58": "2e5417e9edef66b1c0b115b63240262be5fe1b35fc6b75d7b31863ea7d125a7b",
+            "59": "5974190f843f1709100ed11880b6b4e5b2aada335883da9175d1fb9c902307f6"
+          },
+          "seconds": 20.31205254793167
+        },
+        "reference_opponent_v1-32": {
+          "rollouts": 168,
+          "caps": 0,
+          "begin": 32,
+          "count": 28,
+          "mean_credits": {
+            "23": "0",
+            "0": "0",
+            "1": "0",
+            "2": "0",
+            "4": "0",
+            "11": "0"
+          },
+          "paired_margins": {
+            "23": "0",
+            "0": "0",
+            "1": "0",
+            "2": "0",
+            "4": "0",
+            "11": "0"
+          },
+          "worlds": {
+            "32": "c5095003b5ba96bc999329d7dc51b2aa9306eecb8c61198a1927dc901bceed31",
+            "33": "a4cb2a62f00c86e673ec53cfb50b21e3533b1dfdd975b4ed6c9513e03cc0e984",
+            "34": "1311aa16520b6ef38e2f2d991d6546b9443d7398331b7079ad2baf56bfd6339d",
+            "35": "4255cd684aa01ae1e91db6abe7bac068596836be85c0280cce18014030293766",
+            "36": "a9d31c954fa2f7e8a2ca953c4ee996529a6e890f8638a09dd8d41b95fc834294",
+            "37": "d1381739444b98f5776e50fc56216b6ee36e7976088bd17de73382a67617e6e9",
+            "38": "d4300758538abe493a9fd08d14773c2b0a88312fd1e5070637db50f59fe9810f",
+            "39": "49bd9231e7bdfa3ee6776bf570e5bd1c0920221ce4ddd201e7bba32637e147e7",
+            "40": "33af02bcd10933c400eee94e34d6e24a7806e93319b2bada7528c6058784c6e9",
+            "41": "20b03587ee4d80640f168605b71f054c15317672947496201e6068ae8f459a1d",
+            "42": "9e15b62ae49e779ee1a5fc33ccf92a538d7ce95891a227a288448b9ea1101901",
+            "43": "1f88977113768942fc91a873d8abdfc9254b03c4c25691e64788b9b419d94bc9",
+            "44": "61423e8612699b82b0f389e4a5d254b1c2de295b521c30f69e9a182f6cda6ccb",
+            "45": "3b8c835a47e2bf98a5dd2769eeb87ec6485dcf6254bd4c4f64de4a4d3531430c",
+            "46": "7c594cea8837d9f7f8cc9e2d6a1c6399167544189a0a71b9745c0eeb2e00f08a",
+            "47": "d93ccafa224edb10812d892de66d79e624ab79f14d71885283b28cb186889e0c",
+            "48": "1dee4dba93f3d3b5ce055c4d137c00d7830868eeae18eb6d1574532b52066a18",
+            "49": "11542cef8e0c4ec8415512cdd55609ee2209045c2f61adbdc871403cb3c03254",
+            "50": "f42bc0b40de883ad586711ffceb427d75c5ba1587261bebd89d4a6401114597a",
+            "51": "874f63d6fd44134a5716efc2c614635b06ebd2a90fe2bfa0f7bd5b0f0344a454",
+            "52": "5192af3a0ea28161931fb5b5c347d7dcd1e098eb3b96fe12756c185c304dd8a4",
+            "53": "c477439e1845b957f2c010c64677a9914ee36236621932fe07f0e6298f6febe0",
+            "54": "58565114ab7fca83a556c8300a73e358f651341dd621ecf5d3d767dfca58f0fc",
+            "55": "9fd0733609d2bcd9a7b4ce30bc10d03a753f0401997ee99d4315fe2d40f93096",
+            "56": "2ce840d17f9c638ab38e79cea07764b7efedf71c92dd0e1023dcbf1f00086213",
+            "57": "56ae656ee2533a41fbd7568ae83d71cde8eea0bf84a19a33c00c0cd046878756",
+            "58": "2e5417e9edef66b1c0b115b63240262be5fe1b35fc6b75d7b31863ea7d125a7b",
+            "59": "5974190f843f1709100ed11880b6b4e5b2aada335883da9175d1fb9c902307f6"
+          },
+          "seconds": 3256.1370274047367
+        }
+      },
+      "cross_fit": [
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "neural_population",
+          "action": 23,
+          "parent": 23,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "reference_opponent_v1",
+          "action": 23,
+          "parent": 23,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 4,
+          "evaluation_begin": 32,
+          "selector": "equal_mixture",
+          "action": 23,
+          "parent": 23,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "neural_population",
+          "action": 23,
+          "parent": 23,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "reference_opponent_v1",
+          "action": 23,
+          "parent": 23,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        },
+        {
+          "selection_begin": 32,
+          "evaluation_begin": 4,
+          "selector": "equal_mixture",
+          "action": 23,
+          "parent": 23,
+          "overridden": false,
+          "selection_margin": "0",
+          "heldout_margins": {
+            "neural_population": "0",
+            "reference_opponent_v1": "0"
+          }
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "neural_population": {
+      "root_directions": 20,
+      "overrides": 12,
+      "mean_selection_margin": "11/140",
+      "mean_heldout_margins": {
+        "neural_population": "33/560",
+        "reference_opponent_v1": "17/1120"
+      }
+    },
+    "reference_opponent_v1": {
+      "root_directions": 20,
+      "overrides": 8,
+      "mean_selection_margin": "13/280",
+      "mean_heldout_margins": {
+        "neural_population": "1/112",
+        "reference_opponent_v1": "1/560"
+      }
+    },
+    "equal_mixture": {
+      "root_directions": 20,
+      "overrides": 9,
+      "mean_selection_margin": "1/20",
+      "mean_heldout_margins": {
+        "neural_population": "33/560",
+        "reference_opponent_v1": "3/560"
+      }
+    }
+  },
+  "rollouts": 6160,
+  "caps": 0,
+  "protocol_sha256": "0b859c665a24db079a33d9910125bf97b60c46f3917be45becd62874cb8adbc7",
+  "seconds": 12580.875204719137,
+  "new_gradients": 0,
+  "qualified": false,
+  "reserved_final_seeds_used": false,
+  "interpretation": "Conditional sampled terminal-credit margins on ten training roots. Root pairs are dependent; not game win rates, a model selection gate or broadly representative training targets."
+}

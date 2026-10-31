@@ -1,5 +1,12 @@
 # Sealed bidding and target quality — 30 October 2026
 
+**Update, 31 October:** the 6,160-continuation assessment below is now complete
+and independently audited, zero caps, finishing at 03:52:37 Paris in 3h29m41s.
+Its bid improvements transfer poorly to stronger search opponents. Current
+findings and the next bounded HF learner experiment are in
+[TARGET-GENERALIZATION-2026-10-31.md](TARGET-GENERALIZATION-2026-10-31.md).
+The remaining launch/status text below is historical recovery information.
+
 The user authorized the next research step after the nomination-only iteration
 failed to show convincing gameplay improvement. No objective or automation was
 recreated. Keep the existing parent and all historical policies frozen.
@@ -86,7 +93,7 @@ The original remote directory is
 in `ai/runs/sealed-target-pilot-v1/collected`. Do not relaunch or recollect over
 these files. Earlier estimated completion was 45–120 minutes; it finished sooner.
 
-## Current finite target-reliability assessment — 31 October
+## Completed target-reliability assessment — 31 October
 
 Started **31 October at 00:22:56 Paris**, supervisor **PID 961705**, host `minipc`.
 This uses all ten original training roots and fixed candidate actions. The first

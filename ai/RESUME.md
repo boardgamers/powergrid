@@ -1,5 +1,35 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**31 October, 11:08 Paris — sealed assessment audited; one HF learner probe submitted.**
+
+The mini-PC assessment completed at **03:52:37 Paris**, in **3h29m41s**.
+All **6,160 continuations / 40 components** independently audited, zero caps;
+original supervisor **961705** stopped. Reference-search-selected bids gain only
+**+0.001786 sampled terminal credit** on their held-out reference simulations.
+Neural-selected gains transfer weakly. Ten roots cannot establish game strength.
+Do not scale up this expensive target recipe solely from these results.
+
+All **16 original neural fits** reduced training error but worsened final-epoch
+validation error: overfitting, not simply too few updates. The closed neural
+candidate iteration and deferred game shards stay closed/deferred.
+
+New bounded research: **one HF L4 job `6ae5bddf0e0338d1bb7d1fe6`**, submitted
+**11:07:27 Paris**. Four fixed regularized tree fits (two depths × two seeds),
+using existing verified nomination targets; whole-game fit/tuning separation,
+legacy validation scored after fitting. Estimate **15–30 minutes plus queue**;
+user ping **11:45 Paris today**. One-hour timeout, no automatic retry/follow-on.
+No new simulations, objective or automation. Existing neural policies unchanged.
+
+Read `TARGET-GENERALIZATION-2026-10-31.md`. Status/collection:
+`PYTHONPATH=ai/strong ai/.venv/bin/python -u -B
+ai/strong/manage_target_learner_probe_v1.py status` (then `collect` when completed).
+Do not relaunch originals. Preserve failures and missing receipts. Descriptors:
+`strong/target-learner-probe-{design,source,launch}-v1.json`;
+completion/recovery archive `strong/target-generalization-evidence-v1.json`.
+If successful, independently audit models and metrics before deciding a fresh
+gameplay screen or broader data redesign. No policy qualification/final-seed use.
+Earlier timestamped notices below describe historical runs.
+
 **31 October, 00:23 Paris — pilot audited; larger sealed-bid target assessment running.**
 
 The original mini-PC pilot finished at **22:53:20 Paris, 30 October**, in

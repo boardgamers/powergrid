@@ -72463,5 +72463,37 @@
         "new_gradients": 0,
         "qualified": false,
         "reserved_final_seeds_used": false
+    },
+    "target_generalization_and_learner_probe_20261031": {
+        "created_at": "2026-10-31T10:09:03.458767+00:00",
+        "sealed_audited_rollouts": 6160,
+        "sealed_caps": 0,
+        "sealed_seconds": 12580.875204719137,
+        "sealed_report_sha256": "651f5b1869822fa79b8b45b13acc4fb8ca571516065fc906a2f6da472b16986d",
+        "analysis_sha256": "5203bc4856b00ca13324d1eac42c5022eb6952f3f8f9578f5dae6f90fa93f8aa",
+        "decision": "Do not scale the reference-search target recipe from this ten-root result. Test a different regularized learner on existing targets after observing overfitting in all sixteen neural fits.",
+        "launch": {
+            "created_at": "2026-10-31T10:07:27.220993+00:00",
+            "job_id": "6ae5bddf0e0338d1bb7d1fe6",
+            "name": "pg-target-learner-probe-v1",
+            "source_sha256": "e94033239add6fdeb882799641f2941bc8bb913bb48b48eb74b20797328ceaff",
+            "design_sha256": "29ed9937329abdffa35f198d599179e14b943fd9de86ce7b498c7637c8b8d75e",
+            "manager_sha256": "dee32b2304c2922cf5dde37d753b8241cf0744e44242d329c3f9b72f86728332",
+            "intent_sha256": "bea3ac974b4b96c1c200789349d66bdeb81cff898c16eedfe3bf3c508db3adf4",
+            "flavor": "l4x1",
+            "timeout_seconds": 3600,
+            "estimated_minutes": [
+                15,
+                30
+            ],
+            "suggested_ping_paris": "2026-10-31T11:45:00+01:00",
+            "automatic_retries": false,
+            "qualified": false
+        },
+        "new_hf_jobs": 1,
+        "planned_tree_fits": 4,
+        "new_simulations": 0,
+        "qualified": false,
+        "reserved_final_seeds_used": false
     }
 }

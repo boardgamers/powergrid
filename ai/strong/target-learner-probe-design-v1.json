@@ -1,0 +1,67 @@
+{
+  "created_at": "2026-10-31T10:06:39.399840+00:00",
+  "purpose": "Test a different learner class after all historical neural fits overfit. Existing targets only; no new nomination candidate iteration or deployment.",
+  "analysis_sha256": "5203bc4856b00ca13324d1eac42c5022eb6952f3f8f9578f5dae6f90fa93f8aa",
+  "data_report_sha256": "dedec991de80c2615ce6306f7ca561804a59d464b2180fd42ca1fbba0fda718d",
+  "worker_sha256": "08b2ccc52c2cef4b390a750bbe09ef5e0505ca7307b95d4c378e13c3ac19a337",
+  "depths": [
+    3,
+    6
+  ],
+  "seeds": [
+    27101,
+    27102
+  ],
+  "max_rounds": 500,
+  "early_stopping_rounds": 40,
+  "parameters": {
+    "objective": "reg:squarederror",
+    "eval_metric": "rmse",
+    "device": "cuda",
+    "tree_method": "hist",
+    "eta": 0.03,
+    "min_child_weight": 5,
+    "lambda": 10.0,
+    "alpha": 0.1,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "max_bin": 128,
+    "base_score": 0.0,
+    "nthread": 4,
+    "verbosity": 1
+  },
+  "split_counts": {
+    "fit": 3598,
+    "tune": 728,
+    "legacy_validation": 1444
+  },
+  "split": "Fit on original training deals except 11,13; tune stopping only on training deals 11,13; legacy validation deals 0,4,8,12 scored once after fitting. Entire source games and public-state hashes are separate.",
+  "features": "1522 numeric public inputs: state 0:1215 and discount 1217; candidate action 0:100,101:103; parent action same indices; candidate-minus-parent. No target, root/seed/deal ID, opponent identity or shortlist/eligibility flags.",
+  "loss": "Existing soft paired terminal-credit advantages, uncertainty weights normalized to equal total per-root weight; parent rows excluded from fit and forced to zero on prediction.",
+  "selection": "Earliest minimum internal-tune RMSE checkpoint; retain both seeds and both depths, report their fixed mean ensembles with margin .025. No sweep/threshold tuning using legacy validation.",
+  "limitations": "Existing neural population nomination targets and historically used validation are diagnostic only. This cannot resolve opponent mismatch, qualify a policy or prove game strength. No model serving change.",
+  "preflight": {
+    "rows": 30321,
+    "features": 1522,
+    "new_gradients": 0,
+    "split_integrity": true
+  },
+  "versions": {
+    "numpy": "1.26.4",
+    "scipy": "1.14.1",
+    "xgboost": "2.1.4",
+    "huggingface_hub": "2.0.0"
+  },
+  "documentation": "https://xgboost.readthedocs.io/en/release_2.1.0/gpu/index.html",
+  "estimated_minutes": [
+    15,
+    30
+  ],
+  "estimate_is_provisional": true,
+  "suggested_ping_paris": "2026-10-31T11:45:00+01:00",
+  "hard_timeout_seconds": 3600,
+  "automatic_retries": false,
+  "new_simulations": 0,
+  "qualified": false,
+  "reserved_final_seeds_used": false
+}

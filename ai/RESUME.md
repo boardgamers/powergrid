@@ -1,5 +1,13 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**31 October — successor handoff for training across maps:** start with
+[HANDOFF-2026-10-31-MULTIMAP.md](HANDOFF-2026-10-31-MULTIMAP.md). The user wants
+generalized training. Current weights and city/action features are Germany-only;
+a new representation and training distribution are needed. GitHub code/handoffs
+are public, but both main HF model/data repositories are verified private.
+The handoff records access, exact recovery descriptors, completed results and a
+proposed multi-map path. No new jobs, deployment or visibility changes.
+
 **31 October — this iteration is complete; no jobs remain from these runs.**
 
 The 6,160-continuation sealed-bid assessment passed every independent audit in

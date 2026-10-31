@@ -132,6 +132,7 @@ export function setup(
         chooseRegions = false,
         chooseColors = false,
         alternatePowerPlants = false,
+        rechargedStartingResources = true,
     }: GameOptions,
     seed?: string,
     forceDeck?: PowerPlant[],
@@ -152,6 +153,18 @@ export function setup(
         throw new Error(`Map "${map}" not found for variant "${variant}"`);
     }
     const chosenMap = cloneDeep(chosenMapRaw);
+    // Resolve the variant's starting market here, so the map stored in the game
+    // state keeps a plain array, as it always has.
+    const variantStartingResources =
+        variant === 'recharged' && !!chosenMap.startingResources && !Array.isArray(chosenMap.startingResources);
+    const startingResources = !chosenMap.startingResources
+        ? undefined
+        : Array.isArray(chosenMap.startingResources)
+        ? chosenMap.startingResources
+        : variantStartingResources && rechargedStartingResources
+        ? chosenMap.startingResources.recharged
+        : chosenMap.startingResources.original;
+    if (startingResources) chosenMap.startingResources = startingResources;
     // The option is only honoured on the maps that support the alternate deck.
     const alternateDeck = usesAlternateDeck(chosenMap.name, alternatePowerPlants);
     const deck = plantCatalogue(chosenMap.name, alternateDeck);
@@ -353,10 +366,10 @@ export function setup(
         }
     }
 
-    const coalMarket = chosenMap.startingResources ? chosenMap.startingResources[0] : 24;
-    const oilMarket = chosenMap.startingResources ? chosenMap.startingResources[1] : 18;
-    const garbageMarket = chosenMap.startingResources ? chosenMap.startingResources[2] : variant == 'original' ? 6 : 9;
-    const uraniumMarket = chosenMap.startingResources ? chosenMap.startingResources[3] : 2;
+    const coalMarket = startingResources ? startingResources[0] : 24;
+    const oilMarket = startingResources ? startingResources[1] : 18;
+    const garbageMarket = startingResources ? startingResources[2] : variant == 'original' ? 6 : 9;
+    const uraniumMarket = startingResources ? startingResources[3] : 2;
 
     const totalCoal = chosenMap.startingSupply ? chosenMap.startingSupply[0] : 24;
     const totalOil = chosenMap.startingSupply ? chosenMap.startingSupply[1] : 24;
@@ -446,6 +459,7 @@ export function setup(
             chooseColors,
             // Only stored when in effect, so states of every other game are unchanged.
             ...(alternateDeck ? { alternatePowerPlants: true } : {}),
+            ...(variantStartingResources && rechargedStartingResources ? { rechargedStartingResources: true } : {}),
         },
         log: [],
         hiddenLog: [],
@@ -2779,8 +2793,22 @@ export function getPowerPlant(num: number, mapName = '', alternatePowerPlants = 
     return plantCatalogue(mapName, alternatePowerPlants).find((p) => p.number == num)!;
 }
 
+// Options for rebuilding an existing game's starting state. Settings that new games
+// record explicitly must fall back to their old behaviour when absent, so games
+// created before them replay as they were played.
+export function reconstructionOptions(options: GameOptions): GameOptions {
+    return { ...options, rechargedStartingResources: options.rechargedStartingResources ?? false };
+}
+
 function getBaseState(G: GameState): GameState {
-    const baseState = setup(G.players.length, G.options, G.seed, undefined, undefined, G.setupPlayerColors);
+    const baseState = setup(
+        G.players.length,
+        reconstructionOptions(G.options),
+        G.seed,
+        undefined,
+        undefined,
+        G.setupPlayerColors
+    );
     baseState.players.forEach((player, i) => {
         player.name = G.players[i].name;
         player.isAI = G.players[i].isAI;

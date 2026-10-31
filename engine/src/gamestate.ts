@@ -57,6 +57,10 @@ export interface GameOptions {
     // alternatePowerPlants in powerPlants.ts) instead of the standard one. Only
     // honoured on the maps in ALTERNATE_DECK_MAPS; ignored everywhere else.
     alternatePowerPlants?: boolean;
+    // Stored by setup on maps whose starting resources differ by variant. Games
+    // created before this existed started Recharged with the Original market, so
+    // reconstructing one without the flag keeps that (see reconstructionOptions).
+    rechargedStartingResources?: boolean;
 }
 
 export enum ResourceType {

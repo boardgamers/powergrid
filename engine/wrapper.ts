@@ -217,7 +217,14 @@ export function replay(G: GameState, { to = Infinity }: { to?: number } = {}): G
 
     const oldG = G;
 
-    G = engine.setup(G.players.length, G.options, G.seed, undefined, undefined, G.setupPlayerColors);
+    G = engine.setup(
+        G.players.length,
+        engine.reconstructionOptions(G.options),
+        G.seed,
+        undefined,
+        undefined,
+        G.setupPlayerColors
+    );
 
     for (let i = 0; i < oldPlayers.length && i < G.players.length; i++) {
         G.players[i].name = oldPlayers[i].name;

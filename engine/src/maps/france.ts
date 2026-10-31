@@ -234,7 +234,8 @@ export const map: GameMap = {
             [2, 3, 3],
         ],
     ],
-    startingResources: [24, 18, 6, 8],
+    // Recharged rulebook: coal 1–8, oil 3–8, garbage 6–8, uranium 5–16.
+    startingResources: { original: [24, 18, 6, 8], recharged: [24, 18, 9, 8] },
     setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
         let powerPlantsDeck = cloneDeep(powerPlants);
         let actualMarket: PowerPlant[];

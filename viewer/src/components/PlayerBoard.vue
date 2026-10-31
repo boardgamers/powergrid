@@ -1,6 +1,13 @@
 <template>
     <g class="player-board">
-        <rect width="350" :height="100 + (showAutoPass ? settingRowHeight : 0)" x="0" y="0" fill="gold" :stroke="color" />
+        <rect
+            width="350"
+            :height="100 + (showAutoPass ? settingRowHeight : 0)"
+            x="0"
+            y="0"
+            fill="gold"
+            :stroke="color"
+        />
         <rect width="350" height="25" x="0" y="0" :fill="color" />
         <foreignObject height="30" width="30" x="-30" y="-5">
             <img
@@ -54,12 +61,26 @@
             >
                 <rect class="auto-pass-hit" width="350" :height="settingRowHeight" fill="transparent" />
                 <path d="M0 0H350" stroke="#806b28" stroke-opacity="0.35" />
-                <rect x="10" y="9" width="18" height="18" rx="2" :fill="autoPass ? '#304b3b' : '#f5f4e5'" stroke="#304b3b" />
+                <rect
+                    x="10"
+                    y="9"
+                    width="18"
+                    height="18"
+                    rx="2"
+                    :fill="autoPass ? '#304b3b' : '#f5f4e5'"
+                    stroke="#304b3b"
+                />
                 <path v-if="autoPass" d="M14 18L18 22L24 14" fill="none" stroke="white" stroke-width="2" />
-                <text x="37" y="18" fill="#24382b" style="font: 16px Arial, sans-serif; dominant-baseline: central">Auto-pass if unaffordable</text>
-                <title>{{ autoPassPublic
-                    ? 'Money is public: players automatically pass auctions they cannot afford.'
-                    : 'Automatically pass auctions you cannot afford. With hidden money, this can reveal that you cannot afford the bid. Applies after the next move.' }}</title>
+                <text x="37" y="18" fill="#24382b" style="font: 16px Arial, sans-serif; dominant-baseline: central"
+                    >Auto-pass if unaffordable</text
+                >
+                <title>
+                    {{
+                        autoPassPublic
+                            ? 'Money is public: players automatically pass auctions they cannot afford.'
+                            : 'Automatically pass auctions you cannot afford. With hidden money, this can reveal that you cannot afford the bid. Applies after the next move.'
+                    }}
+                </title>
             </g>
         </template>
 
@@ -411,8 +432,17 @@ export default class PlayerBoard extends Vue {
 }
 </script>
 <style scoped>
-.auction-auto-pass.editable { cursor: pointer; }
-.auction-auto-pass.editable:hover .auto-pass-hit { fill: #ffffff30; }
-.auction-auto-pass:focus { outline: none; }
-.auction-auto-pass:focus-visible .auto-pass-hit { stroke: currentColor; stroke-width: 2; }
+.auction-auto-pass.editable {
+    cursor: pointer;
+}
+.auction-auto-pass.editable:hover .auto-pass-hit {
+    fill: #ffffff30;
+}
+.auction-auto-pass:focus {
+    outline: none;
+}
+.auction-auto-pass:focus-visible .auto-pass-hit {
+    stroke: currentColor;
+    stroke-width: 2;
+}
 </style>

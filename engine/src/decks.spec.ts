@@ -7,7 +7,16 @@ import { ended, move, moveAI, setup, updatePlayerCapacity } from './engine';
 import { GameState, MapName, Phase, PowerPlantDeck, PowerPlantType, ResourceType, Variant } from './gamestate';
 import { maps, mapsRecharged } from './maps';
 import { Move, MoveName } from './move';
-import { alternatePowerPlants, deck1PowerPlants, plantCatalogue, powerPlants } from './powerPlants';
+import {
+    alternatePowerPlants,
+    deck1PowerPlants,
+    isPlugPlant,
+    labelledPlant,
+    NUMBERED_SETUP_MAPS,
+    plantCatalogue,
+    plantLabel,
+    powerPlants,
+} from './powerPlants';
 
 const numbers = (plants: { number: number }[]) => plants.map((pp) => pp.number);
 const visible = (G: GameState) => [...G.actualMarket, ...G.futureMarket, ...G.powerPlantsDeck];
@@ -315,6 +324,151 @@ describe('power plant decks on maps with deck-specific changes', () => {
         ['Northern Europe', 'recharged', 'deck2'],
         ['Northern Europe', 'original', 'deck1'],
         ['Italy', 'recharged', 'deck1'],
+    ] as [MapName, Variant, PowerPlantDeck][]) {
+        it(`plays a whole bot game on ${map} ${variant} with ${deck} and replays it`, () => {
+            let G = setup(4, { map, variant, powerPlantDeck: deck }, `bots-${map}-${deck}`);
+            G.players.forEach((p, i) => {
+                p.name = `AI ${i}`;
+                p.isAI = true;
+            });
+            for (let turn = 0; turn < 8000 && !ended(G) && G.currentPlayers.length > 0; turn++) {
+                G = moveAI(G, G.currentPlayers[0]);
+            }
+            expect(ended(G), 'game finished').to.be.true;
+
+            let replay = setup(4, G.options, G.seed);
+            replay.players.forEach((p, i) => {
+                p.name = `AI ${i}`;
+                p.isAI = true;
+            });
+            for (const item of G.log) {
+                if (item.type === 'move') replay = move(replay, item.move, item.player);
+            }
+            expect(replay.players.map((p) => p.money)).to.deep.equal(G.players.map((p) => p.money));
+        });
+    }
+});
+
+describe('shuffled power plant decks', () => {
+    const shuffled = plantCatalogue('USA', 'shuffled');
+    const printed = (plants: { number: number }[]) => plants.map((pp) => Math.floor(pp.number));
+
+    it('holds every plant of all three decks, extra copies numbered .1 and .2', () => {
+        const step3 = shuffled.filter((pp) => pp.type == PowerPlantType.Step3);
+        expect(step3.map((pp) => pp.number)).to.deep.equal([99]);
+        expect(shuffled[shuffled.length - 1].number).to.equal(99);
+        expect(new Set(numbers(shuffled)).size).to.equal(shuffled.length);
+        for (const [source, offset] of [
+            [powerPlants, 0],
+            [deck1PowerPlants, 0.1],
+            [alternatePowerPlants, 0.2],
+        ] as [typeof powerPlants, number][]) {
+            for (const pp of source.filter((c) => c.type != PowerPlantType.Step3)) {
+                expect(shuffled.find((c) => c.number == pp.number + offset)).to.deep.equal({
+                    ...pp,
+                    number: pp.number + offset,
+                });
+            }
+        }
+        expect(numbers(shuffled)).to.deep.equal([...numbers(shuffled)].sort((a, b) => a - b));
+    });
+
+    it('labels the extra copies with their deck', () => {
+        expect(plantLabel(46)).to.equal('46');
+        expect(plantLabel(46.1)).to.equal('46 (Deck 1)');
+        expect(plantLabel(46.2)).to.equal('46 (Deck 2)');
+        expect(labelledPlant('46', '2')).to.equal(46.2);
+        expect(labelledPlant('46', undefined)).to.equal(46);
+    });
+
+    it('is only offered on maps whose rules name no plant numbers', () => {
+        for (const deck of ['shuffled', 'shuffledUnique'] as PowerPlantDeck[]) {
+            for (const map of NUMBERED_SETUP_MAPS as MapName[]) {
+                const G = setup(4, { map, variant: 'recharged', powerPlantDeck: deck }, 'blocked');
+                expect(G.options, `${map} ${deck}`).to.not.have.property('powerPlantDeck');
+            }
+            for (const map of ['USA', 'Germany', 'Italy', 'Benelux', 'Europe', 'UK & Ireland'] as MapName[]) {
+                const G = setup(4, { map, variant: 'recharged', powerPlantDeck: deck }, 'offered');
+                expect(G.options.powerPlantDeck, `${map} ${deck}`).to.equal(deck);
+            }
+        }
+    });
+
+    it("opens the Recharged market from every deck's plug cards", () => {
+        for (const seed of range(8).map(String)) {
+            const G = setup(4, { map: 'USA', variant: 'recharged', powerPlantDeck: 'shuffled' }, seed);
+            const market = [...G.actualMarket, ...G.futureMarket];
+            expect(
+                market.every((pp) => isPlugPlant(pp, 'shuffled')),
+                seed
+            ).to.be.true;
+            expect(numbers(market)).to.deep.equal([...numbers(market)].sort((a, b) => a - b));
+            expect(isPlugPlant(G.powerPlantsDeck[0], 'shuffled')).to.be.true;
+            expect(G.powerPlantsDeck[G.powerPlantsDeck.length - 1].number).to.equal(99);
+        }
+        // Deck 1's 16 is a plug card; the standard deck's and Deck 2's are not.
+        expect(isPlugPlant({ number: 16.1 }, 'shuffled')).to.be.true;
+        expect(isPlugPlant({ number: 16 }, 'shuffled')).to.be.false;
+        expect(isPlugPlant({ number: 16.2 }, 'shuffled')).to.be.false;
+    });
+
+    it('opens the Original market with the eight smallest plants and 13 on top', () => {
+        const G = setup(4, { map: 'USA', variant: 'original', powerPlantDeck: 'shuffled' }, 'o');
+        expect(numbers([...G.actualMarket, ...G.futureMarket])).to.deep.equal([1.1, 2.1, 3, 3.1, 3.2, 4, 4.1, 4.2]);
+        expect(G.powerPlantsDeck[0].number).to.equal(13);
+    });
+
+    it('keeps one random copy of each number in the one-per-number deck', () => {
+        const dealt = (seed: string) =>
+            visible(setup(5, { map: 'USA', variant: 'recharged', powerPlantDeck: 'shuffledUnique' }, seed));
+        const first = dealt('a');
+        const once = printed(first);
+        expect(new Set(once).size, 'one copy per number').to.equal(once.length);
+        expect(new Set(once)).to.deep.equal(new Set(printed(shuffled)));
+        expect(once.some((n) => n > 50 && n != 99)).to.be.false;
+        expect(numbers(dealt('a')).sort()).to.deep.equal(numbers(first).sort());
+        expect(numbers(dealt('b')).sort()).to.not.deep.equal(numbers(first).sort());
+    });
+
+    it('starts the bidding at the printed number and logs the copy', () => {
+        const G = setup(3, { map: 'Germany', variant: 'original', powerPlantDeck: 'shuffled' }, 'bid');
+        const copy = shuffled.find((pp) => pp.number == 46.2)!;
+        G.actualMarket[0] = copy;
+        const player = G.currentPlayers[0];
+        G.players[player].money = 100;
+        G.players[player].availableMoves = availableMoves(G, G.players[player]);
+        expect(G.players[player].availableMoves![MoveName.ChoosePowerPlant]).to.include(46.2);
+        const after = move(G, { name: MoveName.ChoosePowerPlant, data: 46.2 } as Move, player);
+        expect(after.minimunBid).to.equal(46);
+        expect(after.chosenPowerPlant).to.deep.equal(copy);
+        const entry = after.log[after.log.length - 1];
+        expect(entry.type == 'move' && entry.simple).to.contain('Power Plant 46 (Deck 2)');
+    });
+
+    it("ends Germany's uranium resupply on any deck's own nuclear plant", () => {
+        for (const [number, triggers] of [
+            [39, true],
+            [38.1, true],
+            [37.2, true],
+            [38, false],
+            [39.1, false],
+        ] as [number, boolean][]) {
+            const G = setup(3, { map: 'Germany', variant: 'recharged', powerPlantDeck: 'shuffled' }, 'phase-out');
+            G.actualMarket[0] = shuffled.find((pp) => pp.number == number)!;
+            const player = G.currentPlayers[0];
+            G.players[player].money = 100;
+            G.players[player].availableMoves = availableMoves(G, G.players[player]);
+            const after = move(G, { name: MoveName.ChoosePowerPlant, data: number } as Move, player);
+            expect(after.card39Bought, `${number}`).to.equal(triggers);
+        }
+    });
+
+    for (const [map, variant, deck] of [
+        ['USA', 'original', 'shuffled'],
+        ['Germany', 'recharged', 'shuffledUnique'],
+        ['Europe', 'recharged', 'shuffled'],
+        ['UK & Ireland', 'original', 'shuffledUnique'],
+        ['Benelux', 'recharged', 'shuffled'],
     ] as [MapName, Variant, PowerPlantDeck][]) {
         it(`plays a whole bot game on ${map} ${variant} with ${deck} and replays it`, () => {
             let G = setup(4, { map, variant, powerPlantDeck: deck }, `bots-${map}-${deck}`);

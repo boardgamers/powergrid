@@ -38,13 +38,16 @@ import { GameMap, maps, mapsRecharged } from './maps';
 import { Move, MoveName, Moves } from './move';
 import {
     availableDecks,
+    dealtCatalogue,
     ECOLOGICAL_RULE_MAPS,
     FUSION_IS_ECOLOGICAL,
     gameDeck,
     isEcological,
+    isPlugPlant,
     lastPlugPlant,
-    PHASE_OUT_PLANT,
+    phaseOutPlants,
     plantCatalogue,
+    plantLabel,
     usesAlternateDeck,
 } from './powerPlants';
 import prices from './prices';
@@ -81,7 +84,7 @@ export function defaultSetupDeck(
     let actualMarket: PowerPlant[];
     let futureMarket: PowerPlant[];
     const removed = removedPlants(mapName, deck, numPlayers, variant);
-    const catalogue = plantCatalogue(mapName, deck).filter((p) => !removed.includes(p.number));
+    const catalogue = dealtCatalogue(mapName, deck, rng).filter((p) => !removed.includes(p.number));
     let powerPlantsDeck: PowerPlant[] = cloneDeep(catalogue);
 
     if (variant == 'original') {
@@ -108,8 +111,12 @@ export function defaultSetupDeck(
         actualMarket = catalogue.slice(0, 4);
         futureMarket = catalogue.slice(4, 8);
     } else {
-        const plugCount = catalogue.filter((p) => p.number <= lastPlugPlant(deck)).length;
-        let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, plugCount), rng() + '');
+        // Plug cards come first in the single decks; the shuffled decks interleave them.
+        let initialPowerPlants = shuffle(
+            powerPlantsDeck.filter((p) => isPlugPlant(p, deck)),
+            rng() + ''
+        );
+        powerPlantsDeck = powerPlantsDeck.filter((p) => !isPlugPlant(p, deck));
         let initialPlantMarket = initialPowerPlants.splice(0, 8);
         initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
         actualMarket = initialPlantMarket.slice(0, 4);
@@ -194,9 +201,13 @@ export function setup(
         : chosenMap.startingResources.original;
     if (startingResources) chosenMap.startingResources = startingResources;
     const decks = availableDecks(chosenMap.name);
-    // Dedicated rng so the pick doesn't shift the rest of the setup's draws.
+    // A random deck is one of the three single decks. Dedicated rng so the pick
+    // doesn't shift the rest of the setup's draws.
+    const singleDecks: PowerPlantDeck[] = ['standard', 'deck1', 'deck2'];
     const requestedDeck =
-        powerPlantDeck == 'random' ? decks[Math.floor(seedrandom(seed + '-deck')() * decks.length)] : powerPlantDeck;
+        powerPlantDeck == 'random'
+            ? singleDecks[Math.floor(seedrandom(seed + '-deck')() * singleDecks.length)]
+            : powerPlantDeck;
     // The legacy option only applies when no deck is asked for, and only on its own maps.
     const legacyAlternateDeck = !requestedDeck && usesAlternateDeck(chosenMap.name, alternatePowerPlants);
     const chosenDeck: PowerPlantDeck = legacyAlternateDeck
@@ -814,7 +825,7 @@ export function move(
 
             // Named card39Bought from the standard deck's plant; old games, which have
             // no powerPlantDeck, keep keying it on 39.
-            if (move.data == PHASE_OUT_PLANT[(G.options.powerPlantDeck as PowerPlantDeck) ?? 'standard']) {
+            if (phaseOutPlants((G.options.powerPlantDeck as PowerPlantDeck) ?? 'standard').includes(move.data)) {
                 G.card39Bought = true;
             }
 
@@ -827,7 +838,7 @@ export function move(
                 G.plantDiscountActive = false;
                 move.usedPlantDiscount = true;
             } else {
-                G.minimunBid = move.data;
+                G.minimunBid = Math.floor(move.data);
             }
 
             const notPassed = G.players.filter((p) => !p.skipAuction && !p.isDropped);
@@ -836,8 +847,8 @@ export function move(
                     type: 'move',
                     player: playerNumber,
                     move,
-                    simple: `${player.name} chooses Power Plant ${move.data}.`,
-                    pretty: `${playerNameHTML(player)} chooses Power Plant <b>${move.data}</b>.`,
+                    simple: `${player.name} chooses Power Plant ${plantLabel(move.data)}.`,
+                    pretty: `${playerNameHTML(player)} chooses Power Plant <b>${plantLabel(move.data)}</b>.`,
                 });
 
                 const winningPlayer = notPassed[0];
@@ -871,8 +882,10 @@ export function move(
                     type: 'move',
                     player: playerNumber,
                     move,
-                    simple: `${player.name} chooses Power Plant ${move.data} to initiate an auction.`,
-                    pretty: `${playerNameHTML(player)} chooses Power Plant <b>${move.data}</b> to initiate an auction.`,
+                    simple: `${player.name} chooses Power Plant ${plantLabel(move.data)} to initiate an auction.`,
+                    pretty: `${playerNameHTML(player)} chooses Power Plant <b>${plantLabel(
+                        move.data
+                    )}</b> to initiate an auction.`,
                 });
 
                 if (G.options.fastBid) {
@@ -1143,7 +1156,11 @@ export function move(
                                 G.map.name != 'Manhattan'
                             ) {
                                 const powerPlant = G.actualMarket.shift()!;
-                                startStep(G, 2, `Starting Step 2, Power Plant ${powerPlant?.number} discarded.`);
+                                startStep(
+                                    G,
+                                    2,
+                                    `Starting Step 2, Power Plant ${plantLabel(powerPlant?.number)} discarded.`
+                                );
 
                                 // Spain & Portugal: put the held-back plants on top (18, 22, 27 in the standard deck)
                                 if (G.map.name == 'Spain & Portugal') {
@@ -1433,7 +1450,9 @@ export function move(
                             let powerPlantToPush: PowerPlant = G.futureMarket.pop()!;
                             G.log.push({
                                 type: 'event',
-                                event: `Putting Power Plant ${powerPlantToPush.number} on the bottom of the deck.`,
+                                event: `Putting Power Plant ${plantLabel(
+                                    powerPlantToPush.number
+                                )} on the bottom of the deck.`,
                             });
                             G.powerPlantsDeck.push(powerPlantToPush);
                             addPowerPlant(G);
@@ -1442,7 +1461,9 @@ export function move(
                             powerPlantToPush = G.futureMarket.length ? G.futureMarket.pop()! : G.actualMarket.pop()!;
                             G.log.push({
                                 type: 'event',
-                                event: `Putting Power Plant ${powerPlantToPush.number} on the bottom of the deck.`,
+                                event: `Putting Power Plant ${plantLabel(
+                                    powerPlantToPush.number
+                                )} on the bottom of the deck.`,
                             });
                             G.powerPlantsDeck.push(powerPlantToPush);
                             addPowerPlant(G);
@@ -1454,7 +1475,7 @@ export function move(
                                 const removedPlant = G.actualMarket[0];
                                 G.log.push({
                                     type: 'event',
-                                    event: `Removing smallest plant, Power Plant ${removedPlant.number}.`,
+                                    event: `Removing smallest plant, Power Plant ${plantLabel(removedPlant.number)}.`,
                                 });
                                 G.actualMarket.shift();
                                 addPowerPlant(G);
@@ -1494,13 +1515,18 @@ export function move(
                             if (powerPlantToPush) {
                                 G.log.push({
                                     type: 'event',
-                                    event: `Putting Power Plant ${powerPlantToPush.number} on the bottom of the deck.`,
+                                    event: `Putting Power Plant ${plantLabel(
+                                        powerPlantToPush.number
+                                    )} on the bottom of the deck.`,
                                 });
                                 G.powerPlantsDeck.push(powerPlantToPush);
                                 addPowerPlant(G);
                             }
                         } else if (G.actualMarket.length > 0 && (G.map.name != 'China' || G.step == 3)) {
-                            G.log.push({ type: 'event', event: `Discarding Power Plant ${G.actualMarket[0].number}.` });
+                            G.log.push({
+                                type: 'event',
+                                event: `Discarding Power Plant ${plantLabel(G.actualMarket[0].number)}.`,
+                            });
                             G.actualMarket.shift();
                             addPowerPlant(G);
                         }
@@ -1554,8 +1580,8 @@ export function move(
                     type: 'move',
                     player: playerNumber,
                     move,
-                    simple: `${player.name} discards Power Plant ${move.data}.`,
-                    pretty: `${playerNameHTML(player)} discards Power Plant <b>${move.data}</b>.`,
+                    simple: `${player.name} discards Power Plant ${plantLabel(move.data)}.`,
+                    pretty: `${playerNameHTML(player)} discards Power Plant <b>${plantLabel(move.data)}</b>.`,
                 });
             }
 
@@ -1626,10 +1652,10 @@ export function move(
                     type: 'move',
                     player: playerNumber,
                     move,
-                    simple: `${player.name} discards Power Plant ${move.data} and ${discarded.join(', ')}.`,
-                    pretty: `${playerNameHTML(player)} discards Power Plant <b>${move.data}</b> and ${discarded.join(
-                        ', '
-                    )}.`,
+                    simple: `${player.name} discards Power Plant ${plantLabel(move.data)} and ${discarded.join(', ')}.`,
+                    pretty: `${playerNameHTML(player)} discards Power Plant <b>${plantLabel(
+                        move.data
+                    )}</b> and ${discarded.join(', ')}.`,
                 });
 
                 refillMarketAfterPurchase(G);
@@ -1957,8 +1983,8 @@ export function move(
                 type: 'move',
                 player: playerNumber,
                 move,
-                simple: `${player.name} uses Power Plant ${move.data.powerPlant}.`,
-                pretty: `${playerNameHTML(player)} uses Power Plant <b>${move.data.powerPlant}</b>.`,
+                simple: `${player.name} uses Power Plant ${plantLabel(move.data.powerPlant)}.`,
+                pretty: `${playerNameHTML(player)} uses Power Plant <b>${plantLabel(move.data.powerPlant)}</b>.`,
             });
 
             break;
@@ -2359,10 +2385,10 @@ export function addPowerPlant(G: GameState): void {
 
         if (G.options.variant == 'original' && G.map.name != 'China') {
             const maxCities = Math.max(...G.players.map((p) => p.cities.length));
-            while (powerPlant.number <= maxCities) {
+            while (Math.floor(powerPlant.number) <= maxCities) {
                 G.log.push({
                     type: 'event',
-                    event: `Power plant ${powerPlant?.number} discarded.`,
+                    event: `Power plant ${plantLabel(powerPlant?.number)} discarded.`,
                 });
 
                 if (G.powerPlantsDeck.length > 0) {
@@ -2413,7 +2439,9 @@ export function addPowerPlant(G: GameState): void {
                     const powerPlantDiscarded = G.actualMarket.shift();
                     G.log.push({
                         type: 'event',
-                        event: `Step 3 will begin next phase, Power Plant ${powerPlantDiscarded?.number} discarded.`,
+                        event: `Step 3 will begin next phase, Power Plant ${plantLabel(
+                            powerPlantDiscarded?.number
+                        )} discarded.`,
                     });
 
                     const market = [...G.actualMarket, ...G.futureMarket];
@@ -2426,13 +2454,16 @@ export function addPowerPlant(G: GameState): void {
             if (G.plantDiscountActive && powerPlant.number < G.actualMarket[0].number) {
                 G.log.push({
                     type: 'event',
-                    event: `Power Plant ${powerPlant.number} drawn from the deck and discarded.`,
+                    event: `Power Plant ${plantLabel(powerPlant.number)} drawn from the deck and discarded.`,
                 });
                 G.plantDiscountActive = false;
                 addPowerPlant(G);
                 return;
             } else {
-                G.log.push({ type: 'event', event: `Power Plant ${powerPlant.number} drawn from the deck.` });
+                G.log.push({
+                    type: 'event',
+                    event: `Power Plant ${plantLabel(powerPlant.number)} drawn from the deck.`,
+                });
             }
         }
 
@@ -2519,7 +2550,7 @@ export function applyManhattanMarketLifecycle(G: GameState) {
             if (G.knownPowerPlantDeck) {
                 G.knownPowerPlantDeck.push(drawn);
             }
-            G.log.push({ type: 'event', event: `Power Plant ${drawn.number} drawn from the deck.` });
+            G.log.push({ type: 'event', event: `Power Plant ${plantLabel(drawn.number)} drawn from the deck.` });
             G.futureMarket.push(drawn);
         }
         const market = [...G.actualMarket, ...G.futureMarket].sort((a, b) => a.number - b.number);
@@ -2536,7 +2567,7 @@ export function applyManhattanMarketLifecycle(G: GameState) {
             G.manhattanRecyclePile.push(plant);
             G.log.push({
                 type: 'event',
-                event: `Setting Power Plant ${plant.number} aside on the recycle pile.`,
+                event: `Setting Power Plant ${plantLabel(plant.number)} aside on the recycle pile.`,
             });
         }
         refillMarketTo(8);
@@ -2557,7 +2588,7 @@ export function applyManhattanMarketLifecycle(G: GameState) {
             G.powerPlantsDeck.push(plant);
             G.log.push({
                 type: 'event',
-                event: `Putting Power Plant ${plant.number} on the bottom of the deck.`,
+                event: `Putting Power Plant ${plantLabel(plant.number)} on the bottom of the deck.`,
             });
         }
         refillMarketTo(8);
@@ -2584,7 +2615,7 @@ export function applyManhattanMarketLifecycle(G: GameState) {
             const removed = G.actualMarket.shift()!;
             G.log.push({
                 type: 'event',
-                event: `Removing the smallest plant, Power Plant ${removed.number}, from the game.`,
+                event: `Removing the smallest plant, Power Plant ${plantLabel(removed.number)}, from the game.`,
             });
         }
     }
@@ -2641,13 +2672,13 @@ function removePlantsForMiddleEastStep1(G: GameState) {
         if (plantToRemove.number <= lastPlugPlant(gameDeck(G.options))) {
             G.log.push({
                 type: 'event',
-                event: `Removing Power Plant ${plantToRemove.number} from game.`,
+                event: `Removing Power Plant ${plantLabel(plantToRemove.number)} from game.`,
             });
         } else {
             G.powerPlantsDeck.push(plantToRemove);
             G.log.push({
                 type: 'event',
-                event: `Sending Power Plant ${plantToRemove.number} to the bottom of the deck.`,
+                event: `Sending Power Plant ${plantLabel(plantToRemove.number)} to the bottom of the deck.`,
             });
         }
 
@@ -2703,7 +2734,7 @@ function enterStepTwoMiddleEast(G: GameState) {
     if (powerPlantDiscarded1) {
         G.log.push({
             type: 'event',
-            event: `Power Plant ${powerPlantDiscarded1.number} discarded to start step 2.`,
+            event: `Power Plant ${plantLabel(powerPlantDiscarded1.number)} discarded to start step 2.`,
         });
         addPowerPlant(G);
     }
@@ -2712,7 +2743,7 @@ function enterStepTwoMiddleEast(G: GameState) {
     if (powerPlantDiscarded2) {
         G.log.push({
             type: 'event',
-            event: `Power Plant ${powerPlantDiscarded2.number} discarded to start step 2.`,
+            event: `Power Plant ${plantLabel(powerPlantDiscarded2.number)} discarded to start step 2.`,
         });
         addPowerPlant(G);
     }
@@ -3043,7 +3074,7 @@ function toResourcesPhase(G: GameState) {
         if (G.plantDiscountActive) {
             G.plantDiscountActive = false;
             if (G.actualMarket.length > 0) {
-                G.log.push({ type: 'event', event: `Discarding Power Plant ${G.actualMarket[0].number}.` });
+                G.log.push({ type: 'event', event: `Discarding Power Plant ${plantLabel(G.actualMarket[0].number)}.` });
                 G.actualMarket.shift();
                 addPowerPlant(G);
             }
@@ -3058,7 +3089,7 @@ function toResourcesPhase(G: GameState) {
         } else {
             const powerPlantDiscarded = G.actualMarket.shift();
             G.futureMarket.pop();
-            startStep(G, 3, `Starting Step 3, Power Plant ${powerPlantDiscarded?.number} discarded.`);
+            startStep(G, 3, `Starting Step 3, Power Plant ${plantLabel(powerPlantDiscarded?.number)} discarded.`);
             applyAustraliaStep3Shift(G);
 
             G.actualMarket = [...G.actualMarket, ...G.futureMarket];

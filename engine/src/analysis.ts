@@ -9,7 +9,15 @@ import {
 } from './deckChanges';
 import { defaultSetupDeck, reconstructState, setup, stripSecret } from './engine';
 import { GameState, PowerPlant, PowerPlantType } from './gamestate';
-import { gameDeck, isEcological, lastPlugPlant, plantCatalogue } from './powerPlants';
+import {
+    gameDeck,
+    isEcological,
+    isPlugPlant,
+    labelledPlant,
+    lastPlugPlant,
+    plantCatalogue,
+    PLANT_LABEL_PATTERN,
+} from './powerPlants';
 import { shuffle } from './utils';
 
 /** Unknown cards come from the published catalogue, never the live draw pile. */
@@ -43,8 +51,10 @@ export function createAnalysisScenario(
     const recyclePile: number[] = [];
     for (const entry of s.log) {
         if (entry.type !== 'event') continue;
-        const setAside = /Setting Power Plant (\d+) aside on the recycle pile/.exec(entry.event);
-        if (setAside) recyclePile.push(Number(setAside[1]));
+        const setAside = new RegExp(`Setting Power Plant ${PLANT_LABEL_PATTERN} aside on the recycle pile`).exec(
+            entry.event
+        );
+        if (setAside) recyclePile.push(labelledPlant(setAside[1], setAside[2]));
         if (/reshuffling the recycle pile/.test(entry.event)) {
             recyclePile.forEach((number) => recycled.add(number));
             recyclePile.length = 0;
@@ -57,17 +67,21 @@ export function createAnalysisScenario(
             bottom.forEach((number) => recycled.add(number));
             bottom.length = 0;
         }
-        const rotation = /(?:Putting|Sending) Power Plant (\d+) (?:on|to) the bottom of the deck/.exec(entry.event);
+        const rotation = new RegExp(
+            `(?:Putting|Sending) Power Plant ${PLANT_LABEL_PATTERN} (?:on|to) the bottom of the deck`
+        ).exec(entry.event);
         if (rotation) {
-            const number = Number(rotation[1]);
+            const number = labelledPlant(rotation[1], rotation[2]);
             const i = bottom.indexOf(number);
             if (i >= 0) bottom.splice(i, 1);
             bottom.push(number);
             recycled.delete(number);
         }
-        const drawn = /Power Plant (\d+) (?:drawn from the deck|discarded\.)/i.exec(entry.event);
+        const drawn = new RegExp(`Power Plant ${PLANT_LABEL_PATTERN} (?:drawn from the deck|discarded\\.)`, 'i').exec(
+            entry.event
+        );
         if (drawn) {
-            const number = Number(drawn[1]);
+            const number = labelledPlant(drawn[1], drawn[2]);
             const i = bottom.indexOf(number);
             if (i >= 0) bottom.splice(i, 1);
             recycled.delete(number);
@@ -82,13 +96,28 @@ export function createAnalysisScenario(
         ].map((p) => p.number)
     );
     const fixedBottom = bottom.filter((number) => !unavailable.has(number));
-    const pool = catalogue.filter(
+    let pool = catalogue.filter(
         (p) =>
             !excluded.includes(p.number) &&
             !unavailable.has(p.number) &&
             ((!seen.has(p.number) && !(name === 'Manhattan' && s.manhattanDepletion)) || recycled.has(p.number)) &&
             !fixedBottom.includes(p.number)
     );
+    // One per number: a copy already known rules out the number's other copies, and
+    // each still-unknown number is in the game exactly once.
+    if (powerPlantDeck === 'shuffledUnique') {
+        const known = new Set([...seen, ...unavailable, ...fixedBottom]);
+        const knownPrinted = new Set([...known].map((number) => Math.floor(number)));
+        const unknown = (p: PowerPlant) => p.number !== 99 && !known.has(p.number);
+        pool = pool.filter((p) => !unknown(p) || !knownPrinted.has(Math.floor(p.number)));
+        const copies = new Map<number, PowerPlant[]>();
+        for (const p of pool.filter(unknown)) {
+            copies.set(Math.floor(p.number), [...(copies.get(Math.floor(p.number)) ?? []), p]);
+        }
+        const pick = seedrandom(seed + ':unique');
+        const chosen = new Set([...copies.values()].map((options) => options[Math.floor(pick() * options.length)]));
+        pool = pool.filter((p) => !unknown(p) || chosen.has(p));
+    }
     // Step 3 can be returned underneath the deck for the Middle East's second pass.
     if (name === 'Middle East' && s.step === 2 && !unavailable.has(99) && !pool.some((p) => p.number === 99))
         pool.push(byNumber(99));
@@ -127,7 +156,7 @@ export function createAnalysisScenario(
         candidates = candidates.filter(mandatory).concat(candidates.filter((p) => !mandatory(p)));
         const index = candidates.findIndex(
             (p) =>
-                p.number <= lastPlugPlant(powerPlantDeck) ===
+                isPlugPlant(p, powerPlantDeck) ===
                 (name === 'Manhattan' && s.knownPowerPlantDeck.length === 8 ? true : s.nextCardWeak)
         );
         if (index >= 0) top.unshift(...candidates.splice(index, 1));
@@ -154,13 +183,12 @@ export function createAnalysisScenario(
                       name
                   )
                 : setup(n, s.options, seed + ':catalogue-counts');
-        const threshold = name === 'India' ? 16 : lastPlugPlant(powerPlantDeck);
-        const low = (p: PowerPlant) => p.number <= threshold;
+        const low = (p: { number: number }) => (name === 'India' ? p.number <= 16 : isPlugPlant(p, powerPlantDeck));
         const initialLow = [...initial.actualMarket, ...initial.futureMarket, ...initial.powerPlantsDeck].filter(
             low
         ).length;
-        const seenLow = [...seen].filter((number) => number <= threshold).length;
-        const recycledLow = [...recycled].filter((number) => number <= threshold && !unavailable.has(number)).length;
+        const seenLow = [...seen].filter((number) => low({ number })).length;
+        const recycledLow = [...recycled].filter((number) => low({ number }) && !unavailable.has(number)).length;
         const lowCount = initialLow - seenLow + recycledLow - top.filter(low).length;
         rest = select(candidates.filter(low), Math.max(0, lowCount)).concat(
             select(

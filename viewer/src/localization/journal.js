@@ -1,3 +1,7 @@
+// A plant label as the engine prints it: "46", or "46 (Deck 2)" for the shuffled
+// decks' extra copies, which the engine numbers 46.1 and 46.2.
+const labelNumber = (printed, copy) => Number(printed) + (copy ? Number(copy) / 10 : 0);
+
 // Keep player names and illustrated plants opaque while translating complete entries.
 export function localizeJournal(entry, translate, findPlant) {
     const root = document.createElement('span');
@@ -7,27 +11,25 @@ export function localizeJournal(entry, translate, findPlant) {
     for (const child of Array.from(root.childNodes)) {
         if (child.nodeType !== 3) continue;
         const numberElement = child.nextSibling;
-        if (
-            /Power Plant\s+$/i.test(child.data) &&
-            numberElement?.nodeName === 'B' &&
-            /^\d+$/.test(numberElement.textContent)
-        ) {
-            const number = Number(numberElement.textContent);
+        const label = /^(\d+)(?: \(Deck ([12])\))?$/.exec(numberElement?.textContent ?? '');
+        if (/Power Plant\s+$/i.test(child.data) && numberElement?.nodeName === 'B' && label) {
+            const number = labelNumber(label[1], label[2]);
             if (findPlant(number)) {
                 const marker = document.createElement('span');
                 marker.setAttribute('data-journal-plant', String(number));
                 numberElement.replaceWith(marker);
             }
         }
-        const pattern = /Power Plant\s+(\d+)/gi;
+        const pattern = /Power Plant\s+(\d+)(?: \(Deck ([12])\))?/gi;
         const fragment = document.createDocumentFragment();
         let offset = 0;
         let match;
         while ((match = pattern.exec(child.data))) {
-            if (!findPlant(Number(match[1]))) continue;
+            const number = labelNumber(match[1], match[2]);
+            if (!findPlant(number)) continue;
             fragment.append(document.createTextNode(child.data.slice(offset, match.index) + 'Power Plant '));
             const marker = document.createElement('span');
-            marker.setAttribute('data-journal-plant', String(Number(match[1])));
+            marker.setAttribute('data-journal-plant', String(number));
             fragment.append(marker);
             offset = match.index + match[0].length;
         }

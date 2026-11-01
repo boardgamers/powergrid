@@ -29,6 +29,16 @@ describe('journal plant illustrations', () => {
         }
     });
 
+    it("finds each copy of a shuffled deck's plant number", () => {
+        const state = setup(3, { map: 'USA', powerPlantDeck: 'shuffled' }, 'journal');
+        state.actualMarket = [];
+        state.futureMarket = [];
+        for (const number of [46, 46.1, 46.2]) {
+            expect(journalPlant(state, number)).to.deep.equal(getPowerPlant(number, 'USA', 'shuffled'));
+        }
+        expect(journalPlant(state, 46.2)!.type).to.not.equal(journalPlant(state, 46)!.type);
+    });
+
     it('reads the legacy alternate deck flag where it applied', () => {
         const state = setup(3, { map: 'Europe', alternatePowerPlants: true }, 'journal');
         state.actualMarket = [];

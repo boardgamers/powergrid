@@ -1,10 +1,10 @@
 // by John and Cici
 import { cloneDeep } from 'lodash';
 import seedrandom from 'seedrandom';
-import { PowerPlantDeck, PowerPlantType } from '../gamestate';
+import { PowerPlant, PowerPlantDeck, PowerPlantType } from '../gamestate';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
-import { lastPlugPlant, plantCatalogue } from './../powerPlants';
+import { dealtCatalogue, isPlugPlant } from './../powerPlants';
 
 export enum Regions {
     Pink = 'pink', // UK / Ireland / Low Countries
@@ -376,16 +376,18 @@ export const map: GameMap = {
     // removes the lowest plant from the current market once, then re-sorts the
     // remaining 8 plants into 4 actual + 4 future without drawing from the deck.
     setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, powerPlantDeck: PowerPlantDeck = 'standard') {
-        const powerPlantsDeck = cloneDeep(plantCatalogue('Europe', powerPlantDeck));
-        const lastPlug = lastPlugPlant(powerPlantDeck);
+        const powerPlantsDeck = cloneDeep(dealtCatalogue('Europe', powerPlantDeck, rng));
+        const isPlug = (p: PowerPlant) => isPlugPlant(p, powerPlantDeck);
 
         const step3Index = powerPlantsDeck.findIndex((p) => p.type === PowerPlantType.Step3);
         const step3 = powerPlantsDeck.splice(step3Index, 1)[0];
 
-        // The catalogue is sorted by number, so the plug pool (03–15, or 01–16 in Deck 1) comes first.
-        const plugCount = powerPlantsDeck.filter((p) => p.number <= lastPlug).length;
-        const plugPool = shuffle(powerPlantsDeck.splice(0, plugCount), rng() + '');
-        const socketPool = shuffle(powerPlantsDeck, rng() + ''); // the remaining socket cards
+        // The plug pool: 03–15, or 01–16 for Deck 1's plants.
+        const plugPool = shuffle(powerPlantsDeck.filter(isPlug), rng() + '');
+        const socketPool = shuffle(
+            powerPlantsDeck.filter((p) => !isPlug(p)),
+            rng() + ''
+        ); // the socket cards
 
         const initialPlants = plugPool.splice(0, 9).sort((a, b) => a.number - b.number);
         const actualMarket = initialPlants.slice(0, 4);
@@ -411,8 +413,8 @@ export const map: GameMap = {
 
         // Build the draw stack — rule: never leave a plug card on top.
         const deck = shuffle(remainingPlug.concat(remainingSocket), rng() + '');
-        if (deck.length > 0 && deck[0].number <= lastPlug) {
-            const socketIndex = deck.findIndex((p) => p.number > lastPlug);
+        if (deck.length > 0 && isPlug(deck[0])) {
+            const socketIndex = deck.findIndex((p) => !isPlug(p));
             if (socketIndex > 0) {
                 [deck[0], deck[socketIndex]] = [deck[socketIndex], deck[0]];
             }

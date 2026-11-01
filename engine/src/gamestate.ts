@@ -36,8 +36,10 @@ export type MapName =
     | 'Manhattan';
 export type Variant = 'original' | 'recharged';
 // 'standard' is the base game's deck; deck1 and deck2 are The New Power Plants
-// (Set 1) and Set 2. See plantCatalogue in powerPlants.ts.
-export type PowerPlantDeck = 'standard' | 'deck1' | 'deck2';
+// (Set 1) and Set 2. 'shuffled' plays every plant of all three decks together;
+// 'shuffledUnique' keeps one random copy of each plant number. See powerPlants.ts.
+export type SingleDeck = 'standard' | 'deck1' | 'deck2';
+export type PowerPlantDeck = SingleDeck | 'shuffled' | 'shuffledUnique';
 
 export interface GameOptions {
     fastBid?: boolean;

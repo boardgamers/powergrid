@@ -1,15 +1,20 @@
-import { PowerPlantDeck } from './gamestate';
+import { PowerPlantDeck, SingleDeck } from './gamestate';
 
 // Map rules that name plant numbers, per deck: the standard deck's from each map's
 // rules, Deck 1's and Deck 2's from their map-changes sheets (2F-Spiele, 2024). The
 // sheets are written for Recharged; Original games use the same numbers, except
 // where The New Power Plants rulebook covers the Original edition itself.
 
-type PerDeck<T> = Record<PowerPlantDeck, T>;
+type PerDeck<T> = Record<SingleDeck, T>;
+
+// The shuffled decks are only offered on maps without these rules (see availableDecks).
+const isShuffled = (deck: PowerPlantDeck): deck is 'shuffled' | 'shuffledUnique' =>
+    deck == 'shuffled' || deck == 'shuffledUnique';
 
 // Plants out of the game from the start. Manhattan's boxed Step 3 card and India's
 // plant (see plantCatalogue) are handled where those decks are built.
 export function removedPlants(mapName: string, deck: PowerPlantDeck, numPlayers: number, variant: string): number[] {
+    if (isShuffled(deck)) return [];
     const fewPlayers = numPlayers <= 3;
     switch (mapName) {
         case 'France':
@@ -62,6 +67,8 @@ export function removedPlants(mapName: string, deck: PowerPlantDeck, numPlayers:
 // Original edition: the plants placed on top of the deck, topmost first, once the
 // eight smallest plants have opened the market. Plants not in the game are skipped.
 export function originalTopPlants(mapName: string, deck: PowerPlantDeck): number[] {
+    // The shuffled decks put the standard deck's 13 on top.
+    if (isShuffled(deck)) return [13];
     switch (mapName) {
         case 'France':
             // The nuclear plant comes up first; Deck 1's (08) already opens the market.
@@ -83,6 +90,7 @@ export const RUSSIA_ORIGINAL_NEXT_PLANTS: PerDeck<number[]> = { standard: [10, 1
 // Recharged edition: plants that always open the market; the rest of its eight are
 // drawn from the remaining plug cards.
 export function rechargedMarketPlants(mapName: string, deck: PowerPlantDeck): number[] {
+    if (isShuffled(deck)) return [];
     switch (mapName) {
         case 'France':
             return { standard: [11], deck1: [8], deck2: [13] }[deck];

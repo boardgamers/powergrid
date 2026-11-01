@@ -1,5 +1,5 @@
 import { cloneDeep } from 'lodash';
-import { GameOptions, PowerPlant, PowerPlantDeck, PowerPlantType } from './gamestate';
+import { GameOptions, PowerPlant, PowerPlantDeck, PowerPlantType, SingleDeck } from './gamestate';
 
 const powerPlants: PowerPlant[] = [
     { number: 3, type: PowerPlantType.Oil, cost: 2, citiesPowered: 1 },
@@ -167,15 +167,69 @@ function indiaCatalogue(deck: PowerPlant[], removed: number): PowerPlant[] {
 }
 
 const indiaPowerPlants = indiaCatalogue(powerPlants, 11);
-const indiaCatalogues: Record<PowerPlantDeck, PowerPlant[]> = {
+const indiaCatalogues: Record<SingleDeck, PowerPlant[]> = {
     standard: indiaPowerPlants,
     deck1: indiaCatalogue(deck1PowerPlants, 8),
     deck2: indiaCatalogue(alternatePowerPlants, 13),
 };
 
+// The shuffled decks hold copies of the same number. The standard deck's copy keeps
+// its number; Deck 1's and Deck 2's copies get .1 and .2, so each copy has its own
+// number and the market ranks duplicates Deck 2 > Deck 1 > Original. plantLabel()
+// prints them as "46 (Deck 2)"; rules compare the printed number.
+const shuffledPowerPlants: PowerPlant[] = [
+    ...powerPlants.filter((pp) => pp.type != PowerPlantType.Step3),
+    ...deck1PowerPlants
+        .filter((pp) => pp.type != PowerPlantType.Step3)
+        .map((pp) => ({ ...pp, number: pp.number + 0.1 })),
+    ...alternatePowerPlants
+        .filter((pp) => pp.type != PowerPlantType.Step3)
+        .map((pp) => ({ ...pp, number: pp.number + 0.2 })),
+]
+    .sort((a, b) => a.number - b.number)
+    .concat(powerPlants.filter((pp) => pp.type == PowerPlantType.Step3));
+
+// Which deck a plant's copy came from in the shuffled decks: 0 standard, 1, or 2.
+function plantCopy(number: number): number {
+    return Math.round((number - Math.floor(number)) * 10);
+}
+
+// A plant number as printed on the card, marking the shuffled decks' extra copies.
+function plantLabel(number: number | undefined): string {
+    if (number === undefined) return `${number}`;
+    const copy = plantCopy(number);
+    return copy ? `${Math.floor(number)} (Deck ${copy})` : `${number}`;
+}
+
+// Matches a plantLabel() in log text: group 1 is the printed number, group 2 the copy.
+const PLANT_LABEL_PATTERN = String.raw`(\d+)(?: \(Deck ([12])\))?`;
+
+function labelledPlant(printed: string, copy: string | undefined): number {
+    return Number(printed) + (copy ? Number(copy) / 10 : 0);
+}
+
+// Maps whose setup or rules name plant numbers: the shuffled decks, which have no
+// official changes for them, aren't offered there.
+const NUMBERED_SETUP_MAPS: string[] = [
+    'Australia',
+    'Brazil',
+    'Bremen',
+    'China',
+    'France',
+    'India',
+    'Manhattan',
+    'Middle East',
+    'Northern Europe',
+    'Quebec',
+    'Russia',
+    'South Africa',
+    'Spain & Portugal',
+];
+
 // The decks a map can be played with: every map takes every single deck.
-function availableDecks(_mapName: string): PowerPlantDeck[] {
-    return ['standard', 'deck1', 'deck2'];
+function availableDecks(mapName: string): PowerPlantDeck[] {
+    const singleDecks: PowerPlantDeck[] = ['standard', 'deck1', 'deck2'];
+    return NUMBERED_SETUP_MAPS.includes(mapName) ? singleDecks : [...singleDecks, 'shuffled', 'shuffledUnique'];
 }
 
 // The deck a game plays with. Games from before powerPlantDeck may carry the
@@ -186,8 +240,12 @@ function gameDeck(options: GameOptions): PowerPlantDeck {
     );
 }
 
-// The full card list a game on this map draws from.
+// The full card list a game on this map draws from. A 'shuffledUnique' game deals
+// a subset of it (see dealtCatalogue), so lookups by number still work.
 function plantCatalogue(mapName: string, deck: PowerPlantDeck = 'standard'): PowerPlant[] {
+    if (deck == 'shuffled' || deck == 'shuffledUnique') {
+        return shuffledPowerPlants;
+    }
     if (mapName == 'India') {
         return indiaCatalogues[deck];
     }
@@ -195,15 +253,42 @@ function plantCatalogue(mapName: string, deck: PowerPlantDeck = 'standard'): Pow
     return deck == 'deck1' ? deck1PowerPlants : deck == 'deck2' ? alternatePowerPlants : powerPlants;
 }
 
+// The plants a game is dealt from: the catalogue, or for 'shuffledUnique' one random
+// copy of each number (the Step 3 card stays last).
+function dealtCatalogue(mapName: string, deck: PowerPlantDeck, rng: () => number): PowerPlant[] {
+    const catalogue = plantCatalogue(mapName, deck);
+    if (deck != 'shuffledUnique') {
+        return catalogue;
+    }
+    const copies = new Map<number, PowerPlant[]>();
+    for (const pp of catalogue) {
+        copies.set(Math.floor(pp.number), [...(copies.get(Math.floor(pp.number)) ?? []), pp]);
+    }
+    return [...copies.values()].map((options) => options[Math.floor(rng() * options.length)]);
+}
+
 // Plants with a plug on the back form the weak opening pool: 03–15 in the
-// standard and alternate decks, 01–16 in Deck 1.
+// standard and alternate decks, 01–16 in Deck 1. Only for the single decks.
 function lastPlugPlant(deck: PowerPlantDeck): number {
     return deck == 'deck1' ? 16 : 15;
 }
 
+// Whether a plant has a plug on the back, in any deck: Deck 1's copies are plug
+// cards up to 16, the others up to 15.
+function isPlugPlant(pp: { number: number }, deck: PowerPlantDeck): boolean {
+    const fromDeck1 =
+        deck == 'deck1' || ((deck == 'shuffled' || deck == 'shuffledUnique') && plantCopy(pp.number) == 1);
+    return Math.floor(pp.number) <= (fromDeck1 ? 16 : 15);
+}
+
 // The nuclear plant whose purchase ends uranium resupply in Recharged Germany and
 // Italy: Germany's per each deck's map-changes sheet, and Italy ends the same way.
-const PHASE_OUT_PLANT: Record<PowerPlantDeck, number> = { standard: 39, deck1: 38, deck2: 37 };
+// In the shuffled decks each deck's copy keeps its own trigger.
+const PHASE_OUT_PLANT: Record<SingleDeck, number> = { standard: 39, deck1: 38, deck2: 37 };
+
+function phaseOutPlants(deck: PowerPlantDeck): number[] {
+    return deck == 'shuffled' || deck == 'shuffledUnique' ? [39, 38.1, 37.2] : [PHASE_OUT_PLANT[deck]];
+}
 
 // Wind plants are always ecological. Whether fusion plants are too is a ruling:
 // new games take this value and store it as options.fusionEcological on the maps
@@ -228,8 +313,16 @@ export {
     availableDecks,
     gameDeck,
     plantCatalogue,
+    dealtCatalogue,
+    plantCopy,
+    plantLabel,
+    PLANT_LABEL_PATTERN,
+    labelledPlant,
     lastPlugPlant,
+    isPlugPlant,
     PHASE_OUT_PLANT,
+    phaseOutPlants,
+    NUMBERED_SETUP_MAPS,
     FUSION_IS_ECOLOGICAL,
     ECOLOGICAL_RULE_MAPS,
     isEcological,

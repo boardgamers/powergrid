@@ -30,6 +30,7 @@ import type { GameState } from 'powergrid-engine';
 import { translateText } from '../localization';
 import { localizeJournal } from '../localization/journal';
 import type { PowerPlant } from 'powergrid-engine/src/gamestate';
+import { plantLabel } from 'powergrid-engine/src/powerPlants';
 @Component({ components: { Card } })
 export default class InlineLog extends Vue {
     @Prop({ default: () => [] }) entries!: string[];
@@ -46,7 +47,7 @@ export default class InlineLog extends Vue {
         ));
     }
     plantLabel(plant: PowerPlant) {
-        return translateText(`Power plant ${plant.number}: ${plant.cost ? `${plant.cost} ${plant.type}` : 'no fuel'} → ${
+        return translateText(`Power plant ${plantLabel(plant.number)}: ${plant.cost ? `${plant.cost} ${plant.type}` : 'no fuel'} → ${
             plant.citiesPowered
         } cities`, this.locale);
     }

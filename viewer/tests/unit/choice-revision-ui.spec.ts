@@ -63,18 +63,51 @@ describe('pending auction UI', () => {
 });
 
 describe('phase button', () => {
-    it('distinguishes resources, building and powering with icons and accessible labels without visible text', () => {
+    it('pairs distinct phase icons with skip or finish and complete accessible labels', () => {
         const paths: string[] = [];
-        for (const phase of [Phase.Resources, Phase.Building, Phase.Bureaucracy]) {
+        for (const phase of [Phase.Auction, Phase.Resources, Phase.Building, Phase.Bureaucracy]) {
             const context = { G: { phase } };
             const text = computed('phaseButtonText', context);
             const icon = computed('phaseButtonIcon', context);
-            const wrapper = mount(PassButton, { propsData: { text, icon, enabled: true } });
+            const action = computed('phaseButtonAction', context);
+            expect(action).to.equal(phase === Phase.Auction ? 'skip' : 'finish');
+            const wrapper = mount(PassButton, { propsData: { text, icon, action, enabled: true } });
             expect(wrapper.attributes('aria-label')).to.equal(text);
             expect(wrapper.find('text').exists()).to.equal(false);
-            paths.push(wrapper.find('path').attributes('d') as string);
+            expect(wrapper.find('title').text()).to.equal(text);
+            expect(wrapper.find('[data-action-icon]').attributes('d')).to.equal((wrapper.vm as any).actionPath);
+            paths.push(wrapper.find('[data-phase-icon]').attributes('d') as string);
             wrapper.destroy();
         }
-        expect(new Set(paths).size).to.equal(3);
+        expect(new Set(paths).size).to.equal(4);
+    });
+
+    it('keeps the phase visible when editing and uses skip when passing a revised bid', () => {
+        for (const context of [
+            { G: { phase: Phase.Auction }, revisableBid: 'bid' },
+            { G: { phase: Phase.Bureaucracy }, canChangePowering: true },
+        ]) {
+            expect(computed('phaseButtonAction', context)).to.equal('edit');
+            expect(computed('phaseButtonIcon', context)).to.equal(
+                context.G.phase === Phase.Auction ? 'auction' : 'powering'
+            );
+        }
+        expect(computed('phaseButtonAction', { changingBid: true, revisableBid: 'bid' })).to.equal('skip');
+    });
+
+    it('makes either pictogram part of the same enabled action, including keyboard activation', async () => {
+        const wrapper = mount(PassButton, {
+            propsData: { text: 'Pass bid', icon: 'auction', action: 'skip', enabled: true },
+        });
+        await wrapper.find('[data-phase-icon]').trigger('click');
+        await wrapper.find('[data-action-icon]').trigger('click');
+        await wrapper.trigger('keydown.enter');
+        await wrapper.trigger('keydown.space');
+        expect(wrapper.emitted('click')!.length).to.equal(4);
+        await wrapper.setProps({ enabled: false });
+        await wrapper.find('[data-action-icon]').trigger('click');
+        await wrapper.trigger('keydown.enter');
+        expect(wrapper.emitted('click')!.length).to.equal(4);
+        wrapper.destroy();
     });
 });

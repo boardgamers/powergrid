@@ -1,8 +1,5 @@
-import { cloneDeep } from 'lodash';
-import { getPowerPlant } from '../engine';
-import { PowerPlant } from '../gamestate';
-import { indiaPowerPlants } from '../powerPlants';
-import { shuffle } from '../utils';
+import { defaultSetupDeck } from '../engine';
+import { PowerPlantDeck } from '../gamestate';
 import { GameMap } from './../maps';
 
 export enum Regions {
@@ -231,74 +228,8 @@ export const map: GameMap = {
     garbagePrices: [1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6],
     uraniumPrices: [1, 2, 3, 4, 5, 6, 7, 8],
 
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
-        let powerPlantsDeck = cloneDeep(indiaPowerPlants);
-        let actualMarket: PowerPlant[];
-        let futureMarket: PowerPlant[];
-
-        // Except for adjusting the garbage plant cost, the setup is identical to the normal game.
-        if (variant == 'original') {
-            powerPlantsDeck = powerPlantsDeck.slice(8);
-            // Set aside plant 13 BY NUMBER: the pre-#113 splice(2, 1) assumed
-            // the standard list where index 2 is plant 13, but India has no
-            // plant 11, so it grabbed 14. Standard rule applies (Mike's
-            // follow-up ruling, 2026-08-13): 13 goes on top.
-            const powerPlant13Idx = powerPlantsDeck.findIndex((pp) => pp.number == 13);
-            const powerPlant13 = powerPlantsDeck.splice(powerPlant13Idx, 1)[0];
-            const step3 = powerPlantsDeck.pop()!;
-
-            powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
-            if (numPlayers == 2 || numPlayers == 3) {
-                powerPlantsDeck = powerPlantsDeck.slice(8);
-            } else if (numPlayers == 4) {
-                powerPlantsDeck = powerPlantsDeck.slice(4);
-            }
-
-            powerPlantsDeck.unshift(powerPlant13);
-            powerPlantsDeck.push(step3);
-
-            actualMarket = [
-                getPowerPlant(3, 'India'),
-                getPowerPlant(4, 'India'),
-                getPowerPlant(5, 'India'),
-                getPowerPlant(6, 'India'),
-            ];
-            futureMarket = [
-                getPowerPlant(7, 'India'),
-                getPowerPlant(8, 'India'),
-                getPowerPlant(9, 'India'),
-                getPowerPlant(10, 'India'),
-            ];
-        } else {
-            let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 12), rng() + '');
-            let initialPlantMarket = initialPowerPlants.splice(0, 8);
-            initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
-            actualMarket = initialPlantMarket.slice(0, 4);
-            futureMarket = initialPlantMarket.slice(4);
-
-            const first = initialPowerPlants.shift()!;
-            const step3 = powerPlantsDeck.pop()!;
-
-            powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
-            if (numPlayers == 2) {
-                // Recharged 2P removes 1 plug + 5 socket (was incorrectly lumped with 3P).
-                initialPowerPlants = initialPowerPlants.slice(1);
-                powerPlantsDeck = shuffle(powerPlantsDeck.slice(5).concat(initialPowerPlants), rng() + '');
-            } else if (numPlayers == 3) {
-                initialPowerPlants = initialPowerPlants.slice(2);
-                powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
-            } else if (numPlayers == 4) {
-                initialPowerPlants = initialPowerPlants.slice(1);
-                powerPlantsDeck = shuffle(powerPlantsDeck.slice(3).concat(initialPowerPlants), rng() + '');
-            } else {
-                powerPlantsDeck = shuffle(powerPlantsDeck.concat(initialPowerPlants), rng() + '');
-            }
-
-            powerPlantsDeck.unshift(first);
-            powerPlantsDeck.push(step3);
-        }
-
-        return { actualMarket, futureMarket, powerPlantsDeck };
+    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, deck: PowerPlantDeck = 'standard') {
+        return defaultSetupDeck(numPlayers, variant, rng, true, deck, 'India');
     },
     mapSpecificRules:
         'The power grid will suffer a power outage if the number of cities built in one round is more than twice the number of players — 9 or more cities in a 4-player game. Every player is then penalized $3 for each city they own, though income for the round never falls below $0.\nPlayers take turns buying one resource at a time. The resource market is limited by step: only resources costing $3 or less may be bought in step 1, $5 or less in step 2, and the whole market is open from step 3.\nGarbage plants are less efficient. Their cost is one higher, but their storage capacity is not changed.\nPlayers must power as many cities as possible in each round.',

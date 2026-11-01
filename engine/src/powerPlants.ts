@@ -47,15 +47,6 @@ const powerPlants: PowerPlant[] = [
     { number: 99, type: PowerPlantType.Step3, cost: 0, citiesPowered: 6 },
 ];
 
-const indiaPowerPlants = cloneDeep(powerPlants).filter((pp) => pp.number != 11);
-// Garbage plants cost one more garbage to run, but have no additional storage.
-indiaPowerPlants.forEach((pp) => {
-    if (pp.type == PowerPlantType.Garbage) {
-        pp.storage = 2 * pp.cost;
-        pp.cost++;
-    }
-});
-
 // Deck 2, The New Power Plants – Set 2 (the "alternate" deck): the same card
 // numbers as the standard deck, with different fuels and outputs. Plants 8, 22
 // and 35 burn any mix of garbage and oil.
@@ -162,28 +153,29 @@ function usesAlternateDeck(mapName: string, alternate: boolean | undefined): boo
     return !!alternate && ALTERNATE_DECK_MAPS.includes(mapName);
 }
 
-// Maps whose setup or rules name plant numbers of the standard deck. They take
-// only the standard deck until their changes for the other decks are in.
-const STANDARD_DECK_ONLY_MAPS: string[] = [
-    'Australia',
-    'Brazil',
-    'Bremen',
-    'China',
-    'France',
-    'India',
-    'Italy',
-    'Manhattan',
-    'Middle East',
-    'Northern Europe',
-    'Quebec',
-    'Russia',
-    'South Africa',
-    'Spain & Portugal',
-    'UK & Ireland',
-];
+// India's version of a deck: one plant leaves the game, and garbage plants cost one
+// more garbage to run but have no additional storage.
+function indiaCatalogue(deck: PowerPlant[], removed: number): PowerPlant[] {
+    const plants = cloneDeep(deck).filter((pp) => pp.number != removed);
+    plants.forEach((pp) => {
+        if (pp.type == PowerPlantType.Garbage) {
+            pp.storage = 2 * pp.cost;
+            pp.cost++;
+        }
+    });
+    return plants;
+}
 
-function availableDecks(mapName: string): PowerPlantDeck[] {
-    return STANDARD_DECK_ONLY_MAPS.includes(mapName) ? ['standard'] : ['standard', 'deck1', 'deck2'];
+const indiaPowerPlants = indiaCatalogue(powerPlants, 11);
+const indiaCatalogues: Record<PowerPlantDeck, PowerPlant[]> = {
+    standard: indiaPowerPlants,
+    deck1: indiaCatalogue(deck1PowerPlants, 8),
+    deck2: indiaCatalogue(alternatePowerPlants, 13),
+};
+
+// The decks a map can be played with: every map takes every single deck.
+function availableDecks(_mapName: string): PowerPlantDeck[] {
+    return ['standard', 'deck1', 'deck2'];
 }
 
 // The deck a game plays with. Games from before powerPlantDeck may carry the
@@ -197,7 +189,7 @@ function gameDeck(options: GameOptions): PowerPlantDeck {
 // The full card list a game on this map draws from.
 function plantCatalogue(mapName: string, deck: PowerPlantDeck = 'standard'): PowerPlant[] {
     if (mapName == 'India') {
-        return indiaPowerPlants;
+        return indiaCatalogues[deck];
     }
 
     return deck == 'deck1' ? deck1PowerPlants : deck == 'deck2' ? alternatePowerPlants : powerPlants;
@@ -205,12 +197,12 @@ function plantCatalogue(mapName: string, deck: PowerPlantDeck = 'standard'): Pow
 
 // Plants with a plug on the back form the weak opening pool: 03–15 in the
 // standard and alternate decks, 01–16 in Deck 1.
-function lastPlugPlant(catalogue: PowerPlant[]): number {
-    return catalogue === deck1PowerPlants ? 16 : 15;
+function lastPlugPlant(deck: PowerPlantDeck): number {
+    return deck == 'deck1' ? 16 : 15;
 }
 
-// The nuclear plant whose purchase ends uranium resupply in Recharged Germany,
-// per each deck's map-changes sheet.
+// The nuclear plant whose purchase ends uranium resupply in Recharged Germany and
+// Italy: Germany's per each deck's map-changes sheet, and Italy ends the same way.
 const PHASE_OUT_PLANT: Record<PowerPlantDeck, number> = { standard: 39, deck1: 38, deck2: 37 };
 
 // Wind plants are always ecological. Whether fusion plants are too is a ruling:
@@ -233,7 +225,6 @@ export {
     deck1PowerPlants,
     ALTERNATE_DECK_MAPS,
     usesAlternateDeck,
-    STANDARD_DECK_ONLY_MAPS,
     availableDecks,
     gameDeck,
     plantCatalogue,

@@ -1,5 +1,5 @@
 import seedrandom from 'seedrandom';
-import { PowerPlant } from './gamestate';
+import { PowerPlant, PowerPlantDeck } from './gamestate';
 import { map as america, mapRecharged as americaRecharged } from './maps/america';
 import { map as australia } from './maps/australia';
 import { map as badenwurttemberg } from './maps/badenwurttemberg';
@@ -118,14 +118,14 @@ export interface GameMap {
     oilPrices?: number[];
     garbagePrices?: number[];
     uraniumPrices?: number[];
-    // `deck` is the alternate power plant list when the game uses it (only on maps
-    // in ALTERNATE_DECK_MAPS); otherwise undefined and the map uses its usual deck.
-    // `fusionEcological` is the game's ruling, for maps that protect ecological plants.
+    // `deck` is the power plant deck in play (see deckChanges.ts for the plant numbers
+    // map rules name per deck). `fusionEcological` is the game's ruling, for maps
+    // that protect ecological plants.
     setupDeck?: (
         numPlayers: number,
         variant: string,
         rng: seedrandom.prng,
-        deck?: PowerPlant[],
+        deck?: PowerPlantDeck,
         fusionEcological?: boolean
     ) => {
         actualMarket: PowerPlant[];

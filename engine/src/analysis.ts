@@ -1,5 +1,12 @@
 import seedrandom from 'seedrandom';
 import { availableMoves } from './available-moves';
+import {
+    originalTopPlants,
+    QUEBEC_RECHARGED_TOP_PLANTS,
+    removedPlants,
+    RUSSIA_ORIGINAL_NEXT_PLANTS,
+    SPAIN_STEP_2_PLANTS,
+} from './deckChanges';
 import { defaultSetupDeck, reconstructState, setup, stripSecret } from './engine';
 import { GameState, PowerPlant, PowerPlantType } from './gamestate';
 import { gameDeck, isEcological, lastPlugPlant, plantCatalogue } from './powerPlants';
@@ -15,19 +22,12 @@ export function createAnalysisScenario(
     const rng = seedrandom(seed);
     const name = s.map.name;
     const n = s.players.length;
-    let excluded: number[] = [];
-    if (name === 'France') excluded = [13];
-    if (name === 'Russia') excluded = [6, 14];
-    if (name === 'Australia') excluded = [17];
-    if (name === 'South Africa') excluded = [7];
-    if (name === 'Bremen') excluded = [11, 17, 23, 28, 34, 36, 38, 39, 46, ...(n <= 4 ? [31, 50] : [])];
-    if (name === 'Manhattan') excluded = [99, ...(n <= 3 ? [20, 22, 37] : [])];
-    if (name === 'China')
-        excluded =
-            n <= 3 ? [3, 4, 9, 11, 16, 18, 20, 24, 30, 33, 46] : n === 4 ? [3, 4, 11, 18, 24, 33, 46] : [3, 4, 33];
-    if (name === 'Spain & Portugal' && s.step === 1) excluded = [18, 22, 27];
-    const deckCatalogue = plantCatalogue(name, gameDeck(s.options));
-    const catalogue = JSON.parse(JSON.stringify(deckCatalogue)) as PowerPlant[];
+    const powerPlantDeck = gameDeck(s.options);
+    // Spain & Portugal's held-back plants return at Step 2; Manhattan boxes its Step 3 card.
+    let excluded = removedPlants(name, powerPlantDeck, n, s.options.variant!);
+    if (name === 'Spain & Portugal' && s.step !== 1) excluded = [];
+    if (name === 'Manhattan') excluded = [99, ...excluded];
+    const catalogue = JSON.parse(JSON.stringify(plantCatalogue(name, powerPlantDeck))) as PowerPlant[];
     for (const region of new Set(s.regionDraft ? [] : s.map.cities.map((c) => c.region))) {
         for (const replacement of s.map.regionalPowerPlants?.[region] || []) {
             const i = catalogue.findIndex((p) => p.number === replacement.number);
@@ -101,24 +101,22 @@ export function createAnalysisScenario(
     const fixedTop: number[] = [];
     const original = s.options.variant === 'original';
     if (original && name !== 'China' && name !== 'Manhattan') {
-        const opening =
-            name === 'France' ? [11] : name === 'Quebec' ? [13, 18, 22] : name === 'Brazil' ? [13, 14] : [13];
-        for (const number of opening) if (!seen.has(number)) fixedTop.push(number);
+        for (const number of originalTopPlants(name, powerPlantDeck)) if (!seen.has(number)) fixedTop.push(number);
     }
     if (!original && name === 'Quebec') {
         // The first low plant is followed by the two guaranteed ecological plants.
-        for (const number of [18, 22]) if (!seen.has(number)) fixedTop.push(number);
+        for (const number of QUEBEC_RECHARGED_TOP_PLANTS[powerPlantDeck]) if (!seen.has(number)) fixedTop.push(number);
     }
     if (name === 'Spain & Portugal' && s.step === 2) {
-        for (const number of [18, 22, 27]) if (!seen.has(number)) fixedTop.push(number);
+        for (const number of SPAIN_STEP_2_PLANTS[powerPlantDeck]) if (!seen.has(number)) fixedTop.push(number);
     }
     const top = fixedTop.map(byNumber).filter((p) => candidates.some((c) => c.number === p.number));
     candidates = candidates.filter((p) => !top.some((t) => t.number === p.number));
     const mandatory = (p: PowerPlant) =>
-        (name === 'Brazil' && p.type === PowerPlantType.Garbage && p.number > 14) ||
+        (name === 'Brazil' && p.type === PowerPlantType.Garbage && p.number > lastPlugPlant(powerPlantDeck)) ||
         // Games without the stored ruling built their Québec deck protecting fusion too.
         (name === 'Quebec' && isEcological(p, s.options.fusionEcological ?? true)) ||
-        (name === 'Russia' && original && [10, 11].includes(p.number));
+        (name === 'Russia' && original && RUSSIA_ORIGINAL_NEXT_PLANTS[powerPlantDeck].includes(p.number));
     // A plug-back top card is public information in the recharged edition.
     if (
         (!original || name === 'Manhattan') &&
@@ -129,7 +127,8 @@ export function createAnalysisScenario(
         candidates = candidates.filter(mandatory).concat(candidates.filter((p) => !mandatory(p)));
         const index = candidates.findIndex(
             (p) =>
-                p.number <= 15 === (name === 'Manhattan' && s.knownPowerPlantDeck.length === 8 ? true : s.nextCardWeak)
+                p.number <= lastPlugPlant(powerPlantDeck) ===
+                (name === 'Manhattan' && s.knownPowerPlantDeck.length === 8 ? true : s.nextCardWeak)
         );
         if (index >= 0) top.unshift(...candidates.splice(index, 1));
     }
@@ -150,10 +149,12 @@ export function createAnalysisScenario(
                       n,
                       s.options.variant!,
                       seedrandom(seed + ':catalogue-counts'),
-                      s.options.useNewRechargedSetup ?? true
+                      s.options.useNewRechargedSetup ?? true,
+                      powerPlantDeck,
+                      name
                   )
                 : setup(n, s.options, seed + ':catalogue-counts');
-        const threshold = name === 'India' ? 16 : lastPlugPlant(deckCatalogue);
+        const threshold = name === 'India' ? 16 : lastPlugPlant(powerPlantDeck);
         const low = (p: PowerPlant) => p.number <= threshold;
         const initialLow = [...initial.actualMarket, ...initial.futureMarket, ...initial.powerPlantsDeck].filter(
             low
@@ -173,9 +174,11 @@ export function createAnalysisScenario(
     if (name === 'Russia' && s.step < 3) {
         if (original) {
             const remainingWindow = Math.max(0, 6 - Math.max(0, s.knownPowerPlantDeck.length - 6));
-            const first = deck.filter((p) => p.number === 13);
-            const guaranteed = deck.filter((p) => [10, 11].includes(p.number));
-            const others = deck.filter((p) => ![10, 11, 13].includes(p.number));
+            const topNumber = originalTopPlants(name, powerPlantDeck)[0];
+            const nextNumbers = RUSSIA_ORIGINAL_NEXT_PLANTS[powerPlantDeck];
+            const first = deck.filter((p) => p.number === topNumber);
+            const guaranteed = deck.filter((p) => nextNumbers.includes(p.number));
+            const others = deck.filter((p) => p.number !== topNumber && !nextNumbers.includes(p.number));
             deck = first.concat(
                 shuffle(
                     guaranteed.concat(
@@ -185,7 +188,10 @@ export function createAnalysisScenario(
                 ),
                 others
             );
-        } else deck = deck.filter((p) => p.number <= 15).concat(deck.filter((p) => p.number > 15));
+        } else {
+            const lastPlug = lastPlugPlant(powerPlantDeck);
+            deck = deck.filter((p) => p.number <= lastPlug).concat(deck.filter((p) => p.number > lastPlug));
+        }
     }
     if (name === 'China') {
         const low = deck.filter((p) => p.number <= 30).sort((a, b) => a.number - b.number);

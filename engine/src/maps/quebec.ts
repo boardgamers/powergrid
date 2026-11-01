@@ -1,7 +1,7 @@
 import { cloneDeep } from 'lodash';
-import { getPowerPlant } from '../engine';
-import { PowerPlant } from '../gamestate';
-import { isEcological, powerPlants } from '../powerPlants';
+import { originalTopPlants, QUEBEC_RECHARGED_TOP_PLANTS, rechargedMarketPlants } from '../deckChanges';
+import { PowerPlant, PowerPlantDeck } from '../gamestate';
+import { isEcological, lastPlugPlant, plantCatalogue } from '../powerPlants';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
 
@@ -210,25 +210,26 @@ export const map: GameMap = {
         numPlayers: number,
         variant: string,
         rng: seedrandom.prng,
-        _deck?: PowerPlant[],
+        deck: PowerPlantDeck = 'standard',
         fusionEcological?: boolean
     ) {
         const ecological = (pp: PowerPlant) => isEcological(pp, fusionEcological);
-        let powerPlantsDeck = cloneDeep(powerPlants);
+        let powerPlantsDeck = cloneDeep(plantCatalogue('Quebec', deck));
         let actualMarket: PowerPlant[];
         let futureMarket: PowerPlant[];
 
         if (variant == 'original') {
             // No ecological plants will be discarded.
-            // 13, 18, 22 will be set aside and placed on top of the deck.
-            const setAsidePlants = powerPlantsDeck.filter((pp) => [13, 18, 22].includes(pp.number));
-            const otherEcoPlants = powerPlantsDeck.filter((pp) => ecological(pp) && ![13, 18, 22].includes(pp.number));
+            // 13, 18, 22 (in the standard deck) will be set aside and placed on top of the deck.
+            const topPlants = originalTopPlants('Quebec', deck);
+            const setAsidePlants = powerPlantsDeck.filter((pp) => topPlants.includes(pp.number));
+            const otherEcoPlants = powerPlantsDeck.filter((pp) => ecological(pp) && !topPlants.includes(pp.number));
             const nonEcoPlantsDeck = powerPlantsDeck.filter((pp) => !ecological(pp));
 
             // Remove first eight plants for actual and future market.
             powerPlantsDeck = nonEcoPlantsDeck.slice(8);
-            actualMarket = [getPowerPlant(3), getPowerPlant(4), getPowerPlant(5), getPowerPlant(6)];
-            futureMarket = [getPowerPlant(7), getPowerPlant(8), getPowerPlant(9), getPowerPlant(10)];
+            actualMarket = nonEcoPlantsDeck.slice(0, 4);
+            futureMarket = nonEcoPlantsDeck.slice(4, 8);
 
             // Set aside Step 3 card.
             const step3 = powerPlantsDeck.pop()!;
@@ -250,6 +251,44 @@ export const map: GameMap = {
 
             // Put Step 3 card on the bottom.
             powerPlantsDeck.push(step3);
+        } else if (deck != 'standard') {
+            // The decks' map-changes sheets: their ecological plants open the market (Deck
+            // 1: 11, 15, 16; Deck 2: 11) beside plug cards, and Deck 2 puts 17 and 24 on
+            // top of the finished deck. As on the standard deck, no ecological plant is removed.
+            const step3 = powerPlantsDeck.pop()!;
+            const marketPlants = rechargedMarketPlants('Quebec', deck);
+            const heldPlants = QUEBEC_RECHARGED_TOP_PLANTS[deck];
+            const openingPlants = powerPlantsDeck.filter((pp) => marketPlants.includes(pp.number));
+            const held = powerPlantsDeck.filter((pp) => heldPlants.includes(pp.number));
+            const rest = powerPlantsDeck.filter(
+                (pp) => !marketPlants.includes(pp.number) && !heldPlants.includes(pp.number)
+            );
+            const lastPlug = lastPlugPlant(deck);
+
+            let plugs = shuffle(
+                rest.filter((pp) => pp.number <= lastPlug),
+                rng() + ''
+            );
+            const initialPlantMarket = openingPlants
+                .concat(plugs.splice(0, 8 - openingPlants.length))
+                .sort((a, b) => a.number - b.number);
+            actualMarket = initialPlantMarket.slice(0, 4);
+            futureMarket = initialPlantMarket.slice(4);
+            const first = plugs.shift()!;
+
+            // Remove plug and socket plants by player count, skipping ecological ones.
+            const withoutNonEco = (pool: PowerPlant[], count: number) => {
+                const removed = pool.filter((pp) => !ecological(pp)).slice(0, count);
+                return pool.filter((pp) => !removed.includes(pp));
+            };
+            let sockets = shuffle(
+                rest.filter((pp) => pp.number > lastPlug),
+                rng() + ''
+            );
+            plugs = withoutNonEco(plugs, [1, 2, 1][numPlayers - 2] ?? 0);
+            sockets = withoutNonEco(sockets, [5, 6, 3][numPlayers - 2] ?? 0);
+
+            powerPlantsDeck = held.concat(first, shuffle(plugs.concat(sockets), rng() + ''), step3);
         } else {
             // No ecological plants will be discarded.
             // For recharged 2 player, remove a random 1 from 3-15 and random 5 from 16-50.

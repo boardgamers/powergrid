@@ -17,6 +17,7 @@ import {
     replacePoweringLog,
     restorePowering,
 } from './choice-revisions';
+import { originalTopPlants, removedPlants, SPAIN_STEP_2_PLANTS } from './deckChanges';
 import {
     countHeldPowerPlants,
     GameOptions,
@@ -39,11 +40,11 @@ import {
     availableDecks,
     ECOLOGICAL_RULE_MAPS,
     FUSION_IS_ECOLOGICAL,
+    gameDeck,
     isEcological,
     lastPlugPlant,
     PHASE_OUT_PLANT,
     plantCatalogue,
-    powerPlants,
     usesAlternateDeck,
 } from './powerPlants';
 import prices from './prices';
@@ -65,22 +66,33 @@ const citiesToEndGameManhattan = [18, 17, 17, 15, 14];
 const cityIncome = [10, 22, 33, 44, 54, 64, 73, 82, 90, 98, 105, 112, 118, 124, 129, 134, 138, 142, 145, 148, 150, 150];
 const regionsInPlay = [3, 3, 4, 5, 5];
 
+// The base game's deck setup, with each map's removed and opening plants for the
+// deck in play (see deckChanges.ts). Several maps call it with their own name.
+// `step3FromBottom` puts the Step 3 card that many plants above the bottom.
 export function defaultSetupDeck(
     numPlayers: number,
     variant: string,
     rng: seedrandom.prng,
     useNewRechargedSetup: boolean,
-    deck: PowerPlant[] = powerPlants
+    deck: PowerPlantDeck = 'standard',
+    mapName = '',
+    step3FromBottom = 0
 ) {
     let actualMarket: PowerPlant[];
     let futureMarket: PowerPlant[];
-    let powerPlantsDeck: PowerPlant[] = cloneDeep(deck);
+    const removed = removedPlants(mapName, deck, numPlayers, variant);
+    const catalogue = plantCatalogue(mapName, deck).filter((p) => !removed.includes(p.number));
+    let powerPlantsDeck: PowerPlant[] = cloneDeep(catalogue);
 
     if (variant == 'original') {
-        // The eight smallest plants open the market (03–10, or 01–08 in Deck 1); the
-        // third plant after them goes on top of the deck (13, or 11 in Deck 1).
+        // The eight smallest plants open the market; the map's opening plants (13 in
+        // the standard deck, 11 in Deck 1) then go on top of the deck.
         powerPlantsDeck = powerPlantsDeck.slice(8);
-        const topPlant = powerPlantsDeck.splice(2, 1)[0];
+        const topPlants: PowerPlant[] = [];
+        for (const number of originalTopPlants(mapName, deck)) {
+            const index = powerPlantsDeck.findIndex((pp) => pp.number == number);
+            if (index >= 0) topPlants.push(powerPlantsDeck.splice(index, 1)[0]);
+        }
         const step3 = powerPlantsDeck.pop()!;
 
         powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
@@ -90,13 +102,13 @@ export function defaultSetupDeck(
             powerPlantsDeck = powerPlantsDeck.slice(4);
         }
 
-        powerPlantsDeck.unshift(topPlant);
-        powerPlantsDeck.push(step3);
+        powerPlantsDeck.unshift(...topPlants);
+        powerPlantsDeck.splice(powerPlantsDeck.length - step3FromBottom, 0, step3);
 
-        actualMarket = deck.slice(0, 4);
-        futureMarket = deck.slice(4, 8);
+        actualMarket = catalogue.slice(0, 4);
+        futureMarket = catalogue.slice(4, 8);
     } else {
-        const plugCount = deck.filter((p) => p.number <= lastPlugPlant(deck)).length;
+        const plugCount = catalogue.filter((p) => p.number <= lastPlugPlant(deck)).length;
         let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, plugCount), rng() + '');
         let initialPlantMarket = initialPowerPlants.splice(0, 8);
         initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
@@ -125,7 +137,7 @@ export function defaultSetupDeck(
         }
 
         powerPlantsDeck.unshift(first);
-        powerPlantsDeck.push(step3);
+        powerPlantsDeck.splice(powerPlantsDeck.length - step3FromBottom, 0, step3);
     }
 
     return { actualMarket, futureMarket, powerPlantsDeck };
@@ -192,7 +204,6 @@ export function setup(
         : requestedDeck && decks.includes(requestedDeck)
         ? requestedDeck
         : 'standard';
-    const deck = plantCatalogue(chosenMap.name, chosenDeck);
     const ecologicalRules = ECOLOGICAL_RULE_MAPS.includes(chosenMap.name) && !legacyEcological;
 
     let actualMarket: PowerPlant[];
@@ -209,7 +220,7 @@ export function setup(
                 numPlayers,
                 variant,
                 rng,
-                chosenDeck != 'standard' ? deck : undefined,
+                chosenDeck,
                 legacyEcological ? true : fusionEcological
             ));
         } else {
@@ -218,7 +229,8 @@ export function setup(
                 variant,
                 rng,
                 useNewRechargedSetup,
-                chosenDeck != 'standard' ? deck : undefined
+                chosenDeck,
+                chosenMap.name
             ));
         }
     }
@@ -389,7 +401,15 @@ export function setup(
             }
 
             finalMap = filterMapToRegions(chosenMap, playRegions);
-            applyRegionalPowerPlants(chosenMap, playRegions, actualMarket, futureMarket, powerPlantsDeck);
+            applyRegionalPowerPlants(
+                chosenMap,
+                playRegions,
+                actualMarket,
+                futureMarket,
+                powerPlantsDeck,
+                chosenDeck,
+                seed
+            );
         }
     }
 
@@ -608,16 +628,22 @@ function filterMapToRegions(map: GameMap, playRegions: Set<string>): GameMap {
 // Applies the map's regionalPowerPlants overrides for the chosen regions, swapping
 // the replacement plants into whichever of the three decks currently hold the
 // matching plant numbers. Mutates the passed arrays in place.
+// The map's numbers win over the deck's: a regional card the deck has no plant for
+// (Deck 1 has no 18) is shuffled into the draw pile, below its top card.
 function applyRegionalPowerPlants(
     map: GameMap,
     playRegions: Set<string>,
     actualMarket: PowerPlant[],
     futureMarket: PowerPlant[],
-    powerPlantsDeck: PowerPlant[]
+    powerPlantsDeck: PowerPlant[],
+    deck: PowerPlantDeck,
+    seed: string
 ) {
     if (!map.regionalPowerPlants) {
         return;
     }
+    const catalogue = plantCatalogue(map.name, deck);
+    const rng = seedrandom(seed + '-regional');
     for (const region of playRegions) {
         const replacements = map.regionalPowerPlants[region];
         if (replacements) {
@@ -629,6 +655,11 @@ function applyRegionalPowerPlants(
                 swapIn(actualMarket);
                 swapIn(futureMarket);
                 swapIn(powerPlantsDeck);
+                if (!catalogue.some((p) => p.number === newPlant.number)) {
+                    // Between the top card and the Step 3 card at the bottom.
+                    const index = 1 + Math.floor(rng() * (powerPlantsDeck.length - 1));
+                    powerPlantsDeck.splice(index, 0, { ...newPlant });
+                }
             }
         }
     }
@@ -642,7 +673,15 @@ function finalizeRegions(G: GameState) {
     const fullMap = G.map;
 
     G.map = filterMapToRegions(fullMap, playRegions);
-    applyRegionalPowerPlants(fullMap, playRegions, G.actualMarket, G.futureMarket, G.powerPlantsDeck);
+    applyRegionalPowerPlants(
+        fullMap,
+        playRegions,
+        G.actualMarket,
+        G.futureMarket,
+        G.powerPlantsDeck,
+        gameDeck(G.options),
+        G.seed
+    );
     // knownPowerPlantDeck mirrors actualMarket+futureMarket and must reflect any swap.
     G.knownPowerPlantDeck = G.actualMarket.concat(G.futureMarket);
 
@@ -1106,12 +1145,14 @@ export function move(
                                 const powerPlant = G.actualMarket.shift()!;
                                 startStep(G, 2, `Starting Step 2, Power Plant ${powerPlant?.number} discarded.`);
 
-                                // Spain & Portugal: put plants 18, 22 and 27 on top
+                                // Spain & Portugal: put the held-back plants on top (18, 22, 27 in the standard deck)
                                 if (G.map.name == 'Spain & Portugal') {
-                                    if (!G.powerPlantsDeck.find((p) => p.number == 18)) {
-                                        G.powerPlantsDeck.unshift(getPowerPlant(27));
-                                        G.powerPlantsDeck.unshift(getPowerPlant(22));
-                                        G.powerPlantsDeck.unshift(getPowerPlant(18));
+                                    const deck = gameDeck(G.options);
+                                    const held = SPAIN_STEP_2_PLANTS[deck];
+                                    if (!G.powerPlantsDeck.find((p) => p.number == held[0])) {
+                                        G.powerPlantsDeck.unshift(
+                                            ...held.map((n) => getPowerPlant(n, G.map.name, deck))
+                                        );
                                     }
                                 }
 
@@ -2203,7 +2244,9 @@ export function reconstructState(gameState: GameState, to?: number, forcePublicD
                         G.players.length,
                         G.options.variant!,
                         seedrandom('public-replay'),
-                        G.options.useNewRechargedSetup ?? true
+                        G.options.useNewRechargedSetup ?? true,
+                        gameDeck(G.options),
+                        G.map.name
                     ).powerPlantsDeck;
                     removePlantsForMiddleEastStep1(G);
                     G.players[G.currentPlayers[0]].availableMoves = availableMoves(G, G.players[G.currentPlayers[0]]);
@@ -2594,7 +2637,8 @@ function removePlantsForMiddleEastStep1(G: GameState) {
     while (plantToRemove) {
         removePowerPlant(G, plantToRemove);
 
-        if ([6, 11, 14].includes(plantToRemove.number)) {
+        // Plug plants leave the game (06, 11 and 14 in the standard deck); others go under.
+        if (plantToRemove.number <= lastPlugPlant(gameDeck(G.options))) {
             G.log.push({
                 type: 'event',
                 event: `Removing Power Plant ${plantToRemove.number} from game.`,

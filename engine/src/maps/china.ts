@@ -1,6 +1,7 @@
 import { cloneDeep } from 'lodash';
-import { PowerPlant, PowerPlantType } from '../gamestate';
-import { powerPlants } from '../powerPlants';
+import { removedPlants } from '../deckChanges';
+import { PowerPlant, PowerPlantDeck, PowerPlantType } from '../gamestate';
+import { plantCatalogue } from '../powerPlants';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
 
@@ -223,7 +224,7 @@ export const map: GameMap = {
         ],
     ],
     startingResources: [12, 12, 6, 0],
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
+    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, deck: PowerPlantDeck = 'standard') {
         /* Instructions for power plant setup:
         Depending on the number of players, remove the following power plants from the game and place them in the box:
             with 2 and 3 players: 3, 4, 9, 11, 16, 18, 20, 24, 30, 33, 46.
@@ -235,15 +236,9 @@ export const map: GameMap = {
                 already placed on the supply
             plants 5 – 30: sort in ascending order with 30 on the bottom and 5 on the top and place face-down on the supply
         */
-        const allPlants = cloneDeep(powerPlants);
-        let plantsToRemove: number[] = [];
-        if (numPlayers == 2 || numPlayers == 3) {
-            plantsToRemove = [3, 4, 9, 11, 16, 18, 20, 24, 30, 33, 46];
-        } else if (numPlayers == 4) {
-            plantsToRemove = [3, 4, 11, 18, 24, 33, 46];
-        } else if (numPlayers == 5 || numPlayers == 6) {
-            plantsToRemove = [3, 4, 33];
-        }
+        // The other decks remove their own plants (see removedPlants) but sort the same way.
+        const allPlants = cloneDeep(plantCatalogue('China', deck));
+        const plantsToRemove = removedPlants('China', deck, numPlayers, variant);
         const filteredPlants = allPlants.filter((p) => !plantsToRemove.includes(p.number));
 
         const lowPlants = filteredPlants.filter((p) => p.number <= 30);

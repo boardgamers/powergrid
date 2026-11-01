@@ -5,7 +5,12 @@ import { addPowerPlant, getPowerPlant, reconstructionOptions, setup } from './en
 import { GameState, PowerPlant, PowerPlantType, Variant } from './gamestate';
 import { FUSION_IS_ECOLOGICAL, isEcological } from './powerPlants';
 
-const json = (G: GameState) => JSON.parse(JSON.stringify(G));
+// Pending step messages are an outbound queue the wrapper drains, and replay clears it.
+const json = (G: GameState) => {
+    const copy = JSON.parse(JSON.stringify(G));
+    delete copy.pendingMessages;
+    return copy;
+};
 
 function playAI(G: GameState, moves: number): GameState {
     for (let i = 0; i < moves && G.currentPlayers.length > 0; i++) G = moveAI(G, G.currentPlayers[0]);

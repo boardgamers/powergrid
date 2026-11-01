@@ -1,8 +1,5 @@
-import { cloneDeep } from 'lodash';
-import { getPowerPlant } from '../engine';
-import { PowerPlant } from '../gamestate';
-import { powerPlants } from '../powerPlants';
-import { shuffle } from '../utils';
+import { defaultSetupDeck } from '../engine';
+import { PowerPlantDeck } from '../gamestate';
 import { GameMap } from './../maps';
 
 export enum Regions {
@@ -241,61 +238,8 @@ export const map: GameMap = {
         ],
     ],
     startingResources: [24, 18, 9, 8],
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
-        let powerPlantsDeck = cloneDeep(powerPlants);
-        let actualMarket: PowerPlant[];
-        let futureMarket: PowerPlant[];
-
-        // remove plants 18 22 and 27
-        powerPlantsDeck = powerPlantsDeck.filter((pp) => ![18, 22, 27].includes(pp.number));
-
-        if (variant == 'original') {
-            powerPlantsDeck = powerPlantsDeck.slice(8);
-            const powerPlant13 = powerPlantsDeck.splice(2, 1)[0];
-            const step3 = powerPlantsDeck.pop()!;
-
-            powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
-            if (numPlayers == 2 || numPlayers == 3) {
-                powerPlantsDeck = powerPlantsDeck.slice(8);
-            } else if (numPlayers == 4) {
-                powerPlantsDeck = powerPlantsDeck.slice(4);
-            }
-
-            powerPlantsDeck.unshift(powerPlant13);
-            powerPlantsDeck.push(step3);
-
-            actualMarket = [getPowerPlant(3), getPowerPlant(4), getPowerPlant(5), getPowerPlant(6)];
-            futureMarket = [getPowerPlant(7), getPowerPlant(8), getPowerPlant(9), getPowerPlant(10)];
-        } else {
-            let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 13), rng() + '');
-            let initialPlantMarket = initialPowerPlants.splice(0, 8);
-            initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
-            actualMarket = initialPlantMarket.slice(0, 4);
-            futureMarket = initialPlantMarket.slice(4);
-
-            const first = initialPowerPlants.shift()!;
-            const step3 = powerPlantsDeck.pop()!;
-
-            powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
-            if (numPlayers == 2) {
-                // Recharged 2P removes 1 plug + 5 socket (was incorrectly lumped with 3P).
-                initialPowerPlants = initialPowerPlants.slice(1);
-                powerPlantsDeck = shuffle(powerPlantsDeck.slice(5).concat(initialPowerPlants), rng() + '');
-            } else if (numPlayers == 3) {
-                initialPowerPlants = initialPowerPlants.slice(2);
-                powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
-            } else if (numPlayers == 4) {
-                initialPowerPlants = initialPowerPlants.slice(1);
-                powerPlantsDeck = shuffle(powerPlantsDeck.slice(3).concat(initialPowerPlants), rng() + '');
-            } else {
-                powerPlantsDeck = shuffle(powerPlantsDeck.concat(initialPowerPlants), rng() + '');
-            }
-
-            powerPlantsDeck.unshift(first);
-            powerPlantsDeck.push(step3);
-        }
-
-        return { actualMarket, futureMarket, powerPlantsDeck };
+    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, deck: PowerPlantDeck = 'standard') {
+        return defaultSetupDeck(numPlayers, variant, rng, true, deck, 'Spain & Portugal');
     },
     mapSpecificRules: 'You cannot buy a nuclear power plant if you only have cities in Portugal.\n',
     deckBuild:

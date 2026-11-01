@@ -61,6 +61,13 @@ export interface GameOptions {
     // created before this existed started Recharged with the Original market, so
     // reconstructing one without the flag keeps that (see reconstructionOptions).
     rechargedStartingResources?: boolean;
+    // Whether fusion plants count as ecological (see FUSION_IS_ECOLOGICAL). Stored by
+    // setup on the maps in ECOLOGICAL_RULE_MAPS; older games have none and play as
+    // wind-only, except that their Québec deck setup protected fusion too.
+    fusionEcological?: boolean;
+    // Set only by reconstructionOptions, for games without fusionEcological, so their
+    // Québec deck is rebuilt the old way. Never stored.
+    legacyEcological?: boolean;
 }
 
 export enum ResourceType {

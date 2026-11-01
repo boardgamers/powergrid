@@ -120,11 +120,13 @@ export interface GameMap {
     uraniumPrices?: number[];
     // `deck` is the alternate power plant list when the game uses it (only on maps
     // in ALTERNATE_DECK_MAPS); otherwise undefined and the map uses its usual deck.
+    // `fusionEcological` is the game's ruling, for maps that protect ecological plants.
     setupDeck?: (
         numPlayers: number,
         variant: string,
         rng: seedrandom.prng,
-        deck?: PowerPlant[]
+        deck?: PowerPlant[],
+        fusionEcological?: boolean
     ) => {
         actualMarket: PowerPlant[];
         futureMarket: PowerPlant[];

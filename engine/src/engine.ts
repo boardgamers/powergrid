@@ -34,7 +34,14 @@ import {
 } from './gamestate';
 import { GameMap, maps, mapsRecharged } from './maps';
 import { Move, MoveName, Moves } from './move';
-import { plantCatalogue, powerPlants, usesAlternateDeck } from './powerPlants';
+import {
+    ECOLOGICAL_RULE_MAPS,
+    FUSION_IS_ECOLOGICAL,
+    isEcological,
+    plantCatalogue,
+    powerPlants,
+    usesAlternateDeck,
+} from './powerPlants';
 import prices from './prices';
 import { createRandomizedMap } from './randomizeMap';
 import { asserts, shuffle } from './utils';
@@ -133,6 +140,8 @@ export function setup(
         chooseColors = false,
         alternatePowerPlants = false,
         rechargedStartingResources = true,
+        fusionEcological = FUSION_IS_ECOLOGICAL,
+        legacyEcological = false,
     }: GameOptions,
     seed?: string,
     forceDeck?: PowerPlant[],
@@ -168,6 +177,7 @@ export function setup(
     // The option is only honoured on the maps that support the alternate deck.
     const alternateDeck = usesAlternateDeck(chosenMap.name, alternatePowerPlants);
     const deck = plantCatalogue(chosenMap.name, alternateDeck);
+    const ecologicalRules = ECOLOGICAL_RULE_MAPS.includes(chosenMap.name) && !legacyEcological;
 
     let actualMarket: PowerPlant[];
     let futureMarket: PowerPlant[];
@@ -183,7 +193,8 @@ export function setup(
                 numPlayers,
                 variant,
                 rng,
-                alternateDeck ? deck : undefined
+                alternateDeck ? deck : undefined,
+                legacyEcological ? true : fusionEcological
             ));
         } else {
             ({ actualMarket, futureMarket, powerPlantsDeck } = defaultSetupDeck(
@@ -460,6 +471,7 @@ export function setup(
             // Only stored when in effect, so states of every other game are unchanged.
             ...(alternateDeck ? { alternatePowerPlants: true } : {}),
             ...(variantStartingResources && rechargedStartingResources ? { rechargedStartingResources: true } : {}),
+            ...(ecologicalRules ? { fusionEcological } : {}),
         },
         log: [],
         hiddenLog: [],
@@ -1389,7 +1401,9 @@ export function move(
                             let powerPlantToPush: PowerPlant | undefined;
                             if (G.map.name == 'Quebec') {
                                 // For the Quebec map, ecological plants will never be put on the bottom of the deck.
-                                const nonEcoPlants = G.futureMarket.filter((pp) => pp.type != PowerPlantType.Wind);
+                                const nonEcoPlants = G.futureMarket.filter(
+                                    (pp) => !isEcological(pp, G.options.fusionEcological)
+                                );
                                 powerPlantToPush = nonEcoPlants.pop();
 
                                 if (powerPlantToPush) {
@@ -1397,7 +1411,9 @@ export function move(
                                         (pp) => pp.number != powerPlantToPush?.number
                                     );
                                 } else {
-                                    const nonEcoPlants = G.actualMarket.filter((pp) => pp.type != PowerPlantType.Wind);
+                                    const nonEcoPlants = G.actualMarket.filter(
+                                        (pp) => !isEcological(pp, G.options.fusionEcological)
+                                    );
                                     powerPlantToPush = nonEcoPlants.pop();
 
                                     if (powerPlantToPush) {
@@ -2377,7 +2393,7 @@ export function addPowerPlant(G: GameState): void {
                         // Only 3 plants in actual market and 3 in future market.
                         G.actualMarket = market.slice(0, 3);
                         G.futureMarket = market.slice(3);
-                    } else if (G.map.name == 'Benelux' && market[4].type == PowerPlantType.Wind) {
+                    } else if (G.map.name == 'Benelux' && isEcological(market[4], G.options.fusionEcological)) {
                         // Add extra ecological plant to actual market.
                         G.actualMarket = market.slice(0, 5);
                         G.futureMarket = market.slice(5);
@@ -2797,7 +2813,11 @@ export function getPowerPlant(num: number, mapName = '', alternatePowerPlants = 
 // record explicitly must fall back to their old behaviour when absent, so games
 // created before them replay as they were played.
 export function reconstructionOptions(options: GameOptions): GameOptions {
-    return { ...options, rechargedStartingResources: options.rechargedStartingResources ?? false };
+    return {
+        ...options,
+        rechargedStartingResources: options.rechargedStartingResources ?? false,
+        legacyEcological: options.fusionEcological === undefined,
+    };
 }
 
 function getBaseState(G: GameState): GameState {

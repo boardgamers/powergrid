@@ -1,7 +1,7 @@
 import { cloneDeep } from 'lodash';
 import { getPowerPlant } from '../engine';
-import { PowerPlant, PowerPlantType } from '../gamestate';
-import { powerPlants } from '../powerPlants';
+import { PowerPlant } from '../gamestate';
+import { isEcological, powerPlants } from '../powerPlants';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
 
@@ -206,7 +206,14 @@ export const map: GameMap = {
         ],
     ],
     startingResources: [21, 21, 6, 2],
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
+    setupDeck(
+        numPlayers: number,
+        variant: string,
+        rng: seedrandom.prng,
+        _deck?: PowerPlant[],
+        fusionEcological?: boolean
+    ) {
+        const ecological = (pp: PowerPlant) => isEcological(pp, fusionEcological);
         let powerPlantsDeck = cloneDeep(powerPlants);
         let actualMarket: PowerPlant[];
         let futureMarket: PowerPlant[];
@@ -215,14 +222,8 @@ export const map: GameMap = {
             // No ecological plants will be discarded.
             // 13, 18, 22 will be set aside and placed on top of the deck.
             const setAsidePlants = powerPlantsDeck.filter((pp) => [13, 18, 22].includes(pp.number));
-            const otherEcoPlants = powerPlantsDeck.filter(
-                (pp) =>
-                    (pp.type == PowerPlantType.Wind || pp.type == PowerPlantType.Nuclear) &&
-                    ![13, 18, 22].includes(pp.number)
-            );
-            const nonEcoPlantsDeck = powerPlantsDeck.filter(
-                (pp) => pp.type != PowerPlantType.Wind && pp.type != PowerPlantType.Nuclear
-            );
+            const otherEcoPlants = powerPlantsDeck.filter((pp) => ecological(pp) && ![13, 18, 22].includes(pp.number));
+            const nonEcoPlantsDeck = powerPlantsDeck.filter((pp) => !ecological(pp));
 
             // Remove first eight plants for actual and future market.
             powerPlantsDeck = nonEcoPlantsDeck.slice(8);
@@ -260,17 +261,9 @@ export const map: GameMap = {
             const powerPlantsDeckLow = powerPlantsDeck.filter((pp) => pp.number >= 3 && pp.number <= 10);
             const plant13 = powerPlantsDeck.filter((pp) => pp.number == 13);
             const otherInitialEcoPlants = powerPlantsDeck.filter((pp) => pp.number == 18 || pp.number == 22);
-            const otherEcoPlants = powerPlantsDeck.filter(
-                (pp) =>
-                    ![13, 18, 22].includes(pp.number) &&
-                    (pp.type == PowerPlantType.Wind || pp.type == PowerPlantType.Nuclear)
-            );
-            let otherPlants1 = powerPlantsDeck.filter(
-                (pp) => pp.type != PowerPlantType.Wind && pp.number >= 11 && pp.number <= 15
-            );
-            let otherPlants2 = powerPlantsDeck.filter(
-                (pp) => pp.type != PowerPlantType.Wind && pp.type != PowerPlantType.Nuclear && pp.number >= 16
-            );
+            const otherEcoPlants = powerPlantsDeck.filter((pp) => ![13, 18, 22].includes(pp.number) && ecological(pp));
+            let otherPlants1 = powerPlantsDeck.filter((pp) => !ecological(pp) && pp.number >= 11 && pp.number <= 15);
+            let otherPlants2 = powerPlantsDeck.filter((pp) => !ecological(pp) && pp.number >= 16);
             if (numPlayers == 2) {
                 otherPlants1 = shuffle(otherPlants1, rng() + '').slice(1);
                 otherPlants2 = shuffle(otherPlants2, rng() + '').slice(5);
@@ -304,8 +297,8 @@ export const map: GameMap = {
         recharged:
             'the starting market is drawn from the low ' +
             'plants (including 13); one more low plant goes on top of the deck, ' +
-            'with 18 and 22 placed directly beneath it. Ecological plants (wind ' +
-            'and fusion) are never removed during setup.',
+            'with 18 and 22 placed directly beneath it. Ecological plants are ' +
+            'never removed during setup.',
         original:
             'power plants 13, 18, 22 are set aside and ' +
             'placed on top of the deck (13 topmost); ecological plants are ' +

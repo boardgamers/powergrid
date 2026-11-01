@@ -2,7 +2,7 @@ import seedrandom from 'seedrandom';
 import { availableMoves } from './available-moves';
 import { defaultSetupDeck, reconstructState, setup, stripSecret } from './engine';
 import { GameState, PowerPlant, PowerPlantType } from './gamestate';
-import { plantCatalogue } from './powerPlants';
+import { isEcological, plantCatalogue } from './powerPlants';
 import { shuffle } from './utils';
 
 /** Unknown cards come from the published catalogue, never the live draw pile. */
@@ -115,7 +115,8 @@ export function createAnalysisScenario(
     candidates = candidates.filter((p) => !top.some((t) => t.number === p.number));
     const mandatory = (p: PowerPlant) =>
         (name === 'Brazil' && p.type === PowerPlantType.Garbage && p.number > 14) ||
-        (name === 'Quebec' && [PowerPlantType.Wind, PowerPlantType.Nuclear].includes(p.type)) ||
+        // Games without the stored ruling built their Québec deck protecting fusion too.
+        (name === 'Quebec' && isEcological(p, s.options.fusionEcological ?? true)) ||
         (name === 'Russia' && original && [10, 11].includes(p.number));
     // A plug-back top card is public information in the recharged edition.
     if (

@@ -122,4 +122,27 @@ function plantCatalogue(mapName: string, alternate?: boolean): PowerPlant[] {
     return usesAlternateDeck(mapName, alternate) ? alternatePowerPlants : powerPlants;
 }
 
-export { powerPlants, indiaPowerPlants, alternatePowerPlants, ALTERNATE_DECK_MAPS, usesAlternateDeck, plantCatalogue };
+// Wind plants are always ecological. Whether fusion plants are too is a ruling:
+// new games take this value and store it as options.fusionEcological on the maps
+// in ECOLOGICAL_RULE_MAPS, so changing it only affects games created afterwards.
+const FUSION_IS_ECOLOGICAL = false;
+
+// The maps whose rules single out ecological plants: Benelux's extra market slot
+// and Québec's protected plants.
+const ECOLOGICAL_RULE_MAPS: string[] = ['Benelux', 'Quebec'];
+
+function isEcological(pp: PowerPlant, fusionEcological: boolean | undefined): boolean {
+    return pp.type == PowerPlantType.Wind || (!!fusionEcological && pp.type == PowerPlantType.Nuclear);
+}
+
+export {
+    powerPlants,
+    indiaPowerPlants,
+    alternatePowerPlants,
+    ALTERNATE_DECK_MAPS,
+    usesAlternateDeck,
+    plantCatalogue,
+    FUSION_IS_ECOLOGICAL,
+    ECOLOGICAL_RULE_MAPS,
+    isEcological,
+};

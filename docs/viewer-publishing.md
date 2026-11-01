@@ -33,5 +33,13 @@ then finish; undoing all purchases restores skip. Phase actions and Undo share
 previews preserve public deck counters so buying resources does not flash an empty
 draw pile. Existing pass-confirmation dialogs are unchanged.
 
+Viewer 2.3.21 extends skip/finish behaviour to building and powering: skip before
+any city is built or plant activated, finish afterwards, and skip again if all
+those actions are undone. Skip only receives a blue cue when no legal action is
+available. Button pictograms stay black on light hover backgrounds. Clickable
+plants use their own border for the white hover cue, retaining the original
+4-unit highlighted and 3-unit activated border widths and original blue.
+
 After packaging, run `node viewer/scripts/action-controls-smoke.mjs` to check
-normal/only-pass states and hover/focus styling against the board-option buttons.
+normal/only-pass states, hover/focus styling against the board-option buttons,
+resource/building/powering transitions, and plant borders.

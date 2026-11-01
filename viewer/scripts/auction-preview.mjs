@@ -16,8 +16,10 @@ function position(mode) {
         'auction-preview'
     );
     G.round = 2;
-    const yourTurn = mode === 'your-turn' || mode === 'only-pass' || mode === 'resources';
+    const yourTurn = ['your-turn', 'only-pass', 'resources', 'building', 'powering'].includes(mode);
     if (mode === 'resources') G.phase = engine.Phase.Resources;
+    if (mode === 'building') G.phase = engine.Phase.Building;
+    if (mode === 'powering') G.phase = engine.Phase.Bureaucracy;
     G.playerOrder = yourTurn ? [0, 1, 2] : [2, 0, 1];
     G.currentPlayers = [yourTurn ? 0 : 2];
     const plant = (n) => copy(powerPlants.find((p) => p.number === n));
@@ -28,6 +30,15 @@ function position(mode) {
         p.money = [mode === 'only-pass' ? 1 : 10, 40, 50][i];
         p.powerPlants = [plant([3, 4, 5][i])];
         if (mode === 'resources' && i === 0) p.oilCapacity = 4;
+        if (mode === 'building' && i === 0) p.money = 30;
+        if (mode === 'powering') {
+            p.powerPlantsNotUsed = p.powerPlants.map((plant) => plant.number);
+            if (i === 0) {
+                p.oilCapacity = 4;
+                p.oilLeft = 2;
+                p.cities = [{ name: G.map.cities[0].name, position: 0 }];
+            }
+        }
         p.availableMoves = null;
     });
     const visible = new Set(
@@ -45,11 +56,13 @@ function position(mode) {
     return G;
 }
 const states = new Map();
-const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Power Grid · Auction auto-pass preview</title><link rel="stylesheet" href="/bundle.css"><style>body{margin:0;background:#e8ebdf;font-family:system-ui}.preview{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:#173b32;color:#fff;padding:10px 16px;font-size:13px}.preview button,.preview select{font:inherit;padding:7px}.preview a{color:white}.hint{font-size:13px;padding:8px 16px;margin:0;background:#edf1e8;color:#253b2c}#error{color:#9e1515}#error:empty{display:none}</style></head><body><header class="preview"><strong>Local preview</strong><select id="mode" aria-label="Auction scenario"><option value="your-turn">Your turn · start an auction</option><option value="only-pass">Your turn · only passing is possible</option><option value="resources">Your turn · buy resources</option><option value="public">Public money · open auction</option><option value="hidden">Hidden money · open auction</option><option value="public-sealed">Public money · sealed auction</option><option value="hidden-sealed">Hidden money · sealed auction</option></select><button id="opponent">Ada bids 10</button><button id="reset">Reset</button><a href="/mobile">Mobile preview</a></header><p class="hint">You have 10. With hidden money, try the auto-pass checkbox in your player card before Ada bids.</p><p id="error" role="alert"></p><div id="app"></div><script src="/vue.js"></script><script src="/bundle.js"></script><script>
+const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Power Grid · Auction auto-pass preview</title><link rel="stylesheet" href="/bundle.css"><style>body{margin:0;background:#e8ebdf;font-family:system-ui}.preview{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:#173b32;color:#fff;padding:10px 16px;font-size:13px}.preview button,.preview select{font:inherit;padding:7px}.preview a{color:white}.hint{font-size:13px;padding:8px 16px;margin:0;background:#edf1e8;color:#253b2c}#error{color:#9e1515}#error:empty{display:none}</style></head><body><header class="preview"><strong>Local preview</strong><select id="mode" aria-label="Auction scenario"><option value="your-turn">Your turn · start an auction</option><option value="only-pass">Your turn · only passing is possible</option><option value="resources">Your turn · buy resources</option><option value="building">Your turn · build cities</option><option value="powering">Your turn · activate plants</option><option value="public">Public money · open auction</option><option value="hidden">Hidden money · open auction</option><option value="public-sealed">Public money · sealed auction</option><option value="hidden-sealed">Hidden money · sealed auction</option></select><button id="opponent">Ada bids 10</button><button id="reset">Reset</button><a href="/mobile">Mobile preview</a></header><p class="hint">You have 10. With hidden money, try the auto-pass checkbox in your player card before Ada bids.</p><p id="error" role="alert"></p><div id="app"></div><script src="/vue.js"></script><script src="/bundle.js"></script><script>
 const query=new URLSearchParams(location.search),mode=query.get('mode')||'public';
 const host=window.host=powergrid.launch('#app');
 document.querySelector('#mode').value=mode;
 if(mode==='only-pass')document.querySelector('.hint').textContent='You have 1. No plant is affordable, so passing is the only legal action.';
+if(mode==='building')document.querySelector('.hint').textContent='Build a city to change skip to confirm. Undo all builds to restore skip.';
+if(mode==='powering')document.querySelector('.hint').textContent='Activate your oil plant to change skip to confirm. Hover its border to see the white highlight.';
 document.querySelector('#mode').onchange=e=>location.search='?mode='+e.target.value;
 async function send(path,body){const response=await fetch(path+'?mode='+mode,{method:body?'POST':'GET',headers:{'Content-Type':'application/json'},body:body?JSON.stringify(body):undefined});const data=await response.json();document.querySelector('#error').textContent=data.error||'';if(data.error)return;host.emit('settings',data.settings);host.emit('state',data.state);const button=document.querySelector('#opponent');button.textContent=data.next;button.disabled=!data.opponent;}
 host.on('fetchState',()=>send('/state'));host.on('move',move=>send('/move',{move}));host.on('update:setting',setting=>send('/setting',setting));

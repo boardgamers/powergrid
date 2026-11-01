@@ -53,7 +53,10 @@ export default class BoardOption extends Vue {
 </script>
 <style scoped>
 .board-option {
-    color: #253221;
+    color: black;
+}
+.board-option:hover {
+    color: black;
 }
 .option-background {
     fill: gainsboro;

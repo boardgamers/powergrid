@@ -70,6 +70,24 @@ try {
                 'rgb(255, 255, 255)'
             );
         }
+        for (const control of ['color-blind', 'plan']) {
+            const option = page.locator(`[data-board-control="${control}"]`);
+            if (!(await option.count())) continue;
+            await option.hover();
+            const iconColors = await option
+                .locator(':scope > g')
+                .first()
+                .evaluate((g) =>
+                    [...g.querySelectorAll('path, circle, rect')].map((e) => ({
+                        stroke: getComputedStyle(e).stroke,
+                        fill: getComputedStyle(e).fill,
+                    }))
+                );
+            assert(
+                iconColors.every((style) => style.stroke === 'rgb(0, 0, 0)' && style.fill === 'none'),
+                `${control} pictograms stay black and unfilled`
+            );
+        }
         await page.close();
         console.log(`${mode}: hover matches board options; focus and market cues passed`);
     }
@@ -97,6 +115,12 @@ try {
     const width = (locator) => locator.evaluate((e) => getComputedStyle(e).strokeWidth);
     assert.equal(await width(phaseButton.locator('.button-outline')), '2px');
     assert.equal(await width(undo.locator('.undo-background')), '2px');
+    await undo.hover();
+    assert.equal(
+        await undo.locator('image').evaluate((e) => getComputedStyle(e).filter),
+        'none',
+        'Undo pictogram stays black'
+    );
     await undo.click();
     await page.waitForFunction(() =>
         document.querySelector('[data-board-control="pass"]').classList.contains('skip-action')
@@ -115,6 +139,54 @@ try {
     console.log(
         'Resources: skip → finish → undo → skip; matching enabled borders, thin disabled border, stable draw pile'
     );
+    for (const mode of ['building', 'powering']) {
+        const page = await browser.newPage();
+        await page.goto(`http://127.0.0.1:${server.address().port}/?mode=${mode}`);
+        const button = page.locator('[data-board-control="pass"]');
+        await button.waitFor();
+        assert(await button.evaluate((e) => e.classList.contains('skip-action')));
+        assert.equal(
+            await button.locator('.button-outline').evaluate((e) => getComputedStyle(e).stroke),
+            'rgb(0, 0, 0)'
+        );
+        if (mode === 'powering') {
+            const plant = page.locator('[data-plant-number="3"]');
+            const border = plant.locator(':scope > rect').first();
+            assert.equal(await border.evaluate((e) => getComputedStyle(e).strokeWidth), '4px');
+            assert.equal(await border.evaluate((e) => getComputedStyle(e).stroke), 'rgb(0, 0, 255)');
+            await plant.hover();
+            assert.equal(await border.evaluate((e) => getComputedStyle(e).stroke), 'rgb(255, 255, 255)');
+        }
+        const echoed = page.waitForResponse((response) => response.url().includes('/move?'));
+        await page.evaluate((mode) => {
+            const game = document.querySelector('.game').__vue__;
+            const name = mode === 'building' ? 'Build' : 'UsePowerPlant';
+            game.sendMove({ name, data: game.G.players[0].availableMoves[name][0] });
+        }, mode);
+        await echoed;
+        await page.waitForFunction(
+            () => !document.querySelector('[data-board-control="pass"]').classList.contains('skip-action')
+        );
+        assert.equal(
+            await button.locator('.button-outline').evaluate((e) => getComputedStyle(e).stroke),
+            'rgb(0, 0, 255)'
+        );
+        if (mode === 'powering') {
+            assert.equal(
+                await page
+                    .locator('[data-plant-number="3"] > rect')
+                    .first()
+                    .evaluate((e) => getComputedStyle(e).strokeWidth),
+                '3px'
+            );
+        }
+        await page.locator('[data-board-control="undo"]').click();
+        await page.waitForFunction(() =>
+            document.querySelector('[data-board-control="pass"]').classList.contains('skip-action')
+        );
+        await page.close();
+        console.log(`${mode}: skip → finish → undo → skip; consistent borders`);
+    }
 } finally {
     await browser.close();
     await new Promise((resolve) => server.close(resolve));

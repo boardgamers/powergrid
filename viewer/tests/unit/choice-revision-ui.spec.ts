@@ -66,7 +66,12 @@ describe('phase button', () => {
     it('pairs distinct phase icons with skip or finish and complete accessible labels', () => {
         const paths: string[] = [];
         for (const phase of [Phase.Auction, Phase.Resources, Phase.Building, Phase.Bureaucracy]) {
-            const context = { G: { phase }, playerBoughtResourceThisTurn: () => true };
+            const context = {
+                G: { phase },
+                playerBoughtResourceThisTurn: () => true,
+                playerBuiltCityThisTurn: () => true,
+                playerActivatedPlantThisTurn: () => true,
+            };
             const text = computed('phaseButtonText', context);
             const icon = computed('phaseButtonIcon', context);
             const action = computed('phaseButtonAction', context);
@@ -126,6 +131,55 @@ describe('phase button', () => {
         expect(computed('highlightPhaseButton', context)).to.equal(false);
         context.G.players[0].availableMoves.BuyResource = [];
         expect(computed('highlightPhaseButton', context)).to.equal(true);
+    });
+
+    it('switches building from skip to finish and back when builds are undone', () => {
+        const context: any = { player: 0, G: { phase: Phase.Building, log: [] } };
+        context.playerBuiltCityThisTurn = () => options.methods.playerBuiltCityThisTurn.call(context);
+        expect(computed('phaseButtonAction', context)).to.equal('skip');
+        context.G.log.push({ type: 'move', player: 0, move: { name: 'Build' } });
+        expect(computed('phaseButtonAction', context)).to.equal('finish');
+        context.G.log.pop();
+        expect(computed('phaseButtonAction', context)).to.equal('skip');
+        context.G.log.push({ type: 'move', player: 1, move: { name: 'Build' } });
+        expect(computed('phaseButtonAction', context)).to.equal('skip');
+        context.G.log = [
+            { type: 'move', player: 0, move: { name: 'Build' } },
+            { type: 'move', player: 0, move: { name: 'Pass' } },
+        ];
+        expect(computed('phaseButtonAction', context)).to.equal('skip');
+    });
+
+    it('bases powering skip/finish on this player’s activated plants, including free plants', () => {
+        const player = { powerPlants: [{ number: 3 }, { number: 13 }], powerPlantsNotUsed: [3, 13] };
+        const context: any = { player: 0, G: { phase: Phase.Bureaucracy, players: [player] } };
+        context.playerActivatedPlantThisTurn = () => options.methods.playerActivatedPlantThisTurn.call(context);
+        expect(computed('phaseButtonAction', context)).to.equal('skip');
+        player.powerPlantsNotUsed = [3];
+        expect(computed('phaseButtonAction', context)).to.equal('finish');
+        player.powerPlantsNotUsed = [3, 13];
+        expect(computed('phaseButtonAction', context)).to.equal('skip');
+        context.canChangePowering = true;
+        expect(computed('phaseButtonAction', context)).to.equal('edit');
+    });
+
+    it('keeps building/powering skip black while choices exist, blue otherwise', () => {
+        for (const [phase, move] of [
+            [Phase.Building, 'Build'],
+            [Phase.Bureaucracy, 'UsePowerPlant'],
+        ]) {
+            const context: any = {
+                canUsePhaseButton: true,
+                phaseButtonAction: 'skip',
+                player: 0,
+                G: { phase, players: [{ availableMoves: { [move]: [{}] } }] },
+            };
+            expect(computed('highlightPhaseButton', context)).to.equal(false);
+            context.G.players[0].availableMoves[move] = [];
+            expect(computed('highlightPhaseButton', context)).to.equal(true);
+            context.phaseButtonAction = 'finish';
+            expect(computed('highlightPhaseButton', context)).to.equal(true);
+        }
     });
 
     it('keeps skip styling while accepting the only-option highlight', async () => {

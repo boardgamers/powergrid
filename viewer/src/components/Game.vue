@@ -1357,6 +1357,8 @@ export default class Game extends Vue {
         if (this.changingBid) return this.revisionBids.length === 0;
         const moves = this.G?.players[this.player!]?.availableMoves;
         if (this.G?.phase === Phase.Resources) return !moves?.[MoveName.BuyResource]?.length;
+        if (this.G?.phase === Phase.Building) return !moves?.[MoveName.Build]?.length;
+        if (this.G?.phase === Phase.Bureaucracy) return !moves?.[MoveName.UsePowerPlant]?.length;
         return !moves?.[MoveName.Bid]?.length && !moves?.[MoveName.ChoosePowerPlant]?.length;
     }
     get phaseButtonText(): string {
@@ -1381,6 +1383,8 @@ export default class Game extends Vue {
         if ((this.revisableBid && !this.changingBid) || this.canChangePowering) return 'edit';
         if (this.changingBid) return 'skip';
         if (this.G?.phase === Phase.Resources) return this.playerBoughtResourceThisTurn() ? 'finish' : 'skip';
+        if (this.G?.phase === Phase.Building) return this.playerBuiltCityThisTurn() ? 'finish' : 'skip';
+        if (this.G?.phase === Phase.Bureaucracy) return this.playerActivatedPlantThisTurn() ? 'finish' : 'skip';
         if (this.tutorialMove || this.roundPlan) return 'finish';
         return this.G?.phase === Phase.Auction ? 'skip' : 'finish';
     }
@@ -2767,6 +2771,25 @@ export default class Game extends Vue {
         return false;
     }
 
+    playerActivatedPlantThisTurn(): boolean {
+        const player = this.player === undefined ? undefined : this.G?.players[this.player];
+        // Powering can be simultaneous: use this player's activation state rather
+        // than the log tail, which may include other players' actions.
+        return !!player?.powerPlants.some((plant) => !player.powerPlantsNotUsed.includes(plant.number));
+    }
+
+    // Check this building turn, not the player's total city count from older rounds.
+    playerBuiltCityThisTurn(): boolean {
+        const log = this.G!.log;
+        for (let i = log.length - 1; i >= 0; i--) {
+            const entry = log[i];
+            if (entry.type !== 'move' || entry.player !== this.player) return false;
+            if (entry.move.name === MoveName.Pass) return false;
+            if (entry.move.name === MoveName.Build) return true;
+        }
+        return false;
+    }
+
     toggleColorBlind() {
         this.preferences.colorBlind = !this.preferences.colorBlind;
         this.emitter.emit('update:preference', { name: 'colorBlind', value: this.preferences.colorBlind });
@@ -3497,26 +3520,12 @@ text {
         cursor: pointer;
 
         &:hover {
-            rect {
+            // Only the outer surface reacts. Nested shapes, text and SVG images
+            // are pictograms, not separate button backgrounds.
+            > rect,
+            > circle {
                 fill: silver;
                 stroke: white;
-            }
-
-            circle {
-                fill: silver;
-                stroke: white;
-            }
-
-            line {
-                stroke: white;
-            }
-
-            image {
-                filter: invert(1);
-            }
-
-            text {
-                fill: white;
             }
         }
     }

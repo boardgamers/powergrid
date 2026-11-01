@@ -15,6 +15,16 @@ import { MoveName } from './move';
 import prices from './prices';
 import { minBy } from './utils';
 
+// Central Europe: a player whose network includes Wien buys garbage $1 cheaper, but
+// never for less than $1 ("his cost per piece may not be 0" — Original and Recharged).
+export function garbagePrice(G: GameState, player: Player, printedPrice: number): number {
+    if (G.map.name != 'Central Europe' || !player.cities.some((c) => c.name == 'Wien')) {
+        return printedPrice;
+    }
+
+    return G.options.wienFreeGarbage ? printedPrice - 1 : Math.max(1, printedPrice - 1);
+}
+
 export interface AvailableMoves {
     [MoveName.ReopenPowering]?: number[];
     [MoveName.ChoosePowerPlant]?: number[];
@@ -446,15 +456,7 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
 
             if (allowSouth && G.garbageMarket > 0) {
                 const garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
-                let price = garbagePrices[garbagePrices.length - G.garbageMarket];
-
-                // $1 cheaper for players in Wien in Central Europe
-                if (G.map.name == 'Central Europe') {
-                    const wienCity = player.cities.filter((c) => c.name == 'Wien');
-                    if (wienCity?.length > 0) {
-                        price--;
-                    }
-                }
+                const price = garbagePrice(G, player, garbagePrices[garbagePrices.length - G.garbageMarket]);
 
                 if (player.money >= price && garbageRoom() && price <= maxPriceAvailable) {
                     toBuy.push(

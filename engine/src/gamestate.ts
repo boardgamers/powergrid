@@ -61,6 +61,10 @@ export interface GameOptions {
     // created before this existed started Recharged with the Original market, so
     // reconstructing one without the flag keeps that (see reconstructionOptions).
     rechargedStartingResources?: boolean;
+    // Central Europe's Wien discount once let garbage cost $0; both rulebooks say
+    // never less than $1. Set only when rebuilding a game whose log already shows a
+    // $0 garbage buy, so it replays as it was played (see reconstructionOptions).
+    wienFreeGarbage?: boolean;
 }
 
 export enum ResourceType {

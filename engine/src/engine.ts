@@ -6,6 +6,7 @@ import {
     coalOilOverCapacity,
     computeRegionGraph,
     fuelOverCapacity,
+    garbagePrice,
     hasGarbageOilHybrid,
     maxStorable,
     regionPickable,
@@ -32,6 +33,7 @@ import {
     resupplyUraniumMine,
     sellUraniumMine,
 } from './gamestate';
+import { LogItem } from './log';
 import { GameMap, maps, mapsRecharged } from './maps';
 import { Move, MoveName, Moves } from './move';
 import { plantCatalogue, powerPlants, usesAlternateDeck } from './powerPlants';
@@ -133,6 +135,7 @@ export function setup(
         chooseColors = false,
         alternatePowerPlants = false,
         rechargedStartingResources = true,
+        wienFreeGarbage = false,
     }: GameOptions,
     seed?: string,
     forceDeck?: PowerPlant[],
@@ -460,6 +463,7 @@ export function setup(
             // Only stored when in effect, so states of every other game are unchanged.
             ...(alternateDeck ? { alternatePowerPlants: true } : {}),
             ...(variantStartingResources && rechargedStartingResources ? { rechargedStartingResources: true } : {}),
+            ...(wienFreeGarbage ? { wienFreeGarbage: true } : {}),
         },
         log: [],
         hiddenLog: [],
@@ -1725,16 +1729,7 @@ export function move(
                         G.garbageMarketNorth!--;
                     } else {
                         const garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
-                        price = garbagePrices[garbagePrices.length - G.garbageMarket];
-
-                        // $1 cheaper for players in Wien in Central Europe
-                        if (G.map.name == 'Central Europe') {
-                            const wienCity = player.cities.filter((c) => c.name == 'Wien');
-                            if (wienCity?.length > 0) {
-                                price--;
-                            }
-                        }
-
+                        price = garbagePrice(G, player, garbagePrices[garbagePrices.length - G.garbageMarket]);
                         player.garbageLeft++;
                         G.garbageMarket--;
                     }
@@ -2795,15 +2790,25 @@ export function getPowerPlant(num: number, mapName = '', alternatePowerPlants = 
 
 // Options for rebuilding an existing game's starting state. Settings that new games
 // record explicitly must fall back to their old behaviour when absent, so games
-// created before them replay as they were played.
-export function reconstructionOptions(options: GameOptions): GameOptions {
-    return { ...options, rechargedStartingResources: options.rechargedStartingResources ?? false };
+// created before them replay as they were played. A rule fixed without a stamp is
+// recognised from the game's own log instead: a $0 garbage buy can only have
+// happened under the old Wien discount.
+export function reconstructionOptions(options: GameOptions, log: LogItem[] = []): GameOptions {
+    const wienFreeGarbage =
+        options.wienFreeGarbage ||
+        log.some((item) => item.type == 'move' && /buys garbage for \$0\.$/.test(item.simple));
+
+    return {
+        ...options,
+        rechargedStartingResources: options.rechargedStartingResources ?? false,
+        ...(wienFreeGarbage ? { wienFreeGarbage: true } : {}),
+    };
 }
 
 function getBaseState(G: GameState): GameState {
     const baseState = setup(
         G.players.length,
-        reconstructionOptions(G.options),
+        reconstructionOptions(G.options, G.log),
         G.seed,
         undefined,
         undefined,

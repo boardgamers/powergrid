@@ -219,7 +219,7 @@ export function replay(G: GameState, { to = Infinity }: { to?: number } = {}): G
 
     G = engine.setup(
         G.players.length,
-        engine.reconstructionOptions(G.options),
+        engine.reconstructionOptions(G.options, G.log),
         G.seed,
         undefined,
         undefined,

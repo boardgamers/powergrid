@@ -1,0 +1,46 @@
+{
+    "game": "powergrid",
+    "gameVersion": 13,
+    "publishedAt": "2026-11-01T17:51:55.790Z",
+    "viewer": {
+        "version": "2.3.19",
+        "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-7591ffbc527393825d36/powergrid-viewer.umd.min.js",
+        "stylesheets": [
+            "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-7591ffbc527393825d36/powergrid-viewer.css"
+        ],
+        "scriptBytes": 1220594,
+        "sha256": "7ea36483c8ab18d00f6c2403d3bc0a942c63a5bd13bd3dc5364bd1b00d8b7db4",
+        "bundle": "split-7591ffbc527393825d36",
+        "files": 42
+    },
+    "removedPreferences": ["undoWholeTurn", "fitToScreen"],
+    "preferences": [
+        {
+            "label": "Enable sound when players move",
+            "type": "checkbox",
+            "name": "sound",
+            "items": null,
+            "default": false
+        },
+        {
+            "name": "showUnselectedRegions",
+            "label": "Show unselected regions",
+            "type": "checkbox",
+            "default": true
+        },
+        {
+            "label": "Adjust player order",
+            "type": "checkbox",
+            "name": "adjustPlayerOrder",
+            "items": null,
+            "default": false
+        },
+        {
+            "name": "colorBlind",
+            "label": "Color-blind mode",
+            "type": "checkbox",
+            "default": false
+        }
+    ],
+    "verified": true
+}

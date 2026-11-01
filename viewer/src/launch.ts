@@ -47,8 +47,7 @@ function launch(selector: string) {
             colorBlind: false,
             showUnselectedRegions: true,
             adjustPlayerOrder: false,
-            undoWholeTurn: true,
-            fitToScreen: true,
+
             geographicBackground: 'terrain',
         }),
         avatars: [],

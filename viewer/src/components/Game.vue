@@ -1,5 +1,5 @@
 <template>
-    <div :class="['game', { fitToScreen: preferences.fitToScreen && !stacked, stacked: stacked }]">
+    <div :class="['game', { stacked: stacked }]">
         <div class="planner-header" :class="{ planning: hasPlanPanel }">
             <div class="statusBar">
                 <span class="status-message" :title="getStatusMessage()">{{ getStatusMessage() }}</span>
@@ -473,6 +473,7 @@
                     :highlightButton="canUsePhaseButton"
                     :text="phaseButtonText"
                     :icon="phaseButtonIcon"
+                    :action="phaseButtonAction"
                     @click="usePhaseButton"
                 />
                 <!-- BGS's "Undo my move" (games against bots) takes this button's
@@ -918,14 +919,7 @@ import {
 } from '../util/turn-buffer';
 import { UIData, Preferences } from '../types/ui-data';
 import { Card, House, Coal, Oil, Garbage, Uranium } from './pieces';
-import {
-    Button,
-    PassButton,
-    UndoButton,
-    BoardOption,
-    SoundButton,
-    RulesButton,
-} from './buttons';
+import { Button, PassButton, UndoButton, BoardOption, SoundButton, RulesButton } from './buttons';
 import PlayerBoard from './PlayerBoard.vue';
 import Calculator from './Calculator.vue';
 import PowerPlantMarket from './boards/PowerPlantMarket.vue';
@@ -1229,7 +1223,11 @@ export default class Game extends Vue {
     private automaticPoweringRound = '';
 
     get buildingPowerCapacity() {
-        if (this.G?.phase !== Phase.Building || this.player === undefined || !this.G.currentPlayers.includes(this.player))
+        if (
+            this.G?.phase !== Phase.Building ||
+            this.player === undefined ||
+            !this.G.currentPlayers.includes(this.player)
+        )
             return undefined;
         return this.G.players[this.player]?.powerPlants.reduce((total, plant) => total + plant.citiesPowered, 0);
     }
@@ -1363,21 +1361,36 @@ export default class Game extends Vue {
         if (this.canChangePowering) return 'Edit powering';
         if (this.tutorialMove || this.roundPlan) return 'Done';
         switch (this.G?.phase) {
-            case Phase.Auction: return this.G?.chosenPowerPlant ? 'Pass bid' : 'Skip auction';
-            case Phase.Resources: return 'Finish buying';
-            case Phase.Building: return 'Finish building';
-            case Phase.Bureaucracy: return 'Finish powering';
-            default: return 'Done';
+            case Phase.Auction:
+                return this.G?.chosenPowerPlant ? 'Pass bid' : 'Skip auction';
+            case Phase.Resources:
+                return 'Finish buying';
+            case Phase.Building:
+                return 'Finish building';
+            case Phase.Bureaucracy:
+                return 'Finish powering';
+            default:
+                return 'Done';
         }
     }
+    get phaseButtonAction(): string {
+        if ((this.revisableBid && !this.changingBid) || this.canChangePowering) return 'edit';
+        if (this.changingBid) return 'skip';
+        if (this.tutorialMove || this.roundPlan) return 'finish';
+        return this.G?.phase === Phase.Auction ? 'skip' : 'finish';
+    }
     get phaseButtonIcon(): string {
-        if (this.revisableBid && !this.changingBid || this.canChangePowering) return 'edit';
         switch (this.G?.phase) {
-            case Phase.Auction: return 'auction';
-            case Phase.Resources: return 'resources';
-            case Phase.Building: return 'building';
-            case Phase.Bureaucracy: return 'powering';
-            default: return 'done';
+            case Phase.Auction:
+                return 'auction';
+            case Phase.Resources:
+                return 'resources';
+            case Phase.Building:
+                return 'building';
+            case Phase.Bureaucracy:
+                return 'powering';
+            default:
+                return 'done';
         }
     }
     usePhaseButton() {
@@ -1799,13 +1812,8 @@ export default class Game extends Vue {
             return;
         }
 
-        // Honor the preference locally — the engine has no Undo move anymore: pop the
-        // last move from the turn buffer, or scrap the whole tentative turn.
-        if (this.preferences.undoWholeTurn) {
-            this.turnMoves = [];
-        } else {
-            this.turnMoves.pop();
-        }
+        // Undo one unconfirmed action at a time, regardless of legacy saved preferences.
+        this.turnMoves.pop();
 
         if (this.turnMoves.length > 0) {
             // Preview the shortened turn locally and re-send it so the server echoes
@@ -3340,7 +3348,7 @@ ul {
 // Once measured, the layout fits the viewport where possible and grows when
 // needed to preserve readable cities and cards. A second CSS cap would shrink
 // the whole board again, silently undoing those pixel-size floors.
-.fitToScreen #scene:not(.laid-out) {
+.game:not(.stacked) #scene:not(.laid-out) {
     max-height: calc(100vh - 40px);
 }
 

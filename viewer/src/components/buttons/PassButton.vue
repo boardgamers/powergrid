@@ -10,13 +10,27 @@
         @keydown.enter.prevent="enabled && $emit('click')"
         @keydown.space.prevent="enabled && $emit('click')"
     >
-        <rect width="80" height="26" fill="gainsboro" stroke="black" rx="2" />
+        <rect class="phase-background" width="80" height="26" fill="#e9edef" stroke="black" rx="3" />
+        <path class="action-background" d="M49 1H77Q79 1 79 3V23Q79 25 77 25H49Z" fill="#d1dce0" />
+        <path d="M49 3V23" stroke="#adbdc4" aria-hidden="true" />
         <path
             :d="iconPath"
-            transform="translate(30, 4)"
+            data-phase-icon
+            transform="translate(17, 4.5)"
             fill="none"
             stroke="black"
             stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+        />
+        <path
+            :d="actionPath"
+            data-action-icon
+            transform="translate(56, 5.5) scale(0.9)"
+            fill="none"
+            stroke="black"
+            stroke-width="1.6"
             stroke-linecap="round"
             stroke-linejoin="round"
             aria-hidden="true"
@@ -33,6 +47,16 @@ export default class PassButton extends Vue {
     @Prop() highlightButton!: boolean;
     @Prop() text!: string;
     @Prop({ default: 'done' }) icon!: string;
+    @Prop({ default: 'finish' }) action!: string;
+
+    get actionPath(): string {
+        const paths: Record<string, string> = {
+            skip: 'M16 8A7 7 0 1 1 2 8A7 7 0 1 1 16 8Z M4 3L14 13',
+            finish: 'M1 9L6 14L16 2',
+            edit: 'M2 11L12 1L16 5L6 15L1 16Z M10 3L14 7',
+        };
+        return paths[this.action] || paths.finish;
+    }
 
     get iconPath(): string {
         const paths: Record<string, string> = {
@@ -47,3 +71,19 @@ export default class PassButton extends Vue {
     }
 }
 </script>
+
+<style scoped>
+/* The whole control is clickable, but only the action inset reacts. Keep the
+   phase context unchanged instead of inheriting the board's generic hover. */
+.button.enabled:hover .phase-background {
+    fill: #e9edef;
+    stroke: black;
+}
+.button.enabled.highlightButton:hover .phase-background {
+    stroke: blue;
+}
+.button.enabled:hover .action-background,
+.button.enabled:focus-visible .action-background {
+    fill: white;
+}
+</style>

@@ -21,8 +21,6 @@ export type Preferences = {
     disableHelp?: boolean;
     showUnselectedRegions?: boolean;
     adjustPlayerOrder: boolean;
-    undoWholeTurn: boolean;
-    fitToScreen: boolean;
 };
 
 export interface Piece {

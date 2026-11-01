@@ -18,6 +18,28 @@ const move = (player: number, name: MoveName, data: unknown, time: number): LogI
 });
 const withLog = (log: LogItem[]) => ({ log } as GameState);
 
+describe('local undo', () => {
+    it('removes one action even with an old whole-turn preference saved', () => {
+        const sent: any[] = [];
+        const restored: any[] = [];
+        const context: any = {
+            preferences: { undoWholeTurn: true },
+            turnMoves: [{ name: 'first' }, { name: 'second' }],
+            committedState: { start: true },
+            replayTurnBuffer: () => ({ preview: true }),
+            emitter: { emit: (...args: any[]) => sent.push(args) },
+            replaceState: (state: any) => restored.push(state),
+            activateFreePlants: () => undefined,
+        };
+        options.methods.undo.call(context);
+        expect(context.turnMoves).to.deep.equal([{ name: 'first' }]);
+        expect(sent).to.deep.equal([['move', [{ name: 'first' }]]]);
+        options.methods.undo.call(context);
+        expect(context.turnMoves).to.deep.equal([]);
+        expect(restored[1]).to.equal(context.committedState);
+    });
+});
+
 describe('Undo my move', () => {
     const start: LogItem[] = [{ type: 'event', event: 'Game Start!' }];
     const mine = move(0, MoveName.ChoosePowerPlant, 3, 1);

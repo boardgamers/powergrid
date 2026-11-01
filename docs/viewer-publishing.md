@@ -16,3 +16,10 @@ preferences with `{ "name": "showUnselectedRegions", "label": "Show unselected r
 Preserve the other preferences. BGS only persists declared preference names, so
 this metadata change must accompany the viewer release. Old saved `disableHelp`
 values are ignored by the viewer; move indicators are always enabled.
+
+Viewer 2.3.19 also removes the `undoWholeTurn` and `fitToScreen` preferences.
+Remove those two entries from the BGS game-version preferences, preserving all
+other entries. Local undo now always removes one unconfirmed action, and board
+sizing is always automatic; old saved values for these preferences are ignored.
+The phase control pairs a phase pictogram with a skip, finish or edit pictogram.
+Only the action inset highlights on hover/focus; the whole control is clickable.

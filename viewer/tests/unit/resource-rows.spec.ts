@@ -141,6 +141,33 @@ describe('resource-rows', () => {
         expect(paidFrom(withWien), 'and a dollar less with it').to.equal(printed! - 1);
     });
 
+    it('the Wien discount never takes garbage below $1', () => {
+        const seat = 1;
+        const G = resourcesSeat('Central Europe', 4, '4', 5, seat);
+        expect(G, 'no Central Europe seat').to.not.be.null;
+
+        // A full market sells its next cube from the $1 space.
+        const full = clone(G!);
+        full.players[seat].cities.push({ name: 'Wien', region: 'red' } as never);
+        full.garbageMarket = 24;
+        full.players[seat].money = 50;
+
+        const garbage = resourceBlocks(full, { player: seat })
+            .flatMap((b) => b.rows)
+            .find((r) => r.label === 'Garbage')!;
+        expect(garbage.price, 'the $1 space still costs a Wien holder $1').to.equal(1);
+        expect(garbage.atPrice, 'the $1 and $2 spaces both cost $1').to.equal(6);
+        expect(garbage.next).to.equal(2);
+
+        // Room for one more garbage, whatever plants the walk happened to leave the seat.
+        full.players[seat].garbageCapacity = full.players[seat].garbageLeft + 2;
+        full.players[seat].availableMoves = availableMoves(full, full.players[seat]);
+        full.currentPlayers = [seat];
+        const buy = { name: MoveName.BuyResource, data: { resource: 'garbage' }, time: 1 };
+        const after = engineMove(clone(full), buy as never, seat);
+        expect(full.players[seat].money - after.players[seat].money, 'and the engine takes $1').to.equal(1);
+    });
+
     it('a map with no uranium on the track gets no uranium box', () => {
         for (const [map, expected] of [
             ['Australia', false],

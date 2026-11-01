@@ -10,7 +10,14 @@
         @keydown.enter.prevent="enabled && $emit('click')"
         @keydown.space.prevent="enabled && $emit('click')"
     >
-        <rect width="80" height="26" fill="gainsboro" stroke="black" rx="2" />
+        <rect
+            class="undo-background board-control-border turn-action-border"
+            width="80"
+            height="26"
+            fill="gainsboro"
+            stroke="black"
+            rx="4"
+        />
         <image
             v-if="icon === 'undo'"
             x="30"

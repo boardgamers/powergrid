@@ -1,0 +1,121 @@
+// Run after packaging: node viewer/scripts/action-controls-smoke.mjs
+import assert from 'node:assert/strict';
+import { chromium } from 'playwright';
+import { auctionPreviewServer } from './auction-preview.mjs';
+
+const server = auctionPreviewServer();
+await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_EXECUTABLE });
+try {
+    for (const mode of ['your-turn', 'only-pass']) {
+        const page = await browser.newPage();
+        await page.goto(`http://127.0.0.1:${server.address().port}/?mode=${mode}`);
+        const button = page.locator('[data-board-control="pass"]');
+        await button.waitFor();
+        const appearance = () =>
+            button.evaluate((element) => {
+                const style = (selector) => {
+                    const css = getComputedStyle(element.querySelector(selector));
+                    return { fill: css.fill, stroke: css.stroke, width: css.strokeWidth };
+                };
+                return {
+                    phase: style('.phase-background'),
+                    divider: style('.button-divider'),
+                    phaseIcon: style('[data-phase-icon]'),
+                    actionIcon: style('[data-action-icon]'),
+                    outline: style('.button-outline'),
+                };
+            });
+        const reference = page.locator('[data-board-control="color-blind"]');
+        const referenceStyle = () =>
+            reference.locator('.option-background').evaluate((e) => {
+                const css = getComputedStyle(e);
+                return { fill: css.fill, stroke: css.stroke, width: css.strokeWidth };
+            });
+        const referenceRest = await referenceStyle();
+        await reference.hover();
+        const referenceHover = await referenceStyle();
+        await page.mouse.move(0, 0);
+        const before = await appearance();
+        assert.equal(before.phase.fill, referenceRest.fill);
+        assert.equal(before.outline.stroke, mode === 'only-pass' ? 'rgb(0, 0, 255)' : 'rgb(0, 0, 0)');
+        assert.equal(await page.locator('[data-market-highlight]').count(), mode === 'only-pass' ? 0 : 1);
+        const checkHover = async (focused = false) => {
+            const after = await appearance();
+            assert.equal(after.outline.stroke, 'rgb(255, 255, 255)');
+            assert.equal(after.outline.fill, 'none');
+            assert.equal(after.phase.fill, focused ? referenceRest.fill : referenceHover.fill);
+            assert.equal(after.outline.width, focused ? '3px' : referenceHover.width);
+            assert.equal(after.divider.stroke, focused ? before.divider.stroke : 'rgb(89, 102, 108)');
+            for (const key of ['phaseIcon', 'actionIcon']) {
+                assert.deepEqual(after[key], before[key], `${key} stays unchanged`);
+            }
+        };
+        for (const side of ['[data-phase-icon]', '[data-action-icon]']) {
+            await button.locator(side).hover();
+            await checkHover();
+        }
+        await page.mouse.move(0, 0);
+        assert.deepEqual(await appearance(), before);
+        await button.focus();
+        await checkHover(true);
+        if (mode === 'your-turn') {
+            const plant = page.locator('[data-market-plant="8"]');
+            await plant.hover();
+            assert.equal(
+                await plant
+                    .locator(':scope > rect')
+                    .first()
+                    .evaluate((e) => getComputedStyle(e).stroke),
+                'rgb(255, 255, 255)'
+            );
+        }
+        await page.close();
+        console.log(`${mode}: hover matches board options; focus and market cues passed`);
+    }
+    const page = await browser.newPage();
+    await page.goto(`http://127.0.0.1:${server.address().port}/?mode=resources`);
+    const phaseButton = page.locator('[data-board-control="pass"]');
+    await phaseButton.waitFor();
+    assert(await phaseButton.evaluate((e) => e.classList.contains('skip-action')));
+    await page.evaluate(() => {
+        const deck = document.querySelector('[data-board-slot="powerPlantDeck"]');
+        window.deckSnapshots = [deck.innerHTML];
+        window.deckObserver = new MutationObserver(() => window.deckSnapshots.push(deck.innerHTML));
+        window.deckObserver.observe(deck, { childList: true, attributes: true, characterData: true, subtree: true });
+    });
+    const echo = page.waitForResponse((response) => response.url().includes('/move?'));
+    await page.evaluate(() => {
+        const game = document.querySelector('.game').__vue__;
+        game.buyResource(game.G.players[0].availableMoves.BuyResource[0]);
+    });
+    await echo;
+    await page.waitForFunction(
+        () => !document.querySelector('[data-board-control="pass"]').classList.contains('skip-action')
+    );
+    const undo = page.locator('[data-board-control="undo"]');
+    const width = (locator) => locator.evaluate((e) => getComputedStyle(e).strokeWidth);
+    assert.equal(await width(phaseButton.locator('.button-outline')), '2px');
+    assert.equal(await width(undo.locator('.undo-background')), '2px');
+    await undo.click();
+    await page.waitForFunction(() =>
+        document.querySelector('[data-board-control="pass"]').classList.contains('skip-action')
+    );
+    assert.equal(await width(phaseButton.locator('.button-outline')), '2px');
+    assert.equal(await width(undo.locator('.undo-background')), '1px', 'disabled undo is thinner');
+    const snapshots = await page.evaluate(() => {
+        window.deckObserver.disconnect();
+        return window.deckSnapshots;
+    });
+    assert(
+        snapshots.every((snapshot) => snapshot === snapshots[0]),
+        'draw pile stays unchanged during buy/echo/undo'
+    );
+    await page.close();
+    console.log(
+        'Resources: skip → finish → undo → skip; matching enabled borders, thin disabled border, stable draw pile'
+    );
+} finally {
+    await browser.close();
+    await new Promise((resolve) => server.close(resolve));
+}

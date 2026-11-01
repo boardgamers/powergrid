@@ -182,6 +182,13 @@ export function replayTurnBuffer(
     for (const move of turnMoves) {
         try {
             state = engineMove(state, move, player);
+            // The viewer receives an empty secret deck, not an exhausted deck.
+            // Tentative moves cannot draw cards; retain the public counters rather
+            // than flashing an empty pile until the server's echo restores them.
+            if (committedState.seed === 'secret' && state.newTurn === false) {
+                state.cardsLeft = committedState.cardsLeft;
+                state.nextCardWeak = committedState.nextCardWeak;
+            }
         } catch (err) {
             console.error('dropping turn-buffer tail no longer legal on the committed state', move, err);
             failure = err;

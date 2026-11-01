@@ -11,7 +11,7 @@
         @keydown.enter.prevent="$emit('click')"
         @keydown.space.prevent="$emit('click')"
     >
-        <rect class="option-background" width="36" height="26" rx="4" stroke="black" />
+        <rect class="option-background board-control-border" width="36" height="26" rx="4" stroke="black" />
         <g transform="translate(7, 2)" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
             <template v-if="icon === 'shapes'">
                 <path d="M6 1L11 9H1Z" />
@@ -64,14 +64,8 @@ export default class BoardOption extends Vue {
 .active {
     color: white;
 }
-.board-option:hover .option-background {
-    stroke-width: 2;
-}
+
 .board-option:focus {
     outline: none;
-}
-.board-option:focus-visible .option-background {
-    stroke: #fff;
-    stroke-width: 3;
 }
 </style>

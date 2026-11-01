@@ -160,4 +160,7 @@ export default class Card extends Mixins(Piece) {
 .canClick {
     cursor: pointer;
 }
+[data-market-plant].canClick:hover > rect:first-of-type {
+    stroke: white;
+}
 </style>

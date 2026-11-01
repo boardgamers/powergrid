@@ -470,7 +470,7 @@
                 <PassButton
                     transform="translate(15, 15)"
                     :enabled="canUsePhaseButton"
-                    :highlightButton="canUsePhaseButton"
+                    :highlightButton="highlightPhaseButton"
                     :text="phaseButtonText"
                     :icon="phaseButtonIcon"
                     :action="phaseButtonAction"
@@ -902,6 +902,7 @@
 </template>
 <script lang="ts">
 import { isEqual } from 'lodash';
+import './buttons/board-control.css';
 import { resolvePlayerColors, colorText } from '../player-colors';
 import InlineLog from './InlineLog.vue';
 import { Vue, Component, Prop, Watch, Provide, ProvideReactive, Ref } from 'vue-property-decorator';
@@ -1350,6 +1351,14 @@ export default class Game extends Vue {
         if (this.changingBid) return this.player !== this.G!.auctioningPlayer;
         return !!this.revisableBid || this.canChangePowering || this.canPass();
     }
+    get highlightPhaseButton(): boolean {
+        if (!this.canUsePhaseButton) return false;
+        if (this.phaseButtonAction !== 'skip') return true;
+        if (this.changingBid) return this.revisionBids.length === 0;
+        const moves = this.G?.players[this.player!]?.availableMoves;
+        if (this.G?.phase === Phase.Resources) return !moves?.[MoveName.BuyResource]?.length;
+        return !moves?.[MoveName.Bid]?.length && !moves?.[MoveName.ChoosePowerPlant]?.length;
+    }
     get phaseButtonText(): string {
         if (this.changingBid) return 'Pass bid';
         if (this.revisableBid) return 'Edit bid';
@@ -1371,6 +1380,7 @@ export default class Game extends Vue {
     get phaseButtonAction(): string {
         if ((this.revisableBid && !this.changingBid) || this.canChangePowering) return 'edit';
         if (this.changingBid) return 'skip';
+        if (this.G?.phase === Phase.Resources) return this.playerBoughtResourceThisTurn() ? 'finish' : 'skip';
         if (this.tutorialMove || this.roundPlan) return 'finish';
         return this.G?.phase === Phase.Auction ? 'skip' : 'finish';
     }

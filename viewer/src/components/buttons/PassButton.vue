@@ -1,6 +1,6 @@
 <template>
     <g
-        :class="['button', { enabled, highlightButton }]"
+        :class="['button', { enabled, highlightButton, 'skip-action': action === 'skip' }]"
         data-board-control="pass"
         role="button"
         :aria-label="text"
@@ -10,13 +10,12 @@
         @keydown.enter.prevent="enabled && $emit('click')"
         @keydown.space.prevent="enabled && $emit('click')"
     >
-        <rect class="phase-background" width="80" height="26" fill="#e9edef" stroke="black" rx="3" />
-        <path class="action-background" d="M49 1H77Q79 1 79 3V23Q79 25 77 25H49Z" fill="#d1dce0" />
-        <path d="M49 3V23" stroke="#adbdc4" aria-hidden="true" />
+        <path class="phase-background" d="M4 0H76Q80 0 80 4V22Q80 26 76 26H4Q0 26 0 22V4Q0 0 4 0Z" fill="gainsboro" />
+        <path class="button-divider" d="M40 0V26" stroke="#88949a" aria-hidden="true" />
         <path
             :d="iconPath"
             data-phase-icon
-            transform="translate(17, 4.5)"
+            transform="translate(12, 5)"
             fill="none"
             stroke="black"
             stroke-width="1.5"
@@ -27,13 +26,23 @@
         <path
             :d="actionPath"
             data-action-icon
-            transform="translate(56, 5.5) scale(0.9)"
+            transform="translate(52, 5)"
             fill="none"
             stroke="black"
-            stroke-width="1.6"
+            stroke-width="1.5"
             stroke-linecap="round"
             stroke-linejoin="round"
             aria-hidden="true"
+        />
+        <!-- Paint the shared outline last so neither half can cover the highlight. -->
+        <rect
+            class="button-outline board-control-border turn-action-border"
+            width="80"
+            height="26"
+            fill="none"
+            stroke="black"
+            rx="4"
+            pointer-events="none"
         />
         <title>{{ text }}</title>
     </g>
@@ -51,7 +60,7 @@ export default class PassButton extends Vue {
 
     get actionPath(): string {
         const paths: Record<string, string> = {
-            skip: 'M16 8A7 7 0 1 1 2 8A7 7 0 1 1 16 8Z M4 3L14 13',
+            skip: 'M16 8A8 8 0 1 1 0 8A8 8 0 1 1 16 8Z M2.34 2.34L13.66 13.66',
             finish: 'M1 9L6 14L16 2',
             edit: 'M2 11L12 1L16 5L6 15L1 16Z M10 3L14 7',
         };
@@ -73,17 +82,19 @@ export default class PassButton extends Vue {
 </script>
 
 <style scoped>
-/* The whole control is clickable, but only the action inset reacts. Keep the
-   phase context unchanged instead of inheriting the board's generic hover. */
+/* Match the color-blind/simulation controls: one grey surface, black border,
+   then silver with a white border on hover. Keep the icons unchanged. */
+.button .button-outline {
+    fill: none;
+}
 .button.enabled:hover .phase-background {
-    fill: #e9edef;
-    stroke: black;
+    fill: silver;
 }
-.button.enabled.highlightButton:hover .phase-background {
-    stroke: blue;
+.button.enabled:hover .button-divider {
+    stroke: #59666c;
 }
-.button.enabled:hover .action-background,
-.button.enabled:focus-visible .action-background {
-    fill: white;
+.button.enabled:hover .button-outline,
+.button.enabled:focus-visible .button-outline {
+    fill: none;
 }
 </style>

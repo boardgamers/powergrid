@@ -22,4 +22,16 @@ Remove those two entries from the BGS game-version preferences, preserving all
 other entries. Local undo now always removes one unconfirmed action, and board
 sizing is always automatic; old saved values for these preferences are ignored.
 The phase control pairs a phase pictogram with a skip, finish or edit pictogram.
-Only the action inset highlights on hover/focus; the whole control is clickable.
+From viewer 2.3.20, the paired pictograms use one shared grey surface with the
+same silver/white-border hover as the color-blind and simulation controls. The
+separator darkens on hover to preserve contrast. Passing has a normal black
+border unless it is the only legal option, when it gets a blue cue. Unaffordable
+plants are muted while choosing; the market outline is hidden when there are no
+legal plant choices. The resource action shows skip until a purchase is made,
+then finish; undoing all purchases restores skip. Phase actions and Undo share
+2-unit borders while enabled and 1-unit borders while disabled. Local tentative
+previews preserve public deck counters so buying resources does not flash an empty
+draw pile. Existing pass-confirmation dialogs are unchanged.
+
+After packaging, run `node viewer/scripts/action-controls-smoke.mjs` to check
+normal/only-pass states and hover/focus styling against the board-option buttons.

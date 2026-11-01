@@ -77,6 +77,10 @@ export interface GameOptions {
     // Set only by reconstructionOptions, for games without fusionEcological, so their
     // Québec deck is rebuilt the old way. Never stored.
     legacyEcological?: boolean;
+    // Central Europe's Wien discount once let garbage cost $0; both rulebooks say
+    // never less than $1. Set only when rebuilding a game whose log already shows a
+    // $0 garbage buy, so it replays as it was played (see reconstructionOptions).
+    wienFreeGarbage?: boolean;
 }
 
 export enum ResourceType {

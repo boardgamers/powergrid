@@ -1,4 +1,5 @@
 import type { GameState } from 'powergrid-engine';
+import { garbagePrice } from 'powergrid-engine/src/available-moves';
 
 /**
  * The row model behind the portrait resource market (`boards/ResourceBoxes.vue`).
@@ -107,19 +108,20 @@ function sameMove(a: BuyMove, b: BuyMove): boolean {
 }
 
 /**
- * Central Europe sells garbage a dollar cheaper to whoever holds Wien — and the
- * engine really does charge the lower price, not just offer the move. The box shows
- * the price THIS player would pay, because that is the only number a tap can act on.
+ * Central Europe sells garbage a dollar cheaper (never below $1) to whoever holds
+ * Wien — and the engine really does charge the lower price, not just offer the move.
+ * The box shows the price THIS player would pay, because that is the only number a
+ * tap can act on.
  */
-function wienDiscount(G: GameState, resource: string, player: number | undefined): number {
-    if (resource !== 'garbage' || G.map.name !== 'Central Europe' || player === undefined) return 0;
-    const me = G.players[player];
-    if (!me) return 0;
-    return me.cities.some((c) => c.name === 'Wien') ? 1 : 0;
+function chargedPrices(G: GameState, resource: string, north: boolean, player: number | undefined): number[] {
+    const prices = pricesFor(G, resource, north);
+    const me = player === undefined ? undefined : G.players[player];
+    if (resource !== 'garbage' || north || !me) return prices;
+    return prices.map((printedPrice) => garbagePrice(G, me, printedPrice));
 }
 
 function marketRow(G: GameState, resource: string, north: boolean, opts: RowOptions): ResourceRow {
-    const prices = pricesFor(G, resource, north);
+    const prices = chargedPrices(G, resource, north, opts.player);
     const cubes = cubesIn(G, resource, north);
     // Cubes fill from the dear end, so the next one sold is at `length - cubes`.
     // Clamped only so a market holding more cubes than its track has slots reads as
@@ -133,20 +135,18 @@ function marketRow(G: GameState, resource: string, north: boolean, opts: RowOpti
     let next: number | null = null;
 
     if (cubes > 0) {
-        price = prices[idx] - (north ? 0 : wienDiscount(G, resource, opts.player));
+        price = prices[idx];
         for (let i = idx; i < prices.length && prices[i] === prices[idx]; i++) atPrice++;
         for (let i = idx; i < prices.length; i++) {
             if (prices[i] !== prices[idx]) {
-                next = prices[i] - (north ? 0 : wienDiscount(G, resource, opts.player));
+                next = prices[i];
                 break;
             }
         }
     }
 
-    const discount = north ? 0 : wienDiscount(G, resource, opts.player);
     const tiers: PriceTier[] = [];
-    prices.forEach((printedPrice, i) => {
-        const price = printedPrice - discount;
+    prices.forEach((price, i) => {
         let tier = tiers.find((t) => t.price === price);
         if (!tier) {
             tier = { price, cubes: 0, capacity: 0, capped: price > maxPrice(G) };

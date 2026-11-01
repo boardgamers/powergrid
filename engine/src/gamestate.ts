@@ -35,6 +35,9 @@ export type MapName =
     | 'Bremen'
     | 'Manhattan';
 export type Variant = 'original' | 'recharged';
+// 'standard' is the base game's deck; deck1 and deck2 are The New Power Plants
+// (Set 1) and Set 2. See plantCatalogue in powerPlants.ts.
+export type PowerPlantDeck = 'standard' | 'deck1' | 'deck2';
 
 export interface GameOptions {
     fastBid?: boolean;
@@ -53,10 +56,14 @@ export interface GameOptions {
     // When set, each player picks their own color (in turn) at the start of the
     // game instead of colors being assigned by seat. Runs before the region draft.
     chooseColors?: boolean;
-    // When set, the game uses the alternate power plant deck (see
-    // alternatePowerPlants in powerPlants.ts) instead of the standard one. Only
-    // honoured on the maps in ALTERNATE_DECK_MAPS; ignored everywhere else.
+    // Legacy: the alternate deck (Deck 2), honoured only on the maps in
+    // ALTERNATE_DECK_MAPS. Games created with it keep storing it; new games use
+    // powerPlantDeck, which wins when both are given.
     alternatePowerPlants?: boolean;
+    // The power plant deck. 'random' picks one of the map's available decks at
+    // setup; the resolved deck is what gets stored, and only when it isn't the
+    // standard one. A deck the map doesn't support falls back to the standard deck.
+    powerPlantDeck?: PowerPlantDeck | 'random';
     // Stored by setup on maps whose starting resources differ by variant. Games
     // created before this existed started Recharged with the Original market, so
     // reconstructing one without the flag keeps that (see reconstructionOptions).

@@ -27,6 +27,7 @@ import {
     Player,
     playerColors,
     PowerPlant,
+    PowerPlantDeck,
     PowerPlantType,
     ResourceType,
     resupplyUraniumMine,
@@ -35,9 +36,12 @@ import {
 import { GameMap, maps, mapsRecharged } from './maps';
 import { Move, MoveName, Moves } from './move';
 import {
+    availableDecks,
     ECOLOGICAL_RULE_MAPS,
     FUSION_IS_ECOLOGICAL,
     isEcological,
+    lastPlugPlant,
+    PHASE_OUT_PLANT,
     plantCatalogue,
     powerPlants,
     usesAlternateDeck,
@@ -71,11 +75,12 @@ export function defaultSetupDeck(
     let actualMarket: PowerPlant[];
     let futureMarket: PowerPlant[];
     let powerPlantsDeck: PowerPlant[] = cloneDeep(deck);
-    const plant = (num: number) => deck.find((p) => p.number == num)!;
 
     if (variant == 'original') {
+        // The eight smallest plants open the market (03–10, or 01–08 in Deck 1); the
+        // third plant after them goes on top of the deck (13, or 11 in Deck 1).
         powerPlantsDeck = powerPlantsDeck.slice(8);
-        const powerPlant13 = powerPlantsDeck.splice(2, 1)[0];
+        const topPlant = powerPlantsDeck.splice(2, 1)[0];
         const step3 = powerPlantsDeck.pop()!;
 
         powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
@@ -85,13 +90,14 @@ export function defaultSetupDeck(
             powerPlantsDeck = powerPlantsDeck.slice(4);
         }
 
-        powerPlantsDeck.unshift(powerPlant13);
+        powerPlantsDeck.unshift(topPlant);
         powerPlantsDeck.push(step3);
 
-        actualMarket = [plant(3), plant(4), plant(5), plant(6)];
-        futureMarket = [plant(7), plant(8), plant(9), plant(10)];
+        actualMarket = deck.slice(0, 4);
+        futureMarket = deck.slice(4, 8);
     } else {
-        let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 13), rng() + '');
+        const plugCount = deck.filter((p) => p.number <= lastPlugPlant(deck)).length;
+        let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, plugCount), rng() + '');
         let initialPlantMarket = initialPowerPlants.splice(0, 8);
         initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
         actualMarket = initialPlantMarket.slice(0, 4);
@@ -139,6 +145,7 @@ export function setup(
         chooseRegions = false,
         chooseColors = false,
         alternatePowerPlants = false,
+        powerPlantDeck,
         rechargedStartingResources = true,
         fusionEcological = FUSION_IS_ECOLOGICAL,
         legacyEcological = false,
@@ -174,9 +181,18 @@ export function setup(
         ? chosenMap.startingResources.recharged
         : chosenMap.startingResources.original;
     if (startingResources) chosenMap.startingResources = startingResources;
-    // The option is only honoured on the maps that support the alternate deck.
-    const alternateDeck = usesAlternateDeck(chosenMap.name, alternatePowerPlants);
-    const deck = plantCatalogue(chosenMap.name, alternateDeck);
+    const decks = availableDecks(chosenMap.name);
+    // Dedicated rng so the pick doesn't shift the rest of the setup's draws.
+    const requestedDeck =
+        powerPlantDeck == 'random' ? decks[Math.floor(seedrandom(seed + '-deck')() * decks.length)] : powerPlantDeck;
+    // The legacy option only applies when no deck is asked for, and only on its own maps.
+    const legacyAlternateDeck = !requestedDeck && usesAlternateDeck(chosenMap.name, alternatePowerPlants);
+    const chosenDeck: PowerPlantDeck = legacyAlternateDeck
+        ? 'deck2'
+        : requestedDeck && decks.includes(requestedDeck)
+        ? requestedDeck
+        : 'standard';
+    const deck = plantCatalogue(chosenMap.name, chosenDeck);
     const ecologicalRules = ECOLOGICAL_RULE_MAPS.includes(chosenMap.name) && !legacyEcological;
 
     let actualMarket: PowerPlant[];
@@ -193,7 +209,7 @@ export function setup(
                 numPlayers,
                 variant,
                 rng,
-                alternateDeck ? deck : undefined,
+                chosenDeck != 'standard' ? deck : undefined,
                 legacyEcological ? true : fusionEcological
             ));
         } else {
@@ -202,7 +218,7 @@ export function setup(
                 variant,
                 rng,
                 useNewRechargedSetup,
-                alternateDeck ? deck : undefined
+                chosenDeck != 'standard' ? deck : undefined
             ));
         }
     }
@@ -220,7 +236,7 @@ export function setup(
         uraniumLeft: 0,
         hybridCapacity: 0,
         hybridLeft: 0,
-        ...(alternateDeck ? { garbageOilHybridCapacity: 0 } : {}),
+        ...(chosenDeck == 'deck2' ? { garbageOilHybridCapacity: 0 } : {}),
         money: 50,
         housesLeft: 22,
         cities: [],
@@ -469,7 +485,11 @@ export function setup(
             chooseRegions,
             chooseColors,
             // Only stored when in effect, so states of every other game are unchanged.
-            ...(alternateDeck ? { alternatePowerPlants: true } : {}),
+            ...(legacyAlternateDeck
+                ? { alternatePowerPlants: true }
+                : chosenDeck != 'standard'
+                ? { powerPlantDeck: chosenDeck }
+                : {}),
             ...(variantStartingResources && rechargedStartingResources ? { rechargedStartingResources: true } : {}),
             ...(ecologicalRules ? { fusionEcological } : {}),
         },
@@ -753,7 +773,9 @@ export function move(
             G.chosenPowerPlant = G.actualMarket.find((p) => p.number === move.data)!;
             G.auctioningPlayer = player.id;
 
-            if (move.data == 39) {
+            // Named card39Bought from the standard deck's plant; old games, which have
+            // no powerPlantDeck, keep keying it on 39.
+            if (move.data == PHASE_OUT_PLANT[(G.options.powerPlantDeck as PowerPlantDeck) ?? 'standard']) {
                 G.card39Bought = true;
             }
 
@@ -2805,8 +2827,8 @@ function removePowerPlant(G: GameState, powerPlant: PowerPlant) {
     );
 }
 
-export function getPowerPlant(num: number, mapName = '', alternatePowerPlants = false): PowerPlant {
-    return plantCatalogue(mapName, alternatePowerPlants).find((p) => p.number == num)!;
+export function getPowerPlant(num: number, mapName = '', deck: PowerPlantDeck = 'standard'): PowerPlant {
+    return plantCatalogue(mapName, deck).find((p) => p.number == num)!;
 }
 
 // Options for rebuilding an existing game's starting state. Settings that new games

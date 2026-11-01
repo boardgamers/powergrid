@@ -2,7 +2,7 @@ import seedrandom from 'seedrandom';
 import { availableMoves } from './available-moves';
 import { defaultSetupDeck, reconstructState, setup, stripSecret } from './engine';
 import { GameState, PowerPlant, PowerPlantType } from './gamestate';
-import { isEcological, plantCatalogue } from './powerPlants';
+import { gameDeck, isEcological, lastPlugPlant, plantCatalogue } from './powerPlants';
 import { shuffle } from './utils';
 
 /** Unknown cards come from the published catalogue, never the live draw pile. */
@@ -26,7 +26,8 @@ export function createAnalysisScenario(
         excluded =
             n <= 3 ? [3, 4, 9, 11, 16, 18, 20, 24, 30, 33, 46] : n === 4 ? [3, 4, 11, 18, 24, 33, 46] : [3, 4, 33];
     if (name === 'Spain & Portugal' && s.step === 1) excluded = [18, 22, 27];
-    const catalogue = JSON.parse(JSON.stringify(plantCatalogue(name, s.options.alternatePowerPlants))) as PowerPlant[];
+    const deckCatalogue = plantCatalogue(name, gameDeck(s.options));
+    const catalogue = JSON.parse(JSON.stringify(deckCatalogue)) as PowerPlant[];
     for (const region of new Set(s.regionDraft ? [] : s.map.cities.map((c) => c.region))) {
         for (const replacement of s.map.regionalPowerPlants?.[region] || []) {
             const i = catalogue.findIndex((p) => p.number === replacement.number);
@@ -152,7 +153,7 @@ export function createAnalysisScenario(
                       s.options.useNewRechargedSetup ?? true
                   )
                 : setup(n, s.options, seed + ':catalogue-counts');
-        const threshold = name === 'India' ? 16 : 15;
+        const threshold = name === 'India' ? 16 : lastPlugPlant(deckCatalogue);
         const low = (p: PowerPlant) => p.number <= threshold;
         const initialLow = [...initial.actualMarket, ...initial.futureMarket, ...initial.powerPlantsDeck].filter(
             low

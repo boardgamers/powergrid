@@ -20,12 +20,19 @@ describe('journal plant illustrations', () => {
         }
     });
 
-    it('retains the standard and alternate deck lookup for discarded cards', () => {
-        for (const alternatePowerPlants of [false, true]) {
-            const state = setup(3, { map: 'Germany', alternatePowerPlants }, 'journal');
+    it("looks up discarded cards in the game's deck", () => {
+        for (const powerPlantDeck of ['standard', 'deck1', 'deck2'] as const) {
+            const state = setup(3, { map: 'Germany', powerPlantDeck }, 'journal');
             state.actualMarket = [];
             state.futureMarket = [];
-            expect(journalPlant(state, 18)).to.deep.equal(getPowerPlant(18, 'Germany', alternatePowerPlants));
+            expect(journalPlant(state, 20)).to.deep.equal(getPowerPlant(20, 'Germany', powerPlantDeck));
         }
+    });
+
+    it('reads the legacy alternate deck flag where it applied', () => {
+        const state = setup(3, { map: 'Europe', alternatePowerPlants: true }, 'journal');
+        state.actualMarket = [];
+        state.futureMarket = [];
+        expect(journalPlant(state, 20)).to.deep.equal(getPowerPlant(20, 'Europe', 'deck2'));
     });
 });

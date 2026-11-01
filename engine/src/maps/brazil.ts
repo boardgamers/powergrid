@@ -1,10 +1,10 @@
 import { cloneDeep } from 'lodash';
 import seedrandom from 'seedrandom';
-import { getPowerPlant } from '../engine';
-import { PowerPlant, PowerPlantType } from '../gamestate';
+import { originalTopPlants, rechargedMarketPlants } from '../deckChanges';
+import { PowerPlant, PowerPlantDeck, PowerPlantType } from '../gamestate';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
-import { powerPlants } from './../powerPlants';
+import { lastPlugPlant, plantCatalogue } from './../powerPlants';
 
 export enum Regions {
     Red = 'red',
@@ -233,18 +233,25 @@ export const map: GameMap = {
     ],
     // Recharged rulebook: coal 1–8, oil 3–8, biogas 6–8, uranium 14–16.
     startingResources: { original: [24, 18, 6, 2], recharged: [24, 18, 9, 2] },
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
-        let powerPlantsDeck = cloneDeep(powerPlants);
+    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, deck: PowerPlantDeck = 'standard') {
+        const catalogue = plantCatalogue('Brazil', deck);
+        let powerPlantsDeck = cloneDeep(catalogue);
         let actualMarket: PowerPlant[];
         let futureMarket: PowerPlant[];
 
-        // remove garbage power plants
-        const garbagePlants = powerPlantsDeck.filter((pp) => pp.type == PowerPlantType.Garbage && pp.number > 14);
+        // The biogas (garbage) plants beyond the plug cards sit out the player-count removal.
+        const garbagePlants = powerPlantsDeck.filter(
+            (pp) => pp.type == PowerPlantType.Garbage && pp.number > lastPlugPlant(deck)
+        );
 
         if (variant == 'original') {
+            // 13, then the low biogas plant 14, go on top (see originalTopPlants).
             powerPlantsDeck = powerPlantsDeck.slice(8);
-            const powerPlant13 = powerPlantsDeck.splice(2, 1)[0];
-            const powerPlant14 = powerPlantsDeck.splice(2, 1)[0];
+            const topPlants: PowerPlant[] = [];
+            for (const number of originalTopPlants('Brazil', deck)) {
+                const index = powerPlantsDeck.findIndex((pp) => pp.number == number);
+                if (index >= 0) topPlants.push(powerPlantsDeck.splice(index, 1)[0]);
+            }
             const step3 = powerPlantsDeck.pop()!;
 
             powerPlantsDeck = shuffle(
@@ -260,19 +267,21 @@ export const map: GameMap = {
             powerPlantsDeck = powerPlantsDeck.concat(garbagePlants);
             powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
 
-            powerPlantsDeck.unshift(powerPlant14);
-            powerPlantsDeck.unshift(powerPlant13);
+            powerPlantsDeck.unshift(...topPlants);
             powerPlantsDeck.push(step3);
 
-            actualMarket = [getPowerPlant(3), getPowerPlant(4), getPowerPlant(5), getPowerPlant(6)];
-            futureMarket = [getPowerPlant(7), getPowerPlant(8), getPowerPlant(9), getPowerPlant(10)];
+            actualMarket = catalogue.slice(0, 4);
+            futureMarket = catalogue.slice(4, 8);
         } else {
-            const powerPlant6 = powerPlantsDeck.splice(3, 1)[0];
-            const powerPlant14 = powerPlantsDeck.splice(10, 1)[0];
+            // The low biogas plants (06 and 14 in the standard deck) always open the market.
+            const marketPlants = rechargedMarketPlants('Brazil', deck);
+            const biogasPlants = powerPlantsDeck.filter((pp) => marketPlants.includes(pp.number));
+            powerPlantsDeck = powerPlantsDeck.filter((pp) => !marketPlants.includes(pp.number));
+            const plugCount = powerPlantsDeck.filter((pp) => pp.number <= lastPlugPlant(deck)).length;
 
-            let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 11), rng() + '');
-            let initialPlantMarket = initialPowerPlants.splice(0, 6);
-            initialPlantMarket.push(powerPlant6, powerPlant14);
+            let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, plugCount), rng() + '');
+            let initialPlantMarket = initialPowerPlants.splice(0, 8 - biogasPlants.length);
+            initialPlantMarket.push(...biogasPlants);
             initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
             actualMarket = initialPlantMarket.slice(0, 4);
             futureMarket = initialPlantMarket.slice(4);

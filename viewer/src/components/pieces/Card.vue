@@ -25,8 +25,8 @@
             <text text-anchor="middle" x="6" y="6" style="font-size: 12px" fill="black">$</text>
         </g>
         <g transform="translate(30, 10)">
-            <text text-anchor="middle" x="1" y="1" fill="gray">{{ powerPlant.number }}</text>
-            <text text-anchor="middle" fill="white">{{ powerPlant.number }}</text>
+            <text text-anchor="middle" x="1" y="1" fill="gray">{{ printedNumber }}</text>
+            <text text-anchor="middle" fill="white">{{ printedNumber }}</text>
         </g>
 
         <g :id="elId" :class="['piece']" transform="translate(40, 20) scale(0.035)">
@@ -116,6 +116,11 @@ export default class Card extends Mixins(Piece) {
 
     @Prop()
     activationState?: 'used' | 'unavailable' | 'ready' | 'idle';
+
+    // The shuffled decks number extra copies 46.1 and 46.2; the card shows 46.
+    get printedNumber() {
+        return Math.floor(this.powerPlant?.number ?? 0);
+    }
 
     get activationLabel() {
         return this.activationState === 'used' ? 'Activated' :

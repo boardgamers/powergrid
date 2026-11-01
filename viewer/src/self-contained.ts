@@ -1,6 +1,6 @@
 import { cloneDeep } from 'lodash';
 import { Move, Phase, setup, stripSecret } from 'powergrid-engine';
-import type { GameState, MapName, Variant } from 'powergrid-engine/src/gamestate';
+import type { GameState, MapName, PowerPlantDeck, Variant } from 'powergrid-engine/src/gamestate';
 import type { PremoveCommand } from 'powergrid-engine/src/premoves';
 import { move as wrapperMove, moveAI as wrapperAI } from 'powergrid-engine/wrapper';
 import { installLocalChat } from './game-chat';
@@ -29,6 +29,8 @@ function launchSelfContained(selector = '#app') {
         randomizeMap: params.get('randomize') === '1',
         chooseRegions: params.get('regions') === '1',
         alternatePowerPlants: params.get('altdeck') === '1',
+        // deck=deck1|deck2|random; altdeck=1 is the legacy Deck 2 switch (Europe/North America only).
+        powerPlantDeck: (params.get('deck') || undefined) as PowerPlantDeck | 'random' | undefined,
     };
     let gameState = setup(Number(params.get('players')) || 6, gameOptions, params.get('seed') || '0');
 

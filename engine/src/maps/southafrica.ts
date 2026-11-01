@@ -1,11 +1,8 @@
 // by John and Cici
-import { cloneDeep } from 'lodash';
 import seedrandom from 'seedrandom';
-import { getPowerPlant } from '../engine';
-import { PowerPlant } from '../gamestate';
-import { shuffle } from '../utils';
+import { defaultSetupDeck } from '../engine';
+import { PowerPlantDeck } from '../gamestate';
 import { GameMap } from './../maps';
-import { powerPlants } from './../powerPlants';
 
 export enum Regions {
     Orange = 'orange',
@@ -215,59 +212,8 @@ export const map: GameMap = {
     // recharged/original deck setup. With 07 gone the "starter pool" is one
     // plant shorter (12 instead of 13 for recharged; future market shifts to
     // 8/9/10/11 instead of 7/8/9/10 for original).
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
-        let powerPlantsDeck = cloneDeep(powerPlants).filter((pp) => pp.number !== 7);
-        let actualMarket: PowerPlant[];
-        let futureMarket: PowerPlant[];
-
-        if (variant == 'original') {
-            powerPlantsDeck = powerPlantsDeck.slice(8);
-            const powerPlant13Idx = powerPlantsDeck.findIndex((pp) => pp.number == 13);
-            const powerPlant13 = powerPlantsDeck.splice(powerPlant13Idx, 1)[0];
-            const step3 = powerPlantsDeck.pop()!;
-
-            powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
-            if (numPlayers == 2 || numPlayers == 3) {
-                powerPlantsDeck = powerPlantsDeck.slice(8);
-            } else if (numPlayers == 4) {
-                powerPlantsDeck = powerPlantsDeck.slice(4);
-            }
-
-            powerPlantsDeck.unshift(powerPlant13);
-            powerPlantsDeck.push(step3);
-
-            actualMarket = [getPowerPlant(3), getPowerPlant(4), getPowerPlant(5), getPowerPlant(6)];
-            futureMarket = [getPowerPlant(8), getPowerPlant(9), getPowerPlant(10), getPowerPlant(11)];
-        } else {
-            let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 12), rng() + '');
-            let initialPlantMarket = initialPowerPlants.splice(0, 8);
-            initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
-            actualMarket = initialPlantMarket.slice(0, 4);
-            futureMarket = initialPlantMarket.slice(4);
-
-            const first = initialPowerPlants.shift()!;
-            const step3 = powerPlantsDeck.pop()!;
-
-            powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
-            if (numPlayers == 2) {
-                // Recharged 2P removes 1 plug + 5 socket (was incorrectly lumped with 3P).
-                initialPowerPlants = initialPowerPlants.slice(1);
-                powerPlantsDeck = shuffle(powerPlantsDeck.slice(5).concat(initialPowerPlants), rng() + '');
-            } else if (numPlayers == 3) {
-                initialPowerPlants = initialPowerPlants.slice(2);
-                powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
-            } else if (numPlayers == 4) {
-                initialPowerPlants = initialPowerPlants.slice(1);
-                powerPlantsDeck = shuffle(powerPlantsDeck.slice(3).concat(initialPowerPlants), rng() + '');
-            } else {
-                powerPlantsDeck = shuffle(powerPlantsDeck.concat(initialPowerPlants), rng() + '');
-            }
-
-            powerPlantsDeck.unshift(first);
-            powerPlantsDeck.push(step3);
-        }
-
-        return { actualMarket, futureMarket, powerPlantsDeck };
+    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, deck: PowerPlantDeck = 'standard') {
+        return defaultSetupDeck(numPlayers, variant, rng, true, deck, 'South Africa');
     },
     mapSpecificRules:
         'Coal storage: there is a separate storage space below the resource market, ' +

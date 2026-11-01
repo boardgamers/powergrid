@@ -1,9 +1,11 @@
 // by John and Cici
 import { cloneDeep } from 'lodash';
 import seedrandom from 'seedrandom';
+import { removedPlants } from '../deckChanges';
+import { PowerPlantDeck } from '../gamestate';
 import { shuffle } from '../utils';
 import { City, Connection, GameMap } from './../maps';
-import { powerPlants } from './../powerPlants';
+import { lastPlugPlant, plantCatalogue } from './../powerPlants';
 
 // Manhattan (RIO 686 Bremen/Manhattan expansion) is unlike every other board:
 //  • A SINGLE region. Every building space holds exactly ONE house, at its printed
@@ -336,27 +338,23 @@ export const map: GameMap = {
     // ≤ 15): box 4, keep 9 on top of the stack; the opening 8-card market is drawn
     // from them. "Socket" cards (> 15) form the rest of the stack. The deck-depletion
     // market lifecycle (separate-pile reshuffle → all-buyable → shrink) is Session 2.
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
-        const boxed = new Set<number>();
-        if (numPlayers <= 3) {
-            boxed.add(20);
-            boxed.add(22);
-            boxed.add(37);
-        }
-        const deck = cloneDeep(powerPlants).filter((pp) => !boxed.has(pp.number));
+    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, powerPlantDeck: PowerPlantDeck = 'standard') {
+        const boxed = new Set(removedPlants('Manhattan', powerPlantDeck, numPlayers, variant));
+        const deck = cloneDeep(plantCatalogue('Manhattan', powerPlantDeck)).filter((pp) => !boxed.has(pp.number));
         // Last entry of the master list is the Step 3 card → boxed (dropped), so the
         // game can never advance out of Step 1.
         deck.pop();
 
+        const lastPlug = lastPlugPlant(powerPlantDeck);
         const plug = shuffle(
-            deck.filter((pp) => pp.number <= 15),
+            deck.filter((pp) => pp.number <= lastPlug),
             rng() + ''
         );
         const socket = shuffle(
-            deck.filter((pp) => pp.number > 15),
+            deck.filter((pp) => pp.number > lastPlug),
             rng() + ''
         );
-        plug.splice(0, 4); // four plug cards to the box
+        plug.splice(0, plug.length - 9); // plug cards to the box, leaving nine (four in the standard deck)
         // Nine plug cards remain on top; draw the topmost 8 → market (ascending).
         const initialMarket = plug.splice(0, 8).sort((a, b) => a.number - b.number);
         const actualMarket = initialMarket.slice(0, 4);

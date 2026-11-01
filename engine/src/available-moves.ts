@@ -454,7 +454,10 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                 }
             }
 
-            if (allowSouth && G.garbageMarket > 0) {
+            // Middle East: no garbage in Step 1. Only Deck 2's garbage/oil hybrids could
+            // burn it then, since garbage plants leave the Step 1 market.
+            const garbageClosed = G.map.name == 'Middle East' && G.step == 1;
+            if (allowSouth && G.garbageMarket > 0 && !garbageClosed) {
                 const garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
                 const price = garbagePrice(G, player, garbagePrices[garbagePrices.length - G.garbageMarket]);
 

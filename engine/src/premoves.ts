@@ -1,6 +1,7 @@
 import assert from 'assert';
 import { isEqual } from 'lodash';
 import { availableMoves } from './available-moves';
+import { alreadyCreditedPowering } from './choice-revisions';
 import { move as play } from './engine';
 import { GameState, Phase } from './gamestate';
 import { Move, MoveName, Moves } from './move';
@@ -183,7 +184,7 @@ export function runPremoves(initial: GameState, serverTime?: number): GameState 
                 phase.phase === Phase.Building
                     ? 'Your queued cities were built.'
                     : 'Your queued plants powered cities.';
-            automation(probe).increments[seat] += increments;
+            if (!alreadyCreditedPowering(G, seat, G.phase, G.round)) automation(probe).increments[seat] += increments;
             automation(probe).liveUpdate = false;
             G = probe;
         } catch (error) {

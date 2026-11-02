@@ -38,10 +38,13 @@ export type Variant = 'original' | 'recharged';
 
 export interface GameOptions {
     fastBid?: boolean;
-    map?: MapName;
+    // 'Random' picks one of the maps available for the variant at setup; the
+    // resolved map name is what gets stored in the game state's options.
+    map?: MapName | 'Random';
     variant?: Variant;
     showMoney?: boolean;
     useNewRechargedSetup?: boolean;
+    endPlantDiscountAtStep3?: boolean;
     trackTotalSpent?: boolean;
     randomizeMap?: boolean;
     // When set, the regions in play are drafted by the players at the start of
@@ -50,6 +53,18 @@ export interface GameOptions {
     // When set, each player picks their own color (in turn) at the start of the
     // game instead of colors being assigned by seat. Runs before the region draft.
     chooseColors?: boolean;
+    // When set, the game uses the alternate power plant deck (see
+    // alternatePowerPlants in powerPlants.ts) instead of the standard one. Only
+    // honoured on the maps in ALTERNATE_DECK_MAPS; ignored everywhere else.
+    alternatePowerPlants?: boolean;
+    // Stored by setup on maps whose starting resources differ by variant. Games
+    // created before this existed started Recharged with the Original market, so
+    // reconstructing one without the flag keeps that (see reconstructionOptions).
+    rechargedStartingResources?: boolean;
+    // Central Europe's Wien discount once let garbage cost $0; both rulebooks say
+    // never less than $1. Set only when rebuilding a game whose log already shows a
+    // $0 garbage buy, so it replays as it was played (see reconstructionOptions).
+    wienFreeGarbage?: boolean;
 }
 
 export enum ResourceType {
@@ -68,6 +83,10 @@ export enum PowerPlantType {
     Wind,
     Nuclear,
     Step3,
+    // Alternate deck only: burns any mix of garbage and oil, with one shared
+    // storage tank (the garbage/oil counterpart of the coal/oil Hybrid). Appended
+    // last so the numeric values of the existing types never change.
+    GarbageOilHybrid,
 }
 
 export interface PowerPlant {
@@ -83,8 +102,14 @@ export interface CityPosition {
     position: number;
 }
 
+export interface PlayerSettings {
+    /** Opt in to revealing inability to afford an auction when money is hidden. */
+    autoPassBids?: boolean;
+}
+
 export interface Player {
     id: number;
+    settings?: PlayerSettings;
     name?: string;
     powerPlants: PowerPlant[];
     coalCapacity: number;
@@ -96,6 +121,9 @@ export interface Player {
     uraniumCapacity: number;
     uraniumLeft: number;
     hybridCapacity: number;
+    // Shared garbage/oil tank of the player's GarbageOilHybrid plants. Only present
+    // in games using the alternate power plant deck.
+    garbageOilHybridCapacity?: number;
     money: number;
     housesLeft: number;
     cities: CityPosition[];
@@ -142,6 +170,9 @@ export enum Phase {
 }
 
 export interface GameState {
+    poweringChoices?: Record<number, import('./choice-revisions').PoweringChoice>;
+    revisedPowering?: Record<number, number>;
+    pendingMessages?: string[];
     automation?: AutomationState;
     map: GameMap;
     players: Player[];
@@ -210,6 +241,8 @@ export interface GameState {
     // is the colors taken so far, in pick order; its length is also the seating
     // index of the next picker. Cleared once every player has a color.
     colorDraft?: { picked: string[] };
+    // Snapshot from the host at setup; replay must not depend on later profile changes.
+    setupPlayerColors?: (string | null)[];
     options: GameOptions;
     log: LogItem[];
     hiddenLog: LogItem[];

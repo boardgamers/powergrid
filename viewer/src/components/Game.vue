@@ -1,8 +1,8 @@
 <template>
-    <div :class="['game', { fitToScreen: preferences.fitToScreen && !stacked, stacked: stacked }]">
+    <div :class="['game', { stacked: stacked }]">
         <div class="planner-header" :class="{ planning: hasPlanPanel }">
             <div class="statusBar">
-                <span class="status-message">{{ getStatusMessage() }}</span>
+                <span class="status-message" :title="getStatusMessage()">{{ getStatusMessage() }}</span>
             </div>
             <RoundPlanner
                 v-if="!tutorialMove && !paused && hasPlanPanel"
@@ -21,14 +21,76 @@
         <svg
             v-if="G"
             id="scene"
-            :class="{ stacked: stacked }"
+            :class="{ stacked: stacked, 'laid-out': desktopHeight !== null }"
             :viewBox="sceneViewBox"
             :style="{ width: '100%', aspectRatio: sceneViewBox.split(' ').slice(2).join(' / ') }"
             preserveAspectRatio="xMidYMin meet"
         >
-            <rect width="100%" height="100%" x="0" y="0" fill="yellowgreen" />
+            <rect class="board-surface" width="100%" height="100%" x="0" y="0" :fill="boardSurface" />
+            <defs>
+                <clipPath :id="geographyClipId" clipPathUnits="userSpaceOnUse">
+                    <rect x="0" y="0" :width="sceneViewBox.split(' ')[2]" :height="sceneViewBox.split(' ')[3]" />
+                </clipPath>
+            </defs>
 
-            <g ref="slotPlayerOrder" :transform="slotT('playerOrder')">
+            <!-- Geography and faded regions stay outside the measured map and
+                 behind every game component. Toggling them never changes the
+                 playable network's bounds, scale or position. -->
+            <g data-geography-layer :clip-path="`url(#${geographyClipId})`" pointer-events="none" aria-hidden="true">
+                <g :transform="slotT('map')">
+                    <g :transform="mapTransform">
+                        <GeographicBackground
+                            :map="G.map"
+                            :bounds="geographyBounds"
+                            :full-board="true"
+                            @availability="geographyReady = $event"
+                            :appearance="preferences.geographicBackground || 'terrain'"
+                        />
+                        <g
+                            v-if="preferences.showUnselectedRegions !== false"
+                            data-unselected-regions
+                            pointer-events="none"
+                            opacity="0.3"
+                        >
+                            <line
+                                v-for="(link, i) in unselectedNetwork.links"
+                                :key="'inactive-link-' + i"
+                                :x1="link.from.x"
+                                :y1="link.from.y"
+                                :x2="link.to.x"
+                                :y2="link.to.y"
+                                stroke="#59675c"
+                                stroke-width="7"
+                            />
+                            <g v-for="city in unselectedNetwork.cities" :key="'inactive-' + city.name">
+                                <circle
+                                    v-if="city.connectionCost == null"
+                                    :cx="city.x"
+                                    :cy="city.y"
+                                    r="23"
+                                    fill="#b5beb1"
+                                    :stroke="city.region"
+                                    stroke-width="5"
+                                />
+                                <rect
+                                    v-else
+                                    :x="city.x - 20"
+                                    :y="city.y - 20"
+                                    width="40"
+                                    height="40"
+                                    rx="5"
+                                    :transform="`rotate(45, ${city.x}, ${city.y})`"
+                                    fill="#b5beb1"
+                                    :stroke="city.region"
+                                    stroke-width="4"
+                                />
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+
+            <g ref="slotPlayerOrder" data-board-slot="playerOrder" :transform="slotT('playerOrder')">
                 <PlayerOrder
                     ref="playerOrder"
                     :transform="`translate(${G.map.playerOrderPosition[0]}, ${G.map.playerOrderPosition[1]})`"
@@ -36,12 +98,16 @@
                 />
             </g>
 
-            <g ref="slotCityCount" :transform="slotT('cityCount')">
+            <g ref="slotCityCount" data-board-slot="cityCount" :transform="slotT('cityCount')">
                 <CityCount
                     ref="cityCount"
                     :transform="`translate(${G.map.cityCountPosition[0]}, ${G.map.cityCountPosition[1]})`"
                     :playerColors="playerColors"
                     :paymentTable="G.paymentTable"
+                    :poweredCities="poweringCount"
+                    :powerCapacity="buildingPowerCapacity"
+                    :ownedCities="poweringPlayer ? poweringPlayer.cities.length : undefined"
+                    :poweringIncome="poweringIncome"
                     :compact="stacked"
                     :citiesToEndGame="G.citiesToEndGame"
                     :citiesToStep2="G.map.name === 'Manhattan' ? undefined : G.citiesToStep2"
@@ -53,6 +119,7 @@
                  the portrait layout can move it off the market's row. -->
             <g
                 ref="slotPowerPlantDeck"
+                data-board-slot="powerPlantDeck"
                 :transform="
                     slotT('powerPlantDeck') ||
                     `translate(${G.map.powerPlantMarketPosition[0]}, ${G.map.powerPlantMarketPosition[1]})`
@@ -93,7 +160,12 @@
                 </template>
             </g>
 
-            <g ref="slotPowerPlantMarket" data-tutorial="plants" :transform="slotT('powerPlantMarket')">
+            <g
+                ref="slotPowerPlantMarket"
+                data-board-slot="powerPlantMarket"
+                data-tutorial="plants"
+                :transform="slotT('powerPlantMarket')"
+            >
                 <PowerPlantMarket
                     ref="powerPlantMarket"
                     :transform="`translate(${G.map.powerPlantMarketPosition[0]}, ${G.map.powerPlantMarketPosition[1]})`"
@@ -101,16 +173,21 @@
                     :canChoose="canChoose()"
                     :chooseablePowerPlants="getChooseablePowerPlants()"
                     :cardsLeft="G.cardsLeft"
-                    :minBid="G.currentBid + 1 || G.minimunBid"
+                    :minBid="changingBid ? revisionBids[0] : G.currentBid + 1 || G.minimunBid"
+                    :initialBid="changingBid ? replacementBid : undefined"
+                    :editingBid="changingBid"
+                    :draftKey="draftKey"
                     :maxBid="G.players[player] ? G.players[player].money : 0"
                     :nextCardWeak="G.nextCardWeak"
                     :plantDiscountActive="G.plantDiscountActive"
+                    :reserveLayout="!stacked"
+                    :futureMarketRows="G.map.name === 'Europe' ? 2 : 1"
                     @choosePowerPlant="choosePowerPlant($event)"
                     @bid="bid($event)"
                 />
             </g>
 
-            <g ref="slotMap" data-tutorial="map" :transform="slotT('map')">
+            <g ref="slotMap" data-board-slot="map" data-tutorial="map" :transform="slotT('map')">
                 <Map
                     ref="map"
                     :transform="mapTransform"
@@ -132,7 +209,12 @@
             </g>
 
             <!-- Japan: Free Jump indicator -->
-            <g v-if="G.map.name === 'Japan'" ref="slotFreeJump" :transform="slotT('freeJump')">
+            <g
+                v-if="G.map.name === 'Japan'"
+                ref="slotFreeJump"
+                data-board-slot="freeJump"
+                :transform="slotT('freeJump')"
+            >
                 <text x="330" y="93" font-size="20" font-weight="bold" fill="black">Free Jump:</text>
                 <template v-for="(fjPlayer, i) in G.players">
                     <g
@@ -165,28 +247,23 @@
                 </template>
             </g>
 
-            <g v-if="stacked" ref="slotResourceView" :transform="slotT('resourceView')">
-                <ResourceViewButton :showTrack="showResourceTrack" @select="setResourceView($event)" />
-            </g>
-
-            <g ref="slotResources" data-tutorial="resources" :transform="slotT('resources')">
-                <!-- On a phone the printed price track is a strip of unreadable
-                     columns, so the stacked layout defaults to one box per buyable
-                     source. It is still only a default: the switch above this row
-                     puts the printed track back, because the boxes deliberately
-                     throw away the price ladder and that ladder is most of what
-                     there is to know about uranium. Landscape and desktop keep the
-                     printed board exactly as it was — an either/or, never an
-                     overlay. -->
+            <g
+                ref="slotResources"
+                data-board-slot="resources"
+                data-tutorial="resources"
+                :transform="slotT('resources')"
+            >
+                <!-- Mobile cards keep buying separate from the expandable price
+                     breakdown and show all three refill rates. -->
                 <ResourceBoxes
-                    v-if="stacked && !showResourceTrack"
+                    v-if="stacked"
                     :transform="`translate(${G.map.supplyPosition[0]}, ${G.map.supplyPosition[1]})`"
                     :gameState="G"
                     :player="player"
                     :isUsaRecharged="G.options.variant == 'recharged' && G.map.name == 'USA'"
                     :buyableResources="buyableResources()"
-                    :resourceResupply="getResourceResupply()"
-                    :resourceResupplyNorth="getResourceResupplyNorth()"
+                    :currentStep="G.step"
+                    @resize="scheduleRelayout()"
                     :bufferedBuys="bufferedBuys"
                     @buyResource="buyResource($event)"
                     @unbuyResource="unbuyResource($event)"
@@ -194,6 +271,7 @@
                 <Resources
                     v-else
                     ref="resources"
+                    :parallelMarkets="!stacked"
                     :transform="`translate(${G.map.supplyPosition[0]}, ${G.map.supplyPosition[1]})`"
                     :isUsaRecharged="G.options.variant == 'recharged' && G.map.name == 'USA'"
                     :isMiddleEast="G.map.name == 'Middle East'"
@@ -205,8 +283,12 @@
                     "
                     :buyableResources="buyableResources()"
                     :coalStorage="G.coalStorage"
+                    :uraniumMineRemoval="uraniumMineRemoval"
                     :resourceResupply="getResourceResupply()"
                     :resourceResupplyNorth="getResourceResupplyNorth()"
+                    :resupplyStep="displayedResupplyStep"
+                    :currentStep="G.step"
+                    @previewResupplyStep="resupplyPreviewStep = $event"
                     :bufferedBuys="bufferedBuys"
                     @buyResource="buyResource($event)"
                     @unbuyResource="unbuyResource($event)"
@@ -214,7 +296,7 @@
             </g>
 
             <!-- Australia: the same uranium-mine selling table laid on its side for
-                 portrait. A 104x430 strip is the worst possible shape for a full-width
+                 portrait. A 104x396 strip is the worst possible shape for a full-width
                  row — it can only grow until its HEIGHT fills the row, so it ends up a
                  sliver with the whole width beside it empty. Turned through 90° the six
                  prices run left to right in the same order they run top to bottom, and
@@ -222,12 +304,20 @@
             <g
                 v-if="stacked && G.map.name === 'Australia' && G.uraniumMineMarket"
                 ref="slotUraniumMines"
-                :transform="slotT('uraniumMines') || 'translate(15, 70)'"
+                data-board-slot="uraniumMines"
+                :transform="slotT('uraniumMines') || 'translate(15, 112)'"
             >
-                <rect x="0" y="0" width="620" height="146" rx="6" fill="#8aa84a" stroke="#4d6322" stroke-width="3" />
+                <rect x="0" y="0" width="620" height="104" rx="6" fill="#8aa84a" stroke="#4d6322" stroke-width="3" />
                 <text x="310" y="26" text-anchor="middle" font-weight="700" fill="black" style="font-size: 22px">
                     Uranium mine market
                 </text>
+                <ResupplyBadge
+                    v-if="uraniumMineRemoval != null"
+                    transform="translate(514, 8) scale(1.2)"
+                    resource="uranium"
+                    :amount="uraniumMineRemoval"
+                    :removal="true"
+                />
                 <g v-for="col in 6" :key="'uraniumCol' + col" :transform="`translate(${10 + (col - 1) * 100}, 0)`">
                     <text x="50" y="56" text-anchor="middle" font-weight="700" fill="black" style="font-size: 20px">
                         ${{ 8 - col }}
@@ -252,41 +342,31 @@
                         stroke="#4d6322"
                         stroke-width="1.5"
                     />
-                    <circle
+                    <Uranium
                         v-if="(G.uraniumMineMarket[6 - col] || 0) >= 1"
-                        cx="34"
-                        cy="79"
-                        r="10"
-                        fill="#46c655"
-                        stroke="#1f5c25"
-                        stroke-width="2"
+                        :pieceId="'uraniumMine_' + col + '_0'"
+                        :targetState="{ x: 24, y: 71 }"
                     />
-                    <circle
+                    <Uranium
                         v-if="(G.uraniumMineMarket[6 - col] || 0) >= 2"
-                        cx="66"
-                        cy="79"
-                        r="10"
-                        fill="#46c655"
-                        stroke="#1f5c25"
-                        stroke-width="2"
+                        :pieceId="'uraniumMine_' + col + '_1'"
+                        :targetState="{ x: 56, y: 71 }"
                     />
                 </g>
-                <line x1="10" y1="108" x2="610" y2="108" stroke="#4d6322" stroke-width="1" />
-                <text x="310" y="132" text-anchor="middle" font-weight="700" fill="#22340f" style="font-size: 18px">
-                    refill −{{ G.map.uraniumMineResupply[G.players.length - 2][G.step - 1] }}/rnd
-                </text>
             </g>
 
             <!-- Australia: uranium-mine selling table. Six price rows $7 (top) →
                  $2 (bottom), two token slots each. Sellers place one token per mine
                  on the highest empty slot; the resource refill removes from the
-                 cheap (bottom) end. Lives in the clear upper-left margin. -->
+                 cheap (bottom) end. Below the income track and its legend (y=87),
+                 with space for text ascenders and a visible gap. -->
             <g
                 v-if="!stacked && G.map.name === 'Australia' && G.uraniumMineMarket"
                 ref="slotUraniumMines"
-                :transform="slotT('uraniumMines') || 'translate(15, 70)'"
+                data-board-slot="uraniumMines"
+                :transform="slotT('uraniumMines') || 'translate(15, 112)'"
             >
-                <rect x="0" y="0" width="104" height="430" rx="6" fill="#8aa84a" stroke="#4d6322" stroke-width="3" />
+                <rect x="0" y="0" width="104" height="396" rx="6" fill="#8aa84a" stroke="#4d6322" stroke-width="3" />
                 <text x="52" y="22" text-anchor="middle" font-weight="700" fill="black" style="font-size: 15px">
                     Uranium
                 </text>
@@ -317,38 +397,43 @@
                         stroke="#4d6322"
                         stroke-width="1.5"
                     />
-                    <circle
+                    <Uranium
                         v-if="(G.uraniumMineMarket[6 - row] || 0) >= 1"
-                        cx="49"
-                        cy="27"
-                        r="10"
-                        fill="#46c655"
-                        stroke="#1f5c25"
-                        stroke-width="2"
+                        :pieceId="'uraniumMine_' + row + '_0'"
+                        :targetState="{ x: 39, y: 19 }"
                     />
-                    <circle
+                    <Uranium
                         v-if="(G.uraniumMineMarket[6 - row] || 0) >= 2"
-                        cx="81"
-                        cy="27"
-                        r="10"
-                        fill="#46c655"
-                        stroke="#1f5c25"
-                        stroke-width="2"
+                        :pieceId="'uraniumMine_' + row + '_1'"
+                        :targetState="{ x: 71, y: 19 }"
                     />
                 </g>
-                <!-- Removal rate: tokens taken from the cheapest slots each refill (current step). -->
-                <line x1="10" y1="402" x2="94" y2="402" stroke="#4d6322" stroke-width="1" />
-                <text x="52" y="420" text-anchor="middle" font-weight="700" fill="#22340f" style="font-size: 12px">
-                    refill −{{ G.map.uraniumMineResupply[G.players.length - 2][G.step - 1] }}/rnd
-                </text>
             </g>
 
             <g
                 ref="slotRoundInfo"
+                data-board-slot="roundInfo"
                 :transform="
                     slotT('roundInfo') || `translate(${G.map.roundInfoPosition[0]}, ${G.map.roundInfoPosition[1]})`
                 "
             >
+                <!-- Reserve the longest round/phase readout before a turn can
+                     change it. Invisible text still uses the active language. -->
+                <g v-if="!stacked" visibility="hidden" aria-hidden="true" pointer-events="none">
+                    <text x="10" y="20" font-weight="600" style="font-size: 32px">Round: 99</text>
+                    <text x="10" y="60" font-weight="600" style="font-size: 32px">Step: 3</text>
+                    <text
+                        v-for="phase in phasesForLayout"
+                        :key="phase"
+                        x="10"
+                        y="100"
+                        font-weight="600"
+                        style="font-size: 32px"
+                    >
+                        Phase: {{ phase }}
+                    </text>
+                    <rect x="20" y="50" width="280" height="40" fill="none" />
+                </g>
                 <template v-if="gameEnded(G)">
                     <Button
                         :transform="`translate(20, 50)`"
@@ -378,26 +463,46 @@
 
             <g
                 ref="slotButtons"
+                data-board-slot="buttons"
                 data-tutorial="turn"
                 :transform="slotT('buttons') || `translate(${G.map.buttonsPosition[0]}, ${G.map.buttonsPosition[1]})`"
             >
                 <PassButton
                     transform="translate(15, 15)"
-                    :enabled="canPass()"
-                    :highlightButton="canPass() && !preferences.disableHelp"
-                    :text="tutorialMove || roundPlan || canUndo() ? 'Done' : 'Pass'"
-                    @click="checkPass()"
+                    :enabled="canUsePhaseButton"
+                    :highlightButton="highlightPhaseButton"
+                    :text="phaseButtonText"
+                    :icon="phaseButtonIcon"
+                    :action="phaseButtonAction"
+                    @click="usePhaseButton"
+                />
+                <!-- BGS's "Undo my move" (games against bots) takes this button's
+                     place once nothing is left to take back locally, so undo stays in
+                     one place and the authored layout needs no new space. -->
+                <UndoButton
+                    v-if="canUndoMove()"
+                    key="undo-move"
+                    transform="translate(15, 56)"
+                    control="undo-move"
+                    text="Undo my move"
+                    :enabled="true"
+                    :highlightButton="true"
+                    @click="undoMove()"
                 />
                 <UndoButton
+                    v-else
+                    key="undo"
                     transform="translate(15, 56)"
-                    :enabled="canUndo()"
-                    :highlightButton="canUndo() && !preferences.disableHelp"
-                    @click="undo()"
+                    :enabled="changingBid || canUndo()"
+                    :highlightButton="changingBid || canUndo()"
+                    :icon="changingBid ? 'cancel' : 'undo'"
+                    :text="changingBid ? 'Cancel bid edit' : 'Undo last move'"
+                    @click="useUndoButton()"
                 />
                 <BoardOption
                     transform="translate(15, 97)"
                     control="color-blind"
-                    icon="eye"
+                    icon="shapes"
                     label="Color-blind mode"
                     :active="!!preferences.colorBlind"
                     @click="toggleColorBlind()"
@@ -425,33 +530,35 @@
                     "
                 />
                 <SoundButton :transform="iconButton(0)" :isOn="preferences.sound" @click="toggleSound()" />
-                <HelpButton :transform="iconButton(1)" :isOn="!preferences.disableHelp" @click="toggleHelp()" />
-                <RulesButton :transform="iconButton(2)" @click="rulesVisible = true" />
-                <!-- Only offered where it means something. Shown whenever the
-                     viewport is portrait — not only while stacking is active — so
-                     it can undo its own effect. Sits under Rules rather than under
-                     the options: the left column's next slot overlaps the turn-order table
-                     on the authored board. -->
-                <LayoutButton
-                    v-if="portraitViewport"
-                    :transform="iconButton(3)"
-                    :isOn="stacked"
-                    @click="toggleStackLayout()"
+                <BoardOption
+                    v-if="hasUnselectedRegions"
+                    :transform="iconButton(1)"
+                    control="unselected-regions"
+                    icon="regions"
+                    label="Show unselected regions"
+                    :active="preferences.showUnselectedRegions !== false"
+                    @click="toggleUnselectedRegions()"
                 />
+                <RulesButton :transform="iconButton(hasUnselectedRegions ? 2 : 1)" @click="rulesVisible = true" />
             </g>
 
-            <g ref="slotPlayerBoards" data-tutorial="players" :transform="slotT('playerBoards')">
+            <g
+                ref="slotPlayerBoards"
+                data-board-slot="playerBoards"
+                data-tutorial="players"
+                :transform="slotT('playerBoards')"
+            >
                 <template v-for="(playerIndex, i) in adjustedPlayerOrder">
                     <PlayerBoard
                         :key="'B' + playerIndex"
                         :transform="`translate(${G.map.playerBoardsPosition[0]}, ${
-                            G.map.playerBoardsPosition[1] + 110 * i
+                            G.map.playerBoardsPosition[1] + playerBoardOffset(i)
                         })`"
                         :player="G.players[playerIndex]"
                         :color="playerColors[playerIndex]"
                         :avatar="avatars[playerIndex]"
                         :owner="playerIndex"
-                        :isCurrentPlayer="isCurrentPlayer(playerIndex)"
+                        :isCurrentPlayer="isCurrentPlayer(playerIndex) && !poweringSubmitting"
                         :ended="gameEnded(G)"
                         :isPlayer="player == playerIndex"
                         :ranking="sortedPlayers.findIndex((x) => x.id == G.players[playerIndex].id) + 1"
@@ -459,6 +566,11 @@
                         :showBid="!G.options.fastBid"
                         :phase="G.phase"
                         :isAustralia="G.map.name === 'Australia'"
+                        :showAutoPass="player == playerIndex && showAutoPass"
+                        :autoPass="!!G.options.showMoney || !!(settings && settings.autoPassBids)"
+                        :autoPassPublic="!!G.options.showMoney"
+                        :autoPassDisabled="!canEditAuctionSettings"
+                        @toggleAutoPass="toggleAutoPass()"
                         @powerPlantClick="powerPlantClick($event)"
                         @discardResource="discardResource($event)"
                     />
@@ -468,7 +580,7 @@
 
         <div class="chat-tabs-host"></div>
         <div class="journal-and-chat">
-            <InlineLog v-if="G" :entries="logReversed.slice().reverse()" :mapName="G.options.map" />
+            <InlineLog v-if="G" :entries="logReversed.slice().reverse()" :state="G" />
             <div class="chat-host"></div>
         </div>
 
@@ -590,7 +702,14 @@
                         <tr>
                             <th><div>Player</div></th>
                             <th v-for="player in sortedPlayers" :key="'FS' + player.id">
-                                <div :style="'background-color: ' + playerColors[player.id]">{{ player.name }}</div>
+                                <div
+                                    :style="{
+                                        backgroundColor: playerColors[player.id],
+                                        color: colorText(playerColors[player.id]),
+                                    }"
+                                >
+                                    {{ player.name }}
+                                </div>
                             </th>
                         </tr>
                         <tr v-for="(cat, i) in ['Cities Powered', 'Money', 'Total Cities']" :key="'FC_' + cat">
@@ -615,7 +734,14 @@
                         <tr>
                             <th><div>Player</div></th>
                             <th v-for="player in sortedPlayers" :key="'FS' + player.id">
-                                <div :style="'background-color: ' + playerColors[player.id]">{{ player.name }}</div>
+                                <div
+                                    :style="{
+                                        backgroundColor: playerColors[player.id],
+                                        color: colorText(playerColors[player.id]),
+                                    }"
+                                >
+                                    {{ player.name }}
+                                </div>
                             </th>
                         </tr>
                         <tr v-for="row in spendingRows" :key="'FC_' + row.label">
@@ -776,6 +902,8 @@
 </template>
 <script lang="ts">
 import { isEqual } from 'lodash';
+import './buttons/board-control.css';
+import { resolvePlayerColors, colorText } from '../player-colors';
 import InlineLog from './InlineLog.vue';
 import { Vue, Component, Prop, Watch, Provide, ProvideReactive, Ref } from 'vue-property-decorator';
 import { MoveName, ended, playersSortedByScore, reconstructState } from 'powergrid-engine';
@@ -788,26 +916,19 @@ import {
     matchesTurnBuffer,
     rebaseTurnBuffer,
     replayTurnBuffer as replayBuffer,
+    takesBackOwnMoves,
 } from '../util/turn-buffer';
 import { UIData, Preferences } from '../types/ui-data';
 import { Card, House, Coal, Oil, Garbage, Uranium } from './pieces';
-import {
-    Button,
-    PassButton,
-    UndoButton,
-    BoardOption,
-    SoundButton,
-    HelpButton,
-    RulesButton,
-    LayoutButton,
-    ResourceViewButton,
-} from './buttons';
+import { Button, PassButton, UndoButton, BoardOption, SoundButton, RulesButton } from './buttons';
 import PlayerBoard from './PlayerBoard.vue';
 import Calculator from './Calculator.vue';
 import PowerPlantMarket from './boards/PowerPlantMarket.vue';
 import PlayerOrder from './boards/PlayerOrder.vue';
 import CityCount from './boards/CityCount.vue';
 import Map from './boards/Map.vue';
+import GeographicBackground from './boards/GeographicBackground.vue';
+import type { MapBounds } from '../geography';
 import ResourceBoxes from './boards/ResourceBoxes.vue';
 import RoundPlanner from './RoundPlanner.vue';
 import {
@@ -821,11 +942,27 @@ import {
 import { PhasePlan, PremoveCommand, canQueuePhases } from 'powergrid-engine/src/premoves';
 import { completedPhases } from '../util/round-plan';
 import Resources from './boards/Resources.vue';
+import ResupplyBadge from './boards/ResupplyBadge.vue';
 import { LogMove } from 'powergrid-engine/src/log';
-import { Phase, playerTimeUsed, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
+import {
+    isUraniumMine,
+    Phase,
+    playerTimeUsed,
+    PowerPlant,
+    PowerPlantType,
+    ResourceType,
+} from 'powergrid-engine/src/gamestate';
 import { City } from 'powergrid-engine/src/maps';
 import { formatDuration } from '../util/time';
 import { playerOrderForDisplay } from '../util/player-order';
+import { freePlantMoves, canAutoFinishPowering, poweredCities } from '../util/powering';
+import { bidRevision, canReopenPowering } from 'powergrid-engine/src/choice-revisions';
+import { availableMoves, canStoreFuel } from 'powergrid-engine/src/available-moves';
+import { powerIncome, updatePlayerCapacity } from 'powergrid-engine/src/engine';
+import { inactiveMapNetwork } from '../util/inactive-map';
+import { desktopBoardLayout, PLAYER_SETTING_ROW_HEIGHT } from '../util/board-layout';
+import { measureBoardBox } from '../util/measure-board';
+import type { BoardBox } from '../util/board-layout';
 
 // Portrait layout: the rows the scene is broken into, top to bottom. Slots on
 // the same row sit side by side and share one scale. Names map to the `slotX`
@@ -840,9 +977,6 @@ const STACK_ROWS: string[][] = [
     // the draw pile and the round readout are things you glance at.
     ['buttons', 'roundInfo', 'powerPlantDeck'],
     ['powerPlantMarket'],
-    // The resource-display switch sits between the two markets rather than in the
-    // icon column: it belongs to the row it changes, and reads as that row's header.
-    ['resourceView'],
     ['resources'],
     ['uraniumMines'],
     ['freeJump'],
@@ -886,9 +1020,6 @@ const STACK_SLOT_MAX_WIDTH: Record<string, number> = {
     // The box market is one tall stack of full-width buttons; run edge to edge it
     // reads as though it had been cropped rather than laid out.
     resources: 0.94,
-    // Matched to `resources` on purpose: equal budgets render equal widths, so the
-    // switch and the market below it line up instead of nearly lining up.
-    resourceView: 0.94,
 };
 
 /**
@@ -913,6 +1044,7 @@ const STANDARD_DECK_BUILD: Record<string, string> = {
 
 const slotRef = (name: string) => `slot${name[0].toUpperCase()}${name.slice(1)}`;
 const round = (n: number, digits = 2) => Number(n.toFixed(digits));
+let nextGeographyClipId = 0;
 
 @Component({
     created(this: Game) {
@@ -929,7 +1061,10 @@ const round = (n: number, digits = 2) => Number(n.toFixed(digits));
             const log = this._futureState!.log.map((l, i) => ({ index: i, ...l })).filter((l) => l.type == 'move');
             to = log[to - 1].index;
 
-            this.replaceState(reconstructState(this._futureState!, to + 1), false);
+            // Middle East reshuffles at Step 2: replay the recorded draws so the
+            // Step 3 card cannot be drawn repeatedly from a reconstructed deck.
+            const recordedDraws = this._futureState!.map.name === 'Middle East';
+            this.replaceState(reconstructState(this._futureState!, to + 1, recordedDraws), false);
 
             this.emitter.emit('replay:info', {
                 start: 1,
@@ -944,6 +1079,7 @@ const round = (n: number, digits = 2) => Number(n.toFixed(digits));
         });
     },
     components: {
+        GeographicBackground,
         InlineLog,
         PlayerBoard,
         Card,
@@ -956,10 +1092,7 @@ const round = (n: number, digits = 2) => Number(n.toFixed(digits));
         UndoButton,
         BoardOption,
         SoundButton,
-        HelpButton,
         RulesButton,
-        LayoutButton,
-        ResourceViewButton,
         Button,
         Calculator,
         RoundPlanner,
@@ -969,6 +1102,7 @@ const round = (n: number, digits = 2) => Number(n.toFixed(digits));
         Map,
         Resources,
         ResourceBoxes,
+        ResupplyBadge,
     },
 })
 export default class Game extends Vue {
@@ -994,6 +1128,38 @@ export default class Game extends Vue {
     @Prop()
     avatars!: string[];
 
+    /** BGS can take back this player's last saved move (protocol `undo:available`). */
+    @Prop({ default: false })
+    undoAvailable!: boolean;
+
+    @Prop({ default: null })
+    settings!: Record<string, unknown> | null;
+
+    get showAutoPass(): boolean {
+        return (
+            !this.tutorialMove &&
+            !this.preferences.analysis &&
+            this.player != null &&
+            !!this.G?.players[this.player] &&
+            (!!this.G.options.showMoney || this.settings !== null)
+        );
+    }
+    get canEditAuctionSettings(): boolean {
+        return (
+            this.showAutoPass &&
+            !this.G?.options.showMoney &&
+            this.settings !== null &&
+            !this.paused &&
+            !this.roundPlan &&
+            !this.interactionDisabled &&
+            !this.gameIsOver
+        );
+    }
+    toggleAutoPass() {
+        if (this.canEditAuctionSettings)
+            this.emitter.emit('update:setting', { name: 'autoPassBids', value: !this.settings?.autoPassBids });
+    }
+
     @Prop()
     @ProvideReactive()
     preferences!: Preferences;
@@ -1017,18 +1183,13 @@ export default class Game extends Vue {
     G?: GameState | null = null;
     _futureState?: GameState;
 
+    colorText = colorText;
+
     defaultPlayerColors = ['limegreen', 'mediumorchid', 'red', 'dodgerblue', 'yellow', 'brown'];
 
-    // Colors indexed by player id. Falls back to the default palette, but any color
-    // a player drafted via the chooseColors option overrides their default entry.
+    // Colors indexed by player id: BGS preferences, then drafted colors, then defaults.
     get playerColors() {
-        const colors = [...this.defaultPlayerColors];
-        if (this.G) {
-            for (const p of this.G.players) {
-                if (p.color) colors[p.id] = p.color;
-            }
-        }
-        return colors;
+        return resolvePlayerColors(this.defaultPlayerColors, this.G?.players ?? [], this.preferences, this.player);
     }
 
     animationQueue: Array<Function> = [];
@@ -1055,6 +1216,75 @@ export default class Game extends Vue {
     soleBuyerPlant: PowerPlant | null = null;
 
     disablePass: boolean = false;
+    private automaticPoweringRound = '';
+
+    get buildingPowerCapacity() {
+        if (
+            this.G?.phase !== Phase.Building ||
+            this.player === undefined ||
+            !this.G.currentPlayers.includes(this.player)
+        )
+            return undefined;
+        return this.G.players[this.player]?.powerPlants.reduce((total, plant) => total + plant.citiesPowered, 0);
+    }
+
+    get poweringPlayer() {
+        return this.G?.phase === Phase.Bureaucracy &&
+            this.player !== undefined &&
+            !this.paused &&
+            !this.tutorialMove &&
+            !this.preferences.analysis &&
+            !this.roundPlan
+            ? this.G.players[this.player]
+            : null;
+    }
+    get poweringCount() {
+        return this.poweringPlayer ? poweredCities(this.G!, this.poweringPlayer) : undefined;
+    }
+    get poweringIncome() {
+        return this.poweringPlayer
+            ? powerIncome(this.G!, { ...this.poweringPlayer, citiesPowered: this.poweringCount! })
+            : undefined;
+    }
+    get poweringSubmitting() {
+        return this.G?.phase === Phase.Bureaucracy && this.turnMoves.some((move) => move.name === MoveName.Pass);
+    }
+    get automaticPoweringKey() {
+        return this.poweringPlayer &&
+            this.canMove() &&
+            !this.paused &&
+            !this.tutorialMove &&
+            !this.preferences.analysis &&
+            !this.roundPlan &&
+            this.committedState &&
+            !this.poweringSubmitting
+            ? `${this.G!.round}:${this.player}`
+            : '';
+    }
+    @Watch('automaticPoweringKey')
+    startAutomaticPowering(key: string) {
+        if (!key || key === this.automaticPoweringRound) return;
+        this.automaticPoweringRound = key;
+        const activated = this.activateFreePlants(false);
+        if (canAutoFinishPowering(this.G!, this.player!)) this.pass();
+        else if (activated) this.emitter.emit('move', [...this.turnMoves]);
+    }
+    activateFreePlants(submit = true) {
+        if (
+            !this.G ||
+            this.player === undefined ||
+            this.paused ||
+            this.tutorialMove ||
+            this.preferences.analysis ||
+            this.roundPlan
+        )
+            return;
+        const before = this.turnMoves.length;
+        for (const move of freePlantMoves(this.G, this.player)) this.sendMove(move, false);
+        const activated = this.turnMoves.length > before;
+        if (activated && submit) this.emitter.emit('move', [...this.turnMoves]);
+        return activated;
+    }
 
     @Ref() powerPlantMarket!: PowerPlantMarket;
     @Ref() playerOrder!: PlayerOrder;
@@ -1073,6 +1303,117 @@ export default class Game extends Vue {
     // Last committed state received from the platform. Undo replays the shortened
     // turn buffer from this state; when the buffer empties, the preview resets to it
     // without any server call (the platform's saved state IS the turn start).
+    editingBid: string | null = null;
+    replacementBid = 0;
+    get revisableBid(): string | undefined {
+        return !this.paused && !this.interactionDisabled && !this.roundPlan && this.G && this.player !== undefined
+            ? bidRevision(this.G, this.player)
+            : undefined;
+    }
+    get changingBid(): boolean {
+        return !!this.editingBid && this.editingBid === this.revisableBid;
+    }
+    get revisionBids(): number[] {
+        return this.revisableBid ? availableMoves(this.G!, this.G!.players[this.player!])[MoveName.Bid] || [] : [];
+    }
+    get canChangePowering(): boolean {
+        return !!(
+            !this.paused &&
+            !this.interactionDisabled &&
+            !this.roundPlan &&
+            this.G &&
+            this.player !== undefined &&
+            canReopenPowering(this.G, this.player)
+        );
+    }
+    editBid() {
+        this.editingBid = this.revisableBid || null;
+        this.replacementBid = Math.max(this.revisionBids[0] || 0, this.G!.players[this.player!].bid);
+    }
+    replaceBid(pass: boolean) {
+        if (
+            !this.revisableBid ||
+            this.editingBid !== this.revisableBid ||
+            (!pass && !this.revisionBids.includes(this.replacementBid))
+        )
+            return;
+        this.emitter.emit('move', [
+            {
+                name: pass ? MoveName.Pass : MoveName.Bid,
+                data: pass ? true : this.replacementBid,
+                revision: this.revisableBid,
+                time: Date.now(),
+            },
+        ]);
+        this.editingBid = null;
+    }
+    get canUsePhaseButton(): boolean {
+        if (this.changingBid) return this.player !== this.G!.auctioningPlayer;
+        return !!this.revisableBid || this.canChangePowering || this.canPass();
+    }
+    get highlightPhaseButton(): boolean {
+        if (!this.canUsePhaseButton) return false;
+        if (this.phaseButtonAction !== 'skip') return true;
+        if (this.changingBid) return this.revisionBids.length === 0;
+        const moves = this.G?.players[this.player!]?.availableMoves;
+        if (this.G?.phase === Phase.Resources) return !moves?.[MoveName.BuyResource]?.length;
+        if (this.G?.phase === Phase.Building) return !moves?.[MoveName.Build]?.length;
+        if (this.G?.phase === Phase.Bureaucracy) return !moves?.[MoveName.UsePowerPlant]?.length;
+        return !moves?.[MoveName.Bid]?.length && !moves?.[MoveName.ChoosePowerPlant]?.length;
+    }
+    get phaseButtonText(): string {
+        if (this.changingBid) return 'Pass bid';
+        if (this.revisableBid) return 'Edit bid';
+        if (this.canChangePowering) return 'Edit powering';
+        if (this.tutorialMove || this.roundPlan) return 'Done';
+        switch (this.G?.phase) {
+            case Phase.Auction:
+                return this.G?.chosenPowerPlant ? 'Pass bid' : 'Skip auction';
+            case Phase.Resources:
+                return 'Finish buying';
+            case Phase.Building:
+                return 'Finish building';
+            case Phase.Bureaucracy:
+                return 'Finish powering';
+            default:
+                return 'Done';
+        }
+    }
+    get phaseButtonAction(): string {
+        if ((this.revisableBid && !this.changingBid) || this.canChangePowering) return 'edit';
+        if (this.changingBid) return 'skip';
+        if (this.G?.phase === Phase.Resources) return this.playerBoughtResourceThisTurn() ? 'finish' : 'skip';
+        if (this.G?.phase === Phase.Building) return this.playerBuiltCityThisTurn() ? 'finish' : 'skip';
+        if (this.G?.phase === Phase.Bureaucracy) return this.playerActivatedPlantThisTurn() ? 'finish' : 'skip';
+        if (this.tutorialMove || this.roundPlan) return 'finish';
+        return this.G?.phase === Phase.Auction ? 'skip' : 'finish';
+    }
+    get phaseButtonIcon(): string {
+        switch (this.G?.phase) {
+            case Phase.Auction:
+                return 'auction';
+            case Phase.Resources:
+                return 'resources';
+            case Phase.Building:
+                return 'building';
+            case Phase.Bureaucracy:
+                return 'powering';
+            default:
+                return 'done';
+        }
+    }
+    usePhaseButton() {
+        if (!this.canUsePhaseButton) return;
+        if (this.changingBid) this.replaceBid(true);
+        else if (this.revisableBid) this.editBid();
+        else if (this.canChangePowering) this.reopenPowering();
+        else this.checkPass();
+    }
+    reopenPowering() {
+        if (this.canChangePowering)
+            this.emitter.emit('move', [{ name: MoveName.ReopenPowering, data: this.G!.round, time: Date.now() }]);
+    }
+
     committedState: GameState | null = null;
 
     roundPlan: RoundPlan | null = null;
@@ -1246,6 +1587,14 @@ export default class Game extends Vue {
             this.replaceState(state);
             return;
         }
+        if (state && state.newTurn !== false) {
+            // BGS answers "Undo my move" with the earlier committed state.
+            this.undoRequested = false;
+            if (this.undoRequestTimer) clearTimeout(this.undoRequestTimer);
+            if (takesBackOwnMoves(this.committedState ? this.committedState.log : null, state, this.player)) {
+                this.abandonLocalTurn();
+            }
+        }
         if (
             state &&
             state.newTurn !== false &&
@@ -1348,6 +1697,7 @@ export default class Game extends Vue {
                 player = {
                     coalLeft: this.G.players[this.player].coalLeft,
                     oilLeft: this.G.players[this.player].oilLeft,
+                    garbageLeft: this.G.players[this.player].garbageLeft,
                     resourcesUsed: this.G.players[this.player].resourcesUsed,
                 };
             }
@@ -1471,13 +1821,8 @@ export default class Game extends Vue {
             return;
         }
 
-        // Honor the preference locally — the engine has no Undo move anymore: pop the
-        // last move from the turn buffer, or scrap the whole tentative turn.
-        if (this.preferences.undoWholeTurn) {
-            this.turnMoves = [];
-        } else {
-            this.turnMoves.pop();
-        }
+        // Undo one unconfirmed action at a time, regardless of legacy saved preferences.
+        this.turnMoves.pop();
 
         if (this.turnMoves.length > 0) {
             // Preview the shortened turn locally and re-send it so the server echoes
@@ -1490,6 +1835,82 @@ export default class Game extends Vue {
             // turn, so the last committed state IS the turn start.
             this.replaceState(this.committedState, false);
         }
+        this.activateFreePlants();
+    }
+
+    /** The board's Undo button: cancels a bid edit, or takes back buffered moves. */
+    useUndoButton() {
+        // Either can leave nothing to undo locally, and "Undo my move" then takes the
+        // button's place at once: the second click of a double click must not reach it.
+        this.recentLocalUndo = true;
+        if (this.recentLocalUndoTimer) clearTimeout(this.recentLocalUndoTimer);
+        this.recentLocalUndoTimer = setTimeout(() => (this.recentLocalUndo = false), 1000);
+        if (this.changingBid) this.editingBid = null;
+        else this.undo();
+    }
+
+    // An "Undo my move" request is on its way to BGS.
+    undoRequested = false;
+    private undoRequestTimer: ReturnType<typeof setTimeout> | undefined;
+    // The board's Undo was just used, see `useUndoButton`.
+    recentLocalUndo = false;
+    private recentLocalUndoTimer: ReturnType<typeof setTimeout> | undefined;
+    // Changing it remounts drafts kept in child components (the bid calculator).
+    draftKey = 0;
+
+    /**
+     * BGS's "Undo my move", in games against bots: BGS takes back the player's last SAVED
+     * move, with the bots' replies, and sends the earlier state. The turn in progress only
+     * lives in this viewer's buffer and the board's Undo takes it back, so BGS's undo is
+     * offered in that button's place once nothing is left to undo locally. Never while
+     * replaying, analysing, planning or spectating, nor while a move, premove or undo
+     * request is on its way. A method, like the other checks: preferences such as
+     * `analysis` arrive as plain properties that a cached computed would not see change.
+     */
+    canUndoMove(): boolean {
+        return (
+            this.undoAvailable &&
+            !!this.G &&
+            this.player != undefined &&
+            !!this.G.players[this.player] &&
+            !this.paused &&
+            !this.interactionDisabled &&
+            !this.tutorialMove &&
+            !this.preferences.analysis &&
+            !this.roundPlan &&
+            !this.pendingPlanId &&
+            !this.changingBid &&
+            !this.poweringSubmitting &&
+            !this.undoRequested &&
+            !this.recentLocalUndo &&
+            !this.canUndo()
+        );
+    }
+
+    undoMove() {
+        if (!this.canUndoMove()) return;
+        this.undoRequested = true;
+        if (this.undoRequestTimer) clearTimeout(this.undoRequestTimer);
+        // BGS answers with the earlier state; offer the control again if it never does.
+        this.undoRequestTimer = setTimeout(() => (this.undoRequested = false), 10000);
+        this.emitter.emit('undo');
+    }
+
+    /**
+     * Forget what was prepared on a position that no longer exists: the turn buffer, a bid
+     * being edited, open choice dialogs, a hybrid plant's fuel choice (kept in G, see
+     * `replaceState`) and the bid dialled into the calculator.
+     */
+    abandonLocalTurn() {
+        this.turnMoves = [];
+        this.editingBid = null;
+        this.confirmVisible = this.discardVisible = this.freeJumpVisible = false;
+        this.discardedPowerPlant = null;
+        this.freeJumpCity = null;
+        this.soleBuyerPlant = null;
+        this.draftKey++;
+        // A round plan keeps showing its own board; the live one is rebuilt on return.
+        if (!this.roundPlan) this.G = null;
     }
 
     choosePowerPlant(powerPlant: PowerPlant) {
@@ -1615,6 +2036,11 @@ export default class Game extends Vue {
     }
 
     bid(bid: number) {
+        if (this.changingBid) {
+            this.replacementBid = bid;
+            this.replaceBid(false);
+            return;
+        }
         this.sendMove({ name: MoveName.Bid, data: bid });
     }
 
@@ -1673,8 +2099,32 @@ export default class Game extends Vue {
         this.discardVisible = false;
     }
 
+    // Discard check for players with a garbage/oil hybrid (alternate deck), whose
+    // garbage and oil can sit in a shared tank: recompute storage without the
+    // discarded plant and test whether what is left still fits.
+    garbageOilDiscardInvalid(currentPlayer: Player) {
+        const after: Player = {
+            ...currentPlayer,
+            powerPlants: currentPlayer.powerPlants.filter((pp) => pp.number != this.discardedPowerPlant!.number),
+        };
+        updatePlayerCapacity(after);
+
+        const discarded = (name: string) =>
+            parseInt(this.resourcesToDiscard.find((r) => r.name == name)?.value ?? '0') || 0;
+        const coal = currentPlayer.coalLeft - discarded('Coal');
+        const oil = currentPlayer.oilLeft - discarded('Oil');
+        const garbage = currentPlayer.garbageLeft - discarded('Garbage');
+        const uranium = currentPlayer.uraniumLeft - discarded('Uranium');
+
+        return !canStoreFuel(after, coal, oil, garbage) || uranium > after.uraniumCapacity;
+    }
+
     discardInvalid() {
         const currentPlayer = this.G!.players[this.player!];
+        if (currentPlayer.garbageOilHybridCapacity) {
+            return this.garbageOilDiscardInvalid(currentPlayer);
+        }
+
         let hybridCapacityUsed;
         switch (this.discardedPowerPlant!.type) {
             case PowerPlantType.Coal:
@@ -1763,7 +2213,9 @@ export default class Game extends Vue {
                     case PowerPlantType.Oil:
                         if (
                             currentPlayer.powerPlants.filter((pp) => pp.type == powerPlant.type).length +
-                                currentPlayer.powerPlants.filter((pp) => pp.type == PowerPlantType.Hybrid).length ==
+                                currentPlayer.powerPlants.filter((pp) => pp.type == PowerPlantType.Hybrid).length +
+                                currentPlayer.powerPlants.filter((pp) => pp.type == PowerPlantType.GarbageOilHybrid)
+                                    .length ==
                             1
                         ) {
                             this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
@@ -1779,7 +2231,12 @@ export default class Game extends Vue {
                         break;
 
                     case PowerPlantType.Garbage:
-                        if (currentPlayer.powerPlants.filter((pp) => pp.type == powerPlant.type).length == 1) {
+                        if (
+                            currentPlayer.powerPlants.filter((pp) => pp.type == powerPlant.type).length +
+                                currentPlayer.powerPlants.filter((pp) => pp.type == PowerPlantType.GarbageOilHybrid)
+                                    .length ==
+                            1
+                        ) {
                             this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
                             return;
                         }
@@ -1828,6 +2285,29 @@ export default class Game extends Vue {
                             { name: 'Oil', value: '0', max: currentPlayer.oilLeft },
                         ];
                         break;
+
+                    case PowerPlantType.GarbageOilHybrid:
+                        if (
+                            currentPlayer.powerPlants.filter((pp) => pp.type == powerPlant.type).length +
+                                currentPlayer.powerPlants.filter((pp) => pp.type == PowerPlantType.Garbage).length +
+                                currentPlayer.powerPlants.filter((pp) => pp.type == PowerPlantType.Oil).length ==
+                            1
+                        ) {
+                            this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
+                            return;
+                        }
+
+                        if (currentPlayer.garbageLeft + currentPlayer.oilLeft == 0) {
+                            this.sendMove({ name: MoveName.DiscardPowerPlant, data: powerPlant.number });
+                            return;
+                        }
+
+                        // Same order as the engine's move.extra: [garbage, oil].
+                        this.resourcesToDiscard = [
+                            { name: 'Garbage', value: '0', max: currentPlayer.garbageLeft },
+                            { name: 'Oil', value: '0', max: currentPlayer.oilLeft },
+                        ];
+                        break;
                 }
 
                 this.discardedPowerPlant = powerPlant;
@@ -1849,6 +2329,7 @@ export default class Game extends Vue {
                     resourcesSpent = Array(powerPlant.cost).fill(ResourceType.Uranium);
                     break;
                 case PowerPlantType.Hybrid:
+                case PowerPlantType.GarbageOilHybrid:
                     const currentPlayer = this.G!.players[this.player!];
                     resourcesSpent = currentPlayer.resourcesUsed;
                     resourcesSpent.sort();
@@ -1877,7 +2358,7 @@ export default class Game extends Vue {
         });
     }
 
-    sendMove(move) {
+    sendMove(move, submit = true) {
         if (this.paused || this.interactionDisabled) {
             return;
         }
@@ -1960,7 +2441,7 @@ export default class Game extends Vue {
 
         // Send the WHOLE turn so far: the platform is stateless between calls and
         // replays the buffer from the last committed (saved) state.
-        this.emitter.emit('move', [...this.turnMoves]);
+        if (submit) this.emitter.emit('move', [...this.turnMoves]);
 
         // Only adopt a preview that is still TENTATIVE. A committing move (Pass, a bid
         // that ends an auction) replays hidden outcomes — deck draws, upkeep — on a
@@ -2012,7 +2493,7 @@ export default class Game extends Vue {
     canPass() {
         if (!this.canMove()) return false;
 
-        if (this.disablePass) return false;
+        if (this.disablePass || this.poweringSubmitting) return false;
 
         const currentPlayer = this.G!.players[this.player!];
         const availableMoves = currentPlayer.availableMoves!;
@@ -2024,11 +2505,18 @@ export default class Game extends Vue {
         if (this.roundPlan) return this.roundPlan.entries.length > 0;
         if (!this.canMove()) return false;
 
-        // Undo scope = the current tentative turn: anything still in the buffer
+        if (this.poweringSubmitting) return false;
+        // Free activations are restored by Undo; only fuel choices are undoable here.
+        if (this.G?.phase === Phase.Bureaucracy && !this.tutorialMove && !this.preferences.analysis) {
+            return this.turnMoves.some(
+                (move) => move.name === MoveName.UsePowerPlant && move.data.resourcesSpent.length > 0
+            );
+        }
         return this.turnMoves.length > 0;
     }
 
     canBid() {
+        if (this.changingBid) return this.revisionBids.length > 0;
         if (!this.canMove()) return false;
 
         const currentPlayer = this.G!.players[this.player!];
@@ -2215,7 +2703,13 @@ export default class Game extends Vue {
         let garbageUsed = 0;
         let uraniumUsed = 0;
         let hybridUsed = 0;
+        let garbageOilUsed = 0;
         for (const powerPlant of player.powerPlants) {
+            // Australia: uranium mines never power cities, so they need no fuel
+            // (there isn't even a uranium row in the main market to buy it from).
+            if (this.G && isUraniumMine(this.G, powerPlant)) {
+                continue;
+            }
             switch (powerPlant.type) {
                 case PowerPlantType.Coal:
                     coalUsed += powerPlant.cost;
@@ -2232,6 +2726,9 @@ export default class Game extends Vue {
                 case PowerPlantType.Hybrid:
                     hybridUsed += powerPlant.cost;
                     break;
+                case PowerPlantType.GarbageOilHybrid:
+                    garbageOilUsed += powerPlant.cost;
+                    break;
             }
         }
 
@@ -2247,6 +2744,14 @@ export default class Game extends Vue {
         const remainingCoal = player.coalLeft - coalUsed;
         const remainingOil = player.oilLeft - oilUsed;
         if (hybridUsed > remainingCoal + remainingOil) {
+            return false;
+        }
+        // Garbage/oil hybrids share the leftover oil with coal/oil hybrids.
+        const remainingGarbage = player.garbageLeft - garbageUsed;
+        if (
+            garbageOilUsed > remainingGarbage + remainingOil ||
+            hybridUsed + garbageOilUsed > remainingCoal + remainingOil + remainingGarbage
+        ) {
             return false;
         }
         return true;
@@ -2266,6 +2771,25 @@ export default class Game extends Vue {
         return false;
     }
 
+    playerActivatedPlantThisTurn(): boolean {
+        const player = this.player === undefined ? undefined : this.G?.players[this.player];
+        // Powering can be simultaneous: use this player's activation state rather
+        // than the log tail, which may include other players' actions.
+        return !!player?.powerPlants.some((plant) => !player.powerPlantsNotUsed.includes(plant.number));
+    }
+
+    // Check this building turn, not the player's total city count from older rounds.
+    playerBuiltCityThisTurn(): boolean {
+        const log = this.G!.log;
+        for (let i = log.length - 1; i >= 0; i--) {
+            const entry = log[i];
+            if (entry.type !== 'move' || entry.player !== this.player) return false;
+            if (entry.move.name === MoveName.Pass) return false;
+            if (entry.move.name === MoveName.Build) return true;
+        }
+        return false;
+    }
+
     toggleColorBlind() {
         this.preferences.colorBlind = !this.preferences.colorBlind;
         this.emitter.emit('update:preference', { name: 'colorBlind', value: this.preferences.colorBlind });
@@ -2278,11 +2802,18 @@ export default class Game extends Vue {
         this.preferences.sound = newSound;
     }
 
-    toggleHelp() {
-        const newVal = !this.preferences.disableHelp;
+    toggleUnselectedRegions() {
+        const value = this.preferences.showUnselectedRegions === false;
+        this.$set(this.preferences, 'showUnselectedRegions', value);
+        this.emitter.emit('update:preference', { name: 'showUnselectedRegions', value });
+    }
 
-        this.emitter.emit('update:preference', { name: 'disableHelp', value: newVal });
-        this.preferences.disableHelp = newVal;
+    get unselectedNetwork() {
+        return inactiveMapNetwork(this.G?.map, this.G?.options.variant);
+    }
+
+    get hasUnselectedRegions(): boolean {
+        return this.unselectedNetwork.cities.length > 0;
     }
 
     getStatusMessage() {
@@ -2467,31 +2998,40 @@ export default class Game extends Vue {
     // Rather than author a second set of coordinates for 24 maps, we re-use the
     // ones we already have: each group is measured with getBBox() and mapped
     // onto a full-width row by a single transform on its wrapper <g>. Nothing
-    // inside the components changes, and on a landscape/desktop viewport no
-    // transform is emitted at all, so those layouts render exactly as before.
+    // inside the components changes. Desktop uses the same measurements to keep
+    // the network clear of the track, markets and player boards.
 
     /** True while the portrait row layout is in effect. */
     stacked = false;
-    /**
-     * True when the viewport is one the row layout applies to, whether or not the
-     * player has it switched on. Kept separate from `stacked` so the toggle stays
-     * visible after someone turns stacking off — otherwise the button that undoes
-     * the choice would disappear along with the layout.
-     */
+    readonly phasesForLayout = Object.values(Phase);
+    private desktopLayoutKey = '';
+    geographyBounds: MapBounds | null = null;
+    geographyReady = false;
+    /** Whether the viewport needs the compact portrait controls. */
     portraitViewport = false;
+    geographyClipId = `powergrid-board-geography-${nextGeographyClipId++}`;
 
     /** Viewport the board was last laid out against, as `WxH` — see onViewportResize. */
     private lastViewport = '';
     private viewportObserver: ResizeObserver | null = null;
     /** Height of the stacked canvas, in scene units. */
     stackHeight = STACK_WIDTH;
+    desktopHeight: number | null = null;
     /** Wrapper transform per slot; empty means "render as authored". */
     slotTransforms: Record<string, string> = {};
+
+    get boardSurface() {
+        // Geography extends behind the controls, clipped by the existing scene.
+        return (this.preferences.geographicBackground || 'terrain') === 'terrain' && this.geographyReady
+            ? '#96bcc5'
+            : 'yellowgreen';
+    }
 
     get sceneViewBox() {
         if (this.stacked) {
             return `0 0 ${STACK_WIDTH} ${this.stackHeight}`;
         }
+        if (this.desktopHeight !== null) return `0 0 ${STACK_WIDTH} ${this.desktopHeight}`;
         return this.G?.map?.viewBox ? `0 0 ${this.G.map.viewBox[0]} ${this.G.map.viewBox[1]}` : '0 0 1500 800';
     }
 
@@ -2499,14 +3039,7 @@ export default class Game extends Vue {
         return this.slotTransforms[name];
     }
 
-    /**
-     * Placement of the icon column beside Pass / Undo / board options. On a portrait viewport
-     * that column gains a fourth button — the layout toggle — in a space authored for
-     * three, and at the authored pitch the fourth one hung 41 units below everything
-     * else and crowded the market row beneath it. On portrait the icons shrink to the
-     * 26-unit height of the text buttons next to them and re-pitch so all four end
-     * level with the board options. Landscape and desktop keep the authored positions exactly.
-     */
+    /** Align portrait icons with the compact action buttons; retain desktop spacing. */
     iconButton(index: number): string {
         if (!this.portraitViewport) return `translate(110, ${13 + 41 * index})`;
         return `translate(110, ${13 + 30 * index}) scale(${round(26 / 30, 4)})`;
@@ -2532,52 +3065,7 @@ export default class Game extends Vue {
     }
 
     private shouldStack(): boolean {
-        return this.isPortraitViewport() && this.preferences.stackOnPortrait !== false;
-    }
-
-    toggleStackLayout() {
-        const newVal = !this.stacked;
-
-        this.emitter.emit('update:preference', { name: 'stackOnPortrait', value: newVal });
-        this.preferences.stackOnPortrait = newVal;
-        this.relayout();
-    }
-
-    /**
-     * Only ever consulted inside the stacked layout — landscape and desktop draw the
-     * printed board regardless, so this preference cannot reach them.
-     */
-    get showResourceTrack(): boolean {
-        return this.preferences.portraitResourceTrack === true;
-    }
-
-    setResourceView(showTrack: boolean) {
-        if (showTrack === this.showResourceTrack) {
-            return;
-        }
-
-        this.emitter.emit('update:preference', { name: 'portraitResourceTrack', value: showTrack });
-        this.preferences.portraitResourceTrack = showTrack;
-    }
-
-    /**
-     * The two resource displays are different shapes, so switching between them
-     * invalidates the row heights the last layout solved for — the same trap as
-     * entering the stacked layout at all. Measure again once the swap has landed.
-     */
-    @Watch('showResourceTrack')
-    onResourceViewChanged() {
-        this.$nextTick(() => {
-            // The printed track fills itself imperatively and `createPieces` only ever
-            // runs on a state update, so a track switched on mid-turn would draw an
-            // EMPTY market until the next move landed — a display that lies. Fill it
-            // before measuring: the cubes are what give the group its size.
-            if (this.G) {
-                this.resources?.createPieces(this.G);
-            }
-
-            this.scheduleRelayout();
-        });
+        return this.isPortraitViewport();
     }
 
     relayout() {
@@ -2586,33 +3074,85 @@ export default class Game extends Vue {
             return;
         }
 
-        this.portraitViewport = this.isPortraitViewport();
+        // Turns change labels, bids, highlights and animated piece bounds. Those
+        // are not changes to the board's geometry: keep the layout until the
+        // viewport, selected network, player count or language actually changes.
+        const desktopKey = JSON.stringify({
+            viewport: [window.innerWidth, window.innerHeight, this.$el.clientWidth],
+            map: this.G?.map,
+            players: this.G?.players.length,
+            locale: this.preferences.locale,
+            auctionSettings: this.showAutoPass,
+        });
+        if (!this.shouldStack() && !this.stacked && desktopKey === this.desktopLayoutKey) return;
 
-        if (!this.shouldStack()) {
-            if (this.stacked) {
-                this.stacked = false;
-                this.slotTransforms = {};
-            }
-            return;
+        // Measure only playable cities and connections. Background geography and
+        // faded regions cannot enlarge either layout.
+        const network = this.map?.$el as SVGGraphicsElement | undefined;
+        if (network && typeof network.getBBox === 'function') {
+            const b = network.getBBox();
+            // Decorative padding only; never included in the layout boxes below.
+            const next = { x: b.x - 24, y: b.y - 24, width: b.width + 48, height: b.height + 48 };
+            if (JSON.stringify(next) !== JSON.stringify(this.geographyBounds)) this.geographyBounds = next;
         }
+
+        this.portraitViewport = this.isPortraitViewport();
 
         // getBBox() reports a group's box in its OWN user space, i.e. before its
         // own transform is applied — so measuring is safe even while a previous
         // stacked transform is in place, and a re-layout never feeds on its own
         // output.
-        const boxes: Record<string, { x: number; y: number; width: number; height: number }> = {};
+        const boxes: Record<string, BoardBox> = {};
         for (const name of STACK_ROWS.flat()) {
             const el = this.$refs[slotRef(name)] as SVGGraphicsElement | undefined;
             if (!el || typeof el.getBBox !== 'function') continue;
             try {
-                const bb = el.getBBox();
+                const bb = measureBoardBox(
+                    el,
+                    !this.shouldStack()
+                        ? name === 'cityCount'
+                            ? '.city-income-legend'
+                            : name === 'resources'
+                            ? '.resupply-strip'
+                            : undefined
+                        : undefined
+                );
                 if (bb.width > 0 && bb.height > 0) {
-                    boxes[name] = { x: bb.x, y: bb.y, width: bb.width, height: bb.height };
+                    boxes[name] = bb;
                 }
             } catch {
                 // Not rendered yet (or detached) — skip; the next relayout catches it.
             }
         }
+
+        if (!this.shouldStack()) {
+            if (this.stacked) {
+                // Let the desktop resource track and vertical mine market mount
+                // before measuring them; the stacked watcher schedules that pass.
+                this.stacked = false;
+                this.slotTransforms = {};
+                return;
+            }
+            if (!boxes.map || !boxes.resources) return;
+            const scene = this.$el.querySelector('#scene') as SVGSVGElement;
+            const width = this.$el.clientWidth || window.innerWidth;
+            const top = scene.getBoundingClientRect().top + window.scrollY;
+            const availableHeight = Math.max(240, window.innerHeight - top - 8);
+            const layout = desktopBoardLayout(boxes, STACK_WIDTH, (STACK_WIDTH * availableHeight) / width, {
+                pixelsPerUnit: width / STACK_WIDTH,
+                // Circular city markers have a 25-unit radius. Bremen's larger
+                // district tiles do not need this compact-controls adjustment.
+                cityDiameter: this.G?.map.cities.some((city) => city.connectionCost == null) ? 50 : 0,
+            });
+            this.desktopHeight = layout.height;
+            this.slotTransforms = Object.fromEntries(
+                Object.entries(layout.placements).map(([name, slot]) => [name, slot.transform])
+            );
+            this.desktopLayoutKey = desktopKey;
+            return;
+        }
+
+        this.desktopLayoutKey = '';
 
         // A row of `h` scene units renders at h * (innerWidth / STACK_WIDTH) css px,
         // because the canvas width always maps to the viewport width.
@@ -2681,6 +3221,7 @@ export default class Game extends Vue {
         }
 
         this.stackHeight = Math.round(y + STACK_PAD - STACK_GAP);
+        this.desktopHeight = null;
         this.slotTransforms = transforms;
         this.stacked = true;
     }
@@ -2742,6 +3283,8 @@ export default class Game extends Vue {
 
     beforeDestroy() {
         if (this.pendingPlanTimer) clearTimeout(this.pendingPlanTimer);
+        if (this.undoRequestTimer) clearTimeout(this.undoRequestTimer);
+        if (this.recentLocalUndoTimer) clearTimeout(this.recentLocalUndoTimer);
         window.removeEventListener('resize', this.onViewportResize);
         window.removeEventListener('orientationchange', this.onViewportResize);
         window.removeEventListener('load', this.onViewportResize);
@@ -2756,9 +3299,20 @@ export default class Game extends Vue {
         }
     }
 
-    // Boards grow as players buy plants, so the row heights are re-derived on
-    // every state change rather than measured once at mount.
+    // A decorative visibility toggle must not even trigger a new measurement:
+    // getBBox can vary fractionally as fonts and animations settle.
+    get layoutPreferencesKey() {
+        const preferences = { ...this.preferences };
+        delete preferences.showUnselectedRegions;
+        return JSON.stringify(preferences);
+    }
+
+    // Portrait rows can grow when a resource breakdown opens. Desktop reuses
+    // its reserved layout across state updates instead of moving click targets.
     @Watch('G')
+    @Watch('layoutPreferencesKey')
+    @Watch('hasPlanPanel')
+    @Watch('showAutoPass')
     onSceneContentChanged() {
         this.scheduleRelayout();
     }
@@ -2767,9 +3321,30 @@ export default class Game extends Vue {
         return playerOrderForDisplay(this.G, this.preferences.adjustPlayerOrder);
     }
 
+    playerBoardOffset(index: number): number {
+        const ownIndex = this.player == null ? -1 : this.adjustedPlayerOrder.indexOf(this.player);
+        const extraHeight = this.showAutoPass && ownIndex >= 0 && ownIndex < index ? PLAYER_SETTING_ROW_HEIGHT : 0;
+        return 110 * index + extraHeight;
+    }
+
+    get uraniumMineRemoval(): number | undefined {
+        if (!this.G || !this.G.uraniumMineMarket || !this.G.map.uraniumMineResupply) return undefined;
+        const step = this.stacked ? this.G.step : this.displayedResupplyStep;
+        return this.G.map.uraniumMineResupply[this.G.players.length - 2][step - 1];
+    }
+
+    resupplyPreviewStep: number | null = null;
+    get displayedResupplyStep() {
+        return this.resupplyPreviewStep ?? this.G?.step ?? 1;
+    }
+    @Watch('G.step')
+    resetResupplyPreview() {
+        this.resupplyPreviewStep = null;
+    }
+
     getResourceResupply() {
         if (this.G) {
-            let str = this.G.resourceResupply[this.G.step - 1];
+            let str = this.G.resourceResupply[this.displayedResupplyStep - 1];
             str = str.substr(1, str.length - 2);
             return str.split(',');
         }
@@ -2779,7 +3354,7 @@ export default class Game extends Vue {
 
     getResourceResupplyNorth() {
         if (this.G && this.G.resourceResupplyNorth) {
-            let str = this.G.resourceResupplyNorth[this.G.step - 1];
+            let str = this.G.resourceResupplyNorth[this.displayedResupplyStep - 1];
             str = str.substr(1, str.length - 2);
             return str.split(',');
         }
@@ -2798,7 +3373,10 @@ ul {
     flex-direction: column;
 }
 
-.fitToScreen #scene {
+// Once measured, the layout fits the viewport where possible and grows when
+// needed to preserve readable cities and cards. A second CSS cap would shrink
+// the whole board again, silently undoing those pixel-size floors.
+.game:not(.stacked) #scene:not(.laid-out) {
     max-height: calc(100vh - 40px);
 }
 
@@ -2849,6 +3427,15 @@ ul {
     padding: 7px 0;
 }
 
+// A long opponent move must not push the cities away just before your turn.
+// The complete message remains in the tooltip and journal; phones still wrap.
+.game:not(.stacked) .status-message {
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 @media (max-width: 600px) {
     .statusBar,
     .planner-header.planning {
@@ -2881,9 +3468,23 @@ ul {
     }
 }
 
+html {
+    --powergrid-page-background: #e7ebda;
+}
+
+html[data-powergrid-theme='dark'] {
+    --powergrid-page-background: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+    html:not([data-powergrid-theme]) {
+        --powergrid-page-background: #171717;
+    }
+}
+
 body,
 html {
-    background: #e7ebda;
+    background: var(--powergrid-page-background);
     color: #263521;
     height: 100%;
     width: 100%;
@@ -2919,26 +3520,12 @@ text {
         cursor: pointer;
 
         &:hover {
-            rect {
+            // Only the outer surface reacts. Nested shapes, text and SVG images
+            // are pictograms, not separate button backgrounds.
+            > rect,
+            > circle {
                 fill: silver;
                 stroke: white;
-            }
-
-            circle {
-                fill: silver;
-                stroke: white;
-            }
-
-            line {
-                stroke: white;
-            }
-
-            image {
-                filter: invert(1);
-            }
-
-            text {
-                fill: white;
             }
         }
     }
@@ -3180,6 +3767,38 @@ text {
 @media (min-width: 1000px) {
     .journal-and-chat {
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+    .journal-and-chat {
+        --feed-panel-height: 280px;
+        --feed-body-height: calc(var(--feed-panel-height) - 42px);
+    }
+    .journal-and-chat .inline-game-log,
+    .journal-and-chat .bgs-game-chat {
+        padding: 10px 14px;
+    }
+    .journal-and-chat details[open] {
+        height: var(--feed-panel-height);
+    }
+    .journal-and-chat summary {
+        line-height: 20px;
+    }
+    .journal-and-chat .journal-feed {
+        height: calc(var(--feed-body-height) - 8px);
+        max-height: none;
+    }
+    .journal-and-chat .chat-body {
+        height: var(--feed-body-height);
+        display: flex;
+        flex-direction: column;
+    }
+    .journal-and-chat .chat-messages {
+        flex: 1;
+        min-height: 0;
+        max-height: none;
+    }
+    .journal-and-chat .chat-composer,
+    .journal-and-chat .chat-status {
+        flex-shrink: 0;
     }
 }
 </style>

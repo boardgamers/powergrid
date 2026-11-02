@@ -1,0 +1,678 @@
+{
+  "date": "2026-10-04",
+  "description": "Native built viewer through CUA. On/off comparisons of scene viewBox, slot and map transforms, map bounding client rectangle, every circle bounding client rectangle, and map-only network viewBox. Both all/selected regions. Mobile viewport 390x844 (375px content width with scrollbar).",
+  "comparisons": [
+    {
+      "size": "desktop",
+      "key": "ukireland",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "australia",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "northerneurope",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "america",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "america",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "australia",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "badenwurttemberg",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "badenwurttemberg",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "benelux",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "benelux",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "brazil",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "brazil",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "bremen",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "bremen",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "centraleurope",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "centraleurope",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "china",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "china",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "europe",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "europe",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "france",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "france",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "germany",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "germany",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "indian",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "indian",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "italy",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "italy",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "japan",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "japan",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "korea",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "korea",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "manhattan",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "manhattan",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "middleeast",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "middleeast",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "northamerica",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "northamerica",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "northerneurope",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "quebec",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "quebec",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "russia",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "russia",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "southafrica",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "southafrica",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "spainportugal",
+      "regions": "selected",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "spainportugal",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "desktop",
+      "key": "ukireland",
+      "regions": "all",
+      "same": true,
+      "stacked": false
+    },
+    {
+      "size": "mobile",
+      "key": "america",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "america",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "australia",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "australia",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "badenwurttemberg",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "badenwurttemberg",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "benelux",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "benelux",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "brazil",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "brazil",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "bremen",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "bremen",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "centraleurope",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "centraleurope",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "china",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "china",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "europe",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "europe",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "france",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "france",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "germany",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "germany",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "indian",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "indian",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "italy",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "italy",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "japan",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "japan",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "korea",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "korea",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "manhattan",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "manhattan",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "middleeast",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "middleeast",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "northamerica",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "northamerica",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "northerneurope",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "northerneurope",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "quebec",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "quebec",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "russia",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "russia",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "southafrica",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "southafrica",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "spainportugal",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "spainportugal",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "ukireland",
+      "regions": "selected",
+      "same": true,
+      "stacked": true
+    },
+    {
+      "size": "mobile",
+      "key": "ukireland",
+      "regions": "all",
+      "same": true,
+      "stacked": true
+    }
+  ]
+}

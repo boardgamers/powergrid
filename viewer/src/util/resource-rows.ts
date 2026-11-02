@@ -1,4 +1,5 @@
 import type { GameState } from 'powergrid-engine';
+import { garbagePrice } from 'powergrid-engine/src/available-moves';
 
 /**
  * The row model behind the portrait resource market (`boards/ResourceBoxes.vue`).
@@ -12,6 +13,13 @@ import type { GameState } from 'powergrid-engine';
  */
 
 export type BuyMove = { resource: string; side?: 'north' | 'south'; fromStorage?: boolean };
+
+export interface PriceTier {
+    price: number;
+    cubes: number;
+    capacity: number;
+    capped: boolean;
+}
 
 export interface ResourceRow {
     label: string;
@@ -27,6 +35,8 @@ export interface ResourceRow {
     /** Cubes left in this source altogether. */
     cubes: number;
     buyable: boolean;
+    /** All price points, including depleted slots, for an expandable breakdown. */
+    tiers: PriceTier[];
     /** On the board but above the per-step price cap, so nobody may buy it yet. */
     capped: boolean;
     /** A flat-price pool with no track behind it: every cube costs the same. */
@@ -98,19 +108,20 @@ function sameMove(a: BuyMove, b: BuyMove): boolean {
 }
 
 /**
- * Central Europe sells garbage a dollar cheaper to whoever holds Wien — and the
- * engine really does charge the lower price, not just offer the move. The box shows
- * the price THIS player would pay, because that is the only number a tap can act on.
+ * Central Europe sells garbage a dollar cheaper (never below $1) to whoever holds
+ * Wien — and the engine really does charge the lower price, not just offer the move.
+ * The box shows the price THIS player would pay, because that is the only number a
+ * tap can act on.
  */
-function wienDiscount(G: GameState, resource: string, player: number | undefined): number {
-    if (resource !== 'garbage' || G.map.name !== 'Central Europe' || player === undefined) return 0;
-    const me = G.players[player];
-    if (!me) return 0;
-    return me.cities.some((c) => c.name === 'Wien') ? 1 : 0;
+function chargedPrices(G: GameState, resource: string, north: boolean, player: number | undefined): number[] {
+    const prices = pricesFor(G, resource, north);
+    const me = player === undefined ? undefined : G.players[player];
+    if (resource !== 'garbage' || north || !me) return prices;
+    return prices.map((printedPrice) => garbagePrice(G, me, printedPrice));
 }
 
 function marketRow(G: GameState, resource: string, north: boolean, opts: RowOptions): ResourceRow {
-    const prices = pricesFor(G, resource, north);
+    const prices = chargedPrices(G, resource, north, opts.player);
     const cubes = cubesIn(G, resource, north);
     // Cubes fill from the dear end, so the next one sold is at `length - cubes`.
     // Clamped only so a market holding more cubes than its track has slots reads as
@@ -124,15 +135,26 @@ function marketRow(G: GameState, resource: string, north: boolean, opts: RowOpti
     let next: number | null = null;
 
     if (cubes > 0) {
-        price = prices[idx] - (north ? 0 : wienDiscount(G, resource, opts.player));
+        price = prices[idx];
         for (let i = idx; i < prices.length && prices[i] === prices[idx]; i++) atPrice++;
         for (let i = idx; i < prices.length; i++) {
             if (prices[i] !== prices[idx]) {
-                next = prices[i] - (north ? 0 : wienDiscount(G, resource, opts.player));
+                next = prices[i];
                 break;
             }
         }
     }
+
+    const tiers: PriceTier[] = [];
+    prices.forEach((price, i) => {
+        let tier = tiers.find((t) => t.price === price);
+        if (!tier) {
+            tier = { price, cubes: 0, capacity: 0, capped: price > maxPrice(G) };
+            tiers.push(tier);
+        }
+        tier.capacity++;
+        if (i >= idx && cubes > 0) tier.cubes++;
+    });
 
     const move: BuyMove = isKorea(G) ? { resource, side: north ? 'north' : 'south' } : { resource };
 
@@ -144,6 +166,7 @@ function marketRow(G: GameState, resource: string, north: boolean, opts: RowOpti
         next,
         atPrice,
         cubes,
+        tiers,
         buyable: !!opts.buyable && opts.buyable.some((b) => sameMove(b, move)),
         capped: price !== null && price > maxPrice(G),
         flat: false,
@@ -165,6 +188,7 @@ function flatRow(G: GameState, cubes: number, fromStorage: boolean, label: strin
         next: null,
         atPrice: 0,
         cubes,
+        tiers: [{ price: FLAT_POOL_PRICE, cubes, capacity: cubes, capped: FLAT_POOL_PRICE > maxPrice(G) }],
         buyable: !!opts.buyable && opts.buyable.some((b) => sameMove(b, move)),
         capped: cubes > 0 && FLAT_POOL_PRICE > maxPrice(G),
         flat: true,

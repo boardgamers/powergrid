@@ -18,6 +18,15 @@ module.exports = {
         },
     },
     chainWebpack: (config) => {
+        // This is a Vue 2 viewer; Vue 2.7's compiler-sfc is not the Vue 3
+        // parser expected by the legacy CLI's automatic detection.
+        if (config.plugins.has('fork-ts-checker')) {
+            config.plugin('fork-ts-checker').tap((args) => {
+                args[0].vue.compiler = 'vue-template-compiler';
+                return args;
+            });
+        }
+
         // App and library builds use different Vue import transforms.
         for (const name of ['js', 'ts', 'tsx', 'vue']) {
             const rule = config.module.rule(name);
@@ -37,9 +46,11 @@ module.exports = {
                 .tap((options) => ({
                     ...options,
                     configFile: join(__dirname, 'tsconfig.json'),
+                    ...(process.env.NODE_ENV === 'test' ? { compilerOptions: { target: 'es2019' } } : {}),
                 }));
         }
         // Webpack 4 predates package exports; resolve the published ESM entry points.
+        config.resolve.alias.set('@boardgamers/protocol/player-symbols$', join(protocolDist, 'player-symbols.js'));
         config.resolve.alias.set('@boardgamers/protocol/viewer', join(protocolDist, 'viewer.js'));
         config.resolve.alias.set('@boardgamers/protocol/chat/dom$', join(protocolDist, 'chat-dom.js'));
         config.resolve.alias.set('@boardgamers/protocol/chat$', join(protocolDist, 'chat.js'));

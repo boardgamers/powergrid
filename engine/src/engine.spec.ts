@@ -45,6 +45,20 @@ describe('Engine', () => {
         expect(ended(G)).to.false;
     });
 
+    it('should pick a random map deterministically from the seed', () => {
+        const picked = new Set<string>();
+        for (const variant of ['original', 'recharged'] as const) {
+            for (let i = 0; i < 20; i++) {
+                const G = setup(4, { map: 'Random', variant }, `random-${i}`);
+                expect(G.options.map).to.not.equal('Random');
+                expect(G.options.map).to.equal(G.map.name);
+                expect(setup(4, { map: 'Random', variant }, `random-${i}`).map.name).to.equal(G.map.name);
+                picked.add(G.map.name);
+            }
+        }
+        expect(picked.size).to.be.greaterThan(1);
+    });
+
     it('should play full game Germany recharged', () => {
         const game = GermanyRecharged;
         const options: GameOptions = {
@@ -1838,6 +1852,24 @@ describe('Engine', () => {
         player.availableMoves = availableMoves(G, player);
 
         expect(() => moveAI(G, 0)).to.not.throw();
+    });
+
+    it('should respect mandatory powering when autoplaying an India analysis seat', () => {
+        const G = setup(3, { map: 'India', variant: 'recharged' }, 'india-mandatory-power');
+        G.phase = Phase.Bureaucracy;
+        G.currentPlayers = [0, 1];
+        const player = G.players[0];
+        player.isAI = false;
+        player.cities = [];
+        player.citiesPowered = 0;
+        player.targetCitiesPowered = 1;
+        player.powerPlants = [getPowerPlant(13)];
+        player.powerPlantsNotUsed = [13];
+        player.availableMoves = availableMoves(G, player);
+        expect(player.availableMoves.Pass).to.be.undefined;
+        expect(player.availableMoves.UsePowerPlant).to.have.length(1);
+        const after = moveAI(G, 0);
+        expect(after.players[0].powerPlantsNotUsed).not.to.include(13);
     });
 
     it('should not reorder the stored available moves when moveAI picks one', () => {

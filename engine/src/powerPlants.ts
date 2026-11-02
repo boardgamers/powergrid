@@ -56,4 +56,70 @@ indiaPowerPlants.forEach((pp) => {
     }
 });
 
-export { powerPlants, indiaPowerPlants };
+// Alternate power plant deck: the same card numbers as the standard deck, with
+// different fuels and outputs. Its water plants count as garbage plants. Plants
+// 8, 22 and 35 burn any mix of garbage and oil.
+const alternatePowerPlants: PowerPlant[] = [
+    { number: 3, type: PowerPlantType.Coal, cost: 2, citiesPowered: 1 },
+    { number: 4, type: PowerPlantType.Coal, cost: 2, citiesPowered: 1 },
+    { number: 5, type: PowerPlantType.Garbage, cost: 2, citiesPowered: 1 },
+    { number: 6, type: PowerPlantType.Oil, cost: 1, citiesPowered: 1 },
+    { number: 7, type: PowerPlantType.Coal, cost: 1, citiesPowered: 1 },
+    { number: 8, type: PowerPlantType.GarbageOilHybrid, cost: 3, citiesPowered: 2 },
+    { number: 9, type: PowerPlantType.Coal, cost: 3, citiesPowered: 2 },
+    { number: 10, type: PowerPlantType.Oil, cost: 2, citiesPowered: 2 },
+    { number: 11, type: PowerPlantType.Wind, cost: 0, citiesPowered: 1 },
+    { number: 12, type: PowerPlantType.Coal, cost: 2, citiesPowered: 2 },
+    { number: 13, type: PowerPlantType.Uranium, cost: 1, citiesPowered: 2 },
+    { number: 14, type: PowerPlantType.Garbage, cost: 1, citiesPowered: 2 },
+    { number: 15, type: PowerPlantType.Coal, cost: 1, citiesPowered: 2 },
+    { number: 16, type: PowerPlantType.Garbage, cost: 2, citiesPowered: 3 },
+    { number: 17, type: PowerPlantType.Wind, cost: 0, citiesPowered: 2 },
+    { number: 18, type: PowerPlantType.Oil, cost: 2, citiesPowered: 3 },
+    { number: 19, type: PowerPlantType.Garbage, cost: 1, citiesPowered: 3 },
+    { number: 20, type: PowerPlantType.Coal, cost: 3, citiesPowered: 4 },
+    { number: 21, type: PowerPlantType.Uranium, cost: 1, citiesPowered: 3 },
+    { number: 22, type: PowerPlantType.GarbageOilHybrid, cost: 3, citiesPowered: 5 },
+    { number: 23, type: PowerPlantType.Oil, cost: 2, citiesPowered: 4 },
+    { number: 24, type: PowerPlantType.Wind, cost: 0, citiesPowered: 3 },
+    { number: 25, type: PowerPlantType.Coal, cost: 2, citiesPowered: 5 },
+    { number: 26, type: PowerPlantType.Garbage, cost: 1, citiesPowered: 4 },
+    { number: 27, type: PowerPlantType.Coal, cost: 1, citiesPowered: 4 },
+    { number: 28, type: PowerPlantType.Wind, cost: 0, citiesPowered: 3 },
+    { number: 29, type: PowerPlantType.Coal, cost: 2, citiesPowered: 5 },
+    { number: 30, type: PowerPlantType.Oil, cost: 2, citiesPowered: 5 },
+    { number: 31, type: PowerPlantType.Wind, cost: 0, citiesPowered: 4 },
+    { number: 32, type: PowerPlantType.Uranium, cost: 2, citiesPowered: 5 },
+    { number: 33, type: PowerPlantType.Coal, cost: 3, citiesPowered: 6 },
+    { number: 34, type: PowerPlantType.Garbage, cost: 3, citiesPowered: 6 },
+    { number: 35, type: PowerPlantType.GarbageOilHybrid, cost: 2, citiesPowered: 5 },
+    { number: 36, type: PowerPlantType.Wind, cost: 0, citiesPowered: 5 },
+    { number: 37, type: PowerPlantType.Uranium, cost: 2, citiesPowered: 6 },
+    { number: 38, type: PowerPlantType.Oil, cost: 3, citiesPowered: 6 },
+    { number: 39, type: PowerPlantType.Garbage, cost: 2, citiesPowered: 6 },
+    { number: 40, type: PowerPlantType.Coal, cost: 2, citiesPowered: 6 },
+    { number: 42, type: PowerPlantType.Oil, cost: 2, citiesPowered: 6 },
+    { number: 44, type: PowerPlantType.Wind, cost: 0, citiesPowered: 6 },
+    { number: 46, type: PowerPlantType.Garbage, cost: 2, citiesPowered: 7 },
+    { number: 50, type: PowerPlantType.Uranium, cost: 2, citiesPowered: 7 },
+    { number: 99, type: PowerPlantType.Step3, cost: 0, citiesPowered: 6 },
+];
+
+// The maps the alternate deck can be played on. The alternatePowerPlants option is
+// ignored on every other map.
+const ALTERNATE_DECK_MAPS: string[] = ['Europe', 'North America'];
+
+function usesAlternateDeck(mapName: string, alternate: boolean | undefined): boolean {
+    return !!alternate && ALTERNATE_DECK_MAPS.includes(mapName);
+}
+
+// The full card list a game on this map draws from.
+function plantCatalogue(mapName: string, alternate?: boolean): PowerPlant[] {
+    if (mapName == 'India') {
+        return indiaPowerPlants;
+    }
+
+    return usesAlternateDeck(mapName, alternate) ? alternatePowerPlants : powerPlants;
+}
+
+export { powerPlants, indiaPowerPlants, alternatePowerPlants, ALTERNATE_DECK_MAPS, usesAlternateDeck, plantCatalogue };

@@ -1,7 +1,7 @@
 // by John and Cici
 import { cloneDeep } from 'lodash';
 import seedrandom from 'seedrandom';
-import { PowerPlantType } from '../gamestate';
+import { PowerPlant, PowerPlantType } from '../gamestate';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
 import { powerPlants } from './../powerPlants';
@@ -375,8 +375,8 @@ export const map: GameMap = {
     // The Step 2 trigger for Europe is handled in engine.ts (special branch): it
     // removes the lowest plant from the current market once, then re-sorts the
     // remaining 8 plants into 4 actual + 4 future without drawing from the deck.
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
-        const powerPlantsDeck = cloneDeep(powerPlants);
+    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, catalogue?: PowerPlant[]) {
+        const powerPlantsDeck = cloneDeep(catalogue ?? powerPlants);
 
         const step3Index = powerPlantsDeck.findIndex((p) => p.type === PowerPlantType.Step3);
         const step3 = powerPlantsDeck.splice(step3Index, 1)[0];

@@ -22,7 +22,7 @@ import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 
 @Component({
     created(this: Calculator) {
-        this.value = this.minValue;
+        this.value = Math.min(this.maxValue, Math.max(this.minValue, this.initialValue ?? this.minValue));
     },
 })
 export default class Calculator extends Vue {
@@ -31,6 +31,8 @@ export default class Calculator extends Vue {
 
     @Prop()
     maxValue;
+
+    @Prop() initialValue?: number;
 
     value: number = 0;
 

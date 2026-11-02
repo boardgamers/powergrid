@@ -16,11 +16,13 @@ const batches = ['a', 'b'].map((batch) => {
     });
     return { batch, ...result };
 });
-console.log(JSON.stringify({
-    fixtureIndex: row.fixtureIndex,
-    cell: row.cell,
-    round: state.round,
-    actions: c.candidates(state, player),
-    samplePolicies: Array.from({ length: 48 }, (_, i) => i % 2 ? 'heuristic' : 'economic'),
-    batches,
-}));
+console.log(
+    JSON.stringify({
+        fixtureIndex: row.fixtureIndex,
+        cell: row.cell,
+        round: state.round,
+        actions: c.candidates(state, player),
+        samplePolicies: Array.from({ length: 48 }, (_, i) => (i % 2 ? 'heuristic' : 'economic')),
+        batches,
+    })
+);

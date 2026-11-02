@@ -12,10 +12,14 @@ test('optional paired outcomes preserve decisions and distinguish capped continu
         const { sampleOutcomes, ...rest } = detailed;
         assert.deepEqual(rest, plain);
         assert.equal(JSON.stringify(fixture.state), before);
-        let capped = 0, count = 0;
+        let capped = 0,
+            count = 0;
         for (const [index, values] of Object.entries(sampleOutcomes)) {
             assert.equal(values.length, options.samples);
-            assert.equal(values.filter((v) => v !== null).reduce((a, b) => a + b, 0), plain.values[index]);
+            assert.equal(
+                values.filter((v) => v !== null).reduce((a, b) => a + b, 0),
+                plain.values[index]
+            );
             capped += values.filter((v) => v === null).length;
             count += values.length;
         }
@@ -34,5 +38,8 @@ test('fixed continuation policies share scenarios and reproduce mixed-policy sam
         assert.equal(mixed.sampleOutcomes[k][0], economic.sampleOutcomes[k][0]);
         assert.equal(mixed.sampleOutcomes[k][1], heuristic.sampleOutcomes[k][1]);
     }
-    assert.throws(() => search.choose(fixture.state, fixture.seat, { continuation: 'unknown' }), /Invalid continuation/);
+    assert.throws(
+        () => search.choose(fixture.state, fixture.seat, { continuation: 'unknown' }),
+        /Invalid continuation/
+    );
 });

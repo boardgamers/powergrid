@@ -1,6 +1,13 @@
 <template>
     <g class="player-board">
-        <rect width="350" height="100" x="0" y="0" fill="gold" :stroke="color" />
+        <rect
+            width="350"
+            :height="100 + (showAutoPass ? settingRowHeight : 0)"
+            x="0"
+            y="0"
+            fill="gold"
+            :stroke="color"
+        />
         <rect width="350" height="25" x="0" y="0" :fill="color" />
         <foreignObject height="30" width="30" x="-30" y="-5">
             <img
@@ -10,18 +17,72 @@
                 style="border-radius: 50%"
             />
         </foreignObject>
+        <image
+            v-if="supporterBadge"
+            :href="supporterBadge.url"
+            x="5"
+            y="4"
+            width="17"
+            height="17"
+            :aria-label="supporterBadge.label"
+        >
+            <title>{{ supporterBadge.label }}</title>
+        </image>
         <text
             :data-bgs-player="owner"
             style="pointer-events: all"
             tabindex="0"
-            x="5"
+            :x="supporterBadge ? 27 : 5"
             y="13"
             font-weight="600"
-            fill="black"
+            :fill="colorText(color)"
         >
             {{ getPlayerName() }}
         </text>
-        <text v-if="showMoney" x="250" y="13" font-weight="600" fill="black">Money: ${{ player.money }}</text>
+        <text v-if="showMoney" x="250" y="13" font-weight="600" :fill="colorText(color)"
+            >Money: ${{ player.money }}</text
+        >
+
+        <!-- Keep the full preference inside the viewer's own player card. -->
+        <template v-if="showAutoPass">
+            <g
+                class="auction-auto-pass"
+                :class="{ editable: !autoPassDisabled }"
+                transform="translate(0, 100)"
+                data-auction-auto-pass
+                :role="autoPassPublic ? 'note' : 'checkbox'"
+                :aria-checked="autoPassPublic ? undefined : String(autoPass)"
+                :aria-disabled="autoPassDisabled ? 'true' : 'false'"
+                :tabindex="autoPassPublic || autoPassDisabled ? -1 : 0"
+                aria-label="Auto-pass if unaffordable"
+                @click="!autoPassDisabled && $emit('toggleAutoPass')"
+                @keydown.enter.prevent="!autoPassDisabled && $emit('toggleAutoPass')"
+                @keydown.space.prevent="!autoPassDisabled && $emit('toggleAutoPass')"
+            >
+                <rect class="auto-pass-hit" width="350" :height="settingRowHeight" fill="transparent" />
+                <path d="M0 0H350" stroke="#806b28" stroke-opacity="0.35" />
+                <rect
+                    x="10"
+                    y="9"
+                    width="18"
+                    height="18"
+                    rx="2"
+                    :fill="autoPass ? '#304b3b' : '#f5f4e5'"
+                    stroke="#304b3b"
+                />
+                <path v-if="autoPass" d="M14 18L18 22L24 14" fill="none" stroke="white" stroke-width="2" />
+                <text x="37" y="18" fill="#24382b" style="font: 16px Arial, sans-serif; dominant-baseline: central"
+                    >Auto-pass if unaffordable</text
+                >
+                <title>
+                    {{
+                        autoPassPublic
+                            ? 'Money is public: players automatically pass auctions they cannot afford.'
+                            : 'Automatically pass auctions you cannot afford. With hidden money, this can reveal that you cannot afford the bid. Applies after the next move.'
+                    }}
+                </title>
+            </g>
+        </template>
 
         <Card
             v-for="(powerPlant, i) in player.powerPlants"
@@ -30,6 +91,15 @@
             :owner="owner"
             :powerPlant="powerPlant"
             :canClick="canUse(powerPlant)"
+            :activationState="activationState(powerPlant)"
+            :highlightColor="
+                canUse(powerPlant)
+                    ? player.availableMoves && player.availableMoves.DiscardPowerPlant
+                        ? '#c62828'
+                        : 'blue'
+                    : undefined
+            "
+            :data-plant-number="powerPlant.number"
             @click="powerPlantClick(powerPlant)"
         />
 
@@ -48,45 +118,54 @@
                     stroke-width="3px"
                     rx="3px"
                 />
-                <circle :cx="cardX(i) + 51" cy="37" r="8" fill="#46c655" stroke="#1f5c25" stroke-width="1.5" />
-                <text
-                    :x="cardX(i) + 51"
-                    y="40"
-                    text-anchor="middle"
-                    fill="white"
-                    style="font-size: 9px; font-weight: 700"
-                >
-                    U
-                </text>
+                <rect :x="cardX(i) + 42" y="28" width="18" height="19" rx="3" fill="#f4e5a8" stroke="#806b28" />
+                <Uranium
+                    :pieceId="'uraniumMineBadge_' + powerPlant.number"
+                    :targetState="{ x: cardX(i) + 41, y: 29 }"
+                />
             </g>
         </template>
 
-        <template v-if="!preferences.disableHelp">
-            <template v-for="(powerPlant, i) in player.powerPlants">
-                <rect
-                    v-if="canUse(powerPlant)"
-                    :key="i + '_' + i + '_helper'"
-                    :x="cardX(i)"
-                    :y="30"
-                    width="60"
-                    height="40"
-                    fill="none"
-                    stroke="blue"
-                    stroke-width="4px"
-                    rx="2px"
-                />
-            </template>
-        </template>
-
         <g v-if="canClickResources">
-            <rect width="30" height="30" x="0" y="71" fill="none" stroke="blue" stroke-width="2px" rx="2px" />
-            <rect width="30" height="30" x="70" y="71" fill="none" stroke="blue" stroke-width="2px" rx="2px" />
+            <rect
+                v-if="canClickResource('coal')"
+                width="30"
+                height="30"
+                x="0"
+                y="71"
+                fill="none"
+                stroke="blue"
+                stroke-width="2px"
+                rx="2px"
+            />
+            <rect
+                v-if="canClickResource('oil')"
+                width="30"
+                height="30"
+                x="70"
+                y="71"
+                fill="none"
+                stroke="blue"
+                stroke-width="2px"
+                rx="2px"
+            />
+            <rect
+                v-if="canClickResource('garbage')"
+                width="30"
+                height="30"
+                x="140"
+                y="71"
+                fill="none"
+                stroke="blue"
+                stroke-width="2px"
+                rx="2px"
+            />
         </g>
 
         <Coal
             :pieceId="'Coal' + player.id"
             :targetState="{ x: 5, y: 76 }"
-            :canClick="canClickResources"
+            :canClick="canClickResource('coal')"
             @click="clickResource('coal')"
         />
         <text text-anchor="middle" x="40" y="85" fill="black">{{ player.coalLeft }}</text>
@@ -94,12 +173,17 @@
         <Oil
             :pieceId="'Oil' + player.id"
             :targetState="{ x: 75, y: 76 }"
-            :canClick="canClickResources"
+            :canClick="canClickResource('oil')"
             @click="clickResource('oil')"
         />
         <text text-anchor="middle" x="110" y="85" fill="black">{{ player.oilLeft }}</text>
 
-        <Garbage :pieceId="'Garbage' + player.id" :targetState="{ x: 145, y: 76 }" />
+        <Garbage
+            :pieceId="'Garbage' + player.id"
+            :targetState="{ x: 145, y: 76 }"
+            :canClick="canClickResource('garbage')"
+            @click="clickResource('garbage')"
+        />
         <text text-anchor="middle" x="180" y="85" fill="black">{{ player.garbageLeft }}</text>
 
         <Uranium :pieceId="'Uranium' + player.id" :targetState="{ x: 215, y: 76 }" />
@@ -120,11 +204,14 @@
     </g>
 </template>
 <script lang="ts">
+import { playerSymbol } from '../player-colors';
+import { colorText } from '../player-colors';
 import { MoveName, Player } from 'powergrid-engine';
 import { Phase, playerTimeUsed, PowerPlant, PowerPlantType, ResourceType } from 'powergrid-engine/src/gamestate';
 import { Vue, Component, Prop, Inject } from 'vue-property-decorator';
 import { Preferences } from '../types/ui-data';
 import { formatDuration } from '../util/time';
+import { PLAYER_SETTING_ROW_HEIGHT } from '../util/board-layout';
 import { Coal, Oil, Garbage, Uranium, Card } from './pieces';
 
 @Component({
@@ -137,6 +224,7 @@ import { Coal, Oil, Garbage, Uranium, Card } from './pieces';
     },
 })
 export default class PlayerBoard extends Vue {
+    colorText = colorText;
     @Prop() color?: string;
     @Prop() avatar?: string;
     @Prop() player!: Player;
@@ -150,8 +238,20 @@ export default class PlayerBoard extends Vue {
     @Prop() phase?: Phase;
     // Australia: uranium plants are "mines" — flag so the hand marks them distinctly.
     @Prop() isAustralia?: boolean;
+    @Prop({ default: false }) showAutoPass!: boolean;
+    @Prop({ default: false }) autoPass!: boolean;
+    @Prop({ default: false }) autoPassPublic!: boolean;
+    @Prop({ default: true }) autoPassDisabled!: boolean;
+
+    settingRowHeight = PLAYER_SETTING_ROW_HEIGHT;
 
     @Inject() preferences!: Preferences;
+
+    get supporterBadge() {
+        return this.owner !== undefined && this.preferences.bgs?.players?.[this.owner]?.pro
+            ? this.preferences.bgs.supporterBadge
+            : undefined;
+    }
 
     powerPlantClicked?: PowerPlant;
 
@@ -196,7 +296,8 @@ export default class PlayerBoard extends Vue {
             name += '• ';
         }
 
-        if (this.preferences.colorBlind && this.owner !== undefined) name += `${this.owner + 1} · `;
+        if (this.preferences.colorBlind && this.owner !== undefined)
+            name += `${playerSymbol(this.owner, this.preferences)} · `;
         name += this.player.name;
 
         if (this.ended) {
@@ -227,58 +328,47 @@ export default class PlayerBoard extends Vue {
         return name;
     }
 
-    canUse(powerPlant) {
+    activationState(plant: PowerPlant) {
+        if (!this.isPlayer || this.phase !== Phase.Bureaucracy || this.isMine(plant)) return undefined;
+        if (!this.player.powerPlantsNotUsed.includes(plant.number)) return 'used';
+        const fuel = [
+            this.player.coalLeft,
+            this.player.oilLeft,
+            this.player.garbageLeft,
+            this.player.uraniumLeft,
+            this.player.coalLeft + this.player.oilLeft,
+        ];
+        fuel[PowerPlantType.GarbageOilHybrid] = this.player.garbageLeft + this.player.oilLeft;
+        if (plant.cost > 0 && fuel[plant.type] < plant.cost) return 'unavailable';
+        return this.canUse(plant) ? 'ready' : 'idle';
+    }
+
+    canUse(powerPlant: PowerPlant) {
         if (!this.isCurrentPlayer) return false;
+        const moves = this.player.availableMoves;
+        if (moves?.DiscardPowerPlant) return moves.DiscardPowerPlant.includes(powerPlant.number);
+        return (
+            this.player.resourcesUsed.length === 0 &&
+            !!moves?.UsePowerPlant?.some((move) => move.powerPlant === powerPlant.number)
+        );
+    }
 
-        if (this.player.availableMoves?.[MoveName.DiscardPowerPlant]) {
-            return powerPlant.number !== this.player.powerPlants[this.player.powerPlants.length - 1].number;
-        } else {
-            if (!this.player.availableMoves?.[MoveName.UsePowerPlant]) return false;
-
-            if (!this.player.powerPlantsNotUsed.includes(powerPlant.number) || this.player.resourcesUsed.length > 0) {
-                return false;
-            }
-
-            switch (powerPlant.type) {
-                case PowerPlantType.Coal: {
-                    return this.player.coalLeft >= powerPlant.cost;
-                }
-
-                case PowerPlantType.Oil: {
-                    return this.player.oilLeft >= powerPlant.cost;
-                }
-
-                case PowerPlantType.Garbage: {
-                    return this.player.garbageLeft >= powerPlant.cost;
-                }
-
-                case PowerPlantType.Uranium: {
-                    return this.player.uraniumLeft >= powerPlant.cost;
-                }
-
-                case PowerPlantType.Hybrid: {
-                    return this.player.coalLeft + this.player.oilLeft >= powerPlant.cost;
-                }
-
-                case PowerPlantType.Wind:
-                case PowerPlantType.Nuclear:
-                    return this.player.coalLeft + this.player.oilLeft >= powerPlant.cost;
-            }
-        }
+    // The fuel a hybrid plant can burn besides oil: coal for the standard hybrid,
+    // garbage for the alternate deck's garbage/oil hybrid. Undefined for other plants.
+    hybridFuel(powerPlant: PowerPlant): ResourceType.Coal | ResourceType.Garbage | undefined {
+        if (powerPlant.type == PowerPlantType.Hybrid) return ResourceType.Coal;
+        if (powerPlant.type == PowerPlantType.GarbageOilHybrid) return ResourceType.Garbage;
+        return undefined;
     }
 
     powerPlantClick(powerPlant: PowerPlant) {
-        if (this.phase == Phase.Bureaucracy && powerPlant.type == PowerPlantType.Hybrid) {
-            if (
-                this.player.coalLeft == 0 ||
-                this.player.oilLeft == 0 ||
-                this.player.coalLeft + this.player.oilLeft == powerPlant.cost
-            ) {
-                this.player.resourcesUsed = Array(Math.min(powerPlant.cost, this.player.coalLeft))
-                    .fill(ResourceType.Coal)
-                    .concat(
-                        Array(powerPlant.cost - Math.min(powerPlant.cost, this.player.coalLeft)).fill(ResourceType.Oil)
-                    );
+        const other = this.hybridFuel(powerPlant);
+        if (this.phase == Phase.Bureaucracy && other) {
+            const otherLeft = other == ResourceType.Coal ? this.player.coalLeft : this.player.garbageLeft;
+            if (otherLeft == 0 || this.player.oilLeft == 0 || otherLeft + this.player.oilLeft == powerPlant.cost) {
+                this.player.resourcesUsed = Array(Math.min(powerPlant.cost, otherLeft))
+                    .fill(other)
+                    .concat(Array(powerPlant.cost - Math.min(powerPlant.cost, otherLeft)).fill(ResourceType.Oil));
                 this.$emit('powerPlantClick', powerPlant);
             } else {
                 this.powerPlantClicked = powerPlant;
@@ -296,6 +386,21 @@ export default class PlayerBoard extends Vue {
         );
     }
 
+    // Whether this resource can be clicked: offered as a discard, or a fuel of the
+    // hybrid plant whose resources are being chosen.
+    canClickResource(resourceType: ResourceType) {
+        const discards = this.player.availableMoves?.DiscardResources;
+        if (discards) {
+            // The engine only handles garbage discards for garbage/oil hybrid owners.
+            if (resourceType == ResourceType.Garbage && !this.player.garbageOilHybridCapacity) return false;
+            return discards.includes(resourceType);
+        }
+        if (!this.player.resourcesUsed.some((r) => r == null)) return false;
+        // Without the clicked plant (not expected), fall back to the coal/oil hybrid.
+        const other = this.powerPlantClicked ? this.hybridFuel(this.powerPlantClicked) : ResourceType.Coal;
+        return resourceType == ResourceType.Oil || resourceType == other;
+    }
+
     clickResource(resourceType) {
         if (this.player.availableMoves && this.player.availableMoves['DiscardResources']) {
             this.$emit('discardResource', resourceType);
@@ -307,6 +412,8 @@ export default class PlayerBoard extends Vue {
                 this.player.coalLeft--;
             } else if (resourceType == 'oil') {
                 this.player.oilLeft--;
+            } else if (resourceType == 'garbage') {
+                this.player.garbageLeft--;
             }
 
             if (!this.player.resourcesUsed.some((r) => r == null)) {
@@ -316,3 +423,18 @@ export default class PlayerBoard extends Vue {
     }
 }
 </script>
+<style scoped>
+.auction-auto-pass.editable {
+    cursor: pointer;
+}
+.auction-auto-pass.editable:hover .auto-pass-hit {
+    fill: #ffffff30;
+}
+.auction-auto-pass:focus {
+    outline: none;
+}
+.auction-auto-pass:focus-visible .auto-pass-hit {
+    stroke: currentColor;
+    stroke-width: 2;
+}
+</style>

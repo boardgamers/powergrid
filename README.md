@@ -7,9 +7,11 @@ Checkout their READMEs:
 -   [engine](./engine/README.md)
 -   [viewer](./viewer/README.md)
 
-## Demo
+## Play online at
 
-Check out [boardgamers.space](https://www.boardgamers.space)! Reach out to us if you want to contribute.
+[boardgamers.space](https://boardgamers.space/boardgame/powergrid)
+
+Reach out to us if you want to contribute.
 
 ## Install
 

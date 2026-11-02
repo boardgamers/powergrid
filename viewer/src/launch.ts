@@ -30,24 +30,29 @@ function launch(selector: string) {
         emitter: EventEmitter;
         preferences: Preferences;
         avatars: string[];
+        undoAvailable: boolean;
+        settings: Record<string, unknown> | null;
     } = {
         state: null,
         emitter: new EventEmitter(),
         // Observable so preference changes update the UI immediately: Game receives
         // this object as a prop, and Vue 2 does not deep-observe prop values coming
-        // from a non-reactive parent — plain-object mutations (the in-game sound/help
+        // from a non-reactive parent — plain-object mutations (the in-game sound/map
         // toggles, platform preference pushes) would only paint on the next re-render.
         preferences: Vue.observable({
+            locale: 'en',
+            bgs: {},
+            preferredPlayerColors: undefined as (string | null)[] | undefined,
             sound: true,
             colorBlind: false,
-            disableHelp: false,
+            showUnselectedRegions: true,
             adjustPlayerOrder: false,
-            undoWholeTurn: true,
-            fitToScreen: true,
-            stackOnPortrait: true,
-            portraitResourceTrack: false,
+
+            geographicBackground: 'terrain',
         }),
         avatars: [],
+        undoAvailable: false,
+        settings: null,
     };
 
     const app = new Vue({
@@ -73,14 +78,30 @@ function launch(selector: string) {
             params.player = data.index;
             app.$forceUpdate();
         },
+        onSettings(settings) {
+            params.settings = settings;
+            app.$forceUpdate();
+        },
         async onPreferences(data) {
             if (!(await localization.setLocale(data.locale))) return;
             Object.assign(params.preferences, data);
+            params.preferences.bgs = (data.bgs ?? {}) as NonNullable<Preferences['bgs']>;
+            params.preferences.preferredPlayerColors = Array.isArray(data.preferredPlayerColors)
+                ? data.preferredPlayerColors
+                : undefined;
             app.$forceUpdate();
         },
         onAvatars(data) {
             params.avatars = data;
             app.$forceUpdate();
+        },
+        // Games against bots: BGS can take back the player's last saved move.
+        onUndoAvailable(available) {
+            params.undoAvailable = available;
+            app.$forceUpdate();
+        },
+        onTheme({ dark }) {
+            target.ownerDocument.documentElement.dataset.powergridTheme = dark ? 'dark' : 'light';
         },
         onUpdate() {
             if (!replaying) viewer.fetchState();
@@ -116,6 +137,13 @@ function launch(selector: string) {
     params.emitter.on('replaceLog', (data: string[]) => viewer.replaceLog(data));
     params.emitter.on('replay:info', (info) => viewer.setReplayInfo(info));
     params.emitter.on('update:preference', ({ name, value }) => viewer.updatePreference(name, value));
+    params.emitter.on('update:setting', ({ name, value }) => {
+        if (viewer.updateSetting(name, value)) {
+            params.settings = { ...params.settings, [name]: value };
+            app.$forceUpdate();
+        }
+    });
+    params.emitter.on('undo', () => viewer.undo());
     installActionSounds(item);
     const removeCards = installPlayerCards(app.$el, viewer);
     const removeChat = mountGameChat(item, app.$el);
@@ -125,6 +153,7 @@ function launch(selector: string) {
         thumbnail.destroy();
         removeChat();
         viewer.destroy();
+        delete target.ownerDocument.documentElement.dataset.powergridTheme;
         params.emitter.removeAllListeners();
     });
     dispose = () => {

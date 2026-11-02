@@ -14,6 +14,7 @@ const loaders = {
     'pt-BR': () => import(/* webpackChunkName: "locale-pt-BR" */ './pt-BR.json'),
     ko: () => import(/* webpackChunkName: "locale-ko" */ './ko.json'),
     'zh-TW': () => import(/* webpackChunkName: "locale-zh-TW" */ './zh-TW.json'),
+    'zh-CN': () => import(/* webpackChunkName: "locale-zh-CN" */ './zh-CN.json'),
     vi: () => import(/* webpackChunkName: "locale-vi" */ './vi.json'),
     it: () => import(/* webpackChunkName: "locale-it" */ './it.json'),
     nl: () => import(/* webpackChunkName: "locale-nl" */ './nl.json'),

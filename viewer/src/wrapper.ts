@@ -1,6 +1,6 @@
-import { localizeTutorial } from './localization';
 import { createTutorialLauncher, TutorialLaunchOptions } from '@boardgamers/protocol/tutorial';
 import launchGame, { destroyViewer } from './launch';
+import { localizeTutorial } from './localization';
 import { mountTutorial } from './tutorial/mount';
 
 const tutorial = createTutorialLauncher(localizeTutorial(mountTutorial));

@@ -96,7 +96,9 @@ export interface GameMap {
     supplyPosition?: [number, number];
     roundInfoPosition?: [number, number];
     resupply?: number[][][];
-    startingResources?: number[];
+    // [coal, oil, garbage, uranium] in the market at the start. Give both variants
+    // when their rulebooks differ (France and Brazil: Recharged fills garbage 6–8).
+    startingResources?: number[] | { original: number[]; recharged: number[] };
     startingSupply?: number[];
     // Australia: per-step removal counts for the separate uranium-mine market,
     // indexed [playerCount-2][step-1]. Each resource refill removes this many
@@ -116,10 +118,13 @@ export interface GameMap {
     oilPrices?: number[];
     garbagePrices?: number[];
     uraniumPrices?: number[];
+    // `deck` is the alternate power plant list when the game uses it (only on maps
+    // in ALTERNATE_DECK_MAPS); otherwise undefined and the map uses its usual deck.
     setupDeck?: (
         numPlayers: number,
         variant: string,
-        rng: seedrandom.prng
+        rng: seedrandom.prng,
+        deck?: PowerPlant[]
     ) => {
         actualMarket: PowerPlant[];
         futureMarket: PowerPlant[];

@@ -1,5 +1,12 @@
 <template>
     <g>
+        <!-- Desktop keeps room for the auction and bid controls throughout the
+             round, including before they appear and after the market shrinks. -->
+        <g v-if="reserveLayout" visibility="hidden" aria-hidden="true" pointer-events="none">
+            <rect x="160" y="0" :width="actualMarketWidth + 125 - 160" :height="80 + futureMarketRows * 50" />
+            <text :x="actualMarketWidth" y="14" font-weight="600">Current Auction</text>
+            <text x="165" y="80" font-weight="600">Future Market</text>
+        </g>
         <!-- The draw pile is rendered by Game.vue as its own group, not here: it is
              static reference art next to three interactive markets, so the portrait
              layout needs to be able to place it on a different row. -->
@@ -9,7 +16,12 @@
                 :key="card.id"
                 :targetState="{ x: card.x, y: card.y }"
                 :powerPlant="card.powerPlant"
-                :canClick="chooseablePowerPlants && chooseablePowerPlants.includes(card.powerPlant.number)"
+                :class="{
+                    'unavailable-plant':
+                        canChoose && !(chooseablePowerPlants && chooseablePowerPlants.includes(card.powerPlant.number)),
+                }"
+                :data-market-plant="card.powerPlant.number"
+                :canClick="canChoose && chooseablePowerPlants && chooseablePowerPlants.includes(card.powerPlant.number)"
                 :hasDiscount="plantDiscountActive && i == 0"
                 @click="choosePowerPlant(card.powerPlant)"
             />
@@ -30,44 +42,34 @@
                 :powerPlant="chosenPowerPlant.powerPlant"
             />
             <!-- Keyed per plant so every auction gets a fresh calculator: a reused
-                 instance would keep displaying the previous auction's bid floor. -->
+                 instance would keep displaying the previous auction's bid floor. The
+                 draft key also resets a bid dialled before the game was rewound. -->
             <Calculator
                 v-if="canBid"
-                :key="'calc' + chosenPowerPlant.powerPlant.number"
+                :key="'calc' + chosenPowerPlant.powerPlant.number + (editingBid ? '-edit' : '') + '-' + draftKey"
                 :transform="`translate(${actualMarketWidth}, 80)`"
                 :minValue="minBid"
                 :maxValue="maxBid"
+                :initialValue="initialBid"
                 @bid="bid($event)"
             />
         </template>
 
-        <template v-if="!preferences.disableHelp">
-            <g v-if="canChoose">
-                <rect
-                    v-if="futureMarketCards.length > 0"
-                    x="160"
-                    y="5"
-                    :width="65 * actualMarketCards.length + 5"
-                    height="65"
-                    fill="none"
-                    stroke="blue"
-                    stroke-width="2px"
-                    rx="2px"
-                />
-
-                <rect
-                    v-else
-                    x="160"
-                    y="5"
-                    :width="actualMarketHighlightWidth"
-                    height="120"
-                    fill="none"
-                    stroke="blue"
-                    stroke-width="2px"
-                    rx="2px"
-                />
-            </g>
-        </template>
+        <!-- Keep the active market grouped; unavailable choices are muted individually. -->
+        <rect
+            v-if="canChoose && hasAvailablePlant"
+            data-market-highlight
+            x="160"
+            y="5"
+            :width="marketHighlightWidth"
+            :height="marketHighlightHeight"
+            fill="none"
+            stroke="blue"
+            stroke-width="2"
+            rx="2"
+            pointer-events="none"
+            aria-hidden="true"
+        />
     </g>
 </template>
 
@@ -89,11 +91,16 @@ export default class PowerPlantMarket extends Vue {
     @Prop() cardsLeft?: number;
     @Prop() nextCardWeak?: boolean;
     @Prop() plantDiscountActive?: boolean;
+    @Prop({ default: false }) reserveLayout!: boolean;
+    @Prop({ default: 1 }) futureMarketRows!: number;
     @Prop() canBid?: boolean;
     @Prop() canChoose?: boolean;
     @Prop() chooseablePowerPlants?: number[];
     @Prop() minBid?: number;
     @Prop() maxBid?: number;
+    @Prop() initialBid?: number;
+    @Prop() editingBid?: boolean;
+    @Prop({ default: 0 }) draftKey!: number;
 
     @Inject() preferences!: Preferences;
 
@@ -101,7 +108,17 @@ export default class PowerPlantMarket extends Vue {
     futureMarketCards: Piece[] = [];
     chosenPowerPlant: Piece | null = null;
     actualMarketWidth: number = 430;
-    actualMarketHighlightWidth: number = 200;
+    get hasAvailablePlant(): boolean {
+        return this.actualMarketCards.some((card) => this.chooseablePowerPlants?.includes(card.powerPlant!.number));
+    }
+
+    get marketHighlightWidth(): number {
+        return Math.max(...this.actualMarketCards.map((card) => card.x + 65)) - 160;
+    }
+
+    get marketHighlightHeight(): number {
+        return Math.max(...this.actualMarketCards.map((card) => card.y + 46)) - 5;
+    }
 
     createPieces(gameState: GameState) {
         this.actualMarketWidth = gameState.map.actualMarketWidth ?? 430;
@@ -110,7 +127,7 @@ export default class PowerPlantMarket extends Vue {
         // "whole market buyable" state keeps up to 8 in the actual market — wrap
         // at 4 per row there so cards 7 and 8 don't paint on top of the second row.
         const actualPerRow = gameState.actualMarket.length > 6 ? 4 : 3;
-        this.actualMarketHighlightWidth = 65 * Math.min(gameState.actualMarket.length, actualPerRow) + 5;
+
         gameState.actualMarket.forEach((card, i) => {
             if (gameState.futureMarket.length > 0) {
                 if (card.number != gameState.chosenPowerPlant?.number) {
@@ -169,3 +186,10 @@ export default class PowerPlantMarket extends Vue {
     }
 }
 </script>
+
+<style scoped>
+.unavailable-plant {
+    filter: grayscale(0.85);
+    opacity: 0.45;
+}
+</style>

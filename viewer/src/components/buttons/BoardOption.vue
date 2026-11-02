@@ -11,12 +11,15 @@
         @keydown.enter.prevent="$emit('click')"
         @keydown.space.prevent="$emit('click')"
     >
-        <rect class="option-background" width="36" height="26" rx="4" stroke="black" />
+        <rect class="option-background board-control-border" width="36" height="26" rx="4" stroke="black" />
         <g transform="translate(7, 2)" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
-            <template v-if="icon === 'eye'">
-                <path d="M1 11Q11 0 21 11Q11 22 1 11Z" />
-                <circle cx="11" cy="11" r="4" />
-                <path d="M11 7V15A4 4 0 0 1 11 7" fill="currentColor" />
+            <template v-if="icon === 'shapes'">
+                <path d="M6 1L11 9H1Z" />
+                <circle cx="16" cy="6" r="4" />
+                <rect x="6" y="13" width="8" height="8" />
+            </template>
+            <template v-else-if="icon === 'regions'">
+                <path d="M1 5L7 2L15 5L21 2V18L15 21L7 18L1 21ZM7 2V18M15 5V21" />
             </template>
             <path v-else-if="icon === 'return'" d="M9 5L3 11L9 17M3 11H14Q20 11 20 17" />
             <path v-else d="M2 2V20H21M5 15L10 8L15 11L21 3M16 3H21V8" />
@@ -50,7 +53,10 @@ export default class BoardOption extends Vue {
 </script>
 <style scoped>
 .board-option {
-    color: #253221;
+    color: black;
+}
+.board-option:hover {
+    color: black;
 }
 .option-background {
     fill: gainsboro;
@@ -61,14 +67,8 @@ export default class BoardOption extends Vue {
 .active {
     color: white;
 }
-.board-option:hover .option-background {
-    stroke-width: 2;
-}
+
 .board-option:focus {
     outline: none;
-}
-.board-option:focus-visible .option-background {
-    stroke: #fff;
-    stroke-width: 3;
 }
 </style>

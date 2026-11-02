@@ -1,12 +1,29 @@
 import assert from 'assert';
 import { cloneDeep, isEqual, range } from 'lodash';
 import seedrandom from 'seedrandom';
-import { availableMoves, coalOilOverCapacity, computeRegionGraph, regionPickable } from './available-moves';
+import {
+    availableMoves,
+    coalOilOverCapacity,
+    computeRegionGraph,
+    fuelOverCapacity,
+    garbagePrice,
+    hasGarbageOilHybrid,
+    maxStorable,
+    regionPickable,
+} from './available-moves';
+import {
+    canReviseChoice,
+    finishPoweringLog,
+    rememberPowering,
+    replacePoweringLog,
+    restorePowering,
+} from './choice-revisions';
 import {
     countHeldPowerPlants,
     GameOptions,
     GameState,
     isUraniumMine,
+    MapName,
     Phase,
     Player,
     playerColors,
@@ -16,9 +33,10 @@ import {
     resupplyUraniumMine,
     sellUraniumMine,
 } from './gamestate';
+import { LogItem } from './log';
 import { GameMap, maps, mapsRecharged } from './maps';
 import { Move, MoveName, Moves } from './move';
-import { indiaPowerPlants, powerPlants } from './powerPlants';
+import { plantCatalogue, powerPlants, usesAlternateDeck } from './powerPlants';
 import prices from './prices';
 import { createRandomizedMap } from './randomizeMap';
 import { asserts, shuffle } from './utils';
@@ -42,11 +60,13 @@ export function defaultSetupDeck(
     numPlayers: number,
     variant: string,
     rng: seedrandom.prng,
-    useNewRechargedSetup: boolean
+    useNewRechargedSetup: boolean,
+    deck: PowerPlant[] = powerPlants
 ) {
     let actualMarket: PowerPlant[];
     let futureMarket: PowerPlant[];
-    let powerPlantsDeck: PowerPlant[] = cloneDeep(powerPlants);
+    let powerPlantsDeck: PowerPlant[] = cloneDeep(deck);
+    const plant = (num: number) => deck.find((p) => p.number == num)!;
 
     if (variant == 'original') {
         powerPlantsDeck = powerPlantsDeck.slice(8);
@@ -63,8 +83,8 @@ export function defaultSetupDeck(
         powerPlantsDeck.unshift(powerPlant13);
         powerPlantsDeck.push(step3);
 
-        actualMarket = [getPowerPlant(3), getPowerPlant(4), getPowerPlant(5), getPowerPlant(6)];
-        futureMarket = [getPowerPlant(7), getPowerPlant(8), getPowerPlant(9), getPowerPlant(10)];
+        actualMarket = [plant(3), plant(4), plant(5), plant(6)];
+        futureMarket = [plant(7), plant(8), plant(9), plant(10)];
     } else {
         let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 13), rng() + '');
         let initialPlantMarket = initialPowerPlants.splice(0, 8);
@@ -108,24 +128,49 @@ export function setup(
         variant = 'original',
         showMoney = false,
         useNewRechargedSetup = true,
+        endPlantDiscountAtStep3 = false,
         trackTotalSpent = true,
         randomizeMap = false,
         chooseRegions = false,
         chooseColors = false,
+        alternatePowerPlants = false,
+        rechargedStartingResources = true,
+        wienFreeGarbage = false,
     }: GameOptions,
     seed?: string,
     forceDeck?: PowerPlant[],
-    forceMap?: GameMap
+    forceMap?: GameMap,
+    preferredPlayerColors?: (string | null)[]
 ): GameState {
     seed = seed ?? Math.random().toString();
     const rng = seedrandom(seed);
 
-    const chosenMapRaw =
-        variant == 'original' ? maps.find((m) => m.name == map) : mapsRecharged.find((m) => m.name == map);
+    const variantMaps = variant == 'original' ? maps : mapsRecharged;
+    if (map == 'Random') {
+        // Dedicated rng so the pick doesn't shift the rest of the setup's draws.
+        const mapRng = seedrandom(seed + '-map');
+        map = variantMaps[Math.floor(mapRng() * variantMaps.length)].name as MapName;
+    }
+    const chosenMapRaw = variantMaps.find((m) => m.name == map);
     if (!chosenMapRaw) {
         throw new Error(`Map "${map}" not found for variant "${variant}"`);
     }
     const chosenMap = cloneDeep(chosenMapRaw);
+    // Resolve the variant's starting market here, so the map stored in the game
+    // state keeps a plain array, as it always has.
+    const variantStartingResources =
+        variant === 'recharged' && !!chosenMap.startingResources && !Array.isArray(chosenMap.startingResources);
+    const startingResources = !chosenMap.startingResources
+        ? undefined
+        : Array.isArray(chosenMap.startingResources)
+        ? chosenMap.startingResources
+        : variantStartingResources && rechargedStartingResources
+        ? chosenMap.startingResources.recharged
+        : chosenMap.startingResources.original;
+    if (startingResources) chosenMap.startingResources = startingResources;
+    // The option is only honoured on the maps that support the alternate deck.
+    const alternateDeck = usesAlternateDeck(chosenMap.name, alternatePowerPlants);
+    const deck = plantCatalogue(chosenMap.name, alternateDeck);
 
     let actualMarket: PowerPlant[];
     let futureMarket: PowerPlant[];
@@ -137,13 +182,19 @@ export function setup(
         futureMarket = powerPlantsDeck.splice(0, 4);
     } else {
         if (chosenMap.setupDeck) {
-            ({ actualMarket, futureMarket, powerPlantsDeck } = chosenMap.setupDeck(numPlayers, variant, rng));
+            ({ actualMarket, futureMarket, powerPlantsDeck } = chosenMap.setupDeck(
+                numPlayers,
+                variant,
+                rng,
+                alternateDeck ? deck : undefined
+            ));
         } else {
             ({ actualMarket, futureMarket, powerPlantsDeck } = defaultSetupDeck(
                 numPlayers,
                 variant,
                 rng,
-                useNewRechargedSetup
+                useNewRechargedSetup,
+                alternateDeck ? deck : undefined
             ));
         }
     }
@@ -161,6 +212,7 @@ export function setup(
         uraniumLeft: 0,
         hybridCapacity: 0,
         hybridLeft: 0,
+        ...(alternateDeck ? { garbageOilHybridCapacity: 0 } : {}),
         money: 50,
         housesLeft: 22,
         cities: [],
@@ -317,10 +369,10 @@ export function setup(
         }
     }
 
-    const coalMarket = chosenMap.startingResources ? chosenMap.startingResources[0] : 24;
-    const oilMarket = chosenMap.startingResources ? chosenMap.startingResources[1] : 18;
-    const garbageMarket = chosenMap.startingResources ? chosenMap.startingResources[2] : variant == 'original' ? 6 : 9;
-    const uraniumMarket = chosenMap.startingResources ? chosenMap.startingResources[3] : 2;
+    const coalMarket = startingResources ? startingResources[0] : 24;
+    const oilMarket = startingResources ? startingResources[1] : 18;
+    const garbageMarket = startingResources ? startingResources[2] : variant == 'original' ? 6 : 9;
+    const uraniumMarket = startingResources ? startingResources[3] : 2;
 
     const totalCoal = chosenMap.startingSupply ? chosenMap.startingSupply[0] : 24;
     const totalOil = chosenMap.startingSupply ? chosenMap.startingSupply[1] : 24;
@@ -404,9 +456,14 @@ export function setup(
             variant,
             showMoney,
             useNewRechargedSetup,
+            ...(variant === 'recharged' && endPlantDiscountAtStep3 ? { endPlantDiscountAtStep3: true } : {}),
             trackTotalSpent,
             chooseRegions,
             chooseColors,
+            // Only stored when in effect, so states of every other game are unchanged.
+            ...(alternateDeck ? { alternatePowerPlants: true } : {}),
+            ...(variantStartingResources && rechargedStartingResources ? { rechargedStartingResources: true } : {}),
+            ...(wienFreeGarbage ? { wienFreeGarbage: true } : {}),
         },
         log: [],
         hiddenLog: [],
@@ -480,10 +537,17 @@ export function setup(
 
     // chooseColors: players draft their colors first of all. The region draft (if
     // any) stays pending in G.regionDraft and only activates once colors are done
-    // (see finalizeColors). The phase set here wins over RegionSelection above.
+    // (see advanceColorDraft). The phase set here wins over RegionSelection above.
     if (chooseColors) {
+        if (preferredPlayerColors?.some((color) => typeof color === 'string' && /^#[a-f0-9]{6}$/i.test(color))) {
+            G.setupPlayerColors = G.players.map((_, i) => {
+                const color = preferredPlayerColors[i];
+                return typeof color === 'string' && /^#[a-f0-9]{6}$/i.test(color) ? color.toLowerCase() : null;
+            });
+        }
         G.phase = Phase.ColorSelection;
         G.colorDraft = { picked: [] };
+        advanceColorDraft(G);
     }
 
     if (G.map.blockSpaces) {
@@ -496,7 +560,7 @@ export function setup(
         }
     }
 
-    G.players[startingPlayer].availableMoves = availableMoves(G, G.players[startingPlayer]);
+    for (const index of G.currentPlayers) G.players[index].availableMoves = availableMoves(G, G.players[index]);
 
     return G;
 }
@@ -565,10 +629,22 @@ function finalizeRegions(G: GameState) {
     G.currentPlayers = [G.playerOrder[0]];
 }
 
-// Completes the chooseColors draft once every player has a color. Hands off to the
-// region draft if one is still pending (chooseColors + chooseRegions), otherwise
-// straight to the auction with the starting player to move.
-function finalizeColors(G: GameState) {
+// Manual picks precede fallback assignments for players using a custom BGS colour.
+function advanceColorDraft(G: GameState) {
+    const next = G.playerOrder.find((index) => !G.players[index].color && !G.setupPlayerColors?.[index]);
+    if (next !== undefined) {
+        G.currentPlayers = [next];
+        return;
+    }
+
+    // Custom-colour players take only leftovers, keeping every colour available to manual pickers.
+    const unused = playerColors.filter((color) => !G.colorDraft!.picked.includes(color));
+    for (const index of G.playerOrder) {
+        if (G.players[index].color) continue;
+        const color = unused.includes(playerColors[index]) ? playerColors[index] : unused[0];
+        G.players[index].color = color;
+        unused.splice(unused.indexOf(color), 1);
+    }
     G.colorDraft = undefined;
     G.currentPlayers = [G.playerOrder[0]];
     if (G.regionDraft) {
@@ -582,6 +658,9 @@ export function stripSecret(G: GameState, player?: number): GameState {
     return {
         ...G,
         seed: 'secret',
+        poweringChoices:
+            player !== undefined && G.poweringChoices?.[player] ? { [player]: G.poweringChoices[player] } : {},
+        pendingMessages: undefined,
         automation: {
             version: 1,
             plans: player != undefined && G.automation?.plans[player] ? { [player]: G.automation.plans[player] } : {},
@@ -596,6 +675,7 @@ export function stripSecret(G: GameState, player?: number): GameState {
             } else {
                 return {
                     ...pl,
+                    settings: undefined,
                     availableMoves: pl.availableMoves ? {} : null,
                     money: ended(G) || G.options.showMoney ? pl.money : -1,
                     bid: G.options.fastBid ? 0 : pl.bid,
@@ -617,17 +697,45 @@ export function move(
     { updateBuildingMarket = true }: { updateBuildingMarket?: boolean } = {}
 ): GameState {
     const player = G.players[playerNumber];
-    const available = player.availableMoves?.[move.name];
+    const initialPhase = G.phase;
+    const initialRound = G.round;
+    const revision = move.revision !== undefined || move.name === MoveName.ReopenPowering;
+    if (revision) assert(canReviseChoice(G, move, playerNumber), 'This choice can no longer be changed.');
+    if (move.name === MoveName.ReopenPowering) {
+        replacePoweringLog(G, playerNumber);
+        restorePowering(G, playerNumber);
+        player.lastMove = move;
+        updateClocks(G, move.serverTime ?? move.time);
+        G.currentPlayers.forEach((p) => (G.players[p].availableMoves = availableMoves(G, G.players[p])));
+        G.newTurn = true;
+        return G;
+    }
+    const available = revision ? availableMoves(G, player)[move.name] : player.availableMoves?.[move.name];
 
     updateGameState(G);
 
-    assert(G.currentPlayers.includes(playerNumber), 'It is not your turn!');
+    assert(revision || G.currentPlayers.includes(playerNumber), 'It is not your turn!');
     assert(available, 'You are not allowed to run the command ' + move.name);
     assert(
         available.some((x) => isEqual(x, move.data)),
         'Wrong argument for the command ' + move.name
     );
 
+    rememberPowering(G, playerNumber);
+    const { revision: ignoredRevision, ...recordedMove } = move;
+    const replaceHiddenBid = () => {
+        if (!revision) return;
+        const index = G.hiddenLog.findIndex((entry) => entry.type === 'move' && entry.player === playerNumber);
+        if (index >= 0 && index < G.hiddenLog.length - 1) {
+            const previous = G.hiddenLog[index];
+            const replacement = G.hiddenLog.pop()!;
+            if (previous.type === 'move' && replacement.type === 'move') {
+                replacement.move.time = previous.move.time;
+                replacement.move.serverTime = previous.move.serverTime;
+            }
+            G.hiddenLog[index] = replacement;
+        }
+    };
     switch (move.name) {
         case MoveName.ChoosePowerPlant: {
             asserts<Moves.MoveChoosePowerPlant>(move);
@@ -715,11 +823,12 @@ export function move(
                 G.hiddenLog.push({
                     type: 'move',
                     player: playerNumber,
-                    move,
+                    move: recordedMove,
                     simple: `${player.name} bids $${move.data}.`,
                     pretty: `${playerNameHTML(player)} bids <span style="color: green">$${move.data}</span>.`,
                 });
 
+                replaceHiddenBid();
                 fastAuction(G, player, move.data);
             } else {
                 G.currentBid = player.bid = move.data;
@@ -776,12 +885,7 @@ export function move(
                 pretty: `${playerNameHTML(player)} chooses <b>${move.data}</b>.`,
             });
 
-            if (G.colorDraft!.picked.length >= G.players.length) {
-                finalizeColors(G);
-            } else {
-                // Next picker, in seating order (each player picks exactly once).
-                G.currentPlayers = [G.playerOrder[G.colorDraft!.picked.length]];
-            }
+            advanceColorDraft(G);
 
             break;
         }
@@ -860,11 +964,12 @@ export function move(
                             G.hiddenLog.push({
                                 type: 'move',
                                 player: playerNumber,
-                                move,
+                                move: recordedMove,
                                 simple: `${player.name} passes.`,
                                 pretty: `${playerNameHTML(player)} passes.`,
                             });
 
+                            replaceHiddenBid();
                             fastAuction(G, player, 0);
                         } else {
                             player.passed = true;
@@ -969,11 +1074,7 @@ export function move(
                                 G.map.name != 'Manhattan'
                             ) {
                                 const powerPlant = G.actualMarket.shift()!;
-                                G.log.push({
-                                    type: 'event',
-                                    event: `Starting Step 2, Power Plant ${powerPlant?.number} discarded.`,
-                                });
-                                G.step = 2;
+                                startStep(G, 2, `Starting Step 2, Power Plant ${powerPlant?.number} discarded.`);
 
                                 // Spain & Portugal: put plants 18, 22 and 27 on top
                                 if (G.map.name == 'Spain & Portugal') {
@@ -1061,7 +1162,7 @@ export function move(
                                 // Manhattan never advances to Step 3 — its empty future
                                 // market is the all-buyable endgame stage, handled by the
                                 // market lifecycle, not a step change.
-                                G.step = 3;
+                                startStep(G, 3);
                                 applyAustraliaStep3Shift(G);
                             }
                         }
@@ -1345,12 +1446,13 @@ export function move(
                             G.phase = Phase.Auction;
 
                             if (G.futureMarket.length == 0 && G.map.name != 'China' && G.map.name != 'Manhattan') {
-                                G.step = 3;
+                                startStep(G, 3);
                                 applyAustraliaStep3Shift(G);
                             }
 
                             G.plantDiscountActive =
                                 G.options.variant == 'recharged' &&
+                                !(G.options.endPlantDiscountAtStep3 && G.step === 3) &&
                                 G.map.name != 'China' &&
                                 G.map.name != 'Russia' &&
                                 G.map.name != 'Baden-Württemberg';
@@ -1428,6 +1530,21 @@ export function move(
                         }
 
                         break;
+
+                    case PowerPlantType.GarbageOilHybrid:
+                        if (move.extra[0] > 0) {
+                            G.garbageSupply += move.extra[0];
+                            player.garbageLeft -= move.extra[0];
+                            discarded.push(move.extra[0] + ' Garbage');
+                        }
+
+                        if (move.extra[1] > 0) {
+                            G.oilSupply += move.extra[1];
+                            player.oilLeft -= move.extra[1];
+                            discarded.push(move.extra[1] + ' Oil');
+                        }
+
+                        break;
                 }
 
                 G.log.push({
@@ -1453,9 +1570,14 @@ export function move(
                     toResourcesPhase(G);
                 }
             } else {
-                const toDiscard: ResourceType[] = coalOilOverCapacity(player);
+                const garbageOilHybrid = hasGarbageOilHybrid(player);
+                const toDiscard: ResourceType[] = garbageOilHybrid
+                    ? fuelOverCapacity(player)
+                    : coalOilOverCapacity(player);
 
-                if (player.garbageLeft > player.garbageCapacity) {
+                // With a garbage/oil hybrid, overflow garbage can still fit in its tank,
+                // so it is left to the fuelOverCapacity discard below.
+                if (!garbageOilHybrid && player.garbageLeft > player.garbageCapacity) {
                     G.garbageSupply += player.garbageLeft - player.garbageCapacity;
                     player.garbageLeft = player.garbageCapacity;
                 }
@@ -1466,7 +1588,11 @@ export function move(
                 }
 
                 if (toDiscard.length == 1) {
-                    discardDownToCapacity(G, player, toDiscard[0]);
+                    if (garbageOilHybrid) {
+                        discardDownToStorable(G, player, toDiscard[0]);
+                    } else {
+                        discardDownToCapacity(G, player, toDiscard[0]);
+                    }
                     toDiscard.pop();
                 }
 
@@ -1505,12 +1631,21 @@ export function move(
             } else if (move.data == ResourceType.Oil) {
                 player.oilLeft--;
                 G.oilSupply++;
+            } else if (move.data == ResourceType.Garbage && hasGarbageOilHybrid(player)) {
+                // Garbage is only offered as a discard to garbage/oil hybrid owners.
+                player.garbageLeft--;
+                G.garbageSupply++;
             }
 
-            const toDiscard: ResourceType[] = coalOilOverCapacity(player);
+            const garbageOilHybrid = hasGarbageOilHybrid(player);
+            const toDiscard: ResourceType[] = garbageOilHybrid ? fuelOverCapacity(player) : coalOilOverCapacity(player);
 
             if (toDiscard.length == 1) {
-                discardDownToCapacity(G, player, toDiscard[0]);
+                if (garbageOilHybrid) {
+                    discardDownToStorable(G, player, toDiscard[0]);
+                } else {
+                    discardDownToCapacity(G, player, toDiscard[0]);
+                }
                 toDiscard.pop();
             }
 
@@ -1594,16 +1729,7 @@ export function move(
                         G.garbageMarketNorth!--;
                     } else {
                         const garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
-                        price = garbagePrices[garbagePrices.length - G.garbageMarket];
-
-                        // $1 cheaper for players in Wien in Central Europe
-                        if (G.map.name == 'Central Europe') {
-                            const wienCity = player.cities.filter((c) => c.name == 'Wien');
-                            if (wienCity?.length > 0) {
-                                price--;
-                            }
-                        }
-
+                        price = garbagePrice(G, player, garbagePrices[garbagePrices.length - G.garbageMarket]);
                         player.garbageLeft++;
                         G.garbageMarket--;
                     }
@@ -1757,12 +1883,23 @@ export function move(
 
     player.availableMoves = null;
 
-    player.lastMove = move;
+    player.lastMove = revision
+        ? (
+              G.hiddenLog.find(
+                  (entry) => entry.type === 'move' && entry.player === playerNumber
+              ) as import('./log').LogMove
+          )?.move ?? move
+        : move;
 
     G.cardsLeft = G.powerPlantsDeck.length;
     G.nextCardWeak = G.options.variant == 'recharged' && G.cardsLeft > 0 && G.powerPlantsDeck[0].number <= 15;
 
-    updateClocks(G, move.serverTime ?? move.time);
+    updateClocks(G, move.poweringClock?.at ?? move.serverTime ?? move.time);
+    if (move.poweringClock) {
+        player.totalTimeUsed = move.poweringClock.totalTimeUsed;
+        player.clockStartedAt = move.poweringClock.clockStartedAt;
+    }
+    if (initialPhase === Phase.Bureaucracy) finishPoweringLog(G, playerNumber, initialRound, move);
 
     G.currentPlayers.forEach((p) => (G.players[p].availableMoves = availableMoves(G, G.players[p])));
 
@@ -1783,8 +1920,11 @@ export function move(
     //   across them.
     // - Bids in a fastBid auction go to the hidden log; the mover leaves
     //   currentPlayers, so they commit as single-move turns.
+    // - Colour picks commit even if skipping custom-colour seats hands the same
+    //   player the next auction or region-selection turn.
     const lastLog = G.log[G.log.length - 1];
     G.newTurn = !(
+        move.name !== MoveName.ChooseColor &&
         lastLog?.type === 'move' &&
         lastLog.player === playerNumber &&
         G.currentPlayers.includes(playerNumber) &&
@@ -1902,11 +2042,16 @@ export function moveAI(G: GameState, playerNumber: number): GameState {
                 const buyGarbage = availableMoves.BuyResource.find((r) => r.resource == ResourceType.Garbage);
                 const buyUranium = availableMoves.BuyResource.find((r) => r.resource == ResourceType.Uranium);
 
+                const garbageOilTank = player.garbageOilHybridCapacity ?? 0;
+
                 if (buyCoal && player.coalLeft < (player.coalCapacity + player.hybridCapacity) / 2) {
                     chosenMove = { name: MoveName.BuyResource, data: buyCoal };
-                } else if (buyOil && player.oilLeft < (player.oilCapacity + player.hybridCapacity) / 2) {
+                } else if (
+                    buyOil &&
+                    player.oilLeft < (player.oilCapacity + player.hybridCapacity + garbageOilTank) / 2
+                ) {
                     chosenMove = { name: MoveName.BuyResource, data: buyOil };
-                } else if (buyGarbage && player.garbageLeft < player.garbageCapacity / 2) {
+                } else if (buyGarbage && player.garbageLeft < (player.garbageCapacity + garbageOilTank) / 2) {
                     chosenMove = { name: MoveName.BuyResource, data: buyGarbage };
                 } else if (buyUranium && player.uraniumLeft < player.uraniumCapacity / 2) {
                     chosenMove = { name: MoveName.BuyResource, data: buyUranium };
@@ -1933,7 +2078,10 @@ export function moveAI(G: GameState, playerNumber: number): GameState {
         }
 
         case Phase.Bureaucracy: {
-            if (availableMoves?.UsePowerPlant && player.cities.length > player.citiesPowered) {
+            if (
+                availableMoves?.UsePowerPlant &&
+                (!availableMoves.Pass || player.cities.length > player.citiesPowered)
+            ) {
                 chosenMove = {
                     name: MoveName.UsePowerPlant,
                     // Sorted on a copy, for the same reason as Build above.
@@ -2040,16 +2188,21 @@ export function reconstructState(gameState: GameState, to?: number, forcePublicD
         }
     }
 
+    delete G.pendingMessages;
     return G;
 }
 
-function updatePlayerCapacity(player: Player) {
+export function updatePlayerCapacity(player: Player) {
     player.coalCapacity =
         player.oilCapacity =
         player.garbageCapacity =
         player.uraniumCapacity =
         player.hybridCapacity =
             0;
+    // Only alternate-deck players carry this field; leave everyone else's state as is.
+    if (player.garbageOilHybridCapacity !== undefined) {
+        player.garbageOilHybridCapacity = 0;
+    }
 
     player.powerPlants.forEach((powerPlant) => {
         switch (powerPlant.type) {
@@ -2081,6 +2234,11 @@ function updatePlayerCapacity(player: Player) {
 
             case PowerPlantType.Hybrid: {
                 player.hybridCapacity += powerPlant.cost * 2;
+                break;
+            }
+
+            case PowerPlantType.GarbageOilHybrid: {
+                player.garbageOilHybridCapacity = (player.garbageOilHybridCapacity ?? 0) + powerPlant.cost * 2;
                 break;
             }
         }
@@ -2145,7 +2303,7 @@ export function addPowerPlant(G: GameState): void {
             if (G.powerPlantDeckAfterStep3) {
                 G.powerPlantsDeck = G.powerPlantDeckAfterStep3;
             } else if (G.map.name == 'China') {
-                G.step = 3;
+                startStep(G, 3);
             } else {
                 G.powerPlantsDeck = shuffle(G.powerPlantsDeck, G.seed);
             }
@@ -2164,11 +2322,7 @@ export function addPowerPlant(G: GameState): void {
                         // UK&I: Step 3 sits 3rd from last in the deck, so it can
                         // surface before any player hits citiesToStep2. Fire Step
                         // 2 here so its rules register before Step 3 takes over.
-                        G.log.push({
-                            type: 'event',
-                            event: 'Starting Step 2 (Step 3 card drawn before Step 2 threshold).',
-                        });
-                        G.step = 2;
+                        startStep(G, 2, 'Starting Step 2 (Step 3 card drawn before Step 2 threshold).');
                     }
                     const powerPlantDiscarded = G.actualMarket.shift();
                     G.log.push({
@@ -2436,6 +2590,16 @@ function removePlantsForMiddleEastStep1(G: GameState) {
     }
 }
 
+function startStep(G: GameState, step: 2 | 3, event = `Starting Step ${step}.`) {
+    if (G.step === step) return;
+    G.step = step;
+    if (step === 3 && G.options.variant === 'recharged' && G.options.endPlantDiscountAtStep3) {
+        G.plantDiscountActive = false;
+    }
+    G.log.push({ type: 'event', event });
+    (G.pendingMessages ??= []).push(`Starting Step ${step}.`);
+}
+
 function enterStepTwoMiddleEast(G: GameState) {
     // Shuffle deck of remaining power plants and put step 3 card back underneath.
     const step3 = G.futureMarket.pop()!;
@@ -2446,11 +2610,7 @@ function enterStepTwoMiddleEast(G: GameState) {
     addPowerPlant(G);
 
     // Discard two lowest power plants from current market.
-    G.log.push({
-        type: 'event',
-        event: 'Step 2 will begin next phase, discarding two power plants.',
-    });
-    G.step = 2;
+    startStep(G, 2, 'Step 2 will begin next phase, discarding two power plants.');
 
     const powerPlantDiscarded1 = G.actualMarket.shift();
     if (powerPlantDiscarded1) {
@@ -2575,6 +2735,25 @@ function discardDownToCapacity(G: GameState, player: Player, resource: ResourceT
 }
 
 /**
+ * Garbage/oil hybrid counterpart of discardDownToCapacity: discard just enough of one
+ * resource for all of the player's fuel to fit, using the room left in the hybrid
+ * tanks, and return the cubes to the supply.
+ */
+function discardDownToStorable(G: GameState, player: Player, resource: ResourceType) {
+    const keep = maxStorable(player, resource);
+    if (resource == ResourceType.Coal) {
+        G.coalSupply += player.coalLeft - keep;
+        player.coalLeft = keep;
+    } else if (resource == ResourceType.Oil) {
+        G.oilSupply += player.oilLeft - keep;
+        player.oilLeft = keep;
+    } else if (resource == ResourceType.Garbage) {
+        G.garbageSupply += player.garbageLeft - keep;
+        player.garbageLeft = keep;
+    }
+}
+
+/**
  * Draw the replacement plant a completed purchase is owed — and only then.
  *
  * `endAuction` marks the purchase; whichever path finishes it consumes the mark. The
@@ -2605,16 +2784,36 @@ function removePowerPlant(G: GameState, powerPlant: PowerPlant) {
     );
 }
 
-export function getPowerPlant(num: number, mapName = ''): PowerPlant {
-    if (mapName == 'India') {
-        return indiaPowerPlants.find((p) => p.number == num)!;
-    } else {
-        return powerPlants.find((p) => p.number == num)!;
-    }
+export function getPowerPlant(num: number, mapName = '', alternatePowerPlants = false): PowerPlant {
+    return plantCatalogue(mapName, alternatePowerPlants).find((p) => p.number == num)!;
+}
+
+// Options for rebuilding an existing game's starting state. Settings that new games
+// record explicitly must fall back to their old behaviour when absent, so games
+// created before them replay as they were played. A rule fixed without a stamp is
+// recognised from the game's own log instead: a $0 garbage buy can only have
+// happened under the old Wien discount.
+export function reconstructionOptions(options: GameOptions, log: LogItem[] = []): GameOptions {
+    const wienFreeGarbage =
+        options.wienFreeGarbage ||
+        log.some((item) => item.type == 'move' && /buys garbage for \$0\.$/.test(item.simple));
+
+    return {
+        ...options,
+        rechargedStartingResources: options.rechargedStartingResources ?? false,
+        ...(wienFreeGarbage ? { wienFreeGarbage: true } : {}),
+    };
 }
 
 function getBaseState(G: GameState): GameState {
-    const baseState = setup(G.players.length, G.options, G.seed);
+    const baseState = setup(
+        G.players.length,
+        reconstructionOptions(G.options, G.log),
+        G.seed,
+        undefined,
+        undefined,
+        G.setupPlayerColors
+    );
     baseState.players.forEach((player, i) => {
         player.name = G.players[i].name;
         player.isAI = G.players[i].isAI;
@@ -2712,6 +2911,25 @@ function isValid(player: Player, powerPlants: PowerPlant[]) {
         return false;
     }
 
+    // Garbage/oil hybrids draw on the leftover garbage and oil, sharing that oil with
+    // any coal/oil hybrids: each kind must fit its own fuels, and both together must
+    // fit everything that is left.
+    const garbageOilUsed = powerPlants
+        .filter((pp) => pp.type == PowerPlantType.GarbageOilHybrid)
+        .map((pp) => pp.cost)
+        .reduce((a, b) => a + b, 0);
+    if (garbageOilUsed > 0) {
+        const coalRemaining = player.coalLeft - coalUsed;
+        const oilRemaining = player.oilLeft - oilUsed;
+        const garbageRemaining = player.garbageLeft - garbageUsed;
+        if (
+            garbageOilUsed > garbageRemaining + oilRemaining ||
+            hybridUsed + garbageOilUsed > coalRemaining + oilRemaining + garbageRemaining
+        ) {
+            return false;
+        }
+    }
+
     return true;
 }
 
@@ -2759,11 +2977,7 @@ function toResourcesPhase(G: GameState) {
         } else {
             const powerPlantDiscarded = G.actualMarket.shift();
             G.futureMarket.pop();
-            G.log.push({
-                type: 'event',
-                event: `Starting Step 3, Power Plant ${powerPlantDiscarded?.number} discarded.`,
-            });
-            G.step = 3;
+            startStep(G, 3, `Starting Step 3, Power Plant ${powerPlantDiscarded?.number} discarded.`);
             applyAustraliaStep3Shift(G);
 
             G.actualMarket = [...G.actualMarket, ...G.futureMarket];

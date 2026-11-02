@@ -171,6 +171,32 @@ describe('turn-buffer', () => {
         expect(rebaseTurnBuffer(committed, next.log, foreignBuffer, other)).to.deep.equal([]);
     });
 
+    it('preserves another player’s tentative powering when a submitted choice is reopened', () => {
+        let base = setup(2, {}, 'rebase-powering');
+        for (let i = 0; base.phase !== Phase.Bureaucracy && i < 200; i++) base = moveAI(base, base.currentPlayers[0]);
+        expect(base.phase).to.equal(Phase.Bureaucracy);
+        const [A, B] = base.currentPlayers;
+        const completed = engineMove(clone(base), { name: MoveName.Pass, data: true, time: 1000 }, A);
+        const buffer: Move[] = [
+            {
+                name: MoveName.UsePowerPlant,
+                data: completed.players[B].availableMoves![MoveName.UsePowerPlant]![0],
+                time: 2000,
+            },
+        ];
+        expect(buffer[0].data).not.to.equal(undefined);
+        const reopened = engineMove(
+            clone(completed),
+            { name: MoveName.ReopenPowering, data: base.round, time: 3000 },
+            A
+        );
+        expect(reopened.log.length).to.be.lessThan(completed.log.length);
+        const rebased = rebaseTurnBuffer(reopened, completed.log, buffer, B);
+        expect(rebased).to.deep.equal(buffer);
+        expect(replayTurnBuffer(stripSecret(clone(reopened), B), rebased, B).failure).to.equal(undefined);
+        expect(rebaseTurnBuffer(reopened, completed.log, buffer, A)).to.deep.equal([]);
+    });
+
     it('replayTurnBuffer previews the buffer and drops a now-illegal tail gracefully', () => {
         const { committed, player, choose, bid } = fixture();
 
@@ -217,6 +243,33 @@ describe('turn-buffer', () => {
         // never offered — the illegal buffer cannot be built in the first place.
         const { state } = replayTurnBuffer(committed, [choose], player);
         expect(state.players[player].availableMoves![MoveName.ChoosePowerPlant]).to.be.undefined;
+    });
+
+    it('preserves public deck counters while previewing purchases on a secret deck', () => {
+        let G: GameState = setup(4, { variant: 'recharged' }, 'turn-buffer-resources');
+        for (let i = 0; i < 4000; i++) {
+            const seat = G.players.findIndex((p) => p.availableMoves);
+            if (seat < 0) break;
+            const buys = G.players[seat].availableMoves![MoveName.BuyResource];
+            if (G.phase === Phase.Resources && buys && buys.length) {
+                const stripped = stripSecret(clone(G), seat);
+                expect(stripped.powerPlantsDeck).to.deep.equal([]);
+                expect(stripped.cardsLeft).to.be.greaterThan(0);
+                const buy: Move = { name: MoveName.BuyResource, data: buys[0], time: 1000 };
+                const preview = replayTurnBuffer(stripped, [buy], seat);
+                expect(preview.failure).to.equal(undefined);
+                expect(preview.state.newTurn).to.equal(false);
+                expect(preview.state.cardsLeft).to.equal(stripped.cardsLeft);
+                expect(preview.state.nextCardWeak).to.equal(stripped.nextCardWeak);
+                const server = stripSecret(engineMove(clone(G), buy, seat), seat);
+                expect(preview.state.cardsLeft).to.equal(server.cardsLeft);
+                expect(preview.state.nextCardWeak).to.equal(server.nextCardWeak);
+                expect(replayTurnBuffer(stripped, [], seat).state.cardsLeft).to.equal(stripped.cardsLeft);
+                return;
+            }
+            G = moveAI(G, seat);
+        }
+        expect.fail('never reached a resource purchase');
     });
 
     it('a preview after every buy stops a resource click going past storage capacity', () => {

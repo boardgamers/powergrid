@@ -1,4 +1,6 @@
 import type { GameState } from './index';
+import { autoPassAuctions } from './src/auction-auto-pass';
+import { alreadyCreditedPowering, canReviseChoice } from './src/choice-revisions';
 import * as engine from './src/engine';
 import { playersSortedByScore } from './src/engine';
 import { GameOptions } from './src/gamestate';
@@ -19,15 +21,37 @@ export async function init(
     nbPlayers: number,
     expansions: string[],
     options: GameOptions,
-    seed?: string
+    seed?: string,
+    creator?: number,
+    context?: { preferredPlayerColors?: (string | null)[] }
 ): Promise<GameState> {
-    return engine.setup(nbPlayers, options, seed);
+    return engine.setup(nbPlayers, options, seed, undefined, undefined, context?.preferredPlayerColors);
 }
 
 export function setPlayerMetaData(G: GameState, player: number, metaData: { name: string }): GameState {
     G.players[player].name = metaData.name;
 
     return G;
+}
+
+export function setPlayerSettings(G: GameState, player: number, settings: Record<string, unknown>): GameState {
+    if (G.players[player]) G.players[player].settings = { autoPassBids: settings.autoPassBids === true };
+    // The host settings endpoint only persists preferences: it does not advance
+    // turns or clocks. Apply automation after the next committed game move.
+    return G;
+}
+
+export function playerSettings(G: GameState, player: number): Record<string, unknown> {
+    return { autoPassBids: G.players[player]?.settings?.autoPassBids === true };
+}
+
+function runAutomaticMoves(G: GameState, now: number): GameState {
+    // Premoves can finish upkeep and enter a new auction round; passing can enter
+    // Resources. Settle both in order without re-running them inside replay.
+    G = autoPassAuctions(G, now);
+    G = runPremoves(G, now);
+    G = autoPassAuctions(G, now);
+    return runPremoves(G, now);
 }
 
 /**
@@ -54,10 +78,16 @@ export async function move(
     automation(G).liveUpdate = false;
     if (isPremoveCommand(move)) {
         setPremoves(G, move, player);
-        return runPremoves(G, Date.now());
+        return runAutomaticMoves(G, Date.now());
     }
     const initialPhase = G.phase;
+    const initialRound = G.round;
+    const revision = canReviseChoice(G, move, player);
     const moves: Move[] = move == null ? [] : Array.isArray(move) ? move : [move];
+    // Saved choices from before history compaction have no block boundary. A
+    // deterministic replay derives it without guessing from unrelated earlier Passes.
+    if (revision && moves[0]?.name === MoveName.ReopenPowering && G.poweringChoices?.[player]?.logStart === undefined)
+        G = replay(G);
 
     if (moves.length === 0) {
         // Nothing to apply — flag the result as tentative so nothing gets persisted
@@ -78,7 +108,9 @@ export async function move(
     const now = Date.now();
 
     for (let i = 0; i < moves.length; i++) {
-        G = engine.move(G, { ...moves[i], serverTime: now }, player);
+        const input = { ...moves[i] };
+        delete input.poweringClock;
+        G = engine.move(G, { ...input, serverTime: now }, player);
 
         // The buffer must describe at most ONE turn: committing is what grants the
         // mover their per-turn time increment. Without this guard a buffer like
@@ -94,15 +126,16 @@ export async function move(
     }
 
     if (G.newTurn !== false) {
-        automation(G).increments[player]++;
+        if (revision) automation(G).liveUpdate = true;
+        else if (!alreadyCreditedPowering(G, player, initialPhase, initialRound)) automation(G).increments[player]++;
         reconcileManualPlan(G, player, initialPhase);
-        G = runPremoves(G, now);
+        G = revision ? autoPassAuctions(G, now) : runAutomaticMoves(G, now);
     }
     return G;
 }
 
 export function canMoveOutOfTurn(G: GameState, move: unknown, player: number): boolean {
-    return isPremoveCommand(move) && canManagePremoves(G, player);
+    return canReviseChoice(G, move, player) || (isPremoveCommand(move) && canManagePremoves(G, player));
 }
 export function isLiveUpdate(G: GameState): boolean {
     return G.automation?.liveUpdate === true;
@@ -119,6 +152,7 @@ export function toSave(G: GameState): GameState | undefined {
     return G.newTurn === false ? undefined : G;
 }
 
+export { createAnalysisScenario } from './src/analysis';
 export { ended, scores, stripSecret } from './src/engine';
 
 /**
@@ -129,12 +163,14 @@ export { ended, scores, stripSecret } from './src/engine';
  */
 export function moveAI(G: GameState, player: number): GameState {
     automation(G).liveUpdate = false;
+    const initialPhase = G.phase;
+    const initialRound = G.round;
     for (let i = 0; i < 500 && !engine.ended(G) && G.currentPlayers.includes(player); i++) {
         G = engine.moveAI(G, player);
 
         if (G.newTurn !== false) {
-            automation(G).increments[player]++;
-            return runPremoves(G, Date.now());
+            if (!alreadyCreditedPowering(G, player, initialPhase, initialRound)) automation(G).increments[player]++;
+            return runAutomaticMoves(G, Date.now());
         }
     }
 
@@ -181,10 +217,18 @@ export function replay(G: GameState, { to = Infinity }: { to?: number } = {}): G
 
     const oldG = G;
 
-    G = engine.setup(G.players.length, G.options, G.seed);
+    G = engine.setup(
+        G.players.length,
+        engine.reconstructionOptions(G.options, G.log),
+        G.seed,
+        undefined,
+        undefined,
+        G.setupPlayerColors
+    );
 
     for (let i = 0; i < oldPlayers.length && i < G.players.length; i++) {
         G.players[i].name = oldPlayers[i].name;
+        G.players[i].settings = oldPlayers[i].settings ? { ...oldPlayers[i].settings } : undefined;
     }
 
     // The visible log freezes during a fastBid auction: the simultaneous bids (and
@@ -206,6 +250,24 @@ export function replay(G: GameState, { to = Infinity }: { to?: number } = {}): G
     // Queue edits are private operational state, not game moves. Preserve them only
     // for a full reconstruction; historical replay positions have no future queue.
     if (to >= oldG.log.length && oldG.automation) G.automation = JSON.parse(JSON.stringify(oldG.automation));
+    if (to >= oldG.log.length) {
+        // Reopening is operational state, like a premove queue: the superseded
+        // powering actions are gone, so a full replay needs only this bounded state.
+        // Completed choices carry their exact clock accounting on the final Pass.
+        for (const [seat, choice] of Object.entries(oldG.poweringChoices ?? {})) {
+            if (choice.logStart === undefined) continue;
+            (G.poweringChoices ??= {})[Number(seat)] = JSON.parse(JSON.stringify(choice));
+            if (choice.round === G.round && choice.reopened) {
+                const player = G.players[Number(seat)];
+                const saved = oldPlayers[Number(seat)];
+                player.totalTimeUsed = saved.totalTimeUsed;
+                player.clockStartedAt = saved.clockStartedAt;
+                player.lastMove = saved.lastMove;
+            }
+        }
+        if (oldG.revisedPowering) G.revisedPowering = { ...oldG.revisedPowering };
+    }
+    delete G.pendingMessages;
     return G;
 }
 
@@ -255,7 +317,7 @@ export async function dropPlayer(G: GameState, playerNum: number): Promise<GameS
     // commit. Force the flag anyway (it costs nothing) so an unexpected auto-play path
     // can never leave the persisted state un-saveable.
     G.newTurn = true;
-    return runPremoves(G, Date.now());
+    return runAutomaticMoves(G, Date.now());
 }
 
 export function currentPlayer(G: GameState): number[] {
@@ -263,8 +325,10 @@ export function currentPlayer(G: GameState): number[] {
 }
 
 export function messages(G: GameState) {
+    const messages = G.pendingMessages ?? [];
+    delete G.pendingMessages;
     return {
-        messages: [],
+        messages,
         data: G,
     };
 }
@@ -321,5 +385,3 @@ export async function analysisMove(data: GameState, input: Move | Move[], player
     delete result.automation;
     return result;
 }
-
-export { createAnalysisScenario } from './src/analysis';

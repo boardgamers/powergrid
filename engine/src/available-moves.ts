@@ -1,4 +1,5 @@
 import { range } from 'lodash';
+import { minimumPlantBid } from './auction-pricing';
 import {
     countHeldPowerPlants,
     GameState,
@@ -14,7 +15,18 @@ import { MoveName } from './move';
 import prices from './prices';
 import { minBy } from './utils';
 
+// Central Europe: a player whose network includes Wien buys garbage $1 cheaper, but
+// never for less than $1 ("his cost per piece may not be 0" — Original and Recharged).
+export function garbagePrice(G: GameState, player: Player, printedPrice: number): number {
+    if (G.map.name != 'Central Europe' || !player.cities.some((c) => c.name == 'Wien')) {
+        return printedPrice;
+    }
+
+    return G.options.wienFreeGarbage ? printedPrice - 1 : Math.max(1, printedPrice - 1);
+}
+
 export interface AvailableMoves {
+    [MoveName.ReopenPowering]?: number[];
     [MoveName.ChoosePowerPlant]?: number[];
     [MoveName.Bid]?: number[];
     [MoveName.DiscardPowerPlant]?: number[];
@@ -71,6 +83,84 @@ export function coalOilOverCapacity(player: Player): ResourceType[] {
     return over;
 }
 
+/**
+ * Whether the player owns a garbage/oil hybrid plant (alternate deck only). Every
+ * storage check below is only used when this is true, so games without such a plant
+ * keep the exact coal/oil logic above.
+ */
+export function hasGarbageOilHybrid(player: Player): boolean {
+    return (player.garbageOilHybridCapacity ?? 0) > 0;
+}
+
+/**
+ * Whether the player can store these amounts of coal, oil and garbage. Each
+ * resource fills its own plants first; overflow coal can only go into the coal/oil
+ * hybrid tank, overflow garbage only into the garbage/oil hybrid tank, and overflow
+ * oil into whatever room is left in either hybrid tank.
+ */
+export function canStoreFuel(player: Player, coal: number, oil: number, garbage: number): boolean {
+    const coalOilTank = player.hybridCapacity;
+    const garbageOilTank = player.garbageOilHybridCapacity ?? 0;
+    const coalOverflow = Math.max(0, coal - player.coalCapacity);
+    const oilOverflow = Math.max(0, oil - player.oilCapacity);
+    const garbageOverflow = Math.max(0, garbage - player.garbageCapacity);
+
+    return (
+        coalOverflow <= coalOilTank &&
+        garbageOverflow <= garbageOilTank &&
+        oilOverflow <= coalOilTank - coalOverflow + garbageOilTank - garbageOverflow
+    );
+}
+
+/** Whether the player has room for one more cube of this resource. */
+export function canStoreOneMore(player: Player, resource: ResourceType): boolean {
+    return canStoreFuel(
+        player,
+        player.coalLeft + (resource == ResourceType.Coal ? 1 : 0),
+        player.oilLeft + (resource == ResourceType.Oil ? 1 : 0),
+        player.garbageLeft + (resource == ResourceType.Garbage ? 1 : 0)
+    );
+}
+
+/**
+ * Garbage/oil hybrid counterpart of coalOilOverCapacity: when the player's coal, oil
+ * and garbage don't fit, the resources partly held in a hybrid tank. Discarding one
+ * of those frees room; a resource that fits in its own plants is never offered.
+ */
+export function fuelOverCapacity(player: Player): ResourceType[] {
+    if (canStoreFuel(player, player.coalLeft, player.oilLeft, player.garbageLeft)) {
+        return [];
+    }
+
+    const over: ResourceType[] = [];
+    if (player.coalLeft > player.coalCapacity) {
+        over.push(ResourceType.Coal);
+    }
+    if (player.oilLeft > player.oilCapacity) {
+        over.push(ResourceType.Oil);
+    }
+    if (player.garbageLeft > player.garbageCapacity) {
+        over.push(ResourceType.Garbage);
+    }
+
+    return over;
+}
+
+/** The most of `resource` the player can keep, holding the other fuels as they are. */
+export function maxStorable(player: Player, resource: ResourceType): number {
+    const held = { coal: player.coalLeft, oil: player.oilLeft, garbage: player.garbageLeft };
+    let amount = held[resource];
+    while (amount > 0) {
+        const fuel = { ...held, [resource]: amount };
+        if (canStoreFuel(player, fuel.coal, fuel.oil, fuel.garbage)) {
+            break;
+        }
+        amount--;
+    }
+
+    return amount;
+}
+
 export function availableMoves(G: GameState, player: Player): AvailableMoves {
     const moves = {};
 
@@ -84,9 +174,11 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                     .filter((pp, i) => i != player.powerPlants.length - 1 && !isUraniumMine(G, pp))
                     .map((pp) => pp.number);
             } else {
-                const toDiscard: ResourceType[] = coalOilOverCapacity(player);
+                const toDiscard: ResourceType[] = hasGarbageOilHybrid(player)
+                    ? fuelOverCapacity(player)
+                    : coalOilOverCapacity(player);
 
-                if (player.garbageCapacity < player.garbageLeft) {
+                if (!hasGarbageOilHybrid(player) && player.garbageCapacity < player.garbageLeft) {
                     toDiscard.push(ResourceType.Garbage);
                 }
 
@@ -98,7 +190,7 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                     moves[MoveName.DiscardResources] = toDiscard;
                 } else {
                     if (G.chosenPowerPlant == undefined) {
-                        let canBid = G.actualMarket.filter((p) => player.money >= p.number);
+                        let canBid = G.actualMarket.filter((p) => player.money >= minimumPlantBid(G, p));
 
                         // No nuclear plants for Portugal
                         if (G.map.name == 'Spain & Portugal') {
@@ -271,17 +363,30 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
             const allowSouth = !isKorea || G.chosenSide !== 'north';
             const allowNorth = isKorea && G.chosenSide !== 'south';
 
+            // Room for one more cube. A garbage/oil hybrid shares oil with a second
+            // tank, so its owner goes through the general check; everyone else keeps
+            // the original coal/oil test.
+            const garbageOilHybrid = hasGarbageOilHybrid(player);
+            const coalRoom = (hybridCapacityUsed: number) =>
+                garbageOilHybrid
+                    ? canStoreOneMore(player, ResourceType.Coal)
+                    : player.coalCapacity + player.hybridCapacity > hybridCapacityUsed + player.coalLeft;
+            const oilRoom = (hybridCapacityUsed: number) =>
+                garbageOilHybrid
+                    ? canStoreOneMore(player, ResourceType.Oil)
+                    : player.oilCapacity + player.hybridCapacity > hybridCapacityUsed + player.oilLeft;
+            const garbageRoom = () =>
+                garbageOilHybrid
+                    ? canStoreOneMore(player, ResourceType.Garbage)
+                    : player.garbageCapacity > player.garbageLeft;
+
             if (allowSouth && G.coalMarket > 0) {
                 const hybridCapacityUsed =
                     player.hybridCapacity > 0 ? Math.max(0, player.oilLeft - player.oilCapacity) : 0;
                 const coalPrices = G.coalPrices ?? prices[ResourceType.Coal];
                 const price = coalPrices[coalPrices.length - G.coalMarket];
 
-                if (
-                    player.money >= price &&
-                    player.coalCapacity + player.hybridCapacity > hybridCapacityUsed + player.coalLeft &&
-                    price <= maxPriceAvailable
-                ) {
+                if (player.money >= price && coalRoom(hybridCapacityUsed) && price <= maxPriceAvailable) {
                     toBuy.push(
                         isKorea ? { resource: ResourceType.Coal, side: 'south' } : { resource: ResourceType.Coal }
                     );
@@ -290,10 +395,7 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                 if (G.options.variant == 'recharged' && G.map.name == 'USA' && G.coalSupply > 0) {
                     const hybridCapacityUsed =
                         player.hybridCapacity > 0 ? Math.max(0, player.oilLeft - player.oilCapacity) : 0;
-                    if (
-                        player.money >= 8 &&
-                        player.coalCapacity + player.hybridCapacity > hybridCapacityUsed + player.coalLeft
-                    ) {
+                    if (player.money >= 8 && coalRoom(hybridCapacityUsed)) {
                         toBuy.push({ resource: ResourceType.Coal });
                     }
                 }
@@ -312,12 +414,7 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                 const coalPrices = G.coalPrices ?? prices[ResourceType.Coal];
                 const marketPrice =
                     G.coalMarket > 0 ? coalPrices[coalPrices.length - G.coalMarket] : Number.POSITIVE_INFINITY;
-                if (
-                    player.money >= 8 &&
-                    player.coalCapacity + player.hybridCapacity > hybridCapacityUsed + player.coalLeft &&
-                    8 <= maxPriceAvailable &&
-                    marketPrice >= 8
-                ) {
+                if (player.money >= 8 && coalRoom(hybridCapacityUsed) && 8 <= maxPriceAvailable && marketPrice >= 8) {
                     toBuy.push({ resource: ResourceType.Coal, fromStorage: true });
                 }
             }
@@ -328,11 +425,7 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                 const coalPrices = G.coalPricesNorth!;
                 const price = coalPrices[coalPrices.length - G.coalMarketNorth!];
 
-                if (
-                    player.money >= price &&
-                    player.coalCapacity + player.hybridCapacity > hybridCapacityUsed + player.coalLeft &&
-                    price <= maxPriceAvailable
-                ) {
+                if (player.money >= price && coalRoom(hybridCapacityUsed) && price <= maxPriceAvailable) {
                     toBuy.push({ resource: ResourceType.Coal, side: 'north' });
                 }
             }
@@ -343,11 +436,7 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                 const oilPrices = G.oilPrices ?? prices[ResourceType.Oil];
                 const price = oilPrices[oilPrices.length - G.oilMarket];
 
-                if (
-                    player.money >= price &&
-                    player.oilCapacity + player.hybridCapacity > hybridCapacityUsed + player.oilLeft &&
-                    price <= maxPriceAvailable
-                ) {
+                if (player.money >= price && oilRoom(hybridCapacityUsed) && price <= maxPriceAvailable) {
                     toBuy.push(
                         isKorea ? { resource: ResourceType.Oil, side: 'south' } : { resource: ResourceType.Oil }
                     );
@@ -360,32 +449,16 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                 const oilPrices = G.oilPricesNorth!;
                 const price = oilPrices[oilPrices.length - G.oilMarketNorth!];
 
-                if (
-                    player.money >= price &&
-                    player.oilCapacity + player.hybridCapacity > hybridCapacityUsed + player.oilLeft &&
-                    price <= maxPriceAvailable
-                ) {
+                if (player.money >= price && oilRoom(hybridCapacityUsed) && price <= maxPriceAvailable) {
                     toBuy.push({ resource: ResourceType.Oil, side: 'north' });
                 }
             }
 
             if (allowSouth && G.garbageMarket > 0) {
                 const garbagePrices = G.garbagePrices ?? prices[ResourceType.Garbage];
-                let price = garbagePrices[garbagePrices.length - G.garbageMarket];
+                const price = garbagePrice(G, player, garbagePrices[garbagePrices.length - G.garbageMarket]);
 
-                // $1 cheaper for players in Wien in Central Europe
-                if (G.map.name == 'Central Europe') {
-                    const wienCity = player.cities.filter((c) => c.name == 'Wien');
-                    if (wienCity?.length > 0) {
-                        price--;
-                    }
-                }
-
-                if (
-                    player.money >= price &&
-                    player.garbageCapacity > player.garbageLeft &&
-                    price <= maxPriceAvailable
-                ) {
+                if (player.money >= price && garbageRoom() && price <= maxPriceAvailable) {
                     toBuy.push(
                         isKorea ? { resource: ResourceType.Garbage, side: 'south' } : { resource: ResourceType.Garbage }
                     );
@@ -396,11 +469,7 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                 const garbagePrices = G.garbagePricesNorth!;
                 const price = garbagePrices[garbagePrices.length - G.garbageMarketNorth!];
 
-                if (
-                    player.money >= price &&
-                    player.garbageCapacity > player.garbageLeft &&
-                    price <= maxPriceAvailable
-                ) {
+                if (player.money >= price && garbageRoom() && price <= maxPriceAvailable) {
                     toBuy.push({ resource: ResourceType.Garbage, side: 'north' });
                 }
             }
@@ -707,6 +776,27 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                                     }
                                 });
                             }
+
+                            break;
+                        }
+
+                        case PowerPlantType.GarbageOilHybrid: {
+                            // Every garbage/oil split the player can afford, garbage first
+                            // (the viewer sorts the chosen resources the same way).
+                            for (let garbage = powerPlant.cost; garbage >= 0; garbage--) {
+                                const oil = powerPlant.cost - garbage;
+                                if (garbage <= player.garbageLeft && oil <= player.oilLeft) {
+                                    toUse.push({
+                                        powerPlant: powerPlant.number,
+                                        resourcesSpent: new Array<ResourceType>(garbage)
+                                            .fill(ResourceType.Garbage)
+                                            .concat(new Array<ResourceType>(oil).fill(ResourceType.Oil)),
+                                        citiesPowered: powerPlant.citiesPowered,
+                                    });
+                                }
+                            }
+
+                            break;
                         }
                     }
                 }

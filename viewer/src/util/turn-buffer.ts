@@ -1,6 +1,6 @@
 import { isEqual } from 'lodash';
 import type { GameState, LogItem, LogMove, Move } from 'powergrid-engine';
-import { move as engineMove, MoveName } from 'powergrid-engine';
+import { move as engineMove, MoveName, Phase } from 'powergrid-engine';
 
 /**
  * Pure helpers for the viewer's tentative-turn buffer.
@@ -92,8 +92,25 @@ export function rebaseTurnBuffer(
     turnMoves: Move[],
     player: number | undefined
 ): Move[] {
-    if (!previousLog || committed.log.length < previousLog.length) {
+    if (!previousLog) {
         return [];
+    }
+
+    const rewritten = !previousLog.every((entry, index) => isEqual(entry, committed.log[index]));
+    if (rewritten) {
+        // Reopening removes that player's superseded powering block. It must not
+        // discard another still-active player's tentative plant selection, even
+        // when the removed block was interleaved with that player's earlier log.
+        const ownMoves = (log: LogItem[]) => log.filter((item) => item.type === 'move' && item.player === player);
+        const poweringRevision =
+            committed.phase === Phase.Bureaucracy &&
+            Object.values(committed.revisedPowering || {}).includes(committed.round);
+        return poweringRevision &&
+            player !== undefined &&
+            committed.currentPlayers.includes(player) &&
+            isEqual(ownMoves(previousLog), ownMoves(committed.log))
+            ? turnMoves
+            : [];
     }
 
     const appendedOurs = committed.log
@@ -121,6 +138,32 @@ export function rebaseTurnBuffer(
 }
 
 /**
+ * Does an incoming COMMITTED state take back moves this player had already committed?
+ *
+ * That is what BGS's "Undo my move" does in a game against bots: it replays the game to
+ * the position before the player's last saved move, dropping the bots' replies, and
+ * sends that earlier state. Whatever the viewer prepared on the newer position (turn
+ * buffer, dialogs, a dialled bid) no longer applies. Another player reopening their
+ * powering only removes THEIR moves, and an ordinary update only appends, so neither
+ * counts.
+ */
+export function takesBackOwnMoves(
+    previousLog: LogItem[] | null,
+    committed: GameState,
+    player: number | undefined
+): boolean {
+    if (!previousLog || player === undefined) {
+        return false;
+    }
+
+    const ownMoves = (log: LogItem[]) =>
+        log.filter((item): item is LogMove => item.type === 'move' && item.player === player);
+    const kept = ownMoves(committed.log);
+
+    return ownMoves(previousLog).some((item, i) => !kept[i] || !isEqual(item.move, kept[i].move));
+}
+
+/**
  * Replays the turn buffer on the last committed state, truncating it at the first
  * move the engine rejects (possible after a rebase), and returns the preview plus the
  * moves that survived. Tentative moves never touch the power-plant deck or the seed —
@@ -139,6 +182,13 @@ export function replayTurnBuffer(
     for (const move of turnMoves) {
         try {
             state = engineMove(state, move, player);
+            // The viewer receives an empty secret deck, not an exhausted deck.
+            // Tentative moves cannot draw cards; retain the public counters rather
+            // than flashing an empty pile until the server's echo restores them.
+            if (committedState.seed === 'secret' && state.newTurn === false) {
+                state.cardsLeft = committedState.cardsLeft;
+                state.nextCardWeak = committedState.nextCardWeak;
+            }
         } catch (err) {
             console.error('dropping turn-buffer tail no longer legal on the committed state', move, err);
             failure = err;

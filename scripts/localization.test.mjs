@@ -24,7 +24,12 @@ test('regional language preferences select supported catalogues', () => {
     assert.equal(resolveLocale('nl-BE'), 'nl');
     assert.equal(resolveLocale('pt-PT'), 'pt-BR');
     assert.equal(resolveLocale('zh-Hant-TW'), 'zh-TW');
-    assert.equal(resolveLocale('zh-CN'), 'en');
+    for (const tag of ['zh', 'zh-CN', 'zh_SG', 'zh-Hans', 'zh-Hans-CN']) {
+        assert.equal(resolveLocale(tag), 'zh-CN');
+    }
+    for (const tag of ['zh-TW', 'zh-Hant-CN', 'zh-HK', 'zh-MO']) {
+        assert.equal(resolveLocale(tag), 'zh-TW');
+    }
     assert.equal(resolveLocale(undefined), 'en');
 });
 test('dynamic values are reordered while player names stay unchanged', () => {
@@ -75,4 +80,16 @@ test('Persian regional tags, prices and journal parameters stay intact', async (
     assert.equal(t.translate('REMAINING'), 'باقی‌مانده');
     t.setLocale('en');
     assert.equal(t.translate('Buy for $25'), 'Buy for $25');
+});
+
+test('Simplified Chinese catalog translates journal values while preserving player names', async () => {
+    const chinese = JSON.parse(
+        await readFile(new URL('../viewer/src/localization/zh-CN.json', import.meta.url), 'utf8')
+    );
+    const translator = createTranslator({ 'zh-CN': chinese }, 'zh-Hans');
+    translator.setNames(['Build']);
+    assert.equal(translator.translate('Build'), 'Build');
+    assert.equal(translator.translate('Build buys coal for $3.'), 'Build花费$3购买煤。');
+    assert.equal(translator.translate('Power capacity: {count} cities'), '供电能力：{count}座城市');
+    assert.equal(translator.translate('Choose your color.'), '选择你的颜色。');
 });

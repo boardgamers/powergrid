@@ -1,4 +1,7 @@
 import { checkHostPresentation } from './host-presentation-smoke.mjs';
+import { checkMiddleEastReplay } from './replay-smoke.mjs';
+import { checkUndoMove } from './undo-smoke.mjs';
+import { checkPlayerColors } from './player-colors-smoke.mjs';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { createServer } from 'node:http';
@@ -25,7 +28,7 @@ const server = createServer(async (req, res) => {
         if (req.url === '/') {
             res.setHeader('Content-Type', 'text/html');
             res.end(html);
-        } else if (/^\/powergrid-viewer\.umd\.min\.locale-[a-zA-Z-]+\.js$/.test(req.url)) {
+        } else if (/^\/powergrid-viewer\.umd\.min\.(?:locale-[a-zA-Z-]+|geography-[a-z-]+)\.js$/.test(req.url)) {
             res.setHeader('Content-Type', 'text/javascript; charset=utf-8');
             res.end(await readFile(fileURLToPath(new URL('viewer/dist' + req.url, repo))));
         } else if (files[req.url]) {
@@ -343,6 +346,14 @@ try {
             /unread/,
             'opening chat clears restored unread'
         );
+        await page.evaluate((state) => {
+            const occupied = structuredClone(state);
+            occupied.players.forEach((player, index) => {
+                player.cities = [{ name: occupied.map.cities[index].name, position: 0 }];
+            });
+            host.emit('state', occupied);
+            host.emit('state:updated');
+        }, state);
         await page.evaluate(() => {
             window.preferenceUpdates = [];
             host.on('update:preference', (value) => preferenceUpdates.push(value));
@@ -354,6 +365,50 @@ try {
         const owners = await page.locator('.house-owner text').allTextContents();
         assert.deepEqual([...new Set(owners.map((t) => t.trim()))].sort(), ['1', '2', '3']);
         assert.match(await page.locator('.player-board [data-bgs-player="1"]').textContent(), /2 · Ada Lovelace/);
+        await page.evaluate(() =>
+            host.emit('preferences', {
+                sound: false,
+                colorBlind: true,
+                bgs: { players: [], playerColors: [], playerSymbols: ['star', 'hexagon', 'cross'] },
+            })
+        );
+        await page.waitForFunction(
+            () =>
+                document.querySelector('.house-owner path')?.getAttribute('d') ===
+                'M12 1 15 8 23 9 17 15 19 23 12 19 5 23 7 15 1 9 9 8Z'
+        );
+        assert.match(await page.locator('.player-board [data-bgs-player="1"]').textContent(), /⬢ · Ada Lovelace/);
+        await page.evaluate(() =>
+            host.emit('preferences', {
+                sound: false,
+                colorBlind: true,
+                bgs: { players: [], playerColors: [], playerSymbols: ['diamond', 'hexagon', 'cross'] },
+            })
+        );
+        await page.waitForFunction(
+            () => document.querySelector('.house-owner path')?.getAttribute('d') === 'M12 1 23 12 12 23 1 12Z'
+        );
+        assert.equal(
+            await page.locator('[data-board-slot="map"] .house-owner circle').count(),
+            0,
+            'symbols have no white disc'
+        );
+        assert.equal(await page.locator('.house-owner circle').count(), 0, 'all house markers use outlines');
+        assert.equal(await page.locator('[data-board-slot="cityCount"] .house-owner path').count(), 3);
+        const symbols = await page.locator('.house-owner path').evaluateAll((paths) =>
+            paths.map((path) => {
+                const box = path.getBBox();
+                const matrix = path.transform.baseVal.consolidate().matrix;
+                const centre = new DOMPoint(box.x + box.width / 2, box.y + box.height / 2).matrixTransform(matrix);
+                return { x: centre.x, y: centre.y, width: box.width * matrix.a, stroke: path.getAttribute('stroke') };
+            })
+        );
+        for (const symbol of symbols) {
+            assert.equal(symbol.x, 200);
+            assert.equal(symbol.y, 235);
+            assert.ok(symbol.width >= 440, 'symbols fill the house');
+            assert.equal(symbol.stroke, 'white');
+        }
         const regions = await page.locator('.region-border').evaluateAll((elements) =>
             elements.map((element) => ({
                 region: element.dataset.region,
@@ -374,7 +429,10 @@ try {
         assert.equal(await page.locator('.region-borders').count(), 0);
         assert.doesNotMatch(await page.locator('.player-board [data-bgs-player="1"]').textContent(), /2 ·/);
         assert.deepEqual(await page.evaluate(() => preferenceUpdates), [{ name: 'colorBlind', value: false }]);
+        await checkPlayerColors(page, engine);
         await checkHostPresentation(page, 'host', `/tmp/powergrid-board-thumbnail-${width}.png`);
+        if (width === 1400) await checkMiddleEastReplay(page);
+        await checkUndoMove(page);
         assert.deepEqual(errors, []);
         await page.close();
         console.log(`${game} ${width}px: protocol/chat smoke passed`);

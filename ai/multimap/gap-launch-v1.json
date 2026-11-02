@@ -1,0 +1,46 @@
+{
+    "run": "multimap-phase-gap-20261102-v1",
+    "sourceCommit": "61ed445ef0b27516f8eb74089d31dc0f4f1a83e6",
+    "env": {
+        "RUN_ID": "multimap-phase-gap-20261102-v1",
+        "WORKFLOW": "gap",
+        "MODEL_REPO": "coyotte508/powergrid-ai-multimap-v1",
+        "DATASET_REPO": "coyotte508/powergrid-ai-training-v1",
+        "SOURCE_PATH": "multimap/multimap-phase-gap-20261102-v1/source.tgz",
+        "SOURCE_REVISION": "ce222c3d3d715f9a722c0cac5eeb4e96182c552a",
+        "SOURCE_SHA256": "cd7ec532386cdf271f268745f2aca9cadc67a85628ece2ba16b5b9cbe0f1ea42",
+        "OMP_NUM_THREADS": "4",
+        "MKL_NUM_THREADS": "4",
+        "OPENBLAS_NUM_THREADS": "1",
+        "PYTHONUNBUFFERED": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "GAP_WORKERS": "6",
+        "GAP_SMOKE": "0"
+    },
+    "image": "python:3.12.8-slim-bookworm@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+    "flavor": "cpu-upgrade",
+    "timeout": "3h",
+    "jobId": "6ae9042a0e0338d1bb7e9ddb",
+    "url": "https://huggingface.co/jobs/coyotte508/6ae9042a0e0338d1bb7e9ddb",
+    "modelPrefix": "runs/multimap-phase-gap-20261102-v1",
+    "completionWatcher": "hf jobs wait 6ae9042a0e0338d1bb7e9ddb --timeout 4h",
+    "localLog": "ai/runs/multimap-phase-gap-20261102-v1/job.log",
+    "preflightEvidence": {
+        "repo": "coyotte508/powergrid-ai-multimap-v1",
+        "revision": "aa68e336a39e05f588b6f2c825f58341f5c868bb",
+        "artifacts": {
+            "diagnostics/phase-gap-preflight-v1/report.json": {
+                "sha256": "2a26fc141fd2254c374a82d63011ff83148dc013f2043894775ea677a2b596f5",
+                "bytes": 2984
+            },
+            "diagnostics/phase-gap-preflight-v1/node-tests.tap": {
+                "sha256": "2d0d54378cac95b067122454d99993f2ff2221b2ec304974181d14b46e12dfce",
+                "bytes": 8931
+            },
+            "diagnostics/teacher-mechanics-v2/repairs.json": {
+                "sha256": "8977065e381a7a3b704d860219eac71a4f29acd03dd1d9fb2859bcdf29ed6920",
+                "bytes": 6501
+            }
+        }
+    }
+}

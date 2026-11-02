@@ -145,12 +145,16 @@ PYTHONPATH=ai/multimap ai/.venv/bin/python -B ai/multimap/launch.py \
 
 ## Storage budget (user requirement)
 
-Do not accumulate local training archives. The launcher requires its working
-cache under `ai/runs/multimap-*`, refuses to start above **1 GiB** or with less
-than 2 GiB free, removes the expanded staging tree immediately after packaging,
-and removes the source archive after its immutable HF upload is receipted.
-Local data workers stop above **512 MiB** of multi-map run files. This leaves
-room for temporary source packaging; dependencies/venvs are separate.
+The user permits roughly **10 GB or another reasonable bounded amount**, not
+hundreds of GB of runaway accumulation. Keep useful reusable artifacts locally;
+do not delete/redownload them just to satisfy an unnecessarily tiny working cap.
+The launcher requires its working cache under `ai/runs/multimap-*`, currently
+warns by refusing new launches above **8 GB** or with less than 2 GiB free, and
+removes duplicate source staging after immutable HF upload. This leaves headroom
+for dependencies/caches; the guard can be deliberately revised for justified work.
+Older frozen bootstrap data workers retain their **512 MiB** collection guard.
+The exact-reference cache has its own sufficient 512 MiB bound, and the recovered
+451 MB artifact is retained for reuse. New PPO trajectories remain RAM-only.
 
 All 1,760 games are already archived privately on HF (about 48 MB compressed).
 The recovery reuses those pinned archives. Local expanded data and disposable
@@ -309,3 +313,84 @@ Python environment (its ONNX/NumPy pins differ), send only public states, and
 validate returned atomic moves against the authoritative full legal menu.
 Reference indices are not multi-map action indices; all its phases must run
 through its own policy, not our resource/powering teacher.
+
+## Completed replication and opponent-study audits
+
+All three follow-up jobs completed with no game failures. `audit_replicas.py`
+verified all 32 artifacts per replica, exact source/engine/protocol identities,
+4,800 persisted outcomes per run, selection/optimizer/embedded-best state, and
+12 exact selected-policy replays per replica. All nine train/selection/confirmation
+seed sets across the original and replicas are disjoint. See `replica-results-v1.json`.
+
+| Run       | Selected update | Selected credit | Teacher credit | Difference, pp |
+| --------- | --------------: | --------------: | -------------: | -------------: |
+| Original  |               8 |          55.16% |         51.01% |          +4.16 |
+| Replica 1 |              16 |          57.54% |         50.69% |          +6.85 |
+| Replica 2 |              12 |          58.13% |         49.78% |          +8.35 |
+
+These are **three different policies on different confirmation deals**, not one
+pooled qualified model. Replica 1 still regresses descriptively on USA (-0.54 pp)
+and two-player games (-1.56 pp); replica 2 is positive in every map/count group.
+No best-confirmation-seed selection is performed. With only two independent
+deals per cell, the ordinary within-cell bootstrap variance is half the unbiased
+variance estimate. The reports retain the historical percentile intervals and
+add unbiased stratified paired standard errors/approximate-normal intervals;
+all remain exploratory, especially subgroup comparisons.
+
+`audit_opponents.py` independently checked the frozen PPO0 study's full 11,520-game
+plan, artifacts, source identities, metrics, and 18 exact replays. All-seat
+geographic-teacher controls sum to one win credit per deal. The original checkpoint
+scored **47.71% vs 44.80%**, a **+2.90 pp** macro-cell gain over the teacher across
+three opponent styles. The paired-deal bootstrap interval is +1.72 to +4.12 pp;
+the supplementary unbiased-SE normal interval is +1.54 to +4.27 pp. There are
+1,440 independent deal/opponent seeds, not 11,520 independent trials.
+
+Style gains are economic +2.37, geographic +2.15, rush +4.18 pp. Count-2/3/4/5/6
+gains are **-1.65 / +0.46 / +1.56 / +6.53 / +7.61 pp**. Italy is slightly negative
+(-0.73 pp); the other five map aggregates are positive. See `opponent-results-v1.json`
+for all groups, paired uncertainty and caveats. Fixed heuristic populations do
+not establish human strength or production readiness; final seeds remain reserved.
+
+`candidate-pool-v1.json` freezes all three independently preselected checkpoints
+and an **equal-logit ensemble of all three**, with no fitted weights or confirmation
+winner selection. `candidates.py` checks all pins and serving identities before
+loading. The common heuristic prior is preserved, all legal actions remain, and
+auxiliary averaged values are not calibrated ensemble win probabilities. The
+ensemble is a fresh evaluation candidate, not an already proven improvement.
+
+## Exact Germany reference recovery and next screen
+
+`reference_recover.py` restores the **complete, unchanged** archived FILTER artifact
+and validates its pinned manifest/descriptor/model. Its old public loader hashes
+17 unused fixtures/training files as well as the serving files; a runtime-only
+subset fails closed. Compressed source (130.4 MB) now stays in bounded RAM, so the
+451.3 MB complete artifact fits under the 512 MiB disk cap without a duplicate
+archive. The compressed-source RAM cap remains 256 MiB. These historical fixture
+bytes are verified only, never used for new training or evaluation. The separate
+`ai/.venv-reference` preserves NumPy 2.5.3 / ONNX Runtime 1.30.0 without changing
+training's NumPy 2.2.6 / Torch 2.10.0 pins.
+
+`reference_game.cjs` keeps the authoritative engine-2.0.22 state in Node, projects
+only public information, preserves JSON insertion order, and validates returned
+atomic moves against the full current legal menu. A separate persistent Python
+process runs the exact old policy in every reference phase. Synthetic fixtures
+cover all 20 Germany count/rule cells, high-bid menu thinning, discount nominations,
+discards, powering, noncanonical simultaneous sealed-pending sets and actual
+strict-loss filter certificates. The old runtime still uses its own engine-2.0.19
+feature/preparation code; compatibility is tested, not silently assumed.
+
+`reference-preflight-v1.json` records 160 mechanical fixtures, **20 successful full
+games covering every Germany count/rule cell**, 7,730 public reference decisions
+with hidden-state projection checks, 80 repeated phase decisions and five exact
+full-game replays. These validate the adapter, not playing strength. The common
+regression suites pass 49 Python and 14 Node tests before the screen-specific
+worker tests.
+
+The next frozen **evaluation-only** screen compares `ppo0`, `ppo1`, `ppo2`, their
+equal-logit ensemble, the geographic teacher, and the retained reference itself
+against a population of that exact reference. All six focal policies get the same
+fresh Germany deals and all seats: **1,920 games, 320 per policy, 80 independent
+deals**, four per configuration. The homogeneous reference control must sum to one
+win credit per deal. This is not a training dataset, a checkpoint selection loop,
+or final qualification. All maps outside Germany remain out of this comparator's
+scope; the multi-map model scope is unchanged.

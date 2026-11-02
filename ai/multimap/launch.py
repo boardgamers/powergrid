@@ -29,7 +29,7 @@ os.chdir(root)
 os.environ['PATH']=str(root/'runtime')+':'+os.environ['PATH']
 os.environ['PYTHONPATH']=str(root/'ai/multimap')
 subprocess.run(['python','-m','pip','install','--disable-pip-version-check','--extra-index-url','https://download.pytorch.org/whl/cpu','-r','ai/multimap/requirements-cpu.txt'],check=True)
-worker={'bootstrap':'job.py','ppo':'job_ppo.py','opponents':'job_opponents.py'}[os.environ.get('WORKFLOW','bootstrap')]
+worker={'bootstrap':'job.py','ppo':'job_ppo.py','opponents':'job_opponents.py','neural':'job_neural.py'}[os.environ.get('WORKFLOW','bootstrap')]
 os.execvp('python',['python','-u','-B','ai/multimap/'+worker])
 '''
 
@@ -44,11 +44,14 @@ def tree_bytes(path):
 def check_local_storage(directory):
     # Only this research's working cache, never another agent's runs or shared caches.
     used = sum(tree_bytes(p) for p in (ROOT/'ai/runs').glob('multimap-*'))
-    if used > 1024**3:
-        raise RuntimeError('Multi-map local run cache exceeds 1 GiB; archive/clean it before launching')
+    # Roomy working guard, not a strict user quota. Leave headroom around the
+    # user's ~10 GB guidance for reusable environments/small shared HF caches.
+    limit = 8_000_000_000
+    if used > limit:
+        raise RuntimeError('Multi-map local run cache exceeds 8 GB; archive/clean it before launching')
     if shutil.disk_usage(ROOT).free < 2*1024**3:
         raise RuntimeError('Less than 2 GiB free; do not stage a training source bundle')
-    print(json.dumps({'stage':'storage-check','localRunCacheBytes':used,'limitBytes':1024**3}),flush=True)
+    print(json.dumps({'stage':'storage-check','localRunCacheBytes':used,'limitBytes':limit}),flush=True)
 
 
 def package(directory):
@@ -58,7 +61,7 @@ def package(directory):
     if stage.exists():
         raise RuntimeError("Source stage already exists; choose a new output")
     stage.mkdir()
-    paths = ["ai/core.cjs", "ai/strong/economics.cjs", "ai/multimap", "engine/dist", "engine/src",
+    paths = ["ai/core.cjs", "ai/strong/economics.cjs", "ai/requirements-serve.txt", "ai/multimap", "engine/dist", "engine/src",
              "engine/index.ts", "engine/package.json", "engine/pnpm-lock.yaml"]
     if sum(tree_bytes(ROOT/path) for path in paths) > 128*1024**2:
         raise RuntimeError('Unexpectedly large source inputs; refuse to copy them')
@@ -91,11 +94,11 @@ def package(directory):
 
 
 def launch(run_id, directory, reuse_data=False, workflow='bootstrap', resume_run=None, resume_revision=None, replica=0):
-    if workflow not in ('bootstrap','ppo','opponents') or (reuse_data and workflow!='bootstrap'):
+    if workflow not in ('bootstrap','ppo','opponents','neural') or (reuse_data and workflow!='bootstrap'):
         raise ValueError('Invalid workflow/data reuse combination')
     if type(replica) is not int or not 0<=replica<=99 or (replica and workflow!='ppo'):
         raise ValueError('Replica must be 0..99 and only applies to PPO')
-    if bool(resume_run)!=bool(resume_revision) or (resume_run and workflow not in ('ppo','opponents')):
+    if bool(resume_run)!=bool(resume_revision) or (resume_run and workflow not in ('ppo','opponents','neural')):
         raise ValueError('PPO/study resume needs both run ID and immutable model revision')
     if resume_run and (not resume_run.replace('-','').replace('_','').isalnum() or len(resume_revision)!=40 or any(c not in '0123456789abcdef' for c in resume_revision)):
         raise ValueError('Invalid resume pin')
@@ -148,7 +151,7 @@ if __name__=='__main__':
     p.add_argument('--run-id',required=True)
     p.add_argument('--output',required=True)
     p.add_argument('--reuse-data',action='store_true')
-    p.add_argument('--workflow',choices=['bootstrap','ppo','opponents'],default='bootstrap')
+    p.add_argument('--workflow',choices=['bootstrap','ppo','opponents','neural'],default='bootstrap')
     p.add_argument('--replica',type=int,default=0)
     p.add_argument('--resume-run')
     p.add_argument('--resume-revision')

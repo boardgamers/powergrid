@@ -1,0 +1,1157 @@
+{
+    "schema": "multimap-ppo-replica-audit-v1",
+    "repo": "coyotte508/powergrid-ai-multimap-v1",
+    "auditCodeSha256": "55f4da72acff02113b54483543531d1b488079234f94692680830d187db06b7b",
+    "pureAuditHelpersSha256": "8944ce91864aab18c8bd3b683cdc6fd11ad51c369369263bc0c5f4a6c426a0a0",
+    "frozenProtocolSha256": "51f86acbbd1a495213c40554b3cc0c7933c92a2fc1608690397fbee76dad3cfe",
+    "storage": {
+        "cacheOnly": true,
+        "trajectoriesWritten": false,
+        "sizeInspectionBeforeDownload": true,
+        "perRunAndCombinedByteCap": 134217728,
+        "artifactsIncludingManifestsBytes": 22846571,
+        "originalPilotArtifactsRechecked": 32,
+        "replicaArtifactsVerified": 64,
+        "manifestHashesAlsoCheckedAgainstImmutableHfGitBlobs": true
+    },
+    "selectionRule": "Zero-residual baseline participates; each map >= baseline minus 0.1; strict macro improvement >1e-12; earliest tie wins. Confirmation excluded. Updates derived, not hard-coded.",
+    "namespaces": {
+        "splitRunGroups": 9,
+        "pairwiseComparisons": 36,
+        "seedOverlap": 0,
+        "independentDeals": 4800,
+        "counts": {
+            "multimap-ppo-20261102-v1": {
+                "train": 1280,
+                "selection": 80,
+                "confirmation": 240
+            },
+            "multimap-ppo-20261102-replica-1": {
+                "train": 1280,
+                "selection": 80,
+                "confirmation": 240
+            },
+            "multimap-ppo-20261102-replica-2": {
+                "train": 1280,
+                "selection": 80,
+                "confirmation": 240
+            }
+        },
+        "note": "Actual persisted game specs match independently reconstructed namespaces. Selection deals repeat intentionally across checkpoints; paired confirmation policies share deals and seats."
+    },
+    "identicalReplicaInitialWeights": true,
+    "protectedSourceAndServingFilesUnchanged": true,
+    "replicas": [
+        {
+            "replica": 1,
+            "run": "multimap-ppo-20261102-replica-1",
+            "revision": "4a7f94fca8a2bdcbb9256c730edc83c64a5d17e9",
+            "prefix": "runs/multimap-ppo-20261102-replica-1/",
+            "jobId": "6ae8dcabc78863f9c630e46a",
+            "jobStage": "COMPLETED",
+            "artifactManifestSha256": "16aef5b5b0629a00bacf8275e9f32506eb7d55c49b9e84b62fa0b39bcc9d0076",
+            "artifactsVerified": 32,
+            "artifactBytesIncludingManifest": 7636584,
+            "protocolDifferencesFromFrozenV1": {
+                "seedNamespace": {
+                    "frozen": "pg-multimap-ppo-20261102-v1",
+                    "actual": "pg-multimap-ppo-20261102-v1:replica-1"
+                },
+                "seed": {
+                    "frozen": 508,
+                    "actual": 509
+                }
+            },
+            "source": {
+                "matchingGitRevision": "6f5a5e01e062c6b7c6d5b4dd99dff13829620c11",
+                "sourceFilesVerified": 11,
+                "generatorDigest": "de49041dff36d65d98edc82bae8d3ebc803874596b325e1b6151d2d3a7796c05",
+                "engineFilesVerified": 42,
+                "currentSourceDifferences": {},
+                "hfSourceRevision": "cf3a97e2de45936a0bd1741ce8995d7c54b78f71",
+                "hfSourceArchiveSha256": "e41fc2010d553aa161e6d28b6ce4ede5311fabad15f2d1b0f35e24faa4874846"
+            },
+            "checkpoints": {
+                "initial": {
+                    "update": 0,
+                    "sha256": "7300e40b64bc0b03caa86bcdf5932c64c72c5365966e7882928bf8b5e7394268"
+                },
+                "best": {
+                    "update": 16,
+                    "sha256": "dd79d3fc6d67594c0a60af24e0acd28a2ec0f5798771148b92748b6781ceda15"
+                },
+                "last": {
+                    "update": 16,
+                    "sha256": "4eae1c1b4a54354dd353917f968a4156526b8c7f093d96fe0d77f60e2f7a4d9a"
+                }
+            },
+            "embeddedBestArtifactVerified": true,
+            "optimizer": {
+                "loadable": true,
+                "parametersWithState": 24,
+                "cumulativeSteps": 4976,
+                "momentsFiniteAndShapeMatched": true,
+                "rngStateValidated": true,
+                "rngStateSha256": "931b2fd0d1c0d95fe83b046ffb0eef0bd00d1fa4857c41a9935326939b32d355"
+            },
+            "verification": {
+                "outcomes": 4800,
+                "terminalOutcomes": 4800,
+                "failures": 0,
+                "capped": 0,
+                "maxObservedSteps": 1058,
+                "uniqueDealSeatPerBatch": true,
+                "splitIndependentDeals": {
+                    "train": 1280,
+                    "selection": 80,
+                    "confirmation": 240
+                },
+                "metricAbsoluteTolerance": 1e-12,
+                "outcomeMetricsIndependentlyRecomputed": true
+            },
+            "training": {
+                "updates": 16,
+                "gamesPerUpdate": 80,
+                "games": 1280,
+                "macroCreditByUpdate": [
+                    0.1875, 0.1375, 0.2, 0.21875, 0.225, 0.275, 0.1875, 0.2375, 0.19375, 0.1625, 0.2, 0.2625, 0.3,
+                    0.2125, 0.2, 0.2875
+                ],
+                "rolloutRows": 78891,
+                "optimizerSteps": 4976
+            },
+            "selection": {
+                "gamesPerCheckpoint": 320,
+                "independentDeals": 80,
+                "configurations": 80,
+                "selectedUpdate": 16,
+                "baselineEligible": true,
+                "maxMapRegression": 0.1,
+                "candidates": [
+                    {
+                        "update": 0,
+                        "macroCredit": 0.4697916666666667,
+                        "differenceFromBaseline": 0.0,
+                        "mapDifferencesFromBaseline": {
+                            "France": 0.0,
+                            "Germany": 0.0,
+                            "UK & Ireland": 0.0,
+                            "USA": 0.0
+                        },
+                        "eligible": true
+                    },
+                    {
+                        "update": 4,
+                        "macroCredit": 0.5202083333333334,
+                        "differenceFromBaseline": 0.050416666666666665,
+                        "mapDifferencesFromBaseline": {
+                            "France": 0.09999999999999998,
+                            "Germany": 0.03249999999999997,
+                            "UK & Ireland": 0.046666666666666634,
+                            "USA": 0.022500000000000075
+                        },
+                        "eligible": true
+                    },
+                    {
+                        "update": 8,
+                        "macroCredit": 0.5587500000000001,
+                        "differenceFromBaseline": 0.08895833333333336,
+                        "mapDifferencesFromBaseline": {
+                            "France": 0.15333333333333332,
+                            "Germany": 0.09416666666666673,
+                            "UK & Ireland": 0.0633333333333333,
+                            "USA": 0.04500000000000004
+                        },
+                        "eligible": true
+                    },
+                    {
+                        "update": 12,
+                        "macroCredit": 0.5564583333333333,
+                        "differenceFromBaseline": 0.08666666666666656,
+                        "mapDifferencesFromBaseline": {
+                            "France": 0.22999999999999993,
+                            "Germany": 0.0508333333333334,
+                            "UK & Ireland": -0.00833333333333336,
+                            "USA": 0.07416666666666671
+                        },
+                        "eligible": true
+                    },
+                    {
+                        "update": 16,
+                        "macroCredit": 0.598125,
+                        "differenceFromBaseline": 0.1283333333333333,
+                        "mapDifferencesFromBaseline": {
+                            "France": 0.24999999999999994,
+                            "Germany": 0.13666666666666671,
+                            "UK & Ireland": 0.04083333333333333,
+                            "USA": 0.08583333333333343
+                        },
+                        "eligible": true
+                    }
+                ]
+            },
+            "confirmation": {
+                "aggregate": {
+                    "configurations": 120,
+                    "independentDeals": 240,
+                    "pairedSeatGames": 960,
+                    "selected": 0.5754166666666667,
+                    "teacher": 0.5068750000000001,
+                    "difference": 0.06854166666666661,
+                    "pairedDifference95PercentileInterval": [0.03701215277777777, 0.10014236111111101],
+                    "stratifiedPairedStandardError": 0.022819554338005487,
+                    "pairedDifferenceApproxNormal95Interval": [0.023816162020921156, 0.11326717131241218]
+                },
+                "byMap": {
+                    "Benelux": {
+                        "configurations": 20,
+                        "independentDeals": 40,
+                        "pairedSeatGames": 160,
+                        "selected": 0.47125000000000006,
+                        "teacher": 0.42666666666666664,
+                        "difference": 0.04458333333333342,
+                        "pairedDifference95PercentileInterval": [-0.010416666666666661, 0.09958333333333333],
+                        "stratifiedPairedStandardError": 0.03988481679926725,
+                        "pairedDifferenceApproxNormal95Interval": [-0.0335894711232086, 0.12275613778987526]
+                    },
+                    "France": {
+                        "configurations": 20,
+                        "independentDeals": 40,
+                        "pairedSeatGames": 160,
+                        "selected": 0.5208333333333333,
+                        "teacher": 0.43583333333333335,
+                        "difference": 0.08499999999999991,
+                        "pairedDifference95PercentileInterval": [-0.0004166666666666583, 0.1708333333333334],
+                        "stratifiedPairedStandardError": 0.06236374035536283,
+                        "pairedDifferenceApproxNormal95Interval": [-0.0372306850377183, 0.2072306850377183]
+                    },
+                    "Germany": {
+                        "configurations": 20,
+                        "independentDeals": 40,
+                        "pairedSeatGames": 160,
+                        "selected": 0.6345833333333333,
+                        "teacher": 0.5245833333333334,
+                        "difference": 0.10999999999999988,
+                        "pairedDifference95PercentileInterval": [0.03208333333333334, 0.18417708333333319],
+                        "stratifiedPairedStandardError": 0.05569323218409137,
+                        "pairedDifferenceApproxNormal95Interval": [0.0008432707365539222, 0.2191567292634461]
+                    },
+                    "Italy": {
+                        "configurations": 20,
+                        "independentDeals": 40,
+                        "pairedSeatGames": 160,
+                        "selected": 0.835,
+                        "teacher": 0.67625,
+                        "difference": 0.15874999999999995,
+                        "pairedDifference95PercentileInterval": [0.08583333333333334, 0.22999999999999998],
+                        "stratifiedPairedStandardError": 0.053106614465620004,
+                        "pairedDifferenceApproxNormal95Interval": [0.05466294830653094, 0.26283705169346905]
+                    },
+                    "UK & Ireland": {
+                        "configurations": 20,
+                        "independentDeals": 40,
+                        "pairedSeatGames": 160,
+                        "selected": 0.33916666666666667,
+                        "teacher": 0.32083333333333336,
+                        "difference": 0.018333333333333313,
+                        "pairedDifference95PercentileInterval": [-0.07541666666666666, 0.11126041666666651],
+                        "stratifiedPairedStandardError": 0.06835619536255981,
+                        "pairedDifferenceApproxNormal95Interval": [-0.11564234769746777, 0.15230901436413444]
+                    },
+                    "USA": {
+                        "configurations": 20,
+                        "independentDeals": 40,
+                        "pairedSeatGames": 160,
+                        "selected": 0.6516666666666666,
+                        "teacher": 0.6570833333333332,
+                        "difference": -0.005416666666666625,
+                        "pairedDifference95PercentileInterval": [-0.07667708333333334, 0.06541666666666666],
+                        "stratifiedPairedStandardError": 0.05168850344988611,
+                        "pairedDifferenceApproxNormal95Interval": [-0.10672427184321778, 0.09589093850988445]
+                    }
+                },
+                "byPlayers": {
+                    "2": {
+                        "configurations": 24,
+                        "independentDeals": 48,
+                        "pairedSeatGames": 96,
+                        "selected": 0.5572916666666666,
+                        "teacher": 0.5729166666666666,
+                        "difference": -0.015625,
+                        "pairedDifference95PercentileInterval": [-0.109375, 0.078125],
+                        "stratifiedPairedStandardError": 0.06690225301388088,
+                        "pairedDifferenceApproxNormal95Interval": [-0.1467510063917928, 0.11550100639179281]
+                    },
+                    "3": {
+                        "configurations": 24,
+                        "independentDeals": 48,
+                        "pairedSeatGames": 144,
+                        "selected": 0.5694444444444444,
+                        "teacher": 0.4791666666666667,
+                        "difference": 0.09027777777777773,
+                        "pairedDifference95PercentileInterval": [0.0069444444444444475, 0.17361111111111113],
+                        "stratifiedPairedStandardError": 0.06014065304058602,
+                        "pairedDifferenceApproxNormal95Interval": [-0.02759573618849015, 0.20815129174404565]
+                    },
+                    "4": {
+                        "configurations": 24,
+                        "independentDeals": 48,
+                        "pairedSeatGames": 192,
+                        "selected": 0.5677083333333334,
+                        "teacher": 0.4947916666666667,
+                        "difference": 0.07291666666666669,
+                        "pairedDifference95PercentileInterval": [-0.005208333333333333, 0.15104166666666666],
+                        "stratifiedPairedStandardError": 0.05560978256266308,
+                        "pairedDifferenceApproxNormal95Interval": [-0.03607650434425648, 0.18190983767758984]
+                    },
+                    "5": {
+                        "configurations": 24,
+                        "independentDeals": 48,
+                        "pairedSeatGames": 240,
+                        "selected": 0.6375000000000001,
+                        "teacher": 0.48750000000000004,
+                        "difference": 0.15000000000000002,
+                        "pairedDifference95PercentileInterval": [0.10416666666666667, 0.1958333333333334],
+                        "stratifiedPairedStandardError": 0.033850160019316504,
+                        "pairedDifferenceApproxNormal95Interval": [0.08365490549122198, 0.216345094508778]
+                    },
+                    "6": {
+                        "configurations": 24,
+                        "independentDeals": 48,
+                        "pairedSeatGames": 288,
+                        "selected": 0.545138888888889,
+                        "teacher": 0.5,
+                        "difference": 0.04513888888888895,
+                        "pairedDifference95PercentileInterval": [0.010416666666666657, 0.0798611111111111],
+                        "stratifiedPairedStandardError": 0.026214702900245662,
+                        "pairedDifferenceApproxNormal95Interval": [-0.006240984661010314, 0.0965187624387881]
+                    }
+                },
+                "trainMaps": {
+                    "configurations": 80,
+                    "independentDeals": 160,
+                    "pairedSeatGames": 640,
+                    "selected": 0.5365624999999999,
+                    "teacher": 0.4845833333333333,
+                    "difference": 0.05197916666666663,
+                    "pairedDifference95PercentileInterval": [0.010625000000000002, 0.09333854166666658],
+                    "stratifiedPairedStandardError": 0.029932468841915166,
+                    "pairedDifferenceApproxNormal95Interval": [-0.006687394231854403, 0.11064572756518773]
+                },
+                "transferMaps": {
+                    "configurations": 40,
+                    "independentDeals": 80,
+                    "pairedSeatGames": 320,
+                    "selected": 0.653125,
+                    "teacher": 0.5514583333333334,
+                    "difference": 0.10166666666666657,
+                    "pairedDifference95PercentileInterval": [0.055624999999999994, 0.14687499999999998],
+                    "stratifiedPairedStandardError": 0.03320809807528546,
+                    "pairedDifferenceApproxNormal95Interval": [0.036579990444033275, 0.16675334288930005]
+                },
+                "trainMinusTransferDifference": {
+                    "difference": -0.04968749999999994,
+                    "percentile95Interval": [-0.11135416666666666, 0.01291666666666666],
+                    "note": "Contrast of the two paired policy improvements, not a matched-map experiment.",
+                    "stratifiedPairedStandardError": 0.04470716350597519,
+                    "approximateNormal95Interval": [-0.13731193032265476, 0.037936930322654897]
+                },
+                "seatWeightedDescriptive": {
+                    "selected": 0.5776041666666667,
+                    "teacher": 0.5,
+                    "difference": 0.0776041666666667
+                }
+            },
+            "replay": {
+                "games": 12,
+                "workers": 4,
+                "policy": "selected",
+                "matched": true,
+                "matchedFields": ["terminal", "credit", "steps", "rounds", "decisions"],
+                "sampling": "Outcome-blind legacy SHA256 minimum per cyclic player-count group; two games per alphabetically sorted map, all five player counts.",
+                "records": [
+                    {
+                        "map": "Benelux",
+                        "players": 2,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-1:confirmation:0:Benelux|2|original|0:1",
+                        "seat": 0,
+                        "credit": 1,
+                        "steps": 256,
+                        "rounds": 9,
+                        "matched": true
+                    },
+                    {
+                        "map": "Benelux",
+                        "players": 3,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-1:confirmation:0:Benelux|3|original|1:0",
+                        "seat": 0,
+                        "credit": 0,
+                        "steps": 308,
+                        "rounds": 9,
+                        "matched": true
+                    },
+                    {
+                        "map": "France",
+                        "players": 4,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-1:confirmation:0:France|4|recharged|1:1",
+                        "seat": 0,
+                        "credit": 0,
+                        "steps": 501,
+                        "rounds": 10,
+                        "matched": true
+                    },
+                    {
+                        "map": "France",
+                        "players": 5,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-1:confirmation:0:France|5|original|1:1",
+                        "seat": 2,
+                        "credit": 0,
+                        "steps": 480,
+                        "rounds": 9,
+                        "matched": true
+                    },
+                    {
+                        "map": "Germany",
+                        "players": 6,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-1:confirmation:0:Germany|6|recharged|1:1",
+                        "seat": 2,
+                        "credit": 1,
+                        "steps": 692,
+                        "rounds": 10,
+                        "matched": true
+                    },
+                    {
+                        "map": "Germany",
+                        "players": 2,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-1:confirmation:0:Germany|2|recharged|1:0",
+                        "seat": 1,
+                        "credit": 0,
+                        "steps": 410,
+                        "rounds": 14,
+                        "matched": true
+                    },
+                    {
+                        "map": "Italy",
+                        "players": 3,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-1:confirmation:0:Italy|3|recharged|0:1",
+                        "seat": 0,
+                        "credit": 1,
+                        "steps": 466,
+                        "rounds": 10,
+                        "matched": true
+                    },
+                    {
+                        "map": "Italy",
+                        "players": 4,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-1:confirmation:0:Italy|4|original|1:0",
+                        "seat": 2,
+                        "credit": 1,
+                        "steps": 447,
+                        "rounds": 10,
+                        "matched": true
+                    },
+                    {
+                        "map": "UK & Ireland",
+                        "players": 5,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-1:confirmation:0:UK & Ireland|5|recharged|0:0",
+                        "seat": 1,
+                        "credit": 1,
+                        "steps": 748,
+                        "rounds": 10,
+                        "matched": true
+                    },
+                    {
+                        "map": "UK & Ireland",
+                        "players": 6,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-1:confirmation:0:UK & Ireland|6|recharged|0:0",
+                        "seat": 4,
+                        "credit": 0,
+                        "steps": 874,
+                        "rounds": 10,
+                        "matched": true
+                    },
+                    {
+                        "map": "USA",
+                        "players": 2,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-1:confirmation:0:USA|2|original|1:1",
+                        "seat": 1,
+                        "credit": 1,
+                        "steps": 253,
+                        "rounds": 10,
+                        "matched": true
+                    },
+                    {
+                        "map": "USA",
+                        "players": 3,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-1:confirmation:0:USA|3|recharged|1:0",
+                        "seat": 2,
+                        "credit": 1,
+                        "steps": 308,
+                        "rounds": 9,
+                        "matched": true
+                    }
+                ]
+            },
+            "qualified": false
+        },
+        {
+            "replica": 2,
+            "run": "multimap-ppo-20261102-replica-2",
+            "revision": "af87f0b46382e4f06d420f339fd1a65a4ba9ef45",
+            "prefix": "runs/multimap-ppo-20261102-replica-2/",
+            "jobId": "6ae8dcb9c78863f9c630e47a",
+            "jobStage": "COMPLETED",
+            "artifactManifestSha256": "16524ccb187e88aa4444af693497c5dd649e9ae452007f8cf4a63f0fde30c067",
+            "artifactsVerified": 32,
+            "artifactBytesIncludingManifest": 7635231,
+            "protocolDifferencesFromFrozenV1": {
+                "seedNamespace": {
+                    "frozen": "pg-multimap-ppo-20261102-v1",
+                    "actual": "pg-multimap-ppo-20261102-v1:replica-2"
+                },
+                "seed": {
+                    "frozen": 508,
+                    "actual": 510
+                }
+            },
+            "source": {
+                "matchingGitRevision": "6f5a5e01e062c6b7c6d5b4dd99dff13829620c11",
+                "sourceFilesVerified": 11,
+                "generatorDigest": "de49041dff36d65d98edc82bae8d3ebc803874596b325e1b6151d2d3a7796c05",
+                "engineFilesVerified": 42,
+                "currentSourceDifferences": {},
+                "hfSourceRevision": "1b6311b2e35cd02ce6e0c8782e961650626faaa5",
+                "hfSourceArchiveSha256": "67c0783a08d0af940d5077631fa2166b8b0aa16fb22d03e8467f7d04279e8e73"
+            },
+            "checkpoints": {
+                "initial": {
+                    "update": 0,
+                    "sha256": "c2a1dbe577f5707eee691abac1293dad9dd1e028dbdf848bc2e1649fb730fb01"
+                },
+                "best": {
+                    "update": 12,
+                    "sha256": "3d2ffeb02feb17462385ff2a4d2ccd930e58bb445bf97df386b7eef5fce9dc91"
+                },
+                "last": {
+                    "update": 16,
+                    "sha256": "69f6b145d980ac9c5c7d035f1cd50ade2f2be9645cd79e9f027afb727f13b540"
+                }
+            },
+            "embeddedBestArtifactVerified": true,
+            "optimizer": {
+                "loadable": true,
+                "parametersWithState": 24,
+                "cumulativeSteps": 5008,
+                "momentsFiniteAndShapeMatched": true,
+                "rngStateValidated": true,
+                "rngStateSha256": "c7bf5db3271b045d8c799d367da24138d21525b9e6136c630f6a462d238bec63"
+            },
+            "verification": {
+                "outcomes": 4800,
+                "terminalOutcomes": 4800,
+                "failures": 0,
+                "capped": 0,
+                "maxObservedSteps": 1125,
+                "uniqueDealSeatPerBatch": true,
+                "splitIndependentDeals": {
+                    "train": 1280,
+                    "selection": 80,
+                    "confirmation": 240
+                },
+                "metricAbsoluteTolerance": 1e-12,
+                "outcomeMetricsIndependentlyRecomputed": true
+            },
+            "training": {
+                "updates": 16,
+                "gamesPerUpdate": 80,
+                "games": 1280,
+                "macroCreditByUpdate": [
+                    0.175, 0.2625, 0.2, 0.1375, 0.225, 0.2375, 0.2625, 0.225, 0.225, 0.2875, 0.25, 0.225, 0.325, 0.2125,
+                    0.3, 0.2625
+                ],
+                "rolloutRows": 79793,
+                "optimizerSteps": 5008
+            },
+            "selection": {
+                "gamesPerCheckpoint": 320,
+                "independentDeals": 80,
+                "configurations": 80,
+                "selectedUpdate": 12,
+                "baselineEligible": true,
+                "maxMapRegression": 0.1,
+                "candidates": [
+                    {
+                        "update": 0,
+                        "macroCredit": 0.5147916666666666,
+                        "differenceFromBaseline": 0.0,
+                        "mapDifferencesFromBaseline": {
+                            "France": 0.0,
+                            "Germany": 0.0,
+                            "UK & Ireland": 0.0,
+                            "USA": 0.0
+                        },
+                        "eligible": true
+                    },
+                    {
+                        "update": 4,
+                        "macroCredit": 0.5037499999999999,
+                        "differenceFromBaseline": -0.011041666666666727,
+                        "mapDifferencesFromBaseline": {
+                            "France": 0.004166666666666707,
+                            "Germany": -0.005833333333333357,
+                            "UK & Ireland": -0.013333333333333308,
+                            "USA": -0.029166666666666674
+                        },
+                        "eligible": true
+                    },
+                    {
+                        "update": 8,
+                        "macroCredit": 0.5110416666666666,
+                        "differenceFromBaseline": -0.003750000000000031,
+                        "mapDifferencesFromBaseline": {
+                            "France": -0.020000000000000018,
+                            "Germany": 0.019166666666666665,
+                            "UK & Ireland": -0.043333333333333335,
+                            "USA": 0.029166666666666674
+                        },
+                        "eligible": true
+                    },
+                    {
+                        "update": 12,
+                        "macroCredit": 0.5431250000000001,
+                        "differenceFromBaseline": 0.028333333333333433,
+                        "mapDifferencesFromBaseline": {
+                            "France": 0.02916666666666673,
+                            "Germany": 0.023333333333333317,
+                            "UK & Ireland": 0.0050000000000000044,
+                            "USA": 0.05583333333333329
+                        },
+                        "eligible": true
+                    },
+                    {
+                        "update": 16,
+                        "macroCredit": 0.5081249999999999,
+                        "differenceFromBaseline": -0.00666666666666671,
+                        "mapDifferencesFromBaseline": {
+                            "France": -0.030833333333333268,
+                            "Germany": 0.0641666666666667,
+                            "UK & Ireland": -0.033333333333333326,
+                            "USA": -0.026666666666666727
+                        },
+                        "eligible": true
+                    }
+                ]
+            },
+            "confirmation": {
+                "aggregate": {
+                    "configurations": 120,
+                    "independentDeals": 240,
+                    "pairedSeatGames": 960,
+                    "selected": 0.5813194444444445,
+                    "teacher": 0.49777777777777776,
+                    "difference": 0.08354166666666674,
+                    "pairedDifference95PercentileInterval": [0.05437326388888889, 0.11215451388888888],
+                    "stratifiedPairedStandardError": 0.020749716456489025,
+                    "pairedDifferenceApproxNormal95Interval": [0.04287296972253011, 0.12421036361080323]
+                },
+                "byMap": {
+                    "Benelux": {
+                        "configurations": 20,
+                        "independentDeals": 40,
+                        "pairedSeatGames": 160,
+                        "selected": 0.5791666666666667,
+                        "teacher": 0.4458333333333333,
+                        "difference": 0.13333333333333341,
+                        "pairedDifference95PercentileInterval": [0.06999999999999999, 0.19666666666666668],
+                        "stratifiedPairedStandardError": 0.0463306354130588,
+                        "pairedDifferenceApproxNormal95Interval": [0.04252695654288208, 0.22413971012378459]
+                    },
+                    "France": {
+                        "configurations": 20,
+                        "independentDeals": 40,
+                        "pairedSeatGames": 160,
+                        "selected": 0.5625,
+                        "teacher": 0.41500000000000004,
+                        "difference": 0.14749999999999996,
+                        "pairedDifference95PercentileInterval": [0.08625000000000002, 0.20666666666666664],
+                        "stratifiedPairedStandardError": 0.04356110012895042,
+                        "pairedDifferenceApproxNormal95Interval": [0.06212181262031409, 0.23287818737968596]
+                    },
+                    "Germany": {
+                        "configurations": 20,
+                        "independentDeals": 40,
+                        "pairedSeatGames": 160,
+                        "selected": 0.6858333333333333,
+                        "teacher": 0.6066666666666667,
+                        "difference": 0.07916666666666661,
+                        "pairedDifference95PercentileInterval": [2.740863092043387e-18, 0.15833333333333333],
+                        "stratifiedPairedStandardError": 0.05703921652882534,
+                        "pairedDifferenceApproxNormal95Interval": [-0.032628143436212745, 0.1909614767695461]
+                    },
+                    "Italy": {
+                        "configurations": 20,
+                        "independentDeals": 40,
+                        "pairedSeatGames": 160,
+                        "selected": 0.73625,
+                        "teacher": 0.7054166666666667,
+                        "difference": 0.030833333333333268,
+                        "pairedDifference95PercentileInterval": [-0.050416666666666665, 0.11291666666666669],
+                        "stratifiedPairedStandardError": 0.0593863293284836,
+                        "pairedDifferenceApproxNormal95Interval": [-0.08556173332452925, 0.1472283999911959]
+                    },
+                    "UK & Ireland": {
+                        "configurations": 20,
+                        "independentDeals": 40,
+                        "pairedSeatGames": 160,
+                        "selected": 0.32333333333333336,
+                        "teacher": 0.29125,
+                        "difference": 0.03208333333333335,
+                        "pairedDifference95PercentileInterval": [-0.03166666666666666, 0.09541666666666666],
+                        "stratifiedPairedStandardError": 0.04642609120359418,
+                        "pairedDifferenceApproxNormal95Interval": [-0.05891013336868306, 0.12307680003534974]
+                    },
+                    "USA": {
+                        "configurations": 20,
+                        "independentDeals": 40,
+                        "pairedSeatGames": 160,
+                        "selected": 0.6008333333333333,
+                        "teacher": 0.5225,
+                        "difference": 0.07833333333333337,
+                        "pairedDifference95PercentileInterval": [0.009166666666666674, 0.14833333333333332],
+                        "stratifiedPairedStandardError": 0.05020098493943011,
+                        "pairedDifferenceApproxNormal95Interval": [-0.02005878913638734, 0.17672545580305402]
+                    }
+                },
+                "byPlayers": {
+                    "2": {
+                        "configurations": 24,
+                        "independentDeals": 48,
+                        "pairedSeatGames": 96,
+                        "selected": 0.6145833333333334,
+                        "teacher": 0.5208333333333334,
+                        "difference": 0.09375,
+                        "pairedDifference95PercentileInterval": [0.0, 0.1875],
+                        "stratifiedPairedStandardError": 0.06505206248331664,
+                        "pairedDifferenceApproxNormal95Interval": [-0.03374969958734986, 0.22124969958734986]
+                    },
+                    "3": {
+                        "configurations": 24,
+                        "independentDeals": 48,
+                        "pairedSeatGames": 144,
+                        "selected": 0.548611111111111,
+                        "teacher": 0.4166666666666667,
+                        "difference": 0.13194444444444436,
+                        "pairedDifference95PercentileInterval": [0.06250000000000001, 0.20138888888888892],
+                        "stratifiedPairedStandardError": 0.049593252975992014,
+                        "pairedDifferenceApproxNormal95Interval": [0.034743454735316245, 0.22914543415357264]
+                    },
+                    "4": {
+                        "configurations": 24,
+                        "independentDeals": 48,
+                        "pairedSeatGames": 192,
+                        "selected": 0.5364583333333334,
+                        "teacher": 0.5104166666666666,
+                        "difference": 0.02604166666666674,
+                        "pairedDifference95PercentileInterval": [-0.036458333333333336, 0.08854166666666667],
+                        "stratifiedPairedStandardError": 0.04388619673529354,
+                        "pairedDifferenceApproxNormal95Interval": [-0.059973698352947954, 0.1120570316862813]
+                    },
+                    "5": {
+                        "configurations": 24,
+                        "independentDeals": 48,
+                        "pairedSeatGames": 240,
+                        "selected": 0.6166666666666667,
+                        "teacher": 0.5375,
+                        "difference": 0.07916666666666672,
+                        "pairedDifference95PercentileInterval": [0.020833333333333346, 0.13333333333333333],
+                        "stratifiedPairedStandardError": 0.039747466725706074,
+                        "pairedDifferenceApproxNormal95Interval": [0.0012630634075785768, 0.15707026992575474]
+                    },
+                    "6": {
+                        "configurations": 24,
+                        "independentDeals": 48,
+                        "pairedSeatGames": 288,
+                        "selected": 0.5902777777777778,
+                        "teacher": 0.5034722222222222,
+                        "difference": 0.08680555555555558,
+                        "pairedDifference95PercentileInterval": [0.052083333333333336, 0.11805555555555557],
+                        "stratifiedPairedStandardError": 0.023804356251392513,
+                        "pairedDifferenceApproxNormal95Interval": [0.040149874627665325, 0.13346123648344577]
+                    }
+                },
+                "trainMaps": {
+                    "configurations": 80,
+                    "independentDeals": 160,
+                    "pairedSeatGames": 640,
+                    "selected": 0.5431250000000001,
+                    "teacher": 0.4588541666666667,
+                    "difference": 0.0842708333333334,
+                    "pairedDifference95PercentileInterval": [0.049372395833333346, 0.11812499999999997],
+                    "stratifiedPairedStandardError": 0.02478225486613355,
+                    "pairedDifferenceApproxNormal95Interval": [0.035698506340019066, 0.13284316032664759]
+                },
+                "transferMaps": {
+                    "configurations": 40,
+                    "independentDeals": 80,
+                    "pairedSeatGames": 320,
+                    "selected": 0.6577083333333333,
+                    "teacher": 0.5756249999999999,
+                    "difference": 0.0820833333333334,
+                    "pairedDifference95PercentileInterval": [0.030208333333333337, 0.13479166666666664],
+                    "stratifiedPairedStandardError": 0.03766053600550877,
+                    "pairedDifferenceApproxNormal95Interval": [0.008270039124062184, 0.15589662754260447]
+                },
+                "trainMinusTransferDifference": {
+                    "difference": 0.002187500000000009,
+                    "percentile95Interval": [-0.0606276041666667, 0.06458593749999997],
+                    "note": "Contrast of the two paired policy improvements, not a matched-map experiment.",
+                    "stratifiedPairedStandardError": 0.045082991565248004,
+                    "approximateNormal95Interval": [-0.08617353978320912, 0.09054853978320913]
+                },
+                "seatWeightedDescriptive": {
+                    "selected": 0.5822916666666667,
+                    "teacher": 0.5020833333333333,
+                    "difference": 0.08020833333333333
+                }
+            },
+            "replay": {
+                "games": 12,
+                "workers": 4,
+                "policy": "selected",
+                "matched": true,
+                "matchedFields": ["terminal", "credit", "steps", "rounds", "decisions"],
+                "sampling": "Outcome-blind legacy SHA256 minimum per cyclic player-count group; two games per alphabetically sorted map, all five player counts.",
+                "records": [
+                    {
+                        "map": "Benelux",
+                        "players": 2,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-2:confirmation:0:Benelux|2|original|0:0",
+                        "seat": 1,
+                        "credit": 1,
+                        "steps": 316,
+                        "rounds": 10,
+                        "matched": true
+                    },
+                    {
+                        "map": "Benelux",
+                        "players": 3,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-2:confirmation:0:Benelux|3|original|1:1",
+                        "seat": 0,
+                        "credit": 0,
+                        "steps": 360,
+                        "rounds": 10,
+                        "matched": true
+                    },
+                    {
+                        "map": "France",
+                        "players": 4,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-2:confirmation:0:France|4|recharged|1:0",
+                        "seat": 2,
+                        "credit": 0,
+                        "steps": 506,
+                        "rounds": 11,
+                        "matched": true
+                    },
+                    {
+                        "map": "France",
+                        "players": 5,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-2:confirmation:0:France|5|recharged|0:0",
+                        "seat": 1,
+                        "credit": 1,
+                        "steps": 639,
+                        "rounds": 9,
+                        "matched": true
+                    },
+                    {
+                        "map": "Germany",
+                        "players": 6,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-2:confirmation:0:Germany|6|original|0:1",
+                        "seat": 4,
+                        "credit": 1,
+                        "steps": 663,
+                        "rounds": 8,
+                        "matched": true
+                    },
+                    {
+                        "map": "Germany",
+                        "players": 2,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-2:confirmation:0:Germany|2|recharged|1:0",
+                        "seat": 1,
+                        "credit": 1,
+                        "steps": 311,
+                        "rounds": 11,
+                        "matched": true
+                    },
+                    {
+                        "map": "Italy",
+                        "players": 3,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-2:confirmation:0:Italy|3|original|1:1",
+                        "seat": 2,
+                        "credit": 1,
+                        "steps": 388,
+                        "rounds": 11,
+                        "matched": true
+                    },
+                    {
+                        "map": "Italy",
+                        "players": 4,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-2:confirmation:0:Italy|4|recharged|0:0",
+                        "seat": 0,
+                        "credit": 1,
+                        "steps": 660,
+                        "rounds": 11,
+                        "matched": true
+                    },
+                    {
+                        "map": "UK & Ireland",
+                        "players": 5,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-2:confirmation:0:UK & Ireland|5|recharged|1:0",
+                        "seat": 0,
+                        "credit": 0,
+                        "steps": 634,
+                        "rounds": 11,
+                        "matched": true
+                    },
+                    {
+                        "map": "UK & Ireland",
+                        "players": 6,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-2:confirmation:0:UK & Ireland|6|recharged|0:0",
+                        "seat": 0,
+                        "credit": 0,
+                        "steps": 913,
+                        "rounds": 10,
+                        "matched": true
+                    },
+                    {
+                        "map": "USA",
+                        "players": 2,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-2:confirmation:0:USA|2|original|0:0",
+                        "seat": 1,
+                        "credit": 1,
+                        "steps": 368,
+                        "rounds": 11,
+                        "matched": true
+                    },
+                    {
+                        "map": "USA",
+                        "players": 3,
+                        "seed": "pg-multimap-ppo-20261102-v1:replica-2:confirmation:0:USA|3|original|0:1",
+                        "seat": 1,
+                        "credit": 1,
+                        "steps": 480,
+                        "rounds": 11,
+                        "matched": true
+                    }
+                ]
+            },
+            "qualified": false
+        }
+    ],
+    "originalPilotComparison": {
+        "report": "ai/multimap/ppo-results-v1.json",
+        "reportSha256": "bc816e87b2a510f85c9ae1ca4b8cda275d50a95fc75180a85be8fe382c2e603d",
+        "revision": "b1392c4dea3eb956b0e171d558f2f642c0367831",
+        "selectedUpdate": 8,
+        "artifactManifestSha256": "aecbb2956a3b9e47a6216f1632cae1037337508e7f0ea75b964042e245a1773a",
+        "originalOutcomesRechecked": 4800,
+        "confirmation": {
+            "aggregate": {
+                "configurations": 120,
+                "independentDeals": 240,
+                "pairedSeatGames": 960,
+                "selected": 0.5516319444444444,
+                "teacher": 0.5100694444444445,
+                "difference": 0.04156249999999995,
+                "pairedDifference95PercentileInterval": [0.014790798611111105, 0.06781249999999998],
+                "stratifiedPairedStandardError": 0.01909687499684338,
+                "pairedDifferenceApproxNormal95Interval": [0.004133312788923531, 0.0789916872110765]
+            },
+            "byMap": {
+                "Benelux": {
+                    "configurations": 20,
+                    "independentDeals": 40,
+                    "pairedSeatGames": 160,
+                    "selected": 0.5483333333333333,
+                    "teacher": 0.45916666666666667,
+                    "difference": 0.08916666666666667,
+                    "pairedDifference95PercentileInterval": [0.023333333333333334, 0.155],
+                    "stratifiedPairedStandardError": 0.0481714242171758,
+                    "pairedDifferenceApproxNormal95Interval": [-0.005247589882998477, 0.1835809232163318]
+                },
+                "France": {
+                    "configurations": 20,
+                    "independentDeals": 40,
+                    "pairedSeatGames": 160,
+                    "selected": 0.5185416666666667,
+                    "teacher": 0.3995833333333333,
+                    "difference": 0.11895833333333339,
+                    "pairedDifference95PercentileInterval": [0.06729166666666667, 0.1704166666666667],
+                    "stratifiedPairedStandardError": 0.03744730093374184,
+                    "pairedDifferenceApproxNormal95Interval": [0.04556297218496619, 0.19235369448170045]
+                },
+                "Germany": {
+                    "configurations": 20,
+                    "independentDeals": 40,
+                    "pairedSeatGames": 160,
+                    "selected": 0.6054166666666666,
+                    "teacher": 0.55,
+                    "difference": 0.05541666666666656,
+                    "pairedDifference95PercentileInterval": [-0.013333333333333336, 0.12416666666666665],
+                    "stratifiedPairedStandardError": 0.0499391991436698,
+                    "pairedDifferenceApproxNormal95Interval": [-0.04246236507169965, 0.153295698405033]
+                },
+                "Italy": {
+                    "configurations": 20,
+                    "independentDeals": 40,
+                    "pairedSeatGames": 160,
+                    "selected": 0.6658333333333333,
+                    "teacher": 0.7008333333333334,
+                    "difference": -0.03500000000000014,
+                    "pairedDifference95PercentileInterval": [-0.11166666666666666, 0.040833333333333346],
+                    "stratifiedPairedStandardError": 0.05619287222494405,
+                    "pairedDifferenceApproxNormal95Interval": [-0.14513600574875146, 0.07513600574875148]
+                },
+                "UK & Ireland": {
+                    "configurations": 20,
+                    "independentDeals": 40,
+                    "pairedSeatGames": 160,
+                    "selected": 0.3145833333333333,
+                    "teacher": 0.35541666666666666,
+                    "difference": -0.04083333333333333,
+                    "pairedDifference95PercentileInterval": [-0.0975, 0.015],
+                    "stratifiedPairedStandardError": 0.040739688538601056,
+                    "pairedDifferenceApproxNormal95Interval": [-0.12068165561037063, 0.03901498894370396]
+                },
+                "USA": {
+                    "configurations": 20,
+                    "independentDeals": 40,
+                    "pairedSeatGames": 160,
+                    "selected": 0.6570833333333332,
+                    "teacher": 0.5954166666666667,
+                    "difference": 0.061666666666666536,
+                    "pairedDifference95PercentileInterval": [-0.0008333333333333333, 0.12458333333333334],
+                    "stratifiedPairedStandardError": 0.045768894094861706,
+                    "pairedDifferenceApproxNormal95Interval": [-0.028038717371490225, 0.15137205070482357]
+                }
+            },
+            "byPlayers": {
+                "2": {
+                    "configurations": 24,
+                    "independentDeals": 48,
+                    "pairedSeatGames": 96,
+                    "selected": 0.59375,
+                    "teacher": 0.6458333333333334,
+                    "difference": -0.05208333333333337,
+                    "pairedDifference95PercentileInterval": [-0.125, 0.020833333333333332],
+                    "stratifiedPairedStandardError": 0.05412658773652742,
+                    "pairedDifferenceApproxNormal95Interval": [-0.15816949590297444, 0.054002829236307774]
+                },
+                "3": {
+                    "configurations": 24,
+                    "independentDeals": 48,
+                    "pairedSeatGames": 144,
+                    "selected": 0.40972222222222215,
+                    "teacher": 0.45138888888888884,
+                    "difference": -0.041666666666666685,
+                    "pairedDifference95PercentileInterval": [-0.1111111111111111, 0.02777777777777778],
+                    "stratifiedPairedStandardError": 0.05007710104811095,
+                    "pairedDifferenceApproxNormal95Interval": [-0.1398159811711371, 0.05648264783780379]
+                },
+                "4": {
+                    "configurations": 24,
+                    "independentDeals": 48,
+                    "pairedSeatGames": 192,
+                    "selected": 0.5963541666666666,
+                    "teacher": 0.5052083333333334,
+                    "difference": 0.09114583333333326,
+                    "pairedDifference95PercentileInterval": [0.036458333333333336, 0.14322916666666666],
+                    "stratifiedPairedStandardError": 0.03836177047566728,
+                    "pairedDifferenceApproxNormal95Interval": [0.01595814481783349, 0.16633352184883315]
+                },
+                "5": {
+                    "configurations": 24,
+                    "independentDeals": 48,
+                    "pairedSeatGames": 240,
+                    "selected": 0.5750000000000001,
+                    "teacher": 0.5,
+                    "difference": 0.07500000000000007,
+                    "pairedDifference95PercentileInterval": [0.029166666666666657, 0.12083333333333333],
+                    "stratifiedPairedStandardError": 0.03333333333333333,
+                    "pairedDifferenceApproxNormal95Interval": [0.009667867181998191, 0.1403321328180018]
+                },
+                "6": {
+                    "configurations": 24,
+                    "independentDeals": 48,
+                    "pairedSeatGames": 288,
+                    "selected": 0.5833333333333334,
+                    "teacher": 0.4479166666666667,
+                    "difference": 0.13541666666666669,
+                    "pairedDifference95PercentileInterval": [0.09027777777777778, 0.18055555555555558],
+                    "stratifiedPairedStandardError": 0.033122888938088395,
+                    "pairedDifferenceApproxNormal95Interval": [0.07049699728409324, 0.20033633604924006]
+                }
+            },
+            "trainMaps": {
+                "configurations": 80,
+                "independentDeals": 160,
+                "pairedSeatGames": 640,
+                "selected": 0.52390625,
+                "teacher": 0.47510416666666666,
+                "difference": 0.04880208333333336,
+                "pairedDifference95PercentileInterval": [0.018177083333333333, 0.07906380208333334],
+                "stratifiedPairedStandardError": 0.02186712407819988,
+                "pairedDifferenceApproxNormal95Interval": [0.0059433076945929475, 0.09166085897207372]
+            },
+            "transferMaps": {
+                "configurations": 40,
+                "independentDeals": 80,
+                "pairedSeatGames": 320,
+                "selected": 0.6070833333333334,
+                "teacher": 0.58,
+                "difference": 0.02708333333333346,
+                "pairedDifference95PercentileInterval": [-0.024999999999999998, 0.07791666666666666],
+                "stratifiedPairedStandardError": 0.037007178357718655,
+                "pairedDifferenceApproxNormal95Interval": [-0.045449403417245376, 0.09961607008391204]
+            },
+            "trainMinusTransferDifference": {
+                "difference": 0.021718749999999898,
+                "percentile95Interval": [-0.03791796874999998, 0.08151171874999999],
+                "note": "Contrast of the two paired policy improvements, not a matched-map experiment.",
+                "stratifiedPairedStandardError": 0.042984908577911256,
+                "approximateNormal95Interval": [-0.062530122691453, 0.1059676226914528]
+            },
+            "seatWeightedDescriptive": {
+                "selected": 0.5588541666666667,
+                "teacher": 0.49270833333333336,
+                "difference": 0.06614583333333329
+            }
+        },
+        "interpretation": "Descriptive comparison only: three separately selected policies on disjoint deal namespaces. No best-seed selection, no pooled qualified-policy estimate, no cross-run causal claim."
+    },
+    "uncertainty": {
+        "method": "Same legacy stratified paired independent-deal cluster percentile bootstrap",
+        "strata": "map|players|variant|fastBid",
+        "clustersPerStratum": 2,
+        "clusterUnit": "One seed; all focal-seat rotations and both policies kept together",
+        "weighting": "Equal configuration and within-configuration deal weights",
+        "resamples": 10000,
+        "seed": 20261102508,
+        "rng": "numpy.PCG64",
+        "intervalLevel": 0.95,
+        "quantileMethod": "linear",
+        "numpyVersion": "2.2.6",
+        "additionalEstimator": "SE = sqrt(sum_c sampleVar(deal-paired-differences_c, ddof=1)/2)/numberOfCells; approximate normal interval = estimate +/- 1.959964 SE. Variance estimator is unbiased under independent deals; SE itself need not be.",
+        "caveat": "Only TWO independent deals per cell. Empirical within-cell bootstrap variance is half the unbiased variance estimate here and percentile intervals can be optimistic. Both methods are exploratory, conditional on these cells/opponents/selected checkpoints, with unstable cell variances and no multiplicity or selection/training uncertainty adjustment. Normal intervals are approximations, not qualification."
+    },
+    "qualified": false,
+    "decision": "Both replicas show positive aggregate held-out differences; retain all three as exploratory pilots, not qualified or production-promoted policies.",
+    "caveats": [
+        "Each replica has 960 paired seat games but only 240 independent deal clusters; seat rotations are not independent trials. Selection reuses 80 deals across five checkpoints.",
+        "Independent RNG/deal namespaces establish distinct run inputs, not a proof of statistical independence of pseudorandom outcomes; two training replicas do not characterize training-seed uncertainty.",
+        "Policies play fixed economic heuristic opponents, not each other, humans, or a broad opponent population. Report all replicas; do not choose the best training seed using confirmation.",
+        "Training-map/transfer-map confirmation is held out from checkpoint selection. No final-test seeds are used. Do not pool three different selected policies into one qualified policy.",
+        "Hash/coverage/terminal checks cover every persisted outcome; deterministic replay covers 12 selected confirmation games per replica, not all outcomes or a rerun of training. Terminal credits outside the sample are validated structurally and reaggregated, not engine-replayed.",
+        "Optimization losses cannot be independently reproduced without RAM-only trajectories. Row counts, finite/loadable optimizer moments, cumulative steps and checkpoint/history consistency are checked instead.",
+        "Source-file hashes match git show at exact commits, generator matches the local frozen engine, and job/status source provenance agrees. Source archive SHA256 is recorded, not independently downloaded/rehashed; HF job logs/receipt ancestry are not a cryptographic proof of execution."
+    ]
+}

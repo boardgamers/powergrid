@@ -1,0 +1,105 @@
+{
+    "status": "passed-exact-runtime-compatibility",
+    "recovery": {
+        "pins": {
+            "source": {
+                "repo": "coyotte508/powergrid-ai-training-v1",
+                "repo_type": "dataset",
+                "revision": "7db94147918597e1da1e8ee2f4bd12b96aa067b5",
+                "path": "strong-source-current-auction-grid-v1.tgz",
+                "sha256": "bb2ef01bc09f176c62545971aa02b5e9dadc947fb14dd52ca191667ba456bfe0"
+            },
+            "model": {
+                "repo": "coyotte508/powergrid-ai-germany-v1",
+                "repo_type": "model",
+                "revision": "6b6009756d7b5968bc5b6425efc84a94aab2a1d6",
+                "path": "runs/policy-iteration-training-v2-frozen/ensemble-1/derivative/inference64.onnx",
+                "sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+            },
+            "ppo": {
+                "repo": "coyotte508/powergrid-ai-multimap-v1",
+                "repo_type": "model",
+                "revision": "b1392c4dea3eb956b0e171d558f2f642c0367831",
+                "path": "runs/multimap-ppo-20261102-v1/ppo/best.pt",
+                "sha256": "50ac24ad28d8fced065133e90980286e0cf4c592afe81df07aaed33cbf181e0c"
+            }
+        },
+        "remote": {
+            "source": {
+                "bytes": 130442976,
+                "revision": "7db94147918597e1da1e8ee2f4bd12b96aa067b5"
+            },
+            "model": {
+                "bytes": 14080106,
+                "revision": "6b6009756d7b5968bc5b6425efc84a94aab2a1d6"
+            },
+            "ppo": {
+                "bytes": 611137,
+                "revision": "b1392c4dea3eb956b0e171d558f2f642c0367831"
+            }
+        },
+        "runtimeManifestSha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+        "policySha256": "3b492c71ac5653ac7c41dfefd1c397e74e14df6f57629a455c61c8e45f55f52a",
+        "verifiedArchiveManifestFiles": 1467,
+        "locallyVerifiedFiles": 1467,
+        "omitted": [],
+        "fullArtifactBytes": 451257098,
+        "compactArtifactBytes": 20613982,
+        "compressedArchiveRamBytes": 130442976,
+        "diskBudgetBytes": 536870912,
+        "compressedArchiveRamCapBytes": 268435456,
+        "recoveryMode": "complete-unchanged-manifest-with-compressed-source-in-bounded-RAM",
+        "cacheBytes": 451953947,
+        "reserved_final_seeds_used": false,
+        "exactServiceReady": true,
+        "blocker": null
+    },
+    "referenceEngine": "2.0.19",
+    "authoritativeEngine": "2.0.22",
+    "syntheticCompatibility": {
+        "authoritativeEngineVersion": "2.0.22",
+        "referenceEngineDeclaredVersion": "2.0.19",
+        "cells": 20,
+        "cases": 160,
+        "preparationFailures": 0,
+        "recomputedMenuMismatches": 0,
+        "thinnedCases": 30,
+        "hiddenChecks": 160,
+        "fullGames": 0,
+        "neuralDecisions": 0,
+        "qualification_eligible": false,
+        "reserved_final_seeds_used": false,
+        "note": "Synthetic structural fixtures, not reachable trajectory or neural-policy parity proof. Recomputed old menus are diagnostic; authoritative legal actions remain binding."
+    },
+    "strictLossFilterFixtureCases": 20,
+    "discountedOneDollarNominationCases": 10,
+    "fullGames": 20,
+    "cells": 20,
+    "failedGames": 0,
+    "exactFullGameReplays": 5,
+    "referenceServiceDecisions": 7730,
+    "hiddenProjectionChecks": 7730,
+    "deterministicRepeatedPhaseDecisions": 80,
+    "sourceFiles": {
+        "ai/multimap/reference_compatibility.cjs": "b3e87335eb97bdc301f6eebdd8e3adcb2bcfd3737d8d6d0eca00ff9156a45694",
+        "ai/multimap/reference_evaluate.py": "e22e7b6e9de687d1c903217c03735434622e22e951cfbf030827f430e757cab9",
+        "ai/multimap/reference_game.cjs": "cd4e87bc0754a67b3a9bfffba17ac37353c5f1c4391aacc2ae92e18ad2d71949",
+        "ai/multimap/reference_recover.py": "1d0b7f87fa22c8e5673152abc4496f0b62ce017c2bcdc8b39ae8658febd7fadc"
+    },
+    "fullGameEvidenceSha256": "66d03d9cb5cb1933974f067517c87aed8bd7963d0966599559ff3b7c12e58117",
+    "qualified": false,
+    "reservedFinalSeedsUsed": false,
+    "initialBlockerResolved": "Complete unchanged artifact restored with compressed source in bounded RAM, never loader bypass. Historical fixtures verified only, not new training/evaluation data.",
+    "storage": {
+        "currentCacheBytes": 451971868,
+        "diskCapBytes": 536870912,
+        "compressedArchiveRamCapBytes": 268435456
+    },
+    "separateEnvironment": {
+        "path": "ai/.venv-reference",
+        "python": "3.12.8",
+        "numpy": "2.5.3",
+        "onnxruntime": "1.30.0"
+    },
+    "caveat": "Mechanical/legality/determinism preflight, not a strength estimate or qualification. All planned neural screen deals are fresh and disjoint."
+}

@@ -1,0 +1,36 @@
+{
+    "schema": "multimap-frozen-candidate-pool-v1",
+    "members": [
+        {
+            "name": "ppo0",
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "b1392c4dea3eb956b0e171d558f2f642c0367831",
+            "path": "runs/multimap-ppo-20261102-v1/ppo/best.pt",
+            "sha256": "50ac24ad28d8fced065133e90980286e0cf4c592afe81df07aaed33cbf181e0c",
+            "update": 8
+        },
+        {
+            "name": "ppo1",
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "4a7f94fca8a2bdcbb9256c730edc83c64a5d17e9",
+            "path": "runs/multimap-ppo-20261102-replica-1/ppo/best.pt",
+            "sha256": "dd79d3fc6d67594c0a60af24e0acd28a2ec0f5798771148b92748b6781ceda15",
+            "update": 16
+        },
+        {
+            "name": "ppo2",
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "af87f0b46382e4f06d420f339fd1a65a4ba9ef45",
+            "path": "runs/multimap-ppo-20261102-replica-2/ppo/best.pt",
+            "sha256": "3d2ffeb02feb17462385ff2a4d2ccd930e58bb445bf97df386b7eef5fce9dc91",
+            "update": 12
+        }
+    ],
+    "ensemble": {
+        "name": "ensemble",
+        "members": ["ppo0", "ppo1", "ppo2"],
+        "weights": [1, 1, 1],
+        "rule": "Arithmetic mean of the three legal-action logits; common heuristic prior is preserved. Greedy argmax. No fitting, calibrated probabilities or confirmation-tuned weights. Values averaged for API compatibility only, not calibrated ensemble win probability."
+    },
+    "purpose": "Freeze all three preselected independent PPO models and an equal-logit ensemble for fresh evaluation. Do not silently replace this pool with the best confirmation seed. Nothing qualified or production-deployed."
+}

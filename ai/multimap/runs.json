@@ -1,12 +1,13 @@
 {
-    "activeRuns": [
-        "multimap-ppo-20261102-replica-1",
-        "multimap-ppo-20261102-replica-2",
-        "multimap-ppo8-opponents-20261102-v1"
-    ],
+    "activeRuns": [],
     "runs": [
         {
             "id": "multimap-ppo-20261102-replica-1",
+            "terminalStatus": "COMPLETED",
+            "terminalModelRevision": "4a7f94fca8a2bdcbb9256c730edc83c64a5d17e9",
+            "selectedUpdate": 16,
+            "confirmationDifference": 0.06854166666666661,
+            "result": "replica-results-v1.json",
             "jobId": "6ae8dcabc78863f9c630e46a",
             "url": "https://huggingface.co/jobs/coyotte508/6ae8dcabc78863f9c630e46a",
             "workflow": "ppo",
@@ -21,6 +22,11 @@
         },
         {
             "id": "multimap-ppo-20261102-replica-2",
+            "terminalStatus": "COMPLETED",
+            "terminalModelRevision": "af87f0b46382e4f06d420f339fd1a65a4ba9ef45",
+            "selectedUpdate": 12,
+            "confirmationDifference": 0.08354166666666674,
+            "result": "replica-results-v1.json",
             "jobId": "6ae8dcb9c78863f9c630e47a",
             "url": "https://huggingface.co/jobs/coyotte508/6ae8dcb9c78863f9c630e47a",
             "workflow": "ppo",
@@ -35,6 +41,11 @@
         },
         {
             "id": "multimap-ppo8-opponents-20261102-v1",
+            "terminalStatus": "COMPLETED",
+            "terminalModelRevision": "5e94e37dc32638d27dea10b475731b874feebefd",
+            "confirmationDifference": 0.02902777777777782,
+            "failures": 0,
+            "result": "opponent-results-v1.json",
             "jobId": "6ae8dccac78863f9c630e490",
             "url": "https://huggingface.co/jobs/coyotte508/6ae8dccac78863f9c630e490",
             "workflow": "opponents",

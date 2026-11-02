@@ -1,0 +1,788 @@
+{
+    "repo": "coyotte508/powergrid-ai-multimap-v1",
+    "revision": "5e94e37dc32638d27dea10b475731b874feebefd",
+    "run": "multimap-ppo8-opponents-20261102-v1",
+    "jobId": "6ae8dccac78863f9c630e490",
+    "sourceCommit": "6f5a5e01e062c6b7c6d5b4dd99dff13829620c11",
+    "auditorSha256": "c307c379627b2e48d31e80b51b3c8e3da37c7ce935dbca804704bacb142eabac",
+    "artifactManifestSha256": "45b32f11c08f936e9b32adc2894a9b68f63ec62e971e86428504e074c43df1a6",
+    "artifactsVerified": 4,
+    "artifactBytes": 9876399,
+    "checkpoint": {
+        "repo": "coyotte508/powergrid-ai-multimap-v1",
+        "revision": "b1392c4dea3eb956b0e171d558f2f642c0367831",
+        "path": "runs/multimap-ppo-20261102-v1/ppo/best.pt",
+        "sha256": "50ac24ad28d8fced065133e90980286e0cf4c592afe81df07aaed33cbf181e0c",
+        "selectedUpdate": 8
+    },
+    "games": 11520,
+    "pairedComparisons": 5760,
+    "independentDeals": 1440,
+    "failures": 0,
+    "completePlanVerified": true,
+    "sourceHashesVerified": true,
+    "homogeneousGeographicZeroSumVerified": true,
+    "groups": {
+        "all": {
+            "selected": 0.47707175925925943,
+            "teacher": 0.44804398148148084,
+            "difference": 0.029027777777778596,
+            "pairedBootstrap95": [0.017210358796296305, 0.041249999999999974],
+            "unbiasedStratifiedPairedSE": 0.00696051381523063,
+            "approximateNormal95": [0.015385170699926561, 0.04267038485563063],
+            "strata": 360,
+            "independentDeals": 1440,
+            "pairedSeats": 5760
+        },
+        "map:Benelux": {
+            "selected": 0.44319444444444467,
+            "teacher": 0.4151388888888896,
+            "difference": 0.028055555555555056,
+            "pairedBootstrap95": [0.0003454861111111094, 0.05611111111111112],
+            "unbiasedStratifiedPairedSE": 0.01637760518653721,
+            "approximateNormal95": [-0.004044550610057873, 0.060155661721167986],
+            "strata": 60,
+            "independentDeals": 240,
+            "pairedSeats": 960
+        },
+        "map:France": {
+            "selected": 0.4339583333333339,
+            "teacher": 0.3740277777777786,
+            "difference": 0.059930555555555265,
+            "pairedBootstrap95": [0.027984374999999995, 0.09215277777777778],
+            "unbiasedStratifiedPairedSE": 0.01854210014751993,
+            "approximateNormal95": [0.023588039266416207, 0.09627307184469433],
+            "strata": 60,
+            "independentDeals": 240,
+            "pairedSeats": 960
+        },
+        "map:Germany": {
+            "selected": 0.5473611111111112,
+            "teacher": 0.5029861111111116,
+            "difference": 0.04437499999999961,
+            "pairedBootstrap95": [0.019930555555555562, 0.06826736111111106],
+            "unbiasedStratifiedPairedSE": 0.014076453411206249,
+            "approximateNormal95": [0.016785151314035362, 0.07196484868596385],
+            "strata": 60,
+            "independentDeals": 240,
+            "pairedSeats": 960
+        },
+        "map:Italy": {
+            "selected": 0.5641666666666666,
+            "teacher": 0.5714583333333334,
+            "difference": -0.007291666666666807,
+            "pairedBootstrap95": [-0.04645833333333334, 0.032501736111111096],
+            "unbiasedStratifiedPairedSE": 0.023209721349543532,
+            "approximateNormal95": [-0.05278272051177213, 0.038199387178438515],
+            "strata": 60,
+            "independentDeals": 240,
+            "pairedSeats": 960
+        },
+        "map:UK & Ireland": {
+            "selected": 0.3370833333333342,
+            "teacher": 0.33111111111111236,
+            "difference": 0.0059722222222218235,
+            "pairedBootstrap95": [-0.017015625, 0.02895833333333333],
+            "unbiasedStratifiedPairedSE": 0.013645906959560115,
+            "approximateNormal95": [-0.020773755418516, 0.03271819986295965],
+            "strata": 60,
+            "independentDeals": 240,
+            "pairedSeats": 960
+        },
+        "map:USA": {
+            "selected": 0.536666666666667,
+            "teacher": 0.4935416666666674,
+            "difference": 0.04312499999999958,
+            "pairedBootstrap95": [0.018817708333333332, 0.06736111111111111],
+            "unbiasedStratifiedPairedSE": 0.014459293916217194,
+            "approximateNormal95": [0.014784783924213882, 0.07146521607578528],
+            "strata": 60,
+            "independentDeals": 240,
+            "pairedSeats": 960
+        },
+        "players:2": {
+            "selected": 0.5399305555555556,
+            "teacher": 0.5564236111111112,
+            "difference": -0.01649305555555558,
+            "pairedBootstrap95": [-0.05381944444444445, 0.019965277777777776],
+            "unbiasedStratifiedPairedSE": 0.021839836155224175,
+            "approximateNormal95": [-0.059299134419794966, 0.026313023308683806],
+            "strata": 72,
+            "independentDeals": 288,
+            "pairedSeats": 576
+        },
+        "players:3": {
+            "selected": 0.45081018518518473,
+            "teacher": 0.44618055555555475,
+            "difference": 0.004629629629629983,
+            "pairedBootstrap95": [-0.02083333333333333, 0.0300925925925926],
+            "unbiasedStratifiedPairedSE": 0.01494206537888664,
+            "approximateNormal95": [-0.02465681851298783, 0.033916077772247796],
+            "strata": 72,
+            "independentDeals": 288,
+            "pairedSeats": 864
+        },
+        "players:4": {
+            "selected": 0.4618055555555556,
+            "teacher": 0.4461805555555556,
+            "difference": 0.015625,
+            "pairedBootstrap95": [-0.009548611111111112, 0.041666666666666664],
+            "unbiasedStratifiedPairedSE": 0.014782453442644446,
+            "approximateNormal95": [-0.013348608747583115, 0.04459860874758312],
+            "strata": 72,
+            "independentDeals": 288,
+            "pairedSeats": 1152
+        },
+        "players:5": {
+            "selected": 0.4736111111111114,
+            "teacher": 0.408333333333334,
+            "difference": 0.06527777777777743,
+            "pairedBootstrap95": [0.042361111111111106, 0.0875],
+            "unbiasedStratifiedPairedSE": 0.01309047732925805,
+            "approximateNormal95": [0.03962044221243166, 0.09093511334312321],
+            "strata": 72,
+            "independentDeals": 288,
+            "pairedSeats": 1440
+        },
+        "players:6": {
+            "selected": 0.4592013888888892,
+            "teacher": 0.38310185185185275,
+            "difference": 0.07609953703703642,
+            "pairedBootstrap95": [0.05758101851851852, 0.09432870370370373],
+            "unbiasedStratifiedPairedSE": 0.011004250394037851,
+            "approximateNormal95": [0.054531206264722236, 0.0976678678093506],
+            "strata": 72,
+            "independentDeals": 288,
+            "pairedSeats": 1728
+        },
+        "opponent:economic": {
+            "selected": 0.5369791666666666,
+            "teacher": 0.5132638888888889,
+            "difference": 0.02371527777777771,
+            "pairedBootstrap95": [0.0014921875000000013, 0.04496701388888888],
+            "unbiasedStratifiedPairedSE": 0.012728919144509031,
+            "approximateNormal95": [-0.0012334037454599898, 0.048663959301015414],
+            "strata": 120,
+            "independentDeals": 480,
+            "pairedSeats": 1920
+        },
+        "opponent:geographic": {
+            "selected": 0.31152777777777807,
+            "teacher": 0.2899999999999999,
+            "difference": 0.021527777777778145,
+            "pairedBootstrap95": [0.003541666666666665, 0.0401388888888889],
+            "unbiasedStratifiedPairedSE": 0.010778663694975491,
+            "approximateNormal95": [0.00040159693562618476, 0.042653958619930106],
+            "strata": 120,
+            "independentDeals": 480,
+            "pairedSeats": 1920
+        },
+        "opponent:rush": {
+            "selected": 0.5827083333333337,
+            "teacher": 0.5408680555555556,
+            "difference": 0.0418402777777781,
+            "pairedBootstrap95": [0.020485243055555543, 0.06336892361111111],
+            "unbiasedStratifiedPairedSE": 0.0125631922500341,
+            "approximateNormal95": [0.017216420967711265, 0.06646413458784493],
+            "strata": 120,
+            "independentDeals": 480,
+            "pairedSeats": 1920
+        },
+        "mapPlayers:Benelux|2": {
+            "selected": 0.5520833333333334,
+            "teacher": 0.5833333333333334,
+            "difference": -0.03125,
+            "pairedBootstrap95": [-0.11458333333333333, 0.052083333333333336],
+            "unbiasedStratifiedPairedSE": 0.04773516348912333,
+            "approximateNormal95": [-0.12481092043868172, 0.06231092043868172],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 96
+        },
+        "mapPlayers:Benelux|3": {
+            "selected": 0.4444444444444444,
+            "teacher": 0.43749999999999994,
+            "difference": 0.006944444444444475,
+            "pairedBootstrap95": [-0.055555555555555546, 0.06944444444444443],
+            "unbiasedStratifiedPairedSE": 0.03608439182435161,
+            "approximateNormal95": [-0.06378096353128468, 0.07766985242017363],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 144
+        },
+        "mapPlayers:Benelux|4": {
+            "selected": 0.3385416666666667,
+            "teacher": 0.4166666666666667,
+            "difference": -0.078125,
+            "pairedBootstrap95": [-0.13541666666666666, -0.015625],
+            "unbiasedStratifiedPairedSE": 0.034417061808331616,
+            "approximateNormal95": [-0.14558244114432997, -0.010667558855670028],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 192
+        },
+        "mapPlayers:Benelux|5": {
+            "selected": 0.4833333333333336,
+            "teacher": 0.3708333333333333,
+            "difference": 0.11250000000000032,
+            "pairedBootstrap95": [0.05416666666666666, 0.1708333333333333],
+            "unbiasedStratifiedPairedSE": 0.034610932762158646,
+            "approximateNormal95": [0.04466257178616938, 0.18033742821383125],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 240
+        },
+        "mapPlayers:Benelux|6": {
+            "selected": 0.39756944444444425,
+            "teacher": 0.267361111111111,
+            "difference": 0.13020833333333326,
+            "pairedBootstrap95": [0.08333333333333333, 0.17708333333333334],
+            "unbiasedStratifiedPairedSE": 0.027248280942114705,
+            "approximateNormal95": [0.07680170268678843, 0.1836149639798781],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 288
+        },
+        "mapPlayers:France|2": {
+            "selected": 0.5416666666666666,
+            "teacher": 0.5416666666666666,
+            "difference": 0.0,
+            "pairedBootstrap95": [-0.09375, 0.09375],
+            "unbiasedStratifiedPairedSE": 0.057054433073454806,
+            "approximateNormal95": [-0.11182668882397141, 0.11182668882397141],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 96
+        },
+        "mapPlayers:France|3": {
+            "selected": 0.4583333333333333,
+            "teacher": 0.4166666666666665,
+            "difference": 0.041666666666666796,
+            "pairedBootstrap95": [-0.020833333333333332, 0.1111111111111111],
+            "unbiasedStratifiedPairedSE": 0.038456591957954055,
+            "approximateNormal95": [-0.03370825357092315, 0.11704158690425674],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 144
+        },
+        "mapPlayers:France|4": {
+            "selected": 0.4739583333333333,
+            "teacher": 0.3854166666666667,
+            "difference": 0.08854166666666663,
+            "pairedBootstrap95": [0.015625, 0.16145833333333334],
+            "unbiasedStratifiedPairedSE": 0.0422057145178584,
+            "approximateNormal95": [0.005818466211664167, 0.1712648671216691],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 192
+        },
+        "mapPlayers:France|5": {
+            "selected": 0.3624999999999999,
+            "teacher": 0.2833333333333332,
+            "difference": 0.07916666666666666,
+            "pairedBootstrap95": [0.01666666666666668, 0.1416666666666667],
+            "unbiasedStratifiedPairedSE": 0.03672028907333968,
+            "approximateNormal95": [0.0071949000829208964, 0.15113843325041243],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 240
+        },
+        "mapPlayers:France|6": {
+            "selected": 0.33333333333333326,
+            "teacher": 0.2430555555555555,
+            "difference": 0.09027777777777776,
+            "pairedBootstrap95": [0.04513888888888889, 0.13541666666666669],
+            "unbiasedStratifiedPairedSE": 0.027044725568397973,
+            "approximateNormal95": [0.03727011566371773, 0.14328543989183778],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 288
+        },
+        "mapPlayers:Germany|2": {
+            "selected": 0.5104166666666666,
+            "teacher": 0.4895833333333333,
+            "difference": 0.020833333333333315,
+            "pairedBootstrap95": [-0.052083333333333336, 0.09375],
+            "unbiasedStratifiedPairedSE": 0.04336804165554443,
+            "approximateNormal95": [-0.06416802831153376, 0.10583469497820039],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 96
+        },
+        "mapPlayers:Germany|3": {
+            "selected": 0.5208333333333333,
+            "teacher": 0.5208333333333333,
+            "difference": 0.0,
+            "pairedBootstrap95": [-0.04861111111111111, 0.04861111111111111],
+            "unbiasedStratifiedPairedSE": 0.029462782549439483,
+            "approximateNormal95": [-0.057747053796901385, 0.057747053796901385],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 144
+        },
+        "mapPlayers:Germany|4": {
+            "selected": 0.5625,
+            "teacher": 0.5364583333333334,
+            "difference": 0.02604166666666663,
+            "pairedBootstrap95": [-0.020833333333333332, 0.07291666666666667],
+            "unbiasedStratifiedPairedSE": 0.028047733370492208,
+            "approximateNormal95": [-0.028931890739498096, 0.08101522407283135],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 192
+        },
+        "mapPlayers:Germany|5": {
+            "selected": 0.5666666666666668,
+            "teacher": 0.49583333333333307,
+            "difference": 0.07083333333333369,
+            "pairedBootstrap95": [0.025000000000000005, 0.11666666666666668],
+            "unbiasedStratifiedPairedSE": 0.0271100295776988,
+            "approximateNormal95": [0.017697675361044045, 0.12396899130562333],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 240
+        },
+        "mapPlayers:Germany|6": {
+            "selected": 0.5763888888888887,
+            "teacher": 0.47222222222222227,
+            "difference": 0.10416666666666646,
+            "pairedBootstrap95": [0.05902777777777779, 0.14930555555555555],
+            "unbiasedStratifiedPairedSE": 0.026137939330176423,
+            "approximateNormal95": [0.05293630557952068, 0.15539702775381226],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 288
+        },
+        "mapPlayers:Italy|2": {
+            "selected": 0.5208333333333334,
+            "teacher": 0.6041666666666666,
+            "difference": -0.08333333333333326,
+            "pairedBootstrap95": [-0.21875, 0.052083333333333336],
+            "unbiasedStratifiedPairedSE": 0.08157875086438007,
+            "approximateNormal95": [-0.2432276850275182, 0.07656101836085169],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 96
+        },
+        "mapPlayers:Italy|3": {
+            "selected": 0.38888888888888884,
+            "teacher": 0.388888888888889,
+            "difference": -1.6653345369377348e-16,
+            "pairedBootstrap95": [-0.08333333333333333, 0.08333333333333337],
+            "unbiasedStratifiedPairedSE": 0.05071505162084871,
+            "approximateNormal95": [-0.09940150117686364, 0.0994015011768633],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 144
+        },
+        "mapPlayers:Italy|4": {
+            "selected": 0.59375,
+            "teacher": 0.578125,
+            "difference": 0.015625,
+            "pairedBootstrap95": [-0.07291666666666667, 0.10416666666666667],
+            "unbiasedStratifiedPairedSE": 0.05251556757727144,
+            "approximateNormal95": [-0.08730551245145202, 0.11855551245145202],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 192
+        },
+        "mapPlayers:Italy|5": {
+            "selected": 0.6125,
+            "teacher": 0.6124999999999999,
+            "difference": 1.1102230246251565e-16,
+            "pairedBootstrap95": [-0.054166666666666675, 0.05833333333333332],
+            "unbiasedStratifiedPairedSE": 0.032808366141715874,
+            "approximateNormal95": [-0.064304397637763, 0.06430439763776322],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 240
+        },
+        "mapPlayers:Italy|6": {
+            "selected": 0.704861111111111,
+            "teacher": 0.6736111111111113,
+            "difference": 0.031249999999999778,
+            "pairedBootstrap95": [-0.0034722222222222147, 0.06597222222222222],
+            "unbiasedStratifiedPairedSE": 0.020146869427695845,
+            "approximateNormal95": [-0.008237864078284078, 0.07073786407828364],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 288
+        },
+        "mapPlayers:UK & Ireland|2": {
+            "selected": 0.5520833333333334,
+            "teacher": 0.546875,
+            "difference": 0.00520833333333337,
+            "pairedBootstrap95": [-0.06770833333333333, 0.078125],
+            "unbiasedStratifiedPairedSE": 0.04199092577238828,
+            "approximateNormal95": [-0.07709388118054765, 0.08751054784721439],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 96
+        },
+        "mapPlayers:UK & Ireland|3": {
+            "selected": 0.4166666666666665,
+            "teacher": 0.4375,
+            "difference": -0.02083333333333348,
+            "pairedBootstrap95": [-0.06944444444444443, 0.027777777777777776],
+            "unbiasedStratifiedPairedSE": 0.028065638085606807,
+            "approximateNormal95": [-0.07584198398112282, 0.03417531731445586],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 144
+        },
+        "mapPlayers:UK & Ireland|4": {
+            "selected": 0.23958333333333334,
+            "teacher": 0.2864583333333333,
+            "difference": -0.04687499999999997,
+            "pairedBootstrap95": [-0.09375, 0.0],
+            "unbiasedStratifiedPairedSE": 0.028047733370492208,
+            "approximateNormal95": [-0.10184855740616469, 0.008098557406164754],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 192
+        },
+        "mapPlayers:UK & Ireland|5": {
+            "selected": 0.25833333333333314,
+            "teacher": 0.2041666666666666,
+            "difference": 0.05416666666666653,
+            "pairedBootstrap95": [0.00833333333333333, 0.09999999999999999],
+            "unbiasedStratifiedPairedSE": 0.0271100295776988,
+            "approximateNormal95": [0.0010310086943768823, 0.10730232463895617],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 240
+        },
+        "mapPlayers:UK & Ireland|6": {
+            "selected": 0.2187499999999999,
+            "teacher": 0.18055555555555555,
+            "difference": 0.038194444444444337,
+            "pairedBootstrap95": [0.0, 0.07986111111111112],
+            "unbiasedStratifiedPairedSE": 0.024139645387284966,
+            "approximateNormal95": [-0.009119260514634193, 0.08550814940352286],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 288
+        },
+        "mapPlayers:USA|2": {
+            "selected": 0.5625,
+            "teacher": 0.5729166666666666,
+            "difference": -0.01041666666666663,
+            "pairedBootstrap95": [-0.07291666666666667, 0.052083333333333336],
+            "unbiasedStratifiedPairedSE": 0.03658213108629423,
+            "approximateNormal95": [-0.08211764359580333, 0.06128431026247007],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 96
+        },
+        "mapPlayers:USA|3": {
+            "selected": 0.47569444444444436,
+            "teacher": 0.4756944444444444,
+            "difference": -5.551115123125783e-17,
+            "pairedBootstrap95": [-0.05555555555555555, 0.05555555555555555],
+            "unbiasedStratifiedPairedSE": 0.03207501495497921,
+            "approximateNormal95": [-0.06286702931175932, 0.0628670293117592],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 144
+        },
+        "mapPlayers:USA|4": {
+            "selected": 0.5625,
+            "teacher": 0.4739583333333333,
+            "difference": 0.08854166666666669,
+            "pairedBootstrap95": [0.046875, 0.13020833333333334],
+            "unbiasedStratifiedPairedSE": 0.023867581744561665,
+            "approximateNormal95": [0.041761206447325824, 0.13532212688600753],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 192
+        },
+        "mapPlayers:USA|5": {
+            "selected": 0.5583333333333332,
+            "teacher": 0.48333333333333334,
+            "difference": 0.0749999999999999,
+            "pairedBootstrap95": [0.020833333333333332, 0.13333333333333333],
+            "unbiasedStratifiedPairedSE": 0.03280836614171588,
+            "approximateNormal95": [0.01069560236223678, 0.13930439763776303],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 240
+        },
+        "mapPlayers:USA|6": {
+            "selected": 0.5243055555555555,
+            "teacher": 0.4618055555555555,
+            "difference": 0.062499999999999944,
+            "pairedBootstrap95": [0.00347222222222222, 0.12152777777777779],
+            "unbiasedStratifiedPairedSE": 0.03483777070206577,
+            "approximateNormal95": [-0.005782030576048966, 0.13078203057604887],
+            "strata": 12,
+            "independentDeals": 48,
+            "pairedSeats": 288
+        },
+        "opponentPlayers:economic|2": {
+            "selected": 0.53125,
+            "teacher": 0.5546875,
+            "difference": -0.0234375,
+            "pairedBootstrap95": [-0.09375, 0.044270833333333336],
+            "unbiasedStratifiedPairedSE": 0.040539216766790336,
+            "approximateNormal95": [-0.10289436486290905, 0.05601936486290905],
+            "strata": 24,
+            "independentDeals": 96,
+            "pairedSeats": 192
+        },
+        "opponentPlayers:economic|3": {
+            "selected": 0.4739583333333334,
+            "teacher": 0.4704861111111112,
+            "difference": 0.00347222222222221,
+            "pairedBootstrap95": [-0.03819444444444445, 0.045138888888888895],
+            "unbiasedStratifiedPairedSE": 0.02511867409052165,
+            "approximateNormal95": [-0.045760378995200225, 0.052704823439644645],
+            "strata": 24,
+            "independentDeals": 96,
+            "pairedSeats": 288
+        },
+        "opponentPlayers:economic|4": {
+            "selected": 0.5364583333333334,
+            "teacher": 0.5390625,
+            "difference": -0.0026041666666666297,
+            "pairedBootstrap95": [-0.052083333333333336, 0.046875],
+            "unbiasedStratifiedPairedSE": 0.02872463907599704,
+            "approximateNormal95": [-0.05890445925562083, 0.05369612592228757],
+            "strata": 24,
+            "independentDeals": 96,
+            "pairedSeats": 384
+        },
+        "opponentPlayers:economic|5": {
+            "selected": 0.5729166666666669,
+            "teacher": 0.5020833333333334,
+            "difference": 0.07083333333333341,
+            "pairedBootstrap95": [0.03125, 0.11249999999999999],
+            "unbiasedStratifiedPairedSE": 0.023570226039551584,
+            "approximateNormal95": [0.024635690295812314, 0.11703097637085452],
+            "strata": 24,
+            "independentDeals": 96,
+            "pairedSeats": 480
+        },
+        "opponentPlayers:economic|6": {
+            "selected": 0.5703124999999997,
+            "teacher": 0.4999999999999996,
+            "difference": 0.07031250000000006,
+            "pairedBootstrap95": [0.03732638888888889, 0.10416666666666669],
+            "unbiasedStratifiedPairedSE": 0.01988965145380139,
+            "approximateNormal95": [0.03132878315054933, 0.10929621684945079],
+            "strata": 24,
+            "independentDeals": 96,
+            "pairedSeats": 576
+        },
+        "opponentPlayers:geographic|2": {
+            "selected": 0.484375,
+            "teacher": 0.5,
+            "difference": -0.015625,
+            "pairedBootstrap95": [-0.078125, 0.046875],
+            "unbiasedStratifiedPairedSE": 0.03595888051598607,
+            "approximateNormal95": [-0.0861044058113327, 0.054854405811332704],
+            "strata": 24,
+            "independentDeals": 96,
+            "pairedSeats": 192
+        },
+        "opponentPlayers:geographic|3": {
+            "selected": 0.3263888888888887,
+            "teacher": 0.33333333333333287,
+            "difference": -0.006944444444444198,
+            "pairedBootstrap95": [-0.048611111111111105, 0.03472222222222223],
+            "unbiasedStratifiedPairedSE": 0.025038550524055483,
+            "approximateNormal95": [-0.056020003471592944, 0.04213111458270455],
+            "strata": 24,
+            "independentDeals": 96,
+            "pairedSeats": 288
+        },
+        "opponentPlayers:geographic|4": {
+            "selected": 0.2760416666666667,
+            "teacher": 0.25,
+            "difference": 0.026041666666666685,
+            "pairedBootstrap95": [-0.0078125, 0.059895833333333336],
+            "unbiasedStratifiedPairedSE": 0.020394687716095018,
+            "approximateNormal95": [-0.013931921256879552, 0.06601525459021293],
+            "strata": 24,
+            "independentDeals": 96,
+            "pairedSeats": 384
+        },
+        "opponentPlayers:geographic|5": {
+            "selected": 0.2416666666666664,
+            "teacher": 0.19999999999999962,
+            "difference": 0.04166666666666677,
+            "pairedBootstrap95": [0.012447916666666706, 0.07291666666666666],
+            "unbiasedStratifiedPairedSE": 0.01775932201742281,
+            "approximateNormal95": [0.006858395512518059, 0.07647493782081548],
+            "strata": 24,
+            "independentDeals": 96,
+            "pairedSeats": 480
+        },
+        "opponentPlayers:geographic|6": {
+            "selected": 0.22916666666666663,
+            "teacher": 0.16666666666666644,
+            "difference": 0.0625000000000002,
+            "pairedBootstrap95": [0.03645833333333333, 0.08854166666666669],
+            "unbiasedStratifiedPairedSE": 0.015911721163041112,
+            "approximateNormal95": [0.031313026520439616, 0.09368697347956077],
+            "strata": 24,
+            "independentDeals": 96,
+            "pairedSeats": 576
+        },
+        "opponentPlayers:rush|2": {
+            "selected": 0.6041666666666666,
+            "teacher": 0.6145833333333334,
+            "difference": -0.01041666666666674,
+            "pairedBootstrap95": [-0.07291666666666667, 0.052083333333333336],
+            "unbiasedStratifiedPairedSE": 0.03682847818679935,
+            "approximateNormal95": [-0.08260048391279347, 0.06176715057945999],
+            "strata": 24,
+            "independentDeals": 96,
+            "pairedSeats": 192
+        },
+        "opponentPlayers:rush|3": {
+            "selected": 0.5520833333333334,
+            "teacher": 0.5347222222222222,
+            "difference": 0.01736111111111116,
+            "pairedBootstrap95": [-0.02777777777777778, 0.06597222222222221],
+            "unbiasedStratifiedPairedSE": 0.027413702042423636,
+            "approximateNormal95": [-0.03636974489203917, 0.0710919671142615],
+            "strata": 24,
+            "independentDeals": 96,
+            "pairedSeats": 288
+        },
+        "opponentPlayers:rush|4": {
+            "selected": 0.5729166666666666,
+            "teacher": 0.5494791666666666,
+            "difference": 0.0234375,
+            "pairedBootstrap95": [-0.0234375, 0.0703125],
+            "unbiasedStratifiedPairedSE": 0.02693770946038698,
+            "approximateNormal95": [-0.02936041054235848, 0.07623541054235848],
+            "strata": 24,
+            "independentDeals": 96,
+            "pairedSeats": 384
+        },
+        "opponentPlayers:rush|5": {
+            "selected": 0.6062500000000001,
+            "teacher": 0.5229166666666666,
+            "difference": 0.08333333333333348,
+            "pairedBootstrap95": [0.039583333333333325, 0.12708333333333335],
+            "unbiasedStratifiedPairedSE": 0.025909386258580042,
+            "approximateNormal95": [0.032550936266516596, 0.13411573040015037],
+            "strata": 24,
+            "independentDeals": 96,
+            "pairedSeats": 480
+        },
+        "opponentPlayers:rush|6": {
+            "selected": 0.5781249999999999,
+            "teacher": 0.4826388888888887,
+            "difference": 0.09548611111111122,
+            "pairedBootstrap95": [0.06076388888888887, 0.13020833333333334],
+            "unbiasedStratifiedPairedSE": 0.021001443647713027,
+            "approximateNormal95": [0.05432328156159368, 0.13664894066062874],
+            "strata": 24,
+            "independentDeals": 96,
+            "pairedSeats": 576
+        }
+    },
+    "replays": [
+        {
+            "seed": "pg-multimap-ppo8-opponents-20261102-v1:Germany|2|original|1:economic:1",
+            "seat": 0,
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-ppo8-opponents-20261102-v1:Germany|3|original|1:geographic:1",
+            "seat": 1,
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-ppo8-opponents-20261102-v1:Germany|4|original|1:rush:3",
+            "seat": 0,
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-ppo8-opponents-20261102-v1:USA|3|original|0:economic:1",
+            "seat": 1,
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-ppo8-opponents-20261102-v1:USA|4|original|1:geographic:1",
+            "seat": 0,
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-ppo8-opponents-20261102-v1:USA|5|recharged|0:rush:1",
+            "seat": 4,
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-ppo8-opponents-20261102-v1:France|4|original|0:economic:0",
+            "seat": 3,
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-ppo8-opponents-20261102-v1:France|5|recharged|0:geographic:0",
+            "seat": 4,
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-ppo8-opponents-20261102-v1:France|6|recharged|0:rush:0",
+            "seat": 3,
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-ppo8-opponents-20261102-v1:UK & Ireland|5|original|0:economic:0",
+            "seat": 2,
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-ppo8-opponents-20261102-v1:UK & Ireland|6|original|1:geographic:2",
+            "seat": 4,
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-ppo8-opponents-20261102-v1:UK & Ireland|2|recharged|1:rush:0",
+            "seat": 1,
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-ppo8-opponents-20261102-v1:Italy|6|original|0:economic:1",
+            "seat": 4,
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-ppo8-opponents-20261102-v1:Italy|2|original|1:geographic:3",
+            "seat": 1,
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-ppo8-opponents-20261102-v1:Italy|3|original|0:rush:3",
+            "seat": 1,
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-ppo8-opponents-20261102-v1:Benelux|2|recharged|0:economic:3",
+            "seat": 0,
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-ppo8-opponents-20261102-v1:Benelux|3|original|1:geographic:2",
+            "seat": 2,
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-ppo8-opponents-20261102-v1:Benelux|4|recharged|1:rush:0",
+            "seat": 2,
+            "matched": true
+        }
+    ],
+    "qualified": false,
+    "uncertainty": {
+        "method": "Paired independent-deal clusters, stratified by configuration and opponent; all seats kept together",
+        "resamples": 10000,
+        "seed": 20261102608,
+        "clustersPerStratum": 4,
+        "intervalLevel": 0.95,
+        "caveat": "Percentile bootstrap can be optimistic with four clusters/stratum; unbiased stratified paired SE and approximate-normal interval are also reported. Neither adjusts for multiple subgroup comparisons. Fixed checkpoint/heuristic populations, not human strength or final qualification."
+    }
+}

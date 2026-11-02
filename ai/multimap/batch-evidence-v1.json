@@ -1,0 +1,50 @@
+{
+    "repo": "coyotte508/powergrid-ai-multimap-v1",
+    "revision": "8ea1d07bdb8acc2d82ced8fd74e4e0585684cdcc",
+    "artifacts": {
+        "audits/multimap-ppo-replicas-v1/report.json": {
+            "sha256": "082d463cc9b4b938f5c63704d2e297f4e82d90bca120888d9dc8c416e79ac300",
+            "bytes": 58899
+        },
+        "audits/multimap-ppo8-opponents-20261102-v1/report.json": {
+            "sha256": "94650c793bc55505c8174723caa6f0c9d6f6e7b8cd6cc594cb4d8341d88ee452",
+            "bytes": 33789
+        },
+        "diagnostics/reference-preflight-v1/report.json": {
+            "sha256": "d4940fa467995ba92af525102b016a9d282f5356c6061a612a71ce03f9d3fc67",
+            "bytes": 4785
+        },
+        "diagnostics/reference-preflight-v1/full-games.json": {
+            "sha256": "66d03d9cb5cb1933974f067517c87aed8bd7963d0966599559ff3b7c12e58117",
+            "bytes": 21550
+        },
+        "diagnostics/reference-preflight-v1/compatibility.json": {
+            "sha256": "c3fec1c0b866d1dad0d36a1267ba021a651357bf443c061e4bf4161de90ffe11",
+            "bytes": 71581
+        },
+        "diagnostics/neural-screen-smoke-v1/plan.json": {
+            "sha256": "1b53f91326230ed389eede8ec0d95dfea1738afc09908cd06d8fe4b6176fbf1c",
+            "bytes": 10878
+        },
+        "diagnostics/neural-screen-smoke-v1/games.jsonl": {
+            "sha256": "22b62ecdef7243db9ee4f0ed7c599e7c0e33f37f8e83e480314543ee9b51398a",
+            "bytes": 8464
+        },
+        "diagnostics/neural-screen-smoke-v1/summary.json": {
+            "sha256": "94caf305dd5322ce130456b7bd9be4e291939f7405063f3348515b3e2c73f74f",
+            "bytes": 5967
+        }
+    },
+    "tests": {
+        "python": 73,
+        "node": 14,
+        "engineUnchangedSince366PassingTests": true
+    },
+    "referencePreflightGames": 20,
+    "referenceFullGameReplays": 5,
+    "neuralScreenSmokeGames": 12,
+    "failures": 0,
+    "localRunCacheBytes": 453202262,
+    "sourceReports": ["replica-results-v1.json", "opponent-results-v1.json", "reference-preflight-v1.json"],
+    "qualified": false
+}

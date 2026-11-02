@@ -15,6 +15,20 @@ Start here for the new research. The Germany reference and its historical
 experiments remain frozen in `ai/strong/`; do not restart their coordinators.
 The unrelated/deleted HF experiments are not inputs. No BGS deployment is made.
 
+## Bootstrap result (completed)
+
+The corrected HF job completed all 40 epochs and all 1,920 development games,
+with **zero errors or capped games**. All saved artifacts and plan coverage were
+independently checked; eight sampled games replayed exactly. See
+`bootstrap-results-v1.json` for immutable pins, per-map/count results and caveats.
+
+The standalone clone is **rejected for playing strength**: macro-cell win credit
+was about 8.8%, versus 47.2% for its heuristic teacher. In-map action agreement
+was 79.4% overall, but only 64.8% in auctions and 68.8% for resources. Completion
+and imitation metrics are not strength. Preserve the graph representation as a
+warm-start, diagnose phases, and improve from the stronger heuristic rather
+than launching more fixed-data imitation epochs blindly.
+
 ## Scope and experiment
 
 -   Current release engine **2.0.22**, merged from `origin/master` into

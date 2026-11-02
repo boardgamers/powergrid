@@ -1,0 +1,183 @@
+{
+    "repo": "coyotte508/powergrid-ai-multimap-v1",
+    "revision": "43695d4238afb3ba46aeb39e035745026303ab7f",
+    "jobId": "6ae8c1a2c78863f9c630c44f",
+    "artifactManifestSha256": "0ff33b773ab51ff9492441cb4d22f97e8dc945d0322b78105ba69be4a85b4665",
+    "checkpointSha256": "3c3cfec2a05bd2d765471e9d101270d52f881552864481ba94bac87bc59245f1",
+    "artifactsVerified": 11,
+    "games": 1920,
+    "pairs": 960,
+    "independentDeals": 240,
+    "failures": 0,
+    "macroCellDifference": -0.3830555555555556,
+    "groups": {
+        "map:Germany": {
+            "model": 0.12958333333333333,
+            "teacher": 0.5349999999999999,
+            "difference": -0.4054166666666666
+        },
+        "players:2": {
+            "model": 0.020833333333333332,
+            "teacher": 0.53125,
+            "difference": -0.5104166666666666
+        },
+        "auction:0": {
+            "model": 0.0825,
+            "teacher": 0.4663888888888889,
+            "difference": -0.3838888888888889
+        },
+        "variant:original": {
+            "model": 0.08847222222222223,
+            "teacher": 0.4536111111111111,
+            "difference": -0.36513888888888885
+        },
+        "auction:1": {
+            "model": 0.09444444444444446,
+            "teacher": 0.4766666666666667,
+            "difference": -0.38222222222222224
+        },
+        "variant:recharged": {
+            "model": 0.08847222222222223,
+            "teacher": 0.48944444444444446,
+            "difference": -0.40097222222222223
+        },
+        "players:3": {
+            "model": 0.0625,
+            "teacher": 0.4305555555555555,
+            "difference": -0.3680555555555555
+        },
+        "players:4": {
+            "model": 0.07291666666666667,
+            "teacher": 0.46875,
+            "difference": -0.3958333333333333
+        },
+        "players:5": {
+            "model": 0.1125,
+            "teacher": 0.4583333333333333,
+            "difference": -0.3458333333333333
+        },
+        "players:6": {
+            "model": 0.17361111111111113,
+            "teacher": 0.46875,
+            "difference": -0.29513888888888884
+        },
+        "map:USA": {
+            "model": 0.10791666666666666,
+            "teacher": 0.5504166666666667,
+            "difference": -0.4425
+        },
+        "map:France": {
+            "model": 0.04583333333333333,
+            "teacher": 0.41624999999999995,
+            "difference": -0.3704166666666666
+        },
+        "map:UK & Ireland": {
+            "model": 0.034999999999999996,
+            "teacher": 0.29125,
+            "difference": -0.25625000000000003
+        },
+        "map:Italy": {
+            "model": 0.14708333333333334,
+            "teacher": 0.6583333333333333,
+            "difference": -0.51125
+        },
+        "map:Benelux": {
+            "model": 0.06541666666666666,
+            "teacher": 0.3779166666666667,
+            "difference": -0.3125
+        }
+    },
+    "selectedEpoch": 39,
+    "validation": {
+        "count": 15360,
+        "policyLoss": 0.6831527035104674,
+        "agreement": 0.7939453125,
+        "valueMSE": 0.16352446725306613
+    },
+    "validationByPhase": {
+        "phase:Building": {
+            "count": 3840,
+            "policyLoss": 0.42924656874461997,
+            "agreement": 0.90703125,
+            "valueMSE": 0.16036163388014882
+        },
+        "phase:Auction": {
+            "count": 3840,
+            "policyLoss": 1.327165232157608,
+            "agreement": 0.6484375,
+            "valueMSE": 0.1709249640011504
+        },
+        "phase:Resources": {
+            "count": 3840,
+            "policyLoss": 0.7683910315774438,
+            "agreement": 0.68828125,
+            "valueMSE": 0.16089700728581208
+        },
+        "phase:Bureaucracy": {
+            "count": 3840,
+            "policyLoss": 0.20780798156219724,
+            "agreement": 0.93203125,
+            "valueMSE": 0.16191426384515317
+        }
+    },
+    "transfer": {
+        "count": 7680,
+        "policyLoss": 0.8152878346650455,
+        "agreement": 0.7684895833333333,
+        "valueMSE": 0.16425366172459555
+    },
+    "trainingSeconds": 1320.1910606739984,
+    "replays": [
+        {
+            "seed": "pg-multimap-20261102-v1:development:Benelux|2|original|0:0",
+            "seat": 0,
+            "policy": "model",
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-20261102-v1:development:Benelux|6|original|0:1",
+            "seat": 2,
+            "policy": "model",
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-20261102-v1:development:France|5|original|0:1",
+            "seat": 3,
+            "policy": "model",
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-20261102-v1:development:Germany|4|original|0:0",
+            "seat": 0,
+            "policy": "model",
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-20261102-v1:development:Italy|2|original|0:0",
+            "seat": 0,
+            "policy": "model",
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-20261102-v1:development:Italy|6|original|0:1",
+            "seat": 2,
+            "policy": "model",
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-20261102-v1:development:UK & Ireland|5|original|0:1",
+            "seat": 3,
+            "policy": "model",
+            "matched": true
+        },
+        {
+            "seed": "pg-multimap-20261102-v1:development:USA|4|original|0:0",
+            "seat": 0,
+            "policy": "model",
+            "matched": true
+        }
+    ],
+    "qualified": false,
+    "decision": "Reject standalone clone for strength; retain only as representation warm-start. Diagnose phase errors and test policy improvement anchored to the stronger heuristic.",
+    "caveat": "Two independent deals per configuration; all-seat repetitions are paired, not independent extra deals. No final-test or human-strength claim."
+}

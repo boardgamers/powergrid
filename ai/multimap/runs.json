@@ -1,8 +1,12 @@
 {
-    "activeRun": "multimap-bootstrap-20261102-v1-r1",
+    "activeRun": null,
     "runs": [
         {
             "id": "multimap-bootstrap-20261102-v1-r1",
+            "terminalStatus": "COMPLETED",
+            "terminalModelRevision": "43695d4238afb3ba46aeb39e035745026303ab7f",
+            "result": "bootstrap-results-v1.json",
+            "decision": "Standalone clone rejected for playing strength; retain representation warm-start only",
             "jobId": "6ae8c1a2c78863f9c630c44f",
             "url": "https://huggingface.co/jobs/coyotte508/6ae8c1a2c78863f9c630c44f",
             "sourceCommit": "46c70e99c1da81cfaa74d8669125dc32c003bbff",

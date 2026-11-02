@@ -1,6 +1,29 @@
 {
-    "activeRuns": [],
+    "activeRuns": ["multimap-expert-ppo-20261102-v2"],
     "runs": [
+        {
+            "id": "multimap-expert-ppo-20261102-v2",
+            "jobId": "6ae91d7fc78863f9c63119e3",
+            "url": "https://huggingface.co/jobs/coyotte508/6ae91d7fc78863f9c63119e3",
+            "workflow": "expert",
+            "protocol": "expert-protocol-v2.json",
+            "preflight": "expert-preflight-v2.json",
+            "launchReceipt": "expert-launch-v2.json",
+            "sourceCommit": "db144fc87d6745fe595ec7e28afc68de496b7966",
+            "sourceRevision": "93fb8f56455c11693864df8883a24ef5ddf37777",
+            "sourceSha256": "a3e3a1e8da85160069c3ad0648636efdfac582f4092ed3270abee05fe7aef8b2",
+            "warmupGames": 160,
+            "ppoTrainingGames": 2560,
+            "evaluationGames": 4160,
+            "plannedTotalGames": 6880,
+            "workers": 6,
+            "timeoutHours": 3,
+            "learnedPhases": ["Auction", "Building"],
+            "teacher": "V2 fixed mechanics/prior; exact retained Germany oracle for fresh warmup/DAgger labels only",
+            "decision": "Expert-assisted four-map PPO, stronger population opponents and reachable floor20 actions; no model selected before outcomes",
+            "qualified": false,
+            "reservedFinalSeedsUsed": false
+        },
         {
             "id": "multimap-phase-gap-20261102-v1",
             "terminalStatus": "COMPLETED",

@@ -40,6 +40,9 @@ available. Button pictograms stay black on light hover backgrounds. Clickable
 plants use their own border for the white hover cue, retaining the original
 4-unit highlighted and 3-unit activated border widths and original blue.
 
+Viewer 2.3.22 adds the remaining-card count centered on the draw pile's top card.
+It uses the public deck count and remains stable during resource purchases and undo.
+
 After packaging, run `node viewer/scripts/action-controls-smoke.mjs` to check
 normal/only-pass states, hover/focus styling against the board-option buttons,
 resource/building/powering transitions, and plant borders.

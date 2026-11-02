@@ -157,6 +157,19 @@
                             {{ G.cardsLeft }} cards left{{ G.nextCardWeak ? ', next is an initial plant' : '' }}
                         </title>
                     </rect>
+                    <text
+                        data-deck-count
+                        :x="65 + G.cardsLeft / 5"
+                        :y="58 - G.cardsLeft / 10"
+                        text-anchor="middle"
+                        dominant-baseline="central"
+                        font-size="20"
+                        font-weight="700"
+                        fill="black"
+                        pointer-events="none"
+                    >
+                        {{ G.cardsLeft }}
+                    </text>
                 </template>
             </g>
 

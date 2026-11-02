@@ -95,6 +95,16 @@ try {
     await page.goto(`http://127.0.0.1:${server.address().port}/?mode=resources`);
     const phaseButton = page.locator('[data-board-control="pass"]');
     await phaseButton.waitFor();
+    const cardsLeft = await page.evaluate(() => document.querySelector('.game').__vue__.G.cardsLeft);
+    assert.equal((await page.locator('[data-deck-count]').textContent()).trim(), String(cardsLeft));
+    const countIsCentered = await page.locator('[data-deck-count]').evaluate((label) => {
+        const card = label.previousElementSibling;
+        return (
+            Number(label.getAttribute('x')) === Number(card.getAttribute('x')) + 30 &&
+            Number(label.getAttribute('y')) === Number(card.getAttribute('y')) + 20
+        );
+    });
+    assert(countIsCentered, 'remaining count is centered on the top card');
     assert(await phaseButton.evaluate((e) => e.classList.contains('skip-action')));
     await page.evaluate(() => {
         const deck = document.querySelector('[data-board-slot="powerPlantDeck"]');

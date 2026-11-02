@@ -1,8 +1,13 @@
 {
-    "activeRun": "multimap-ppo-20261102-v1",
+    "activeRun": null,
     "runs": [
         {
             "id": "multimap-ppo-20261102-v1",
+            "terminalStatus": "COMPLETED",
+            "terminalModelRevision": "b1392c4dea3eb956b0e171d558f2f642c0367831",
+            "selectedUpdate": 8,
+            "result": "ppo-results-v1.json",
+            "decision": "Promising exploratory aggregate improvement; map/player-count regressions and unproven broader strength. Replicate and test varied opponents before scaling.",
             "jobId": "6ae8d46bc78863f9c630dd8f",
             "url": "https://huggingface.co/jobs/coyotte508/6ae8d46bc78863f9c630dd8f",
             "workflow": "ppo",

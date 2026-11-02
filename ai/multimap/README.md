@@ -229,3 +229,83 @@ production promotion. If it does improve, confirmation and stronger-opponent
 screens still precede qualification. Germany frozen-1 must be compared using its
 original runtime adapter, not raw weights with these features. Its verified
 ONNX SHA is `55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530`.
+
+## PPO v1 result and frozen follow-up
+
+`audit_ppo.py` independently verified all 32 saved artifacts (about 7.6 MB),
+4,800 persisted outcomes, all plans/split namespaces and checkpoint selection,
+plus 12 deterministic replays spanning all six maps and player counts. The
+additional 320 initial teacher-parity games were asserted equal during the run
+but are not separately persisted. See `ppo-results-v1.json` for full evidence.
+
+Update **8** was selected. Fresh confirmation macro-cell win credit was
+**55.16% vs 51.01%** for the geographic teacher against economic opponents,
+a **+4.16 percentage-point** difference. A stratified paired deal-cluster
+bootstrap gives an exploratory 95% interval of **+1.48 to +6.78 pp**. With only
+two independent deals per configuration this interval can be optimistic;
+it is not a qualification bound. There are 240 independent confirmation deals,
+not 960 independent trials. No multiple-comparison adjustment was applied.
+
+| Map          | Difference vs teacher, pp |
+| ------------ | ------------------------: |
+| Germany      |                     +5.54 |
+| USA          |                     +6.17 |
+| France       |                    +11.90 |
+| UK & Ireland |                     -4.08 |
+| Italy        |                     -3.50 |
+| Benelux      |                     +8.92 |
+
+Player counts matter too: differences for 2/3/4/5/6 players were respectively
+**-5.21 / -4.17 / +9.11 / +7.50 / +13.54 pp**. Aggregate improvement must not hide
+these regressions. Transfer-map improvement is inconclusive at this sample size.
+This is promising pilot evidence, not human-level strength or a production bot.
+
+Before changing the learning recipe or scaling training, the next fixed checks are:
+
+1. **Two independent cold replications**, `--replica 1` and `--replica 2`.
+   Only the Python RNG seed and whole-game namespaces change; original graph
+   warm-start, zero residual initialization, 16x80 training budget, opponent
+   mixture, optimizer and selection rules remain identical. Selection and
+   confirmation deals are disjoint across replicas and from v1. Report each
+   result, including failures or baseline fallback; do not present only the best
+   seed. Each replica has 1,280 train and 3,840 evaluation games.
+2. **Frozen PPO-8 opponent study**, specified by `opponent-study-v1.json`:
+   11,520 games, 5,760 paired seat comparisons, 1,440 independent deal/opponent
+   seeds. Selected policy and teacher each face economic/geographic/rush
+   populations over six maps and all counts/rules. Four fresh deals per
+   configuration/opponent. This is an evaluation-only robustness screen;
+   it neither trains nor selects another checkpoint. Report every map/count/style.
+
+```sh
+PYTHONPATH=ai/multimap ai/.venv/bin/python -B ai/multimap/launch.py \
+  --workflow ppo --replica 1 --run-id multimap-ppo-20261102-replica-1 \
+  --output ai/runs/multimap-ppo-20261102-replica-1
+# Repeat with replica 2 and its own run/output ID.
+PYTHONPATH=ai/multimap ai/.venv/bin/python -B ai/multimap/launch.py \
+  --workflow opponents --run-id multimap-ppo8-opponents-20261102-v1 \
+  --output ai/runs/multimap-ppo8-opponents-20261102-v1
+```
+
+The study writes compact outcomes only, keeps failures at zero credit with an
+explicit error flag, and fails its screen if any game fails. It uploads every
+240 outcomes, has a 128 MiB artifact budget and supports immutable-revision
+resume via the same `--resume-run/--resume-revision` flags. Plans and serving
+code are bound; an interrupted final JSONL line is replayed rather than trusted.
+Replicas additionally require the matching `--replica` on recovery. Strict
+source guards remain: use the original archived source to recover older runs,
+not a newer training implementation with its checks disabled.
+
+A Germany neural-reference match is still pending. It must use the retained
+**public-runtime filter arm**, not just the ONNX file: feature revision
+4.3-strategic-correction, original bid-thinned candidate menu, built-in correction
+heads, and the external strict endgame-loss filter. The archived current-engine
+runtime also includes scope and simultaneous-sealed-pending-set fixes absent
+from the unpatched checked-in originals. Its prior audit used engine 2.0.19;
+a 2.0.22 compatibility screen is required. See
+`ai/strong/current-auction-grid-source-v1.json`,
+`ai/strong/current-engine-auction-prepared-v2.json` and
+`ai/strong/public_policy_runtime_v1.py`. Keep this reference in a separate
+Python environment (its ONNX/NumPy pins differ), send only public states, and
+validate returned atomic moves against the authoritative full legal menu.
+Reference indices are not multi-map action indices; all its phases must run
+through its own policy, not our resource/powering teacher.

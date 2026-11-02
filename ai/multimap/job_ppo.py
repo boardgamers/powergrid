@@ -9,17 +9,17 @@ import traceback
 from huggingface_hub import HfApi, hf_hub_download
 from data import ROOT, atomic_json, digest
 from job import retry
-from ppo import run as train
-from residual import PROTOCOL
+from ppo import make_protocol, run as train
 
 
 def run():
     run_id=os.environ['RUN_ID'];repo=os.environ['MODEL_REPO']
+    replica=int(os.environ.get('REPLICA','0'));protocol=make_protocol(replica)
     base=Path(os.environ.get('RUN_DIR','/tmp/multimap-ppo-run'));base.mkdir(parents=True,exist_ok=True)
     api=HfApi();receipts=[]
     if not api.model_info(repo).private:raise RuntimeError('PPO artifacts must remain private')
     status=dict(run=run_id,sourceRevision=os.environ['SOURCE_REVISION'],sourceSha256=os.environ['SOURCE_SHA256'],
-                protocol=PROTOCOL,qualified=False)
+                protocol=protocol,replica=replica,qualified=False)
     def upload(stage):
         # Trajectories must never be serialized here. Latest/best/initial + small summaries only.
         files=[p for p in base.rglob('*') if p.is_file() and p.suffix!='.tmp' and p.name!='artifacts.json']
@@ -47,10 +47,10 @@ def run():
                 if digest(p)!=sha:raise ValueError('Resume artifact hash mismatch')
                 destination=base/relative;destination.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,destination)
             status.update(resumeRun=previous,resumeRevision=revision)
-        warm=PROTOCOL['warmStart']
+        warm=protocol['warmStart']
         checkpoint=hf_hub_download(warm['repo'],warm['path'],revision=warm['revision'])
         if digest(checkpoint)!=warm['sha256']:raise ValueError('Warm-start hash mismatch')
-        result=train(checkpoint,base/'ppo',callback=upload)
+        result=train(checkpoint,base/'ppo',callback=upload,replica=replica)
         status['result']=result
         upload('complete')
         print(json.dumps(dict(stage='complete',run=run_id,selectedUpdate=result['selectedUpdate'],qualified=False)),flush=True)

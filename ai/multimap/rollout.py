@@ -8,26 +8,26 @@ from data import Bridge
 from residual import PROTOCOL, row, batch
 
 
-def plans(split,update=0,deals=None):
+def plans(split,update=0,deals=None,protocol=PROTOCOL):
     if split not in ('train','selection','confirmation','smoke'):
         raise ValueError('Unknown split; final seeds are reserved')
-    maps=PROTOCOL['trainMaps']
-    if split in ('confirmation','smoke'):maps=maps+PROTOCOL['transferMaps']
-    count=deals if deals is not None else (PROTOCOL['gamesPerCellPerUpdate'] if split=='train' else PROTOCOL.get(split+'DealsPerCell',1))
+    maps=protocol['trainMaps']
+    if split in ('confirmation','smoke'):maps=maps+protocol['transferMaps']
+    count=deals if deals is not None else (protocol['gamesPerCellPerUpdate'] if split=='train' else protocol.get(split+'DealsPerCell',1))
     tasks=[]
-    for ci,(m,n,v,f) in enumerate(itertools.product(maps,PROTOCOL['players'],PROTOCOL['variants'],PROTOCOL['fastBids'])):
+    for ci,(m,n,v,f) in enumerate(itertools.product(maps,protocol['players'],protocol['variants'],protocol['fastBids'])):
         cell=f'{m}|{n}|{v}|{int(f)}'
         for deal in range(count):
-            seed=f"{PROTOCOL['seedNamespace']}:{split}:{update if split=='train' else 0}:{cell}:{deal}"
+            seed=f"{protocol['seedNamespace']}:{split}:{update if split=='train' else 0}:{cell}:{deal}"
             seats=[(ci+update-1)%n] if split=='train' else range(n)
             for seat in seats:
-                style=PROTOCOL['opponentStyles'][(ci+update)%len(PROTOCOL['opponentStyles'])] if split=='train' else PROTOCOL['evaluationOpponent']
+                style=protocol['opponentStyles'][(ci+update)%len(protocol['opponentStyles'])] if split=='train' else protocol['evaluationOpponent']
                 tasks.append(dict(map=m,players=n,variant=v,fastBid=f,cell=cell,seed=seed,split=split,deal=deal,
-                                  focalSeat=seat,opponentStyle=style,maxSteps=PROTOCOL['maxSteps']))
+                                  focalSeat=seat,opponentStyle=style,maxSteps=protocol['maxSteps']))
     return tasks
 
 
-def collect(model,tasks,workers=6,training=False,seed=508):
+def collect(model,tasks,workers=6,training=False,seed=508,protocol=PROTOCOL):
     """Any engine error/cap fails the batch; no invented losses or omitted outcomes."""
     torch.set_num_threads(1)
     model.eval()
@@ -64,7 +64,7 @@ def collect(model,tasks,workers=6,training=False,seed=508):
                             decisions=episode['decisions'],featureMs=episode['featureMs'],inferenceMs=episode['inferenceMs'],seconds=time.monotonic()-episode['start']))
                         assign(i)
                     else:
-                        assert state['phase'] in PROTOCOL['learnedPhases']
+                        assert state['phase'] in protocol['learnedPhases']
                         r=row(state['observation'],episode['relations'])
                         if episode['relations'] is None:episode['relations']=r['relations']
                         observations.append(r);slots.append(i)
@@ -82,7 +82,7 @@ def collect(model,tasks,workers=6,training=False,seed=508):
                             r=observations[j]
                             r.update(chosen=action,oldLog=float(logps[j,action]),oldValue=float(values[j]))
                             live[i]['trace'].append(r);total_rows+=1
-                            if total_rows>PROTOCOL['maxRolloutRows']:raise MemoryError('Rollout RAM row budget exceeded')
+                            if total_rows>protocol['maxRolloutRows']:raise MemoryError('Rollout RAM row budget exceeded')
     finally:
         for bridge in bridges:bridge.close()
     assert len(outcomes)==len(tasks)

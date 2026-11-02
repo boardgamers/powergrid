@@ -29,7 +29,7 @@ os.chdir(root)
 os.environ['PATH']=str(root/'runtime')+':'+os.environ['PATH']
 os.environ['PYTHONPATH']=str(root/'ai/multimap')
 subprocess.run(['python','-m','pip','install','--disable-pip-version-check','--extra-index-url','https://download.pytorch.org/whl/cpu','-r','ai/multimap/requirements-cpu.txt'],check=True)
-worker={'bootstrap':'job.py','ppo':'job_ppo.py'}[os.environ.get('WORKFLOW','bootstrap')]
+worker={'bootstrap':'job.py','ppo':'job_ppo.py','opponents':'job_opponents.py'}[os.environ.get('WORKFLOW','bootstrap')]
 os.execvp('python',['python','-u','-B','ai/multimap/'+worker])
 '''
 
@@ -90,11 +90,13 @@ def package(directory):
     return archive, manifest['gitCommit']
 
 
-def launch(run_id, directory, reuse_data=False, workflow='bootstrap', resume_run=None, resume_revision=None):
-    if workflow not in ('bootstrap','ppo') or (reuse_data and workflow!='bootstrap'):
+def launch(run_id, directory, reuse_data=False, workflow='bootstrap', resume_run=None, resume_revision=None, replica=0):
+    if workflow not in ('bootstrap','ppo','opponents') or (reuse_data and workflow!='bootstrap'):
         raise ValueError('Invalid workflow/data reuse combination')
-    if bool(resume_run)!=bool(resume_revision) or (resume_run and workflow!='ppo'):
-        raise ValueError('PPO resume needs both run ID and immutable model revision')
+    if type(replica) is not int or not 0<=replica<=99 or (replica and workflow!='ppo'):
+        raise ValueError('Replica must be 0..99 and only applies to PPO')
+    if bool(resume_run)!=bool(resume_revision) or (resume_run and workflow not in ('ppo','opponents')):
+        raise ValueError('PPO/study resume needs both run ID and immutable model revision')
     if resume_run and (not resume_run.replace('-','').replace('_','').isalnum() or len(resume_revision)!=40 or any(c not in '0123456789abcdef' for c in resume_revision)):
         raise ValueError('Invalid resume pin')
     directory=Path(directory).resolve()
@@ -119,6 +121,7 @@ def launch(run_id, directory, reuse_data=False, workflow='bootstrap', resume_run
     env=dict(RUN_ID=run_id,WORKFLOW=workflow,MODEL_REPO=MODEL,DATASET_REPO=DATASET,SOURCE_PATH=source_path,
              SOURCE_REVISION=upload.oid,SOURCE_SHA256=archive_sha,OMP_NUM_THREADS='4',
              MKL_NUM_THREADS='4',OPENBLAS_NUM_THREADS='1',PYTHONUNBUFFERED='1',PYTHONDONTWRITEBYTECODE='1')
+    if workflow=='ppo':env['REPLICA']=str(replica)
     if reuse_data:
         env['REUSE_DATA']='1'
     if resume_run:
@@ -145,8 +148,9 @@ if __name__=='__main__':
     p.add_argument('--run-id',required=True)
     p.add_argument('--output',required=True)
     p.add_argument('--reuse-data',action='store_true')
-    p.add_argument('--workflow',choices=['bootstrap','ppo'],default='bootstrap')
+    p.add_argument('--workflow',choices=['bootstrap','ppo','opponents'],default='bootstrap')
+    p.add_argument('--replica',type=int,default=0)
     p.add_argument('--resume-run')
     p.add_argument('--resume-revision')
     a=p.parse_args()
-    launch(a.run_id,a.output,a.reuse_data,a.workflow,a.resume_run,a.resume_revision)
+    launch(a.run_id,a.output,a.reuse_data,a.workflow,a.resume_run,a.resume_revision,a.replica)

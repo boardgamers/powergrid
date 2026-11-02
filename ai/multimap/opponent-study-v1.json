@@ -1,0 +1,23 @@
+{
+    "experiment": "multimap-ppo8-opponents-20261102-v1",
+    "seedNamespace": "pg-multimap-ppo8-opponents-20261102-v1",
+    "maps": ["Germany", "USA", "France", "UK & Ireland", "Italy", "Benelux"],
+    "players": [2, 3, 4, 5, 6],
+    "variants": ["original", "recharged"],
+    "fastBids": [false, true],
+    "opponents": ["economic", "geographic", "rush"],
+    "dealsPerCellAndOpponent": 4,
+    "maxSteps": 4000,
+    "workers": 6,
+    "policies": ["selected", "teacher"],
+    "checkpoint": {
+        "repo": "coyotte508/powergrid-ai-multimap-v1",
+        "revision": "b1392c4dea3eb956b0e171d558f2f642c0367831",
+        "path": "runs/multimap-ppo-20261102-v1/ppo/best.pt",
+        "sha256": "50ac24ad28d8fced065133e90980286e0cf4c592afe81df07aaed33cbf181e0c",
+        "selectedUpdate": 8
+    },
+    "purpose": "Frozen-policy robustness screen, NOT checkpoint or hyperparameter selection. 11520 games = 5760 paired seat comparisons from 1440 distinct deal/opponent seeds. Same seeds/seats for selected and teacher, independent seeds across opponent styles. All-seat repeats are clustered by deal in uncertainty estimates. No final seeds, no production qualification; no frozen-1 neural reference yet.",
+    "failurePolicy": "Retain zero-credit failures in denominator and block passing the screen; never use this data for optimizer updates.",
+    "storage": "Compact outcomes only, no observations/trajectories; private HF, checkpointed every 240 games, 128 MiB artifact budget."
+}

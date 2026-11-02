@@ -1,0 +1,44 @@
+{
+    "nodeTests": 8,
+    "pythonTests": 21,
+    "engineUnchangedSince366PassingTests": true,
+    "frozenPilotCheckpointSha256": "50ac24ad28d8fced065133e90980286e0cf4c592afe81df07aaed33cbf181e0c",
+    "opponentSmokeGames": 72,
+    "opponentSmokeFailures": 0,
+    "opponentPlannedGames": 11520,
+    "replicas": [
+        {
+            "replica": 1,
+            "seed": 509,
+            "namespace": "pg-multimap-ppo-20261102-v1:replica-1",
+            "trainGames": 1280,
+            "evaluationGames": 3840
+        },
+        {
+            "replica": 2,
+            "seed": 510,
+            "namespace": "pg-multimap-ppo-20261102-v1:replica-2",
+            "trainGames": 1280,
+            "evaluationGames": 3840
+        }
+    ],
+    "testsInclude": [
+        "Replica-0 plan hash parity",
+        "Replica namespaces disjoint across all splits",
+        "Nonzero replica populated-optimizer interruption and best-artifact recovery",
+        "Study plan coverage, complete legal games, explicit failure accounting and partial-line resume"
+    ],
+    "sourceFiles": {
+        "ppo.py": "ea911838c835fc31df2a2566f8ef97531248f43e3cbf6f8cfa4bce0d6d164bee",
+        "rollout.py": "ec6bf43926c1ce884e91b402d1881c7eb0efe728b6230eec2ae2fbb209791300",
+        "job_ppo.py": "780f545b18f83d3cb37381f250b050a8c7aa94740efb4ff29dae0feb469a5dea",
+        "launch.py": "a0967eb292527a17aae62df13e06d63e36b8829b04240d368f9e0e91f86945dc",
+        "opponent_study.py": "9121413d0257ef430fec357b8ce7f24edb45d72d6420ea7729c32ea021869d20",
+        "job_opponents.py": "1ce09188b3cd0936f909713f168030ae09eeb6f9d184aad285178facc5bbf9c0",
+        "opponent-study-v1.json": "d51f12fd1685e2f53f7888f5f82ad9d8ab7d7af158d2d2049c6a6225f47663b2",
+        "test_rl.py": "b9b4f39235d0364892d68d638a671667f6b112efda8d20a24916b03c9bfbba06",
+        "test_opponent_study.py": "64ad0ec917b2e3189d8e5fbca931956827741ae13295cab83430e617c8c4d607"
+    },
+    "qualified": false,
+    "caveat": "Preflight validates plumbing only. Study smoke is disjoint from full study; no weights trained or selected from its outcomes."
+}

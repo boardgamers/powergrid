@@ -1,0 +1,409 @@
+{
+    "schema": "multimap-ppo-audit-v1",
+    "repo": "coyotte508/powergrid-ai-multimap-v1",
+    "revision": "b1392c4dea3eb956b0e171d558f2f642c0367831",
+    "prefix": "runs/multimap-ppo-20261102-v1/",
+    "jobId": "6ae8d46bc78863f9c630dd8f",
+    "jobStage": "COMPLETED",
+    "artifactManifestSha256": "aecbb2956a3b9e47a6216f1632cae1037337508e7f0ea75b964042e245a1773a",
+    "artifactsVerified": 32,
+    "downloadedArtifactBytes": 7574756,
+    "checkpoints": {
+        "initial": {
+            "update": 0,
+            "sha256": "037f2284dd50cc609fa06c8f9d1e6d90ad0bef7f6b2e15ac2a30742f39a43bec"
+        },
+        "best": {
+            "update": 8,
+            "sha256": "50ac24ad28d8fced065133e90980286e0cf4c592afe81df07aaed33cbf181e0c"
+        },
+        "last": {
+            "update": 16,
+            "sha256": "27f83e326a3d64b98e6c60da961872f37f8308e98fd5f22defe44168a21e4581"
+        }
+    },
+    "embeddedBestArtifactVerified": true,
+    "source": {
+        "matchingGitRevision": "a3b492b650dec51c34b6f9322d87088b1e863f0e",
+        "sourceFilesVerified": 11,
+        "generatorDigest": "de49041dff36d65d98edc82bae8d3ebc803874596b325e1b6151d2d3a7796c05",
+        "engineFilesVerified": 42,
+        "currentSourceDifferences": {
+            "rollout.py": "ec6bf43926c1ce884e91b402d1881c7eb0efe728b6230eec2ae2fbb209791300",
+            "ppo.py": "ea911838c835fc31df2a2566f8ef97531248f43e3cbf6f8cfa4bce0d6d164bee"
+        },
+        "note": "Config hashes match git-show bytes at matchingGitRevision; later Python changes do not redefine v1 selection.",
+        "hfSourceRevision": "a498cdb8c9c1ac039447278f9cf7f001eb0f3817",
+        "hfSourceArchiveSha256": "5f81da28bbb53018202210aaefb279ff85d7a0c21e8941ac5c4d82f943f5a054"
+    },
+    "verification": {
+        "outcomes": 4800,
+        "terminalOutcomes": 4800,
+        "failures": 0,
+        "capped": 0,
+        "maxObservedSteps": 1147,
+        "uniqueDealSeatPerBatch": true,
+        "splitSeedOverlap": 0,
+        "splitIndependentDeals": {
+            "train": 1280,
+            "selection": 80,
+            "confirmation": 240
+        },
+        "metricAbsoluteTolerance": 1e-12,
+        "outcomeMetricsIndependentlyRecomputed": true
+    },
+    "training": {
+        "updates": 16,
+        "gamesPerUpdate": 80,
+        "games": 1280,
+        "macroCreditByUpdate": [
+            0.2, 0.225, 0.25, 0.3125, 0.2375, 0.2125, 0.2125, 0.225, 0.2875, 0.3125, 0.3, 0.175, 0.2375, 0.3375, 0.275,
+            0.2875
+        ],
+        "rolloutRows": 79363,
+        "optimizerSteps": 4996,
+        "elapsedUpdateSeconds": 610.2160528590903
+    },
+    "selection": {
+        "gamesPerCheckpoint": 320,
+        "independentDeals": 80,
+        "configurations": 80,
+        "selectedUpdate": 8,
+        "baselineEligible": true,
+        "maxMapRegression": 0.1,
+        "rule": "v1: zero-residual baseline participates; each map >= baseline minus 0.1; strict macro improvement >1e-12; earliest tie wins; confirmation excluded.",
+        "candidates": [
+            {
+                "update": 0,
+                "macroCredit": 0.46729166666666666,
+                "differenceFromBaseline": 0.0,
+                "mapDifferencesFromBaseline": {
+                    "France": 0.0,
+                    "Germany": 0.0,
+                    "UK & Ireland": 0.0,
+                    "USA": 0.0
+                },
+                "eligible": true
+            },
+            {
+                "update": 4,
+                "macroCredit": 0.5239583333333333,
+                "differenceFromBaseline": 0.05666666666666664,
+                "mapDifferencesFromBaseline": {
+                    "France": 0.01916666666666672,
+                    "Germany": 0.12583333333333335,
+                    "UK & Ireland": 0.04249999999999998,
+                    "USA": 0.03916666666666657
+                },
+                "eligible": true
+            },
+            {
+                "update": 8,
+                "macroCredit": 0.5329166666666667,
+                "differenceFromBaseline": 0.06562500000000004,
+                "mapDifferencesFromBaseline": {
+                    "France": 0.08083333333333331,
+                    "Germany": 0.0508333333333334,
+                    "UK & Ireland": 0.044999999999999984,
+                    "USA": 0.08583333333333332
+                },
+                "eligible": true
+            },
+            {
+                "update": 12,
+                "macroCredit": 0.524375,
+                "differenceFromBaseline": 0.057083333333333375,
+                "mapDifferencesFromBaseline": {
+                    "France": 0.04750000000000004,
+                    "Germany": 0.02083333333333337,
+                    "UK & Ireland": 0.0633333333333333,
+                    "USA": 0.09666666666666668
+                },
+                "eligible": true
+            },
+            {
+                "update": 16,
+                "macroCredit": 0.525,
+                "differenceFromBaseline": 0.05770833333333336,
+                "mapDifferencesFromBaseline": {
+                    "France": 0.041666666666666685,
+                    "Germany": 0.0658333333333333,
+                    "UK & Ireland": 0.02916666666666662,
+                    "USA": 0.09416666666666662
+                },
+                "eligible": true
+            }
+        ]
+    },
+    "confirmation": {
+        "aggregate": {
+            "configurations": 120,
+            "independentDeals": 240,
+            "pairedSeatGames": 960,
+            "selected": 0.5516319444444444,
+            "teacher": 0.5100694444444445,
+            "difference": 0.04156249999999995,
+            "pairedDifference95PercentileInterval": [0.014790798611111105, 0.06781249999999998]
+        },
+        "byMap": {
+            "Benelux": {
+                "configurations": 20,
+                "independentDeals": 40,
+                "pairedSeatGames": 160,
+                "selected": 0.5483333333333333,
+                "teacher": 0.45916666666666667,
+                "difference": 0.08916666666666667,
+                "pairedDifference95PercentileInterval": [0.023333333333333334, 0.155]
+            },
+            "France": {
+                "configurations": 20,
+                "independentDeals": 40,
+                "pairedSeatGames": 160,
+                "selected": 0.5185416666666667,
+                "teacher": 0.3995833333333333,
+                "difference": 0.11895833333333339,
+                "pairedDifference95PercentileInterval": [0.06729166666666667, 0.1704166666666667]
+            },
+            "Germany": {
+                "configurations": 20,
+                "independentDeals": 40,
+                "pairedSeatGames": 160,
+                "selected": 0.6054166666666666,
+                "teacher": 0.55,
+                "difference": 0.05541666666666656,
+                "pairedDifference95PercentileInterval": [-0.013333333333333336, 0.12416666666666665]
+            },
+            "Italy": {
+                "configurations": 20,
+                "independentDeals": 40,
+                "pairedSeatGames": 160,
+                "selected": 0.6658333333333333,
+                "teacher": 0.7008333333333334,
+                "difference": -0.03500000000000014,
+                "pairedDifference95PercentileInterval": [-0.11166666666666666, 0.040833333333333346]
+            },
+            "UK & Ireland": {
+                "configurations": 20,
+                "independentDeals": 40,
+                "pairedSeatGames": 160,
+                "selected": 0.3145833333333333,
+                "teacher": 0.35541666666666666,
+                "difference": -0.04083333333333333,
+                "pairedDifference95PercentileInterval": [-0.0975, 0.015]
+            },
+            "USA": {
+                "configurations": 20,
+                "independentDeals": 40,
+                "pairedSeatGames": 160,
+                "selected": 0.6570833333333332,
+                "teacher": 0.5954166666666667,
+                "difference": 0.061666666666666536,
+                "pairedDifference95PercentileInterval": [-0.0008333333333333333, 0.12458333333333334]
+            }
+        },
+        "byPlayers": {
+            "2": {
+                "configurations": 24,
+                "independentDeals": 48,
+                "pairedSeatGames": 96,
+                "selected": 0.59375,
+                "teacher": 0.6458333333333334,
+                "difference": -0.05208333333333337,
+                "pairedDifference95PercentileInterval": [-0.125, 0.020833333333333332]
+            },
+            "3": {
+                "configurations": 24,
+                "independentDeals": 48,
+                "pairedSeatGames": 144,
+                "selected": 0.40972222222222215,
+                "teacher": 0.45138888888888884,
+                "difference": -0.041666666666666685,
+                "pairedDifference95PercentileInterval": [-0.1111111111111111, 0.02777777777777778]
+            },
+            "4": {
+                "configurations": 24,
+                "independentDeals": 48,
+                "pairedSeatGames": 192,
+                "selected": 0.5963541666666666,
+                "teacher": 0.5052083333333334,
+                "difference": 0.09114583333333326,
+                "pairedDifference95PercentileInterval": [0.036458333333333336, 0.14322916666666666]
+            },
+            "5": {
+                "configurations": 24,
+                "independentDeals": 48,
+                "pairedSeatGames": 240,
+                "selected": 0.5750000000000001,
+                "teacher": 0.5,
+                "difference": 0.07500000000000007,
+                "pairedDifference95PercentileInterval": [0.029166666666666657, 0.12083333333333333]
+            },
+            "6": {
+                "configurations": 24,
+                "independentDeals": 48,
+                "pairedSeatGames": 288,
+                "selected": 0.5833333333333334,
+                "teacher": 0.4479166666666667,
+                "difference": 0.13541666666666669,
+                "pairedDifference95PercentileInterval": [0.09027777777777778, 0.18055555555555558]
+            }
+        },
+        "trainMaps": {
+            "configurations": 80,
+            "independentDeals": 160,
+            "pairedSeatGames": 640,
+            "selected": 0.52390625,
+            "teacher": 0.47510416666666666,
+            "difference": 0.04880208333333336,
+            "pairedDifference95PercentileInterval": [0.018177083333333333, 0.07906380208333334]
+        },
+        "transferMaps": {
+            "configurations": 40,
+            "independentDeals": 80,
+            "pairedSeatGames": 320,
+            "selected": 0.6070833333333334,
+            "teacher": 0.58,
+            "difference": 0.02708333333333346,
+            "pairedDifference95PercentileInterval": [-0.024999999999999998, 0.07791666666666666]
+        },
+        "trainMinusTransferDifference": {
+            "difference": 0.021718749999999898,
+            "percentile95Interval": [-0.03791796874999998, 0.08151171874999999],
+            "note": "Contrast of the two paired policy improvements, not a matched-map experiment."
+        },
+        "seatWeightedDescriptive": {
+            "selected": 0.5588541666666667,
+            "teacher": 0.49270833333333336,
+            "difference": 0.06614583333333329
+        }
+    },
+    "uncertainty": {
+        "method": "Stratified paired independent-deal cluster percentile bootstrap",
+        "strata": "map|players|variant|fastBid",
+        "clustersPerStratum": 2,
+        "clusterUnit": "One seed, with all focal seats and both policies kept together",
+        "weighting": "Equal configuration weight; equal deal weight within configuration",
+        "resamples": 10000,
+        "seed": 20261102508,
+        "rng": "numpy.PCG64",
+        "intervalLevel": 0.95,
+        "quantileMethod": "linear",
+        "numpyVersion": "2.2.6",
+        "caveat": "Only two independent deals per cell: within-cell variance is poorly estimated. Intervals are exploratory, conditional on these configurations/opponents and this selected checkpoint; no multiple-comparison or selection-uncertainty adjustment. Seats are not independent extra deals."
+    },
+    "replay": {
+        "games": 12,
+        "workers": 4,
+        "policy": "selected",
+        "matched": true,
+        "sampling": "Outcome-blind SHA256 minimum per cyclic player-count group; two games per alphabetically sorted map, all five player counts.",
+        "records": [
+            {
+                "seed": "pg-multimap-ppo-20261102-v1:confirmation:0:Benelux|2|original|1:1",
+                "seat": 1,
+                "credit": 1,
+                "steps": 250,
+                "rounds": 10,
+                "matched": true
+            },
+            {
+                "seed": "pg-multimap-ppo-20261102-v1:confirmation:0:Benelux|3|original|0:1",
+                "seat": 0,
+                "credit": 0,
+                "steps": 435,
+                "rounds": 10,
+                "matched": true
+            },
+            {
+                "seed": "pg-multimap-ppo-20261102-v1:confirmation:0:France|4|original|1:1",
+                "seat": 3,
+                "credit": 0.5,
+                "steps": 483,
+                "rounds": 10,
+                "matched": true
+            },
+            {
+                "seed": "pg-multimap-ppo-20261102-v1:confirmation:0:France|5|original|0:1",
+                "seat": 3,
+                "credit": 0,
+                "steps": 623,
+                "rounds": 10,
+                "matched": true
+            },
+            {
+                "seed": "pg-multimap-ppo-20261102-v1:confirmation:0:Germany|6|original|1:0",
+                "seat": 3,
+                "credit": 0,
+                "steps": 651,
+                "rounds": 10,
+                "matched": true
+            },
+            {
+                "seed": "pg-multimap-ppo-20261102-v1:confirmation:0:Germany|2|original|0:1",
+                "seat": 0,
+                "credit": 1,
+                "steps": 361,
+                "rounds": 12,
+                "matched": true
+            },
+            {
+                "seed": "pg-multimap-ppo-20261102-v1:confirmation:0:Italy|3|original|0:1",
+                "seat": 2,
+                "credit": 1,
+                "steps": 452,
+                "rounds": 12,
+                "matched": true
+            },
+            {
+                "seed": "pg-multimap-ppo-20261102-v1:confirmation:0:Italy|4|original|0:0",
+                "seat": 3,
+                "credit": 0,
+                "steps": 537,
+                "rounds": 10,
+                "matched": true
+            },
+            {
+                "seed": "pg-multimap-ppo-20261102-v1:confirmation:0:UK & Ireland|5|recharged|1:0",
+                "seat": 2,
+                "credit": 0,
+                "steps": 611,
+                "rounds": 11,
+                "matched": true
+            },
+            {
+                "seed": "pg-multimap-ppo-20261102-v1:confirmation:0:UK & Ireland|6|recharged|0:1",
+                "seat": 3,
+                "credit": 0,
+                "steps": 787,
+                "rounds": 9,
+                "matched": true
+            },
+            {
+                "seed": "pg-multimap-ppo-20261102-v1:confirmation:0:USA|2|original|1:0",
+                "seat": 1,
+                "credit": 1,
+                "steps": 353,
+                "rounds": 13,
+                "matched": true
+            },
+            {
+                "seed": "pg-multimap-ppo-20261102-v1:confirmation:0:USA|3|recharged|0:1",
+                "seat": 0,
+                "credit": 0,
+                "steps": 429,
+                "rounds": 9,
+                "matched": true
+            }
+        ]
+    },
+    "qualified": false,
+    "decision": "Promising exploratory aggregate improvement, with map regressions; retain as a pilot, not a qualified or production-promoted policy.",
+    "caveats": [
+        "960 paired seat games are 240 independent deal clusters, not 960 independent trials; selection reuses only 80 deals across checkpoints.",
+        "Selected and geographic teacher focal policies face fixed economic heuristic opponents; this is not head-to-head play or evidence of human-level strength.",
+        "Training-map and transfer-map confirmation were not used for checkpoint selection. No final-test seeds were consumed.",
+        "Hash verification and terminal-outcome checks cover all persisted outcomes, but deterministic engine replay covers only 12 selected games, not every game or the training run.",
+        "Optimization losses cannot be independently recomputed without RAM-only trajectories; row counts and checkpoint/history consistency are checked instead.",
+        "The HF source archive hash is recorded provenance, not a downloaded/rehashed archive; config source-file hashes and the frozen local engine generator were verified independently."
+    ]
+}

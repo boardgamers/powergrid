@@ -1,0 +1,165 @@
+{
+    "schema": "multimap-phase-gap-protocol-v1",
+    "seedNamespace": "pg-multimap-phase-gap-20261102-v1",
+    "smokeNamespace": "pg-multimap-phase-gap-smoke-20261102-v1",
+    "maps": ["Germany"],
+    "players": [2, 3, 4, 5, 6],
+    "variants": ["original", "recharged"],
+    "fastBids": [false, true],
+    "dealsPerCell": 2,
+    "allFocalSeats": true,
+    "phases": ["Auction", "Resources", "Building", "Bureaucracy"],
+    "policies": [
+        "reference",
+        "teacher",
+        "reference-except-Auction",
+        "reference-except-Resources",
+        "reference-except-Building",
+        "reference-except-Bureaucracy",
+        "teacher-except-Auction",
+        "teacher-except-Resources",
+        "teacher-except-Building",
+        "teacher-except-Bureaucracy"
+    ],
+    "phaseRoutes": {
+        "reference": {
+            "Auction": "reference",
+            "Resources": "reference",
+            "Building": "reference",
+            "Bureaucracy": "reference"
+        },
+        "teacher": {
+            "Auction": "teacher",
+            "Resources": "teacher",
+            "Building": "teacher",
+            "Bureaucracy": "teacher"
+        },
+        "reference-except-Auction": {
+            "Auction": "teacher",
+            "Resources": "reference",
+            "Building": "reference",
+            "Bureaucracy": "reference"
+        },
+        "reference-except-Resources": {
+            "Auction": "reference",
+            "Resources": "teacher",
+            "Building": "reference",
+            "Bureaucracy": "reference"
+        },
+        "reference-except-Building": {
+            "Auction": "reference",
+            "Resources": "reference",
+            "Building": "teacher",
+            "Bureaucracy": "reference"
+        },
+        "reference-except-Bureaucracy": {
+            "Auction": "reference",
+            "Resources": "reference",
+            "Building": "reference",
+            "Bureaucracy": "teacher"
+        },
+        "teacher-except-Auction": {
+            "Auction": "reference",
+            "Resources": "teacher",
+            "Building": "teacher",
+            "Bureaucracy": "teacher"
+        },
+        "teacher-except-Resources": {
+            "Auction": "teacher",
+            "Resources": "reference",
+            "Building": "teacher",
+            "Bureaucracy": "teacher"
+        },
+        "teacher-except-Building": {
+            "Auction": "teacher",
+            "Resources": "teacher",
+            "Building": "reference",
+            "Bureaucracy": "teacher"
+        },
+        "teacher-except-Bureaucracy": {
+            "Auction": "teacher",
+            "Resources": "teacher",
+            "Building": "teacher",
+            "Bureaucracy": "reference"
+        }
+    },
+    "cells": 20,
+    "independentDeals": 40,
+    "gamesPerPolicy": 160,
+    "games": 1600,
+    "smokeGames": 20,
+    "maxSteps": 4000,
+    "workers": 6,
+    "allowedWorkers": [1, 2, 3, 4, 5, 6],
+    "startMethod": "spawn",
+    "referenceThreads": 1,
+    "threads": 1,
+    "uploadEveryGames": 120,
+    "modelRepo": "coyotte508/powergrid-ai-multimap-v1",
+    "reference": {
+        "runtimeManifestSha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+        "policySha256": "3b492c71ac5653ac7c41dfefd1c397e74e14df6f57629a455c61c8e45f55f52a",
+        "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+        "engineRelease": "2.0.19",
+        "backend": "population-v1",
+        "featureRevision": "4.3-strategic-correction",
+        "settings": {
+            "arm": "filter",
+            "max_steps": 2400,
+            "samples": 8,
+            "threads": 1,
+            "workers": 4
+        },
+        "allPhases": true,
+        "sourcePin": {
+            "repo": "coyotte508/powergrid-ai-training-v1",
+            "repo_type": "dataset",
+            "revision": "7db94147918597e1da1e8ee2f4bd12b96aa067b5",
+            "path": "strong-source-current-auction-grid-v1.tgz",
+            "sha256": "bb2ef01bc09f176c62545971aa02b5e9dadc947fb14dd52ca191667ba456bfe0"
+        },
+        "modelPin": {
+            "repo": "coyotte508/powergrid-ai-germany-v1",
+            "repo_type": "model",
+            "revision": "6b6009756d7b5968bc5b6425efc84a94aab2a1d6",
+            "path": "runs/policy-iteration-training-v2-frozen/ensemble-1/derivative/inference64.onnx",
+            "sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+        }
+    },
+    "authoritativeEngineRelease": "2.0.22",
+    "referenceRequirementsSha256": "bf7ee1ea2c226378119d9645d4952ad49aedc3dce0fcd846124491658b7bd484",
+    "referenceEnvironment": {
+        "numpyPython312Plus": "2.5.3",
+        "numpyPython311": "2.4.6",
+        "onnxruntime": "1.30.0"
+    },
+    "torchEnvironment": {
+        "numpy": "2.2.6",
+        "torch": "2.10.0+cpu"
+    },
+    "referenceCacheMaxBytes": 536870912,
+    "compressedArchiveRamMaxBytes": 268435456,
+    "studyArtifactMaxBytes": 134217728,
+    "referenceVenvMaxBytes": 268435456,
+    "torchEnvironmentPurpose": "Package-version compatibility only for reuse of the isolated-venv helper; no Torch import, model load or forward in diagnostic workers.",
+    "priorFloor": -20,
+    "residualBound": 8,
+    "priorGapEpsilon": 1e-9,
+    "priorGapHistogramUpperBounds": [0, 2, 4, 8, 12, 16, 20],
+    "priorGapHistogramLabels": ["zero", "(0,2]", "(2,4]", "(4,8]", "(8,12]", "(12,16]", "(16,20]"],
+    "priorBoundExplanation": "Frozen logits = prior + residual, residual in [-8,8]. A prior-0 teacher-best action can be lowered only to -8, while a target with prior < -16 can rise only below -8. Thus priorGap > 16 + 1e-9 is counted as cannotOutscoreTeacherBestWithCurrentBound (strictly separated, cannot attain argmax). At exactly 16 the endpoints can tie; it is NOT labelled strictly unreachable. This is a necessary representability diagnostic, not proof that gaps <=16 are reachable by the network. Exact prior == -20 cases are counted separately. Resources/Bureaucracy are fixed in the current PPO; their prior-bound statistics are descriptive hypothetical bounds, not learned-policy failure claims.",
+    "qualificationEligible": false,
+    "fitting": false,
+    "selection": false,
+    "reservedFinalSeedsUsed": false,
+    "notes": [
+        "Diagnostic-only attribution before learning; no PPO candidates, fitting, selection, qualification, promotion or training data.",
+        "Ten focal arms: reference all, deterministic geographic teacher all, reference except one phase uses teacher, teacher except one phase uses exact reference. All nonfocal players use unchanged retained public FILTER in ALL phases, including forced moves.",
+        "Every focal multi-action decision obtains a counterfactual exact ReferenceProcess move, even when teacher actually acts. Compare it against the full authoritative legal atomic menu before applying any move; use game_rl.inputs().prior and teacher.choose(..., geographic) unchanged.",
+        "Only per-game phase aggregates and terminal credit vectors are persisted. No public requests, raw states, actions, observations, trajectories or fixtures are saved as new data. Forced focal moves are separate and never enter agreement/prior denominators.",
+        "40 independent deals, 160 games per arm, 1600 paired seat/arm repetitions. Two deals per cell is descriptive only. All-reference rotations must have identical terminal vectors and focal credits summing to one per deal.",
+        "A distinct smoke namespace contains one original open-auction two-player deal, both focal seats and all ten arms: 20 games, never part of the full diagnostic.",
+        "Any cap/error has explicit zero evaluation bookkeeping credit, never fabricated terminal reward; stop scheduling and retain errors without silent retries. Reuse full exact artifact, manifest and descriptor unchanged; legacy 512 MiB reference-cache cap remains because the 451 MB artifact fits.",
+        "Source/package uses compiled authoritative engine 2.0.22; compatibility with exact reference engine 2.0.19 was validated separately. Six spawn workers by default (1..6 permitted), actual count in identity, one inference thread; compact artifacts <=128 MiB uploaded every 120 games."
+    ]
+}

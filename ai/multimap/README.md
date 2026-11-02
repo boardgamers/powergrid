@@ -386,11 +386,101 @@ full-game replays. These validate the adapter, not playing strength. The common
 regression suites pass 49 Python and 14 Node tests before the screen-specific
 worker tests.
 
-The next frozen **evaluation-only** screen compares `ppo0`, `ppo1`, `ppo2`, their
-equal-logit ensemble, the geographic teacher, and the retained reference itself
-against a population of that exact reference. All six focal policies get the same
-fresh Germany deals and all seats: **1,920 games, 320 per policy, 80 independent
-deals**, four per configuration. The homogeneous reference control must sum to one
-win credit per deal. This is not a training dataset, a checkpoint selection loop,
-or final qualification. All maps outside Germany remain out of this comparator's
-scope; the multi-map model scope is unchanged.
+### Completed neural screen: substantial gap to the reference
+
+The frozen **evaluation-only** screen completed **1,920 games**, 320 per policy,
+on **80 independent Germany deals**, four per configuration. All nonfocal players
+used the exact retained reference. Every focal policy received the same deals and
+all seats. Immutable result revision:
+`9362440850a7a523a0a7b90814bc3a7b8b224702`, run
+`multimap-neural-screen-20261102-v1`.
+
+[`neural-results-v1.json`](neural-results-v1.json) independently audits every
+outcome, source/archive/model hash, credit vector and complete plan. All games
+terminated, with **zero failures/caps**. All 80 reference-control deals reproduced
+identical terminal vectors/counts across focal-seat rotations, summing to one win
+credit per deal. **12 exact replays** cover all six policies, five player counts
+and four rule combinations.
+
+| Focal policy         | Macro credit | Difference vs reference, pp | Approximate 95% interval, pp |
+| -------------------- | -----------: | --------------------------: | ---------------------------: |
+| PPO 0                |      13.125% |                     −15.875 |           [−20.228, −11.522] |
+| PPO 1                |      17.667% |                     −11.333 |            [−16.321, −6.345] |
+| PPO 2                |      14.313% |                     −14.688 |            [−19.608, −9.767] |
+| Equal-logit ensemble |      12.771% |                     −16.229 |           [−20.874, −11.584] |
+| Geographic teacher   |      13.354% |                     −15.646 |           [−20.069, −11.222] |
+| Reference control    |      29.000% |                           0 |                       [0, 0] |
+
+The estimand equally weights the 20 fixed cells, averaging seats within each
+deal first. Intervals use unbiased **stratified paired** variance and a normal
+approximation, not the original summary's unstratified SE. Four clusters per cell
+is small; comparisons are exploratory and not multiplicity-adjusted. The exact
+29% control is mean(1/n) for n=2..6, not certainty about general playing strength.
+**No candidate-versus-teacher interval excludes zero. No winner was selected.**
+The ensemble did not solve the gap; heuristic-opponent gains did not establish
+strength against this neural population. This is not training data, final
+qualification, a human comparison, or evidence about other maps.
+
+The HF job passed **13 Node tests with one archived-compatibility test skipped**
+before artifact recovery, plus 24 Python tests. The earlier local 14-test Node
+suite and reference preflight are separate evidence. Principal runtime versions
+match; historical serve requirements did not fully pin transitive dependencies.
+No action traces were saved, so attribution needs a new diagnostic rather than
+post-hoc guesses from these terminal outcomes.
+
+### Next: phase substitution and prior reachability
+
+[`gap-protocol-v1.json`](gap-protocol-v1.json) freezes a diagnostic, **not another
+blind PPO extension**: 20 Germany cells × two fresh deals × all seats × ten arms
+= **1,600 games / 40 independent deals**. Arms are reference-all, teacher-all,
+reference with one phase replaced by teacher (four), and teacher with one phase
+replaced by reference (four). Nonfocal players always use the exact reference.
+Auction includes upgrade/discard decisions as well as nominations and bids.
+
+Every focal multi-action decision also obtains a legal counterfactual reference
+move, including teacher-controlled decisions. Compact per-phase counters record
+agreement, prior gaps/histograms and reachability; forced moves are excluded from
+agreement denominators. No observations, action traces or training trajectories
+are saved. Phase contrasts include downstream effects and need not add up;
+state visitation differs by arm. All arms will be reported, not selected.
+
+**Verified v1 restriction:** logits are `prior + 8*tanh(raw/8)`. An expert action
+more than 16 prior units behind a best-prior action cannot become greedy-best,
+regardless of training. In particular, floor −20 actions cannot overcome a prior-0
+action. Many bids above heuristic valuation hit this floor. Retaining every legal
+bid structurally did **not** make every bid reachable by the greedy policy. The
+diagnostic counts only gaps **strictly greater than 16 + epsilon**; an exact gap
+of 16 is not called strictly unreachable because endpoint ties are possible.
+
+`gap_study.py` reuses the frozen collector through private function-global
+bindings, never by modifying old modules. The new bridge keeps authoritative
+state in Node and maps exact reference atomic moves against the full legal menu.
+Strict source/runtime/worker resume identity, six single-thread workers, zero-error
+stop behavior, 128 MiB compact artifacts and 120-game HF snapshots remain.
+Only identical snapshot uploads receive bounded retries, never games. A separate
+20-game smoke namespace exercises all ten arms before the full run.
+
+### Separately versioned mechanical teacher repairs
+
+[`teacher-repairs-v2.json`](teacher-repairs-v2.json) describes unused-by-v1 helpers
+`economics_v2.cjs` and `teacher_v2.cjs`, with three targeted repairs:
+
+-   Finish-loss checks precede high-cash/late-round fallback and geographic/UK
+    preferences. They use a conservative fuel-feasible ceiling across possible
+    further builds, rather than vetoing a losing intermediate one-build position.
+    Final power is computed automatically by the scoped engine. Opponents' future
+    building/cash decisions and network reachability are not forecast.
+-   Production plans retain exact per-plant fuel allocations, preventing a hybrid
+    from consuming coal needed by another plant. Normal income/opportunity-cost
+    scoring is retained; endgame planning maximizes feasible output.
+-   Both direct/cached fuel purchase quotes include eligible USA Recharged supply
+    coal at $8, after market stock, bounded by actual supply.
+
+Tests cover legal edited fixtures, hidden-field isolation, 1,200 brute-force
+production/continuation cases and 120 full scoped games. The retained reference
+also makes the hybrid error on the synthetic regression case: it is not a perfect
+oracle. These are correctness repairs, **not measured competitive improvements**.
+No historical teacher/model/reference/engine code was edited, and the phase-gap
+study deliberately continues using **v1**. Any next learning recipe must retain
+Germany/USA/France/UK & Ireland training and Italy/Benelux whole-map holdouts;
+no diagnostic or reserved final roots become training data.

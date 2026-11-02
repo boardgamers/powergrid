@@ -1,0 +1,58 @@
+{
+    "schema": "multimap-teacher-repairs-v2",
+    "teacherSchema": "multimap-teacher-v2",
+    "economicsSchema": "multimap-economics-v2",
+    "status": "opt-in mechanical repairs; not a competitive-strength or qualification result",
+    "integration": "No existing caller changed. Frozen v1 teacher, gap diagnostic, protocol, reference runtime and engine remain unchanged.",
+    "scope": {
+        "maps": ["Germany", "USA", "France", "UK & Ireland", "Italy", "Benelux"],
+        "players": [2, 3, 4, 5, 6],
+        "variants": ["original", "recharged"],
+        "fastBid": [false, true],
+        "styles": ["geographic", "economic", "rush"],
+        "requirements": "Public money, automatic regions/colors, standard deck, nonrandom geography; same frozen features.assertScope checks."
+    },
+    "teacherAPI": {
+        "plantValue": "(g, player, plant) -> number",
+        "scores": "(g, seat, actions = legal(g, seat), style = geographic) -> finite number[]",
+        "choose": "(g, seat, actions = legal(g, seat), style = geographic, rng = () => 0.5) -> { index, action, values }"
+    },
+    "economicsAPI": {
+        "exports": [
+            "SCHEMA",
+            "income",
+            "replenishment",
+            "fuelVariants",
+            "plans",
+            "purchaseCost",
+            "purchaseCosts",
+            "plan",
+            "demand",
+            "futurePressure",
+            "context",
+            "plantValue",
+            "finishGuard",
+            "losingFinish",
+            "scores",
+            "choose"
+        ],
+        "plan": "(g, player, target = owned cities, { buy = true, unused = false, budget = player.money, endgame = false } = {})",
+        "allocations": "plans/plan retain power, used and plants and add allocations: [{ powerPlant: plant number, used: [coal, oil, garbage, uranium] }]. Plan also returns powered, cost, score. Allocation fuel vectors sum exactly to used.",
+        "production": "No-buy plans are holding-feasible. Normal play maximizes income minus 0.2 times fuel opportunity cost. Endgame lexicographically maximizes feasible powered cities, then the existing cost/score objective. Exact per-plant allocations, not aggregate fuel inequalities, govern firing.",
+        "opportunityCost": "Preserves v1 market marginal prices and the $20 empty-market scarcity proxy, separately from purchase quotes. This proxy is constant during sequential firing, including fuel returned to USA supply.",
+        "purchaseCost": "(g, player, used) -> total additional fuel cost or Infinity. USA Recharged coal consumes market stock first, then available supply at $8. No other map/resource supply exception is inferred. Quotes are not storage-capacity/affordability certificates; execution always uses engine-legal actions and plan applies budget.",
+        "purchaseCosts": "(g, player) -> call-local cached equivalent of purchaseCost; obtain a fresh closure after every engine move.",
+        "finishGuard": "(g, seat) -> { triggered, ownPower, opponents: [{ power, money, cities }] }; losingFinish(guard, player, buildPrice) -> boolean. Triggered when the focal next city reaches/exceeds the end threshold. ownPower is then an optimistic continuation ceiling: maximum plant output feasible with CURRENT held fuel, ignoring city/network reachability, houses and all remaining build costs; it is NOT power after just the next build. Untriggered ownPower is null. Opponent power uses their CURRENT networks and held fuel.",
+        "finishVeto": "Reject only if some opponent currently powers more than the focal full-fuel ceiling, or equals that ceiling and has strictly more cash than focal cash after the candidate first build. Legal scoped build spending is nonnegative, so further builds cannot improve focal cash. Equal-cash/city-count vetoes are deliberately omitted: later builds can change city tiebreaks, and no strictly-positive future-cost assumption is required. This bound preserves possible multi-build wins even when another player already triggered the end.",
+        "finishAssumption": "The scoped engine continues Building past the threshold, then AUTOMATICALLY computes maximum fuel-feasible final power after everyone passes (engine.ts Building Pass / calculateMaxCitiesPowered); it does not require competent Bureaucracy powering choices and pays no final-round city income. The comparison is conditional on CURRENT opponent networks/cash, not a future-play certificate: opponents may still build/spend cash, and focal network reachability/affordability may prevent attaining the optimistic ceiling. Allowing a build is not a guaranteed-win claim.",
+        "choose": "(g, seat, rng = () => 0.5, style = economic) -> { index, action }; economics scores omit the teacher's geography/UK preferences."
+    },
+    "tests": {
+        "command": "node --test ai/multimap/test_teacher_v2.cjs",
+        "coverage": "16 tests including engine-generated legal regression fixtures for the three original repairs and the continuation-guard correction; natural 706-move two-build win, first-build-only cash loss, and retained 17-versus-17 ceiling/cash veto; read-only/hidden-getter invariance; ordering and independent brute-force continuation checks; exact USA mixed-stock quotes; UK access, pricing and plant limits; bounded 120-cell full-game legality smoke with rotating styles.",
+        "continuationRegression": "Natural seed teacher-v2-smoke-only:Germany:4:recharged:false, style rotation cells=10, after 706 legal moves: round 11 active seat 2, others passed, 16 cities/$74, fully fueled #20/#40/#38 ceiling 18; opponent seat 0 has 17 powered cities/$67. A TEST-LOCAL historical policy reinstates only the pre-repair one-build veto during replay, because repaired play can diverge earlier; no production/frozen export is changed. Historical Pass loses, Bremen $28 then Pass loses, Bremen $28 plus Hannover $30 then Pass wins automatically at 18 power/$16. All three repaired styles also execute winning two-build continuations, possibly choosing an equal-priced second city.",
+        "fixtureLimit": "Other fixtures are small edited legal snapshots, not claims that every snapshot has a reconstructed historical trajectory. USA reported synthetic #8 (cost 2, output 3) is tested alongside canonical #10; default catalogue #8 differs. Legality smoke is not a gameplay-strength test and did not detect this winning-continuation regression; no gameplay gains are claimed.",
+        "qualificationGames": 0,
+        "datasets": 0
+    }
+}

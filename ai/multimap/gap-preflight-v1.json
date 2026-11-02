@@ -1,0 +1,70 @@
+{
+    "repo": "coyotte508/powergrid-ai-multimap-v1",
+    "revision": "5dd6384db24a0e2009fe2513b6520ead61c8748a",
+    "artifacts": {
+        "audits/multimap-neural-screen-20261102-v1/report.json": {
+            "sha256": "785f765adb31ea414621ebff6a561fb06af39d179da92ec9431eec3a80eb2973",
+            "bytes": 194426
+        },
+        "audits/multimap-neural-screen-20261102-v1/audit.py": {
+            "sha256": "e5202371d7357e9929697eb77309533d0f7ec11ce8e54eab9c6048927f25e2bb",
+            "bytes": 46621
+        },
+        "audits/multimap-neural-screen-20261102-v1/test_audit.py": {
+            "sha256": "8f3622ad917ebe5e5557e7803d5c486ca8490fda2d10cf8a63ef56ab0e9dc0ac",
+            "bytes": 13119
+        },
+        "diagnostics/phase-gap-smoke-v1/plan.json": {
+            "sha256": "beff54397e6eb314fb6f2acb88a078b6e660312914714cb523a7dbbae0f34f8d",
+            "bytes": 19470
+        },
+        "diagnostics/phase-gap-smoke-v1/games.jsonl": {
+            "sha256": "c89e476c83f100b83339907f376574f4d5eb19af23e9418410704f2eecb08006",
+            "bytes": 36953
+        },
+        "diagnostics/phase-gap-smoke-v1/summary.json": {
+            "sha256": "2f733ba29e46f3019dc7303f779ea20d1b7f4fbb6800c01dfad6990b0dba8e88",
+            "bytes": 33153
+        }
+    },
+    "schema": "multimap-phase-gap-preflight-v1",
+    "protocolSha256": "e056655d18b0a9edf9eab0277037ed6725bd5321e312f3452bc106d19926a030",
+    "tests": {
+        "python": 117,
+        "node": 37,
+        "nodeTestsSha256": "2d0d54378cac95b067122454d99993f2ff2221b2ec304974181d14b46e12dfce",
+        "engineUnchangedSince366PassingTests": true
+    },
+    "smoke": {
+        "games": 20,
+        "arms": 10,
+        "workers": 6,
+        "independentDeals": 1,
+        "failures": 0,
+        "identitySha256": "1b3fc868093a2cfb394b8f7d7c1326b47f0dbd4df974576d0126ce60b33af2a4",
+        "allReferenceControlsPassed": true
+    },
+    "neuralAudit": {
+        "games": 1920,
+        "replays": 12,
+        "failures": 0,
+        "reportSha256": "785f765adb31ea414621ebff6a561fb06af39d179da92ec9431eec3a80eb2973"
+    },
+    "teacherV2": {
+        "mechanicalOnly": true,
+        "activeInDiagnostic": false,
+        "tests": 16,
+        "fullGameScopeCells": 120,
+        "legalSmokeMoves": 59965,
+        "productionOracleCases": 1200,
+        "sourceFiles": {
+            "economics_v2.cjs": "dbb2216b3572e4afc882a3da11f683abd998a54b8672c7acda4843ee142d1897",
+            "teacher_v2.cjs": "89a5b6c9e8520224eeb1cb34d8543cfccb2d8313002626a50907d4fa996cbdf6",
+            "test_teacher_v2.cjs": "2e3cda66b1613ec99fa8520d4663e2966f33dc027f6b962225969ebef09f5d40",
+            "teacher-repairs-v2.json": "8977065e381a7a3b704d860219eac71a4f29acd03dd1d9fb2859bcdf29ed6920"
+        },
+        "continuationRegression": "706-move natural-state reconstruction: Pass and one-build/Pass lose, two-build/Pass wins; guard uses optimistic full-fuel ceiling"
+    },
+    "qualified": false,
+    "reservedFinalSeedsUsed": false
+}

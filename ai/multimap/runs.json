@@ -1,8 +1,13 @@
 {
-    "activeRuns": ["multimap-neural-screen-20261102-v1"],
+    "activeRuns": [],
     "runs": [
         {
             "id": "multimap-neural-screen-20261102-v1",
+            "terminalStatus": "COMPLETED",
+            "terminalModelRevision": "9362440850a7a523a0a7b90814bc3a7b8b224702",
+            "result": "neural-results-v1.json",
+            "failures": 0,
+            "decision": "All multi-map policies trail the retained reference population substantially; ensemble does not help. Diagnose phase gaps and prior reachability before extending learning.",
             "jobId": "6ae8ec0f0e0338d1bb7e8dad",
             "url": "https://huggingface.co/jobs/coyotte508/6ae8ec0f0e0338d1bb7e8dad",
             "workflow": "neural",

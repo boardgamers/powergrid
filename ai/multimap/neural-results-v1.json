@@ -1,0 +1,4381 @@
+{
+    "schema": "multimap-independent-neural-audit-v1",
+    "repo": "coyotte508/powergrid-ai-multimap-v1",
+    "revision": "9362440850a7a523a0a7b90814bc3a7b8b224702",
+    "run": "multimap-neural-screen-20261102-v1",
+    "jobId": "6ae8ec0f0e0338d1bb7e8dad",
+    "sourceCommit": "4ca026e34b7ba9743cfa4d4811277a8ac31258ba",
+    "launchReceiptSha256": "e2a8a84e300270cb636be619405d7abf288b336589f5257015d6fa8b0d8255cd",
+    "auditorSha256": "e5202371d7357e9929697eb77309533d0f7ec11ce8e54eab9c6048927f25e2bb",
+    "testsSha256": "8f3622ad917ebe5e5557e7803d5c486ca8490fda2d10cf8a63ef56ab0e9dc0ac",
+    "identitySha256": "9884f33618436d6be5833738815eef512deba9c91ff39bb439ea0b4efb5607b6",
+    "artifactManifestSha256": "169f351897f3e81fae55026aa75b608b1e830b5279a3b70a725822f718279e63",
+    "artifactsVerified": 6,
+    "artifactBytes": 2006302,
+    "boundedInputBytes": 52322111,
+    "inputBudgetBytes": 134217728,
+    "verifiedRemoteFiles": [
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "9362440850a7a523a0a7b90814bc3a7b8b224702",
+            "path": "runs/multimap-neural-screen-20261102-v1/artifacts.json",
+            "bytes": 537,
+            "sha256": "169f351897f3e81fae55026aa75b608b1e830b5279a3b70a725822f718279e63",
+            "gitBlob": "662b83cfe57572c670c0818f20e524ad848bb720",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "9362440850a7a523a0a7b90814bc3a7b8b224702",
+            "path": "runs/multimap-neural-screen-20261102-v1/environment.json",
+            "bytes": 487,
+            "sha256": "a53f3fab09ce4e0df36e7e19d4a5eb5b35e10858cb3e2f05e59b94552940ff43",
+            "gitBlob": "7bf824e1e28ed2743c24933e6dab2551942f8911",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "9362440850a7a523a0a7b90814bc3a7b8b224702",
+            "path": "runs/multimap-neural-screen-20261102-v1/recovery.json",
+            "bytes": 1977,
+            "sha256": "4e3b2086a9cab16aba3cc4db51c98d30bc3c3d41cb1efa68f4de0bd0763ebb0f",
+            "gitBlob": "1c036163fcd58c9a6a17739a25112a6bb9d3d47a",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "9362440850a7a523a0a7b90814bc3a7b8b224702",
+            "path": "runs/multimap-neural-screen-20261102-v1/status.json",
+            "bytes": 75675,
+            "sha256": "7be8ec8666896becc9eee4d89727cb933914139aecb7bfdcc45b4de6d2ac2777",
+            "gitBlob": "6877bf6f3dad7b745c01198c2e4792a0062b8839",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "9362440850a7a523a0a7b90814bc3a7b8b224702",
+            "path": "runs/multimap-neural-screen-20261102-v1/study/plan.json",
+            "bytes": 504991,
+            "sha256": "c72bc049f44af97c5a378c782ab26a407ec07eb4e8842d65c062034ea8604991",
+            "gitBlob": "2376df2df5dffc1016f16d9c9799f9e472a3cd6c",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "9362440850a7a523a0a7b90814bc3a7b8b224702",
+            "path": "runs/multimap-neural-screen-20261102-v1/study/summary.json",
+            "bytes": 63505,
+            "sha256": "fd5f9a19517df4b59551d3a34b8ab12ccfbeb76e1ad36c9d83df4d1a91a7170e",
+            "gitBlob": "b06897b8daaa8cf6a639fa0d06b5fbdd53999276",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "9362440850a7a523a0a7b90814bc3a7b8b224702",
+            "path": "runs/multimap-neural-screen-20261102-v1/study/games.jsonl",
+            "bytes": 1359130,
+            "sha256": "be71a2439d5849d3ebd8046417bedba8ad1edefd96e18109f0157ad4bc4b5d19",
+            "gitBlob": "c0ff9299394c80246762ab635a79766461835603",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-training-v1",
+            "revision": "e32f5117e24269187b148642bfc26f6cecca81a4",
+            "path": "multimap/multimap-neural-screen-20261102-v1/source.tgz",
+            "bytes": 48482270,
+            "sha256": "2bc6bc933b48bef2925f86eb175b2910d335d8ed543dc1261f02c49405aa519a",
+            "gitBlob": "199d33b865ec6c0a4ab807ec519d2c0bd6b69158",
+            "lfsSha256": "2bc6bc933b48bef2925f86eb175b2910d335d8ed543dc1261f02c49405aa519a"
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "b1392c4dea3eb956b0e171d558f2f642c0367831",
+            "path": "runs/multimap-ppo-20261102-v1/ppo/best.pt",
+            "bytes": 611137,
+            "sha256": "50ac24ad28d8fced065133e90980286e0cf4c592afe81df07aaed33cbf181e0c",
+            "gitBlob": "debe2fcef293fcf14676bccf3368c0b430e68611",
+            "lfsSha256": "50ac24ad28d8fced065133e90980286e0cf4c592afe81df07aaed33cbf181e0c"
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "4a7f94fca8a2bdcbb9256c730edc83c64a5d17e9",
+            "path": "runs/multimap-ppo-20261102-replica-1/ppo/best.pt",
+            "bytes": 611201,
+            "sha256": "dd79d3fc6d67594c0a60af24e0acd28a2ec0f5798771148b92748b6781ceda15",
+            "gitBlob": "9503f71d4ba3b3a2df07d973d07bf08aee62e39f",
+            "lfsSha256": "dd79d3fc6d67594c0a60af24e0acd28a2ec0f5798771148b92748b6781ceda15"
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "af87f0b46382e4f06d420f339fd1a65a4ba9ef45",
+            "path": "runs/multimap-ppo-20261102-replica-2/ppo/best.pt",
+            "bytes": 611201,
+            "sha256": "3d2ffeb02feb17462385ff2a4d2ccd930e58bb445bf97df386b7eef5fce9dc91",
+            "gitBlob": "70d9fa7ea05b0db8881fb53a967e79e39a73ef03",
+            "lfsSha256": "3d2ffeb02feb17462385ff2a4d2ccd930e58bb445bf97df386b7eef5fce9dc91"
+        }
+    ],
+    "source": {
+        "sourceManifestSha256": "1649514f9a0231ddffd77737d72623c00211fd4737b5c80c833e720bd5739ee9",
+        "sourceManifestCanonicalSha256": "00f7151122f46ef54ba255be4ffbc207bdf0fff312f98f0326b1309d67c36ca4",
+        "manifestFiles": 1312,
+        "gitFilesVerified": 122,
+        "localFilesCompared": 1312,
+        "localFilesByteIdentical": 1309,
+        "nonServingLocalDifferences": {
+            "ai/multimap/README.md": {
+                "sourceSha256": "f3908f586941f1ccbc740ba52313edf999e3b16db27193d540ab805f7ba369cd",
+                "localSha256": "1c0743b61df50a8705e87fc526edc44ee950eccb9045cfa7642ace7b50efeb1b",
+                "note": "Explicit nonserving bookkeeping/docs/launcher change; archived Git source verified separately."
+            },
+            "ai/multimap/launch.py": {
+                "sourceSha256": "f80b6b7414f94e69f0c56f832a444af416f3c6c650c5efc70364e08eeedd1cd8",
+                "localSha256": "48f0c025cf7470984328b3bb4cb0ae2e2e305f0bfdce2b4e00e95237fbb06b72",
+                "note": "Explicit nonserving bookkeeping/docs/launcher change; archived Git source verified separately."
+            },
+            "ai/multimap/runs.json": {
+                "sourceSha256": "750bf25b4f5423736b319e721e777aaed84508ff937f716e72b7bf289bb6e7db",
+                "localSha256": "0d98223a3dd5c1992193487b40d0ca4e0e83b249e7a0bc33331f3fb71a21e844",
+                "note": "Explicit nonserving bookkeeping/docs/launcher change; archived Git source verified separately."
+            }
+        },
+        "planSourceFiles": {
+            "ai/multimap/candidate-pool-v1.json": "a4f5d80966d9dd5b7af712459dffea255590eeb158b3a8e73cb66b0045d29a4b",
+            "ai/multimap/candidates.py": "1c839a805d7bbe7a58415c2cea2ae1e98685d6373f3ee9ebbace1e841914d5ed",
+            "ai/multimap/data.py": "3a166d6baf8e294aff56ac13310867d34892347fc754493def1d347d65670492",
+            "ai/multimap/features.cjs": "1ced47a4a5e65946a8fdb207f0d6f87d9b535c698729ec36e008d39e0914803b",
+            "ai/multimap/game.cjs": "3a36d6a74407d7a8454edba898fabf9848a4c0615e960bb94554ae363b5b1e2b",
+            "ai/multimap/game_rl.cjs": "b3e8996da51841340b6f4f77b803dcbf01e2f72938ee44b7ba66f593d8167157",
+            "ai/multimap/job_neural.py": "b13031216a8955ec4a7dae1b4bee2788aafbbd131db96084b40b8165b94f48d0",
+            "ai/multimap/model.py": "4f790d8fc718ed63f4df1a34c4a71ce1815abfaff50171cb1f6f256fe2f62a3e",
+            "ai/multimap/neural-study-v1.json": "477a1970083443dc64bf509ec377171cdd1b70fd3a78dde916f3465921ffa865",
+            "ai/multimap/neural_study.py": "6d3d7acf5bb0ae40a33747d90bd2f4397e53d491d64a343d239ff23792d16a08",
+            "ai/multimap/ppo-protocol-v1.json": "51f86acbbd1a495213c40554b3cc0c7933c92a2fc1608690397fbee76dad3cfe",
+            "ai/multimap/protocol.json": "5238557dce37762c552979e371f836ae43e0b87ce411d10289a62b00274551a5",
+            "ai/multimap/reference_evaluate.py": "e22e7b6e9de687d1c903217c03735434622e22e951cfbf030827f430e757cab9",
+            "ai/multimap/reference_game.cjs": "cd4e87bc0754a67b3a9bfffba17ac37353c5f1c4391aacc2ae92e18ad2d71949",
+            "ai/multimap/reference_recover.py": "1d0b7f87fa22c8e5673152abc4496f0b62ce017c2bcdc8b39ae8658febd7fadc",
+            "ai/multimap/requirements-cpu.txt": "975c2199adeee3550ce7ca31644833fa3fe5605789e6067e86b48610acb8ecf4",
+            "ai/multimap/residual.py": "83e8cac000a05b2a015fa4f6612e0e4193ecd134e72f79e77123a2a10346e480",
+            "ai/multimap/teacher.cjs": "d741947ba120f56a17953b92dc553a30cd4476f9594b3161a8a0adb1af0e88cb",
+            "ai/requirements-serve.txt": "bf7ee1ea2c226378119d9645d4952ad49aedc3dce0fcd846124491658b7bd484",
+            "engine/package.json": "2fcdf922cfef2219210b503db5441dbe68d11fe511d0e68ac3499523113aade9",
+            "engine/pnpm-lock.yaml": "571b13bba732db2fe4f214dc3311c9c8fe651e37bdd71b386e8a8d53d8249a2b"
+        },
+        "generatorDigest": "de49041dff36d65d98edc82bae8d3ebc803874596b325e1b6151d2d3a7796c05",
+        "generatorFiles": 48,
+        "folds": {
+            "ai": {
+                "files": 62,
+                "sha256": "58b9dbe275eaecc56f8aff1bfacac69966d98e2221de31ddbe19011499bc9193"
+            },
+            "engine": {
+                "files": 3,
+                "sha256": "b1d13aede31df84dd4d85805aeeaa49046bd82d61db588325a92fa752f6efd1f"
+            },
+            "engine/dist": {
+                "files": 84,
+                "sha256": "26793c68b105acb5e5e3ce2e705fcf748700a146b13f4124729a3b714a9458ed"
+            },
+            "engine/node_modules": {
+                "files": 1105,
+                "sha256": "5787f00e4a3409fcb9a1a824697ad43d255d0f8a41c04cddec058f7178ca5a88"
+            },
+            "engine/src": {
+                "files": 57,
+                "sha256": "2620ab7da6e807154e2821080f11f1c090f9f82197036d1c84e60e087d85da7a"
+            },
+            "runtime": {
+                "files": 1,
+                "sha256": "4e7c6beac5edab32b9f3f9a3a0e8283bef5cba78231026ab8166202e25ddaee0"
+            }
+        },
+        "note": "All archive members hash-checked without extracting. Tracked files checked against frozen Git; all packaged bytes compared locally, permitting only explicitly listed nonserving runs.json/README/launch.py differences. Serving bytes are unchanged, including generated engine, Node and three bundled dependencies."
+    },
+    "reference": {
+        "manifestFiles": 1467,
+        "artifactBytes": 451257098,
+        "localCacheBytes": 452011538,
+        "runtimeManifestSha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+        "policySha256": "3b492c71ac5653ac7c41dfefd1c397e74e14df6f57629a455c61c8e45f55f52a",
+        "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+        "settings": {
+            "arm": "filter",
+            "max_steps": 2400,
+            "samples": 8,
+            "threads": 1,
+            "workers": 4
+        },
+        "recoveredArtifactAllHashesVerified": true,
+        "archivedSourceVerification": "Old 130442976-byte compressed archive was NOT redownloaded; immutable HF metadata/LFS pointer and prior recovery receipt checked. All 1467 recovered manifest members independently rehashed locally; no loader bypass.",
+        "pins": {
+            "source": {
+                "repo": "coyotte508/powergrid-ai-training-v1",
+                "repo_type": "dataset",
+                "revision": "7db94147918597e1da1e8ee2f4bd12b96aa067b5",
+                "path": "strong-source-current-auction-grid-v1.tgz",
+                "sha256": "bb2ef01bc09f176c62545971aa02b5e9dadc947fb14dd52ca191667ba456bfe0"
+            },
+            "model": {
+                "repo": "coyotte508/powergrid-ai-germany-v1",
+                "repo_type": "model",
+                "revision": "6b6009756d7b5968bc5b6425efc84a94aab2a1d6",
+                "path": "runs/policy-iteration-training-v2-frozen/ensemble-1/derivative/inference64.onnx",
+                "sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+            },
+            "ppo": {
+                "repo": "coyotte508/powergrid-ai-multimap-v1",
+                "repo_type": "model",
+                "revision": "b1392c4dea3eb956b0e171d558f2f642c0367831",
+                "path": "runs/multimap-ppo-20261102-v1/ppo/best.pt",
+                "sha256": "50ac24ad28d8fced065133e90980286e0cf4c592afe81df07aaed33cbf181e0c"
+            }
+        },
+        "immutableRemoteMetadata": {
+            "source": {
+                "bytes": 130442976,
+                "gitBlob": "a887824444f6b1d1c3302bc79cafeb3a0b64ec61",
+                "lfsSha256": "bb2ef01bc09f176c62545971aa02b5e9dadc947fb14dd52ca191667ba456bfe0",
+                "contentVerification": "Metadata and prior receipt only; archive not redownloaded"
+            },
+            "model": {
+                "bytes": 14080106,
+                "gitBlob": "c5c1d261039ab0405e5ce2fe3bebb5700d906c7e",
+                "lfsSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+                "contentVerification": "Complete recovered artifact hashes"
+            },
+            "ppo": {
+                "bytes": 611137,
+                "gitBlob": "debe2fcef293fcf14676bccf3368c0b430e68611",
+                "lfsSha256": "50ac24ad28d8fced065133e90980286e0cf4c592afe81df07aaed33cbf181e0c",
+                "contentVerification": "Complete recovered artifact hashes"
+            }
+        }
+    },
+    "environment": {
+        "recorded": {
+            "versions": {
+                "reference": {
+                    "python": [3, 12, 8],
+                    "numpy": "2.5.3",
+                    "onnxruntime": "1.30.0"
+                },
+                "candidate": {
+                    "torch": "2.10.0+cpu",
+                    "numpy": "2.2.6",
+                    "huggingface-hub": "1.29.0",
+                    "python": [3, 12, 8]
+                },
+                "node": "v24.20.0"
+            },
+            "referenceVenvBytes": 150878104,
+            "requirementsSha256": "bf7ee1ea2c226378119d9645d4952ad49aedc3dce0fcd846124491658b7bd484"
+        },
+        "replayVersions": {
+            "reference": {
+                "python": [3, 12, 8],
+                "numpy": "2.5.3",
+                "onnxruntime": "1.30.0"
+            },
+            "candidate": {
+                "python": [3, 12, 8],
+                "torch": "2.10.0+cpu",
+                "numpy": "2.2.6",
+                "huggingface-hub": "1.29.0"
+            },
+            "node": "v24.20.0"
+        },
+        "localReferencePackages": {
+            "flatbuffers": "25.12.19",
+            "onnxruntime": "1.30.0",
+            "protobuf": "7.36.2",
+            "numpy": "2.5.3",
+            "packaging": "26.3"
+        },
+        "caveat": "Historical requirements-serve pins only NumPy and ONNX Runtime. Transitive dependencies are not fully pinned and were not recorded by the HF job; matching principal versions is not a claim of a completely reproducible Python environment."
+    },
+    "candidates": [
+        {
+            "name": "ppo0",
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "b1392c4dea3eb956b0e171d558f2f642c0367831",
+            "path": "runs/multimap-ppo-20261102-v1/ppo/best.pt",
+            "sha256": "50ac24ad28d8fced065133e90980286e0cf4c592afe81df07aaed33cbf181e0c",
+            "update": 8,
+            "historicalSourceCommit": "a3b492b650dec51c34b6f9322d87088b1e863f0e",
+            "historicalSourceFiles": 11,
+            "unchangedServingFilesVerified": true,
+            "nonservingHistoricalDifferences": ["rollout.py", "ppo.py"],
+            "trainingNamespace": "pg-multimap-ppo-20261102-v1"
+        },
+        {
+            "name": "ppo1",
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "4a7f94fca8a2bdcbb9256c730edc83c64a5d17e9",
+            "path": "runs/multimap-ppo-20261102-replica-1/ppo/best.pt",
+            "sha256": "dd79d3fc6d67594c0a60af24e0acd28a2ec0f5798771148b92748b6781ceda15",
+            "update": 16,
+            "historicalSourceCommit": "4ca026e34b7ba9743cfa4d4811277a8ac31258ba",
+            "historicalSourceFiles": 11,
+            "unchangedServingFilesVerified": true,
+            "nonservingHistoricalDifferences": [],
+            "trainingNamespace": "pg-multimap-ppo-20261102-v1:replica-1"
+        },
+        {
+            "name": "ppo2",
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "af87f0b46382e4f06d420f339fd1a65a4ba9ef45",
+            "path": "runs/multimap-ppo-20261102-replica-2/ppo/best.pt",
+            "sha256": "3d2ffeb02feb17462385ff2a4d2ccd930e58bb445bf97df386b7eef5fce9dc91",
+            "update": 12,
+            "historicalSourceCommit": "4ca026e34b7ba9743cfa4d4811277a8ac31258ba",
+            "historicalSourceFiles": 11,
+            "unchangedServingFilesVerified": true,
+            "nonservingHistoricalDifferences": [],
+            "trainingNamespace": "pg-multimap-ppo-20261102-v1:replica-2"
+        }
+    ],
+    "ensemble": {
+        "name": "ensemble",
+        "members": ["ppo0", "ppo1", "ppo2"],
+        "weights": [1, 1, 1],
+        "rule": "Arithmetic mean of the three legal-action logits; common heuristic prior is preserved. Greedy argmax. No fitting, calibrated probabilities or confirmation-tuned weights. Values averaged for API compatibility only, not calibrated ensemble win probability."
+    },
+    "coverage": {
+        "cells": 20,
+        "dealsPerCell": 4,
+        "independentDeals": 80,
+        "seatsPerPolicy": 320,
+        "policies": ["ppo0", "ppo1", "ppo2", "ensemble", "teacher", "reference"],
+        "games": 1920,
+        "terminalGames": 1920,
+        "failures": 0,
+        "caps": 0,
+        "duplicateOutcomes": 0,
+        "missingOutcomes": 0,
+        "completePlanVerified": true,
+        "allCreditVectorsEqualWinnerShares": true,
+        "allReferenceDealsVerified": 80,
+        "allReferenceTerminalFieldsIdenticalAcrossSeats": true,
+        "allReferenceFocalCreditSumsExactlyOne": true
+    },
+    "groups": {
+        "all": {
+            "strata": 20,
+            "independentDeals": 80,
+            "seatsPerPolicy": 320,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.13125,
+                    "gameMeanCredit": 0.09375,
+                    "creditSum": 30.0,
+                    "games": 320,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.022206808890768415,
+                            "approximateNormal95": [-0.20227534542590608, -0.11522465457409391],
+                            "difference": -0.15875
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.014787753786056793,
+                            "approximateNormal95": [-0.03127566408733798, 0.02669233075400465],
+                            "difference": -0.002291666666666665
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.17666666666666667,
+                    "gameMeanCredit": 0.125,
+                    "creditSum": 40.0,
+                    "games": 320,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.025449091339377915,
+                            "approximateNormal95": [-0.16321355235851404, -0.06345311430815262],
+                            "difference": -0.11333333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.022050880241941465,
+                            "approximateNormal95": [-9.47252742052665e-5, 0.08634472527420528],
+                            "difference": 0.043125000000000004
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.143125,
+                    "gameMeanCredit": 0.109375,
+                    "creditSum": 35.0,
+                    "games": 320,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.025102509742461414,
+                            "approximateNormal95": [-0.19607591909522437, -0.09767408090477564],
+                            "difference": -0.146875
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.01944097191214701,
+                            "approximateNormal95": [-0.028520971614474804, 0.04768763828114147],
+                            "difference": 0.009583333333333334
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.12770833333333334,
+                    "gameMeanCredit": 0.09375,
+                    "creditSum": 30.0,
+                    "games": 320,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.023697859432165316,
+                            "approximateNormal95": [-0.2087394711537107, -0.11584386217962264],
+                            "difference": -0.16229166666666667
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.013659212059049164,
+                            "approximateNormal95": [-0.03260538896906969, 0.020938722302403026],
+                            "difference": -0.005833333333333333
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.13354166666666667,
+                    "gameMeanCredit": 0.096875,
+                    "creditSum": 31.0,
+                    "games": 320,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.022569658118646647,
+                            "approximateNormal95": [-0.20069486324588076, -0.11222180342078591],
+                            "difference": -0.15645833333333334
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.29,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 80.0,
+                    "games": 320,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.022569658118646647,
+                            "approximateNormal95": [0.11222180342078591, 0.20069486324588076],
+                            "difference": 0.15645833333333334
+                        }
+                    }
+                }
+            }
+        },
+        "players:2": {
+            "strata": 4,
+            "independentDeals": 16,
+            "seatsPerPolicy": 32,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.34375,
+                    "gameMeanCredit": 0.34375,
+                    "creditSum": 11.0,
+                    "games": 32,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.06987712429686843,
+                            "approximateNormal95": [-0.2932091636218621, -0.019290836378137888],
+                            "difference": -0.15625
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.03125,
+                            "approximateNormal95": [-0.03, 0.0925],
+                            "difference": 0.03125
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.46875,
+                    "gameMeanCredit": 0.46875,
+                    "creditSum": 15.0,
+                    "games": 32,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.09716019846967515,
+                            "approximateNormal95": [-0.2216839890005633, 0.1591839890005633],
+                            "difference": -0.03125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.08267972847076846,
+                            "approximateNormal95": [-0.005802267802706179, 0.3183022678027062],
+                            "difference": 0.15625
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.28125,
+                    "gameMeanCredit": 0.28125,
+                    "creditSum": 9.0,
+                    "games": 32,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0865273319053966,
+                            "approximateNormal95": [-0.38834357053457735, -0.049156429465422646],
+                            "difference": -0.21875
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.05412658773652741,
+                            "approximateNormal95": [-0.13733811196359375, 0.07483811196359373],
+                            "difference": -0.03125
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.3125,
+                    "gameMeanCredit": 0.3125,
+                    "creditSum": 10.0,
+                    "games": 32,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0919975090242484,
+                            "approximateNormal95": [-0.36781511768752684, -0.007184882312473134],
+                            "difference": -0.1875
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.04419417382415922,
+                            "approximateNormal95": [-0.08662058069535207, 0.08662058069535207],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.3125,
+                    "gameMeanCredit": 0.3125,
+                    "creditSum": 10.0,
+                    "games": 32,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.08462540004829125,
+                            "approximateNormal95": [-0.35336578409465086, -0.02163421590534914],
+                            "difference": -0.1875
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.5,
+                    "gameMeanCredit": 0.5,
+                    "creditSum": 16.0,
+                    "games": 32,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.08462540004829125,
+                            "approximateNormal95": [0.02163421590534914, 0.35336578409465086],
+                            "difference": 0.1875
+                        }
+                    }
+                }
+            }
+        },
+        "players:3": {
+            "strata": 4,
+            "independentDeals": 16,
+            "seatsPerPolicy": 48,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.1875,
+                    "gameMeanCredit": 0.1875,
+                    "creditSum": 9.0,
+                    "games": 48,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.07511565157216644,
+                            "approximateNormal95": [-0.2930600104147796, 0.001393343748112924],
+                            "difference": -0.14583333333333331
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.05641693336552751,
+                            "approximateNormal95": [-0.15224385606310056, 0.06891052272976725],
+                            "difference": -0.04166666666666666
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.22916666666666666,
+                    "gameMeanCredit": 0.22916666666666666,
+                    "creditSum": 11.0,
+                    "games": 48,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.06909634979907084,
+                            "approximateNormal95": [-0.2395955122728455, 0.03126217893951219],
+                            "difference": -0.10416666666666666
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.048112522432468816,
+                            "approximateNormal95": [-0.09430054396763887, 0.09430054396763887],
+                            "difference": 3.469446951953614e-18
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.25,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 12.0,
+                    "games": 48,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.07795119555779044,
+                            "approximateNormal95": [-0.2361176766266026, 0.06945100995993593],
+                            "difference": -0.08333333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [-0.10166666666666667, 0.14333333333333334],
+                            "difference": 0.020833333333333332
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.1875,
+                    "gameMeanCredit": 0.1875,
+                    "creditSum": 9.0,
+                    "games": 48,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.060140653040586016,
+                            "approximateNormal95": [-0.2637090132928819, -0.027957653373784724],
+                            "difference": -0.14583333333333331
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.041666666666666664,
+                            "approximateNormal95": [-0.12333333333333332, 0.04],
+                            "difference": -0.041666666666666664
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.22916666666666666,
+                    "gameMeanCredit": 0.22916666666666666,
+                    "creditSum": 11.0,
+                    "games": 48,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.060140653040586016,
+                            "approximateNormal95": [-0.22204234662621525, 0.013709013292881933],
+                            "difference": -0.10416666666666666
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.3333333333333333,
+                    "gameMeanCredit": 0.3333333333333333,
+                    "creditSum": 16.0,
+                    "games": 48,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.060140653040586016,
+                            "approximateNormal95": [-0.013709013292881933, 0.22204234662621525],
+                            "difference": 0.10416666666666666
+                        }
+                    }
+                }
+            }
+        },
+        "players:4": {
+            "strata": 4,
+            "independentDeals": 16,
+            "seatsPerPolicy": 64,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.03125,
+                    "gameMeanCredit": 0.03125,
+                    "creditSum": 2.0,
+                    "games": 64,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.02209708691207961,
+                            "approximateNormal95": [-0.26206029034767603, -0.17543970965232397],
+                            "difference": -0.21875
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.015625,
+                            "approximateNormal95": [-0.04625, 0.015],
+                            "difference": -0.015625
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.09375,
+                    "gameMeanCredit": 0.09375,
+                    "creditSum": 6.0,
+                    "games": 64,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0285272165367274,
+                            "approximateNormal95": [-0.2121633444119857, -0.1003366555880143],
+                            "difference": -0.15625
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.03252603124165832,
+                            "approximateNormal95": [-0.016876021233650312, 0.11062602123365031],
+                            "difference": 0.046875
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.078125,
+                    "gameMeanCredit": 0.078125,
+                    "creditSum": 5.0,
+                    "games": 64,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.029919597117385566,
+                            "approximateNormal95": [-0.23051741035007572, -0.11323258964992429],
+                            "difference": -0.171875
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.03125,
+                            "approximateNormal95": [-0.03, 0.0925],
+                            "difference": 0.03125
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.046875,
+                    "gameMeanCredit": 0.046875,
+                    "creditSum": 3.0,
+                    "games": 64,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.027063293868263706,
+                            "approximateNormal95": [-0.25616905598179684, -0.15008094401820313],
+                            "difference": -0.203125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.046875,
+                    "gameMeanCredit": 0.046875,
+                    "creditSum": 3.0,
+                    "games": 64,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.027063293868263706,
+                            "approximateNormal95": [-0.25616905598179684, -0.15008094401820313],
+                            "difference": -0.203125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.25,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 16.0,
+                    "games": 64,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.027063293868263706,
+                            "approximateNormal95": [0.15008094401820313, 0.25616905598179684],
+                            "difference": 0.203125
+                        }
+                    }
+                }
+            }
+        },
+        "players:5": {
+            "strata": 4,
+            "independentDeals": 16,
+            "seatsPerPolicy": 80,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.0625,
+                    "gameMeanCredit": 0.0625,
+                    "creditSum": 5.0,
+                    "games": 80,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.03145764348029479,
+                            "approximateNormal95": [-0.19915698122137782, -0.07584301877862222],
+                            "difference": -0.1375
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.022821773229381923,
+                            "approximateNormal95": [-0.01973067552958857, 0.06973067552958857],
+                            "difference": 0.025
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.05,
+                    "gameMeanCredit": 0.05,
+                    "creditSum": 4.0,
+                    "games": 80,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.027003086243366087,
+                            "approximateNormal95": [-0.20292604903699754, -0.0970739509630025],
+                            "difference": -0.15000000000000002
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.023935677693908454,
+                            "approximateNormal95": [-0.03441392828006057, 0.05941392828006056],
+                            "difference": 0.0125
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.07500000000000001,
+                    "gameMeanCredit": 0.075,
+                    "creditSum": 6.0,
+                    "games": 80,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.032274861218395144,
+                            "approximateNormal95": [-0.18825872798805451, -0.06174127201194554],
+                            "difference": -0.12500000000000003
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.033071891388307385,
+                            "approximateNormal95": [-0.02732090712108247, 0.10232090712108248],
+                            "difference": 0.037500000000000006
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.05,
+                    "gameMeanCredit": 0.05,
+                    "creditSum": 4.0,
+                    "games": 80,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.03061862178478973,
+                            "approximateNormal95": [-0.2100124986981879, -0.08998750130181216],
+                            "difference": -0.15000000000000002
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.02165063509461097,
+                            "approximateNormal95": [-0.029935244785437496, 0.0549352447854375],
+                            "difference": 0.0125
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.037500000000000006,
+                    "gameMeanCredit": 0.0375,
+                    "creditSum": 3.0,
+                    "games": 80,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.023935677693908454,
+                            "approximateNormal95": [-0.20941392828006056, -0.11558607171993944],
+                            "difference": -0.1625
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.2,
+                    "gameMeanCredit": 0.2,
+                    "creditSum": 16.0,
+                    "games": 80,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.023935677693908454,
+                            "approximateNormal95": [0.11558607171993944, 0.20941392828006056],
+                            "difference": 0.1625
+                        }
+                    }
+                }
+            }
+        },
+        "players:6": {
+            "strata": 4,
+            "independentDeals": 16,
+            "seatsPerPolicy": 96,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.03125,
+                    "gameMeanCredit": 0.03125,
+                    "creditSum": 3.0,
+                    "games": 96,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.018042195912175804,
+                            "approximateNormal95": [-0.17077937065453125, -0.10005396267880208],
+                            "difference": -0.13541666666666666
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.02329237476562281,
+                            "approximateNormal95": [-0.05606972120728737, 0.03523638787395404],
+                            "difference": -0.010416666666666666
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.041666666666666664,
+                    "gameMeanCredit": 0.041666666666666664,
+                    "creditSum": 4.0,
+                    "games": 96,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.020833333333333332,
+                            "approximateNormal95": [-0.16583333333333333, -0.08416666666666667],
+                            "difference": -0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.037073188375108715,
+                            "approximateNormal95": [-0.07266344921521307, 0.07266344921521307],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.03125,
+                    "gameMeanCredit": 0.03125,
+                    "creditSum": 3.0,
+                    "games": 96,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.015911721163041112,
+                            "approximateNormal95": [-0.16660364014622725, -0.10422969318710608],
+                            "difference": -0.13541666666666666
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.02329237476562281,
+                            "approximateNormal95": [-0.05606972120728737, 0.03523638787395404],
+                            "difference": -0.010416666666666666
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.041666666666666664,
+                    "gameMeanCredit": 0.041666666666666664,
+                    "creditSum": 4.0,
+                    "games": 96,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.017010345435994292,
+                            "approximateNormal95": [-0.1583402770545488, -0.09165972294545119],
+                            "difference": -0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.022502571869471737,
+                            "approximateNormal95": [-0.044105040864164606, 0.044105040864164606],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.041666666666666664,
+                    "gameMeanCredit": 0.041666666666666664,
+                    "creditSum": 4.0,
+                    "games": 96,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.02551551815399144,
+                            "approximateNormal95": [-0.17501041558182323, -0.07498958441817678],
+                            "difference": -0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.16666666666666666,
+                    "gameMeanCredit": 0.16666666666666666,
+                    "creditSum": 16.0,
+                    "games": 96,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.02551551815399144,
+                            "approximateNormal95": [0.07498958441817678, 0.17501041558182323],
+                            "difference": 0.125
+                        }
+                    }
+                }
+            }
+        },
+        "variant:original": {
+            "strata": 10,
+            "independentDeals": 40,
+            "seatsPerPolicy": 160,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.14833333333333334,
+                    "gameMeanCredit": 0.10625,
+                    "creditSum": 17.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.02592055169165965,
+                            "approximateNormal95": [-0.19247094798231956, -0.09086238535101375],
+                            "difference": -0.14166666666666666
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.01436140661634507,
+                            "approximateNormal95": [-0.015648356968036337, 0.04064835696803634],
+                            "difference": 0.0125
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.17833333333333334,
+                    "gameMeanCredit": 0.125,
+                    "creditSum": 20.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0324679328979636,
+                            "approximateNormal95": [-0.1753038151466753, -0.048029518186658016],
+                            "difference": -0.11166666666666666
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.02503932092914248,
+                            "approximateNormal95": [-0.006577069021119264, 0.09157706902111926],
+                            "difference": 0.042499999999999996
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.1725,
+                    "gameMeanCredit": 0.13125,
+                    "creditSum": 21.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.03581394824490716,
+                            "approximateNormal95": [-0.18769533856001805, -0.047304661439981965],
+                            "difference": -0.11750000000000001
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.028522651816874717,
+                            "approximateNormal95": [-0.01923773089440778, 0.09257106422774111],
+                            "difference": 0.03666666666666667
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.14833333333333334,
+                    "gameMeanCredit": 0.10625,
+                    "creditSum": 17.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.03281718440988794,
+                            "approximateNormal95": [-0.20598834811004701, -0.0773449852232863],
+                            "difference": -0.14166666666666666
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.01552328000849763,
+                            "approximateNormal95": [-0.017925628816655353, 0.042925628816655355],
+                            "difference": 0.0125
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.13583333333333333,
+                    "gameMeanCredit": 0.1,
+                    "creditSum": 16.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.03167214864829982,
+                            "approximateNormal95": [-0.2162440780173343, -0.09208925531599903],
+                            "difference": -0.15416666666666667
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.29,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 40.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.03167214864829982,
+                            "approximateNormal95": [0.09208925531599903, 0.2162440780173343],
+                            "difference": 0.15416666666666667
+                        }
+                    }
+                }
+            }
+        },
+        "variant:recharged": {
+            "strata": 10,
+            "independentDeals": 40,
+            "seatsPerPolicy": 160,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.11416666666666667,
+                    "gameMeanCredit": 0.08125,
+                    "creditSum": 13.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.03606514168063733,
+                            "approximateNormal95": [-0.2465210110273825, -0.10514565563928417],
+                            "difference": -0.17583333333333334
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.02585460593681807,
+                            "approximateNormal95": [-0.06775836096949675, 0.033591694302830086],
+                            "difference": -0.017083333333333332
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.175,
+                    "gameMeanCredit": 0.125,
+                    "creditSum": 20.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.03919768275463913,
+                            "approximateNormal95": [-0.1918274581990927, -0.0381725418009073],
+                            "difference": -0.11499999999999999
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.03630423784057703,
+                            "approximateNormal95": [-0.02740630616753098, 0.11490630616753097],
+                            "difference": 0.04375
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.11374999999999999,
+                    "gameMeanCredit": 0.0875,
+                    "creditSum": 14.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.03518387546295309,
+                            "approximateNormal95": [-0.24521039590738802, -0.10728960409261194],
+                            "difference": -0.17625
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.026424683326179883,
+                            "approximateNormal95": [-0.06929237931931256, 0.034292379319312574],
+                            "difference": -0.017499999999999995
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.10708333333333334,
+                    "gameMeanCredit": 0.08125,
+                    "creditSum": 13.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.034196294741887956,
+                            "approximateNormal95": [-0.24994140436076706, -0.11589192897256628],
+                            "difference": -0.18291666666666667
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.02247941445131688,
+                            "approximateNormal95": [-0.06822631899124774, 0.01989298565791442],
+                            "difference": -0.024166666666666663
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.13125,
+                    "gameMeanCredit": 0.09375,
+                    "creditSum": 15.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.032162600491415026,
+                            "approximateNormal95": [-0.22178869696317344, -0.09571130303682655],
+                            "difference": -0.15875
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.29,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 40.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.032162600491415026,
+                            "approximateNormal95": [0.09571130303682655, 0.22178869696317344],
+                            "difference": 0.15875
+                        }
+                    }
+                }
+            }
+        },
+        "auction:open": {
+            "strata": 10,
+            "independentDeals": 40,
+            "seatsPerPolicy": 160,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.07125000000000001,
+                    "gameMeanCredit": 0.0625,
+                    "creditSum": 10.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.028749999999999998,
+                            "approximateNormal95": [-0.2751, -0.1624],
+                            "difference": -0.21875
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.02463036931498577,
+                            "approximateNormal95": [-0.05619219052403877, 0.04035885719070544],
+                            "difference": -0.007916666666666664
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.16125,
+                    "gameMeanCredit": 0.11875,
+                    "creditSum": 19.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.03632973351178119,
+                            "approximateNormal95": [-0.19995627768309115, -0.057543722316908866],
+                            "difference": -0.12875
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.03519703138786734,
+                            "approximateNormal95": [0.013097151813113342, 0.1510695148535533],
+                            "difference": 0.08208333333333333
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.10333333333333335,
+                    "gameMeanCredit": 0.0875,
+                    "creditSum": 14.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.030444241686267238,
+                            "approximateNormal95": [-0.24633738037175046, -0.1269959529615829],
+                            "difference": -0.18666666666666668
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.031241665555259156,
+                            "approximateNormal95": [-0.03706699782164127, 0.08540033115497461],
+                            "difference": 0.02416666666666667
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.08916666666666666,
+                    "gameMeanCredit": 0.08125,
+                    "creditSum": 13.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.025246470233663543,
+                            "approximateNormal95": [-0.25031641499131385, -0.1513502516753528],
+                            "difference": -0.20083333333333334
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.023402674744250607,
+                            "approximateNormal95": [-0.03586924249873119, 0.055869242498731195],
+                            "difference": 0.01
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.07916666666666666,
+                    "gameMeanCredit": 0.06875,
+                    "creditSum": 11.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.023996045198848605,
+                            "approximateNormal95": [-0.2578655819230766, -0.16380108474359006],
+                            "difference": -0.21083333333333334
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.29,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 40.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.023996045198848605,
+                            "approximateNormal95": [0.16380108474359006, 0.2578655819230766],
+                            "difference": 0.21083333333333334
+                        }
+                    }
+                }
+            }
+        },
+        "auction:sealed": {
+            "strata": 10,
+            "independentDeals": 40,
+            "seatsPerPolicy": 160,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.19125,
+                    "gameMeanCredit": 0.125,
+                    "creditSum": 20.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.03385272432824933,
+                            "approximateNormal95": [-0.1651013396833687, -0.032398660316631314],
+                            "difference": -0.09875
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.016372402253657083,
+                            "approximateNormal95": [-0.02875657508383455, 0.03542324175050122],
+                            "difference": 0.003333333333333333
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.19208333333333333,
+                    "gameMeanCredit": 0.13125,
+                    "creditSum": 21.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.03564793770981658,
+                            "approximateNormal95": [-0.16778662457790716, -0.02804670875542617],
+                            "difference": -0.09791666666666667
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.026573186848010143,
+                            "approximateNormal95": [-0.04791677955543321, 0.056250112888766544],
+                            "difference": 0.004166666666666667
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.18291666666666667,
+                    "gameMeanCredit": 0.13125,
+                    "creditSum": 21.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.03992107375346547,
+                            "approximateNormal95": [-0.18532863789012566, -0.028838028776541014],
+                            "difference": -0.10708333333333334
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.023146574020551917,
+                            "approximateNormal95": [-0.050367285080281765, 0.040367285080281756],
+                            "difference": -0.005000000000000001
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.16625,
+                    "gameMeanCredit": 0.10625,
+                    "creditSum": 17.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0401119671346022,
+                            "approximateNormal95": [-0.2023694555838203, -0.04513054441617968],
+                            "difference": -0.12375
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.014092945437739802,
+                            "approximateNormal95": [-0.04928883972463668, 0.005955506391303343],
+                            "difference": -0.021666666666666667
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.18791666666666668,
+                    "gameMeanCredit": 0.125,
+                    "creditSum": 20.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.03823280901510096,
+                            "approximateNormal95": [-0.17701963900293122, -0.027147027663735446],
+                            "difference": -0.10208333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.29,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 40.0,
+                    "games": 160,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.03823280901510096,
+                            "approximateNormal95": [0.027147027663735446, 0.17701963900293122],
+                            "difference": 0.10208333333333333
+                        }
+                    }
+                }
+            }
+        },
+        "cell:Germany|2|original|0": {
+            "strata": 1,
+            "independentDeals": 4,
+            "seatsPerPolicy": 8,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.125,
+                    "gameMeanCredit": 0.125,
+                    "creditSum": 1.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.125,
+                            "approximateNormal95": [-0.62, -0.13],
+                            "difference": -0.375
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.375,
+                    "gameMeanCredit": 0.375,
+                    "creditSum": 3.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.125,
+                            "approximateNormal95": [-0.37, 0.12],
+                            "difference": -0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.14433756729740643,
+                            "approximateNormal95": [-0.03290163190291662, 0.5329016319029166],
+                            "difference": 0.25
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.25,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 2.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.14433756729740643,
+                            "approximateNormal95": [-0.5329016319029166, 0.03290163190291662],
+                            "difference": -0.25
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.125,
+                            "approximateNormal95": [-0.12, 0.37],
+                            "difference": 0.125
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.25,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 2.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.14433756729740643,
+                            "approximateNormal95": [-0.5329016319029166, 0.03290163190291662],
+                            "difference": -0.25
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.125,
+                            "approximateNormal95": [-0.12, 0.37],
+                            "difference": 0.125
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.125,
+                    "gameMeanCredit": 0.125,
+                    "creditSum": 1.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.125,
+                            "approximateNormal95": [-0.62, -0.13],
+                            "difference": -0.375
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.5,
+                    "gameMeanCredit": 0.5,
+                    "creditSum": 4.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.125,
+                            "approximateNormal95": [0.13, 0.62],
+                            "difference": 0.375
+                        }
+                    }
+                }
+            }
+        },
+        "cell:Germany|2|original|1": {
+            "strata": 1,
+            "independentDeals": 4,
+            "seatsPerPolicy": 8,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.75,
+                    "gameMeanCredit": 0.75,
+                    "creditSum": 6.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.14433756729740643,
+                            "approximateNormal95": [-0.03290163190291662, 0.5329016319029166],
+                            "difference": 0.25
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.125,
+                            "approximateNormal95": [-0.12, 0.37],
+                            "difference": 0.125
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.75,
+                    "gameMeanCredit": 0.75,
+                    "creditSum": 6.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.25,
+                            "approximateNormal95": [-0.24, 0.74],
+                            "difference": 0.25
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.125,
+                            "approximateNormal95": [-0.12, 0.37],
+                            "difference": 0.125
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.5,
+                    "gameMeanCredit": 0.5,
+                    "creditSum": 4.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.2041241452319315,
+                            "approximateNormal95": [-0.40008332465458574, 0.40008332465458574],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.125,
+                            "approximateNormal95": [-0.37, 0.12],
+                            "difference": -0.125
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.625,
+                    "gameMeanCredit": 0.625,
+                    "creditSum": 5.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.23935677693908453,
+                            "approximateNormal95": [-0.3441392828006057, 0.5941392828006057],
+                            "difference": 0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.625,
+                    "gameMeanCredit": 0.625,
+                    "creditSum": 5.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.23935677693908453,
+                            "approximateNormal95": [-0.3441392828006057, 0.5941392828006057],
+                            "difference": 0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.5,
+                    "gameMeanCredit": 0.5,
+                    "creditSum": 4.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.23935677693908453,
+                            "approximateNormal95": [-0.5941392828006057, 0.3441392828006057],
+                            "difference": -0.125
+                        }
+                    }
+                }
+            }
+        },
+        "cell:Germany|2|recharged|0": {
+            "strata": 1,
+            "independentDeals": 4,
+            "seatsPerPolicy": 8,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.5, -0.5],
+                            "difference": -0.5
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.375,
+                    "gameMeanCredit": 0.375,
+                    "creditSum": 3.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.23935677693908453,
+                            "approximateNormal95": [-0.5941392828006057, 0.3441392828006057],
+                            "difference": -0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.23935677693908453,
+                            "approximateNormal95": [-0.09413928280060568, 0.8441392828006057],
+                            "difference": 0.375
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.5, -0.5],
+                            "difference": -0.5
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.5, -0.5],
+                            "difference": -0.5
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.5, -0.5],
+                            "difference": -0.5
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.5,
+                    "gameMeanCredit": 0.5,
+                    "creditSum": 4.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.5, 0.5],
+                            "difference": 0.5
+                        }
+                    }
+                }
+            }
+        },
+        "cell:Germany|2|recharged|1": {
+            "strata": 1,
+            "independentDeals": 4,
+            "seatsPerPolicy": 8,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.5,
+                    "gameMeanCredit": 0.5,
+                    "creditSum": 4.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.2041241452319315,
+                            "approximateNormal95": [-0.40008332465458574, 0.40008332465458574],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.375,
+                    "gameMeanCredit": 0.375,
+                    "creditSum": 3.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.125,
+                            "approximateNormal95": [-0.37, 0.12],
+                            "difference": -0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.125,
+                            "approximateNormal95": [-0.37, 0.12],
+                            "difference": -0.125
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.375,
+                    "gameMeanCredit": 0.375,
+                    "creditSum": 3.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.23935677693908453,
+                            "approximateNormal95": [-0.5941392828006057, 0.3441392828006057],
+                            "difference": -0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.125,
+                            "approximateNormal95": [-0.37, 0.12],
+                            "difference": -0.125
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.375,
+                    "gameMeanCredit": 0.375,
+                    "creditSum": 3.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.23935677693908453,
+                            "approximateNormal95": [-0.5941392828006057, 0.3441392828006057],
+                            "difference": -0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.125,
+                            "approximateNormal95": [-0.37, 0.12],
+                            "difference": -0.125
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.5,
+                    "gameMeanCredit": 0.5,
+                    "creditSum": 4.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.2041241452319315,
+                            "approximateNormal95": [-0.40008332465458574, 0.40008332465458574],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.5,
+                    "gameMeanCredit": 0.5,
+                    "creditSum": 4.0,
+                    "games": 8,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.2041241452319315,
+                            "approximateNormal95": [-0.40008332465458574, 0.40008332465458574],
+                            "difference": 0.0
+                        }
+                    }
+                }
+            }
+        },
+        "cell:Germany|3|original|0": {
+            "strata": 1,
+            "independentDeals": 4,
+            "seatsPerPolicy": 12,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.3333333333333333, -0.3333333333333333],
+                            "difference": -0.3333333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.3333333333333333, -0.3333333333333333],
+                            "difference": -0.3333333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.16666666666666666,
+                    "gameMeanCredit": 0.16666666666666666,
+                    "creditSum": 2.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.16666666666666666,
+                            "approximateNormal95": [-0.4933333333333333, 0.16],
+                            "difference": -0.16666666666666666
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.16666666666666666,
+                            "approximateNormal95": [-0.16, 0.4933333333333333],
+                            "difference": 0.16666666666666666
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.3333333333333333, -0.3333333333333333],
+                            "difference": -0.3333333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.3333333333333333, -0.3333333333333333],
+                            "difference": -0.3333333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.3333333333333333,
+                    "gameMeanCredit": 0.3333333333333333,
+                    "creditSum": 4.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.3333333333333333, 0.3333333333333333],
+                            "difference": 0.3333333333333333
+                        }
+                    }
+                }
+            }
+        },
+        "cell:Germany|3|original|1": {
+            "strata": 1,
+            "independentDeals": 4,
+            "seatsPerPolicy": 12,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.25,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 3.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.08333333333333333,
+                            "approximateNormal95": [-0.24666666666666665, 0.08],
+                            "difference": -0.08333333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.25,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 3.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.08333333333333333,
+                            "approximateNormal95": [-0.24666666666666665, 0.08],
+                            "difference": -0.08333333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.3333333333333333,
+                    "gameMeanCredit": 0.3333333333333333,
+                    "creditSum": 4.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.13608276348795434,
+                            "approximateNormal95": [-0.2667222164363905, 0.2667222164363905],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.08333333333333333,
+                            "approximateNormal95": [-0.08, 0.24666666666666665],
+                            "difference": 0.08333333333333333
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.25,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 3.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.08333333333333333,
+                            "approximateNormal95": [-0.24666666666666665, 0.08],
+                            "difference": -0.08333333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.25,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 3.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.08333333333333333,
+                            "approximateNormal95": [-0.24666666666666665, 0.08],
+                            "difference": -0.08333333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.3333333333333333,
+                    "gameMeanCredit": 0.3333333333333333,
+                    "creditSum": 4.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.08333333333333333,
+                            "approximateNormal95": [-0.08, 0.24666666666666665],
+                            "difference": 0.08333333333333333
+                        }
+                    }
+                }
+            }
+        },
+        "cell:Germany|3|recharged|0": {
+            "strata": 1,
+            "independentDeals": 4,
+            "seatsPerPolicy": 12,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.3333333333333333,
+                    "gameMeanCredit": 0.3333333333333333,
+                    "creditSum": 4.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.23570226039551584,
+                            "approximateNormal95": [-0.46197643037521097, 0.4619764303752111],
+                            "difference": 2.7755575615628914e-17
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.20971762320196527,
+                            "approximateNormal95": [-0.4943798748091852, 0.3277132081425186],
+                            "difference": -0.08333333333333331
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.41666666666666663,
+                    "gameMeanCredit": 0.4166666666666667,
+                    "creditSum": 5.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.2097176232019653,
+                            "approximateNormal95": [-0.3277132081425186, 0.4943798748091853],
+                            "difference": 0.08333333333333336
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.13608276348795434,
+                            "approximateNormal95": [-0.2667222164363905, 0.2667222164363905],
+                            "difference": 1.3877787807814457e-17
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.25,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 3.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.15957118462605635,
+                            "approximateNormal95": [-0.39609285520040377, 0.22942618853373714],
+                            "difference": -0.08333333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.16666666666666666,
+                            "approximateNormal95": [-0.4933333333333333, 0.16],
+                            "difference": -0.16666666666666666
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.25,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 3.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.15957118462605635,
+                            "approximateNormal95": [-0.39609285520040377, 0.22942618853373714],
+                            "difference": -0.08333333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.16666666666666666,
+                            "approximateNormal95": [-0.4933333333333333, 0.16],
+                            "difference": -0.16666666666666666
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.41666666666666663,
+                    "gameMeanCredit": 0.4166666666666667,
+                    "creditSum": 5.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.15957118462605635,
+                            "approximateNormal95": [-0.22942618853373714, 0.39609285520040377],
+                            "difference": 0.08333333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.3333333333333333,
+                    "gameMeanCredit": 0.3333333333333333,
+                    "creditSum": 4.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.15957118462605635,
+                            "approximateNormal95": [-0.39609285520040377, 0.22942618853373714],
+                            "difference": -0.08333333333333333
+                        }
+                    }
+                }
+            }
+        },
+        "cell:Germany|3|recharged|1": {
+            "strata": 1,
+            "independentDeals": 4,
+            "seatsPerPolicy": 12,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.16666666666666666,
+                    "gameMeanCredit": 0.16666666666666666,
+                    "creditSum": 2.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.16666666666666666,
+                            "approximateNormal95": [-0.4933333333333333, 0.16],
+                            "difference": -0.16666666666666666
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.08333333333333333,
+                            "approximateNormal95": [-0.24666666666666665, 0.08],
+                            "difference": -0.08333333333333333
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.25,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 3.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.15957118462605635,
+                            "approximateNormal95": [-0.39609285520040377, 0.22942618853373714],
+                            "difference": -0.08333333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.13608276348795434,
+                            "approximateNormal95": [-0.2667222164363905, 0.2667222164363905],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.25,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 3.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.15957118462605635,
+                            "approximateNormal95": [-0.39609285520040377, 0.22942618853373714],
+                            "difference": -0.08333333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.25,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 3.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.15957118462605635,
+                            "approximateNormal95": [-0.39609285520040377, 0.22942618853373714],
+                            "difference": -0.08333333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.25,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 3.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.15957118462605635,
+                            "approximateNormal95": [-0.39609285520040377, 0.22942618853373714],
+                            "difference": -0.08333333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.3333333333333333,
+                    "gameMeanCredit": 0.3333333333333333,
+                    "creditSum": 4.0,
+                    "games": 12,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.15957118462605635,
+                            "approximateNormal95": [-0.22942618853373714, 0.39609285520040377],
+                            "difference": 0.08333333333333333
+                        }
+                    }
+                }
+            }
+        },
+        "cell:Germany|4|original|0": {
+            "strata": 1,
+            "independentDeals": 4,
+            "seatsPerPolicy": 16,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.0625,
+                    "gameMeanCredit": 0.0625,
+                    "creditSum": 1.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [-0.31, -0.065],
+                            "difference": -0.1875
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.125,
+                    "gameMeanCredit": 0.125,
+                    "creditSum": 2.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.07216878364870322,
+                            "approximateNormal95": [-0.2664508159514583, 0.01645081595145831],
+                            "difference": -0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [-0.06, 0.185],
+                            "difference": 0.0625
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.125,
+                    "gameMeanCredit": 0.125,
+                    "creditSum": 2.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.07216878364870322,
+                            "approximateNormal95": [-0.2664508159514583, 0.01645081595145831],
+                            "difference": -0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [-0.06, 0.185],
+                            "difference": 0.0625
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.0625,
+                    "gameMeanCredit": 0.0625,
+                    "creditSum": 1.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [-0.31, -0.065],
+                            "difference": -0.1875
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.0625,
+                    "gameMeanCredit": 0.0625,
+                    "creditSum": 1.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [-0.31, -0.065],
+                            "difference": -0.1875
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.25,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 4.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [0.065, 0.31],
+                            "difference": 0.1875
+                        }
+                    }
+                }
+            }
+        },
+        "cell:Germany|4|original|1": {
+            "strata": 1,
+            "independentDeals": 4,
+            "seatsPerPolicy": 16,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.0625,
+                    "gameMeanCredit": 0.0625,
+                    "creditSum": 1.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [-0.31, -0.065],
+                            "difference": -0.1875
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.25, -0.25],
+                            "difference": -0.25
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [-0.185, 0.06],
+                            "difference": -0.0625
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.125,
+                    "gameMeanCredit": 0.125,
+                    "creditSum": 2.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.07216878364870322,
+                            "approximateNormal95": [-0.2664508159514583, 0.01645081595145831],
+                            "difference": -0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [-0.06, 0.185],
+                            "difference": 0.0625
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.0625,
+                    "gameMeanCredit": 0.0625,
+                    "creditSum": 1.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [-0.31, -0.065],
+                            "difference": -0.1875
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.0625,
+                    "gameMeanCredit": 0.0625,
+                    "creditSum": 1.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [-0.31, -0.065],
+                            "difference": -0.1875
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.25,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 4.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [0.065, 0.31],
+                            "difference": 0.1875
+                        }
+                    }
+                }
+            }
+        },
+        "cell:Germany|4|recharged|0": {
+            "strata": 1,
+            "independentDeals": 4,
+            "seatsPerPolicy": 16,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.25, -0.25],
+                            "difference": -0.25
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [-0.185, 0.06],
+                            "difference": -0.0625
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.1875,
+                    "gameMeanCredit": 0.1875,
+                    "creditSum": 3.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [-0.185, 0.06],
+                            "difference": -0.0625
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.07216878364870322,
+                            "approximateNormal95": [-0.01645081595145831, 0.2664508159514583],
+                            "difference": 0.125
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.25, -0.25],
+                            "difference": -0.25
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [-0.185, 0.06],
+                            "difference": -0.0625
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.0625,
+                    "gameMeanCredit": 0.0625,
+                    "creditSum": 1.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [-0.31, -0.065],
+                            "difference": -0.1875
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.0625,
+                    "gameMeanCredit": 0.0625,
+                    "creditSum": 1.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [-0.31, -0.065],
+                            "difference": -0.1875
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.25,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 4.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [0.065, 0.31],
+                            "difference": 0.1875
+                        }
+                    }
+                }
+            }
+        },
+        "cell:Germany|4|recharged|1": {
+            "strata": 1,
+            "independentDeals": 4,
+            "seatsPerPolicy": 16,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.25, -0.25],
+                            "difference": -0.25
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.0625,
+                    "gameMeanCredit": 0.0625,
+                    "creditSum": 1.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [-0.31, -0.065],
+                            "difference": -0.1875
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [-0.06, 0.185],
+                            "difference": 0.0625
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.0625,
+                    "gameMeanCredit": 0.0625,
+                    "creditSum": 1.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [-0.31, -0.065],
+                            "difference": -0.1875
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0625,
+                            "approximateNormal95": [-0.06, 0.185],
+                            "difference": 0.0625
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.25, -0.25],
+                            "difference": -0.25
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.25, -0.25],
+                            "difference": -0.25
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.25,
+                    "gameMeanCredit": 0.25,
+                    "creditSum": 4.0,
+                    "games": 16,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.25, 0.25],
+                            "difference": 0.25
+                        }
+                    }
+                }
+            }
+        },
+        "cell:Germany|5|original|0": {
+            "strata": 1,
+            "independentDeals": 4,
+            "seatsPerPolicy": 20,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.05,
+                    "gameMeanCredit": 0.05,
+                    "creditSum": 1.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.05,
+                            "approximateNormal95": [-0.24800000000000003, -0.05200000000000002],
+                            "difference": -0.15000000000000002
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.05,
+                            "approximateNormal95": [-0.048, 0.14800000000000002],
+                            "difference": 0.05
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.05,
+                    "gameMeanCredit": 0.05,
+                    "creditSum": 1.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.05,
+                            "approximateNormal95": [-0.24800000000000003, -0.05200000000000002],
+                            "difference": -0.15000000000000002
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.05,
+                            "approximateNormal95": [-0.048, 0.14800000000000002],
+                            "difference": 0.05
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.05,
+                    "gameMeanCredit": 0.05,
+                    "creditSum": 1.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.05,
+                            "approximateNormal95": [-0.24800000000000003, -0.05200000000000002],
+                            "difference": -0.15000000000000002
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.05,
+                            "approximateNormal95": [-0.048, 0.14800000000000002],
+                            "difference": 0.05
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.05,
+                    "gameMeanCredit": 0.05,
+                    "creditSum": 1.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.05,
+                            "approximateNormal95": [-0.24800000000000003, -0.05200000000000002],
+                            "difference": -0.15000000000000002
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.05,
+                            "approximateNormal95": [-0.048, 0.14800000000000002],
+                            "difference": 0.05
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.2, -0.2],
+                            "difference": -0.2
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.2,
+                    "gameMeanCredit": 0.2,
+                    "creditSum": 4.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.2, 0.2],
+                            "difference": 0.2
+                        }
+                    }
+                }
+            }
+        },
+        "cell:Germany|5|original|1": {
+            "strata": 1,
+            "independentDeals": 4,
+            "seatsPerPolicy": 20,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.1,
+                    "gameMeanCredit": 0.1,
+                    "creditSum": 2.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.1,
+                            "approximateNormal95": [-0.29600000000000004, 0.096],
+                            "difference": -0.1
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.05,
+                            "approximateNormal95": [-0.14800000000000002, 0.048],
+                            "difference": -0.05
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.15000000000000002,
+                    "gameMeanCredit": 0.15,
+                    "creditSum": 3.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.09574271077563382,
+                            "approximateNormal95": [-0.23765571312024225, 0.13765571312024227],
+                            "difference": -0.05
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.08164965809277261,
+                            "approximateNormal95": [-0.1600333298618343, 0.1600333298618343],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.05,
+                    "gameMeanCredit": 0.05,
+                    "creditSum": 1.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.05,
+                            "approximateNormal95": [-0.24800000000000003, -0.05200000000000002],
+                            "difference": -0.15000000000000002
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.05773502691896258,
+                            "approximateNormal95": [-0.21316065276116666, 0.013160652761166652],
+                            "difference": -0.1
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.1,
+                    "gameMeanCredit": 0.1,
+                    "creditSum": 2.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.1,
+                            "approximateNormal95": [-0.29600000000000004, 0.096],
+                            "difference": -0.1
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.05,
+                            "approximateNormal95": [-0.14800000000000002, 0.048],
+                            "difference": -0.05
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.15000000000000002,
+                    "gameMeanCredit": 0.15,
+                    "creditSum": 3.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.09574271077563382,
+                            "approximateNormal95": [-0.23765571312024225, 0.13765571312024227],
+                            "difference": -0.05
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.2,
+                    "gameMeanCredit": 0.2,
+                    "creditSum": 4.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.09574271077563382,
+                            "approximateNormal95": [-0.13765571312024227, 0.23765571312024225],
+                            "difference": 0.05
+                        }
+                    }
+                }
+            }
+        },
+        "cell:Germany|5|recharged|0": {
+            "strata": 1,
+            "independentDeals": 4,
+            "seatsPerPolicy": 20,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.1,
+                    "gameMeanCredit": 0.1,
+                    "creditSum": 2.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.05773502691896258,
+                            "approximateNormal95": [-0.21316065276116666, 0.013160652761166652],
+                            "difference": -0.1
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.05773502691896258,
+                            "approximateNormal95": [-0.013160652761166652, 0.21316065276116666],
+                            "difference": 0.1
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.2, -0.2],
+                            "difference": -0.2
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.15000000000000002,
+                    "gameMeanCredit": 0.15,
+                    "creditSum": 3.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.09574271077563382,
+                            "approximateNormal95": [-0.23765571312024225, 0.13765571312024227],
+                            "difference": -0.05
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.09574271077563382,
+                            "approximateNormal95": [-0.03765571312024224, 0.3376557131202423],
+                            "difference": 0.15000000000000002
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.05,
+                    "gameMeanCredit": 0.05,
+                    "creditSum": 1.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.05,
+                            "approximateNormal95": [-0.24800000000000003, -0.05200000000000002],
+                            "difference": -0.15000000000000002
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.05,
+                            "approximateNormal95": [-0.048, 0.14800000000000002],
+                            "difference": 0.05
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.2, -0.2],
+                            "difference": -0.2
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.2,
+                    "gameMeanCredit": 0.2,
+                    "creditSum": 4.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.2, 0.2],
+                            "difference": 0.2
+                        }
+                    }
+                }
+            }
+        },
+        "cell:Germany|5|recharged|1": {
+            "strata": 1,
+            "independentDeals": 4,
+            "seatsPerPolicy": 20,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.2, -0.2],
+                            "difference": -0.2
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.2, -0.2],
+                            "difference": -0.2
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.05,
+                    "gameMeanCredit": 0.05,
+                    "creditSum": 1.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.05,
+                            "approximateNormal95": [-0.24800000000000003, -0.05200000000000002],
+                            "difference": -0.15000000000000002
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.05,
+                            "approximateNormal95": [-0.048, 0.14800000000000002],
+                            "difference": 0.05
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.2, -0.2],
+                            "difference": -0.2
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.2, -0.2],
+                            "difference": -0.2
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.2,
+                    "gameMeanCredit": 0.2,
+                    "creditSum": 4.0,
+                    "games": 20,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.2, 0.2],
+                            "difference": 0.2
+                        }
+                    }
+                }
+            }
+        },
+        "cell:Germany|6|original|0": {
+            "strata": 1,
+            "independentDeals": 4,
+            "seatsPerPolicy": 24,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.041666666666666664,
+                    "gameMeanCredit": 0.041666666666666664,
+                    "creditSum": 1.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.041666666666666664,
+                            "approximateNormal95": [-0.20666666666666667, -0.043333333333333335],
+                            "difference": -0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.041666666666666664,
+                    "gameMeanCredit": 0.041666666666666664,
+                    "creditSum": 1.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.041666666666666664,
+                            "approximateNormal95": [-0.20666666666666667, -0.043333333333333335],
+                            "difference": -0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.06804138174397717,
+                            "approximateNormal95": [-0.13336110821819525, 0.13336110821819525],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.041666666666666664,
+                    "gameMeanCredit": 0.041666666666666664,
+                    "creditSum": 1.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.041666666666666664,
+                            "approximateNormal95": [-0.20666666666666667, -0.043333333333333335],
+                            "difference": -0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.08333333333333333,
+                    "gameMeanCredit": 0.08333333333333333,
+                    "creditSum": 2.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.048112522432468816,
+                            "approximateNormal95": [-0.1776338773009722, 0.010967210634305544],
+                            "difference": -0.08333333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.041666666666666664,
+                            "approximateNormal95": [-0.04, 0.12333333333333332],
+                            "difference": 0.041666666666666664
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.041666666666666664,
+                    "gameMeanCredit": 0.041666666666666664,
+                    "creditSum": 1.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.041666666666666664,
+                            "approximateNormal95": [-0.20666666666666667, -0.043333333333333335],
+                            "difference": -0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.16666666666666666,
+                    "gameMeanCredit": 0.16666666666666666,
+                    "creditSum": 4.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.041666666666666664,
+                            "approximateNormal95": [0.043333333333333335, 0.20666666666666667],
+                            "difference": 0.125
+                        }
+                    }
+                }
+            }
+        },
+        "cell:Germany|6|original|1": {
+            "strata": 1,
+            "independentDeals": 4,
+            "seatsPerPolicy": 24,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.041666666666666664,
+                    "gameMeanCredit": 0.041666666666666664,
+                    "creditSum": 1.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.041666666666666664,
+                            "approximateNormal95": [-0.20666666666666667, -0.043333333333333335],
+                            "difference": -0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.041666666666666664,
+                    "gameMeanCredit": 0.041666666666666664,
+                    "creditSum": 1.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.041666666666666664,
+                            "approximateNormal95": [-0.20666666666666667, -0.043333333333333335],
+                            "difference": -0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.06804138174397717,
+                            "approximateNormal95": [-0.13336110821819525, 0.13336110821819525],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.08333333333333333,
+                    "gameMeanCredit": 0.08333333333333333,
+                    "creditSum": 2.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.048112522432468816,
+                            "approximateNormal95": [-0.1776338773009722, 0.010967210634305544],
+                            "difference": -0.08333333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.041666666666666664,
+                            "approximateNormal95": [-0.04, 0.12333333333333332],
+                            "difference": 0.041666666666666664
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.16666666666666666, -0.16666666666666666],
+                            "difference": -0.16666666666666666
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.041666666666666664,
+                            "approximateNormal95": [-0.12333333333333332, 0.04],
+                            "difference": -0.041666666666666664
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.041666666666666664,
+                    "gameMeanCredit": 0.041666666666666664,
+                    "creditSum": 1.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.041666666666666664,
+                            "approximateNormal95": [-0.20666666666666667, -0.043333333333333335],
+                            "difference": -0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.16666666666666666,
+                    "gameMeanCredit": 0.16666666666666666,
+                    "creditSum": 4.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.041666666666666664,
+                            "approximateNormal95": [0.043333333333333335, 0.20666666666666667],
+                            "difference": 0.125
+                        }
+                    }
+                }
+            }
+        },
+        "cell:Germany|6|recharged|0": {
+            "strata": 1,
+            "independentDeals": 4,
+            "seatsPerPolicy": 24,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.16666666666666666, -0.16666666666666666],
+                            "difference": -0.16666666666666666
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.08333333333333333,
+                            "approximateNormal95": [-0.24666666666666665, 0.08],
+                            "difference": -0.08333333333333333
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.041666666666666664,
+                    "gameMeanCredit": 0.041666666666666664,
+                    "creditSum": 1.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.041666666666666664,
+                            "approximateNormal95": [-0.20666666666666667, -0.043333333333333335],
+                            "difference": -0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.10485881160098262,
+                            "approximateNormal95": [-0.24718993740459258, 0.16385660407125927],
+                            "difference": -0.041666666666666664
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.16666666666666666, -0.16666666666666666],
+                            "difference": -0.16666666666666666
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.08333333333333333,
+                            "approximateNormal95": [-0.24666666666666665, 0.08],
+                            "difference": -0.08333333333333333
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.08333333333333333,
+                    "gameMeanCredit": 0.08333333333333333,
+                    "creditSum": 2.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.048112522432468816,
+                            "approximateNormal95": [-0.1776338773009722, 0.010967210634305544],
+                            "difference": -0.08333333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.06804138174397717,
+                            "approximateNormal95": [-0.13336110821819525, 0.13336110821819525],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.08333333333333333,
+                    "gameMeanCredit": 0.08333333333333333,
+                    "creditSum": 2.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.08333333333333333,
+                            "approximateNormal95": [-0.24666666666666665, 0.08],
+                            "difference": -0.08333333333333333
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.16666666666666666,
+                    "gameMeanCredit": 0.16666666666666666,
+                    "creditSum": 4.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.08333333333333333,
+                            "approximateNormal95": [-0.08, 0.24666666666666665],
+                            "difference": 0.08333333333333333
+                        }
+                    }
+                }
+            }
+        },
+        "cell:Germany|6|recharged|1": {
+            "strata": 1,
+            "independentDeals": 4,
+            "seatsPerPolicy": 24,
+            "policies": {
+                "ppo0": {
+                    "macroCellCredit": 0.041666666666666664,
+                    "gameMeanCredit": 0.041666666666666664,
+                    "creditSum": 1.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.041666666666666664,
+                            "approximateNormal95": [-0.20666666666666667, -0.043333333333333335],
+                            "difference": -0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.041666666666666664,
+                            "approximateNormal95": [-0.04, 0.12333333333333332],
+                            "difference": 0.041666666666666664
+                        }
+                    }
+                },
+                "ppo1": {
+                    "macroCellCredit": 0.041666666666666664,
+                    "gameMeanCredit": 0.041666666666666664,
+                    "creditSum": 1.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.041666666666666664,
+                            "approximateNormal95": [-0.20666666666666667, -0.043333333333333335],
+                            "difference": -0.125
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.041666666666666664,
+                            "approximateNormal95": [-0.04, 0.12333333333333332],
+                            "difference": 0.041666666666666664
+                        }
+                    }
+                },
+                "ppo2": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.16666666666666666, -0.16666666666666666],
+                            "difference": -0.16666666666666666
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "ensemble": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.16666666666666666, -0.16666666666666666],
+                            "difference": -0.16666666666666666
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "teacher": {
+                    "macroCellCredit": 0.0,
+                    "gameMeanCredit": 0.0,
+                    "creditSum": 0.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [-0.16666666666666666, -0.16666666666666666],
+                            "difference": -0.16666666666666666
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        }
+                    }
+                },
+                "reference": {
+                    "macroCellCredit": 0.16666666666666666,
+                    "gameMeanCredit": 0.16666666666666666,
+                    "creditSum": 4.0,
+                    "games": 24,
+                    "pairedDealDifferences": {
+                        "reference": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.0, 0.0],
+                            "difference": 0.0
+                        },
+                        "teacher": {
+                            "unbiasedStratifiedPairedSE": 0.0,
+                            "approximateNormal95": [0.16666666666666666, 0.16666666666666666],
+                            "difference": 0.16666666666666666
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "timings": {
+        "all": {
+            "games": 1920,
+            "summedGameSeconds": 19652.264607154044,
+            "meanGameSeconds": 10.23555448289273,
+            "medianGameSeconds": 10.72500702400066,
+            "maxGameSeconds": 19.596025160000863,
+            "minSteps": 282,
+            "maxSteps": 841,
+            "totalSteps": 1076224,
+            "totalRounds": 18811,
+            "decisions": {
+                "ppo": 68394,
+                "reference": 878087
+            },
+            "hiddenChecks": 878087,
+            "phaseCounts": {
+                "ppo": {
+                    "Auction": 48200,
+                    "Building": 20194
+                },
+                "reference": {
+                    "Auction": 255998,
+                    "Building": 168510,
+                    "Bureaucracy": 166623,
+                    "Resources": 286956
+                },
+                "fixed": {
+                    "Auction": 12080,
+                    "Building": 17661,
+                    "Bureaucracy": 38676,
+                    "Resources": 61326
+                }
+            },
+            "tiedTerminalGames": 1
+        },
+        "ppo0": {
+            "games": 320,
+            "summedGameSeconds": 3147.8174353800005,
+            "meanGameSeconds": 9.836929485562502,
+            "medianGameSeconds": 10.399655864499437,
+            "maxGameSeconds": 17.8060472319994,
+            "minSteps": 282,
+            "maxSteps": 820,
+            "totalSteps": 179043,
+            "totalRounds": 3126,
+            "decisions": {
+                "ppo": 16905,
+                "reference": 139584
+            },
+            "hiddenChecks": 139584,
+            "phaseCounts": {
+                "ppo": {
+                    "Auction": 11902,
+                    "Building": 5003
+                },
+                "reference": {
+                    "Auction": 41107,
+                    "Building": 26755,
+                    "Bureaucracy": 26288,
+                    "Resources": 45434
+                },
+                "fixed": {
+                    "Building": 2553,
+                    "Bureaucracy": 7714,
+                    "Resources": 12257,
+                    "Auction": 30
+                }
+            },
+            "tiedTerminalGames": 0
+        },
+        "ppo1": {
+            "games": 320,
+            "summedGameSeconds": 3216.0898013420083,
+            "meanGameSeconds": 10.050280629193775,
+            "medianGameSeconds": 10.570237558000372,
+            "maxGameSeconds": 19.313605037999878,
+            "minSteps": 282,
+            "maxSteps": 833,
+            "totalSteps": 181056,
+            "totalRounds": 3143,
+            "decisions": {
+                "ppo": 17339,
+                "reference": 141014
+            },
+            "hiddenChecks": 141014,
+            "phaseCounts": {
+                "ppo": {
+                    "Auction": 12267,
+                    "Building": 5072
+                },
+                "reference": {
+                    "Auction": 41861,
+                    "Building": 26811,
+                    "Bureaucracy": 26613,
+                    "Resources": 45729
+                },
+                "fixed": {
+                    "Building": 2535,
+                    "Bureaucracy": 7758,
+                    "Resources": 12368,
+                    "Auction": 42
+                }
+            },
+            "tiedTerminalGames": 0
+        },
+        "ppo2": {
+            "games": 320,
+            "summedGameSeconds": 3128.4919544540207,
+            "meanGameSeconds": 9.776537357668815,
+            "medianGameSeconds": 10.245160181000756,
+            "maxGameSeconds": 17.146238953000648,
+            "minSteps": 285,
+            "maxSteps": 821,
+            "totalSteps": 178675,
+            "totalRounds": 3125,
+            "decisions": {
+                "ppo": 16960,
+                "reference": 139261
+            },
+            "hiddenChecks": 139261,
+            "phaseCounts": {
+                "ppo": {
+                    "Auction": 11911,
+                    "Building": 5049
+                },
+                "reference": {
+                    "Auction": 40816,
+                    "Building": 26724,
+                    "Bureaucracy": 26289,
+                    "Resources": 45432
+                },
+                "fixed": {
+                    "Building": 2524,
+                    "Bureaucracy": 7718,
+                    "Resources": 12189,
+                    "Auction": 23
+                }
+            },
+            "tiedTerminalGames": 0
+        },
+        "ensemble": {
+            "games": 320,
+            "summedGameSeconds": 3193.839750419005,
+            "meanGameSeconds": 9.98074922005939,
+            "medianGameSeconds": 10.651497040499635,
+            "maxGameSeconds": 19.596025160000863,
+            "minSteps": 282,
+            "maxSteps": 841,
+            "totalSteps": 179756,
+            "totalRounds": 3135,
+            "decisions": {
+                "ppo": 17190,
+                "reference": 139988
+            },
+            "hiddenChecks": 139988,
+            "phaseCounts": {
+                "ppo": {
+                    "Auction": 12120,
+                    "Building": 5070
+                },
+                "reference": {
+                    "Auction": 41058,
+                    "Building": 26807,
+                    "Bureaucracy": 26467,
+                    "Resources": 45656
+                },
+                "fixed": {
+                    "Building": 2520,
+                    "Bureaucracy": 7762,
+                    "Resources": 12267,
+                    "Auction": 29
+                }
+            },
+            "tiedTerminalGames": 1
+        },
+        "teacher": {
+            "games": 320,
+            "summedGameSeconds": 3068.5376699559947,
+            "meanGameSeconds": 9.589180218612483,
+            "medianGameSeconds": 10.291829150000012,
+            "maxGameSeconds": 17.252198615999077,
+            "minSteps": 282,
+            "maxSteps": 807,
+            "totalSteps": 178684,
+            "totalRounds": 3127,
+            "decisions": {
+                "ppo": 0,
+                "reference": 139230
+            },
+            "hiddenChecks": 139230,
+            "phaseCounts": {
+                "ppo": {},
+                "reference": {
+                    "Auction": 40742,
+                    "Building": 26780,
+                    "Bureaucracy": 26336,
+                    "Resources": 45372
+                },
+                "fixed": {
+                    "Auction": 11956,
+                    "Building": 7529,
+                    "Bureaucracy": 7724,
+                    "Resources": 12245
+                }
+            },
+            "tiedTerminalGames": 0
+        },
+        "reference": {
+            "games": 320,
+            "summedGameSeconds": 3897.4879956030145,
+            "meanGameSeconds": 12.17964998625942,
+            "medianGameSeconds": 12.83194048149926,
+            "maxGameSeconds": 18.92880609200074,
+            "minSteps": 299,
+            "maxSteps": 749,
+            "totalSteps": 179010,
+            "totalRounds": 3155,
+            "decisions": {
+                "ppo": 0,
+                "reference": 179010
+            },
+            "hiddenChecks": 179010,
+            "phaseCounts": {
+                "ppo": {},
+                "reference": {
+                    "Auction": 50414,
+                    "Building": 34633,
+                    "Bureaucracy": 34630,
+                    "Resources": 59333
+                },
+                "fixed": {}
+            },
+            "tiedTerminalGames": 0
+        }
+    },
+    "errors": [],
+    "replays": {
+        "games": 12,
+        "matched": 12,
+        "seconds": 80.00924001200474,
+        "selection": "Two games per policy, all five counts and four variant/auction pairs; lexicographically minimum canonical-task SHA256 within each predefined slot, never by outcomes.",
+        "comparisonFields": [
+            "schema",
+            "identitySha256",
+            "spec",
+            "policy",
+            "terminal",
+            "credit",
+            "allSeatCredit",
+            "steps",
+            "rounds",
+            "counts",
+            "decisions",
+            "hiddenChecks"
+        ],
+        "note": "Timing deliberately excluded from equality. Replays verify compact terminal evidence, not a saved action trace; no new deals or training data.",
+        "rows": [
+            {
+                "policy": "ppo0",
+                "spec": {
+                    "map": "Germany",
+                    "players": 2,
+                    "variant": "original",
+                    "fastBid": false,
+                    "cell": "Germany|2|original|0",
+                    "deal": 1,
+                    "seed": "pg-multimap-neural-screen-20261102-v1:Germany|2|original|0:1",
+                    "focalSeat": 1,
+                    "maxSteps": 4000,
+                    "focalPolicy": "selected"
+                },
+                "matched": true,
+                "seconds": 2.9074322340020444,
+                "originalSeconds": 3.099859985999501,
+                "steps": 326,
+                "rounds": 11,
+                "allSeatCredit": [1, 0],
+                "credit": 0
+            },
+            {
+                "policy": "ppo1",
+                "spec": {
+                    "map": "Germany",
+                    "players": 3,
+                    "variant": "original",
+                    "fastBid": true,
+                    "cell": "Germany|3|original|1",
+                    "deal": 3,
+                    "seed": "pg-multimap-neural-screen-20261102-v1:Germany|3|original|1:3",
+                    "focalSeat": 0,
+                    "maxSteps": 4000,
+                    "focalPolicy": "selected"
+                },
+                "matched": true,
+                "seconds": 3.4798530469997786,
+                "originalSeconds": 5.365514389000964,
+                "steps": 409,
+                "rounds": 11,
+                "allSeatCredit": [0, 0, 1],
+                "credit": 0
+            },
+            {
+                "policy": "ppo2",
+                "spec": {
+                    "map": "Germany",
+                    "players": 4,
+                    "variant": "recharged",
+                    "fastBid": false,
+                    "cell": "Germany|4|recharged|0",
+                    "deal": 1,
+                    "seed": "pg-multimap-neural-screen-20261102-v1:Germany|4|recharged|0:1",
+                    "focalSeat": 1,
+                    "maxSteps": 4000,
+                    "focalPolicy": "selected"
+                },
+                "matched": true,
+                "seconds": 6.072947855995153,
+                "originalSeconds": 9.21961444199951,
+                "steps": 534,
+                "rounds": 10,
+                "allSeatCredit": [0, 0, 1, 0],
+                "credit": 0
+            },
+            {
+                "policy": "ensemble",
+                "spec": {
+                    "map": "Germany",
+                    "players": 5,
+                    "variant": "recharged",
+                    "fastBid": true,
+                    "cell": "Germany|5|recharged|1",
+                    "deal": 1,
+                    "seed": "pg-multimap-neural-screen-20261102-v1:Germany|5|recharged|1:1",
+                    "focalSeat": 4,
+                    "maxSteps": 4000,
+                    "focalPolicy": "selected"
+                },
+                "matched": true,
+                "seconds": 9.939052161003929,
+                "originalSeconds": 11.848148938999657,
+                "steps": 612,
+                "rounds": 10,
+                "allSeatCredit": [1, 0, 0, 0, 0],
+                "credit": 0
+            },
+            {
+                "policy": "teacher",
+                "spec": {
+                    "map": "Germany",
+                    "players": 6,
+                    "variant": "original",
+                    "fastBid": false,
+                    "cell": "Germany|6|original|0",
+                    "deal": 1,
+                    "seed": "pg-multimap-neural-screen-20261102-v1:Germany|6|original|0:1",
+                    "focalSeat": 3,
+                    "maxSteps": 4000,
+                    "focalPolicy": "teacher"
+                },
+                "matched": true,
+                "seconds": 11.246143237003707,
+                "originalSeconds": 15.219734028998573,
+                "steps": 751,
+                "rounds": 9,
+                "allSeatCredit": [0, 1, 0, 0, 0, 0],
+                "credit": 0
+            },
+            {
+                "policy": "reference",
+                "spec": {
+                    "map": "Germany",
+                    "players": 2,
+                    "variant": "original",
+                    "fastBid": true,
+                    "cell": "Germany|2|original|1",
+                    "deal": 2,
+                    "seed": "pg-multimap-neural-screen-20261102-v1:Germany|2|original|1:2",
+                    "focalSeat": 0,
+                    "maxSteps": 4000,
+                    "focalPolicy": "reference"
+                },
+                "matched": true,
+                "seconds": 5.010847331999685,
+                "originalSeconds": 4.940324801000315,
+                "steps": 336,
+                "rounds": 12,
+                "allSeatCredit": [1, 0],
+                "credit": 1
+            },
+            {
+                "policy": "ppo0",
+                "spec": {
+                    "map": "Germany",
+                    "players": 3,
+                    "variant": "recharged",
+                    "fastBid": false,
+                    "cell": "Germany|3|recharged|0",
+                    "deal": 2,
+                    "seed": "pg-multimap-neural-screen-20261102-v1:Germany|3|recharged|0:2",
+                    "focalSeat": 2,
+                    "maxSteps": 4000,
+                    "focalPolicy": "selected"
+                },
+                "matched": true,
+                "seconds": 3.731989984997199,
+                "originalSeconds": 5.600352313000258,
+                "steps": 420,
+                "rounds": 10,
+                "allSeatCredit": [0, 1, 0],
+                "credit": 0
+            },
+            {
+                "policy": "ppo1",
+                "spec": {
+                    "map": "Germany",
+                    "players": 4,
+                    "variant": "recharged",
+                    "fastBid": true,
+                    "cell": "Germany|4|recharged|1",
+                    "deal": 0,
+                    "seed": "pg-multimap-neural-screen-20261102-v1:Germany|4|recharged|1:0",
+                    "focalSeat": 1,
+                    "maxSteps": 4000,
+                    "focalPolicy": "selected"
+                },
+                "matched": true,
+                "seconds": 4.340537714000675,
+                "originalSeconds": 6.051764759000434,
+                "steps": 422,
+                "rounds": 9,
+                "allSeatCredit": [0, 0, 0, 1],
+                "credit": 0
+            },
+            {
+                "policy": "ppo2",
+                "spec": {
+                    "map": "Germany",
+                    "players": 5,
+                    "variant": "original",
+                    "fastBid": false,
+                    "cell": "Germany|5|original|0",
+                    "deal": 0,
+                    "seed": "pg-multimap-neural-screen-20261102-v1:Germany|5|original|0:0",
+                    "focalSeat": 0,
+                    "maxSteps": 4000,
+                    "focalPolicy": "selected"
+                },
+                "matched": true,
+                "seconds": 7.14795868100191,
+                "originalSeconds": 11.11345091000112,
+                "steps": 587,
+                "rounds": 9,
+                "allSeatCredit": [0, 0, 1, 0, 0],
+                "credit": 0
+            },
+            {
+                "policy": "ensemble",
+                "spec": {
+                    "map": "Germany",
+                    "players": 6,
+                    "variant": "original",
+                    "fastBid": true,
+                    "cell": "Germany|6|original|1",
+                    "deal": 1,
+                    "seed": "pg-multimap-neural-screen-20261102-v1:Germany|6|original|1:1",
+                    "focalSeat": 3,
+                    "maxSteps": 4000,
+                    "focalPolicy": "selected"
+                },
+                "matched": true,
+                "seconds": 14.798223007004708,
+                "originalSeconds": 12.69823553400056,
+                "steps": 648,
+                "rounds": 9,
+                "allSeatCredit": [1, 0, 0, 0, 0, 0],
+                "credit": 0
+            },
+            {
+                "policy": "teacher",
+                "spec": {
+                    "map": "Germany",
+                    "players": 2,
+                    "variant": "recharged",
+                    "fastBid": false,
+                    "cell": "Germany|2|recharged|0",
+                    "deal": 1,
+                    "seed": "pg-multimap-neural-screen-20261102-v1:Germany|2|recharged|0:1",
+                    "focalSeat": 0,
+                    "maxSteps": 4000,
+                    "focalPolicy": "teacher"
+                },
+                "matched": true,
+                "seconds": 4.781260168994777,
+                "originalSeconds": 4.147535459998835,
+                "steps": 410,
+                "rounds": 11,
+                "allSeatCredit": [0, 1],
+                "credit": 0
+            },
+            {
+                "policy": "reference",
+                "spec": {
+                    "map": "Germany",
+                    "players": 3,
+                    "variant": "recharged",
+                    "fastBid": true,
+                    "cell": "Germany|3|recharged|1",
+                    "deal": 3,
+                    "seed": "pg-multimap-neural-screen-20261102-v1:Germany|3|recharged|1:3",
+                    "focalSeat": 0,
+                    "maxSteps": 4000,
+                    "focalPolicy": "reference"
+                },
+                "matched": true,
+                "seconds": 6.140121258998988,
+                "originalSeconds": 6.851189147999321,
+                "steps": 412,
+                "rounds": 11,
+                "allSeatCredit": [0, 0, 1],
+                "credit": 0
+            }
+        ]
+    },
+    "hfJob": {
+        "stage": "COMPLETED",
+        "startedAt": "2026-11-02 20:01:21.668000+00:00",
+        "finishedAt": "2026-11-02 20:57:47.906000+00:00",
+        "runningSeconds": 3386,
+        "totalSeconds": 3388,
+        "image": "python:3.12.8-slim-bookworm@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+        "flavor": "cpu-upgrade",
+        "nodeTestsPassed": 13,
+        "nodeTestsSkipped": 1,
+        "pythonTestsPassed": 24,
+        "testLogSha256": "034fc769add785b165b17899632dad8299aaa1f8e7d0f73815f5bc74cfc5d975",
+        "skipReason": "Archived-reference compatibility test skipped before reference cache recovery; NOT fourteen passing Node tests."
+    },
+    "separatePriorLocalPreflight": {
+        "receiptSha256": "d4940fa467995ba92af525102b016a9d282f5356c6061a612a71ce03f9d3fc67",
+        "syntheticFixtures": 160,
+        "fullGames": 20,
+        "deterministicReplays": 5,
+        "note": "Separate prior evidence, not extra HF-job tests and not rerun/countable as current audit replays."
+    },
+    "uncertainty": {
+        "primaryEstimand": "Equal-weight macro credit over 20 fixed Germany cells; average all focal seats within each deal first.",
+        "independentUnit": "80 paired independent deals, four per cell; 1920 seat/policy repeats are not independent trials.",
+        "formula": "For H cells, paired difference = mean_h mean_d (seatMean(policy)-seatMean(control)); SE = sqrt(sum_h s_h^2/4)/H, sample variance uses ddof=1.",
+        "interval": "Approximate normal point +/-1.96*unbiased stratified paired SE, no clipping, no bootstrap.",
+        "caveats": [
+            "Four clusters/cell is small; approximate normal intervals can be unreliable for individual cells.",
+            "All six policies and both contrasts reported. No correction for multiple policy/subgroup comparisons; exploratory, not qualification.",
+            "Reference control equals 1/n exactly after all-seat averaging; zero reference SE is a design identity, not certainty about general playing strength.",
+            "Fixed policies/reference population and Germany only; no inference to humans, other maps or production.",
+            "Original summary used unstratified paired-deal SE. Its numeric values were independently reproduced, but new intervals use fixed-cell stratification.",
+            "No action traces were saved; legality is enforced by the unchanged authoritative bridge and checked on the replay subset, not independently reconstructed for every recorded move."
+        ]
+    },
+    "qualified": false,
+    "qualification_eligible": false,
+    "fitted": false,
+    "selected": false,
+    "promoted": false,
+    "reserved_final_seeds_used": false,
+    "auditSeconds": 90.21033200899547,
+    "conclusion": "All four frozen candidates and the teacher trail the all-reference baseline on the primary macro-cell estimate; all five unadjusted approximate-normal 95% paired intervals versus reference lie below zero. No candidate-versus-teacher approximate interval excludes zero. These are exploratory comparisons, not multiplicity-adjusted significance or qualification. Report every candidate without best-seed selection or promotion."
+}

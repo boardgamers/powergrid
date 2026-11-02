@@ -1,5 +1,11 @@
 # Power Grid AI — resumed, 27 October 2026
 
+**2 November — local run cache cleaned:** source, weights and recovery metadata
+remain, but large historical run files may require restoration from checked HF
+backups or the local compressed bundle. See
+[cleanup and restore instructions](run-cleanup-2026-11-02/README.md).
+No research jobs, new games, training or deployment were started for cleanup.
+
 **31 October — successor handoff for training across maps:** start with
 [HANDOFF-2026-10-31-MULTIMAP.md](HANDOFF-2026-10-31-MULTIMAP.md). The user wants
 generalized training. Current weights and city/action features are Germany-only;

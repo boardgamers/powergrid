@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-02",
+  "status": "complete",
+  "initial_runs_allocated_bytes": 794110398464,
+  "removed_remote_backed_files": 57849,
+  "summed_removed_remote_backed_allocated_bytes": 758585851904,
+  "local_compression": {
+    "completed_at": 1793578251.0756962,
+    "files": 1350,
+    "expanded_allocated_bytes_removed": 17632444416,
+    "local_archive_bytes": 8039948433,
+    "archive_sha256": "88334bf02de6cca9524ad9d383261082a48db3e73272518b76e74bf62e6e0ce8",
+    "archive_comparison_passed": true
+  },
+  "local_recovery_archive": {
+    "path": "ai/run-cleanup-2026-11-02/retained-large-files.tar.zst",
+    "bytes": 8039948433,
+    "sha256": "88334bf02de6cca9524ad9d383261082a48db3e73272518b76e74bf62e6e0ce8"
+  },
+  "recovery_index": {
+    "path": "ai/run-cleanup-2026-11-02/recovery-records.tar.zst",
+    "bytes": 5767679,
+    "sha256": "e2ea5057cdd4f879d761313e126f44f36be7ebe0c9619bdfb214f9ef0843455d",
+    "tar_compare_exit_code": 0
+  },
+  "filesystem_available_before": 60770103296,
+  "filesystem_available_after": 824322514944,
+  "observed_filesystem_free_space_increase_bytes": 763552411648,
+  "storage_measurement_note": "Filesystem free-space change is observed across the cleanup and may also reflect unrelated host writes. Summed removed file blocks may count hardlinked copies more than once. The optional final full tree scan was stopped; no exact final ai/runs size is claimed.",
+  "weights_source_handoffs_remote_artifacts_preserved": true,
+  "remote_writes": false,
+  "research_jobs_launched": false,
+  "local_bundle_remote_backup": false,
+  "independent_archive_checks": "Versioned SHA-256 and bucket Xet identity/size; duplicate files hashed locally; local retained bundle compared to all 1350 originals before unlinking."
+}

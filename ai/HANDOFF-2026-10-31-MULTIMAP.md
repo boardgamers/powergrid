@@ -1,5 +1,13 @@
 # Power Grid AI handoff for training across maps
 
+**Local storage cleanup on 2 November 2026:** large expanded run files have been
+pruned after checking existing HF backups. Source, model weights and compact
+recovery metadata remain. Some remaining large files are retained in a local
+compressed recovery bundle. Read [the cleanup and restore record](run-cleanup-2026-11-02/README.md)
+before using an old `ai/runs` path: its metadata may exist while its bulk data
+needs restoring. This cleanup does not change results, model qualification or
+remote artifacts and does not authorize relaunching completed jobs.
+
 Updated 31 October 2026. The user wants the next model to pursue generalized
 training across Power Grid maps. The existing learned bot is Germany-only,
 including its observation and action representation. Preserve it as a reference

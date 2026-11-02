@@ -59,8 +59,10 @@ def specs(split, deals=None):
 
 
 class Bridge:
-    def __init__(self):
-        self.process = subprocess.Popen(["node", str(ROOT / "ai/multimap/game.cjs")],
+    def __init__(self, script="game.cjs"):
+        if script not in ("game.cjs", "game_rl.cjs"):
+            raise ValueError("Unknown environment")
+        self.process = subprocess.Popen(["node", str(ROOT / "ai/multimap" / script)],
                                         stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                                         text=True, bufsize=1, cwd=ROOT)
 

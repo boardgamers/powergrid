@@ -154,23 +154,78 @@ room for temporary source packaging; dependencies/venvs are separate.
 
 All 1,760 games are already archived privately on HF (about 48 MB compressed).
 The recovery reuses those pinned archives. Local expanded data and disposable
-smoke weights were removed after verification: run directories are under 1 MB;
-the Python environment is about 955 MB and HF's downloaded-data cache about
-46 MB. Preserve compact receipts/audits, not duplicate bulk data. Future large
+smoke weights were removed after verification (under 1 MB of run files at the
+bootstrap cleanup). Retain only compact results after subsequent checks. The
+Python environment is about 955 MB; HF's pinned data cache is about 46 MB plus
+small checkpoint downloads. Preserve compact receipts/audits, not duplicate bulk data. Future large
 iterations must stream/shard to HF buckets or remote storage; do not expand
 hundreds of GB locally. If HF storage limits become an issue, discuss public
 visibility or alternative storage with the user rather than changing visibility
 silently. Never prune unrelated runs or shared caches wholesale.
 
-## Next after the first run
+## Phase diagnostic and residual PPO pilot
 
-Audit checkpoints, per-cell results, terminal failures and transfer behavior.
-Benchmark the selected model on `ssh minipc-wg` (AMD 8840U). Add an explicit
-Germany frozen-1 comparison using its original public-runtime adapter, not its
-raw weights with v1 features. Its ONNX SHA was independently verified as
-`55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530`.
+`phase-diagnostic-results-v1.json` pins the 384-game 8840U diagnostic. It used
+four-player games on the four training maps only, 16 independent deals with
+all four focal seats and six phase-substitution policies. Win credit: teacher
+53.1%, full clone 1.6%, Auction-only clone 18.8%, Resources-only clone 3.1%,
+Building-only clone 53.1%, Bureaucracy-only clone 43.8%. This small diagnostic
+is not a qualification test. Tensor conversion + forward for the full clone
+was 0.95 ms median / 1.44 ms p95 with four concurrent single-thread workers;
+it excludes JS features, IPC and platform latency. Remote source/weights were
+removed after private HF archival; the reusable Python environment remains.
 
-Then improve policies using fresh on-policy trajectories and controlled
-opponent mixtures, or public-world search labels where target-quality tests
-justify them. Do not just repeat epochs on fixed weak targets. Refresh data
-and compare fresh paired games before expanding compute or admitting more maps.
+The next experiment is frozen in `ppo-protocol-v1.json`:
+
+-   Use the graph clone only as a feature warm-start. Zero the final action head,
+    then add a bounded (`8*tanh(raw/8)`) learned residual to an explicit,
+    versioned heuristic prior. This is a **new policy schema**, not a claim
+    that bootstrap features secretly contained teacher scores.
+-   Learn Auction and Building only. Keep resources, powering and forced moves
+    under the deterministic geographic teacher. Keep every legal bid/action.
+    Zero residual must match full teacher games exactly across all 120 cells.
+-   Train on actual terminal win credit with PPO, gamma=1 Monte Carlo returns,
+    a sigmoid value baseline and equal total loss weight per game. Clip ratio
+    0.2, prior KL regularization 0.01, entropy coefficient 0.001, target KL 0.05,
+    AdamW learning rate 1e-4, four optimization passes. No invented cap rewards.
+-   16 updates × 80 fresh training games = **1,280 games**. Balance all four maps,
+    player counts, variants and auction modes; rotate the focal seat. Rotate
+    economic/geographic/rush opponents by game. No neural self-play yet.
+-   Select on new **in-map** full games at updates 0/4/8/12/16 (320 games each).
+    Verify initial teacher parity with another 320 games. Zero residual is
+    eligible; earliest ties win. Reject candidates losing >0.1 win credit on
+    any training map. Selection consumes no confirmation or transfer outcomes.
+-   After selection, run 960 selected + 960 teacher games on fresh confirmation
+    deals across six maps, all seats/counts/rules. Including selection/parity,
+    this is **3,840 evaluation games**. Reserved final seeds remain untouched.
+    Italy/Benelux remain excluded from optimizer updates and selection, but
+    their earlier bootstrap results were already viewed: this is exploratory
+    transfer evidence, not a new blind final test.
+
+```sh
+node --test ai/multimap/test.cjs ai/multimap/test_rl.cjs
+PYTHONPATH=ai/multimap ai/.venv/bin/python -B -m unittest discover -s ai/multimap -p 'test_*.py'
+# --smoke runs two tiny disposable updates; it does not change the HF protocol.
+PYTHONPATH=ai/multimap ai/.venv/bin/python -B ai/multimap/ppo.py \
+  --checkpoint /path/to/pinned/bootstrap/best.pt --output ai/runs/multimap-ppo-smoke --smoke
+PYTHONPATH=ai/multimap ai/.venv/bin/python -B ai/multimap/launch.py \
+  --workflow ppo --run-id multimap-ppo-20261102-v1 \
+  --output ai/runs/multimap-ppo-20261102-v1
+```
+
+Trajectories exist only in the current RAM window (100,000-row cap), never on
+disk. Save initial/best/latest checkpoints and compact outcomes; the HF worker
+refuses artifacts exceeding 128 MiB. Upload an immutable snapshot every update.
+`last.pt` is the recovery transaction: it includes the optimizer, RNG, selection
+state and the exact committed best-artifact bytes, allowing recovery even if an
+interruption replaced `best.pt` before committing `last.pt`. Tests interrupt with
+a populated optimizer and an uncommitted best, then verify bit-exact weights.
+To recover, use a **new run ID** and add `--resume-run <old-id> --resume-revision <immutable-model-commit>`; the worker verifies every restored
+SHA and rejects algorithm/config/source mismatches. No bulk dataset restoration
+is needed. Both workflows retain the three-hour HF limit and completion callback.
+
+This remains a research pilot, with an unchanged-heuristic fallback, not a
+production promotion. If it does improve, confirmation and stronger-opponent
+screens still precede qualification. Germany frozen-1 must be compared using its
+original runtime adapter, not raw weights with these features. Its verified
+ONNX SHA is `55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530`.

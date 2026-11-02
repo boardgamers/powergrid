@@ -1,0 +1,101 @@
+{
+    "checkpointSha256": "3c3cfec2a05bd2d765471e9d101270d52f881552864481ba94bac87bc59245f1",
+    "machine": "coyotte508-4X4-BOX-8840U",
+    "python": "3.12.3",
+    "torch": "2.10.0+cpu",
+    "threadsPerWorker": 1,
+    "workers": 4,
+    "games": 384,
+    "failures": 0,
+    "policies": {
+        "teacher": {
+            "games": 64,
+            "winCredit": 0.53125,
+            "requests": 0,
+            "tensorAndModelMsMedian": null,
+            "tensorAndModelMsP95": null,
+            "perMap": {
+                "Germany": 0.6875,
+                "USA": 0.5,
+                "France": 0.5,
+                "UK & Ireland": 0.4375
+            }
+        },
+        "all": {
+            "games": 64,
+            "winCredit": 0.015625,
+            "requests": 7519,
+            "tensorAndModelMsMedian": 0.9537967853248119,
+            "tensorAndModelMsP95": 1.43758999183774,
+            "perMap": {
+                "Germany": 0.0625,
+                "USA": 0.0,
+                "France": 0.0,
+                "UK & Ireland": 0.0
+            }
+        },
+        "Auction": {
+            "games": 64,
+            "winCredit": 0.1875,
+            "requests": 2914,
+            "tensorAndModelMsMedian": 1.030064420774579,
+            "tensorAndModelMsP95": 1.5470413491129875,
+            "perMap": {
+                "Germany": 0.25,
+                "USA": 0.1875,
+                "France": 0.125,
+                "UK & Ireland": 0.1875
+            }
+        },
+        "Resources": {
+            "games": 64,
+            "winCredit": 0.03125,
+            "requests": 2349,
+            "tensorAndModelMsMedian": 0.9154239669442177,
+            "tensorAndModelMsP95": 1.3372860848903656,
+            "perMap": {
+                "Germany": 0.0625,
+                "USA": 0.0,
+                "France": 0.0625,
+                "UK & Ireland": 0.0
+            }
+        },
+        "Building": {
+            "games": 64,
+            "winCredit": 0.53125,
+            "requests": 1268,
+            "tensorAndModelMsMedian": 0.994466245174408,
+            "tensorAndModelMsP95": 1.4303247444331646,
+            "perMap": {
+                "Germany": 0.75,
+                "USA": 0.5625,
+                "France": 0.4375,
+                "UK & Ireland": 0.375
+            }
+        },
+        "Bureaucracy": {
+            "games": 64,
+            "winCredit": 0.4375,
+            "requests": 1272,
+            "tensorAndModelMsMedian": 0.9680951479822397,
+            "tensorAndModelMsP95": 1.3678050599992275,
+            "perMap": {
+                "Germany": 0.75,
+                "USA": 0.4375,
+                "France": 0.3125,
+                "UK & Ireland": 0.25
+            }
+        }
+    },
+    "caveat": "Diagnostic screen: four-player training maps, one independent deal per configuration, all seats. Timings include tensor conversion+forward only, not JS/IPC/platform latency. Four concurrent processes.",
+    "repo": "coyotte508/powergrid-ai-multimap-v1",
+    "revision": "a228200b82c9a8f4fed628322ffcd5563b1031d5",
+    "prefix": "diagnostics/phase-8840u-v1",
+    "artifacts": {
+        "source-manifest.json": "3c2644b741aa07b9cfe0e98fe32fe0983e4340a17bc268bf575ee8dc42e26d0b",
+        "games.jsonl": "fbbdbc56a0a592f9c94e55a4d8f140e63d1811c2d2b1adc32b90309c10f1ff4d",
+        "summary.json": "607090e0d83b6df6c005a44bea50d64e4db7ca370ba69ef48c2066b3d8469766",
+        "launch.json": "a1f18d0b80d1bce7d6819101af7e021ef93f1a29824f51cf17b2d149d6f50609",
+        "plan.json": "74456c93ff0be8ff219be1b94027149dc8f966f98b2e362dd2f1eb2832cb8e86"
+    }
+}

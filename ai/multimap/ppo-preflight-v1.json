@@ -1,0 +1,28 @@
+{
+    "nodeTests": 8,
+    "pythonTests": 10,
+    "engineTests": 366,
+    "teacherParityCells": 120,
+    "exactResumeTest": "Interrupted after populated optimizer; uncommitted best replaced; continued model and best weights bit-exact",
+    "frozenBootstrapGeneratorUnchanged": true,
+    "protocolSha256": "51f86acbbd1a495213c40554b3cc0c7933c92a2fc1608690397fbee76dad3cfe",
+    "sourceFiles": {
+        "data.py": "3a166d6baf8e294aff56ac13310867d34892347fc754493def1d347d65670492",
+        "model.py": "4f790d8fc718ed63f4df1a34c4a71ce1815abfaff50171cb1f6f256fe2f62a3e",
+        "features.cjs": "1ced47a4a5e65946a8fdb207f0d6f87d9b535c698729ec36e008d39e0914803b",
+        "teacher.cjs": "d741947ba120f56a17953b92dc553a30cd4476f9594b3161a8a0adb1af0e88cb",
+        "game.cjs": "3a36d6a74407d7a8454edba898fabf9848a4c0615e960bb94554ae363b5b1e2b",
+        "game_rl.cjs": "b3e8996da51841340b6f4f77b803dcbf01e2f72938ee44b7ba66f593d8167157",
+        "residual.py": "83e8cac000a05b2a015fa4f6612e0e4193ecd134e72f79e77123a2a10346e480",
+        "rollout.py": "57c3bcf0ebdfa11090ca68af3111702f5ccd0692e21a4391ce79b5c4dcb8e321",
+        "ppo.py": "63e99daba0df6f47fe6e2447caa14b67537ac3d91e5ecfe9246e5c7c21fd24c0",
+        "ppo-protocol-v1.json": "51f86acbbd1a495213c40554b3cc0c7933c92a2fc1608690397fbee76dad3cfe",
+        "requirements-cpu.txt": "975c2199adeee3550ce7ca31644833fa3fe5605789e6067e86b48610acb8ecf4"
+    },
+    "smokeTrainGames": 8,
+    "smokeUpdates": 2,
+    "smokeSelectedUpdate": 0,
+    "smokeConfirmationGamesPerPolicy": 8,
+    "smokeConfirmationWinCredit": 0.875,
+    "caveat": "Tiny disposable plumbing check, not strength evidence; fallback selected unchanged heuristic. Smoke checkpoint discarded."
+}

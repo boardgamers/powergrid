@@ -29,7 +29,8 @@ os.chdir(root)
 os.environ['PATH']=str(root/'runtime')+':'+os.environ['PATH']
 os.environ['PYTHONPATH']=str(root/'ai/multimap')
 subprocess.run(['python','-m','pip','install','--disable-pip-version-check','--extra-index-url','https://download.pytorch.org/whl/cpu','-r','ai/multimap/requirements-cpu.txt'],check=True)
-os.execvp('python',['python','-u','-B','ai/multimap/job.py'])
+worker={'bootstrap':'job.py','ppo':'job_ppo.py'}[os.environ.get('WORKFLOW','bootstrap')]
+os.execvp('python',['python','-u','-B','ai/multimap/'+worker])
 '''
 
 
@@ -89,7 +90,13 @@ def package(directory):
     return archive, manifest['gitCommit']
 
 
-def launch(run_id, directory, reuse_data=False):
+def launch(run_id, directory, reuse_data=False, workflow='bootstrap', resume_run=None, resume_revision=None):
+    if workflow not in ('bootstrap','ppo') or (reuse_data and workflow!='bootstrap'):
+        raise ValueError('Invalid workflow/data reuse combination')
+    if bool(resume_run)!=bool(resume_revision) or (resume_run and workflow!='ppo'):
+        raise ValueError('PPO resume needs both run ID and immutable model revision')
+    if resume_run and (not resume_run.replace('-','').replace('_','').isalnum() or len(resume_revision)!=40 or any(c not in '0123456789abcdef' for c in resume_revision)):
+        raise ValueError('Invalid resume pin')
     directory=Path(directory).resolve()
     if directory.parent != (ROOT/'ai/runs').resolve() or not directory.name.startswith('multimap-'):
         raise ValueError('Keep launcher cache in ai/runs/multimap-* so storage guard covers it')
@@ -109,11 +116,13 @@ def launch(run_id, directory, reuse_data=False):
     archive_sha=digest(archive)
     upload=api.upload_file(repo_id=DATASET,repo_type='dataset',path_or_fileobj=archive,
                            path_in_repo=source_path,commit_message=f'{run_id}: pinned source {commit}')
-    env=dict(RUN_ID=run_id,MODEL_REPO=MODEL,DATASET_REPO=DATASET,SOURCE_PATH=source_path,
+    env=dict(RUN_ID=run_id,WORKFLOW=workflow,MODEL_REPO=MODEL,DATASET_REPO=DATASET,SOURCE_PATH=source_path,
              SOURCE_REVISION=upload.oid,SOURCE_SHA256=archive_sha,OMP_NUM_THREADS='4',
              MKL_NUM_THREADS='4',OPENBLAS_NUM_THREADS='1',PYTHONUNBUFFERED='1',PYTHONDONTWRITEBYTECODE='1')
     if reuse_data:
         env['REUSE_DATA']='1'
+    if resume_run:
+        env.update(RESUME_RUN=resume_run,RESUME_REVISION=resume_revision)
     # Resolve tokens in memory; they never appear in commands, output or manifests.
     token=get_token()
     if not token:
@@ -125,7 +134,7 @@ def launch(run_id, directory, reuse_data=False):
     command=['bash','-lc',"python -m pip install --disable-pip-version-check huggingface_hub==1.29.0 && python -c "+__import__('shlex').quote(BOOTSTRAP)]
     job=api.run_job(image=IMAGE,command=command,env=env,secrets={'HF_TOKEN':token},
                     flavor='cpu-upgrade',timeout='3h',name=run_id,
-                    labels={'project':'powergrid-multimap','stage':'bootstrap-v1'})
+                    labels={'project':'powergrid-multimap','stage':workflow+'-v1'})
     record={**intent,'jobId':job.id,'url':f'https://huggingface.co/jobs/coyotte508/{job.id}'}
     atomic_json(directory/'launch.json',record)
     print(json.dumps(record,indent=2))
@@ -136,5 +145,8 @@ if __name__=='__main__':
     p.add_argument('--run-id',required=True)
     p.add_argument('--output',required=True)
     p.add_argument('--reuse-data',action='store_true')
+    p.add_argument('--workflow',choices=['bootstrap','ppo'],default='bootstrap')
+    p.add_argument('--resume-run')
+    p.add_argument('--resume-revision')
     a=p.parse_args()
-    launch(a.run_id,a.output,a.reuse_data)
+    launch(a.run_id,a.output,a.reuse_data,a.workflow,a.resume_run,a.resume_revision)

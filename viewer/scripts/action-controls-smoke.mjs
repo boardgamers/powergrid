@@ -91,6 +91,38 @@ try {
         await page.close();
         console.log(`${mode}: hover matches board options; focus and market cues passed`);
     }
+    {
+        const page = await browser.newPage();
+        await page.goto(`http://127.0.0.1:${server.address().port}/?mode=public&text=1`);
+        const pass = page.locator('[data-board-control="pass"]');
+        const undo = page.locator('[data-board-control="undo"]');
+        await pass.locator('[data-action-label]').waitFor();
+        assert.equal(await pass.getAttribute('aria-disabled'), 'true');
+        assert.equal(await undo.getAttribute('aria-disabled'), 'true');
+        const fadedText = await pass.locator('[data-action-label]').evaluate((e) => getComputedStyle(e).fill);
+        assert.equal(fadedText, 'rgb(192, 192, 192)');
+        await page.locator('[data-board-control="text-actions"]').click();
+        await pass.locator('[data-phase-icon]').waitFor();
+        const checkDisabled = async () => {
+            for (const selector of ['[data-phase-icon]', '[data-action-icon]', '.button-divider']) {
+                assert.equal(await pass.locator(selector).evaluate((e) => getComputedStyle(e).stroke), fadedText);
+            }
+            assert.equal(
+                await pass.locator('.phase-background').evaluate((e) => getComputedStyle(e).fill),
+                'rgb(220, 220, 220)'
+            );
+            assert.equal(await pass.locator('.button-outline').evaluate((e) => getComputedStyle(e).strokeWidth), '1px');
+            assert.equal(
+                await undo.locator('[data-action-icon]').evaluate((e) => getComputedStyle(e).filter),
+                'invert(0.75)'
+            );
+        };
+        await checkDisabled();
+        await pass.hover();
+        await checkDisabled();
+        await page.close();
+        console.log('Disabled controls: pictograms and divider match faded text, including on hover');
+    }
     const page = await browser.newPage();
     await page.goto(`http://127.0.0.1:${server.address().port}/?mode=resources`);
     const phaseButton = page.locator('[data-board-control="pass"]');

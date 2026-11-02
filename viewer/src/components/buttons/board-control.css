@@ -1,5 +1,11 @@
-/* Shared border treatment for phase actions, Undo and board-option controls.
-   Backgrounds/icons remain owned by their components. */
+/* Shared border treatment for phase actions, Undo and board-option controls. */
+/* Outlined pictograms need the same disabled silver as text and borders.
+   Undo's image already uses the global disabled-image filter. */
+.button:not(.enabled) [data-phase-icon],
+.button:not(.enabled) path[data-action-icon],
+.button:not(.enabled) .button-divider {
+    stroke: silver;
+}
 .button .board-control-border {
     stroke-width: 1px;
 }

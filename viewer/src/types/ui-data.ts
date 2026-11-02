@@ -17,6 +17,7 @@ export type Preferences = {
     analysis?: boolean;
     sound: boolean;
     colorBlind: boolean;
+    textActions?: boolean;
     /** Legacy host preference; help indicators are now always visible. */
     disableHelp?: boolean;
     showUnselectedRegions?: boolean;

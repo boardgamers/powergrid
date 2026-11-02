@@ -485,6 +485,9 @@
                     :enabled="canUsePhaseButton"
                     :highlightButton="highlightPhaseButton"
                     :text="phaseButtonText"
+                    :showText="!!preferences.textActions"
+                    :width="168"
+                    :height="32"
                     :icon="phaseButtonIcon"
                     :action="phaseButtonAction"
                     @click="usePhaseButton"
@@ -498,6 +501,9 @@
                     transform="translate(15, 56)"
                     control="undo-move"
                     text="Undo my move"
+                    :showText="!!preferences.textActions"
+                    :width="168"
+                    :height="32"
                     :enabled="true"
                     :highlightButton="true"
                     @click="undoMove()"
@@ -510,10 +516,25 @@
                     :highlightButton="changingBid || canUndo()"
                     :icon="changingBid ? 'cancel' : 'undo'"
                     :text="changingBid ? 'Cancel bid edit' : 'Undo last move'"
+                    :showText="!!preferences.textActions"
+                    :width="168"
+                    :height="32"
                     @click="useUndoButton()"
                 />
                 <BoardOption
                     transform="translate(15, 97)"
+                    :width="30"
+                    :height="32"
+                    control="text-actions"
+                    icon="text"
+                    label="Show action labels"
+                    :active="!!preferences.textActions"
+                    @click="toggleTextActions()"
+                />
+                <BoardOption
+                    transform="translate(49.5, 97)"
+                    :width="30"
+                    :height="32"
                     control="color-blind"
                     icon="shapes"
                     label="Color-blind mode"
@@ -522,7 +543,9 @@
                 />
                 <BoardOption
                     v-if="roundPlan || canPlanRound"
-                    transform="translate(59, 97)"
+                    transform="translate(84, 97)"
+                    :width="30"
+                    :height="32"
                     control="plan"
                     :icon="roundPlan ? 'return' : 'plan'"
                     :label="
@@ -542,17 +565,27 @@
                             : startPlanning()
                     "
                 />
-                <SoundButton :transform="iconButton(0)" :isOn="preferences.sound" @click="toggleSound()" />
                 <BoardOption
                     v-if="hasUnselectedRegions"
-                    :transform="iconButton(1)"
+                    transform="translate(118.5, 97)"
+                    :width="30"
+                    :height="32"
                     control="unselected-regions"
                     icon="regions"
                     label="Show unselected regions"
                     :active="preferences.showUnselectedRegions !== false"
                     @click="toggleUnselectedRegions()"
                 />
-                <RulesButton :transform="iconButton(hasUnselectedRegions ? 2 : 1)" @click="rulesVisible = true" />
+                <BoardOption
+                    transform="translate(153, 97)"
+                    :width="30"
+                    :height="32"
+                    control="rules"
+                    icon="rules"
+                    label="Rules"
+                    :toggle="false"
+                    @click="rulesVisible = true"
+                />
             </g>
 
             <g
@@ -933,7 +966,7 @@ import {
 } from '../util/turn-buffer';
 import { UIData, Preferences } from '../types/ui-data';
 import { Card, House, Coal, Oil, Garbage, Uranium } from './pieces';
-import { Button, PassButton, UndoButton, BoardOption, SoundButton, RulesButton } from './buttons';
+import { Button, PassButton, UndoButton, BoardOption } from './buttons';
 import PlayerBoard from './PlayerBoard.vue';
 import Calculator from './Calculator.vue';
 import PowerPlantMarket from './boards/PowerPlantMarket.vue';
@@ -1104,8 +1137,6 @@ let nextGeographyClipId = 0;
         PassButton,
         UndoButton,
         BoardOption,
-        SoundButton,
-        RulesButton,
         Button,
         Calculator,
         RoundPlanner,
@@ -2808,11 +2839,10 @@ export default class Game extends Vue {
         this.emitter.emit('update:preference', { name: 'colorBlind', value: this.preferences.colorBlind });
     }
 
-    toggleSound() {
-        const newSound = !this.preferences.sound;
-
-        this.emitter.emit('update:preference', { name: 'sound', value: newSound });
-        this.preferences.sound = newSound;
+    toggleTextActions() {
+        const value = !this.preferences.textActions;
+        this.$set(this.preferences, 'textActions', value);
+        this.emitter.emit('update:preference', { name: 'textActions', value });
     }
 
     toggleUnselectedRegions() {
@@ -3050,12 +3080,6 @@ export default class Game extends Vue {
 
     slotT(name: string): string | undefined {
         return this.slotTransforms[name];
-    }
-
-    /** Align portrait icons with the compact action buttons; retain desktop spacing. */
-    iconButton(index: number): string {
-        if (!this.portraitViewport) return `translate(110, ${13 + 41 * index})`;
-        return `translate(110, ${13 + 30 * index}) scale(${round(26 / 30, 4)})`;
     }
 
     /**
@@ -3317,6 +3341,8 @@ export default class Game extends Vue {
     get layoutPreferencesKey() {
         const preferences = { ...this.preferences };
         delete preferences.showUnselectedRegions;
+        // Both presentations reserve identical button bounds; toggling is purely visual.
+        delete preferences.textActions;
         return JSON.stringify(preferences);
     }
 

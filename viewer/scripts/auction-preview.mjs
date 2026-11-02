@@ -63,10 +63,11 @@ document.querySelector('#mode').value=mode;
 if(mode==='only-pass')document.querySelector('.hint').textContent='You have 1. No plant is affordable, so passing is the only legal action.';
 if(mode==='building')document.querySelector('.hint').textContent='Build a city to change skip to confirm. Undo all builds to restore skip.';
 if(mode==='powering')document.querySelector('.hint').textContent='Activate your oil plant to change skip to confirm. Hover its border to see the white highlight.';
-document.querySelector('#mode').onchange=e=>location.search='?mode='+e.target.value;
+document.querySelector('#mode').onchange=e=>{query.set('mode',e.target.value);location.search='?'+query;};
 async function send(path,body){const response=await fetch(path+'?mode='+mode,{method:body?'POST':'GET',headers:{'Content-Type':'application/json'},body:body?JSON.stringify(body):undefined});const data=await response.json();document.querySelector('#error').textContent=data.error||'';if(data.error)return;host.emit('settings',data.settings);host.emit('state',data.state);const button=document.querySelector('#opponent');button.textContent=data.next;button.disabled=!data.opponent;}
 host.on('fetchState',()=>send('/state'));host.on('move',move=>send('/move',{move}));host.on('update:setting',setting=>send('/setting',setting));
-host.emit('player',{index:0});host.emit('preferences',{sound:false,fitToScreen:true,locale:query.get('locale')||'en'});host.emit('chat:state',{canSend:false,mentions:[]});
+host.on('update:preference',({name,value})=>{if(name==='textActions'){query.set('text',value?'1':'0');history.replaceState(null,'','?'+query);}});
+host.emit('player',{index:0});host.emit('preferences',{sound:false,textActions:query.get('text')==='1',locale:query.get('locale')||'en'});host.emit('chat:state',{canSend:false,mentions:[]});
 document.querySelector('#opponent').onclick=()=>send('/opponent',{});document.querySelector('#reset').onclick=()=>send('/reset',{});send('/state');
 </script></body></html>`;
 export function auctionPreviewServer() {

@@ -10,12 +10,20 @@
         @keydown.enter.prevent="enabled && $emit('click')"
         @keydown.space.prevent="enabled && $emit('click')"
     >
-        <path class="phase-background" d="M4 0H76Q80 0 80 4V22Q80 26 76 26H4Q0 26 0 22V4Q0 0 4 0Z" fill="gainsboro" />
-        <path class="button-divider" d="M40 0V26" stroke="#88949a" aria-hidden="true" />
+        <path class="phase-background" :d="backgroundPath" fill="gainsboro" />
+        <ActionLabel v-if="showText" :text="text" :width="width" :height="height" />
         <path
+            v-if="!showText"
+            class="button-divider"
+            :d="`M${width / 2} 0V${height}`"
+            stroke="#88949a"
+            aria-hidden="true"
+        />
+        <path
+            v-if="!showText"
             :d="iconPath"
             data-phase-icon
-            transform="translate(12, 5)"
+            :transform="`translate(${width / 4 - 8}, ${(height - 16) / 2})`"
             fill="none"
             stroke="black"
             stroke-width="1.5"
@@ -24,9 +32,10 @@
             aria-hidden="true"
         />
         <path
+            v-if="!showText"
             :d="actionPath"
             data-action-icon
-            transform="translate(52, 5)"
+            :transform="`translate(${(3 * width) / 4 - 8}, ${(height - 16) / 2})`"
             fill="none"
             stroke="black"
             stroke-width="1.5"
@@ -37,8 +46,8 @@
         <!-- Paint the shared outline last so neither half can cover the highlight. -->
         <rect
             class="button-outline board-control-border turn-action-border"
-            width="80"
-            height="26"
+            :width="width"
+            :height="height"
             fill="none"
             stroke="black"
             rx="4"
@@ -49,14 +58,24 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
+import ActionLabel from './ActionLabel.vue';
 
-@Component
+@Component({ components: { ActionLabel } })
 export default class PassButton extends Vue {
     @Prop() enabled!: boolean;
     @Prop() highlightButton!: boolean;
     @Prop() text!: string;
     @Prop({ default: 'done' }) icon!: string;
     @Prop({ default: 'finish' }) action!: string;
+    @Prop({ default: false }) showText!: boolean;
+    @Prop({ default: 80 }) width!: number;
+    @Prop({ default: 26 }) height!: number;
+
+    get backgroundPath(): string {
+        const w = this.width,
+            h = this.height;
+        return `M4 0H${w - 4}Q${w} 0 ${w} 4V${h - 4}Q${w} ${h} ${w - 4} ${h}H4Q0 ${h} 0 ${h - 4}V4Q0 0 4 0Z`;
+    }
 
     get actionPath(): string {
         const paths: Record<string, string> = {

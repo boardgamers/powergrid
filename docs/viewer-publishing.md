@@ -46,3 +46,19 @@ It uses the public deck count and remains stable during resource purchases and u
 After packaging, run `node viewer/scripts/action-controls-smoke.mjs` to check
 normal/only-pass states, hover/focus styling against the board-option buttons,
 resource/building/powering transitions, and plant borders.
+
+## Viewer 2.3.23: action labels
+
+The Aa toggle switches the phase and Undo buttons between pictograms and full,
+translated text. Both modes reserve identical bounds, and disabled pictograms
+fade like disabled text. The utility buttons share a light surface and an active
+marker; the duplicate board sound button is removed (sound remains in the sidebar).
+
+This release adds
+`{ "name": "textActions", "label": "Show action labels", "type": "checkbox", "default": false }`
+to the BGS version 13 preferences, preserving every other preference. BGS only
+persists declared preference names, so this addition must accompany the release.
+
+After packaging, `node viewer/scripts/action-labels-smoke.mjs` checks the two
+presentations, keyboard toggling, translated text fitting in all 17 languages,
+mobile/desktop geometry, saved-move undo and text-mode local undo.

@@ -1,6 +1,31 @@
 {
-    "activeRun": null,
+    "activeRun": "multimap-bootstrap-20261102-v1-r1",
     "runs": [
+        {
+            "id": "multimap-bootstrap-20261102-v1-r1",
+            "jobId": "6ae8c1a2c78863f9c630c44f",
+            "url": "https://huggingface.co/jobs/coyotte508/6ae8c1a2c78863f9c630c44f",
+            "sourceCommit": "46c70e99c1da81cfaa74d8669125dc32c003bbff",
+            "sourceRevision": "34cebcfa0c9b9cf1e32d47d9a30c031ec14f803e",
+            "sourceSha256": "7f138edc364e90eadf76129032def8ca85c1ee1589928e78e6012affaa717a4d",
+            "sourcePath": "multimap/multimap-bootstrap-20261102-v1-r1/source.tgz",
+            "datasetRepo": "coyotte508/powergrid-ai-training-v1",
+            "modelRepo": "coyotte508/powergrid-ai-multimap-v1",
+            "modelPrefix": "runs/multimap-bootstrap-20261102-v1-r1",
+            "reusedDataPins": "bootstrap-data-v1.json",
+            "retainedTrainingRows": 61425,
+            "excludedTrainingRows": 15,
+            "validationRows": 15360,
+            "transferRows": 7680,
+            "hardware": "cpu-upgrade",
+            "epochs": 40,
+            "timeoutHours": 3,
+            "seed": 508,
+            "developmentGames": 1920,
+            "localLog": "ai/runs/multimap-bootstrap-20261102-v1-r1/job.log",
+            "completionWatcher": "hf jobs wait 6ae8c1a2c78863f9c630c44f --timeout 4h",
+            "qualified": false
+        },
         {
             "id": "multimap-bootstrap-20261102-v1",
             "jobId": "6ae8bd6cc78863f9c630be9c",

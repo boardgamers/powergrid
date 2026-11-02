@@ -1,8 +1,13 @@
 {
-    "activeRuns": ["multimap-phase-gap-20261102-v1"],
+    "activeRuns": [],
     "runs": [
         {
             "id": "multimap-phase-gap-20261102-v1",
+            "terminalStatus": "COMPLETED",
+            "terminalModelRevision": "f01d97bab8207af74930d0cfa6add36d0cf5df2d",
+            "result": "gap-results-v1.json",
+            "failures": 0,
+            "exactReplays": 10,
             "jobId": "6ae9042a0e0338d1bb7e9ddb",
             "url": "https://huggingface.co/jobs/coyotte508/6ae9042a0e0338d1bb7e9ddb",
             "workflow": "gap",
@@ -16,7 +21,7 @@
             "workers": 6,
             "timeoutHours": 3,
             "teacher": "Frozen v1; mechanical v2 repairs are deliberately not active",
-            "decision": "Measure phase substitutions and expert-choice prior reachability before choosing the next multi-map learning recipe",
+            "decision": "Auction/Building substitutions identify the next learning targets; 11–12% of visited reference Auction choices are v1-greedy-unreachable. Implement expert-assisted multi-map PPO with bound16, v2 fixed mechanics and stronger population opponents. Equal Resource focal credits do not imply identical trajectories.",
             "qualified": false
         },
         {

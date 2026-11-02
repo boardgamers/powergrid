@@ -428,7 +428,7 @@ match; historical serve requirements did not fully pin transitive dependencies.
 No action traces were saved, so attribution needs a new diagnostic rather than
 post-hoc guesses from these terminal outcomes.
 
-### Next: phase substitution and prior reachability
+### Completed phase substitution and prior-reachability diagnostic
 
 [`gap-protocol-v1.json`](gap-protocol-v1.json) freezes a diagnostic, **not another
 blind PPO extension**: 20 Germany cells × two fresh deals × all seats × ten arms
@@ -442,7 +442,7 @@ move, including teacher-controlled decisions. Compact per-phase counters record
 agreement, prior gaps/histograms and reachability; forced moves are excluded from
 agreement denominators. No observations, action traces or training trajectories
 are saved. Phase contrasts include downstream effects and need not add up;
-state visitation differs by arm. All arms will be reported, not selected.
+state visitation differs by arm. All arms are reported, not selected.
 
 **Verified v1 restriction:** logits are `prior + 8*tanh(raw/8)`. An expert action
 more than 16 prior units behind a best-prior action cannot become greedy-best,
@@ -459,6 +459,37 @@ Strict source/runtime/worker resume identity, six single-thread workers, zero-er
 stop behavior, 128 MiB compact artifacts and 120-game HF snapshots remain.
 Only identical snapshot uploads receive bounded retries, never games. A separate
 20-game smoke namespace exercises all ten arms before the full run.
+
+The completed run is independently audited in [`gap-results-v1.json`](gap-results-v1.json):
+**1,600 terminal games, zero failures/caps/missing/duplicates, 10 exact replays**
+covering every arm, all five player counts and all four rule combinations.
+
+| Focal policy                           | Macro win credit |
+| -------------------------------------- | ---------------: |
+| Reference                              |         0.290000 |
+| Teacher v1                             |         0.118333 |
+| Reference except Auction → teacher     |         0.240000 |
+| Reference except Resources → teacher   |         0.290000 |
+| Reference except Building → teacher    |         0.204583 |
+| Reference except Bureaucracy → teacher |         0.290000 |
+| Teacher except Auction → reference     |         0.235833 |
+| Teacher except Resources → reference   |         0.118333 |
+| Teacher except Building → reference    |         0.240000 |
+| Teacher except Bureaucracy → reference |         0.105833 |
+
+Auction reference choices were strictly unreachable under v1 on **632/5,698
+(11.09%)** reference-controlled decisions and **710/6,063 (11.71%)**
+teacher-controlled decisions; exact floor−20 counts were 463 and 577. These are
+correlated decision counts, not independent trials. The paired fixed-cell
+intervals in the report are exploratory: only two deal clusters per cell,
+multiple contrasts, repeated seats and policy-dependent visitation.
+
+**Resource caveat:** all 160 focal credits match their respective baseline,
+but this does not mean identical play. Reference swaps change 90/160 Resource
+counter signatures despite identical terminal vectors/steps; teacher swaps change
+84/160 signatures and **2/160 complete terminal vectors/step totals**. The latter
+change nonfocal winners. No raw action traces or identical-fuel-purchase claim
+is made. Auction and Building are learning targets, not promoted policies.
 
 ### Separately versioned mechanical teacher repairs
 
@@ -481,6 +512,65 @@ production/continuation cases and 120 full scoped games. The retained reference
 also makes the hybrid error on the synthetic regression case: it is not a perfect
 oracle. These are correctness repairs, **not measured competitive improvements**.
 No historical teacher/model/reference/engine code was edited, and the phase-gap
-study deliberately continues using **v1**. Any next learning recipe must retain
+study deliberately used **v1**. The new learning recipe retains
 Germany/USA/France/UK & Ireland training and Italy/Benelux whole-map holdouts;
 no diagnostic or reserved final roots become training data.
+
+### Expert-assisted multi-map PPO v2
+
+[`expert-protocol-v2.json`](expert-protocol-v2.json) freezes the next learning
+experiment, not another attribution screen. Its separately versioned files do
+not modify any historical scorer, checkpoint, feature encoder or reference.
+
+-   Learn Auction/Building with `prior + 16*tanh(raw/16)`, so all actions in the
+    full legal menu can overcome the prior's maximum 20-unit gap. Add one masked
+    `prior/20` channel to the action scorer. Keep the portable city graph, no city
+    IDs/map-name embeddings, width64 and original bootstrap representation pin.
+    Insert a zero-weight prior column and zero actor head: initial greedy policy
+    is exactly teacher v2, checked against an independent direct-teacher control.
+-   Use the mechanical v2 teacher only for fixed Resources/Bureaucracy/forced
+    decisions and the new prior. This is not a claim that the repairs improve wins.
+-   Warm up on **160 fresh Germany games**, reference focal A/B and reference
+    opponents, with v2 fixed phases; **24 fixed supervised passes**. Reference
+    labels are not available outside its Germany scope.
+-   Then **32 × 80 = 2,560 fresh PPO games**, equally balanced across the four
+    training maps and all player/rule cells. Germany alternates reference-population
+    and mixed games; mixed per-seat opponents are all three frozen PPO replicas and
+    the greedy current student, unchanged throughout collection. Only the focal
+    student's training moves are sampled. Every Germany focal multi-action A/B
+    choice receives a counterfactual legal reference label (DAgger); execute the
+    student's actual choice, not the label.
+-   True terminal win credit, equal game weights, phase-balanced expert CE,
+    coefficient `.5*.97^(update-1)`, globally normalized weights (not minibatch
+    label-subset normalization), and **no heuristic-prior KL penalty**. AdamW/PPO
+    remain bounded; trajectories are RAM-only with a 100,000-row guard.
+-   Select from initial, warmup, updates8/16/24/32 using **320 fixed in-map games**
+    per checkpoint: Germany against reference, other maps against the frozen
+    three-policy population, never self. Four-map macro credit, earliest ties;
+    Germany cannot regress from the initial baseline, other maps at most .05.
+    The zero-head baseline remains eligible. Another 320 direct-teacher games
+    verify initial full terminal parity.
+-   Only after selection, **960 selected + 960 teacher-v2 confirmation games**
+    cover all six maps. Italy/Benelux are whole-map transfer-only. Evaluation never
+    asks for expert labels; reference opponents still make their own public moves.
+-   Atomic stage/update transactions save optimizer/RNG and the exact committed
+    best-checkpoint bytes. Resume restores corrupt/uncommitted best files and rejects
+    serving-source/runtime/worker drift. Whitelisted private snapshots cap at
+    128 MiB and exclude requests, observations and trajectories. Reuse the complete
+    unchanged 451 MB reference artifact and isolated reference environment.
+
+The disjoint engineering smoke uses four in-map two-player original/open cells,
+two warmup games/passes and two PPO updates. It is not strength evidence or a
+model-selection experiment. HF delivery uses `launch.py --workflow expert`,
+six collector workers and a three-hour CPU-job timeout; see `runs.json` for the
+actual launch/completion state. No candidate is qualified or deployed.
+
+[`expert-preflight-v2.json`](expert-preflight-v2.json) pins the final private
+engineering evidence: **132 terminal games**, 66 exact terminal/counter replay
+matches across uninterrupted versus interrupted/resumed execution, populated
+Adam state, bit-identical weights/optimizer/RNG/history/best bytes, and recovery
+from deliberate best-file corruption. All ten controller types were exercised;
+276 expert labels and 3,419 reference requests occurred per execution. The smoke
+selected the initial baseline, not a stronger learned model. Checks passed:
+**366 engine tests, 152 Python tests, 44 Node tests**. The complete 451 MB reference
+was reused unchanged; only about 12 MB of compact smoke evidence was archived.

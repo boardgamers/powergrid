@@ -1,0 +1,90 @@
+{
+    "runs": [
+        {
+            "run": "multimap-ppo-20261102-replica-1",
+            "sourceCommit": "6f5a5e01e062c6b7c6d5b4dd99dff13829620c11",
+            "env": {
+                "RUN_ID": "multimap-ppo-20261102-replica-1",
+                "WORKFLOW": "ppo",
+                "MODEL_REPO": "coyotte508/powergrid-ai-multimap-v1",
+                "DATASET_REPO": "coyotte508/powergrid-ai-training-v1",
+                "SOURCE_PATH": "multimap/multimap-ppo-20261102-replica-1/source.tgz",
+                "SOURCE_REVISION": "cf3a97e2de45936a0bd1741ce8995d7c54b78f71",
+                "SOURCE_SHA256": "e41fc2010d553aa161e6d28b6ce4ede5311fabad15f2d1b0f35e24faa4874846",
+                "OMP_NUM_THREADS": "4",
+                "MKL_NUM_THREADS": "4",
+                "OPENBLAS_NUM_THREADS": "1",
+                "PYTHONUNBUFFERED": "1",
+                "PYTHONDONTWRITEBYTECODE": "1",
+                "REPLICA": "1"
+            },
+            "image": "python:3.12.8-slim-bookworm@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+            "flavor": "cpu-upgrade",
+            "timeout": "3h",
+            "jobId": "6ae8dcabc78863f9c630e46a",
+            "url": "https://huggingface.co/jobs/coyotte508/6ae8dcabc78863f9c630e46a",
+            "modelPrefix": "runs/multimap-ppo-20261102-replica-1",
+            "localLog": "ai/runs/multimap-ppo-20261102-replica-1/job.log",
+            "completionWatcher": "hf jobs wait 6ae8dcabc78863f9c630e46a --timeout 4h"
+        },
+        {
+            "run": "multimap-ppo-20261102-replica-2",
+            "sourceCommit": "6f5a5e01e062c6b7c6d5b4dd99dff13829620c11",
+            "env": {
+                "RUN_ID": "multimap-ppo-20261102-replica-2",
+                "WORKFLOW": "ppo",
+                "MODEL_REPO": "coyotte508/powergrid-ai-multimap-v1",
+                "DATASET_REPO": "coyotte508/powergrid-ai-training-v1",
+                "SOURCE_PATH": "multimap/multimap-ppo-20261102-replica-2/source.tgz",
+                "SOURCE_REVISION": "1b6311b2e35cd02ce6e0c8782e961650626faaa5",
+                "SOURCE_SHA256": "67c0783a08d0af940d5077631fa2166b8b0aa16fb22d03e8467f7d04279e8e73",
+                "OMP_NUM_THREADS": "4",
+                "MKL_NUM_THREADS": "4",
+                "OPENBLAS_NUM_THREADS": "1",
+                "PYTHONUNBUFFERED": "1",
+                "PYTHONDONTWRITEBYTECODE": "1",
+                "REPLICA": "2"
+            },
+            "image": "python:3.12.8-slim-bookworm@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+            "flavor": "cpu-upgrade",
+            "timeout": "3h",
+            "jobId": "6ae8dcb9c78863f9c630e47a",
+            "url": "https://huggingface.co/jobs/coyotte508/6ae8dcb9c78863f9c630e47a",
+            "modelPrefix": "runs/multimap-ppo-20261102-replica-2",
+            "localLog": "ai/runs/multimap-ppo-20261102-replica-2/job.log",
+            "completionWatcher": "hf jobs wait 6ae8dcb9c78863f9c630e47a --timeout 4h"
+        },
+        {
+            "run": "multimap-ppo8-opponents-20261102-v1",
+            "sourceCommit": "6f5a5e01e062c6b7c6d5b4dd99dff13829620c11",
+            "env": {
+                "RUN_ID": "multimap-ppo8-opponents-20261102-v1",
+                "WORKFLOW": "opponents",
+                "MODEL_REPO": "coyotte508/powergrid-ai-multimap-v1",
+                "DATASET_REPO": "coyotte508/powergrid-ai-training-v1",
+                "SOURCE_PATH": "multimap/multimap-ppo8-opponents-20261102-v1/source.tgz",
+                "SOURCE_REVISION": "a1884e539ae74cb6eaefad24bdf8362ee75c4805",
+                "SOURCE_SHA256": "b4d246629cdccfc220adeb0f62a0978c9f651fd2acdcc70fb5ecdb6d8f7a54e6",
+                "OMP_NUM_THREADS": "4",
+                "MKL_NUM_THREADS": "4",
+                "OPENBLAS_NUM_THREADS": "1",
+                "PYTHONUNBUFFERED": "1",
+                "PYTHONDONTWRITEBYTECODE": "1"
+            },
+            "image": "python:3.12.8-slim-bookworm@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+            "flavor": "cpu-upgrade",
+            "timeout": "3h",
+            "jobId": "6ae8dccac78863f9c630e490",
+            "url": "https://huggingface.co/jobs/coyotte508/6ae8dccac78863f9c630e490",
+            "modelPrefix": "runs/multimap-ppo8-opponents-20261102-v1",
+            "localLog": "ai/runs/multimap-ppo8-opponents-20261102-v1/job.log",
+            "completionWatcher": "hf jobs wait 6ae8dccac78863f9c630e490 --timeout 4h"
+        }
+    ],
+    "auditReport": {
+        "repo": "coyotte508/powergrid-ai-multimap-v1",
+        "revision": "fb71c2fa461b4d551f6967f2de762d00fba162fa",
+        "path": "audits/multimap-ppo-20261102-v1/report.json",
+        "sha256": "bc816e87b2a510f85c9ae1ca4b8cda275d50a95fc75180a85be8fe382c2e603d"
+    }
+}

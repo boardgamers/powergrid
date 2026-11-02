@@ -1,6 +1,51 @@
 {
-    "activeRun": null,
+    "activeRuns": [
+        "multimap-ppo-20261102-replica-1",
+        "multimap-ppo-20261102-replica-2",
+        "multimap-ppo8-opponents-20261102-v1"
+    ],
     "runs": [
+        {
+            "id": "multimap-ppo-20261102-replica-1",
+            "jobId": "6ae8dcabc78863f9c630e46a",
+            "url": "https://huggingface.co/jobs/coyotte508/6ae8dcabc78863f9c630e46a",
+            "workflow": "ppo",
+            "replica": 1,
+            "seed": 509,
+            "protocol": "ppo-protocol-v1.json",
+            "preflight": "followup-preflight-v1.json",
+            "launchReceipt": "followup-launches-v1.json",
+            "trainingGames": 1280,
+            "evaluationGames": 3840,
+            "qualified": false
+        },
+        {
+            "id": "multimap-ppo-20261102-replica-2",
+            "jobId": "6ae8dcb9c78863f9c630e47a",
+            "url": "https://huggingface.co/jobs/coyotte508/6ae8dcb9c78863f9c630e47a",
+            "workflow": "ppo",
+            "replica": 2,
+            "seed": 510,
+            "protocol": "ppo-protocol-v1.json",
+            "preflight": "followup-preflight-v1.json",
+            "launchReceipt": "followup-launches-v1.json",
+            "trainingGames": 1280,
+            "evaluationGames": 3840,
+            "qualified": false
+        },
+        {
+            "id": "multimap-ppo8-opponents-20261102-v1",
+            "jobId": "6ae8dccac78863f9c630e490",
+            "url": "https://huggingface.co/jobs/coyotte508/6ae8dccac78863f9c630e490",
+            "workflow": "opponents",
+            "protocol": "opponent-study-v1.json",
+            "preflight": "followup-preflight-v1.json",
+            "launchReceipt": "followup-launches-v1.json",
+            "evaluationGames": 11520,
+            "pairedComparisons": 5760,
+            "independentDeals": 1440,
+            "qualified": false
+        },
         {
             "id": "multimap-ppo-20261102-v1",
             "terminalStatus": "COMPLETED",

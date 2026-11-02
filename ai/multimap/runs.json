@@ -1,6 +1,23 @@
 {
-    "activeRuns": [],
+    "activeRuns": ["multimap-neural-screen-20261102-v1"],
     "runs": [
+        {
+            "id": "multimap-neural-screen-20261102-v1",
+            "jobId": "6ae8ec0f0e0338d1bb7e8dad",
+            "url": "https://huggingface.co/jobs/coyotte508/6ae8ec0f0e0338d1bb7e8dad",
+            "workflow": "neural",
+            "protocol": "neural-study-v1.json",
+            "preflight": "reference-preflight-v1.json",
+            "batchEvidence": "batch-evidence-v1.json",
+            "launchReceipt": "neural-launch-v1.json",
+            "evaluationGames": 1920,
+            "gamesPerPolicy": 320,
+            "independentDeals": 80,
+            "policies": ["ppo0", "ppo1", "ppo2", "ensemble", "teacher", "reference"],
+            "workers": 6,
+            "timeoutHours": 3,
+            "qualified": false
+        },
         {
             "id": "multimap-ppo-20261102-replica-1",
             "terminalStatus": "COMPLETED",

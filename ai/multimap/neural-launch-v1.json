@@ -1,0 +1,26 @@
+{
+    "run": "multimap-neural-screen-20261102-v1",
+    "sourceCommit": "4ca026e34b7ba9743cfa4d4811277a8ac31258ba",
+    "env": {
+        "RUN_ID": "multimap-neural-screen-20261102-v1",
+        "WORKFLOW": "neural",
+        "MODEL_REPO": "coyotte508/powergrid-ai-multimap-v1",
+        "DATASET_REPO": "coyotte508/powergrid-ai-training-v1",
+        "SOURCE_PATH": "multimap/multimap-neural-screen-20261102-v1/source.tgz",
+        "SOURCE_REVISION": "e32f5117e24269187b148642bfc26f6cecca81a4",
+        "SOURCE_SHA256": "2bc6bc933b48bef2925f86eb175b2910d335d8ed543dc1261f02c49405aa519a",
+        "OMP_NUM_THREADS": "4",
+        "MKL_NUM_THREADS": "4",
+        "OPENBLAS_NUM_THREADS": "1",
+        "PYTHONUNBUFFERED": "1",
+        "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "image": "python:3.12.8-slim-bookworm@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+    "flavor": "cpu-upgrade",
+    "timeout": "3h",
+    "jobId": "6ae8ec0f0e0338d1bb7e8dad",
+    "url": "https://huggingface.co/jobs/coyotte508/6ae8ec0f0e0338d1bb7e8dad",
+    "modelPrefix": "runs/multimap-neural-screen-20261102-v1",
+    "completionWatcher": "hf jobs wait 6ae8ec0f0e0338d1bb7e8dad --timeout 4h",
+    "localLog": "ai/runs/multimap-neural-screen-20261102-v1/job.log"
+}

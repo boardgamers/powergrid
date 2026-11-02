@@ -1,0 +1,53 @@
+{
+    "activeRun": "multimap-bootstrap-20261102-v1",
+    "runs": [
+        {
+            "id": "multimap-bootstrap-20261102-v1",
+            "jobId": "6ae8bd6cc78863f9c630be9c",
+            "url": "https://huggingface.co/jobs/coyotte508/6ae8bd6cc78863f9c630be9c",
+            "statusAtLaunch": "RUNNING",
+            "sourceCommit": "8b599075dcd05616724a86314e5e885cf50e5f76",
+            "datasetRepo": "coyotte508/powergrid-ai-training-v1",
+            "sourcePath": "multimap/multimap-bootstrap-20261102-v1/source.tgz",
+            "sourceRevision": "73cac83aa347e127049afca48b492548520fd96b",
+            "sourceSha256": "293940fd761c01a8947213005ba6fbdd762dd439dc1c5c81b0555ed1368f4a86",
+            "modelRepo": "coyotte508/powergrid-ai-multimap-v1",
+            "modelPrefix": "runs/multimap-bootstrap-20261102-v1",
+            "hardware": "cpu-upgrade",
+            "timeoutHours": 3,
+            "epochs": 40,
+            "seed": 508,
+            "trainGames": 1280,
+            "validationGames": 320,
+            "transferGames": 160,
+            "developmentGames": 1920,
+            "localLog": "ai/runs/multimap-bootstrap-20261102-v1/job.log",
+            "completionWatcher": "hf jobs wait 6ae8bd6cc78863f9c630be9c --timeout 4h",
+            "qualified": false
+        }
+    ],
+    "preflight": {
+        "engineTestsPassing": 366,
+        "completeSmokeConfigurations": 120,
+        "nodeTestsPassing": 5,
+        "pythonTestsPassing": 4,
+        "checks": [
+            "Hidden-state noninterference",
+            "City and legal-action permutation equivariance",
+            "Padding and action masking invariance",
+            "Whole-deal and held-out-map split isolation",
+            "Bit-exact optimizer/checkpoint interruption recovery",
+            "Self-contained source package test"
+        ],
+        "localDataGames": 200,
+        "localDataCrossSplitDuplicates": 0,
+        "localTwoEpochSmokeEvaluation": {
+            "games": 8,
+            "pairedSeats": 4,
+            "completed": 8,
+            "modelWinCredit": 0,
+            "teacherWinCredit": 4,
+            "meaning": "Pipeline exercise only; deliberately tiny two-epoch model is not competitive."
+        }
+    }
+}

@@ -1,5 +1,9 @@
 # Multi-map Power Grid AI — v1 bootstrap
 
+**Active run:** [HF job 6ae8bd6cc78863f9c630be9c](https://huggingface.co/jobs/coyotte508/6ae8bd6cc78863f9c630be9c).
+See `runs.json` for source/data pins, launch configuration and preflight evidence.
+Its completion/error watcher is active; no user ping is required to continue.
+
 Start here for the new research. The Germany reference and its historical
 experiments remain frozen in `ai/strong/`; do not restart their coordinators.
 The unrelated/deleted HF experiments are not inputs. No BGS deployment is made.

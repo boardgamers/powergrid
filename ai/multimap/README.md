@@ -1,8 +1,15 @@
 # Multi-map Power Grid AI — v1 bootstrap
 
-**Active run:** [HF job 6ae8bd6cc78863f9c630be9c](https://huggingface.co/jobs/coyotte508/6ae8bd6cc78863f9c630be9c).
-See `runs.json` for source/data pins, launch configuration and preflight evidence.
-Its completion/error watcher is active; no user ping is required to continue.
+See `runs.json` for the active HF job, immutable source/data pins and evidence.
+Completion/error watchers wake the owning session; no user ping is required.
+
+The first job (`6ae8bd6cc78863f9c630be9c`) archived all 1,760 complete games,
+then correctly refused to fit because 15 opening observations also appeared in
+validation. The recovery excludes those **training** rows by public-feature
+hash (61,425 retained), without changing any held-out row or examining labels
+for selection. `bootstrap-data-v1.json` pins the reusable archives and generator
+digest. The corrected run restores them with `--reuse-data`, rather than
+regenerating deals or weakening the no-overlap guarantee.
 
 Start here for the new research. The Germany reference and its historical
 experiments remain frozen in `ai/strong/`; do not restart their coordinators.
@@ -13,15 +20,16 @@ The unrelated/deleted HF experiments are not inputs. No BGS deployment is made.
 -   Current release engine **2.0.22**, merged from `origin/master` into
     `moon/ai-multimap` (based on `ai/germany-baseline`).
 -   Train on **Germany, USA, France, UK & Ireland**. Validate on fresh deals of
-    those maps. **Italy and Benelux** are transfer-only: their rows and metrics
-    cannot affect training or checkpoint selection.
+    those maps. **Italy and Benelux** are transfer-only: their labels and metrics
+    never drive gradients, hyperparameters or checkpoint selection.
 -   2–6 players, Original/Recharged, open/sealed auctions, public money, automatic
     setup, standard deck. Other options/maps fail closed, rather than silently
     using the wrong rule representation.
 -   `protocol.json` freezes split namespaces before results. 1,280 train games,
     320 validation games and 160 transfer games; up to 12 sampled decisions per
-    phase per game. All seats in a deal stay in one split. Feature-duplicate and
-    deal-overlap audits must pass. Previous Germany/final games are never labels.
+    phase per game. All seats in a deal stay in one split. Training observations
+    matching held-out features are excluded deterministically, independent of
+    labels; then feature-duplicate and deal-overlap audits must pass. Previous Germany/final games are never labels.
 -   Initial HF fit: width 64, seed 508, 40 epochs, AdamW, policy cross-entropy plus
     0.1 terminal-credit value loss. Select by macro-cell in-map validation loss.
     This is a **behavior-cloning bootstrap**, not yet policy improvement or proof
@@ -120,6 +128,25 @@ PYTHONPATH=ai/multimap ai/.venv/bin/python -B ai/multimap/launch.py \
 -   Artifacts have SHA-256 manifests and immutable revision receipts. A completed
     workflow is **not** a promoted or deployed policy. Inspect failures and full
     games before further training. Wall time is hard-bounded to 3 hours.
+
+## Storage budget (user requirement)
+
+Do not accumulate local training archives. The launcher requires its working
+cache under `ai/runs/multimap-*`, refuses to start above **1 GiB** or with less
+than 2 GiB free, removes the expanded staging tree immediately after packaging,
+and removes the source archive after its immutable HF upload is receipted.
+Local data workers stop above **512 MiB** of multi-map run files. This leaves
+room for temporary source packaging; dependencies/venvs are separate.
+
+All 1,760 games are already archived privately on HF (about 48 MB compressed).
+The recovery reuses those pinned archives. Local expanded data and disposable
+smoke weights were removed after verification: run directories are under 1 MB;
+the Python environment is about 955 MB and HF's downloaded-data cache about
+46 MB. Preserve compact receipts/audits, not duplicate bulk data. Future large
+iterations must stream/shard to HF buckets or remote storage; do not expand
+hundreds of GB locally. If HF storage limits become an issue, discuss public
+visibility or alternative storage with the user rather than changing visibility
+silently. Never prune unrelated runs or shared caches wholesale.
 
 ## Next after the first run
 

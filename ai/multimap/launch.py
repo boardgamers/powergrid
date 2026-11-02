@@ -33,6 +33,23 @@ os.execvp('python',['python','-u','-B','ai/multimap/job.py'])
 '''
 
 
+def tree_bytes(path):
+    path = Path(path)
+    if path.is_file():
+        return path.stat().st_size
+    return sum(p.stat().st_size for p in path.rglob('*') if p.is_file() and not p.is_symlink())
+
+
+def check_local_storage(directory):
+    # Only this research's working cache, never another agent's runs or shared caches.
+    used = sum(tree_bytes(p) for p in (ROOT/'ai/runs').glob('multimap-*'))
+    if used > 1024**3:
+        raise RuntimeError('Multi-map local run cache exceeds 1 GiB; archive/clean it before launching')
+    if shutil.disk_usage(ROOT).free < 2*1024**3:
+        raise RuntimeError('Less than 2 GiB free; do not stage a training source bundle')
+    print(json.dumps({'stage':'storage-check','localRunCacheBytes':used,'limitBytes':1024**3}),flush=True)
+
+
 def package(directory):
     directory = Path(directory)
     directory.mkdir(parents=True,exist_ok=True)
@@ -42,6 +59,8 @@ def package(directory):
     stage.mkdir()
     paths = ["ai/core.cjs", "ai/strong/economics.cjs", "ai/multimap", "engine/dist", "engine/src",
              "engine/index.ts", "engine/package.json", "engine/pnpm-lock.yaml"]
+    if sum(tree_bytes(ROOT/path) for path in paths) > 128*1024**2:
+        raise RuntimeError('Unexpectedly large source inputs; refuse to copy them')
     for path in paths:
         src, dst = ROOT / path, stage / path
         dst.parent.mkdir(parents=True,exist_ok=True)
@@ -65,15 +84,20 @@ def package(directory):
     with tarfile.open(archive,'w:gz',compresslevel=3) as tar:
         for child in sorted(stage.iterdir()):
             tar.add(child,arcname=child.name)
+    # The archive, not the expanded duplicate, is the recoverable source artifact.
+    shutil.rmtree(stage)
     return archive, manifest['gitCommit']
 
 
-def launch(run_id, directory):
+def launch(run_id, directory, reuse_data=False):
     directory=Path(directory).resolve()
+    if directory.parent != (ROOT/'ai/runs').resolve() or not directory.name.startswith('multimap-'):
+        raise ValueError('Keep launcher cache in ai/runs/multimap-* so storage guard covers it')
     if not run_id.replace('-','').replace('_','').isalnum():
         raise ValueError('Unsafe run ID')
     if subprocess.check_output(['git','status','--porcelain','--untracked-files=normal'],cwd=ROOT,text=True).strip():
         raise RuntimeError('Commit source before launching; working tree must be clean')
+    check_local_storage(directory)
     archive,commit=package(directory)
     api=HfApi()
     api.create_repo(MODEL,private=True,exist_ok=True)
@@ -82,17 +106,22 @@ def launch(run_id, directory):
     source_path=f'multimap/{run_id}/source.tgz'
     if api.file_exists(DATASET,source_path,repo_type='dataset'):
         raise RuntimeError('Run ID already published; do not overwrite source')
+    archive_sha=digest(archive)
     upload=api.upload_file(repo_id=DATASET,repo_type='dataset',path_or_fileobj=archive,
                            path_in_repo=source_path,commit_message=f'{run_id}: pinned source {commit}')
     env=dict(RUN_ID=run_id,MODEL_REPO=MODEL,DATASET_REPO=DATASET,SOURCE_PATH=source_path,
-             SOURCE_REVISION=upload.oid,SOURCE_SHA256=digest(archive),OMP_NUM_THREADS='4',
+             SOURCE_REVISION=upload.oid,SOURCE_SHA256=archive_sha,OMP_NUM_THREADS='4',
              MKL_NUM_THREADS='4',OPENBLAS_NUM_THREADS='1',PYTHONUNBUFFERED='1',PYTHONDONTWRITEBYTECODE='1')
+    if reuse_data:
+        env['REUSE_DATA']='1'
     # Resolve tokens in memory; they never appear in commands, output or manifests.
     token=get_token()
     if not token:
         raise RuntimeError('Missing HF credentials')
     intent=dict(run=run_id,sourceCommit=commit,env=env,image=IMAGE,flavor='cpu-upgrade',timeout='3h')
     atomic_json(directory/'intent.json',intent)
+    # Successful immutable HF commit is the source of truth; keep only its receipt locally.
+    archive.unlink()
     command=['bash','-lc',"python -m pip install --disable-pip-version-check huggingface_hub==1.29.0 && python -c "+__import__('shlex').quote(BOOTSTRAP)]
     job=api.run_job(image=IMAGE,command=command,env=env,secrets={'HF_TOKEN':token},
                     flavor='cpu-upgrade',timeout='3h',name=run_id,
@@ -106,5 +135,6 @@ if __name__=='__main__':
     p=argparse.ArgumentParser()
     p.add_argument('--run-id',required=True)
     p.add_argument('--output',required=True)
+    p.add_argument('--reuse-data',action='store_true')
     a=p.parse_args()
-    launch(a.run_id,a.output)
+    launch(a.run_id,a.output,a.reuse_data)

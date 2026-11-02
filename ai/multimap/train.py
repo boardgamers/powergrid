@@ -10,15 +10,17 @@ import torch
 from torch.nn import functional as F
 from torch.utils.data import DataLoader
 
-from data import atomic_json, read_games, PROTOCOL
+from data import atomic_json, read_games, PROTOCOL, audit_splits, digest
 from model import GraphPolicy, SCHEMA, tensor_row, collate
 
 
-def load_rows(directory):
+def load_rows(directory, exclude=()):
     rows, metadata = [], []
     for game in read_games(directory):
         relations = torch.tensor(game["relations"], dtype=torch.float32)
         for row in game["rows"]:
+            if row['fingerprint'] in exclude:
+                continue
             rows.append(tensor_row(row, relations))
             metadata.append({"cell": game["spec"]["cell"], "phase": row["phase"],
                              "seed": game["spec"]["seed"], "fingerprint": row["fingerprint"]})
@@ -63,7 +65,9 @@ def train(data, output, epochs=20, seed=508, width=64, device=None, batch_size=6
     device = device or ("cuda" if torch.cuda.is_available() else "cpu")
     if device == "cuda":
         torch.cuda.manual_seed_all(seed)
-    train_rows, train_meta = load_rows(Path(data) / "train")
+    audit = audit_splits(data)
+    excluded = set(json.loads((Path(data)/'excluded-train-fingerprints.json').read_text()))
+    train_rows, train_meta = load_rows(Path(data) / "train", excluded)
     val_rows, val_meta = load_rows(Path(data) / "validation")
     if {r["seed"] for r in train_meta} & {r["seed"] for r in val_meta}:
         raise RuntimeError("Train/validation deal leak")
@@ -76,7 +80,8 @@ def train(data, output, epochs=20, seed=508, width=64, device=None, batch_size=6
                         generator=generator)
     config = dict(schema=SCHEMA, seed=seed, width=width, device=device, epochs=epochs,
                   batchSize=batch_size, trainRows=len(train_rows), validationRows=len(val_rows),
-                  parameters=sum(p.numel() for p in model.parameters()), protocol=PROTOCOL,
+                  parameters=sum(p.numel() for p in model.parameters()), protocol=PROTOCOL, splitAudit=audit,
+                  dataManifests={s:digest(Path(data)/s/'manifest.json') for s in ('train','validation','transfer')},
                   objective="teacher-policy CE + 0.1 terminal-credit BCE; not calibrated values")
     history = []
     best = float("inf")

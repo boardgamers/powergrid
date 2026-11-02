@@ -12,8 +12,8 @@ import tarfile
 import time
 import traceback
 
-from huggingface_hub import HfApi
-from data import ROOT, PROTOCOL, atomic_json, audit_splits, collect, digest
+from huggingface_hub import HfApi, hf_hub_download
+from data import ROOT, PROTOCOL, atomic_json, audit_splits, collect, digest, generator_digest
 from train import train
 from evaluate import run as evaluate
 
@@ -56,7 +56,23 @@ def run():
     try:
         subprocess.run(["node", "--test", "ai/multimap/test.cjs"], cwd=ROOT, check=True)
         subprocess.run([sys.executable,"-B","-m","unittest","discover","-s","ai/multimap","-p","test_*.py"],cwd=ROOT,check=True)
+        reuse = None
+        if os.environ.get('REUSE_DATA') == '1':
+            reuse = json.loads((Path(__file__).parent/'bootstrap-data-v1.json').read_text())
+            if reuse['generatorDigest'] != generator_digest():
+                raise RuntimeError('Archived data generator differs from current source')
         for split in ("train", "validation", "transfer"):
+            if reuse:
+                pin = next(p for p in reuse['archives'] if p['stage']==split)
+                archive = hf_hub_download(pin['repo'],pin['path'],repo_type='dataset',revision=pin['revision'])
+                if digest(archive) != pin['sha256']:
+                    raise RuntimeError('Archived data hash mismatch')
+                (base/'data').mkdir(exist_ok=True)
+                with tarfile.open(archive) as tar:
+                    tar.extractall(base/'data',filter='data')
+                receipts.append({**pin,'reused':True})
+                upload_model(f'restored-{split}')
+                continue
             collect(base / "data" / split, split, workers=6)
             archive = base / f"{split}.tgz"
             with tarfile.open(archive, "w:gz", compresslevel=3) as tar:
@@ -71,6 +87,8 @@ def run():
             upload_model(f"collected-{split}")
         audit = audit_splits(base / "data")
         atomic_json(base / "split-audit.json",audit)
+        atomic_json(base / "excluded-train-fingerprints.json",json.loads((base/'data/excluded-train-fingerprints.json').read_text()))
+        upload_model('audited-data')
         train(base / "data",base / "model",epochs=40,seed=508,device="cpu",
               checkpoint_callback=lambda epoch:upload_model(f"epoch-{epoch}"))
         upload_model("trained")

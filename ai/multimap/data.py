@@ -22,6 +22,14 @@ def digest(path):
     return h.hexdigest()
 
 
+def generator_digest(root=ROOT):
+    paths = [root/'ai/core.cjs', root/'ai/strong/economics.cjs']
+    paths += [root/'ai/multimap'/name for name in ('features.cjs','game.cjs','teacher.cjs','protocol.json')]
+    paths += sorted((root/'engine/dist').rglob('*.js'))
+    manifest = {str(p.relative_to(root)):digest(p) for p in sorted(paths)}
+    return hashlib.sha256(json.dumps(manifest,sort_keys=True).encode()).hexdigest()
+
+
 def atomic_json(path, data):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -76,6 +84,11 @@ class Bridge:
 
 def collect_one(args):
     spec, directory = args
+    if Path(directory).resolve().is_relative_to((ROOT/'ai/runs').resolve()):
+        used = sum(p.stat().st_size for folder in (ROOT/'ai/runs').glob('multimap-*')
+                   for p in folder.rglob('*') if p.is_file() and not p.is_symlink())
+        if used > 512*1024**2:
+            raise RuntimeError('Local data cache exceeded 512 MiB; use HF Jobs/buckets, not more local collection')
     path = Path(directory) / (hashlib.sha256(spec["seed"].encode()).hexdigest() + ".json.gz")
     if path.exists():
         with gzip.open(path, "rt") as f:
@@ -135,25 +148,34 @@ def read_games(directory):
         yield game
 
 
+def split_exclusions(fingerprints):
+    """Exclude matching TRAIN observations, never alter held-out outcomes/rows."""
+    sets = {k:set(v) for k,v in fingerprints.items()}
+    if sets['validation'] & sets['transfer']:
+        raise RuntimeError('Validation/transfer feature overlap')
+    return sets['train'] & (sets['validation'] | sets['transfer'])
+
+
 def audit_splits(base):
     fingerprints, seeds, report = {}, set(), {}
     for split in ("train", "validation", "transfer"):
-        duplicate = 0
-        games = rows = 0
+        fingerprints[split] = []
+        games = 0
         for game in read_games(Path(base) / split):
             seed = game["spec"]["seed"]
             if seed in seeds:
                 raise RuntimeError("Deal overlap")
             seeds.add(seed)
-            for row in game["rows"]:
-                fingerprint = row["fingerprint"]
-                if fingerprint in fingerprints and fingerprints[fingerprint] != split:
-                    duplicate += 1
-                fingerprints[fingerprint] = split
-                rows += 1
+            fingerprints[split].extend(row['fingerprint'] for row in game['rows'])
             games += 1
-        report[split] = dict(games=games, rows=rows, crossSplitDuplicates=duplicate)
+        report[split] = dict(games=games, rows=len(fingerprints[split]))
+    excluded = split_exclusions(fingerprints)
+    removed = sum(fp in excluded for fp in fingerprints['train'])
+    report['deduplication'] = dict(policy='exclude-training-only-by-public-feature-hash',
+                                  uniqueFingerprints=len(excluded), removedTrainingRows=removed,
+                                  retainedTrainingRows=len(fingerprints['train'])-removed,
+                                  heldoutRowsChanged=0, remainingCrossSplitDuplicates=0)
+    assert not ((set(fingerprints['train'])-excluded) & (set(fingerprints['validation'])|set(fingerprints['transfer'])))
+    atomic_json(Path(base) / 'excluded-train-fingerprints.json', sorted(excluded))
     atomic_json(Path(base) / "split-audit.json", report)
-    if any(r["crossSplitDuplicates"] for r in report.values()):
-        raise RuntimeError("Identical public features across splits: inspect before training")
     return report

@@ -8,7 +8,7 @@ import unittest
 
 import torch
 
-from data import ROOT, specs, Bridge, atomic_json, digest
+from data import ROOT, specs, Bridge, atomic_json, digest, split_exclusions
 from model import GraphPolicy, tensor_row, collate
 
 
@@ -85,6 +85,17 @@ class ModelTests(unittest.TestCase):
             b=torch.load(root/'resumed/last.pt',weights_only=True)
             for key in a['state_dict']:
                 torch.testing.assert_close(a['state_dict'][key],b['state_dict'][key],rtol=0,atol=0)
+
+    def test_duplicate_exclusion_never_changes_heldout_rows(self):
+        fingerprints={'train':['shared','shared','train-only'],'validation':['shared','validation-only'],'transfer':['transfer-only']}
+        original=copy.deepcopy(fingerprints)
+        excluded=split_exclusions(fingerprints)
+        self.assertEqual(excluded,{'shared'})
+        self.assertEqual(fingerprints,original)
+        self.assertEqual([fp for fp in fingerprints['train'] if fp not in excluded],['train-only'])
+        fingerprints['transfer'].append('validation-only')
+        with self.assertRaisesRegex(RuntimeError,'Validation/transfer'):
+            split_exclusions(fingerprints)
 
     def test_deal_splits_and_heldout_maps(self):
         train, val, transfer = (specs(split, 1) for split in ("train", "validation", "transfer"))

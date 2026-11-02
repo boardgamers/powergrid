@@ -1,11 +1,15 @@
 {
-    "activeRun": "multimap-bootstrap-20261102-v1",
+    "activeRun": null,
     "runs": [
         {
             "id": "multimap-bootstrap-20261102-v1",
             "jobId": "6ae8bd6cc78863f9c630be9c",
             "url": "https://huggingface.co/jobs/coyotte508/6ae8bd6cc78863f9c630be9c",
             "statusAtLaunch": "RUNNING",
+            "terminalStatus": "ERROR",
+            "reason": "Leakage guard refused 15 identical training/validation opening observations before fitting; all complete games archived.",
+            "terminalModelRevision": "8973760b9724745caac1454088201fe6706f0c5d",
+            "dataRecoveryPins": "bootstrap-data-v1.json",
             "sourceCommit": "8b599075dcd05616724a86314e5e885cf50e5f76",
             "datasetRepo": "coyotte508/powergrid-ai-training-v1",
             "sourcePath": "multimap/multimap-bootstrap-20261102-v1/source.tgz",
@@ -30,7 +34,7 @@
         "engineTestsPassing": 366,
         "completeSmokeConfigurations": 120,
         "nodeTestsPassing": 5,
-        "pythonTestsPassing": 4,
+        "pythonTestsPassing": 5,
         "checks": [
             "Hidden-state noninterference",
             "City and legal-action permutation equivariance",

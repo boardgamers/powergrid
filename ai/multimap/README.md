@@ -668,5 +668,84 @@ not evidence of strength. Frozen update24 opponents provide stronger opposition,
 not independent algorithmic diversity. If that test supports robustness, run
 independent training-seed replicas and report all of them, not only the best.
 Do not iteratively tune on Italy/Benelux; these viewed transfer outcomes are now
-consumed exploratory evidence. No next experiment has been launched, no job is
-currently active, and no model is qualified, promoted or deployed.
+consumed exploratory evidence. At that audit checkpoint, no next experiment had been launched. No model was
+qualified, promoted or deployed.
+
+### Frozen population stress v1
+
+[`stress-protocol-v1.json`](stress-protocol-v1.json) preregisters **5,120 games**,
+using only Germany, USA, France and UK & Ireland. Update24 stays frozen at the
+SHA above. The sole focal comparator is pinned **PPO2**, chosen before stress
+outcomes from the existing v1 evidence, not reselected on these results.
+
+-   **Strong panel:** Germany nonfocal seats use the exact retained reference;
+    other maps use frozen update24 in every nonfocal seat.
+-   **Mixed panel:** a deterministic relative-seat schedule puts update24 in
+    roughly half the opponent slots and rotates PPO0/1/2 and teacher v2 through
+    the others, with reference included only on Germany. Actual strong-seat
+    occupancy is reported; this is not uniform coverage of every lineup.
+-   Each panel contains 80 map/count/rule cells, **four fresh deals per cell**, all
+    focal seats, and both focal policies: **2,560 games / 320 deal clusters**.
+    Panels have disjoint roots; paired focal policies share complete opponents,
+    deal and seat. No Italy/Benelux, historical diagnostic/confirmation roots,
+    expert labels, training, sampling or checkpoint selection is allowed.
+-   The two panel primary comparisons are reported separately, with equal-cell
+    paired deal-cluster estimates, normal 95% exploratory intervals and two-test
+    Bonferroni normal 97.5% intervals. Mixed lineups vary with deal: sample variance
+    includes between-lineup mean variation, so it is conservative in expectation
+    for fixed-schedule uncertainty, **not an unbiased estimator of that variance**.
+    Normal coverage remains approximate with four deals. All subgroup/occupancy
+    comparisons are exploratory and unadjusted.
+-   Strong non-Germany all-update24 focal games are **symmetry/replay controls**,
+    not strength evidence or independent algorithm diversity. Their full terminal
+    vectors/counters must agree across focal-seat rotations. Reciprocal two-player
+    outcomes, map/count/rule breakdowns and actual opponent occupancy are saved.
+-   Research progression to independent replicas requires both primary adjusted
+    lower bounds above zero and no panel/map paired point estimate below −.05.
+    This is a predeclared research heuristic, not qualification or a familywise
+    guarantee for the many secondary comparisons. No outcome-dependent extension.
+
+The new `stress_game.cjs`, `stress_rollout.py` and `stress_study.py` have their
+own strict evaluation scope and reuse unchanged feature/policy/public-reference
+helpers. No frozen v1/v2 serving file or namespace validator is modified.
+`preflight_stress.py` runs **only engineering smoke roots** across both panels,
+four maps, all five player counts and all four rules, testing interruption and
+exact replays with real pinned policies/reference:
+
+```sh
+PYTHONPATH=ai/multimap ai/.venv/bin/python -B ai/multimap/preflight_stress.py \
+  --output ai/runs/multimap-stress-preflight-v1
+```
+
+Each panel runs in its own bounded private CPU job (six workers, three-hour cap).
+Every paired all-seat deal batch is written atomically locally; snapshots upload
+**every 16 batches**. Immutable resumes preserve remotely checkpointed work. A
+killed ephemeral job may lose up to 15 locally completed batches plus the current
+batch; these may replay with identical tasks, counted once, never fabricated as
+losses. Whitelisted outputs cap at 64 MiB per panel and contain no model copies or
+raw states/actions/trajectories. The complete retained reference is reused locally;
+remote jobs reconstruct its same manifest without loader omissions.
+
+`launch_stress.py` gates production on hashed real-service preflight evidence and
+packages one source archive for both panels. If interrupted, its explicit
+`--continue-launch <receipt> --run-id <new-id> --resume-revision <immutable-sha>`
+path reuses the original job command/source rather than repackaging. A separate
+`--missing-panel` path handles an unsubmitted peer after partial launch; existing
+intent files require inspection rather than blind submission retries. See
+`runs.json` and the stress launch receipts for actual execution state.
+
+[`stress-preflight-v1.json`](stress-preflight-v1.json) pins the completed private
+preflight: **240 terminal games, zero failures, 120 exact terminal/counter replay
+matches**, interrupted after two batches, with committed batches preserved and an
+incomplete temporary write ignored. Completed resume performs no model load or
+collection. Every controller was exercised, with **18,597 reference requests and
+zero expert labels per execution**. Smoke roots were deliberately replayed for
+engineering checks, never counted as independent strength evidence.
+
+Checks passed: **237 Python, 54 Node and 366 engine tests**. Two existing engine
+prefix-replay tests initially exceeded the default two-second timeout under host
+load; all unchanged engine tests passed when run directly through Mocha with a
+ten-second timeout. Both engine logs are archived. No engine or frozen policy code
+was changed. The approximately 2.2 MB private evidence archive reuses the retained
+reference; it contains compact outcomes, hashes, tests and logs, not raw gameplay
+states or action trajectories.

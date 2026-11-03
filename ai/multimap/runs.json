@@ -1,5 +1,5 @@
 {
-    "activeRuns": ["multimap-stress-20261103-v1-strong", "multimap-stress-20261103-v1-mixed"],
+    "activeRuns": ["multimap-stress-20261103-v1-strong"],
     "runs": [
         {
             "id": "multimap-stress-20261103-v1-strong",
@@ -33,6 +33,15 @@
             "group": "multimap-stress-20261103-v1",
             "panel": "mixed",
             "statusAtLaunch": "SCHEDULING",
+            "terminalStatus": "COMPLETED",
+            "terminalModelRevision": "13ce7a0738fcc2477907ef7db5b85a1c163cb85d",
+            "completedGames": 2560,
+            "completedDealClusters": 320,
+            "verifiedArtifactFiles": 327,
+            "verifiedArtifactBytes": 9031181,
+            "exactReplays": 16,
+            "independentSummaryVerified": true,
+            "combinedInterpretationPendingStrongPanel": true,
             "jobId": "6ae9b2e3c78863f9c63189a8",
             "url": "https://huggingface.co/jobs/coyotte508/6ae9b2e3c78863f9c63189a8",
             "workflow": "population-stress",

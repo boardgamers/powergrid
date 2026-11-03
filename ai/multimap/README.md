@@ -756,5 +756,33 @@ source commit `e6e3b571eb07d1da66aec594e0ecb75b44d79e2c` and source archive:
 [mixed](https://huggingface.co/jobs/coyotte508/6ae9b2e3c78863f9c63189a8).
 [`stress-launch-v1.json`](stress-launch-v1.json) records the immutable source,
 model, plan and preflight pins, verified job configuration and bounded budgets.
-Completion/error watchers are attached to both. These are **ongoing frozen
-research evaluations**, not completed results, qualification or deployment.
+Completion/error watchers were attached to both. The **mixed panel completed**
+all 2,560 games at immutable model revision
+`13ce7a0738fcc2477907ef7db5b85a1c163cb85d`; its 327 files (9,031,181 bytes), full
+source/runtime/reference identities and all saved summary fields are verified.
+Sixteen scope-selected games replayed exactly, including terminal vectors and
+controller/public-service counters. The **strong panel remains active**; no
+whole-experiment interpretation is made before both panels finish and pass audit.
+
+The new standard-library-only [`audit_stress.py`](audit_stress.py) independently
+reconstructs all tasks, outcome validation, paired equal-cell/deal statistics and
+both-panel progression gate, without importing the serving planner or analysis.
+[`audit_stress_integrity.py`](audit_stress_integrity.py) handles bounded immutable
+recovery, Git/source/runtime/reference verification and representative replays:
+
+```sh
+PYTHONPATH=ai/multimap ai/.venv/bin/python -B ai/multimap/audit_stress_integrity.py --panel mixed
+python -B ai/multimap/audit_stress.py \
+  ai/runs/multimap-stress-20261103-v1-strong/audit/restored \
+  ai/runs/multimap-stress-20261103-v1-mixed/audit/restored
+```
+
+The combined command deliberately refuses an incomplete panel. Audit integrity
+checks bind the original HF job IDs and complete expected environment to the
+source archive and the launch receipt pinned at Git `f849e76`; restore rejects
+nested symlinks/unexpected entries before copying. These post-run audit safeguards
+and tests do not change the frozen evaluator or policies. Post-run checks pass:
+**304 Python tests** (including 67 new independent-audit/integrity tests), **54
+Node tests and 366 engine tests** (the documented ten-second Mocha timeout).
+Replays add no new independent observations. Nothing is qualified, promoted or
+deployed.

@@ -749,3 +749,12 @@ ten-second timeout. Both engine logs are archived. No engine or frozen policy co
 was changed. The approximately 2.2 MB private evidence archive reuses the retained
 reference; it contains compact outcomes, hashes, tests and logs, not raw gameplay
 states or action trajectories.
+
+Both private production panels were submitted on **2026-11-03**, using the same
+source commit `e6e3b571eb07d1da66aec594e0ecb75b44d79e2c` and source archive:
+[strong](https://huggingface.co/jobs/coyotte508/6ae9b2e2c78863f9c63189a6) and
+[mixed](https://huggingface.co/jobs/coyotte508/6ae9b2e3c78863f9c63189a8).
+[`stress-launch-v1.json`](stress-launch-v1.json) records the immutable source,
+model, plan and preflight pins, verified job configuration and bounded budgets.
+Completion/error watchers are attached to both. These are **ongoing frozen
+research evaluations**, not completed results, qualification or deployment.

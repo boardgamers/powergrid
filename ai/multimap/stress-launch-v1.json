@@ -1,0 +1,144 @@
+{
+    "schema": "multimap-stress-launch-v1",
+    "group": "multimap-stress-20261103-v1",
+    "recordedAt": "2026-11-03T10:10:34.883209+00:00",
+    "protocol": "stress-protocol-v1.json",
+    "sourceDatasetRepo": "coyotte508/powergrid-ai-training-v1",
+    "resultModelRepo": "coyotte508/powergrid-ai-multimap-v1",
+    "source": {
+        "sourceCommit": "e6e3b571eb07d1da66aec594e0ecb75b44d79e2c",
+        "sourcePath": "multimap/multimap-stress-20261103-v1/source.tgz",
+        "sourceRevision": "034ec3e2bda35de8e59e570bcc9cdcc20ef760d7",
+        "sourceSha256": "5231bece1d79622072ae907a8470f6e6b248409a0b8ffbc4bc305732d9b4a870",
+        "sourceBytes": 48959500,
+        "protocolSha256": "9e2931e24e33fee611c12fed2cf41f60303f170f6a2be112a7fa1a5fb110bcc1"
+    },
+    "jobs": [
+        {
+            "run": "multimap-stress-20261103-v1-strong",
+            "group": "multimap-stress-20261103-v1",
+            "panel": "strong",
+            "sourceCommit": "e6e3b571eb07d1da66aec594e0ecb75b44d79e2c",
+            "env": {
+                "RUN_ID": "multimap-stress-20261103-v1-strong",
+                "MODEL_REPO": "coyotte508/powergrid-ai-multimap-v1",
+                "DATASET_REPO": "coyotte508/powergrid-ai-training-v1",
+                "SOURCE_PATH": "multimap/multimap-stress-20261103-v1/source.tgz",
+                "SOURCE_REVISION": "034ec3e2bda35de8e59e570bcc9cdcc20ef760d7",
+                "SOURCE_SHA256": "5231bece1d79622072ae907a8470f6e6b248409a0b8ffbc4bc305732d9b4a870",
+                "STRESS_PANEL": "strong",
+                "STRESS_WORKERS": "6",
+                "STRESS_SMOKE": "0",
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "PYTHONUNBUFFERED": "1",
+                "PYTHONDONTWRITEBYTECODE": "1",
+                "HF_HUB_DISABLE_PROGRESS_BARS": "1"
+            },
+            "image": "python:3.12.8-slim-bookworm@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+            "flavor": "cpu-upgrade",
+            "timeout": "3h",
+            "plannedGames": 2560,
+            "plannedDealClusters": 320,
+            "selectedCheckpointSha256": "1377fc2112c3b9ff3c2a20078ed341305b2a9006a4f7a1df413eeb0b509e6fbd",
+            "preflightSha256": "32d66f77a6094c1dd5fe5cf904061d72cac775df20b4416ba5ba565e32921d07",
+            "qualified": false,
+            "reservedFinalSeedsUsed": false,
+            "jobId": "6ae9b2e2c78863f9c63189a6",
+            "url": "https://huggingface.co/jobs/coyotte508/6ae9b2e2c78863f9c63189a6"
+        },
+        {
+            "run": "multimap-stress-20261103-v1-mixed",
+            "group": "multimap-stress-20261103-v1",
+            "panel": "mixed",
+            "sourceCommit": "e6e3b571eb07d1da66aec594e0ecb75b44d79e2c",
+            "env": {
+                "RUN_ID": "multimap-stress-20261103-v1-mixed",
+                "MODEL_REPO": "coyotte508/powergrid-ai-multimap-v1",
+                "DATASET_REPO": "coyotte508/powergrid-ai-training-v1",
+                "SOURCE_PATH": "multimap/multimap-stress-20261103-v1/source.tgz",
+                "SOURCE_REVISION": "034ec3e2bda35de8e59e570bcc9cdcc20ef760d7",
+                "SOURCE_SHA256": "5231bece1d79622072ae907a8470f6e6b248409a0b8ffbc4bc305732d9b4a870",
+                "STRESS_PANEL": "mixed",
+                "STRESS_WORKERS": "6",
+                "STRESS_SMOKE": "0",
+                "OMP_NUM_THREADS": "1",
+                "MKL_NUM_THREADS": "1",
+                "OPENBLAS_NUM_THREADS": "1",
+                "PYTHONUNBUFFERED": "1",
+                "PYTHONDONTWRITEBYTECODE": "1",
+                "HF_HUB_DISABLE_PROGRESS_BARS": "1"
+            },
+            "image": "python:3.12.8-slim-bookworm@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+            "flavor": "cpu-upgrade",
+            "timeout": "3h",
+            "plannedGames": 2560,
+            "plannedDealClusters": 320,
+            "selectedCheckpointSha256": "1377fc2112c3b9ff3c2a20078ed341305b2a9006a4f7a1df413eeb0b509e6fbd",
+            "preflightSha256": "32d66f77a6094c1dd5fe5cf904061d72cac775df20b4416ba5ba565e32921d07",
+            "qualified": false,
+            "reservedFinalSeedsUsed": false,
+            "jobId": "6ae9b2e3c78863f9c63189a8",
+            "url": "https://huggingface.co/jobs/coyotte508/6ae9b2e3c78863f9c63189a8"
+        }
+    ],
+    "verification": [
+        {
+            "panel": "strong",
+            "jobId": "6ae9b2e2c78863f9c63189a6",
+            "status": "SCHEDULING",
+            "createdAt": "2026-11-03 10:09:38.912000+00:00",
+            "sourceCommandEnvironmentVerified": true
+        },
+        {
+            "panel": "mixed",
+            "jobId": "6ae9b2e3c78863f9c63189a8",
+            "status": "SCHEDULING",
+            "createdAt": "2026-11-03 10:09:39.174000+00:00",
+            "sourceCommandEnvironmentVerified": true
+        }
+    ],
+    "preflight": {
+        "file": "stress-preflight-v1.json",
+        "sha256": "32d66f77a6094c1dd5fe5cf904061d72cac775df20b4416ba5ba565e32921d07",
+        "privateEvidence": "947be6848d7d42cab29015e10632d3170725299d",
+        "totalTerminalGames": 240,
+        "exactReplayMatches": 120,
+        "tests": {
+            "engine": 366,
+            "python": 237,
+            "node": 54,
+            "newStressPython": 45,
+            "newStressNode": 10
+        }
+    },
+    "productionPlanHashes": {
+        "strong": "7aff53cb54ecb8d1ea8a92afa4ace7b1d966fa68016f103681b1490dbd3523d7",
+        "mixed": "21bd50d1ef9e717125913b1638d0f72ee5b6973e8d8594eeb1b32101bd67440f"
+    },
+    "plannedGames": 5120,
+    "plannedDealClusters": 640,
+    "maps": ["Germany", "USA", "France", "UK & Ireland"],
+    "excludedMaps": ["Italy", "Benelux"],
+    "fixedSelectedUpdate": 24,
+    "selectedCheckpointSha256": "1377fc2112c3b9ff3c2a20078ed341305b2a9006a4f7a1df413eeb0b509e6fbd",
+    "fitting": false,
+    "selection": false,
+    "qualified": false,
+    "qualificationEligible": false,
+    "reservedFinalSeedsUsed": false,
+    "outputBudgetBytesPerPanel": 67108864,
+    "remoteCheckpointEveryBatches": 16,
+    "watcherProcesses": {
+        "strong": "bg_9",
+        "mixed": "bg_10"
+    },
+    "completionNotificationsEnabled": true,
+    "caveats": [
+        "Submitted jobs, not completed outcomes; no strength conclusion before complete paired-panel audit.",
+        "Strong non-Germany homogeneous expert24 rotations are replay/symmetry controls, not independent strength evidence.",
+        "Four deals per fixed cell; mixed schedules vary by deal. Cluster-normal uncertainty remains approximate.",
+        "A killed ephemeral job can replay up to 15 locally completed batches plus current batch since last remote checkpoint; identical canonical tasks counted once."
+    ]
+}

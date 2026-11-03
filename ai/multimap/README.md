@@ -595,5 +595,78 @@ change. It skips all optimization and selection and runs the remaining
 confirmation work lost to timeout is repeated with the same fixed tasks; it is
 not turned into losses or used to alter the model. Inherited training/selection
 files in the new prefix are copies, not additional independent games.
-[`expert-resume-launch-v2.json`](expert-resume-launch-v2.json) records the launch;
-completion/error notification remains enabled. No training recipe was changed.
+[`expert-resume-launch-v2.json`](expert-resume-launch-v2.json) records the launch.
+The continuation subsequently completed; its results are audited below. No
+training recipe was changed.
+
+#### Expert-v2 result: substantial conditional gain, not qualification
+
+The continuation completed on 2026-11-03. Its final private model-repository
+revision is `39976d5e864638fe73d241061bc4dfd4b46ce0a4`, under
+`runs/multimap-expert-ppo-20261102-v2-r1/`. The selected **update24** checkpoint
+and SHA above remain unchanged. See [`expert-results-v2.json`](expert-results-v2.json)
+for the complete independent audit and [`expert-audit-v2.json`](expert-audit-v2.json)
+for the private evidence receipt.
+
+Both confirmation arms completed **960 games**. Mean win credit (ties split,
+equal map/player-count/rule-cell weights):
+
+| Map                     | Selected update24 | Teacher v2 | Paired difference |
+| ----------------------- | ----------------: | ---------: | ----------------: |
+| Germany                 |            34.04% |     20.08% |         +13.96 pp |
+| USA                     |            60.88% |     39.00% |         +21.88 pp |
+| France                  |            64.25% |     32.92% |         +31.33 pp |
+| UK & Ireland            |            71.46% |     28.88% |         +42.58 pp |
+| Italy — transfer only   |            46.50% |     25.42% |         +21.08 pp |
+| Benelux — transfer only |            61.19% |     41.13% |         +20.06 pp |
+| **All six maps**        |        **56.39%** | **31.24%** |     **+25.15 pp** |
+
+**The opponent standards differ:** Germany uses the exact retained reference;
+other maps use the fixed mixed PPO0/1/2 population. These are not six measurements
+against the Germany reference, nor a universal strength rating. The aggregate
+paired difference has deal-cluster SE **2.41 pp**, approximate normal 95% interval
+**[+20.42, +29.88] pp**. All five player-count aggregates and all four rule
+aggregates are positive, but observed cell differences are **93 positive,
+13 tied and 14 negative** out of 120.
+
+For Germany, the paired improvement over teacher v2 is **+13.96 pp**,
+approximate 95% **[+1.73, +26.19] pp**. Against the **analytical** all-reference
+symmetry benchmark of 29% (`mean(1/n)` for 2–6 players), the selected policy is
+**+5.04 pp**, interval **[−4.59, +14.68] pp**. No new all-reference control arm was
+played here. **Superiority to the exact reference remains unproven.**
+
+These intervals average all focal seats within each deal, then use unbiased
+within-cell sample variance over **two independent deals per cell** and equal
+fixed-cell weights. There are 240 confirmation deal clusters overall, 40 per map;
+the 1,920 played games are not 1,920 independent samples. Intervals are exploratory,
+unadjusted for multiple comparisons, conditional on one trained seed and these
+populations. Teacher v2 differs from the earlier v1 teacher, so historical raw
+scores cannot isolate the effect of any particular repair or learning ingredient.
+
+Integrity checks passed for **all 6,880 scheduled saved outcomes**: 2,720 training,
+2,240 selection/control and 1,920 confirmation, with no failures, caps, missing or
+duplicate scheduled tasks. All 82 inherited unchanged artifacts match the
+preconfirmation snapshot; the update32 model and populated optimizer are
+bit-identical. Selection was independently reconstructed without confirmation.
+All 44,262 expert labels were Germany training/warmup only; evaluation returned no
+training labels, and Italy/Benelux never entered training or selection.
+
+The audit rehashed 1,342 source-archive members (152 Git-tracked files), all 42
+compiled engine modules and the complete reused 1,467-member reference artifact.
+**12/12 exact confirmation replays** cover both arms, all six maps, every player
+count and all four rules; terminal/controller/public/request fields match exactly.
+Checks passed: **366 engine, 192 Python and 44 Node tests**, including 40 new
+adversarial audit tests. RAM-only training trajectories/gradients were not retained,
+so this is not an independent replay of every optimization step.
+
+**Next decision:** freeze update24 rather than extend training immediately.
+First preregister a fresh, larger-deal, four-training-map stress test against
+frozen strong and heterogeneous populations, including multiple strong opponents
+at the same table and reciprocal two-player matchups. Compare against a pinned,
+predeclared old-PPO focal control; homogeneous self-play is a symmetry/control arm,
+not evidence of strength. Frozen update24 opponents provide stronger opposition,
+not independent algorithmic diversity. If that test supports robustness, run
+independent training-seed replicas and report all of them, not only the best.
+Do not iteratively tune on Italy/Benelux; these viewed transfer outcomes are now
+consumed exploratory evidence. No next experiment has been launched, no job is
+currently active, and no model is qualified, promoted or deployed.

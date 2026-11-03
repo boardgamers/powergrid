@@ -1,0 +1,3701 @@
+{
+    "schema": "multimap-expert-independent-audit-v2",
+    "run": "multimap-expert-ppo-20261102-v2-r1",
+    "repo": "coyotte508/powergrid-ai-multimap-v1",
+    "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+    "auditorSha256": "0755762b04c6d74b26a3e277780ef46a5be73b8c1407437fb3f8f385ef8d0f8e",
+    "adversarialTestsSha256": "f6a800e374ccdde8bd30dc60b6593b09336abcffe1370c8304c502a267bee514",
+    "sourceGit": "db144fc87d6745fe595ec7e28afc68de496b7966",
+    "sourceDatasetRevision": "93fb8f56455c11693864df8883a24ef5ddf37777",
+    "sourceSha256": "a3e3a1e8da85160069c3ad0648636efdfac582f4092ed3270abee05fe7aef8b2",
+    "selectedStage": "train",
+    "selectedUpdate": 24,
+    "selectedCheckpointSha256": "1377fc2112c3b9ff3c2a20078ed341305b2a9006a4f7a1df413eeb0b509e6fbd",
+    "allChecksPassed": true,
+    "qualified": false,
+    "qualificationEligible": false,
+    "promoted": false,
+    "deployed": false,
+    "reservedFinalSeedsUsed": false,
+    "finalArtifactFiles": 88,
+    "finalArtifactBytes": 25856931,
+    "originalArtifactFiles": 84,
+    "originalArtifactBytes": 20293925,
+    "finalManifest": {
+        "protocol.json": "2ba00d9596cf6833d0861ef765e5699e0b4032581f27ac53837af4ac27937f7a",
+        "environment.json": "a53f3fab09ce4e0df36e7e19d4a5eb5b35e10858cb3e2f05e59b94552940ff43",
+        "recovery.json": "aea15de1e6ecc62bceb2760c6f7f69a5cb3f449a45f764464f35256407453f13",
+        "status.json": "1ad85e920c345ed0767626fcfb35f5d15888003c6e75875309ace5329b861884",
+        "expert/config.json": "abf45855af9b741a8cd126bae3dacfb67fc92906022966e438745c6393a499e2",
+        "expert/selection-plan.json": "29887527caeb974e2fcd93194ca1478aefeb81e430a28f3e965173fd2478863c",
+        "expert/selection-0.json": "278b25553be01d2946dec9702cffe698c56ed0ec34094b5fdd97266c1833a504",
+        "expert/selection-teacher.json": "35eb5b7e1bb3d7518602861c673018c689aa672008fb99b11c2c34f5f77da932",
+        "expert/initial.pt": "c1b99710329f7f9c08af2695eedf4f35b57d0b7968d3864c42ea26e0d40f2d72",
+        "expert/best.pt": "1377fc2112c3b9ff3c2a20078ed341305b2a9006a4f7a1df413eeb0b509e6fbd",
+        "expert/last.pt": "970650d5df5707c7114f79345e848ffd5404eb02d371c49a7ab7601d735055a5",
+        "expert/history.json": "2bbc5dfbba8b9687663d8674075b838b51fccfa2481e889753eacee4099cdfdc",
+        "expert/warmup-plan.json": "65cb5be25ffee4cd0aa65595d0be4b2598bd385dfcb5251724480feaabff83ac",
+        "expert/warmup.json": "676d3caa4ef9d7f0016e3d5d83467a9a81f716bab726c056927460d140104cb4",
+        "expert/selection-warmup.json": "63b71cb50b33742d6170e002e1b94a2187f7468618c1a55f2c449d0cf0134579",
+        "expert/warmup.pt": "026f6af3dfd21e85ecd11276c006a65f52f9553c60dc30ad8c947f7b83ea61e0",
+        "expert/train-plan-1.json": "2ecc05649961c0254ec8bfc5f2efacf28931570c08f5e7cd45e399857ad17840",
+        "expert/train-1.json": "ea16ea3332d586c4cb235577fea85aafffb59432fcf8bc35a57e62ad9323a523",
+        "expert/train-plan-2.json": "d3372c7dda0db8606a0568ae50258cd91f83b40c3b9cc48e8379ad8485ffa161",
+        "expert/train-2.json": "3c721548ea1b0ed07d9f10bb2912ffe879395c712dee7e0289d69b2221a83abf",
+        "expert/train-plan-3.json": "4cda84b8d444ab124533557a3603dc5eacf3883849c5fff9ce7f084e7745a07b",
+        "expert/train-3.json": "3133ba64b6c75c4acaf879facf830cf2ec8e8bc1b79dff49d63cf18e29e5d1e5",
+        "expert/train-plan-4.json": "93c992a0aef9bf4331ac6974cd6981a71da79e0637d1370e80057d701baf571c",
+        "expert/train-4.json": "fbe67da909bbac2ce0cd571582cb5aed8f7d3a243f145a704825a898d7f21e96",
+        "expert/train-plan-5.json": "2c96f80d6f76da3f6f1acb7485ab09dcc6551b2caa0a0a9e2ee9dbb655853f57",
+        "expert/train-5.json": "1b5f07f80c6e525d39d8213b063ed9b01f011dfd9517e1640c2c2e0bce9153d1",
+        "expert/train-plan-6.json": "b4c4bcd4a8bd08f4d40d8a9689399320a635bf7c541959841d2344cfd43f1794",
+        "expert/train-6.json": "589718c3fc945d9c654fb3b296439605205baf1687758db5d0af915f28eba0a9",
+        "expert/train-plan-7.json": "7bbfd7a666be70b8f6c05cf9914164785fef2e841e0594733bce20a86743de3b",
+        "expert/train-7.json": "f3d2193a0b6dd0b952438a2ca25d5ee31247174c6565ddafb6401496596d9d70",
+        "expert/train-plan-8.json": "a5bad5b9c4efc3af8104d97a645f1f1bcc368764fd495a7df60c6db6fb6b6c87",
+        "expert/train-8.json": "f8071a6707047638b13dc43942c779de2f4a112cf757184eb34bc1aab8a37ada",
+        "expert/selection-8.json": "5acc3425b2db42b7dccc26335b723e64129153371c057156e9ba1c44f7d7861a",
+        "expert/train-plan-9.json": "56281cb44d166587a6d4150f3a18c41c784ae135b6aec7574170df6e99040f1b",
+        "expert/train-9.json": "c269a8ba0feb308d07ce217eb4b633d7e9332cff6a24211787853eb94b374a33",
+        "expert/train-plan-10.json": "5065136de765d0794f02a5402f760976fb80677d5336bce67983b1ca2a0ff292",
+        "expert/train-10.json": "bab2111f7c849deb59ef6296f424c71e2f45aee5161a02d2107aa8f8f1fe747b",
+        "expert/train-plan-11.json": "1605eebd972deec4e44151c729ae114efd9d8a62fa36a6a979568fc2033125b0",
+        "expert/train-11.json": "49038ee0e434835a8fb97a3d15c2768c7717aa614730dcbc2b7657fcdc93cde1",
+        "expert/train-plan-12.json": "d750a729c0db3a7a297251f7365266c12f896c6c65817deddcce57e53365e97a",
+        "expert/train-12.json": "ed7e83413473496e7b045de6a39443167b39d12ea954286f43c1ed7f1d6bd329",
+        "expert/train-plan-13.json": "12e9241d0deb0ffd0e40235e1943b4158b94d1ea1ecf23c0cb4e1b7c4002d036",
+        "expert/train-13.json": "ffd2a49808d3c3a462abeaab5da7ed386a7472c4269b7b99457ac3e7c3ee5ec8",
+        "expert/train-plan-14.json": "d8a2b627a9e5480803fde9f49ec7306bbc4224a8dd04563963635a25a31639b7",
+        "expert/train-14.json": "5c6a6feaea604c1cf8ebc073d9ca0bcdf0667121c2668a4923c8b11f03991661",
+        "expert/train-plan-15.json": "bbc841bf8fa55c41201269f295ad69c59f3b7c41f81355d67e8e42f98e058081",
+        "expert/train-15.json": "1d35873dd8a02297648d3f8f28287062ac26a14252419b4693dc2a31cafdb013",
+        "expert/train-plan-16.json": "6d49b6c076ecc54b1e434ef8f483f807fa130f034adc89d02a8786e5f10a5d8a",
+        "expert/train-16.json": "cd9de794421c5e0be49daeb5922528354ec6d0ffeeddd2ebbdc82b991e3d3d9f",
+        "expert/selection-16.json": "48d0c93cf608799fcb052b9eb7436d5d7bb93574b360a0ac867e39754b3d5bee",
+        "expert/train-plan-17.json": "9627bb6344e5eaa01ad560f749770bc4c1cbce08b9226f7d853c9fa409828f71",
+        "expert/train-17.json": "330381fc08867e39cfd5649c41ee14e52be986d3b9d8adc96bdaa49763e5078d",
+        "expert/train-plan-18.json": "8f7105cd0f349a50fa609e353d7b70d573cc77d3af61ddbad4b0065416c0a9cf",
+        "expert/train-18.json": "e03192a75f6f2b61889e380c1c80a1f2993074afc5056b1702135c8294e52689",
+        "expert/train-plan-19.json": "348361887d5025772f9ea4c030b51d095b01d90940118712241bac106bb4aa77",
+        "expert/train-19.json": "2cc5cee9a48e1a534d415f58f7d4721001a5bccb31243bca1a2b8e5d791a0bc5",
+        "expert/train-plan-20.json": "b2bb26f9796e97a30874399fb62ec0a39650c64a5dd621213d72cb0dea562986",
+        "expert/train-20.json": "1c82a6ec6bd4e22ba16a20534782a55befe4528ab456ff1205ce37ce09f7cd0d",
+        "expert/train-plan-21.json": "f0acf044dd4c2e818b442a596f73e85fb84fe1ffa3b48541d364120660872883",
+        "expert/train-21.json": "6df3a064e4fdf0a04524cdc458612690e66492b8825037680d9f4bfd2934e73a",
+        "expert/train-plan-22.json": "62f97caebb428aea8672a8060a6891ec814bf21d8c8b8c5363c36f545ec7acbc",
+        "expert/train-22.json": "71455542e6f97511edcfbb981d40510d29ee3dda7262628d53852d096a0f6173",
+        "expert/train-plan-23.json": "fb6d1d20f50d4961eb0ee139a6a83ec3065b4f8101ca90175203e591593e59c8",
+        "expert/train-23.json": "3dfa93eab8d6dc1d39154b3931a945271b660856246c36f90d8f30def3c5c301",
+        "expert/train-plan-24.json": "72475db5e349a423f128d8873e3a01936b41dfffa766d5cbcf35a0fe2ddad993",
+        "expert/train-24.json": "387d9419d9943c11f475b30bfe47f9f4b0ca6326dbf016454b23572261577399",
+        "expert/selection-24.json": "9b16231c62240be96ade54fe074bf9530b8a70aa22c9a78f934350cee620cb86",
+        "expert/train-plan-25.json": "36fc75229ab88ce58d59d4648b8be50489b56a34765a66d7d7311eab5de0b36a",
+        "expert/train-25.json": "311c112fb8fe4e40f2cb5f7a9248d95233432d70f58064d87e49c199b812bf13",
+        "expert/train-plan-26.json": "72683d8139ff1559750b8dff31daf593736f8fc7849421abf6b4c282736263d4",
+        "expert/train-26.json": "1e3af4bdd3927b83d12d63d3c6a004f0b9318a719304663efa9312b05e5f6469",
+        "expert/train-plan-27.json": "b01fd64836ef1f4172aa38b3b4793c403a85a090ee83d22e6fb1bfdc27885475",
+        "expert/train-27.json": "840aa37dcaed831d53ffffc617278bcc2fd378bee7d2da9ed6872b49a79a747c",
+        "expert/train-plan-28.json": "f90fda428cccf5e905a876799ffe89b6100f0e1d445b982dedb65d035a90acb9",
+        "expert/train-28.json": "1cf67bf1919656217d58f1a6ccd2f382591b4bcd7cd47758c24071219c0dcd79",
+        "expert/train-plan-29.json": "e3fba9e6246b15ffb795c36eb576514241c3108b8faddd5868f64f39908551bc",
+        "expert/train-29.json": "eb29c5efcb4f93f351278db0f039118568a224ece72f47feebf8e811b1e7302b",
+        "expert/train-plan-30.json": "7405deb816a5e89eb58ba4eb82ed520cac52cb2bc1907fa16ff0bc274bdb0e58",
+        "expert/train-30.json": "8658dde0d3536f80d982df984e95e1919323fcc0c8d125ed9b333c21beb853e4",
+        "expert/train-plan-31.json": "babe1b801eacc4367fb89ca7b4fd17679f5435ac288583d338dd6612ec11e6b8",
+        "expert/train-31.json": "7ad903fc3dfdc5369f80f194e86f267287e5e8e80e0bae9551236cd0435b3159",
+        "expert/train-plan-32.json": "b6b347c988f59974d6ccf954534eab56e051719af216884ab7c2b669714f9498",
+        "expert/train-32.json": "f821f2499cccbf8aa1ef65a664cbe0686a0095b1156daf54eb825b5a35712651",
+        "expert/selection-32.json": "f8d414ddba8e690af548a8e3d971a0fc22247e7c3305c5b6c882c225dba065b4",
+        "expert/confirmation-plan.json": "b412c4de24b7a3b489f35a78fc5a7cd67aff6c1870699beeb4f5929a68d784f9",
+        "expert/confirmation-selected.json": "4d4bf77bf930d4c07a2c6210d322116142d3293d2627270cb10e4b01bf59ebbb",
+        "expert/confirmation-teacher.json": "aced8daf3262d7cdef2008d2787b10b3dc3a02fedf9b7d7b0e33d035090529fe",
+        "expert/result.json": "11be87312d2b737b2a3f455cf2f77794812e4d4c42cb46ed00a66cc58bbbbf4c"
+    },
+    "verifiedRemoteFiles": [
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/artifacts.json",
+            "bytes": 8442,
+            "sha256": "201a06650e7e213a70c55002977655c4e8ac705aa65a1ee56cce8ea6ef24a7e8",
+            "gitBlob": "dc9e89ada2c091fcd30691d1a42942ab1134a2f9",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/protocol.json",
+            "bytes": 6022,
+            "sha256": "2ba00d9596cf6833d0861ef765e5699e0b4032581f27ac53837af4ac27937f7a",
+            "gitBlob": "0707b876c334a5feffa9d05f216780e369b74da6",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/environment.json",
+            "bytes": 487,
+            "sha256": "a53f3fab09ce4e0df36e7e19d4a5eb5b35e10858cb3e2f05e59b94552940ff43",
+            "gitBlob": "7bf824e1e28ed2743c24933e6dab2551942f8911",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/recovery.json",
+            "bytes": 1338,
+            "sha256": "aea15de1e6ecc62bceb2760c6f7f69a5cb3f449a45f764464f35256407453f13",
+            "gitBlob": "51fdc06e67e6498a445de5a7ef33a75aa72a99e2",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/status.json",
+            "bytes": 27348,
+            "sha256": "1ad85e920c345ed0767626fcfb35f5d15888003c6e75875309ace5329b861884",
+            "gitBlob": "14066e2b1c0dee6d7386c86298fc7923071af3cc",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/config.json",
+            "bytes": 171520,
+            "sha256": "abf45855af9b741a8cd126bae3dacfb67fc92906022966e438745c6393a499e2",
+            "gitBlob": "a5827c966b17b5c9f8a24d5ea9ef86d62cecc687",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/selection-plan.json",
+            "bytes": 148603,
+            "sha256": "29887527caeb974e2fcd93194ca1478aefeb81e430a28f3e965173fd2478863c",
+            "gitBlob": "ed2cc94520c4799781d72659325e197bd243b0ef",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/selection-0.json",
+            "bytes": 843773,
+            "sha256": "278b25553be01d2946dec9702cffe698c56ed0ec34094b5fdd97266c1833a504",
+            "gitBlob": "85fdc548f232a10c6f889c97567653a571115c27",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/selection-teacher.json",
+            "bytes": 850634,
+            "sha256": "35eb5b7e1bb3d7518602861c673018c689aa672008fb99b11c2c34f5f77da932",
+            "gitBlob": "61e86621780aed08b611b1a6696c35d26e323e7d",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/initial.pt",
+            "bytes": 789787,
+            "sha256": "c1b99710329f7f9c08af2695eedf4f35b57d0b7968d3864c42ea26e0d40f2d72",
+            "gitBlob": "50d956ef8f50b2fdb297d55cc0a1cd3a91cc8583",
+            "lfsSha256": "c1b99710329f7f9c08af2695eedf4f35b57d0b7968d3864c42ea26e0d40f2d72"
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/best.pt",
+            "bytes": 788865,
+            "sha256": "1377fc2112c3b9ff3c2a20078ed341305b2a9006a4f7a1df413eeb0b509e6fbd",
+            "gitBlob": "60046d64f9134d463fb27cb73d9416bd17b75a2b",
+            "lfsSha256": "1377fc2112c3b9ff3c2a20078ed341305b2a9006a4f7a1df413eeb0b509e6fbd"
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/last.pt",
+            "bytes": 3237643,
+            "sha256": "970650d5df5707c7114f79345e848ffd5404eb02d371c49a7ab7601d735055a5",
+            "gitBlob": "11b9bab34604fa5c3a2b2255c554dd90d92c9a25",
+            "lfsSha256": "970650d5df5707c7114f79345e848ffd5404eb02d371c49a7ab7601d735055a5"
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/history.json",
+            "bytes": 138412,
+            "sha256": "2bbc5dfbba8b9687663d8674075b838b51fccfa2481e889753eacee4099cdfdc",
+            "gitBlob": "dbf870fce8721577f3c3ef23f91e90a1e7917447",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/warmup-plan.json",
+            "bytes": 74403,
+            "sha256": "65cb5be25ffee4cd0aa65595d0be4b2598bd385dfcb5251724480feaabff83ac",
+            "gitBlob": "44ab349cf4f8d8a4d5cb611fbe2335838acab93d",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/warmup.json",
+            "bytes": 421895,
+            "sha256": "676d3caa4ef9d7f0016e3d5d83467a9a81f716bab726c056927460d140104cb4",
+            "gitBlob": "c6adc9153dc7f5328073820de67ebedaecf94d9c",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/selection-warmup.json",
+            "bytes": 843718,
+            "sha256": "63b71cb50b33742d6170e002e1b94a2187f7468618c1a55f2c449d0cf0134579",
+            "gitBlob": "e21372e3c416be273919897c7f9027d440a262f4",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/warmup.pt",
+            "bytes": 788925,
+            "sha256": "026f6af3dfd21e85ecd11276c006a65f52f9553c60dc30ad8c947f7b83ea61e0",
+            "gitBlob": "0007559b568c3a3e6884d21953dbeef821b396be",
+            "lfsSha256": "026f6af3dfd21e85ecd11276c006a65f52f9553c60dc30ad8c947f7b83ea61e0"
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-1.json",
+            "bytes": 35713,
+            "sha256": "2ecc05649961c0254ec8bfc5f2efacf28931570c08f5e7cd45e399857ad17840",
+            "gitBlob": "931a379f2bc90cf1f6a777ab3272b14ab4643b97",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-1.json",
+            "bytes": 208138,
+            "sha256": "ea16ea3332d586c4cb235577fea85aafffb59432fcf8bc35a57e62ad9323a523",
+            "gitBlob": "7869463b498a97b8a2b234e2c9ad03082f520f3e",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-2.json",
+            "bytes": 35713,
+            "sha256": "d3372c7dda0db8606a0568ae50258cd91f83b40c3b9cc48e8379ad8485ffa161",
+            "gitBlob": "953ee812356d8c36479c500b4327690c7208bd44",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-2.json",
+            "bytes": 208134,
+            "sha256": "3c721548ea1b0ed07d9f10bb2912ffe879395c712dee7e0289d69b2221a83abf",
+            "gitBlob": "81474ce56c96580f5fc23593e92260f850cbf040",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-3.json",
+            "bytes": 35713,
+            "sha256": "4cda84b8d444ab124533557a3603dc5eacf3883849c5fff9ce7f084e7745a07b",
+            "gitBlob": "2c9920d3b130836ac5e6b90de8610bc5bfecbf12",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-3.json",
+            "bytes": 208137,
+            "sha256": "3133ba64b6c75c4acaf879facf830cf2ec8e8bc1b79dff49d63cf18e29e5d1e5",
+            "gitBlob": "815007f4c5631fe221189d92fe132ab905c59c2c",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-4.json",
+            "bytes": 35713,
+            "sha256": "93c992a0aef9bf4331ac6974cd6981a71da79e0637d1370e80057d701baf571c",
+            "gitBlob": "c746f06cfd8100c59a2ba90abdd96f8f7d0b103d",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-4.json",
+            "bytes": 208133,
+            "sha256": "fbe67da909bbac2ce0cd571582cb5aed8f7d3a243f145a704825a898d7f21e96",
+            "gitBlob": "09d54ae56ed26976e041284998f3dd1bbb85bff2",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-5.json",
+            "bytes": 35713,
+            "sha256": "2c96f80d6f76da3f6f1acb7485ab09dcc6551b2caa0a0a9e2ee9dbb655853f57",
+            "gitBlob": "0a399b0856a528e066818610c3aede1b1e4f152a",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-5.json",
+            "bytes": 208157,
+            "sha256": "1b5f07f80c6e525d39d8213b063ed9b01f011dfd9517e1640c2c2e0bce9153d1",
+            "gitBlob": "e0d9e15087875c9cb44e37ecdaed1e8f8fd8a772",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-6.json",
+            "bytes": 35713,
+            "sha256": "b4c4bcd4a8bd08f4d40d8a9689399320a635bf7c541959841d2344cfd43f1794",
+            "gitBlob": "28cc3e68b9c039e15025ccbfe597e08ca4b1fe1b",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-6.json",
+            "bytes": 208144,
+            "sha256": "589718c3fc945d9c654fb3b296439605205baf1687758db5d0af915f28eba0a9",
+            "gitBlob": "963bce90d6eeeeb1b58c7c92fcf1efcb9792a71b",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-7.json",
+            "bytes": 35713,
+            "sha256": "7bbfd7a666be70b8f6c05cf9914164785fef2e841e0594733bce20a86743de3b",
+            "gitBlob": "e1cdffb8b46ef6cafc0d1158db8a4a3bcaaf0dd2",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-7.json",
+            "bytes": 208136,
+            "sha256": "f3d2193a0b6dd0b952438a2ca25d5ee31247174c6565ddafb6401496596d9d70",
+            "gitBlob": "807fa75e6a7cb0b1d627fbb6fe9952663ea75bae",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-8.json",
+            "bytes": 35713,
+            "sha256": "a5bad5b9c4efc3af8104d97a645f1f1bcc368764fd495a7df60c6db6fb6b6c87",
+            "gitBlob": "20a58d29108add653a36040446fae3be9a3907a1",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-8.json",
+            "bytes": 208120,
+            "sha256": "f8071a6707047638b13dc43942c779de2f4a112cf757184eb34bc1aab8a37ada",
+            "gitBlob": "f83b6505f89b60ebff3a2bc59ded45e66cf9df81",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/selection-8.json",
+            "bytes": 843665,
+            "sha256": "5acc3425b2db42b7dccc26335b723e64129153371c057156e9ba1c44f7d7861a",
+            "gitBlob": "79b5c4ea0a40b764f594d1e47638d1075d18a03b",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-9.json",
+            "bytes": 35713,
+            "sha256": "56281cb44d166587a6d4150f3a18c41c784ae135b6aec7574170df6e99040f1b",
+            "gitBlob": "5c71e5170a2824c974c55e278a2a56741169b719",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-9.json",
+            "bytes": 208144,
+            "sha256": "c269a8ba0feb308d07ce217eb4b633d7e9332cff6a24211787853eb94b374a33",
+            "gitBlob": "5875fb69581169076700c2465a33bc465ee4e745",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-10.json",
+            "bytes": 35873,
+            "sha256": "5065136de765d0794f02a5402f760976fb80677d5336bce67983b1ca2a0ff292",
+            "gitBlob": "a6ab543d17f4370b5bfccaae553f19c9c51ca0ce",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-10.json",
+            "bytes": 208308,
+            "sha256": "bab2111f7c849deb59ef6296f424c71e2f45aee5161a02d2107aa8f8f1fe747b",
+            "gitBlob": "10569e17674a0f60d222670bf72bee99d85b298d",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-11.json",
+            "bytes": 35873,
+            "sha256": "1605eebd972deec4e44151c729ae114efd9d8a62fa36a6a979568fc2033125b0",
+            "gitBlob": "037206d1b3c62a357d394050342a6a7352b0735d",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-11.json",
+            "bytes": 208274,
+            "sha256": "49038ee0e434835a8fb97a3d15c2768c7717aa614730dcbc2b7657fcdc93cde1",
+            "gitBlob": "23759a453f82a88c25a12791a2d4840ce7e21386",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-12.json",
+            "bytes": 35873,
+            "sha256": "d750a729c0db3a7a297251f7365266c12f896c6c65817deddcce57e53365e97a",
+            "gitBlob": "47f8a529c5737ca64361fbd8a0bf4d93772054a2",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-12.json",
+            "bytes": 208290,
+            "sha256": "ed7e83413473496e7b045de6a39443167b39d12ea954286f43c1ed7f1d6bd329",
+            "gitBlob": "339706cedb0ff5d6827c78d2097ddc5a3ab6080d",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-13.json",
+            "bytes": 35873,
+            "sha256": "12e9241d0deb0ffd0e40235e1943b4158b94d1ea1ecf23c0cb4e1b7c4002d036",
+            "gitBlob": "0bc7c20012f6eba1ae015e6afd3e2dbe73ea82aa",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-13.json",
+            "bytes": 208296,
+            "sha256": "ffd2a49808d3c3a462abeaab5da7ed386a7472c4269b7b99457ac3e7c3ee5ec8",
+            "gitBlob": "80b93cc16a406dc5fe5b36d6ff6a5ab0ff911e86",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-14.json",
+            "bytes": 35873,
+            "sha256": "d8a2b627a9e5480803fde9f49ec7306bbc4224a8dd04563963635a25a31639b7",
+            "gitBlob": "6269b9c742bcc6fcaf8da4105287749af011dad6",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-14.json",
+            "bytes": 208306,
+            "sha256": "5c6a6feaea604c1cf8ebc073d9ca0bcdf0667121c2668a4923c8b11f03991661",
+            "gitBlob": "763882526da0644b36b57433ad09492acfef612d",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-15.json",
+            "bytes": 35873,
+            "sha256": "bbc841bf8fa55c41201269f295ad69c59f3b7c41f81355d67e8e42f98e058081",
+            "gitBlob": "ee6a34c9fa4bad4879ebf81f1d1717f015eae8ec",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-15.json",
+            "bytes": 208303,
+            "sha256": "1d35873dd8a02297648d3f8f28287062ac26a14252419b4693dc2a31cafdb013",
+            "gitBlob": "f33e38962bda7c05b461ddae0c8311222c65adbb",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-16.json",
+            "bytes": 35873,
+            "sha256": "6d49b6c076ecc54b1e434ef8f483f807fa130f034adc89d02a8786e5f10a5d8a",
+            "gitBlob": "74eb7fbcf5b6de9a6092650a1ebc8c06f4e8267c",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-16.json",
+            "bytes": 208312,
+            "sha256": "cd9de794421c5e0be49daeb5922528354ec6d0ffeeddd2ebbdc82b991e3d3d9f",
+            "gitBlob": "aafd5c6a831d918ee2870d684076a3e400c97c18",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/selection-16.json",
+            "bytes": 843672,
+            "sha256": "48d0c93cf608799fcb052b9eb7436d5d7bb93574b360a0ac867e39754b3d5bee",
+            "gitBlob": "f6ae383863b3d7d07a8d7aceeb68c1980de6d48c",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-17.json",
+            "bytes": 35873,
+            "sha256": "9627bb6344e5eaa01ad560f749770bc4c1cbce08b9226f7d853c9fa409828f71",
+            "gitBlob": "635b617fa5fb1e7ff6439d6724cfe4d120378048",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-17.json",
+            "bytes": 208281,
+            "sha256": "330381fc08867e39cfd5649c41ee14e52be986d3b9d8adc96bdaa49763e5078d",
+            "gitBlob": "e1d42c016a1672cd4f0602bfa394a75837b0425c",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-18.json",
+            "bytes": 35873,
+            "sha256": "8f7105cd0f349a50fa609e353d7b70d573cc77d3af61ddbad4b0065416c0a9cf",
+            "gitBlob": "4bafb88fbccb5239b34f706dd36c08b24e9650fe",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-18.json",
+            "bytes": 208292,
+            "sha256": "e03192a75f6f2b61889e380c1c80a1f2993074afc5056b1702135c8294e52689",
+            "gitBlob": "d3f4b804fb7faffa7b2b2e2fcfc8528967b9f3b2",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-19.json",
+            "bytes": 35873,
+            "sha256": "348361887d5025772f9ea4c030b51d095b01d90940118712241bac106bb4aa77",
+            "gitBlob": "1c4b0113153a39bbf0931a491e28bb102f31d225",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-19.json",
+            "bytes": 208323,
+            "sha256": "2cc5cee9a48e1a534d415f58f7d4721001a5bccb31243bca1a2b8e5d791a0bc5",
+            "gitBlob": "9df1061171f746c79333ce36e856c48ebfdec908",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-20.json",
+            "bytes": 35873,
+            "sha256": "b2bb26f9796e97a30874399fb62ec0a39650c64a5dd621213d72cb0dea562986",
+            "gitBlob": "b7b344653f140296df17afee0e14031f115be23f",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-20.json",
+            "bytes": 208303,
+            "sha256": "1c82a6ec6bd4e22ba16a20534782a55befe4528ab456ff1205ce37ce09f7cd0d",
+            "gitBlob": "66c7ece0c55d01f699ff4b40930ea07e3b224f7e",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-21.json",
+            "bytes": 35873,
+            "sha256": "f0acf044dd4c2e818b442a596f73e85fb84fe1ffa3b48541d364120660872883",
+            "gitBlob": "cb8ccb9b1bf205432dcebcda51a5146ea29f9521",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-21.json",
+            "bytes": 208272,
+            "sha256": "6df3a064e4fdf0a04524cdc458612690e66492b8825037680d9f4bfd2934e73a",
+            "gitBlob": "2280e989023057788bcf5c55298f90a426bd18e8",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-22.json",
+            "bytes": 35873,
+            "sha256": "62f97caebb428aea8672a8060a6891ec814bf21d8c8b8c5363c36f545ec7acbc",
+            "gitBlob": "a894aa8fe508fcd683d24cf59bd04d17f25cd3a9",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-22.json",
+            "bytes": 208297,
+            "sha256": "71455542e6f97511edcfbb981d40510d29ee3dda7262628d53852d096a0f6173",
+            "gitBlob": "125d9ff286658af4ff8c6f3eb3e73f44be8b3d0a",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-23.json",
+            "bytes": 35873,
+            "sha256": "fb6d1d20f50d4961eb0ee139a6a83ec3065b4f8101ca90175203e591593e59c8",
+            "gitBlob": "582d7de027152a1b58908a653f4c2ee7ea7e2d76",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-23.json",
+            "bytes": 208271,
+            "sha256": "3dfa93eab8d6dc1d39154b3931a945271b660856246c36f90d8f30def3c5c301",
+            "gitBlob": "ab34f5786e2ba11cc1d8bdb819bdc937814a9860",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-24.json",
+            "bytes": 35873,
+            "sha256": "72475db5e349a423f128d8873e3a01936b41dfffa766d5cbcf35a0fe2ddad993",
+            "gitBlob": "2879b198be0e5ab14581b80b829460be828b2d68",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-24.json",
+            "bytes": 208295,
+            "sha256": "387d9419d9943c11f475b30bfe47f9f4b0ca6326dbf016454b23572261577399",
+            "gitBlob": "4d12426b2748843cab37e21b3c4b34a9332a690a",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/selection-24.json",
+            "bytes": 843652,
+            "sha256": "9b16231c62240be96ade54fe074bf9530b8a70aa22c9a78f934350cee620cb86",
+            "gitBlob": "0fd1e526141bb49f0d1ab935c66c42f9209c5ba0",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-25.json",
+            "bytes": 35873,
+            "sha256": "36fc75229ab88ce58d59d4648b8be50489b56a34765a66d7d7311eab5de0b36a",
+            "gitBlob": "f78d011e4f2bcd3495fe56012bd71294198ca584",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-25.json",
+            "bytes": 208296,
+            "sha256": "311c112fb8fe4e40f2cb5f7a9248d95233432d70f58064d87e49c199b812bf13",
+            "gitBlob": "838f0477aa41baef266ddbe74dde2d10faffa5bf",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-26.json",
+            "bytes": 35873,
+            "sha256": "72683d8139ff1559750b8dff31daf593736f8fc7849421abf6b4c282736263d4",
+            "gitBlob": "2898be73c15841f0e20af98b70ef1a32b71ad893",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-26.json",
+            "bytes": 208290,
+            "sha256": "1e3af4bdd3927b83d12d63d3c6a004f0b9318a719304663efa9312b05e5f6469",
+            "gitBlob": "a59bb4a3b339abef98b77c9c416b2e8649a14742",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-27.json",
+            "bytes": 35873,
+            "sha256": "b01fd64836ef1f4172aa38b3b4793c403a85a090ee83d22e6fb1bfdc27885475",
+            "gitBlob": "ff8a745ef8607d8f0cdcb48248292e3cc2eb4e04",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-27.json",
+            "bytes": 208302,
+            "sha256": "840aa37dcaed831d53ffffc617278bcc2fd378bee7d2da9ed6872b49a79a747c",
+            "gitBlob": "e09ba66562f3dfcaf1a66b27f297c619ebddf9ea",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-28.json",
+            "bytes": 35873,
+            "sha256": "f90fda428cccf5e905a876799ffe89b6100f0e1d445b982dedb65d035a90acb9",
+            "gitBlob": "f2a1d36499191f94a75bb9d5e963075ccedbbd79",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-28.json",
+            "bytes": 208306,
+            "sha256": "1cf67bf1919656217d58f1a6ccd2f382591b4bcd7cd47758c24071219c0dcd79",
+            "gitBlob": "6f22b1e74a8a4e28e31694ba0933b0b88da9d625",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-29.json",
+            "bytes": 35873,
+            "sha256": "e3fba9e6246b15ffb795c36eb576514241c3108b8faddd5868f64f39908551bc",
+            "gitBlob": "2c6af989155bad412df8ac66e724dc5865f2c86b",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-29.json",
+            "bytes": 208284,
+            "sha256": "eb29c5efcb4f93f351278db0f039118568a224ece72f47feebf8e811b1e7302b",
+            "gitBlob": "fef33c805562b92e1bac0ef6040b0cd20ce5adcd",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-30.json",
+            "bytes": 35873,
+            "sha256": "7405deb816a5e89eb58ba4eb82ed520cac52cb2bc1907fa16ff0bc274bdb0e58",
+            "gitBlob": "80c4f1c03edfb813b4871c5d1143461a7c9f5e12",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-30.json",
+            "bytes": 208294,
+            "sha256": "8658dde0d3536f80d982df984e95e1919323fcc0c8d125ed9b333c21beb853e4",
+            "gitBlob": "db1f0bf12b0b60a69600d8c558b8651378192647",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-31.json",
+            "bytes": 35873,
+            "sha256": "babe1b801eacc4367fb89ca7b4fd17679f5435ac288583d338dd6612ec11e6b8",
+            "gitBlob": "faa50669d96cf221bd4de35ae42b1d1b5dbb80bf",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-31.json",
+            "bytes": 208290,
+            "sha256": "7ad903fc3dfdc5369f80f194e86f267287e5e8e80e0bae9551236cd0435b3159",
+            "gitBlob": "33b442cdc9bf64aa3903cecf72036a55437adc31",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-plan-32.json",
+            "bytes": 35873,
+            "sha256": "b6b347c988f59974d6ccf954534eab56e051719af216884ab7c2b669714f9498",
+            "gitBlob": "8395388f22ed27371442aa598240d40fc221f2c3",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/train-32.json",
+            "bytes": 208287,
+            "sha256": "f821f2499cccbf8aa1ef65a664cbe0686a0095b1156daf54eb825b5a35712651",
+            "gitBlob": "3524681b1609407343faae9dd3ffbc4abc4aae59",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/selection-32.json",
+            "bytes": 843631,
+            "sha256": "f8d414ddba8e690af548a8e3d971a0fc22247e7c3305c5b6c882c225dba065b4",
+            "gitBlob": "bdda7d075400b27437e384d34051eb2586dd1145",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/confirmation-plan.json",
+            "bytes": 448883,
+            "sha256": "b412c4de24b7a3b489f35a78fc5a7cd67aff6c1870699beeb4f5929a68d784f9",
+            "gitBlob": "d5da78346a3c9e55aaa1cbfe8a84c9354233b033",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/confirmation-selected.json",
+            "bytes": 2527493,
+            "sha256": "4d4bf77bf930d4c07a2c6210d322116142d3293d2627270cb10e4b01bf59ebbb",
+            "gitBlob": "c09e48e34996935150d56626caba8363d3c82c17",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/confirmation-teacher.json",
+            "bytes": 2550794,
+            "sha256": "aced8daf3262d7cdef2008d2787b10b3dc3a02fedf9b7d7b0e33d035090529fe",
+            "gitBlob": "f44a5c6ae9c5645d27eadec9160ea229811b618e",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+            "path": "runs/multimap-expert-ppo-20261102-v2-r1/expert/result.json",
+            "bytes": 11257,
+            "sha256": "11be87312d2b737b2a3f455cf2f77794812e4d4c42cb46ed00a66cc58bbbbf4c",
+            "gitBlob": "9ded1e5c0dea4cc03c7ab09074fcf1824935a133",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/artifacts.json",
+            "bytes": 8034,
+            "sha256": "5fba8072c7694808006d20b84c3de0f677d04ec42862aaf6e5d23fea8e84eaeb",
+            "gitBlob": "d14baf7c5c57f403dd10fb1e15704e1dd0ae5554",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/protocol.json",
+            "bytes": 6022,
+            "sha256": "2ba00d9596cf6833d0861ef765e5699e0b4032581f27ac53837af4ac27937f7a",
+            "gitBlob": "0707b876c334a5feffa9d05f216780e369b74da6",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/environment.json",
+            "bytes": 487,
+            "sha256": "a53f3fab09ce4e0df36e7e19d4a5eb5b35e10858cb3e2f05e59b94552940ff43",
+            "gitBlob": "7bf824e1e28ed2743c24933e6dab2551942f8911",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/recovery.json",
+            "bytes": 1338,
+            "sha256": "aea15de1e6ecc62bceb2760c6f7f69a5cb3f449a45f764464f35256407453f13",
+            "gitBlob": "51fdc06e67e6498a445de5a7ef33a75aa72a99e2",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/status.json",
+            "bytes": 10385,
+            "sha256": "9616ead47da7e8f7ea1e677ed777555464c262f53b6d335be2e38e610e75aa86",
+            "gitBlob": "04622ad4faf0cbfa6ff2edfe8501f1315e79f92b",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/config.json",
+            "bytes": 171520,
+            "sha256": "abf45855af9b741a8cd126bae3dacfb67fc92906022966e438745c6393a499e2",
+            "gitBlob": "a5827c966b17b5c9f8a24d5ea9ef86d62cecc687",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/selection-plan.json",
+            "bytes": 148603,
+            "sha256": "29887527caeb974e2fcd93194ca1478aefeb81e430a28f3e965173fd2478863c",
+            "gitBlob": "ed2cc94520c4799781d72659325e197bd243b0ef",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/selection-0.json",
+            "bytes": 843773,
+            "sha256": "278b25553be01d2946dec9702cffe698c56ed0ec34094b5fdd97266c1833a504",
+            "gitBlob": "85fdc548f232a10c6f889c97567653a571115c27",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/selection-teacher.json",
+            "bytes": 850634,
+            "sha256": "35eb5b7e1bb3d7518602861c673018c689aa672008fb99b11c2c34f5f77da932",
+            "gitBlob": "61e86621780aed08b611b1a6696c35d26e323e7d",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/initial.pt",
+            "bytes": 789787,
+            "sha256": "c1b99710329f7f9c08af2695eedf4f35b57d0b7968d3864c42ea26e0d40f2d72",
+            "gitBlob": "50d956ef8f50b2fdb297d55cc0a1cd3a91cc8583",
+            "lfsSha256": "c1b99710329f7f9c08af2695eedf4f35b57d0b7968d3864c42ea26e0d40f2d72"
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/best.pt",
+            "bytes": 788865,
+            "sha256": "1377fc2112c3b9ff3c2a20078ed341305b2a9006a4f7a1df413eeb0b509e6fbd",
+            "gitBlob": "60046d64f9134d463fb27cb73d9416bd17b75a2b",
+            "lfsSha256": "1377fc2112c3b9ff3c2a20078ed341305b2a9006a4f7a1df413eeb0b509e6fbd"
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/last.pt",
+            "bytes": 3230027,
+            "sha256": "32f8488498323430486ded89331ec03801ee855ff644abde537fbd4b577b76f3",
+            "gitBlob": "f121d58729d818c8a243eac57a8889c85fcfe5da",
+            "lfsSha256": "32f8488498323430486ded89331ec03801ee855ff644abde537fbd4b577b76f3"
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/history.json",
+            "bytes": 138412,
+            "sha256": "2bbc5dfbba8b9687663d8674075b838b51fccfa2481e889753eacee4099cdfdc",
+            "gitBlob": "dbf870fce8721577f3c3ef23f91e90a1e7917447",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/warmup-plan.json",
+            "bytes": 74403,
+            "sha256": "65cb5be25ffee4cd0aa65595d0be4b2598bd385dfcb5251724480feaabff83ac",
+            "gitBlob": "44ab349cf4f8d8a4d5cb611fbe2335838acab93d",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/warmup.json",
+            "bytes": 421895,
+            "sha256": "676d3caa4ef9d7f0016e3d5d83467a9a81f716bab726c056927460d140104cb4",
+            "gitBlob": "c6adc9153dc7f5328073820de67ebedaecf94d9c",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/selection-warmup.json",
+            "bytes": 843718,
+            "sha256": "63b71cb50b33742d6170e002e1b94a2187f7468618c1a55f2c449d0cf0134579",
+            "gitBlob": "e21372e3c416be273919897c7f9027d440a262f4",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/warmup.pt",
+            "bytes": 788925,
+            "sha256": "026f6af3dfd21e85ecd11276c006a65f52f9553c60dc30ad8c947f7b83ea61e0",
+            "gitBlob": "0007559b568c3a3e6884d21953dbeef821b396be",
+            "lfsSha256": "026f6af3dfd21e85ecd11276c006a65f52f9553c60dc30ad8c947f7b83ea61e0"
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-1.json",
+            "bytes": 35713,
+            "sha256": "2ecc05649961c0254ec8bfc5f2efacf28931570c08f5e7cd45e399857ad17840",
+            "gitBlob": "931a379f2bc90cf1f6a777ab3272b14ab4643b97",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-1.json",
+            "bytes": 208138,
+            "sha256": "ea16ea3332d586c4cb235577fea85aafffb59432fcf8bc35a57e62ad9323a523",
+            "gitBlob": "7869463b498a97b8a2b234e2c9ad03082f520f3e",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-2.json",
+            "bytes": 35713,
+            "sha256": "d3372c7dda0db8606a0568ae50258cd91f83b40c3b9cc48e8379ad8485ffa161",
+            "gitBlob": "953ee812356d8c36479c500b4327690c7208bd44",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-2.json",
+            "bytes": 208134,
+            "sha256": "3c721548ea1b0ed07d9f10bb2912ffe879395c712dee7e0289d69b2221a83abf",
+            "gitBlob": "81474ce56c96580f5fc23593e92260f850cbf040",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-3.json",
+            "bytes": 35713,
+            "sha256": "4cda84b8d444ab124533557a3603dc5eacf3883849c5fff9ce7f084e7745a07b",
+            "gitBlob": "2c9920d3b130836ac5e6b90de8610bc5bfecbf12",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-3.json",
+            "bytes": 208137,
+            "sha256": "3133ba64b6c75c4acaf879facf830cf2ec8e8bc1b79dff49d63cf18e29e5d1e5",
+            "gitBlob": "815007f4c5631fe221189d92fe132ab905c59c2c",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-4.json",
+            "bytes": 35713,
+            "sha256": "93c992a0aef9bf4331ac6974cd6981a71da79e0637d1370e80057d701baf571c",
+            "gitBlob": "c746f06cfd8100c59a2ba90abdd96f8f7d0b103d",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-4.json",
+            "bytes": 208133,
+            "sha256": "fbe67da909bbac2ce0cd571582cb5aed8f7d3a243f145a704825a898d7f21e96",
+            "gitBlob": "09d54ae56ed26976e041284998f3dd1bbb85bff2",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-5.json",
+            "bytes": 35713,
+            "sha256": "2c96f80d6f76da3f6f1acb7485ab09dcc6551b2caa0a0a9e2ee9dbb655853f57",
+            "gitBlob": "0a399b0856a528e066818610c3aede1b1e4f152a",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-5.json",
+            "bytes": 208157,
+            "sha256": "1b5f07f80c6e525d39d8213b063ed9b01f011dfd9517e1640c2c2e0bce9153d1",
+            "gitBlob": "e0d9e15087875c9cb44e37ecdaed1e8f8fd8a772",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-6.json",
+            "bytes": 35713,
+            "sha256": "b4c4bcd4a8bd08f4d40d8a9689399320a635bf7c541959841d2344cfd43f1794",
+            "gitBlob": "28cc3e68b9c039e15025ccbfe597e08ca4b1fe1b",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-6.json",
+            "bytes": 208144,
+            "sha256": "589718c3fc945d9c654fb3b296439605205baf1687758db5d0af915f28eba0a9",
+            "gitBlob": "963bce90d6eeeeb1b58c7c92fcf1efcb9792a71b",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-7.json",
+            "bytes": 35713,
+            "sha256": "7bbfd7a666be70b8f6c05cf9914164785fef2e841e0594733bce20a86743de3b",
+            "gitBlob": "e1cdffb8b46ef6cafc0d1158db8a4a3bcaaf0dd2",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-7.json",
+            "bytes": 208136,
+            "sha256": "f3d2193a0b6dd0b952438a2ca25d5ee31247174c6565ddafb6401496596d9d70",
+            "gitBlob": "807fa75e6a7cb0b1d627fbb6fe9952663ea75bae",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-8.json",
+            "bytes": 35713,
+            "sha256": "a5bad5b9c4efc3af8104d97a645f1f1bcc368764fd495a7df60c6db6fb6b6c87",
+            "gitBlob": "20a58d29108add653a36040446fae3be9a3907a1",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-8.json",
+            "bytes": 208120,
+            "sha256": "f8071a6707047638b13dc43942c779de2f4a112cf757184eb34bc1aab8a37ada",
+            "gitBlob": "f83b6505f89b60ebff3a2bc59ded45e66cf9df81",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/selection-8.json",
+            "bytes": 843665,
+            "sha256": "5acc3425b2db42b7dccc26335b723e64129153371c057156e9ba1c44f7d7861a",
+            "gitBlob": "79b5c4ea0a40b764f594d1e47638d1075d18a03b",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-9.json",
+            "bytes": 35713,
+            "sha256": "56281cb44d166587a6d4150f3a18c41c784ae135b6aec7574170df6e99040f1b",
+            "gitBlob": "5c71e5170a2824c974c55e278a2a56741169b719",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-9.json",
+            "bytes": 208144,
+            "sha256": "c269a8ba0feb308d07ce217eb4b633d7e9332cff6a24211787853eb94b374a33",
+            "gitBlob": "5875fb69581169076700c2465a33bc465ee4e745",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-10.json",
+            "bytes": 35873,
+            "sha256": "5065136de765d0794f02a5402f760976fb80677d5336bce67983b1ca2a0ff292",
+            "gitBlob": "a6ab543d17f4370b5bfccaae553f19c9c51ca0ce",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-10.json",
+            "bytes": 208308,
+            "sha256": "bab2111f7c849deb59ef6296f424c71e2f45aee5161a02d2107aa8f8f1fe747b",
+            "gitBlob": "10569e17674a0f60d222670bf72bee99d85b298d",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-11.json",
+            "bytes": 35873,
+            "sha256": "1605eebd972deec4e44151c729ae114efd9d8a62fa36a6a979568fc2033125b0",
+            "gitBlob": "037206d1b3c62a357d394050342a6a7352b0735d",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-11.json",
+            "bytes": 208274,
+            "sha256": "49038ee0e434835a8fb97a3d15c2768c7717aa614730dcbc2b7657fcdc93cde1",
+            "gitBlob": "23759a453f82a88c25a12791a2d4840ce7e21386",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-12.json",
+            "bytes": 35873,
+            "sha256": "d750a729c0db3a7a297251f7365266c12f896c6c65817deddcce57e53365e97a",
+            "gitBlob": "47f8a529c5737ca64361fbd8a0bf4d93772054a2",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-12.json",
+            "bytes": 208290,
+            "sha256": "ed7e83413473496e7b045de6a39443167b39d12ea954286f43c1ed7f1d6bd329",
+            "gitBlob": "339706cedb0ff5d6827c78d2097ddc5a3ab6080d",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-13.json",
+            "bytes": 35873,
+            "sha256": "12e9241d0deb0ffd0e40235e1943b4158b94d1ea1ecf23c0cb4e1b7c4002d036",
+            "gitBlob": "0bc7c20012f6eba1ae015e6afd3e2dbe73ea82aa",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-13.json",
+            "bytes": 208296,
+            "sha256": "ffd2a49808d3c3a462abeaab5da7ed386a7472c4269b7b99457ac3e7c3ee5ec8",
+            "gitBlob": "80b93cc16a406dc5fe5b36d6ff6a5ab0ff911e86",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-14.json",
+            "bytes": 35873,
+            "sha256": "d8a2b627a9e5480803fde9f49ec7306bbc4224a8dd04563963635a25a31639b7",
+            "gitBlob": "6269b9c742bcc6fcaf8da4105287749af011dad6",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-14.json",
+            "bytes": 208306,
+            "sha256": "5c6a6feaea604c1cf8ebc073d9ca0bcdf0667121c2668a4923c8b11f03991661",
+            "gitBlob": "763882526da0644b36b57433ad09492acfef612d",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-15.json",
+            "bytes": 35873,
+            "sha256": "bbc841bf8fa55c41201269f295ad69c59f3b7c41f81355d67e8e42f98e058081",
+            "gitBlob": "ee6a34c9fa4bad4879ebf81f1d1717f015eae8ec",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-15.json",
+            "bytes": 208303,
+            "sha256": "1d35873dd8a02297648d3f8f28287062ac26a14252419b4693dc2a31cafdb013",
+            "gitBlob": "f33e38962bda7c05b461ddae0c8311222c65adbb",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-16.json",
+            "bytes": 35873,
+            "sha256": "6d49b6c076ecc54b1e434ef8f483f807fa130f034adc89d02a8786e5f10a5d8a",
+            "gitBlob": "74eb7fbcf5b6de9a6092650a1ebc8c06f4e8267c",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-16.json",
+            "bytes": 208312,
+            "sha256": "cd9de794421c5e0be49daeb5922528354ec6d0ffeeddd2ebbdc82b991e3d3d9f",
+            "gitBlob": "aafd5c6a831d918ee2870d684076a3e400c97c18",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/selection-16.json",
+            "bytes": 843672,
+            "sha256": "48d0c93cf608799fcb052b9eb7436d5d7bb93574b360a0ac867e39754b3d5bee",
+            "gitBlob": "f6ae383863b3d7d07a8d7aceeb68c1980de6d48c",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-17.json",
+            "bytes": 35873,
+            "sha256": "9627bb6344e5eaa01ad560f749770bc4c1cbce08b9226f7d853c9fa409828f71",
+            "gitBlob": "635b617fa5fb1e7ff6439d6724cfe4d120378048",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-17.json",
+            "bytes": 208281,
+            "sha256": "330381fc08867e39cfd5649c41ee14e52be986d3b9d8adc96bdaa49763e5078d",
+            "gitBlob": "e1d42c016a1672cd4f0602bfa394a75837b0425c",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-18.json",
+            "bytes": 35873,
+            "sha256": "8f7105cd0f349a50fa609e353d7b70d573cc77d3af61ddbad4b0065416c0a9cf",
+            "gitBlob": "4bafb88fbccb5239b34f706dd36c08b24e9650fe",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-18.json",
+            "bytes": 208292,
+            "sha256": "e03192a75f6f2b61889e380c1c80a1f2993074afc5056b1702135c8294e52689",
+            "gitBlob": "d3f4b804fb7faffa7b2b2e2fcfc8528967b9f3b2",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-19.json",
+            "bytes": 35873,
+            "sha256": "348361887d5025772f9ea4c030b51d095b01d90940118712241bac106bb4aa77",
+            "gitBlob": "1c4b0113153a39bbf0931a491e28bb102f31d225",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-19.json",
+            "bytes": 208323,
+            "sha256": "2cc5cee9a48e1a534d415f58f7d4721001a5bccb31243bca1a2b8e5d791a0bc5",
+            "gitBlob": "9df1061171f746c79333ce36e856c48ebfdec908",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-20.json",
+            "bytes": 35873,
+            "sha256": "b2bb26f9796e97a30874399fb62ec0a39650c64a5dd621213d72cb0dea562986",
+            "gitBlob": "b7b344653f140296df17afee0e14031f115be23f",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-20.json",
+            "bytes": 208303,
+            "sha256": "1c82a6ec6bd4e22ba16a20534782a55befe4528ab456ff1205ce37ce09f7cd0d",
+            "gitBlob": "66c7ece0c55d01f699ff4b40930ea07e3b224f7e",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-21.json",
+            "bytes": 35873,
+            "sha256": "f0acf044dd4c2e818b442a596f73e85fb84fe1ffa3b48541d364120660872883",
+            "gitBlob": "cb8ccb9b1bf205432dcebcda51a5146ea29f9521",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-21.json",
+            "bytes": 208272,
+            "sha256": "6df3a064e4fdf0a04524cdc458612690e66492b8825037680d9f4bfd2934e73a",
+            "gitBlob": "2280e989023057788bcf5c55298f90a426bd18e8",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-22.json",
+            "bytes": 35873,
+            "sha256": "62f97caebb428aea8672a8060a6891ec814bf21d8c8b8c5363c36f545ec7acbc",
+            "gitBlob": "a894aa8fe508fcd683d24cf59bd04d17f25cd3a9",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-22.json",
+            "bytes": 208297,
+            "sha256": "71455542e6f97511edcfbb981d40510d29ee3dda7262628d53852d096a0f6173",
+            "gitBlob": "125d9ff286658af4ff8c6f3eb3e73f44be8b3d0a",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-23.json",
+            "bytes": 35873,
+            "sha256": "fb6d1d20f50d4961eb0ee139a6a83ec3065b4f8101ca90175203e591593e59c8",
+            "gitBlob": "582d7de027152a1b58908a653f4c2ee7ea7e2d76",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-23.json",
+            "bytes": 208271,
+            "sha256": "3dfa93eab8d6dc1d39154b3931a945271b660856246c36f90d8f30def3c5c301",
+            "gitBlob": "ab34f5786e2ba11cc1d8bdb819bdc937814a9860",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-24.json",
+            "bytes": 35873,
+            "sha256": "72475db5e349a423f128d8873e3a01936b41dfffa766d5cbcf35a0fe2ddad993",
+            "gitBlob": "2879b198be0e5ab14581b80b829460be828b2d68",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-24.json",
+            "bytes": 208295,
+            "sha256": "387d9419d9943c11f475b30bfe47f9f4b0ca6326dbf016454b23572261577399",
+            "gitBlob": "4d12426b2748843cab37e21b3c4b34a9332a690a",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/selection-24.json",
+            "bytes": 843652,
+            "sha256": "9b16231c62240be96ade54fe074bf9530b8a70aa22c9a78f934350cee620cb86",
+            "gitBlob": "0fd1e526141bb49f0d1ab935c66c42f9209c5ba0",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-25.json",
+            "bytes": 35873,
+            "sha256": "36fc75229ab88ce58d59d4648b8be50489b56a34765a66d7d7311eab5de0b36a",
+            "gitBlob": "f78d011e4f2bcd3495fe56012bd71294198ca584",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-25.json",
+            "bytes": 208296,
+            "sha256": "311c112fb8fe4e40f2cb5f7a9248d95233432d70f58064d87e49c199b812bf13",
+            "gitBlob": "838f0477aa41baef266ddbe74dde2d10faffa5bf",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-26.json",
+            "bytes": 35873,
+            "sha256": "72683d8139ff1559750b8dff31daf593736f8fc7849421abf6b4c282736263d4",
+            "gitBlob": "2898be73c15841f0e20af98b70ef1a32b71ad893",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-26.json",
+            "bytes": 208290,
+            "sha256": "1e3af4bdd3927b83d12d63d3c6a004f0b9318a719304663efa9312b05e5f6469",
+            "gitBlob": "a59bb4a3b339abef98b77c9c416b2e8649a14742",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-27.json",
+            "bytes": 35873,
+            "sha256": "b01fd64836ef1f4172aa38b3b4793c403a85a090ee83d22e6fb1bfdc27885475",
+            "gitBlob": "ff8a745ef8607d8f0cdcb48248292e3cc2eb4e04",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-27.json",
+            "bytes": 208302,
+            "sha256": "840aa37dcaed831d53ffffc617278bcc2fd378bee7d2da9ed6872b49a79a747c",
+            "gitBlob": "e09ba66562f3dfcaf1a66b27f297c619ebddf9ea",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-28.json",
+            "bytes": 35873,
+            "sha256": "f90fda428cccf5e905a876799ffe89b6100f0e1d445b982dedb65d035a90acb9",
+            "gitBlob": "f2a1d36499191f94a75bb9d5e963075ccedbbd79",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-28.json",
+            "bytes": 208306,
+            "sha256": "1cf67bf1919656217d58f1a6ccd2f382591b4bcd7cd47758c24071219c0dcd79",
+            "gitBlob": "6f22b1e74a8a4e28e31694ba0933b0b88da9d625",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-29.json",
+            "bytes": 35873,
+            "sha256": "e3fba9e6246b15ffb795c36eb576514241c3108b8faddd5868f64f39908551bc",
+            "gitBlob": "2c6af989155bad412df8ac66e724dc5865f2c86b",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-29.json",
+            "bytes": 208284,
+            "sha256": "eb29c5efcb4f93f351278db0f039118568a224ece72f47feebf8e811b1e7302b",
+            "gitBlob": "fef33c805562b92e1bac0ef6040b0cd20ce5adcd",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-30.json",
+            "bytes": 35873,
+            "sha256": "7405deb816a5e89eb58ba4eb82ed520cac52cb2bc1907fa16ff0bc274bdb0e58",
+            "gitBlob": "80c4f1c03edfb813b4871c5d1143461a7c9f5e12",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-30.json",
+            "bytes": 208294,
+            "sha256": "8658dde0d3536f80d982df984e95e1919323fcc0c8d125ed9b333c21beb853e4",
+            "gitBlob": "db1f0bf12b0b60a69600d8c558b8651378192647",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-31.json",
+            "bytes": 35873,
+            "sha256": "babe1b801eacc4367fb89ca7b4fd17679f5435ac288583d338dd6612ec11e6b8",
+            "gitBlob": "faa50669d96cf221bd4de35ae42b1d1b5dbb80bf",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-31.json",
+            "bytes": 208290,
+            "sha256": "7ad903fc3dfdc5369f80f194e86f267287e5e8e80e0bae9551236cd0435b3159",
+            "gitBlob": "33b442cdc9bf64aa3903cecf72036a55437adc31",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-plan-32.json",
+            "bytes": 35873,
+            "sha256": "b6b347c988f59974d6ccf954534eab56e051719af216884ab7c2b669714f9498",
+            "gitBlob": "8395388f22ed27371442aa598240d40fc221f2c3",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/train-32.json",
+            "bytes": 208287,
+            "sha256": "f821f2499cccbf8aa1ef65a664cbe0686a0095b1156daf54eb825b5a35712651",
+            "gitBlob": "3524681b1609407343faae9dd3ffbc4abc4aae59",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+            "path": "runs/multimap-expert-ppo-20261102-v2/expert/selection-32.json",
+            "bytes": 843631,
+            "sha256": "f8d414ddba8e690af548a8e3d971a0fc22247e7c3305c5b6c882c225dba065b4",
+            "gitBlob": "bdda7d075400b27437e384d34051eb2586dd1145",
+            "lfsSha256": null
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-training-v1",
+            "revision": "93fb8f56455c11693864df8883a24ef5ddf37777",
+            "path": "multimap/multimap-expert-ppo-20261102-v2/source.tgz",
+            "bytes": 48679040,
+            "sha256": "a3e3a1e8da85160069c3ad0648636efdfac582f4092ed3270abee05fe7aef8b2",
+            "gitBlob": "40bbbff60c5c60401d62c2b91bb8e3db160a3ca8",
+            "lfsSha256": "a3e3a1e8da85160069c3ad0648636efdfac582f4092ed3270abee05fe7aef8b2"
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "43695d4238afb3ba46aeb39e035745026303ab7f",
+            "path": "runs/multimap-bootstrap-20261102-v1-r1/model/best.pt",
+            "bytes": 2151365,
+            "sha256": "3c3cfec2a05bd2d765471e9d101270d52f881552864481ba94bac87bc59245f1",
+            "gitBlob": "1d2a52d43c851f67df942098699fe2cde1976009",
+            "lfsSha256": "3c3cfec2a05bd2d765471e9d101270d52f881552864481ba94bac87bc59245f1"
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "b1392c4dea3eb956b0e171d558f2f642c0367831",
+            "path": "runs/multimap-ppo-20261102-v1/ppo/best.pt",
+            "bytes": 611137,
+            "sha256": "50ac24ad28d8fced065133e90980286e0cf4c592afe81df07aaed33cbf181e0c",
+            "gitBlob": "debe2fcef293fcf14676bccf3368c0b430e68611",
+            "lfsSha256": "50ac24ad28d8fced065133e90980286e0cf4c592afe81df07aaed33cbf181e0c"
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "4a7f94fca8a2bdcbb9256c730edc83c64a5d17e9",
+            "path": "runs/multimap-ppo-20261102-replica-1/ppo/best.pt",
+            "bytes": 611201,
+            "sha256": "dd79d3fc6d67594c0a60af24e0acd28a2ec0f5798771148b92748b6781ceda15",
+            "gitBlob": "9503f71d4ba3b3a2df07d973d07bf08aee62e39f",
+            "lfsSha256": "dd79d3fc6d67594c0a60af24e0acd28a2ec0f5798771148b92748b6781ceda15"
+        },
+        {
+            "repo": "coyotte508/powergrid-ai-multimap-v1",
+            "revision": "af87f0b46382e4f06d420f339fd1a65a4ba9ef45",
+            "path": "runs/multimap-ppo-20261102-replica-2/ppo/best.pt",
+            "bytes": 611201,
+            "sha256": "3d2ffeb02feb17462385ff2a4d2ccd930e58bb445bf97df386b7eef5fce9dc91",
+            "gitBlob": "70d9fa7ea05b0db8881fb53a967e79e39a73ef03",
+            "lfsSha256": "3d2ffeb02feb17462385ff2a4d2ccd930e58bb445bf97df386b7eef5fce9dc91"
+        }
+    ],
+    "boundedCompactSourceModelBytes": 98831276,
+    "source": {
+        "sourceManifestSha256": "6adc49b12fcb3c3b644f790ac85a5156a24f4182af64db34471f2b54fabf42fb",
+        "sourceManifestCanonicalSha256": "b384a2a03a4df1980c2de53e66b4c039601ccbeb62024083e09cf8156c583687",
+        "manifestFiles": 1342,
+        "gitFilesVerified": 152,
+        "localFilesCompared": 1342,
+        "localFilesByteIdentical": 1340,
+        "nonServingLocalDifferences": {
+            "ai/multimap/README.md": {
+                "sourceSha256": "a3bc08456df81b581abce333476d240d9cbfab4b7d175e4c4425ad645de8a90a",
+                "localSha256": "6bcb29699f882c23011df026bdd41ff68d153b7975c34108616c2d13801a7a67",
+                "note": "Nonserving documentation/bookkeeping/launcher/receipt only"
+            },
+            "ai/multimap/runs.json": {
+                "sourceSha256": "d4d58d74c2c6b431b188ef82581a3e60cf9ff3c70c42a003d621eadff956fe0b",
+                "localSha256": "f32fbc4cd43cb8b7cab6513858aa170f34f5cc0d0a4372d6b3344941d382f1f5",
+                "note": "Nonserving documentation/bookkeeping/launcher/receipt only"
+            }
+        },
+        "planSourceFiles": {
+            "ai/multimap/expert-protocol-v2.json": "d9180c76ce072fe03fb1c325466d8d768a919d040ffd27229d4f375f61065796",
+            "ai/multimap/expert_policy.py": "5304112f56195eec7aa6f89967503e6d08768be7ffb4fc232a7fcfe3349b4213",
+            "ai/multimap/expert_rollout.py": "3deb6af55d5210caa04d02210a14bd3ff9c7af413afa2b39ef72bb3e3ebfb77e",
+            "ai/multimap/expert_game.cjs": "6d0580b5054e5fb18b5b872827796665125d9997dd31b720dfe2becb00369942",
+            "ai/multimap/expert_ppo.py": "4357357fde973deff89d9df908622297ccce6fb89446c6e4cf314f20a5383bd0",
+            "ai/multimap/job_expert.py": "58a1d8bfe189228f48a4f139e4b8727a58cdfd65d8efd0ff6a8d0e182c24a8cb",
+            "ai/multimap/job_gap.py": "660fec4a6b533a6893be57bf13f0b887f4282e91edc381f566624c7b6a4f0443",
+            "ai/multimap/job_neural.py": "b13031216a8955ec4a7dae1b4bee2788aafbbd131db96084b40b8165b94f48d0",
+            "ai/multimap/job.py": "c303d6e4a2c746b9c1cbe0b616c4b89d6dbfe799b35c6e421169397ecafca75e",
+            "ai/multimap/gap_study.py": "a1632edd998392ad5c41876490e72d08e7fb28910e38eff656dff768844864d4",
+            "ai/multimap/gap-protocol-v1.json": "e056655d18b0a9edf9eab0277037ed6725bd5321e312f3452bc106d19926a030",
+            "ai/multimap/teacher_v2.cjs": "89a5b6c9e8520224eeb1cb34d8543cfccb2d8313002626a50907d4fa996cbdf6",
+            "ai/multimap/economics_v2.cjs": "dbb2216b3572e4afc882a3da11f683abd998a54b8672c7acda4843ee142d1897",
+            "ai/multimap/teacher-repairs-v2.json": "8977065e381a7a3b704d860219eac71a4f29acd03dd1d9fb2859bcdf29ed6920",
+            "ai/multimap/features.cjs": "1ced47a4a5e65946a8fdb207f0d6f87d9b535c698729ec36e008d39e0914803b",
+            "ai/multimap/teacher.cjs": "d741947ba120f56a17953b92dc553a30cd4476f9594b3161a8a0adb1af0e88cb",
+            "ai/multimap/game.cjs": "3a36d6a74407d7a8454edba898fabf9848a4c0615e960bb94554ae363b5b1e2b",
+            "ai/multimap/game_rl.cjs": "b3e8996da51841340b6f4f77b803dcbf01e2f72938ee44b7ba66f593d8167157",
+            "ai/multimap/model.py": "4f790d8fc718ed63f4df1a34c4a71ce1815abfaff50171cb1f6f256fe2f62a3e",
+            "ai/multimap/residual.py": "83e8cac000a05b2a015fa4f6612e0e4193ecd134e72f79e77123a2a10346e480",
+            "ai/multimap/candidates.py": "1c839a805d7bbe7a58415c2cea2ae1e98685d6373f3ee9ebbace1e841914d5ed",
+            "ai/multimap/candidate-pool-v1.json": "a4f5d80966d9dd5b7af712459dffea255590eeb158b3a8e73cb66b0045d29a4b",
+            "ai/multimap/ppo-protocol-v1.json": "51f86acbbd1a495213c40554b3cc0c7933c92a2fc1608690397fbee76dad3cfe",
+            "ai/multimap/data.py": "3a166d6baf8e294aff56ac13310867d34892347fc754493def1d347d65670492",
+            "ai/multimap/protocol.json": "5238557dce37762c552979e371f836ae43e0b87ce411d10289a62b00274551a5",
+            "ai/multimap/reference_evaluate.py": "e22e7b6e9de687d1c903217c03735434622e22e951cfbf030827f430e757cab9",
+            "ai/multimap/reference_recover.py": "1d0b7f87fa22c8e5673152abc4496f0b62ce017c2bcdc8b39ae8658febd7fadc",
+            "ai/multimap/reference_game.cjs": "cd4e87bc0754a67b3a9bfffba17ac37353c5f1c4391aacc2ae92e18ad2d71949",
+            "ai/multimap/neural_study.py": "6d3d7acf5bb0ae40a33747d90bd2f4397e53d491d64a343d239ff23792d16a08",
+            "ai/multimap/neural-study-v1.json": "477a1970083443dc64bf509ec377171cdd1b70fd3a78dde916f3465921ffa865",
+            "ai/multimap/requirements-cpu.txt": "975c2199adeee3550ce7ca31644833fa3fe5605789e6067e86b48610acb8ecf4",
+            "ai/core.cjs": "606a398158e936fd0543c3a758293a66f84213ab8d913970d4e55ddc53fb413e",
+            "ai/strong/economics.cjs": "7265923548a15940a33f24d70b2d6419119ef8d759fca1637640f4ff6e9aef58",
+            "ai/requirements-serve.txt": "bf7ee1ea2c226378119d9645d4952ad49aedc3dce0fcd846124491658b7bd484",
+            "engine/package.json": "2fcdf922cfef2219210b503db5441dbe68d11fe511d0e68ac3499523113aade9",
+            "engine/pnpm-lock.yaml": "571b13bba732db2fe4f214dc3311c9c8fe651e37bdd71b386e8a8d53d8249a2b",
+            "engine/dist/index.js": "0939e1c6fa321156c66ffe5cacbfe154cc2e8305fbcadc4bfa257ca9f8ea5e7f",
+            "engine/dist/src/analysis.js": "bbea87d3486d9956c82bde07bb2316c0be6382b7994b3c080e1222d8ea3f8749",
+            "engine/dist/src/auction-auto-pass.js": "5d9e92e36460cb6a233118f62e3c4289470009b210f61832b8cbad1753290f81",
+            "engine/dist/src/auction-pricing.js": "4bb3ba7033877ec249bab436837f10668d6f0e49e545624a9dc4ceaefa651c11",
+            "engine/dist/src/available-moves.js": "9dfc0b645c7fb59b0009ebc2c98927e9f7588f497dc95d212912dad4d971bbd3",
+            "engine/dist/src/choice-revisions.js": "ac930cb6e1146c0e812a4138862042ed00c0d82cabd182cbaabe22f1552873db",
+            "engine/dist/src/engine.js": "03ae9a67023c4a6b42b4ce387955f5be3191129aa7706724cb434171cc7e830f",
+            "engine/dist/src/gamestate.js": "b331fa69d30290b04f95fb0bf5b750adf37b7b5600c88b19ea6638ed7499263e",
+            "engine/dist/src/log.js": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230",
+            "engine/dist/src/maps/america.js": "a8bdf1bc0cb10a0db484ba670c99ffcb25ace97474bea5615a8d461a5fb1cd0e",
+            "engine/dist/src/maps/australia.js": "e272ad81374fd7b028083eaeca2d22f5e67847a45d703149890b619c5bb04f36",
+            "engine/dist/src/maps/badenwurttemberg.js": "08b919061ab92f1041845de53bab2f12b4b1de0840466aebb464042d1bbe9d01",
+            "engine/dist/src/maps/benelux.js": "ab540676f5b47f6756c5f7ca8e64178d3c0b92cbef7e369f12e398a2f2d87f3d",
+            "engine/dist/src/maps/brazil.js": "4cd70f0775de328052c14a8156a1f567b92a972585ff48b9896f08bbf3af3962",
+            "engine/dist/src/maps/bremen.js": "a8e9cc7d9e0f049183cfd65c14c9c07ba8dacf90ea7a23f5cf7a781e9a5400fd",
+            "engine/dist/src/maps/centraleurope.js": "d6eb33b8fee0e366675a9a9fad6f38fdfd09e953eb36d4fc115368ca6d3fbc8e",
+            "engine/dist/src/maps/china.js": "be74929c06c3449cf1d999422a9b9f649c58c294559e16ee9bfd6436d708711c",
+            "engine/dist/src/maps/europe.js": "80f71539f079ddeeb8ef17532b1787e5f8c0efbf3ed89027e75147cd2f05f7ea",
+            "engine/dist/src/maps/france.js": "5bc49c821bc384d0b353fc9310eab5edc03cc54620d1ae6f7f12077022ac3b89",
+            "engine/dist/src/maps/germany.js": "3bc6032ca782cc1b6b8aebd86f80ea15685aa2e99c401a11e4250e1a99ccff71",
+            "engine/dist/src/maps/indian.js": "84c24f61bd947def72aebed41242b1b70e944c0b7001af47aff0268b97069420",
+            "engine/dist/src/maps/italy.js": "d1e937617f6eb78dd839df50724c4ce4d9a24e07c73bba306ee474031c90ab49",
+            "engine/dist/src/maps/japan.js": "68d50a1fae97a3d2e4ff9854e1476bb3e4db171f568214c5e2d78ac3629beb04",
+            "engine/dist/src/maps/korea.js": "3e46572696e7bc2a05bf938d5375aaeba85f419a1d056929cf69904bde5ba5d0",
+            "engine/dist/src/maps/manhattan.js": "e21c7f50c3e2300cc4c7801582317fde24442995f86e009cfefba70b4a61b12c",
+            "engine/dist/src/maps/middleeast.js": "d71bf1b8128d8da4370420c12444b4128b8ae9bdde305b1e6394bc593715c119",
+            "engine/dist/src/maps/northamerica.js": "93121e3302e2b86e591c0f0ddd54e29fdc9271a1ac8cd4e990af4e0a6be8f414",
+            "engine/dist/src/maps/northerneurope.js": "d0f2524d0f9d3929cc924eb054375f7f29e7349d63b143c526847d07458cae0a",
+            "engine/dist/src/maps/quebec.js": "4f95ab3a8d5074af866d6b5805845c5190dced270f6050ae7de85efd1a08a085",
+            "engine/dist/src/maps/russia.js": "e01f0a5f236d424451982bc007f0d94bfb2c2958fa5bd89a6bad921791e671f0",
+            "engine/dist/src/maps/southafrica.js": "7b233959c8cd12e878a9b40efe5d50a4bccbe635cd8e6873d732283ff284257e",
+            "engine/dist/src/maps/spainportugal.js": "6fea880297966c756f753efc41332593ef033466afd24f2c680015488ac1dd26",
+            "engine/dist/src/maps/ukireland.js": "28bbcfb5d405e387e9337079d9b049b10c9223f6b0485a505bdf49e3c9494b98",
+            "engine/dist/src/maps.js": "d9425249717a57d0b29d0ef0bf545b999db8c7072ddeaa0209ab6215846e3bf0",
+            "engine/dist/src/move.js": "6a7f8a056c5e621d8e9458acecb0f7631d89dbc352b7806dd38d2a243cfdf1b2",
+            "engine/dist/src/planning.js": "5f85ba5527aa69e48526bb523959da0f8d86d517b2fc57a481243bbe6b64deb4",
+            "engine/dist/src/powerPlants.js": "77f985a55434a432bdde6b842c9954934006ca13a55793d758ad84a957c80ff5",
+            "engine/dist/src/premoves.js": "a8b8727233f268d2f13f2e1952ed9d0c97c92e7a0d339e523cf7dc59bcaf3f7f",
+            "engine/dist/src/prices.js": "3d4c4f7eae2c616c651be10f6399080c312dab873ff455b5f6b0b50c8c4561a3",
+            "engine/dist/src/randomizeMap.js": "73366685f95abe414923f86f220ae60f42eb5a17143dec002842db3b67d21bd0",
+            "engine/dist/src/utils.js": "569ac03fc2b2896b441a4cbf6bb9bca9e225f783c25667de3c9d0e3f9a17208d",
+            "engine/dist/wrapper.js": "e371c0d278f5d589845ff67600e25e1dd167992a5de9ba7d3faa23eb7a5a0fd3"
+        },
+        "generatorDigest": "de49041dff36d65d98edc82bae8d3ebc803874596b325e1b6151d2d3a7796c05",
+        "generatorFiles": 48,
+        "folds": {
+            "ai": {
+                "files": 92,
+                "sha256": "3b4bafd0fb54a2dc7711ea0cb304f6b5ed956afd43e33eaa37d3710bba601b97"
+            },
+            "engine": {
+                "files": 3,
+                "sha256": "b1d13aede31df84dd4d85805aeeaa49046bd82d61db588325a92fa752f6efd1f"
+            },
+            "engine/dist": {
+                "files": 84,
+                "sha256": "26793c68b105acb5e5e3ce2e705fcf748700a146b13f4124729a3b714a9458ed"
+            },
+            "engine/node_modules": {
+                "files": 1105,
+                "sha256": "5787f00e4a3409fcb9a1a824697ad43d255d0f8a41c04cddec058f7178ca5a88"
+            },
+            "engine/src": {
+                "files": 57,
+                "sha256": "2620ab7da6e807154e2821080f11f1c090f9f82197036d1c84e60e087d85da7a"
+            },
+            "runtime": {
+                "files": 1,
+                "sha256": "4e7c6beac5edab32b9f3f9a3a0e8283bef5cba78231026ab8166202e25ddaee0"
+            }
+        },
+        "note": "Complete archive member manifest, Git-tracked sources, runtime Node, compiled engine and bundled dependencies independently checked; no extraction or serving edits. Only README/runs/launch receipts may differ locally. Old integrity helper globals were privately rebound; no old module was mutated."
+    },
+    "reference": {
+        "manifestFiles": 1467,
+        "artifactBytes": 451257098,
+        "localCacheBytes": 452020469,
+        "runtimeManifestSha256": "fc135130689140b6fd72a76e6e14c59a7fea59717b858d330bac0c7f6aad93df",
+        "policySha256": "3b492c71ac5653ac7c41dfefd1c397e74e14df6f57629a455c61c8e45f55f52a",
+        "modelSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+        "settings": {
+            "arm": "filter",
+            "max_steps": 2400,
+            "samples": 8,
+            "threads": 1,
+            "workers": 4
+        },
+        "pins": {
+            "source": {
+                "repo": "coyotte508/powergrid-ai-training-v1",
+                "repo_type": "dataset",
+                "revision": "7db94147918597e1da1e8ee2f4bd12b96aa067b5",
+                "path": "strong-source-current-auction-grid-v1.tgz",
+                "sha256": "bb2ef01bc09f176c62545971aa02b5e9dadc947fb14dd52ca191667ba456bfe0"
+            },
+            "model": {
+                "repo": "coyotte508/powergrid-ai-germany-v1",
+                "repo_type": "model",
+                "revision": "6b6009756d7b5968bc5b6425efc84a94aab2a1d6",
+                "path": "runs/policy-iteration-training-v2-frozen/ensemble-1/derivative/inference64.onnx",
+                "sha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530"
+            }
+        },
+        "immutableRemoteMetadata": {
+            "source": {
+                "bytes": 130442976,
+                "gitBlob": "a887824444f6b1d1c3302bc79cafeb3a0b64ec61",
+                "lfsSha256": "bb2ef01bc09f176c62545971aa02b5e9dadc947fb14dd52ca191667ba456bfe0",
+                "contentVerification": "All recovered members independently rehashed; old archive not downloaded"
+            },
+            "model": {
+                "bytes": 14080106,
+                "gitBlob": "c5c1d261039ab0405e5ce2fe3bebb5700d906c7e",
+                "lfsSha256": "55331f43379e8fe89025d93b1a7a48c88e0ea39b4ebd3a7ef8240d4b62753530",
+                "contentVerification": "Local recovered ONNX independently hashed"
+            }
+        },
+        "recoveredArtifactAllHashesVerified": true,
+        "archivedSourceVerification": "Old 130442976-byte compressed reference source was NOT downloaded again. Immutable HF metadata/LFS pointer and original job recovery receipt checked; all 1467 recovered manifest members independently rehashed locally with exact file-set/descriptor/model checks. Existing 451257098-byte artifact reused without omission, repair or loader bypass."
+    },
+    "jobs": [
+        {
+            "jobId": "6ae91d7fc78863f9c63119e3",
+            "status": "ERROR",
+            "statusMessage": "Job timeout",
+            "startedAt": "2026-11-02 23:32:22.434000+00:00",
+            "finishedAt": "2026-11-03 02:32:15.512000+00:00",
+            "logSha256": "bdd7811453e192d7e9ca31863db0f658420d5ace1d2586259c13d5a279a02dbe",
+            "logBytes": 24870,
+            "pythonTests": 19,
+            "nodeTests": 7,
+            "optimizationUpdates": [
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
+                29, 30, 31, 32
+            ],
+            "syntheticStartupTestUpdates": [1, 2, 1, 2],
+            "image": "python:3.12.8-slim-bookworm@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+            "environment": {
+                "DATASET_REPO": "coyotte508/powergrid-ai-training-v1",
+                "EXPERT_SMOKE": "0",
+                "EXPERT_WORKERS": "6",
+                "MKL_NUM_THREADS": "4",
+                "MODEL_REPO": "coyotte508/powergrid-ai-multimap-v1",
+                "OMP_NUM_THREADS": "4",
+                "OPENBLAS_NUM_THREADS": "1",
+                "PYTHONDONTWRITEBYTECODE": "1",
+                "PYTHONUNBUFFERED": "1",
+                "RUN_ID": "multimap-expert-ppo-20261102-v2",
+                "SOURCE_PATH": "multimap/multimap-expert-ppo-20261102-v2/source.tgz",
+                "SOURCE_REVISION": "93fb8f56455c11693864df8883a24ef5ddf37777",
+                "SOURCE_SHA256": "a3e3a1e8da85160069c3ad0648636efdfac582f4092ed3270abee05fe7aef8b2",
+                "WORKFLOW": "expert"
+            },
+            "frozenBootstrapCommandSha256": "d6f54b4dbf21ece1db21831a7e37f2039c8476b7c18fccb9ad3eae62eb1360a9",
+            "note": "Logs independently retrieved using fetch_job_logs(follow=False), not empty hf jobs wait/watch output. Mocked unit tests print updates 1,2,1,2 before runtime-ready; these are NOT production optimization or observed games."
+        },
+        {
+            "jobId": "6ae949e9c78863f9c6313c59",
+            "status": "COMPLETED",
+            "statusMessage": null,
+            "startedAt": "2026-11-03 02:41:50.752000+00:00",
+            "finishedAt": "2026-11-03 03:21:48.768000+00:00",
+            "logSha256": "7e548683a5456a67b6bab82a966f9afe51419678d9dee3168e859cae3af14906",
+            "logBytes": 40432,
+            "pythonTests": 19,
+            "nodeTests": 7,
+            "optimizationUpdates": [],
+            "syntheticStartupTestUpdates": [1, 2, 1, 2],
+            "image": "python:3.12.8-slim-bookworm@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+            "environment": {
+                "DATASET_REPO": "coyotte508/powergrid-ai-training-v1",
+                "EXPERT_SMOKE": "0",
+                "EXPERT_WORKERS": "6",
+                "MKL_NUM_THREADS": "4",
+                "MODEL_REPO": "coyotte508/powergrid-ai-multimap-v1",
+                "OMP_NUM_THREADS": "4",
+                "OPENBLAS_NUM_THREADS": "1",
+                "PYTHONDONTWRITEBYTECODE": "1",
+                "PYTHONUNBUFFERED": "1",
+                "RESUME_REVISION": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+                "RESUME_RUN": "multimap-expert-ppo-20261102-v2",
+                "RUN_ID": "multimap-expert-ppo-20261102-v2-r1",
+                "SOURCE_PATH": "multimap/multimap-expert-ppo-20261102-v2/source.tgz",
+                "SOURCE_REVISION": "93fb8f56455c11693864df8883a24ef5ddf37777",
+                "SOURCE_SHA256": "a3e3a1e8da85160069c3ad0648636efdfac582f4092ed3270abee05fe7aef8b2",
+                "WORKFLOW": "expert"
+            },
+            "frozenBootstrapCommandSha256": "d6f54b4dbf21ece1db21831a7e37f2039c8476b7c18fccb9ad3eae62eb1360a9",
+            "note": "Logs independently retrieved using fetch_job_logs(follow=False), not empty hf jobs wait/watch output. Mocked unit tests print updates 1,2,1,2 before runtime-ready; these are NOT production optimization or observed games."
+        }
+    ],
+    "identity": {
+        "sourceFiles": {
+            "ai/multimap/expert-protocol-v2.json": "d9180c76ce072fe03fb1c325466d8d768a919d040ffd27229d4f375f61065796",
+            "ai/multimap/expert_policy.py": "5304112f56195eec7aa6f89967503e6d08768be7ffb4fc232a7fcfe3349b4213",
+            "ai/multimap/expert_rollout.py": "3deb6af55d5210caa04d02210a14bd3ff9c7af413afa2b39ef72bb3e3ebfb77e",
+            "ai/multimap/expert_game.cjs": "6d0580b5054e5fb18b5b872827796665125d9997dd31b720dfe2becb00369942",
+            "ai/multimap/expert_ppo.py": "4357357fde973deff89d9df908622297ccce6fb89446c6e4cf314f20a5383bd0",
+            "ai/multimap/job_expert.py": "58a1d8bfe189228f48a4f139e4b8727a58cdfd65d8efd0ff6a8d0e182c24a8cb",
+            "ai/multimap/job_gap.py": "660fec4a6b533a6893be57bf13f0b887f4282e91edc381f566624c7b6a4f0443",
+            "ai/multimap/job_neural.py": "b13031216a8955ec4a7dae1b4bee2788aafbbd131db96084b40b8165b94f48d0",
+            "ai/multimap/job.py": "c303d6e4a2c746b9c1cbe0b616c4b89d6dbfe799b35c6e421169397ecafca75e",
+            "ai/multimap/gap_study.py": "a1632edd998392ad5c41876490e72d08e7fb28910e38eff656dff768844864d4",
+            "ai/multimap/gap-protocol-v1.json": "e056655d18b0a9edf9eab0277037ed6725bd5321e312f3452bc106d19926a030",
+            "ai/multimap/teacher_v2.cjs": "89a5b6c9e8520224eeb1cb34d8543cfccb2d8313002626a50907d4fa996cbdf6",
+            "ai/multimap/economics_v2.cjs": "dbb2216b3572e4afc882a3da11f683abd998a54b8672c7acda4843ee142d1897",
+            "ai/multimap/teacher-repairs-v2.json": "8977065e381a7a3b704d860219eac71a4f29acd03dd1d9fb2859bcdf29ed6920",
+            "ai/multimap/features.cjs": "1ced47a4a5e65946a8fdb207f0d6f87d9b535c698729ec36e008d39e0914803b",
+            "ai/multimap/teacher.cjs": "d741947ba120f56a17953b92dc553a30cd4476f9594b3161a8a0adb1af0e88cb",
+            "ai/multimap/game.cjs": "3a36d6a74407d7a8454edba898fabf9848a4c0615e960bb94554ae363b5b1e2b",
+            "ai/multimap/game_rl.cjs": "b3e8996da51841340b6f4f77b803dcbf01e2f72938ee44b7ba66f593d8167157",
+            "ai/multimap/model.py": "4f790d8fc718ed63f4df1a34c4a71ce1815abfaff50171cb1f6f256fe2f62a3e",
+            "ai/multimap/residual.py": "83e8cac000a05b2a015fa4f6612e0e4193ecd134e72f79e77123a2a10346e480",
+            "ai/multimap/candidates.py": "1c839a805d7bbe7a58415c2cea2ae1e98685d6373f3ee9ebbace1e841914d5ed",
+            "ai/multimap/candidate-pool-v1.json": "a4f5d80966d9dd5b7af712459dffea255590eeb158b3a8e73cb66b0045d29a4b",
+            "ai/multimap/ppo-protocol-v1.json": "51f86acbbd1a495213c40554b3cc0c7933c92a2fc1608690397fbee76dad3cfe",
+            "ai/multimap/data.py": "3a166d6baf8e294aff56ac13310867d34892347fc754493def1d347d65670492",
+            "ai/multimap/protocol.json": "5238557dce37762c552979e371f836ae43e0b87ce411d10289a62b00274551a5",
+            "ai/multimap/reference_evaluate.py": "e22e7b6e9de687d1c903217c03735434622e22e951cfbf030827f430e757cab9",
+            "ai/multimap/reference_recover.py": "1d0b7f87fa22c8e5673152abc4496f0b62ce017c2bcdc8b39ae8658febd7fadc",
+            "ai/multimap/reference_game.cjs": "cd4e87bc0754a67b3a9bfffba17ac37353c5f1c4391aacc2ae92e18ad2d71949",
+            "ai/multimap/neural_study.py": "6d3d7acf5bb0ae40a33747d90bd2f4397e53d491d64a343d239ff23792d16a08",
+            "ai/multimap/neural-study-v1.json": "477a1970083443dc64bf509ec377171cdd1b70fd3a78dde916f3465921ffa865",
+            "ai/multimap/requirements-cpu.txt": "975c2199adeee3550ce7ca31644833fa3fe5605789e6067e86b48610acb8ecf4",
+            "ai/core.cjs": "606a398158e936fd0543c3a758293a66f84213ab8d913970d4e55ddc53fb413e",
+            "ai/strong/economics.cjs": "7265923548a15940a33f24d70b2d6419119ef8d759fca1637640f4ff6e9aef58",
+            "ai/requirements-serve.txt": "bf7ee1ea2c226378119d9645d4952ad49aedc3dce0fcd846124491658b7bd484",
+            "engine/package.json": "2fcdf922cfef2219210b503db5441dbe68d11fe511d0e68ac3499523113aade9",
+            "engine/pnpm-lock.yaml": "571b13bba732db2fe4f214dc3311c9c8fe651e37bdd71b386e8a8d53d8249a2b",
+            "engine/dist/index.js": "0939e1c6fa321156c66ffe5cacbfe154cc2e8305fbcadc4bfa257ca9f8ea5e7f",
+            "engine/dist/src/analysis.js": "bbea87d3486d9956c82bde07bb2316c0be6382b7994b3c080e1222d8ea3f8749",
+            "engine/dist/src/auction-auto-pass.js": "5d9e92e36460cb6a233118f62e3c4289470009b210f61832b8cbad1753290f81",
+            "engine/dist/src/auction-pricing.js": "4bb3ba7033877ec249bab436837f10668d6f0e49e545624a9dc4ceaefa651c11",
+            "engine/dist/src/available-moves.js": "9dfc0b645c7fb59b0009ebc2c98927e9f7588f497dc95d212912dad4d971bbd3",
+            "engine/dist/src/choice-revisions.js": "ac930cb6e1146c0e812a4138862042ed00c0d82cabd182cbaabe22f1552873db",
+            "engine/dist/src/engine.js": "03ae9a67023c4a6b42b4ce387955f5be3191129aa7706724cb434171cc7e830f",
+            "engine/dist/src/gamestate.js": "b331fa69d30290b04f95fb0bf5b750adf37b7b5600c88b19ea6638ed7499263e",
+            "engine/dist/src/log.js": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230",
+            "engine/dist/src/maps/america.js": "a8bdf1bc0cb10a0db484ba670c99ffcb25ace97474bea5615a8d461a5fb1cd0e",
+            "engine/dist/src/maps/australia.js": "e272ad81374fd7b028083eaeca2d22f5e67847a45d703149890b619c5bb04f36",
+            "engine/dist/src/maps/badenwurttemberg.js": "08b919061ab92f1041845de53bab2f12b4b1de0840466aebb464042d1bbe9d01",
+            "engine/dist/src/maps/benelux.js": "ab540676f5b47f6756c5f7ca8e64178d3c0b92cbef7e369f12e398a2f2d87f3d",
+            "engine/dist/src/maps/brazil.js": "4cd70f0775de328052c14a8156a1f567b92a972585ff48b9896f08bbf3af3962",
+            "engine/dist/src/maps/bremen.js": "a8e9cc7d9e0f049183cfd65c14c9c07ba8dacf90ea7a23f5cf7a781e9a5400fd",
+            "engine/dist/src/maps/centraleurope.js": "d6eb33b8fee0e366675a9a9fad6f38fdfd09e953eb36d4fc115368ca6d3fbc8e",
+            "engine/dist/src/maps/china.js": "be74929c06c3449cf1d999422a9b9f649c58c294559e16ee9bfd6436d708711c",
+            "engine/dist/src/maps/europe.js": "80f71539f079ddeeb8ef17532b1787e5f8c0efbf3ed89027e75147cd2f05f7ea",
+            "engine/dist/src/maps/france.js": "5bc49c821bc384d0b353fc9310eab5edc03cc54620d1ae6f7f12077022ac3b89",
+            "engine/dist/src/maps/germany.js": "3bc6032ca782cc1b6b8aebd86f80ea15685aa2e99c401a11e4250e1a99ccff71",
+            "engine/dist/src/maps/indian.js": "84c24f61bd947def72aebed41242b1b70e944c0b7001af47aff0268b97069420",
+            "engine/dist/src/maps/italy.js": "d1e937617f6eb78dd839df50724c4ce4d9a24e07c73bba306ee474031c90ab49",
+            "engine/dist/src/maps/japan.js": "68d50a1fae97a3d2e4ff9854e1476bb3e4db171f568214c5e2d78ac3629beb04",
+            "engine/dist/src/maps/korea.js": "3e46572696e7bc2a05bf938d5375aaeba85f419a1d056929cf69904bde5ba5d0",
+            "engine/dist/src/maps/manhattan.js": "e21c7f50c3e2300cc4c7801582317fde24442995f86e009cfefba70b4a61b12c",
+            "engine/dist/src/maps/middleeast.js": "d71bf1b8128d8da4370420c12444b4128b8ae9bdde305b1e6394bc593715c119",
+            "engine/dist/src/maps/northamerica.js": "93121e3302e2b86e591c0f0ddd54e29fdc9271a1ac8cd4e990af4e0a6be8f414",
+            "engine/dist/src/maps/northerneurope.js": "d0f2524d0f9d3929cc924eb054375f7f29e7349d63b143c526847d07458cae0a",
+            "engine/dist/src/maps/quebec.js": "4f95ab3a8d5074af866d6b5805845c5190dced270f6050ae7de85efd1a08a085",
+            "engine/dist/src/maps/russia.js": "e01f0a5f236d424451982bc007f0d94bfb2c2958fa5bd89a6bad921791e671f0",
+            "engine/dist/src/maps/southafrica.js": "7b233959c8cd12e878a9b40efe5d50a4bccbe635cd8e6873d732283ff284257e",
+            "engine/dist/src/maps/spainportugal.js": "6fea880297966c756f753efc41332593ef033466afd24f2c680015488ac1dd26",
+            "engine/dist/src/maps/ukireland.js": "28bbcfb5d405e387e9337079d9b049b10c9223f6b0485a505bdf49e3c9494b98",
+            "engine/dist/src/maps.js": "d9425249717a57d0b29d0ef0bf545b999db8c7072ddeaa0209ab6215846e3bf0",
+            "engine/dist/src/move.js": "6a7f8a056c5e621d8e9458acecb0f7631d89dbc352b7806dd38d2a243cfdf1b2",
+            "engine/dist/src/planning.js": "5f85ba5527aa69e48526bb523959da0f8d86d517b2fc57a481243bbe6b64deb4",
+            "engine/dist/src/powerPlants.js": "77f985a55434a432bdde6b842c9954934006ca13a55793d758ad84a957c80ff5",
+            "engine/dist/src/premoves.js": "a8b8727233f268d2f13f2e1952ed9d0c97c92e7a0d339e523cf7dc59bcaf3f7f",
+            "engine/dist/src/prices.js": "3d4c4f7eae2c616c651be10f6399080c312dab873ff455b5f6b0b50c8c4561a3",
+            "engine/dist/src/randomizeMap.js": "73366685f95abe414923f86f220ae60f42eb5a17143dec002842db3b67d21bd0",
+            "engine/dist/src/utils.js": "569ac03fc2b2896b441a4cbf6bb9bca9e225f783c25667de3c9d0e3f9a17208d",
+            "engine/dist/wrapper.js": "e371c0d278f5d589845ff67600e25e1dd167992a5de9ba7d3faa23eb7a5a0fd3"
+        },
+        "engineDependencies": {
+            "delaunator": {
+                "files": 4,
+                "sha256": "f1255e260fa7bab0bf2c0aae159e1fcfb195546c0399b4eeea2cc33a46a31947"
+            },
+            "lodash": {
+                "files": 1049,
+                "sha256": "e53fc22051b4c05fe5b8c24074f9e56f3b67364b7be6c6cfbfde50c3cebe9a8d"
+            },
+            "seedrandom": {
+                "files": 23,
+                "sha256": "78750a72cd54b5941567a41ee22b8ac5837dd2208d73b2fc06d242724f049cae"
+            }
+        },
+        "runtimeVersions": {
+            "reference": {
+                "python": [3, 12, 8],
+                "numpy": "2.5.3",
+                "onnxruntime": "1.30.0"
+            },
+            "candidate": {
+                "torch": "2.10.0+cpu",
+                "numpy": "2.2.6",
+                "huggingface-hub": "1.29.0",
+                "python": [3, 12, 8]
+            },
+            "node": "v24.20.0"
+        },
+        "execution": {
+            "workers": 6,
+            "collector": "thread-pool-lockstep-central-torch-with-child-processes",
+            "inferenceThreads": 1,
+            "optimizerThreads": 4,
+            "deterministicAlgorithms": true
+        },
+        "environmentReceipt": {
+            "versions": {
+                "reference": {
+                    "python": [3, 12, 8],
+                    "numpy": "2.5.3",
+                    "onnxruntime": "1.30.0"
+                },
+                "candidate": {
+                    "torch": "2.10.0+cpu",
+                    "numpy": "2.2.6",
+                    "huggingface-hub": "1.29.0",
+                    "python": [3, 12, 8]
+                },
+                "node": "v24.20.0"
+            },
+            "referenceVenvBytes": 150878104,
+            "requirementsSha256": "bf7ee1ea2c226378119d9645d4952ad49aedc3dce0fcd846124491658b7bd484"
+        },
+        "localReferenceVenvBytes": 128525054,
+        "note": "All 42 compiled engine modules, serving Python/JS and reference manifest/source files checked. Historical transitive Python dependencies are not fully pinned; matching principal versions is not a complete environment claim."
+    },
+    "resume": {
+        "originalRun": "multimap-expert-ppo-20261102-v2",
+        "originalRevision": "8ca6e47686e06edc7a24c2e85cc2b31e5140f860",
+        "originalTimeoutAfterUpdates": 32,
+        "finalOptimizationOrReselection": false,
+        "inheritedByteIdenticalFiles": 82,
+        "unchangedCheckpointKeys": [
+            "baseline",
+            "bestArtifact",
+            "bestScore",
+            "bestSha256",
+            "bestStage",
+            "bestUpdate",
+            "bound",
+            "config",
+            "history",
+            "optimizer",
+            "priorAsActionFeature",
+            "pythonRng",
+            "schema",
+            "stage",
+            "state_dict",
+            "update",
+            "width"
+        ],
+        "modelAndPopulatedOptimizerBitIdentical": true,
+        "expectedTorchRngChangeExactlyReproduced": true,
+        "changedCheckpointKeys": ["confirmations", "result", "torchRng"],
+        "bestEmbeddedBytesVerified": true,
+        "note": "Same source archive, image, runtime and six workers. Only confirmation resumed; any uncommitted original partial confirmation was not counted as a new observation."
+    },
+    "coverage": {
+        "savedTerminalOutcomes": 6880,
+        "training": 2720,
+        "warmup": 160,
+        "ppo": 2560,
+        "selectionAndControl": 2240,
+        "confirmation": 1920,
+        "failures": 0,
+        "capped": 0,
+        "missing": 0,
+        "duplicateScheduledTasks": 0,
+        "freshGermanyExpertLabels": 44262,
+        "warmupLabels": 8588,
+        "zeroEvaluationExpertLabels": true,
+        "nonGermanyReferenceRequests": 0,
+        "initialZeroHeadFullTeacherParityGames": 320,
+        "leakage": {
+            "trainingRoots": 2720,
+            "selectionDeals": 80,
+            "confirmationDeals": 240,
+            "trainingMaps": ["Germany", "USA", "France", "UK & Ireland"],
+            "heldoutMaps": ["Italy", "Benelux"],
+            "allDisjoint": true,
+            "note": "Selection roots deliberately repeat across checkpoints and teacher; transferred artifacts are not new observations."
+        },
+        "controllerPhases": {
+            "learner": {
+                "Auction": 208217,
+                "Building": 104282
+            },
+            "warmupExpert": {
+                "Auction": 5522,
+                "Building": 3066
+            },
+            "reference": {
+                "Auction": 164396,
+                "Resources": 184865,
+                "Building": 108989,
+                "Bureaucracy": 110281
+            },
+            "self": {
+                "Auction": 64296,
+                "Building": 32313
+            },
+            "ppo0": {
+                "Auction": 242360,
+                "Building": 78209
+            },
+            "ppo1": {
+                "Auction": 249788,
+                "Building": 82559
+            },
+            "ppo2": {
+                "Auction": 244717,
+                "Building": 78588
+            },
+            "fixedV2": {
+                "Resources": 325703,
+                "Building": 48965,
+                "Bureaucracy": 190341,
+                "Auction": 361
+            },
+            "fixedV1": {
+                "Resources": 564578,
+                "Building": 123382,
+                "Bureaucracy": 353199,
+                "Auction": 5901
+            },
+            "focalTeacher": {
+                "Auction": 59591,
+                "Resources": 47650,
+                "Building": 30269,
+                "Bureaucracy": 29877
+            }
+        },
+        "publicChecks": {
+            "hiddenInvariant": 612793,
+            "referenceAtomicLegal": 568531,
+            "expertAtomicLegal": 44262,
+            "fullMenuPrior": 1393917
+        }
+    },
+    "selection": {
+        "rule": "Eligible initial fallback; Germany nonregression, other training maps max .05 regression; earliest tie.",
+        "confirmationUsed": false,
+        "decisions": [
+            {
+                "stage": "initial",
+                "eligible": true,
+                "macroCredit": 0.28583333333333333,
+                "maps": {
+                    "France": 0.24833333333333332,
+                    "Germany": 0.20333333333333334,
+                    "UK & Ireland": 0.30916666666666665,
+                    "USA": 0.3825
+                },
+                "bestSoFar": "initial"
+            },
+            {
+                "stage": "warmup",
+                "eligible": true,
+                "macroCredit": 0.455625,
+                "maps": {
+                    "France": 0.5508333333333333,
+                    "Germany": 0.245,
+                    "UK & Ireland": 0.5966666666666667,
+                    "USA": 0.43
+                },
+                "bestSoFar": "warmup"
+            },
+            {
+                "stage": "8",
+                "eligible": true,
+                "macroCredit": 0.4735416666666667,
+                "maps": {
+                    "France": 0.5016666666666667,
+                    "Germany": 0.3025,
+                    "UK & Ireland": 0.635,
+                    "USA": 0.455
+                },
+                "bestSoFar": "8"
+            },
+            {
+                "stage": "16",
+                "eligible": true,
+                "macroCredit": 0.4995833333333333,
+                "maps": {
+                    "France": 0.57,
+                    "Germany": 0.27166666666666667,
+                    "UK & Ireland": 0.6525,
+                    "USA": 0.5041666666666667
+                },
+                "bestSoFar": "16"
+            },
+            {
+                "stage": "24",
+                "eligible": true,
+                "macroCredit": 0.5841666666666666,
+                "maps": {
+                    "France": 0.8,
+                    "Germany": 0.41083333333333333,
+                    "UK & Ireland": 0.6083333333333333,
+                    "USA": 0.5175
+                },
+                "bestSoFar": "24"
+            },
+            {
+                "stage": "32",
+                "eligible": true,
+                "macroCredit": 0.5604166666666667,
+                "maps": {
+                    "France": 0.7266666666666667,
+                    "Germany": 0.30916666666666665,
+                    "UK & Ireland": 0.6025,
+                    "USA": 0.6033333333333333
+                },
+                "bestSoFar": "24"
+            }
+        ]
+    },
+    "confirmationStatistics": {
+        "method": "Equal fixed-cell weights, equal map weights on this balanced grid; all focal seats averaged within each deal. Paired delta formed on identical task/opponent assignments; SE=sqrt(sum_c s_c^2/D_c / C^2), s_c^2 unbiased sample variance (ddof=1), D_c=2 independent deals. Approximate normal mean +/-1.96 SE.",
+        "caveats": [
+            "Exploratory, unadjusted multiple comparisons; two deals per cell give imprecise variance estimates.",
+            "No independent training-seed replication; inference is conditional on this selected checkpoint and fixed populations.",
+            "Positive map/count/rule aggregates do not imply improvement in every cell; 14 of 120 observed cell means regress.",
+            "Germany uses exact reference opponents; other maps use fixed mixed PPO0/1/2, NOT the old reference.",
+            "All-map credit is not universal neural-population or human strength; teacher-v2 differs from v1, so earlier raw credits are not a causal comparison."
+        ],
+        "subsets": {
+            "allMaps": {
+                "selected": {
+                    "mean": 0.5638541666666667,
+                    "standardError": 0.01887998283709528,
+                    "approximateNormal95": [0.52684940030596, 0.6008589330273734],
+                    "cells": 120,
+                    "independentDeals": 240
+                },
+                "teacherV2": {
+                    "mean": 0.3123611111111111,
+                    "standardError": 0.015830591867927395,
+                    "approximateNormal95": [0.2813331510499734, 0.34338907117224876],
+                    "cells": 120,
+                    "independentDeals": 240
+                },
+                "pairedDifference": {
+                    "mean": 0.25149305555555557,
+                    "standardError": 0.02414353238964837,
+                    "approximateNormal95": [0.20417173207184475, 0.2988143790392664],
+                    "cells": 120,
+                    "independentDeals": 240
+                },
+                "gamesPerArm": 960
+            },
+            "trainingMaps": {
+                "selected": {
+                    "mean": 0.5765625,
+                    "standardError": 0.02195595140464957,
+                    "approximateNormal95": [0.5335288352468868, 0.6195961647531132],
+                    "cells": 80,
+                    "independentDeals": 160
+                },
+                "teacherV2": {
+                    "mean": 0.3021875,
+                    "standardError": 0.017994923570428287,
+                    "approximateNormal95": [0.2669174498019605, 0.33745755019803947],
+                    "cells": 80,
+                    "independentDeals": 160
+                },
+                "pairedDifference": {
+                    "mean": 0.27437500000000004,
+                    "standardError": 0.027024776440641777,
+                    "approximateNormal95": [0.22140643817634215, 0.3273435618236579],
+                    "cells": 80,
+                    "independentDeals": 160
+                },
+                "gamesPerArm": 640
+            },
+            "transferMaps": {
+                "selected": {
+                    "mean": 0.5384375,
+                    "standardError": 0.03577469159933846,
+                    "approximateNormal95": [0.4683191044652966, 0.6085558955347034],
+                    "cells": 40,
+                    "independentDeals": 80
+                },
+                "teacherV2": {
+                    "mean": 0.33270833333333333,
+                    "standardError": 0.030987088485009008,
+                    "approximateNormal95": [0.27197363990271567, 0.393443026763951],
+                    "cells": 40,
+                    "independentDeals": 80
+                },
+                "pairedDifference": {
+                    "mean": 0.20572916666666666,
+                    "standardError": 0.04821656602852731,
+                    "approximateNormal95": [0.11122469725075314, 0.3002336360825802],
+                    "cells": 40,
+                    "independentDeals": 80
+                },
+                "gamesPerArm": 320
+            },
+            "nonGermany": {
+                "selected": {
+                    "mean": 0.6085416666666666,
+                    "standardError": 0.020411946733333505,
+                    "approximateNormal95": [0.568534251069333, 0.6485490822640003],
+                    "cells": 100,
+                    "independentDeals": 200
+                },
+                "teacherV2": {
+                    "mean": 0.33466666666666667,
+                    "standardError": 0.017326120294065963,
+                    "approximateNormal95": [0.30070747089029737, 0.36862586244303597],
+                    "cells": 100,
+                    "independentDeals": 200
+                },
+                "pairedDifference": {
+                    "mean": 0.27387500000000004,
+                    "standardError": 0.026146123836367538,
+                    "approximateNormal95": [0.22262859728071965, 0.3251214027192804],
+                    "cells": 100,
+                    "independentDeals": 200
+                },
+                "gamesPerArm": 800
+            },
+            "map:Germany": {
+                "selected": {
+                    "mean": 0.34041666666666665,
+                    "standardError": 0.04915430635593725,
+                    "approximateNormal95": [0.24407422620902963, 0.43675910712430366],
+                    "cells": 20,
+                    "independentDeals": 40
+                },
+                "teacherV2": {
+                    "mean": 0.20083333333333334,
+                    "standardError": 0.038948862485172646,
+                    "approximateNormal95": [0.12449356286239495, 0.27717310380427174],
+                    "cells": 20,
+                    "independentDeals": 40
+                },
+                "pairedDifference": {
+                    "mean": 0.13958333333333334,
+                    "standardError": 0.06240409308157064,
+                    "approximateNormal95": [0.01727131089345489, 0.26189535577321177],
+                    "cells": 20,
+                    "independentDeals": 40
+                },
+                "gamesPerArm": 160
+            },
+            "map:USA": {
+                "selected": {
+                    "mean": 0.60875,
+                    "standardError": 0.03520525134439779,
+                    "approximateNormal95": [0.5397477073649803, 0.6777522926350197],
+                    "cells": 20,
+                    "independentDeals": 40
+                },
+                "teacherV2": {
+                    "mean": 0.39,
+                    "standardError": 0.0378639743761211,
+                    "approximateNormal95": [0.31578661022280263, 0.4642133897771974],
+                    "cells": 20,
+                    "independentDeals": 40
+                },
+                "pairedDifference": {
+                    "mean": 0.21875,
+                    "standardError": 0.04971271634769787,
+                    "approximateNormal95": [0.12131307595851218, 0.31618692404148785],
+                    "cells": 20,
+                    "independentDeals": 40
+                },
+                "gamesPerArm": 160
+            },
+            "map:France": {
+                "selected": {
+                    "mean": 0.6425,
+                    "standardError": 0.04326517074969195,
+                    "approximateNormal95": [0.5577002653306038, 0.7272997346693961],
+                    "cells": 20,
+                    "independentDeals": 40
+                },
+                "teacherV2": {
+                    "mean": 0.32916666666666666,
+                    "standardError": 0.03674707093391557,
+                    "approximateNormal95": [0.2571424076361921, 0.4011909256971412],
+                    "cells": 20,
+                    "independentDeals": 40
+                },
+                "pairedDifference": {
+                    "mean": 0.31333333333333335,
+                    "standardError": 0.05539003119294622,
+                    "approximateNormal95": [0.20476887219515877, 0.42189779447150794],
+                    "cells": 20,
+                    "independentDeals": 40
+                },
+                "gamesPerArm": 160
+            },
+            "map:UK & Ireland": {
+                "selected": {
+                    "mean": 0.7145833333333333,
+                    "standardError": 0.04675029708758841,
+                    "approximateNormal95": [0.62295275104166, 0.8062139156250067],
+                    "cells": 20,
+                    "independentDeals": 40
+                },
+                "teacherV2": {
+                    "mean": 0.28875,
+                    "standardError": 0.02966537918554594,
+                    "approximateNormal95": [0.23060585679632997, 0.34689414320367007],
+                    "cells": 20,
+                    "independentDeals": 40
+                },
+                "pairedDifference": {
+                    "mean": 0.42583333333333334,
+                    "standardError": 0.047452461591693126,
+                    "approximateNormal95": [0.33282650861361485, 0.5188401580530518],
+                    "cells": 20,
+                    "independentDeals": 40
+                },
+                "gamesPerArm": 160
+            },
+            "map:Italy": {
+                "selected": {
+                    "mean": 0.46499999999999997,
+                    "standardError": 0.046804113067122635,
+                    "approximateNormal95": [0.37326393838843963, 0.5567360616115603],
+                    "cells": 20,
+                    "independentDeals": 40
+                },
+                "teacherV2": {
+                    "mean": 0.25416666666666665,
+                    "standardError": 0.03799214100018289,
+                    "approximateNormal95": [0.1797020703063082, 0.3286312630270251],
+                    "cells": 20,
+                    "independentDeals": 40
+                },
+                "pairedDifference": {
+                    "mean": 0.21083333333333334,
+                    "standardError": 0.055814673498801176,
+                    "approximateNormal95": [0.10143657327568305, 0.32023009339098363],
+                    "cells": 20,
+                    "independentDeals": 40
+                },
+                "gamesPerArm": 160
+            },
+            "map:Benelux": {
+                "selected": {
+                    "mean": 0.611875,
+                    "standardError": 0.05411736538405312,
+                    "approximateNormal95": [0.5058049638472558, 0.7179450361527441],
+                    "cells": 20,
+                    "independentDeals": 40
+                },
+                "teacherV2": {
+                    "mean": 0.41125,
+                    "standardError": 0.048963208977081285,
+                    "approximateNormal95": [0.3152821104049207, 0.5072178895950793],
+                    "cells": 20,
+                    "independentDeals": 40
+                },
+                "pairedDifference": {
+                    "mean": 0.200625,
+                    "standardError": 0.0786388655853806,
+                    "approximateNormal95": [0.04649282345265404, 0.35475717654734595],
+                    "cells": 20,
+                    "independentDeals": 40
+                },
+                "gamesPerArm": 160
+            },
+            "players:2": {
+                "selected": {
+                    "mean": 0.5625,
+                    "standardError": 0.05311478659992484,
+                    "approximateNormal95": [0.4583950182641473, 0.6666049817358527],
+                    "cells": 24,
+                    "independentDeals": 48
+                },
+                "teacherV2": {
+                    "mean": 0.4322916666666667,
+                    "standardError": 0.04450001950686214,
+                    "approximateNormal95": [0.3450716284332169, 0.5195117049001164],
+                    "cells": 24,
+                    "independentDeals": 48
+                },
+                "pairedDifference": {
+                    "mean": 0.13020833333333334,
+                    "standardError": 0.05823093691405702,
+                    "approximateNormal95": [0.016075696981781587, 0.2443409696848851],
+                    "cells": 24,
+                    "independentDeals": 48
+                },
+                "gamesPerArm": 96
+            },
+            "players:3": {
+                "selected": {
+                    "mean": 0.5243055555555556,
+                    "standardError": 0.05694867870436363,
+                    "approximateNormal95": [0.41268614529500286, 0.6359249658161084],
+                    "cells": 24,
+                    "independentDeals": 48
+                },
+                "teacherV2": {
+                    "mean": 0.3472222222222222,
+                    "standardError": 0.04049272149198125,
+                    "approximateNormal95": [0.26785648809793894, 0.4265879563465055],
+                    "cells": 24,
+                    "independentDeals": 48
+                },
+                "pairedDifference": {
+                    "mean": 0.17708333333333334,
+                    "standardError": 0.07740797503336094,
+                    "approximateNormal95": [0.025363702267945903, 0.3288029643987208],
+                    "cells": 24,
+                    "independentDeals": 48
+                },
+                "gamesPerArm": 144
+            },
+            "players:4": {
+                "selected": {
+                    "mean": 0.4817708333333333,
+                    "standardError": 0.033854166666666664,
+                    "approximateNormal95": [0.41541666666666666, 0.548125],
+                    "cells": 24,
+                    "independentDeals": 48
+                },
+                "teacherV2": {
+                    "mean": 0.21354166666666666,
+                    "standardError": 0.026041666666666668,
+                    "approximateNormal95": [0.16249999999999998, 0.26458333333333334],
+                    "cells": 24,
+                    "independentDeals": 48
+                },
+                "pairedDifference": {
+                    "mean": 0.2682291666666667,
+                    "standardError": 0.041421806564028295,
+                    "approximateNormal95": [0.18704242580117122, 0.3494159075321621],
+                    "cells": 24,
+                    "independentDeals": 48
+                },
+                "gamesPerArm": 192
+            },
+            "players:5": {
+                "selected": {
+                    "mean": 0.6291666666666667,
+                    "standardError": 0.03145764348029479,
+                    "approximateNormal95": [0.5675096854452889, 0.6908236478880444],
+                    "cells": 24,
+                    "independentDeals": 48
+                },
+                "teacherV2": {
+                    "mean": 0.25625000000000003,
+                    "standardError": 0.028028383431403566,
+                    "approximateNormal95": [0.20131436847444906, 0.311185631525551],
+                    "cells": 24,
+                    "independentDeals": 48
+                },
+                "pairedDifference": {
+                    "mean": 0.3729166666666667,
+                    "standardError": 0.0406650443665482,
+                    "approximateNormal95": [0.2932131797082322, 0.45262015362510116],
+                    "cells": 24,
+                    "independentDeals": 48
+                },
+                "gamesPerArm": 240
+            },
+            "players:6": {
+                "selected": {
+                    "mean": 0.6215277777777778,
+                    "standardError": 0.026670644957877115,
+                    "approximateNormal95": [0.5692533136603386, 0.673802241895217],
+                    "cells": 24,
+                    "independentDeals": 48
+                },
+                "teacherV2": {
+                    "mean": 0.3125,
+                    "standardError": 0.03437324630767939,
+                    "approximateNormal95": [0.24512843723694838, 0.3798715627630516],
+                    "cells": 24,
+                    "independentDeals": 48
+                },
+                "pairedDifference": {
+                    "mean": 0.3090277777777778,
+                    "standardError": 0.04266738099807121,
+                    "approximateNormal95": [0.22539971102155823, 0.3926558445339974],
+                    "cells": 24,
+                    "independentDeals": 48
+                },
+                "gamesPerArm": 288
+            },
+            "rule:original|0": {
+                "selected": {
+                    "mean": 0.6208333333333333,
+                    "standardError": 0.035504520665040964,
+                    "approximateNormal95": [0.5512444728298531, 0.6904221938368136],
+                    "cells": 30,
+                    "independentDeals": 60
+                },
+                "teacherV2": {
+                    "mean": 0.31722222222222224,
+                    "standardError": 0.021473497877875208,
+                    "approximateNormal95": [0.27513416638158683, 0.35931027806285765],
+                    "cells": 30,
+                    "independentDeals": 60
+                },
+                "pairedDifference": {
+                    "mean": 0.3036111111111111,
+                    "standardError": 0.044639329666633885,
+                    "approximateNormal95": [0.21611802496450871, 0.3911041972577135],
+                    "cells": 30,
+                    "independentDeals": 60
+                },
+                "gamesPerArm": 240
+            },
+            "rule:original|1": {
+                "selected": {
+                    "mean": 0.5125,
+                    "standardError": 0.04400389292542868,
+                    "approximateNormal95": [0.4262523698661598, 0.5987476301338401],
+                    "cells": 30,
+                    "independentDeals": 60
+                },
+                "teacherV2": {
+                    "mean": 0.3361111111111111,
+                    "standardError": 0.029933052873387097,
+                    "approximateNormal95": [0.2774423274792724, 0.3947798947429498],
+                    "cells": 30,
+                    "independentDeals": 60
+                },
+                "pairedDifference": {
+                    "mean": 0.1763888888888889,
+                    "standardError": 0.04393194090976138,
+                    "approximateNormal95": [0.0902822847057566, 0.2624954930720212],
+                    "cells": 30,
+                    "independentDeals": 60
+                },
+                "gamesPerArm": 240
+            },
+            "rule:recharged|0": {
+                "selected": {
+                    "mean": 0.6038888888888889,
+                    "standardError": 0.03447579218688934,
+                    "approximateNormal95": [0.5363163362025858, 0.671461441575192],
+                    "cells": 30,
+                    "independentDeals": 60
+                },
+                "teacherV2": {
+                    "mean": 0.31555555555555553,
+                    "standardError": 0.042714599811271056,
+                    "approximateNormal95": [0.23183493992546428, 0.3992761711856468],
+                    "cells": 30,
+                    "independentDeals": 60
+                },
+                "pairedDifference": {
+                    "mean": 0.28833333333333333,
+                    "standardError": 0.051827706018220704,
+                    "approximateNormal95": [0.18675102953762074, 0.3899156371290459],
+                    "cells": 30,
+                    "independentDeals": 60
+                },
+                "gamesPerArm": 240
+            },
+            "rule:recharged|1": {
+                "selected": {
+                    "mean": 0.5181944444444444,
+                    "standardError": 0.03630104962261703,
+                    "approximateNormal95": [0.44704438718411504, 0.5893445017047738],
+                    "cells": 30,
+                    "independentDeals": 60
+                },
+                "teacherV2": {
+                    "mean": 0.28055555555555556,
+                    "standardError": 0.028776490747710822,
+                    "approximateNormal95": [0.22415363369004235, 0.33695747742106874],
+                    "cells": 30,
+                    "independentDeals": 60
+                },
+                "pairedDifference": {
+                    "mean": 0.2376388888888889,
+                    "standardError": 0.052132199298549675,
+                    "approximateNormal95": [0.13545977826373154, 0.33981799951404623],
+                    "cells": 30,
+                    "independentDeals": 60
+                },
+                "gamesPerArm": 240
+            },
+            "GermanyAnalyticalReferenceBenchmark": {
+                "benchmark": 0.29,
+                "selectedMinusNeutral": {
+                    "mean": 0.05041666666666667,
+                    "standardError": 0.04915430635593725,
+                    "approximateNormal95": [-0.04592577379097033, 0.14675910712430368],
+                    "cells": 20,
+                    "independentDeals": 40
+                },
+                "teacherMinusNeutral": {
+                    "mean": -0.08916666666666666,
+                    "standardError": 0.038948862485172646,
+                    "approximateNormal95": [-0.16550643713760504, -0.012826896195728271],
+                    "cells": 20,
+                    "independentDeals": 40
+                },
+                "newlyPlayedReferenceControlGames": 0,
+                "note": "Analytical symmetric all-reference all-seat mean 1/n, macro .29; NOT an additional played control. Selected deal averages are compared against that neutral identity. Interval includes zero: no demonstrated superiority to exact reference."
+            }
+        },
+        "cellSigns": {
+            "positive": 93,
+            "tied": 13,
+            "negative": 14
+        },
+        "cellPairedMeanDifferences": {
+            "Benelux|2|original|0": -0.25,
+            "Benelux|2|original|1": 0.0,
+            "Benelux|2|recharged|0": 0.25,
+            "Benelux|2|recharged|1": -0.5,
+            "Benelux|3|original|0": 0.16666666666666669,
+            "Benelux|3|original|1": 0.1666666666666667,
+            "Benelux|3|recharged|0": 0.33333333333333337,
+            "Benelux|3|recharged|1": 0.0,
+            "Benelux|4|original|0": 0.125,
+            "Benelux|4|original|1": 0.25,
+            "Benelux|4|recharged|0": 0.625,
+            "Benelux|4|recharged|1": 0.3125,
+            "Benelux|5|original|0": 0.5,
+            "Benelux|5|original|1": 0.45,
+            "Benelux|5|recharged|0": 0.3,
+            "Benelux|5|recharged|1": 0.19999999999999996,
+            "Benelux|6|original|0": 0.41666666666666663,
+            "Benelux|6|original|1": 0.0,
+            "Benelux|6|recharged|0": 0.75,
+            "Benelux|6|recharged|1": -0.08333333333333331,
+            "France|2|original|0": 0.5,
+            "France|2|original|1": 0.25,
+            "France|2|recharged|0": 0.5,
+            "France|2|recharged|1": -0.5,
+            "France|3|original|0": -0.16666666666666666,
+            "France|3|original|1": 0.25,
+            "France|3|recharged|0": -0.16666666666666666,
+            "France|3|recharged|1": 0.33333333333333337,
+            "France|4|original|0": 0.125,
+            "France|4|original|1": 0.375,
+            "France|4|recharged|0": 0.375,
+            "France|4|recharged|1": 0.375,
+            "France|5|original|0": 0.8,
+            "France|5|original|1": 0.4,
+            "France|5|recharged|0": 0.5,
+            "France|5|recharged|1": 0.4,
+            "France|6|original|0": 0.25,
+            "France|6|original|1": 0.6666666666666667,
+            "France|6|recharged|0": 0.16666666666666669,
+            "France|6|recharged|1": 0.8333333333333334,
+            "Germany|2|original|0": 0.25,
+            "Germany|2|original|1": -0.5,
+            "Germany|2|recharged|0": 0.0,
+            "Germany|2|recharged|1": 0.5,
+            "Germany|3|original|0": 0.0,
+            "Germany|3|original|1": 0.0,
+            "Germany|3|recharged|0": 0.5,
+            "Germany|3|recharged|1": 0.16666666666666666,
+            "Germany|4|original|0": 0.125,
+            "Germany|4|original|1": -0.125,
+            "Germany|4|recharged|0": 0.0,
+            "Germany|4|recharged|1": 0.125,
+            "Germany|5|original|0": 0.19999999999999998,
+            "Germany|5|original|1": 0.2,
+            "Germany|5|recharged|0": 0.4,
+            "Germany|5|recharged|1": 0.19999999999999998,
+            "Germany|6|original|0": 0.16666666666666666,
+            "Germany|6|original|1": 0.16666666666666666,
+            "Germany|6|recharged|0": 0.3333333333333333,
+            "Germany|6|recharged|1": 0.08333333333333333,
+            "Italy|2|original|0": 0.5,
+            "Italy|2|original|1": 0,
+            "Italy|2|recharged|0": -0.5,
+            "Italy|2|recharged|1": 0.5,
+            "Italy|3|original|0": -0.3333333333333333,
+            "Italy|3|original|1": 0.16666666666666666,
+            "Italy|3|recharged|0": 0.3333333333333333,
+            "Italy|3|recharged|1": 0.6666666666666666,
+            "Italy|4|original|0": 0.625,
+            "Italy|4|original|1": 0.125,
+            "Italy|4|recharged|0": 0.375,
+            "Italy|4|recharged|1": 0.375,
+            "Italy|5|original|0": 0.4,
+            "Italy|5|original|1": -0.2,
+            "Italy|5|recharged|0": 0.3,
+            "Italy|5|recharged|1": 0.30000000000000004,
+            "Italy|6|original|0": 0.41666666666666663,
+            "Italy|6|original|1": 0.3333333333333333,
+            "Italy|6|recharged|0": 0.08333333333333334,
+            "Italy|6|recharged|1": -0.24999999999999997,
+            "UK & Ireland|2|original|0": 1,
+            "UK & Ireland|2|original|1": 0.25,
+            "UK & Ireland|2|recharged|0": 0.25,
+            "UK & Ireland|2|recharged|1": 0.25,
+            "UK & Ireland|3|original|0": 0.33333333333333337,
+            "UK & Ireland|3|original|1": 0.1666666666666667,
+            "UK & Ireland|3|recharged|0": 0.0,
+            "UK & Ireland|3|recharged|1": 0.5,
+            "UK & Ireland|4|original|0": 0.5,
+            "UK & Ireland|4|original|1": 0.5,
+            "UK & Ireland|4|recharged|0": 0.125,
+            "UK & Ireland|4|recharged|1": 0.375,
+            "UK & Ireland|5|original|0": 0.6000000000000001,
+            "UK & Ireland|5|original|1": 0.3,
+            "UK & Ireland|5|recharged|0": 0.6,
+            "UK & Ireland|5|recharged|1": 0.6000000000000001,
+            "UK & Ireland|6|original|0": 0.5,
+            "UK & Ireland|6|original|1": 0.41666666666666674,
+            "UK & Ireland|6|recharged|0": 0.6666666666666667,
+            "UK & Ireland|6|recharged|1": 0.5833333333333334,
+            "USA|2|original|0": 0.5,
+            "USA|2|original|1": -0.125,
+            "USA|2|recharged|0": 0.0,
+            "USA|2|recharged|1": 0.0,
+            "USA|3|original|0": 0.33333333333333337,
+            "USA|3|original|1": 0.33333333333333337,
+            "USA|3|recharged|0": 0.3333333333333333,
+            "USA|3|recharged|1": -0.16666666666666666,
+            "USA|4|original|0": 0.125,
+            "USA|4|original|1": 0.125,
+            "USA|4|recharged|0": 0.25,
+            "USA|4|recharged|1": 0.25,
+            "USA|5|original|0": 0.4,
+            "USA|5|original|1": 0.09999999999999998,
+            "USA|5|recharged|0": 0.30000000000000004,
+            "USA|5|recharged|1": 0.7,
+            "USA|6|original|0": 2.7755575615628914e-17,
+            "USA|6|original|1": 0.25000000000000006,
+            "USA|6|recharged|0": 0.6666666666666667,
+            "USA|6|recharged|1": -2.7755575615628914e-17
+        },
+        "cellDealMeans": {
+            "Benelux|2|original|0": {
+                "selected": [0.5, 1],
+                "teacherV2": [1, 1]
+            },
+            "Benelux|2|original|1": {
+                "selected": [0, 1],
+                "teacherV2": [0.5, 0.5]
+            },
+            "Benelux|2|recharged|0": {
+                "selected": [1, 0.5],
+                "teacherV2": [1, 0]
+            },
+            "Benelux|2|recharged|1": {
+                "selected": [0, 0.5],
+                "teacherV2": [1, 0.5]
+            },
+            "Benelux|3|original|0": {
+                "selected": [1, 0.6666666666666666],
+                "teacherV2": [0.6666666666666666, 0.6666666666666666]
+            },
+            "Benelux|3|original|1": {
+                "selected": [0, 1],
+                "teacherV2": [0.3333333333333333, 0.3333333333333333]
+            },
+            "Benelux|3|recharged|0": {
+                "selected": [0.3333333333333333, 1],
+                "teacherV2": [0.6666666666666666, 0]
+            },
+            "Benelux|3|recharged|1": {
+                "selected": [0.6666666666666666, 0],
+                "teacherV2": [0, 0.6666666666666666]
+            },
+            "Benelux|4|original|0": {
+                "selected": [0.25, 0.5],
+                "teacherV2": [0.25, 0.25]
+            },
+            "Benelux|4|original|1": {
+                "selected": [0.25, 0.5],
+                "teacherV2": [0.25, 0]
+            },
+            "Benelux|4|recharged|0": {
+                "selected": [1, 0.75],
+                "teacherV2": [0, 0.5]
+            },
+            "Benelux|4|recharged|1": {
+                "selected": [0.875, 0.25],
+                "teacherV2": [0.25, 0.25]
+            },
+            "Benelux|5|original|0": {
+                "selected": [1, 1],
+                "teacherV2": [0.4, 0.6]
+            },
+            "Benelux|5|original|1": {
+                "selected": [0.4, 0.6],
+                "teacherV2": [0.1, 0]
+            },
+            "Benelux|5|recharged|0": {
+                "selected": [0.6, 0.8],
+                "teacherV2": [0, 0.8]
+            },
+            "Benelux|5|recharged|1": {
+                "selected": [0.6, 0.6],
+                "teacherV2": [0.4, 0.4]
+            },
+            "Benelux|6|original|0": {
+                "selected": [1, 0.6666666666666666],
+                "teacherV2": [0.5, 0.3333333333333333]
+            },
+            "Benelux|6|original|1": {
+                "selected": [0.3333333333333333, 0.6666666666666666],
+                "teacherV2": [0.3333333333333333, 0.6666666666666666]
+            },
+            "Benelux|6|recharged|0": {
+                "selected": [0.8333333333333334, 1],
+                "teacherV2": [0.3333333333333333, 0]
+            },
+            "Benelux|6|recharged|1": {
+                "selected": [0.3333333333333333, 0.5],
+                "teacherV2": [0.8333333333333334, 0.16666666666666666]
+            },
+            "France|2|original|0": {
+                "selected": [0.5, 1],
+                "teacherV2": [0.5, 0]
+            },
+            "France|2|original|1": {
+                "selected": [0.5, 1],
+                "teacherV2": [0.5, 0.5]
+            },
+            "France|2|recharged|0": {
+                "selected": [1, 1],
+                "teacherV2": [0.5, 0.5]
+            },
+            "France|2|recharged|1": {
+                "selected": [0.5, 0],
+                "teacherV2": [0.5, 1]
+            },
+            "France|3|original|0": {
+                "selected": [0.6666666666666666, 0.3333333333333333],
+                "teacherV2": [0.6666666666666666, 0.6666666666666666]
+            },
+            "France|3|original|1": {
+                "selected": [0.8333333333333334, 0.6666666666666666],
+                "teacherV2": [0.3333333333333333, 0.6666666666666666]
+            },
+            "France|3|recharged|0": {
+                "selected": [0.3333333333333333, 0],
+                "teacherV2": [0.6666666666666666, 0]
+            },
+            "France|3|recharged|1": {
+                "selected": [1, 0],
+                "teacherV2": [0.3333333333333333, 0]
+            },
+            "France|4|original|0": {
+                "selected": [0, 0.75],
+                "teacherV2": [0.25, 0.25]
+            },
+            "France|4|original|1": {
+                "selected": [0.5, 0.5],
+                "teacherV2": [0.25, 0]
+            },
+            "France|4|recharged|0": {
+                "selected": [0.75, 0.5],
+                "teacherV2": [0.25, 0.25]
+            },
+            "France|4|recharged|1": {
+                "selected": [0.5, 0.5],
+                "teacherV2": [0, 0.25]
+            },
+            "France|5|original|0": {
+                "selected": [1, 0.8],
+                "teacherV2": [0.2, 0]
+            },
+            "France|5|original|1": {
+                "selected": [0.6, 0.4],
+                "teacherV2": [0, 0.2]
+            },
+            "France|5|recharged|0": {
+                "selected": [1, 1],
+                "teacherV2": [0.8, 0.2]
+            },
+            "France|5|recharged|1": {
+                "selected": [0.6, 0.8],
+                "teacherV2": [0.2, 0.4]
+            },
+            "France|6|original|0": {
+                "selected": [0.6666666666666666, 0.6666666666666666],
+                "teacherV2": [0.6666666666666666, 0.16666666666666666]
+            },
+            "France|6|original|1": {
+                "selected": [1, 1],
+                "teacherV2": [0.16666666666666666, 0.5]
+            },
+            "France|6|recharged|0": {
+                "selected": [0.3333333333333333, 0.8333333333333334],
+                "teacherV2": [0.3333333333333333, 0.5]
+            },
+            "France|6|recharged|1": {
+                "selected": [0.8333333333333334, 0.8333333333333334],
+                "teacherV2": [0, 0]
+            },
+            "Germany|2|original|0": {
+                "selected": [0.5, 0],
+                "teacherV2": [0, 0]
+            },
+            "Germany|2|original|1": {
+                "selected": [0.5, 0],
+                "teacherV2": [1, 0.5]
+            },
+            "Germany|2|recharged|0": {
+                "selected": [0, 0.5],
+                "teacherV2": [0.5, 0]
+            },
+            "Germany|2|recharged|1": {
+                "selected": [0.5, 1],
+                "teacherV2": [0.5, 0]
+            },
+            "Germany|3|original|0": {
+                "selected": [0.6666666666666666, 0],
+                "teacherV2": [0, 0.6666666666666666]
+            },
+            "Germany|3|original|1": {
+                "selected": [0.3333333333333333, 0],
+                "teacherV2": [0.3333333333333333, 0]
+            },
+            "Germany|3|recharged|0": {
+                "selected": [0.3333333333333333, 1],
+                "teacherV2": [0, 0.3333333333333333]
+            },
+            "Germany|3|recharged|1": {
+                "selected": [0, 0.3333333333333333],
+                "teacherV2": [0, 0]
+            },
+            "Germany|4|original|0": {
+                "selected": [0.5, 0.25],
+                "teacherV2": [0.25, 0.25]
+            },
+            "Germany|4|original|1": {
+                "selected": [0, 0.5],
+                "teacherV2": [0.25, 0.5]
+            },
+            "Germany|4|recharged|0": {
+                "selected": [0.25, 0.25],
+                "teacherV2": [0, 0.5]
+            },
+            "Germany|4|recharged|1": {
+                "selected": [0, 0.5],
+                "teacherV2": [0, 0.25]
+            },
+            "Germany|5|original|0": {
+                "selected": [0.2, 0.6],
+                "teacherV2": [0.2, 0.2]
+            },
+            "Germany|5|original|1": {
+                "selected": [0.2, 0.4],
+                "teacherV2": [0, 0.2]
+            },
+            "Germany|5|recharged|0": {
+                "selected": [0.2, 0.8],
+                "teacherV2": [0.2, 0]
+            },
+            "Germany|5|recharged|1": {
+                "selected": [0.6, 0.2],
+                "teacherV2": [0.2, 0.2]
+            },
+            "Germany|6|original|0": {
+                "selected": [0.16666666666666666, 0.16666666666666666],
+                "teacherV2": [0, 0]
+            },
+            "Germany|6|original|1": {
+                "selected": [0.6666666666666666, 0],
+                "teacherV2": [0.3333333333333333, 0]
+            },
+            "Germany|6|recharged|0": {
+                "selected": [0.6666666666666666, 0.6666666666666666],
+                "teacherV2": [0.6666666666666666, 0]
+            },
+            "Germany|6|recharged|1": {
+                "selected": [0, 0.16666666666666666],
+                "teacherV2": [0, 0]
+            },
+            "Italy|2|original|0": {
+                "selected": [0.5, 0.5],
+                "teacherV2": [0, 0]
+            },
+            "Italy|2|original|1": {
+                "selected": [0, 1],
+                "teacherV2": [0, 1]
+            },
+            "Italy|2|recharged|0": {
+                "selected": [0, 0],
+                "teacherV2": [0.5, 0.5]
+            },
+            "Italy|2|recharged|1": {
+                "selected": [0.5, 0.5],
+                "teacherV2": [0, 0]
+            },
+            "Italy|3|original|0": {
+                "selected": [0.6666666666666666, 0],
+                "teacherV2": [0.6666666666666666, 0.6666666666666666]
+            },
+            "Italy|3|original|1": {
+                "selected": [0, 0.6666666666666666],
+                "teacherV2": [0.3333333333333333, 0]
+            },
+            "Italy|3|recharged|0": {
+                "selected": [0.6666666666666666, 0.6666666666666666],
+                "teacherV2": [0.6666666666666666, 0]
+            },
+            "Italy|3|recharged|1": {
+                "selected": [1, 0.6666666666666666],
+                "teacherV2": [0, 0.3333333333333333]
+            },
+            "Italy|4|original|0": {
+                "selected": [0.5, 0.75],
+                "teacherV2": [0, 0]
+            },
+            "Italy|4|original|1": {
+                "selected": [0.25, 0],
+                "teacherV2": [0, 0]
+            },
+            "Italy|4|recharged|0": {
+                "selected": [0.75, 0.25],
+                "teacherV2": [0, 0.25]
+            },
+            "Italy|4|recharged|1": {
+                "selected": [0.5, 0.5],
+                "teacherV2": [0.25, 0]
+            },
+            "Italy|5|original|0": {
+                "selected": [1, 0.2],
+                "teacherV2": [0.2, 0.2]
+            },
+            "Italy|5|original|1": {
+                "selected": [0, 0.2],
+                "teacherV2": [0.2, 0.4]
+            },
+            "Italy|5|recharged|0": {
+                "selected": [0.4, 0.6],
+                "teacherV2": [0, 0.4]
+            },
+            "Italy|5|recharged|1": {
+                "selected": [0.8, 0.4],
+                "teacherV2": [0.2, 0.4]
+            },
+            "Italy|6|original|0": {
+                "selected": [0.6666666666666666, 0.6666666666666666],
+                "teacherV2": [0.3333333333333333, 0.16666666666666666]
+            },
+            "Italy|6|original|1": {
+                "selected": [0.3333333333333333, 0.6666666666666666],
+                "teacherV2": [0.16666666666666666, 0.16666666666666666]
+            },
+            "Italy|6|recharged|0": {
+                "selected": [0.6666666666666666, 0.3333333333333333],
+                "teacherV2": [0.16666666666666666, 0.6666666666666666]
+            },
+            "Italy|6|recharged|1": {
+                "selected": [0.3333333333333333, 0.5],
+                "teacherV2": [0.6666666666666666, 0.6666666666666666]
+            },
+            "UK & Ireland|2|original|0": {
+                "selected": [1, 1],
+                "teacherV2": [0, 0]
+            },
+            "UK & Ireland|2|original|1": {
+                "selected": [1, 1],
+                "teacherV2": [1, 0.5]
+            },
+            "UK & Ireland|2|recharged|0": {
+                "selected": [1, 0],
+                "teacherV2": [0.5, 0]
+            },
+            "UK & Ireland|2|recharged|1": {
+                "selected": [0.5, 1],
+                "teacherV2": [0.5, 0.5]
+            },
+            "UK & Ireland|3|original|0": {
+                "selected": [0.3333333333333333, 1],
+                "teacherV2": [0.3333333333333333, 0.3333333333333333]
+            },
+            "UK & Ireland|3|original|1": {
+                "selected": [0, 1],
+                "teacherV2": [0.3333333333333333, 0.3333333333333333]
+            },
+            "UK & Ireland|3|recharged|0": {
+                "selected": [0.3333333333333333, 0.3333333333333333],
+                "teacherV2": [0.3333333333333333, 0.3333333333333333]
+            },
+            "UK & Ireland|3|recharged|1": {
+                "selected": [0.6666666666666666, 0.6666666666666666],
+                "teacherV2": [0.3333333333333333, 0]
+            },
+            "UK & Ireland|4|original|0": {
+                "selected": [1, 0.5],
+                "teacherV2": [0.5, 0]
+            },
+            "UK & Ireland|4|original|1": {
+                "selected": [0.75, 0.75],
+                "teacherV2": [0.5, 0]
+            },
+            "UK & Ireland|4|recharged|0": {
+                "selected": [0.25, 0.5],
+                "teacherV2": [0.25, 0.25]
+            },
+            "UK & Ireland|4|recharged|1": {
+                "selected": [0.75, 0.75],
+                "teacherV2": [0.25, 0.5]
+            },
+            "UK & Ireland|5|original|0": {
+                "selected": [1, 0.8],
+                "teacherV2": [0.4, 0.2]
+            },
+            "UK & Ireland|5|original|1": {
+                "selected": [0.4, 0.6],
+                "teacherV2": [0.2, 0.2]
+            },
+            "UK & Ireland|5|recharged|0": {
+                "selected": [0.6, 1],
+                "teacherV2": [0.2, 0.2]
+            },
+            "UK & Ireland|5|recharged|1": {
+                "selected": [0.8, 0.8],
+                "teacherV2": [0.2, 0.2]
+            },
+            "UK & Ireland|6|original|0": {
+                "selected": [0.8333333333333334, 1],
+                "teacherV2": [0.5, 0.3333333333333333]
+            },
+            "UK & Ireland|6|original|1": {
+                "selected": [0.8333333333333334, 0.5],
+                "teacherV2": [0.16666666666666666, 0.3333333333333333]
+            },
+            "UK & Ireland|6|recharged|0": {
+                "selected": [1, 1],
+                "teacherV2": [0.5, 0.16666666666666666]
+            },
+            "UK & Ireland|6|recharged|1": {
+                "selected": [0.8333333333333334, 0.5],
+                "teacherV2": [0, 0.16666666666666666]
+            },
+            "USA|2|original|0": {
+                "selected": [0.5, 0.5],
+                "teacherV2": [0, 0]
+            },
+            "USA|2|original|1": {
+                "selected": [1, 0.5],
+                "teacherV2": [1, 0.75]
+            },
+            "USA|2|recharged|0": {
+                "selected": [1, 0.5],
+                "teacherV2": [1, 0.5]
+            },
+            "USA|2|recharged|1": {
+                "selected": [0, 0.5],
+                "teacherV2": [0, 0.5]
+            },
+            "USA|3|original|0": {
+                "selected": [0.6666666666666666, 1],
+                "teacherV2": [0.6666666666666666, 0.3333333333333333]
+            },
+            "USA|3|original|1": {
+                "selected": [1, 0.6666666666666666],
+                "teacherV2": [0.3333333333333333, 0.6666666666666666]
+            },
+            "USA|3|recharged|0": {
+                "selected": [0.6666666666666666, 0.6666666666666666],
+                "teacherV2": [0, 0.6666666666666666]
+            },
+            "USA|3|recharged|1": {
+                "selected": [0.6666666666666666, 0],
+                "teacherV2": [0.3333333333333333, 0.6666666666666666]
+            },
+            "USA|4|original|0": {
+                "selected": [0.5, 0.75],
+                "teacherV2": [0.5, 0.5]
+            },
+            "USA|4|original|1": {
+                "selected": [0.5, 0.25],
+                "teacherV2": [0.25, 0.25]
+            },
+            "USA|4|recharged|0": {
+                "selected": [0.5, 0.25],
+                "teacherV2": [0, 0.25]
+            },
+            "USA|4|recharged|1": {
+                "selected": [0.5, 0.5],
+                "teacherV2": [0.25, 0.25]
+            },
+            "USA|5|original|0": {
+                "selected": [0.8, 0.6],
+                "teacherV2": [0.2, 0.4]
+            },
+            "USA|5|original|1": {
+                "selected": [0.6, 0.6],
+                "teacherV2": [0.6, 0.4]
+            },
+            "USA|5|recharged|0": {
+                "selected": [0.8, 0.6],
+                "teacherV2": [0.2, 0.6]
+            },
+            "USA|5|recharged|1": {
+                "selected": [0.6, 1],
+                "teacherV2": [0, 0.2]
+            },
+            "USA|6|original|0": {
+                "selected": [0.5, 0.5],
+                "teacherV2": [0.6666666666666666, 0.3333333333333333]
+            },
+            "USA|6|original|1": {
+                "selected": [0.8333333333333334, 0.5],
+                "teacherV2": [0.6666666666666666, 0.16666666666666666]
+            },
+            "USA|6|recharged|0": {
+                "selected": [0.8333333333333334, 0.8333333333333334],
+                "teacherV2": [0.16666666666666666, 0.16666666666666666]
+            },
+            "USA|6|recharged|1": {
+                "selected": [0.6666666666666666, 0.5],
+                "teacherV2": [0.3333333333333333, 0.8333333333333334]
+            }
+        }
+    },
+    "replay": {
+        "games": 12,
+        "exactMatches": 12,
+        "workers": 6,
+        "maps": ["Germany", "USA", "France", "UK & Ireland", "Italy", "Benelux"],
+        "players": [2, 3, 4, 5, 6],
+        "allFourRules": true,
+        "comparedFields": [
+            "allSeatCredit",
+            "counts",
+            "credit",
+            "decisions",
+            "expertCounts",
+            "expertRequests",
+            "publicChecks",
+            "referenceRequests",
+            "rounds",
+            "spec",
+            "steps",
+            "terminal"
+        ],
+        "excludedTimingFields": ["featureMs", "inferenceMs", "referenceMs", "seconds"],
+        "newIndependentObservations": 0,
+        "seconds": 16.298389611998573,
+        "checks": [
+            {
+                "arm": "selected",
+                "spec": {
+                    "map": "Germany",
+                    "players": 2,
+                    "variant": "original",
+                    "fastBid": false,
+                    "cell": "Germany|2|original|0",
+                    "split": "confirmation",
+                    "update": 0,
+                    "deal": 0,
+                    "focalSeat": 0,
+                    "smoke": false,
+                    "maxSteps": 4000,
+                    "seed": "pg-multimap-expert-ppo-20261102-v2:confirmation:0:Germany|2|original|0:0",
+                    "opponentMode": "reference",
+                    "opponents": ["learner", "reference"]
+                },
+                "exactTerminalAndCountersSha256": "30aadd21d64ccfb14a06342b87bab952704fb24161f75564d925adb7b7843baa"
+            },
+            {
+                "arm": "selected",
+                "spec": {
+                    "map": "USA",
+                    "players": 3,
+                    "variant": "original",
+                    "fastBid": true,
+                    "cell": "USA|3|original|1",
+                    "split": "confirmation",
+                    "update": 0,
+                    "deal": 0,
+                    "focalSeat": 0,
+                    "smoke": false,
+                    "maxSteps": 4000,
+                    "seed": "pg-multimap-expert-ppo-20261102-v2:confirmation:0:USA|3|original|1:0",
+                    "opponentMode": "mixed",
+                    "opponents": ["learner", "ppo2", "ppo0"]
+                },
+                "exactTerminalAndCountersSha256": "b37f021a5807effe175d0af202a03a6023986ec59057433242bf56bd8e986911"
+            },
+            {
+                "arm": "selected",
+                "spec": {
+                    "map": "France",
+                    "players": 4,
+                    "variant": "recharged",
+                    "fastBid": false,
+                    "cell": "France|4|recharged|0",
+                    "split": "confirmation",
+                    "update": 0,
+                    "deal": 0,
+                    "focalSeat": 0,
+                    "smoke": false,
+                    "maxSteps": 4000,
+                    "seed": "pg-multimap-expert-ppo-20261102-v2:confirmation:0:France|4|recharged|0:0",
+                    "opponentMode": "mixed",
+                    "opponents": ["learner", "ppo0", "ppo1", "ppo2"]
+                },
+                "exactTerminalAndCountersSha256": "6c580f3e50444157f61d516fc6033b1c0c17817e14b936ecef114025f98a7e61"
+            },
+            {
+                "arm": "selected",
+                "spec": {
+                    "map": "UK & Ireland",
+                    "players": 5,
+                    "variant": "recharged",
+                    "fastBid": true,
+                    "cell": "UK & Ireland|5|recharged|1",
+                    "split": "confirmation",
+                    "update": 0,
+                    "deal": 0,
+                    "focalSeat": 0,
+                    "smoke": false,
+                    "maxSteps": 4000,
+                    "seed": "pg-multimap-expert-ppo-20261102-v2:confirmation:0:UK & Ireland|5|recharged|1:0",
+                    "opponentMode": "mixed",
+                    "opponents": ["learner", "ppo1", "ppo2", "ppo0", "ppo1"]
+                },
+                "exactTerminalAndCountersSha256": "d0b8a9ea905d3d42be75a196f877df8726de0bded99351456b5d9ed4b1b8a57b"
+            },
+            {
+                "arm": "selected",
+                "spec": {
+                    "map": "Italy",
+                    "players": 6,
+                    "variant": "original",
+                    "fastBid": false,
+                    "cell": "Italy|6|original|0",
+                    "split": "confirmation",
+                    "update": 0,
+                    "deal": 0,
+                    "focalSeat": 0,
+                    "smoke": false,
+                    "maxSteps": 4000,
+                    "seed": "pg-multimap-expert-ppo-20261102-v2:confirmation:0:Italy|6|original|0:0",
+                    "opponentMode": "mixed",
+                    "opponents": ["learner", "ppo1", "ppo2", "ppo0", "ppo1", "ppo2"]
+                },
+                "exactTerminalAndCountersSha256": "ec319d266cbc820a341d79e003a74f36c9633fc7a2881aa2a2a858286eaed651"
+            },
+            {
+                "arm": "selected",
+                "spec": {
+                    "map": "Benelux",
+                    "players": 2,
+                    "variant": "original",
+                    "fastBid": true,
+                    "cell": "Benelux|2|original|1",
+                    "split": "confirmation",
+                    "update": 0,
+                    "deal": 0,
+                    "focalSeat": 0,
+                    "smoke": false,
+                    "maxSteps": 4000,
+                    "seed": "pg-multimap-expert-ppo-20261102-v2:confirmation:0:Benelux|2|original|1:0",
+                    "opponentMode": "mixed",
+                    "opponents": ["learner", "ppo0"]
+                },
+                "exactTerminalAndCountersSha256": "e107a1c772ccbcda179c52642c76e3b56dd35d17ec6dbfff4673362517737b85"
+            },
+            {
+                "arm": "teacherV2",
+                "spec": {
+                    "map": "Germany",
+                    "players": 2,
+                    "variant": "original",
+                    "fastBid": false,
+                    "cell": "Germany|2|original|0",
+                    "split": "confirmation",
+                    "update": 0,
+                    "deal": 0,
+                    "focalSeat": 0,
+                    "smoke": false,
+                    "maxSteps": 4000,
+                    "seed": "pg-multimap-expert-ppo-20261102-v2:confirmation:0:Germany|2|original|0:0",
+                    "opponentMode": "reference",
+                    "opponents": ["learner", "reference"],
+                    "focalTeacher": true
+                },
+                "exactTerminalAndCountersSha256": "23fa50090b3de03b9cab1fca85ecadba6927514bf448d391f20515172331c5d0"
+            },
+            {
+                "arm": "teacherV2",
+                "spec": {
+                    "map": "USA",
+                    "players": 3,
+                    "variant": "original",
+                    "fastBid": true,
+                    "cell": "USA|3|original|1",
+                    "split": "confirmation",
+                    "update": 0,
+                    "deal": 0,
+                    "focalSeat": 0,
+                    "smoke": false,
+                    "maxSteps": 4000,
+                    "seed": "pg-multimap-expert-ppo-20261102-v2:confirmation:0:USA|3|original|1:0",
+                    "opponentMode": "mixed",
+                    "opponents": ["learner", "ppo2", "ppo0"],
+                    "focalTeacher": true
+                },
+                "exactTerminalAndCountersSha256": "4ecf33a99de5215968d4637eddc29f4a8febca9ae02d67a5c4a2cdf57858257c"
+            },
+            {
+                "arm": "teacherV2",
+                "spec": {
+                    "map": "France",
+                    "players": 4,
+                    "variant": "recharged",
+                    "fastBid": false,
+                    "cell": "France|4|recharged|0",
+                    "split": "confirmation",
+                    "update": 0,
+                    "deal": 0,
+                    "focalSeat": 0,
+                    "smoke": false,
+                    "maxSteps": 4000,
+                    "seed": "pg-multimap-expert-ppo-20261102-v2:confirmation:0:France|4|recharged|0:0",
+                    "opponentMode": "mixed",
+                    "opponents": ["learner", "ppo0", "ppo1", "ppo2"],
+                    "focalTeacher": true
+                },
+                "exactTerminalAndCountersSha256": "9a715f5d40b6d209bbd90f7704fc8de96f8331dfb69b07bd6342bdcfec38d8f3"
+            },
+            {
+                "arm": "teacherV2",
+                "spec": {
+                    "map": "UK & Ireland",
+                    "players": 5,
+                    "variant": "recharged",
+                    "fastBid": true,
+                    "cell": "UK & Ireland|5|recharged|1",
+                    "split": "confirmation",
+                    "update": 0,
+                    "deal": 0,
+                    "focalSeat": 0,
+                    "smoke": false,
+                    "maxSteps": 4000,
+                    "seed": "pg-multimap-expert-ppo-20261102-v2:confirmation:0:UK & Ireland|5|recharged|1:0",
+                    "opponentMode": "mixed",
+                    "opponents": ["learner", "ppo1", "ppo2", "ppo0", "ppo1"],
+                    "focalTeacher": true
+                },
+                "exactTerminalAndCountersSha256": "6c12196311bdfb333052cbcbf6ca61dc93df39b0567288c24c029300fdbea900"
+            },
+            {
+                "arm": "teacherV2",
+                "spec": {
+                    "map": "Italy",
+                    "players": 6,
+                    "variant": "original",
+                    "fastBid": false,
+                    "cell": "Italy|6|original|0",
+                    "split": "confirmation",
+                    "update": 0,
+                    "deal": 0,
+                    "focalSeat": 0,
+                    "smoke": false,
+                    "maxSteps": 4000,
+                    "seed": "pg-multimap-expert-ppo-20261102-v2:confirmation:0:Italy|6|original|0:0",
+                    "opponentMode": "mixed",
+                    "opponents": ["learner", "ppo1", "ppo2", "ppo0", "ppo1", "ppo2"],
+                    "focalTeacher": true
+                },
+                "exactTerminalAndCountersSha256": "d6c2bd6ae0dae71a9ccd3cd84746e5fee572e68562f895bbdb4b8655818e96b0"
+            },
+            {
+                "arm": "teacherV2",
+                "spec": {
+                    "map": "Benelux",
+                    "players": 2,
+                    "variant": "original",
+                    "fastBid": true,
+                    "cell": "Benelux|2|original|1",
+                    "split": "confirmation",
+                    "update": 0,
+                    "deal": 0,
+                    "focalSeat": 0,
+                    "smoke": false,
+                    "maxSteps": 4000,
+                    "seed": "pg-multimap-expert-ppo-20261102-v2:confirmation:0:Benelux|2|original|1:0",
+                    "opponentMode": "mixed",
+                    "opponents": ["learner", "ppo0"],
+                    "focalTeacher": true
+                },
+                "exactTerminalAndCountersSha256": "726202da015a10e5f717dba292f5fa307dad1b4e1ccde44a4ac0d3b972139af2"
+            }
+        ]
+    },
+    "tests": {
+        "independentAuditPython": 40,
+        "failures": 0,
+        "errors": 0,
+        "hfStartupPythonPerJob": 19,
+        "hfStartupNodePerJob": 7,
+        "recoveryPython": 19,
+        "recoveryNode": 7,
+        "separatePreflight": {
+            "engine": 366,
+            "python": 152,
+            "node": 44,
+            "newExpertPython": 19,
+            "newExpertNode": 7
+        },
+        "recoveryLogsVerified": {
+            "verification.json": "0c6d6157031ecb369d87e5484cb042a5b08d6ec30bd1f40b263f28cf495aabbc",
+            "python-checks.log": "e163f5fa7034a39251bf46e215b5dd60fe3b144fcd47036d1ae94113c3e5ef0f",
+            "node-checks.log": "0401c6e34e065bea542b7328e2d3eb3bb93718166b02c2aed1810aa81730fddd"
+        },
+        "note": "Recovery and preflight are separately pinned engineering evidence, not additional strength samples."
+    },
+    "conclusion": "Positive paired confirmation gain over teacher-v2 across all six maps, including transfer; Germany selected-minus-analytical-reference interval includes zero. Evidence supports a stronger research candidate, not a claim of defeating exact reference or humans, and not deployment/qualification.",
+    "recommendation": "Freeze update24. Before further training, preregister fresh, larger-deal stress evaluation on the four training maps against frozen strong/mixed populations, including exact reference and mixed PPO opponents on Germany. If robust, independently replicate training seeds. Do not iteratively tune on Italy/Benelux transfer results. No implementation or new launch authorized by this audit.",
+    "limitations": [
+        "Compact outcomes/counters, authenticated source and checkpoints are audited; RAM-only trajectories and gradients are not retained, so this is not a full independent replay of optimization.",
+        "Uncommitted pre-timeout partial confirmation attempts are not recoverable; only the 6880 uniquely scheduled saved outcomes count. Replays and inherited files add zero independent observations."
+    ],
+    "seconds": 27.209166727989214
+}

@@ -1,0 +1,40 @@
+{
+    "schema": "multimap-expert-audit-publication-v2",
+    "privateEvidence": {
+        "repo": "coyotte508/powergrid-ai-multimap-v1",
+        "revision": "1da50af79b5e72a835bfcc7869965a5a057f9cdf",
+        "prefix": "diagnostics/expert-v2-confirmation-audit",
+        "files": {
+            "expert-results-v2.json": "78f422581ffafcaa97a0a4d8e32b09115777a64ab5851303aead39a7eca2520d",
+            "audit_expert.py": "0755762b04c6d74b26a3e277780ef46a5be73b8c1407437fb3f8f385ef8d0f8e",
+            "test_audit_expert.py": "f6a800e374ccdde8bd30dc60b6593b09336abcffe1370c8304c502a267bee514",
+            "checks/python-checks.log": "61d070d35b2002ddb5ab57b0c7131f904bdab366ca1284fb33c3e8105f404564",
+            "checks/node-checks.log": "29bee20410b9f1126496a174b7e3d0e15e7c1810350dc8544f1db465945025d2",
+            "checks/engine-checks.log": "8dc4dd70cc32f779c4eb5eadedee681ca229549efba375fcd543bc20fbd85649"
+        },
+        "verifiedUploadedBytes": true
+    },
+    "auditedRun": "multimap-expert-ppo-20261102-v2-r1",
+    "auditedModelRevision": "39976d5e864638fe73d241061bc4dfd4b46ce0a4",
+    "sourceGit": "db144fc87d6745fe595ec7e28afc68de496b7966",
+    "selectedUpdate": 24,
+    "selectedCheckpointSha256": "1377fc2112c3b9ff3c2a20078ed341305b2a9006a4f7a1df413eeb0b509e6fbd",
+    "savedScheduledOutcomes": 6880,
+    "failures": 0,
+    "exactReplays": 12,
+    "tests": {
+        "engine": 366,
+        "python": 192,
+        "node": 44,
+        "newAuditPython": 40
+    },
+    "trainingAndSelectionRepeatedOnResume": false,
+    "inheritedArtifactsAreNewObservations": false,
+    "qualified": false,
+    "promoted": false,
+    "deployed": false,
+    "reservedFinalSeedsUsed": false,
+    "nextStep": "Freeze update24; preregister an in-map stronger/mixed-population stress test before further training, then independent replicas if robust.",
+    "nextExperimentLaunched": false,
+    "activeJobs": []
+}

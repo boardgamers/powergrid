@@ -756,13 +756,15 @@ source commit `e6e3b571eb07d1da66aec594e0ecb75b44d79e2c` and source archive:
 [mixed](https://huggingface.co/jobs/coyotte508/6ae9b2e3c78863f9c63189a8).
 [`stress-launch-v1.json`](stress-launch-v1.json) records the immutable source,
 model, plan and preflight pins, verified job configuration and bounded budgets.
-Completion/error watchers were attached to both. The **mixed panel completed**
-all 2,560 games at immutable model revision
-`13ce7a0738fcc2477907ef7db5b85a1c163cb85d`; its 327 files (9,031,181 bytes), full
-source/runtime/reference identities and all saved summary fields are verified.
-Sixteen scope-selected games replayed exactly, including terminal vectors and
-controller/public-service counters. The **strong panel remains active**; no
-whole-experiment interpretation is made before both panels finish and pass audit.
+**Both panels completed and passed the independent audit**, each with 2,560
+terminal games and 320 independent deal roots. Immutable final model-repository
+revisions are `3bf51b5232e34f778842ee43aaac3bae690f48ae` (strong) and
+`13ce7a0738fcc2477907ef7db5b85a1c163cb85d` (mixed). All **654 files / 18,099,897
+bytes** were verified, along with the complete source/runtime/reference identities
+and all saved statistical fields. **32/32 scope-selected games replayed exactly**,
+including terminal vectors and controller/public-service counters. No failures,
+missing/duplicate tasks, expert labels, production optimization or non-Germany
+reference requests were found. Neither job needed a continuation.
 
 The new standard-library-only [`audit_stress.py`](audit_stress.py) independently
 reconstructs all tasks, outcome validation, paired equal-cell/deal statistics and
@@ -786,3 +788,68 @@ and tests do not change the frozen evaluator or policies. Post-run checks pass:
 Node tests and 366 engine tests** (the documented ten-second Mocha timeout).
 Replays add no new independent observations. Nothing is qualified, promoted or
 deployed.
+
+### Completed stress-v1 findings
+
+[`stress-results-v1.json`](stress-results-v1.json) contains the complete independent
+analysis, provenance and replay checks. [`stress-audit-v1.json`](stress-audit-v1.json)
+pins the fully verified private audit archive: 23 files, 1,387,318 bytes, revision
+`d195beb6952da1e00adc063c8e4ead7b24d23328`. Original compact outcomes remain pinned
+at the two final revisions above rather than being uploaded again.
+
+Scores below are **equal-cell macro win credit**, averaging seats within deals,
+not a raw-game win rate or 5,120 independent observations. The panels have
+**640 independent deal roots in total**, and are reported separately.
+
+| Panel  | Update24 |   PPO2 | Paired difference | Two-primary adjusted interval |
+| ------ | -------: | -----: | ----------------: | ----------------------------: |
+| Strong |   30.21% | 16.53% |     **+13.68 pp** |       **[+10.43, +16.94] pp** |
+| Mixed  |   37.20% | 15.78% |     **+21.42 pp** |       **[+18.03, +24.82] pp** |
+
+Intervals are approximate Bonferroni-adjusted **97.5% normal intervals per primary
+comparison**, not exact finite-sample guarantees. Both lower bounds exceed zero;
+all eight map/panel point differences are positive, comfortably above the
+predeclared −5 pp guard. **The research progression gate passes.**
+
+| Map          | Strong paired difference | Mixed paired difference |
+| ------------ | -----------------------: | ----------------------: |
+| Germany      |                +23.16 pp |               +21.23 pp |
+| USA          |                 +4.58 pp |               +13.97 pp |
+| France       |                +13.73 pp |               +30.90 pp |
+| UK & Ireland |                +13.27 pp |               +19.60 pp |
+
+The conclusion is an average advantage of **this frozen complete policy over
+PPO2 under these fixed population schedules**, not universal superiority:
+
+-   **USA remains a watchpoint.** Its strong-panel exploratory 95% difference
+    interval is [−1.07, +10.23] pp. Mixed USA at three players is −10.42 pp
+    ([−28.53, +7.69] pp); the negative cells concentrate in fast auctions. Four
+    roots per cell do not establish a reproducible failure, and these findings do
+    not retroactively change the frozen gate.
+-   Of 40 map/player/panel means, **37 are positive, two zero and one negative**.
+    Full-cell signs are strong **64 positive / 5 tied / 11 negative**, mixed
+    **68 / 8 / 4**. Recharged fast auctions are the weakest rule aggregate in both
+    panels, though every rule aggregate remains positive. Germany/two-player/
+    recharged-fast is negative in both panels. These are exploratory replication
+    watchpoints, not evidence for immediate result-driven tuning.
+-   On Germany against the reference population, update24 scores **33.84%** and
+    PPO2 **10.69%**. But update24 minus analytical neutrality (29%) is only +4.84 pp,
+    exploratory 95% [−1.19, +10.88] pp: **historical-reference superiority remains
+    unproven**. No new all-reference control was played.
+-   On the other strong-panel maps, update24's balanced all-self-play credit is
+    mechanically **29%**. The 240 homogeneous deal controls establish integrity;
+    PPO2's lower credit supplies the comparative evidence. Those controls do not
+    establish strength or independent algorithmic diversity by themselves.
+-   This is one selected training seed and a bundled v2-versus-v1 policy comparison,
+    not a causal attribution to any individual training or mechanics change.
+
+**Recommended next step:** independently seeded end-to-end training replicas of
+the **unchanged expert-v2 recipe**, with the same checkpoint-selection rule and a
+separately frozen bounded protocol using fresh nonreserved roots. Report every
+replica and between-training variability rather than choosing the best on these
+stress results. Persistent weaknesses across replicas would justify a later,
+separately specified tuning study. Do not tune on Italy/Benelux or relabel their
+already-viewed confirmation results as unseen transfer.
+
+No subsequent experiment has been launched at this audit checkpoint; `activeRuns`
+is empty. Update24 stays frozen, with no qualification, promotion or deployment.

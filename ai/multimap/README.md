@@ -574,3 +574,26 @@ from deliberate best-file corruption. All ten controller types were exercised;
 selected the initial baseline, not a stronger learned model. Checks passed:
 **366 engine tests, 152 Python tests, 44 Node tests**. The complete 451 MB reference
 was reused unchanged; only about 12 MB of compact smoke evidence was archived.
+
+#### Operational timeout and confirmation-only continuation
+
+The initial v2 job reached its three-hour limit **after committing update32**.
+[`expert-recovery-v2.json`](expert-recovery-v2.json) verifies the immutable
+`8ca6e47686e06edc7a24c2e85cc2b31e5140f860` snapshot: 84 hashed files (~20 MB),
+all 2,720 training games and 2,240 initial-control/selection games, zero failures
+in those saved games, populated optimizer state and exact embedded-best bytes.
+Its recorded serving-source/runtime/worker identity matches the unchanged code.
+The predeclared selection rule chooses **update24**, checkpoint SHA256
+`1377fc2112c3b9ff3c2a20078ed341305b2a9006a4f7a1df413eeb0b509e6fbd`.
+That is a selection result, **not confirmation or qualification**.
+
+No complete confirmation batch was committed. The `-r1` continuation uses the
+**same original source archive, container image, six workers, frozen checkpoint
+and evaluation seeds**; only its output run ID and immutable resume pointer
+change. It skips all optimization and selection and runs the remaining
+**960 selected + 960 teacher-v2 confirmation games**. Any in-memory partial
+confirmation work lost to timeout is repeated with the same fixed tasks; it is
+not turned into losses or used to alter the model. Inherited training/selection
+files in the new prefix are copies, not additional independent games.
+[`expert-resume-launch-v2.json`](expert-resume-launch-v2.json) records the launch;
+completion/error notification remains enabled. No training recipe was changed.

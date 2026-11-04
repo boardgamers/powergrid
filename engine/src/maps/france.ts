@@ -1,10 +1,11 @@
 import { cloneDeep } from 'lodash';
 import seedrandom from 'seedrandom';
-import { getPowerPlant } from '../engine';
-import { PowerPlant } from '../gamestate';
+import { rechargedMarketPlants, removedPlants } from '../deckChanges';
+import { defaultSetupDeck } from '../engine';
+import { PowerPlantDeck } from '../gamestate';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
-import { powerPlants } from './../powerPlants';
+import { lastPlugPlant, plantCatalogue } from './../powerPlants';
 
 export enum Regions {
     Brown = 'brown',
@@ -236,59 +237,46 @@ export const map: GameMap = {
     ],
     // Recharged rulebook: coal 1–8, oil 3–8, garbage 6–8, uranium 5–16.
     startingResources: { original: [24, 18, 6, 8], recharged: [24, 18, 9, 8] },
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
-        let powerPlantsDeck = cloneDeep(powerPlants);
-        let actualMarket: PowerPlant[];
-        let futureMarket: PowerPlant[];
-
+    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, deck: PowerPlantDeck = 'standard') {
+        // Original: an ecological plant leaves the game and the nuclear plant goes on
+        // top (13 and 11 in the standard deck), as deckChanges.ts lists per deck.
         if (variant == 'original') {
-            powerPlantsDeck = powerPlantsDeck.slice(8);
-            const powerPlant11 = powerPlantsDeck.splice(0, 1)[0];
-            powerPlantsDeck.splice(1, 1)[0];
-            const step3 = powerPlantsDeck.pop()!;
-
-            powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
-            if (numPlayers == 2 || numPlayers == 3) {
-                powerPlantsDeck = powerPlantsDeck.slice(8);
-            } else if (numPlayers == 4) {
-                powerPlantsDeck = powerPlantsDeck.slice(4);
-            }
-
-            powerPlantsDeck.unshift(powerPlant11);
-            powerPlantsDeck.push(step3);
-
-            actualMarket = [getPowerPlant(3), getPowerPlant(4), getPowerPlant(5), getPowerPlant(6)];
-            futureMarket = [getPowerPlant(7), getPowerPlant(8), getPowerPlant(9), getPowerPlant(10)];
-        } else {
-            // Remove power plant 13
-            powerPlantsDeck.splice(10, 1)[0];
-            const powerPlant11 = powerPlantsDeck.splice(8, 1)[0];
-
-            let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 11), rng() + '');
-            let initialPlantMarket = initialPowerPlants.splice(0, 7);
-            initialPlantMarket.push(powerPlant11);
-            initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
-            actualMarket = initialPlantMarket.slice(0, 4);
-            futureMarket = initialPlantMarket.slice(4);
-
-            const first = initialPowerPlants.shift()!;
-            const step3 = powerPlantsDeck.pop()!;
-
-            powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
-            if (numPlayers == 2) {
-                powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
-            } else if (numPlayers == 3) {
-                initialPowerPlants = initialPowerPlants.slice(1);
-                powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
-            } else if (numPlayers == 4) {
-                powerPlantsDeck = shuffle(powerPlantsDeck.slice(3).concat(initialPowerPlants), rng() + '');
-            } else {
-                powerPlantsDeck = shuffle(powerPlantsDeck.concat(initialPowerPlants), rng() + '');
-            }
-
-            powerPlantsDeck.unshift(first);
-            powerPlantsDeck.push(step3);
+            return defaultSetupDeck(numPlayers, variant, rng, true, deck, 'France');
         }
+
+        // Recharged: the ecological plant leaves the game and the nuclear plant (11 in
+        // the standard deck) always opens the market, with seven more plug cards.
+        const removed = removedPlants('France', deck, numPlayers, variant);
+        let powerPlantsDeck = cloneDeep(plantCatalogue('France', deck)).filter((p) => !removed.includes(p.number));
+        const marketPlants = rechargedMarketPlants('France', deck);
+        const powerPlant11 = powerPlantsDeck.filter((p) => marketPlants.includes(p.number));
+        powerPlantsDeck = powerPlantsDeck.filter((p) => !marketPlants.includes(p.number));
+        const plugCount = powerPlantsDeck.filter((p) => p.number <= lastPlugPlant(deck)).length;
+
+        let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, plugCount), rng() + '');
+        let initialPlantMarket = initialPowerPlants.splice(0, 8 - powerPlant11.length);
+        initialPlantMarket.push(...powerPlant11);
+        initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
+        const actualMarket = initialPlantMarket.slice(0, 4);
+        const futureMarket = initialPlantMarket.slice(4);
+
+        const first = initialPowerPlants.shift()!;
+        const step3 = powerPlantsDeck.pop()!;
+
+        powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
+        if (numPlayers == 2) {
+            powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
+        } else if (numPlayers == 3) {
+            initialPowerPlants = initialPowerPlants.slice(1);
+            powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
+        } else if (numPlayers == 4) {
+            powerPlantsDeck = shuffle(powerPlantsDeck.slice(3).concat(initialPowerPlants), rng() + '');
+        } else {
+            powerPlantsDeck = shuffle(powerPlantsDeck.concat(initialPowerPlants), rng() + '');
+        }
+
+        powerPlantsDeck.unshift(first);
+        powerPlantsDeck.push(step3);
 
         return { actualMarket, futureMarket, powerPlantsDeck };
     },

@@ -1,11 +1,8 @@
 // by John and Cici
-import { cloneDeep } from 'lodash';
 import seedrandom from 'seedrandom';
-import { getPowerPlant } from '../engine';
-import { PowerPlant } from '../gamestate';
-import { shuffle } from '../utils';
+import { defaultSetupDeck } from '../engine';
+import { PowerPlantDeck } from '../gamestate';
 import { GameMap } from './../maps';
-import { powerPlants } from './../powerPlants';
 
 export enum Regions {
     Red = 'red',
@@ -240,63 +237,10 @@ export const map: GameMap = {
     // Step 3 is placed 3rd from last in the deck (two plants below it) so Step
     // 3 starts earlier than on most maps. Otherwise standard recharged/original
     // deck prep.
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
-        let powerPlantsDeck = cloneDeep(powerPlants);
-        let actualMarket: PowerPlant[];
-        let futureMarket: PowerPlant[];
-
-        if (variant == 'original') {
-            powerPlantsDeck = powerPlantsDeck.slice(8);
-            const powerPlant13Idx = powerPlantsDeck.findIndex((pp) => pp.number == 13);
-            const powerPlant13 = powerPlantsDeck.splice(powerPlant13Idx, 1)[0];
-            const step3 = powerPlantsDeck.pop()!;
-
-            powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
-            if (numPlayers == 2 || numPlayers == 3) {
-                powerPlantsDeck = powerPlantsDeck.slice(8);
-            } else if (numPlayers == 4) {
-                powerPlantsDeck = powerPlantsDeck.slice(4);
-            }
-
-            powerPlantsDeck.unshift(powerPlant13);
-            // UK&I: Step 3 sits 3rd from last (two plants below it).
-            powerPlantsDeck.splice(powerPlantsDeck.length - 2, 0, step3);
-
-            actualMarket = [getPowerPlant(3), getPowerPlant(4), getPowerPlant(5), getPowerPlant(6)];
-            futureMarket = [getPowerPlant(7), getPowerPlant(8), getPowerPlant(9), getPowerPlant(10)];
-        } else {
-            let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, 13), rng() + '');
-            let initialPlantMarket = initialPowerPlants.splice(0, 8);
-            initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
-            actualMarket = initialPlantMarket.slice(0, 4);
-            futureMarket = initialPlantMarket.slice(4);
-
-            const first = initialPowerPlants.shift()!;
-            const step3 = powerPlantsDeck.pop()!;
-
-            powerPlantsDeck = shuffle(powerPlantsDeck, rng() + '');
-            if (numPlayers == 2) {
-                // Recharged 2P removes 1 plug + 5 socket (was incorrectly lumped with 3P).
-                initialPowerPlants = initialPowerPlants.slice(1);
-                powerPlantsDeck = shuffle(powerPlantsDeck.slice(5).concat(initialPowerPlants), rng() + '');
-            } else if (numPlayers == 3) {
-                initialPowerPlants = initialPowerPlants.slice(2);
-                powerPlantsDeck = shuffle(powerPlantsDeck.slice(6).concat(initialPowerPlants), rng() + '');
-            } else if (numPlayers == 4) {
-                initialPowerPlants = initialPowerPlants.slice(1);
-                powerPlantsDeck = shuffle(powerPlantsDeck.slice(3).concat(initialPowerPlants), rng() + '');
-            } else {
-                powerPlantsDeck = shuffle(powerPlantsDeck.concat(initialPowerPlants), rng() + '');
-            }
-
-            powerPlantsDeck.unshift(first);
-            // UK&I: Step 3 sits 3rd from last (two plants below it). The engine's
-            // standard Step 3 trigger already reshuffles plants below + discard
-            // into the new face-down deck, so we only need the placement here.
-            powerPlantsDeck.splice(powerPlantsDeck.length - 2, 0, step3);
-        }
-
-        return { actualMarket, futureMarket, powerPlantsDeck };
+    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, deck: PowerPlantDeck = 'standard') {
+        // UK&I: Step 3 sits 3rd from last (two plants below it). The engine's standard
+        // Step 3 trigger reshuffles plants below + discard into the new face-down deck.
+        return defaultSetupDeck(numPlayers, variant, rng, true, deck, 'UK & Ireland', 2);
     },
     mapSpecificRules:
         'Two networks: Ireland (Green and Orange regions) and Great Britain ' +

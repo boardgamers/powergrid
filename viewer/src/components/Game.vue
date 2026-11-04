@@ -686,11 +686,10 @@
         <div v-if="G && soleBuyerPlant" class="modal visible">
             <div class="modal-content">
                 <span class="close" @click="soleBuyerPlant = null">&times;</span>
-                <div class="modal-title">Buy Power Plant {{ soleBuyerPlant.number }}</div>
+                <div class="modal-title">Buy Power Plant {{ plantLabel(soleBuyerPlant.number) }}</div>
                 <div class="confirm-message">
-                    You are the only player who can still buy. Buy Power Plant {{ soleBuyerPlant.number }} for ${{
-                        soleBuyerPrice()
-                    }}?
+                    You are the only player who can still buy. Buy Power Plant
+                    {{ plantLabel(soleBuyerPlant.number) }} for ${{ soleBuyerPrice() }}?
                 </div>
                 <div class="confirm-buttons">
                     <button class="confirm-button" @click="confirmSoleBuyerPurchase()">
@@ -954,6 +953,7 @@ import InlineLog from './InlineLog.vue';
 import { Vue, Component, Prop, Watch, Provide, ProvideReactive, Ref } from 'vue-property-decorator';
 import { MoveName, ended, playersSortedByScore, reconstructState } from 'powergrid-engine';
 import type { GameState, LogItem, Move, Player } from 'powergrid-engine';
+import { plantLabel } from 'powergrid-engine/src/powerPlants';
 import { EventEmitter } from 'events';
 import {
     bufferedBuyCounts,
@@ -1150,6 +1150,11 @@ let nextGeographyClipId = 0;
     },
 })
 export default class Game extends Vue {
+    // Labels the shuffled decks' extra copies of a plant number, e.g. "46 (Deck 2)".
+    plantLabel(number: number): string {
+        return plantLabel(number);
+    }
+
     @Prop()
     private state?: GameState;
 

@@ -1,11 +1,11 @@
 // by John and Cici
 import { cloneDeep } from 'lodash';
 import seedrandom from 'seedrandom';
-import { getPowerPlant } from '../engine';
-import { PowerPlant } from '../gamestate';
+import { originalTopPlants, removedPlants } from '../deckChanges';
+import { PowerPlant, PowerPlantDeck } from '../gamestate';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
-import { powerPlants } from './../powerPlants';
+import { lastPlugPlant, plantCatalogue } from './../powerPlants';
 
 export enum Regions {
     Blue = 'blue',
@@ -225,13 +225,10 @@ export const map: GameMap = {
     // market is then drawn from the remaining "weak" pool (≤15) per the recharged
     // convention — 8 open the market, one goes on top of the deck and the leftovers
     // are shuffled in — and NO further player-count deck reduction is applied.
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
-        const removed = new Set([11, 17, 23, 28, 34, 36, 38, 39, 46]);
-        if (numPlayers <= 4) {
-            removed.add(31);
-            removed.add(50);
-        }
-        const deck = cloneDeep(powerPlants).filter((pp) => !removed.has(pp.number));
+    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, powerPlantDeck: PowerPlantDeck = 'standard') {
+        const removed = new Set(removedPlants('Bremen', powerPlantDeck, numPlayers, variant));
+        const catalogue = plantCatalogue('Bremen', powerPlantDeck).filter((pp) => !removed.has(pp.number));
+        const deck = cloneDeep(catalogue);
         // The Step 3 card is the last entry of the master list and is never removed.
         const step3 = deck.pop()!;
 
@@ -239,24 +236,27 @@ export const map: GameMap = {
         let futureMarket: PowerPlant[];
 
         if (variant == 'original') {
-            // Fixed opening market 3–6 / 7–10 (none of these are removed on Bremen).
-            actualMarket = [getPowerPlant(3), getPowerPlant(4), getPowerPlant(5), getPowerPlant(6)];
-            futureMarket = [getPowerPlant(7), getPowerPlant(8), getPowerPlant(9), getPowerPlant(10)];
-            const inMarket = new Set([3, 4, 5, 6, 7, 8, 9, 10]);
-            const plant13 = deck.find((pp) => pp.number == 13)!;
-            let rest = deck.filter((pp) => !inMarket.has(pp.number) && pp.number != 13);
+            // The eight smallest plants open the market (3–6 / 7–10 in the standard deck);
+            // the top plant (13) follows, unless the deck removes it here.
+            actualMarket = catalogue.slice(0, 4);
+            futureMarket = catalogue.slice(4, 8);
+            const inMarket = new Set(catalogue.slice(0, 8).map((pp) => pp.number));
+            const topNumber = originalTopPlants('Bremen', powerPlantDeck)[0];
+            const plant13 = deck.find((pp) => pp.number == topNumber);
+            let rest = deck.filter((pp) => !inMarket.has(pp.number) && pp != plant13);
             rest = shuffle(rest, rng() + '');
-            rest.unshift(plant13);
+            if (plant13) rest.unshift(plant13);
             rest.push(step3);
             return { actualMarket, futureMarket, powerPlantsDeck: rest };
         }
 
-        // Recharged: the opening 8 plants come from the ≤15 weak pool.
+        // Recharged: the opening 8 plants come from the weak (plug) pool.
+        const lastPlug = lastPlugPlant(powerPlantDeck);
         const weak = shuffle(
-            deck.filter((pp) => pp.number <= 15),
+            deck.filter((pp) => pp.number <= lastPlug),
             rng() + ''
         );
-        let rest = deck.filter((pp) => pp.number > 15);
+        let rest = deck.filter((pp) => pp.number > lastPlug);
         const initialMarket = weak.splice(0, 8).sort((a, b) => a.number - b.number);
         actualMarket = initialMarket.slice(0, 4);
         futureMarket = initialMarket.slice(4);

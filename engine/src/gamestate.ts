@@ -35,6 +35,11 @@ export type MapName =
     | 'Bremen'
     | 'Manhattan';
 export type Variant = 'original' | 'recharged';
+// 'standard' is the base game's deck; deck1 and deck2 are The New Power Plants
+// (Set 1) and Set 2. 'shuffled' plays every plant of all three decks together;
+// 'shuffledUnique' keeps one random copy of each plant number. See powerPlants.ts.
+export type SingleDeck = 'standard' | 'deck1' | 'deck2';
+export type PowerPlantDeck = SingleDeck | 'shuffled' | 'shuffledUnique';
 
 export interface GameOptions {
     fastBid?: boolean;
@@ -53,14 +58,25 @@ export interface GameOptions {
     // When set, each player picks their own color (in turn) at the start of the
     // game instead of colors being assigned by seat. Runs before the region draft.
     chooseColors?: boolean;
-    // When set, the game uses the alternate power plant deck (see
-    // alternatePowerPlants in powerPlants.ts) instead of the standard one. Only
-    // honoured on the maps in ALTERNATE_DECK_MAPS; ignored everywhere else.
+    // Legacy: the alternate deck (Deck 2), honoured only on the maps in
+    // ALTERNATE_DECK_MAPS. Games created with it keep storing it; new games use
+    // powerPlantDeck, which wins when both are given.
     alternatePowerPlants?: boolean;
+    // The power plant deck. 'random' picks one of the map's available decks at
+    // setup; the resolved deck is what gets stored, and only when it isn't the
+    // standard one. A deck the map doesn't support falls back to the standard deck.
+    powerPlantDeck?: PowerPlantDeck | 'random';
     // Stored by setup on maps whose starting resources differ by variant. Games
     // created before this existed started Recharged with the Original market, so
     // reconstructing one without the flag keeps that (see reconstructionOptions).
     rechargedStartingResources?: boolean;
+    // Whether fusion plants count as ecological (see FUSION_IS_ECOLOGICAL). Stored by
+    // setup on the maps in ECOLOGICAL_RULE_MAPS; older games have none and play as
+    // wind-only, except that their Québec deck setup protected fusion too.
+    fusionEcological?: boolean;
+    // Set only by reconstructionOptions, for games without fusionEcological, so their
+    // Québec deck is rebuilt the old way. Never stored.
+    legacyEcological?: boolean;
     // Central Europe's Wien discount once let garbage cost $0; both rulebooks say
     // never less than $1. Set only when rebuilding a game whose log already shows a
     // $0 garbage buy, so it replays as it was played (see reconstructionOptions).

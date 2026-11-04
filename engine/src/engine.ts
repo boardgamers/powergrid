@@ -3,6 +3,7 @@ import { cloneDeep, isEqual, range } from 'lodash';
 import seedrandom from 'seedrandom';
 import {
     availableMoves,
+    buildOptions,
     coalOilOverCapacity,
     computeRegionGraph,
     fuelOverCapacity,
@@ -168,6 +169,7 @@ export function setup(
         alternatePowerPlants = false,
         powerPlantDeck,
         rechargedStartingResources = true,
+        stallEnds = true,
         fusionEcological = FUSION_IS_ECOLOGICAL,
         legacyEcological = false,
         wienFreeGarbage = false,
@@ -525,6 +527,7 @@ export function setup(
                 ? { powerPlantDeck: chosenDeck }
                 : {}),
             ...(variantStartingResources && rechargedStartingResources ? { rechargedStartingResources: true } : {}),
+            ...(stallEnds ? { stallEnds: true } : {}),
             ...(ecologicalRules ? { fusionEcological } : {}),
             ...(wienFreeGarbage ? { wienFreeGarbage: true } : {}),
         },
@@ -1191,7 +1194,24 @@ export function move(
                             }
                         }
 
-                        if (maxCities >= G.citiesToEndGame) {
+                        // A game nobody can finish ends anyway: in Step 3 (every city's capacity
+                        // at its last), if no player could ever build another house, the end
+                        // count can never be reached. UK & Ireland can get here: the island jump
+                        // needs an empty city, so a player locked on one island tops out at its
+                        // cities (13 or 12 on a 4-region board) once the other island fills.
+                        const stuck =
+                            !!G.options.stallEnds &&
+                            maxCities < G.citiesToEndGame &&
+                            G.step == 3 &&
+                            noPlayerCanBuild(G);
+                        if (stuck) {
+                            G.log.push({
+                                type: 'event',
+                                event: 'No player can build another city, so the game ends.',
+                            });
+                        }
+
+                        if (maxCities >= G.citiesToEndGame || stuck) {
                             G.phase = Phase.GameEnd;
                             G.currentPlayers = [];
                             calculateCitiesPowered(G);
@@ -2212,6 +2232,12 @@ function chooseRandom(moves: any[]) {
     return moves[Math.floor(Math.random() * moves.length)];
 }
 
+// True when no active player has any city left they could build in, whatever their money:
+// every option is priced 9999 (taken, unreachable, or a jump into an occupied city).
+export function noPlayerCanBuild(G: GameState): boolean {
+    return G.players.filter((p) => !p.isDropped).every((p) => buildOptions(G, p).every((c) => c.price >= 9999));
+}
+
 export function ended(G: GameState): boolean {
     return G.phase == Phase.GameEnd;
 }
@@ -2914,6 +2940,7 @@ export function reconstructionOptions(options: GameOptions, log: LogItem[] = [])
     return {
         ...options,
         rechargedStartingResources: options.rechargedStartingResources ?? false,
+        stallEnds: options.stallEnds ?? false,
         legacyEcological: options.fusionEcological === undefined,
         ...(wienFreeGarbage ? { wienFreeGarbage: true } : {}),
     };

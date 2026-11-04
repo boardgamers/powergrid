@@ -70,6 +70,10 @@ export interface GameOptions {
     // created before this existed started Recharged with the Original market, so
     // reconstructing one without the flag keeps that (see reconstructionOptions).
     rechargedStartingResources?: boolean;
+    // Stored by setup on every game created since this existed (2026-11-04): a game nobody can
+    // finish ends (Step 3, no player could ever build again), and the 9999 "impossible" price is
+    // never affordable. Older games have none, so they keep playing and replaying as they did.
+    stallEnds?: boolean;
     // Whether fusion plants count as ecological (see FUSION_IS_ECOLOGICAL). Stored by
     // setup on the maps in ECOLOGICAL_RULE_MAPS; older games have none and play as
     // wind-only, except that their Québec deck setup protected fusion too.

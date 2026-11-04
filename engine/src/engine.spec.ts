@@ -553,6 +553,45 @@ describe('Engine', () => {
         expect(priceOf(ieCities[1].name), 'empty Irish city jumpable at 30').to.equal(30);
     });
 
+    it('should end a UK & Ireland game nobody can finish, and only that game', () => {
+        // not2cool's question (2026-11-04): the island jump needs an EMPTY city, so a player locked
+        // on one island tops out at its cities. Here two players fill Great Britain (14 cities) and
+        // two fill Ireland (12), Step 3: nobody can build again, and 17 is out of reach for all.
+        const base = setup(4, { map: 'UK & Ireland', variant: 'recharged' }, 'stuck-0');
+        const lockedOnIslands = (leaveOneOpen: boolean) => {
+            const G: GameState = JSON.parse(JSON.stringify(base));
+            const gb = G.map.cities.filter((c) => c.island === 'gb');
+            const ie = G.map.cities.filter((c) => c.island === 'ie');
+            G.step = 3;
+            G.phase = Phase.Building;
+            G.players.forEach((p, i) => {
+                p.cities = (i < 2 ? gb : ie).map((c) => ({ name: c.name, position: i % 2 }));
+                p.money = 500; // money is never what stops them
+                p.passed = i !== 3;
+            });
+            if (leaveOneOpen) {
+                G.players[1].cities.pop(); // player 1 could still build that GB city's second house
+            }
+            G.currentPlayers = [3];
+            G.players[3].availableMoves = availableMoves(G, G.players[3]);
+            return G;
+        };
+
+        const stuck = move(lockedOnIslands(false), { name: MoveName.Pass, data: true } as Move, 3);
+        expect(stuck.phase, 'nobody can build: the game ends').to.equal(Phase.GameEnd);
+        expect(stuck.log.some((l) => l.type === 'event' && /No player can build another city/.test(l.event))).to.be
+            .true;
+
+        const open = move(lockedOnIslands(true), { name: MoveName.Pass, data: true } as Move, 3);
+        expect(open.phase, 'one player can still build: the game goes on').to.equal(Phase.Bureaucracy);
+
+        // 9999 marks "never": a stuck player who saved that much used to be able to build there.
+        const rich = lockedOnIslands(false);
+        rich.players[0].money = 20000;
+        expect(availableMoves(rich, rich.players[0])[MoveName.Build], 'nothing is ever offered at 9999').to.be
+            .undefined;
+    });
+
     it('should remove uranium plant 17 from the Australia deck and keep the five mines', () => {
         // Australia replaces the six uranium plants with mines: plant 17 is removed
         // from the deck entirely, while 11/23/28/34/39 stay in (and behave as

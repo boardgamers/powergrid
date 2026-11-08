@@ -74,6 +74,10 @@ export interface GameOptions {
     // finish ends (Step 3, no player could ever build again), and the 9999 "impossible" price is
     // never affordable. Older games have none, so they keep playing and replaying as they did.
     stallEnds?: boolean;
+    // Stored by setup on 'shuffled' games created since this existed (2026-11-07): the
+    // game deals a standard-sized deck at random from all three decks. Older shuffled
+    // games have none and play with every plant of all three decks.
+    shuffledSample?: boolean;
     // Whether fusion plants count as ecological (see FUSION_IS_ECOLOGICAL). Stored by
     // setup on the maps in ECOLOGICAL_RULE_MAPS; older games have none and play as
     // wind-only, except that their Québec deck setup protected fusion too.

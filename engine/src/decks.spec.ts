@@ -1,14 +1,16 @@
 import { expect } from 'chai';
 import { range } from 'lodash';
 import 'mocha';
+import seedrandom from 'seedrandom';
 import { availableMoves } from './available-moves';
 import { QUEBEC_RECHARGED_TOP_PLANTS, removedPlants, SPAIN_STEP_2_PLANTS } from './deckChanges';
-import { ended, move, moveAI, setup, updatePlayerCapacity } from './engine';
+import { ended, move, moveAI, reconstructionOptions, setup, updatePlayerCapacity } from './engine';
 import { GameState, MapName, Phase, PowerPlantDeck, PowerPlantType, ResourceType, Variant } from './gamestate';
 import { maps, mapsRecharged } from './maps';
 import { Move, MoveName } from './move';
 import {
     alternatePowerPlants,
+    dealtCatalogue,
     deck1PowerPlants,
     isPlugPlant,
     labelledPlant,
@@ -413,9 +415,50 @@ describe('shuffled power plant decks', () => {
     });
 
     it('opens the Original market with the eight smallest plants and 13 on top', () => {
-        const G = setup(4, { map: 'USA', variant: 'original', powerPlantDeck: 'shuffled' }, 'o');
+        const G = setup(4, { map: 'USA', variant: 'original', powerPlantDeck: 'shuffled', shuffledSample: false }, 'o');
         expect(numbers([...G.actualMarket, ...G.futureMarket])).to.deep.equal([1.1, 2.1, 3, 3.1, 3.2, 4, 4.1, 4.2]);
         expect(G.powerPlantsDeck[0].number).to.equal(13);
+    });
+
+    it('deals a standard-sized deck from all three decks, with the standard plug/socket split', () => {
+        const standardPlug = powerPlants.filter((pp) => pp.type != PowerPlantType.Step3 && isPlugPlant(pp, 'standard'));
+        const standardSize = powerPlants.length;
+        const dealtNumbers = new Set<string>();
+        for (const seed of range(20).map((i) => `sample-${i}`)) {
+            const dealt = dealtCatalogue('USA', 'shuffled', seedrandom(seed), true);
+            expect(dealt.length, seed).to.equal(standardSize);
+            expect(
+                dealt.filter((pp) => pp.type != PowerPlantType.Step3 && isPlugPlant(pp, 'shuffled')).length
+            ).to.equal(standardPlug.length);
+            expect(dealt[dealt.length - 1].number).to.equal(99);
+            expect(numbers(dealt)).to.deep.equal([...numbers(dealt)].sort((a, b) => a - b));
+            dealtNumbers.add(numbers(dealt).join());
+        }
+        expect(dealtNumbers.size, 'varies with the seed').to.equal(20);
+    });
+
+    it('leaves as many cards in play as the standard deck on every map, edition and player count', () => {
+        for (const map of ['USA', 'Germany', 'Italy', 'Benelux', 'Europe', 'UK & Ireland'] as MapName[]) {
+            for (const variant of ['original', 'recharged'] as Variant[]) {
+                for (const numPlayers of [2, 3, 4, 5, 6]) {
+                    const label = `${map} ${variant} ${numPlayers}P`;
+                    const standard = setup(numPlayers, { map, variant }, label);
+                    const G = setup(numPlayers, { map, variant, powerPlantDeck: 'shuffled' }, label);
+                    expect(G.options.shuffledSample, label).to.be.true;
+                    expect(visible(G).length, label).to.equal(visible(standard).length);
+                }
+            }
+        }
+    });
+
+    it('keeps the full three-deck pile for shuffled games from before the sampled deck', () => {
+        const legacy = reconstructionOptions({ map: 'USA', variant: 'recharged', powerPlantDeck: 'shuffled' });
+        expect(legacy.shuffledSample).to.be.false;
+        const G = setup(4, legacy, 'legacy');
+        expect(G.options).to.not.have.property('shuffledSample');
+        expect(visible(G).length).to.be.greaterThan(100);
+        const unique = setup(4, { map: 'USA', variant: 'recharged', powerPlantDeck: 'shuffledUnique' }, 'unique');
+        expect(unique.options).to.not.have.property('shuffledSample');
     });
 
     it('keeps one random copy of each number in the one-per-number deck', () => {

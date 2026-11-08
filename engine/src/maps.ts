@@ -120,13 +120,15 @@ export interface GameMap {
     uraniumPrices?: number[];
     // `deck` is the power plant deck in play (see deckChanges.ts for the plant numbers
     // map rules name per deck). `fusionEcological` is the game's ruling, for maps
-    // that protect ecological plants.
+    // that protect ecological plants. `sampleShuffled` deals a 'shuffled' game a
+    // standard-sized deck (see dealtCatalogue).
     setupDeck?: (
         numPlayers: number,
         variant: string,
         rng: seedrandom.prng,
         deck?: PowerPlantDeck,
-        fusionEcological?: boolean
+        fusionEcological?: boolean,
+        sampleShuffled?: boolean
     ) => {
         actualMarket: PowerPlant[];
         futureMarket: PowerPlant[];

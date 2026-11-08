@@ -82,12 +82,13 @@ export function defaultSetupDeck(
     useNewRechargedSetup: boolean,
     deck: PowerPlantDeck = 'standard',
     mapName = '',
-    step3FromBottom = 0
+    step3FromBottom = 0,
+    sampleShuffled = false
 ) {
     let actualMarket: PowerPlant[];
     let futureMarket: PowerPlant[];
     const removed = removedPlants(mapName, deck, numPlayers, variant);
-    const catalogue = dealtCatalogue(mapName, deck, rng).filter((p) => !removed.includes(p.number));
+    const catalogue = dealtCatalogue(mapName, deck, rng, sampleShuffled).filter((p) => !removed.includes(p.number));
     let powerPlantsDeck: PowerPlant[] = cloneDeep(catalogue);
 
     if (variant == 'original') {
@@ -170,6 +171,7 @@ export function setup(
         powerPlantDeck,
         rechargedStartingResources = true,
         stallEnds = true,
+        shuffledSample = true,
         fusionEcological = FUSION_IS_ECOLOGICAL,
         legacyEcological = false,
         wienFreeGarbage = false,
@@ -220,6 +222,7 @@ export function setup(
         : requestedDeck && decks.includes(requestedDeck)
         ? requestedDeck
         : 'standard';
+    const sampleShuffled = chosenDeck == 'shuffled' && shuffledSample;
     const ecologicalRules = ECOLOGICAL_RULE_MAPS.includes(chosenMap.name) && !legacyEcological;
 
     let actualMarket: PowerPlant[];
@@ -237,7 +240,8 @@ export function setup(
                 variant,
                 rng,
                 chosenDeck,
-                legacyEcological ? true : fusionEcological
+                legacyEcological ? true : fusionEcological,
+                sampleShuffled
             ));
         } else {
             ({ actualMarket, futureMarket, powerPlantsDeck } = defaultSetupDeck(
@@ -246,7 +250,9 @@ export function setup(
                 rng,
                 useNewRechargedSetup,
                 chosenDeck,
-                chosenMap.name
+                chosenMap.name,
+                0,
+                sampleShuffled
             ));
         }
     }
@@ -528,6 +534,7 @@ export function setup(
                 : {}),
             ...(variantStartingResources && rechargedStartingResources ? { rechargedStartingResources: true } : {}),
             ...(stallEnds ? { stallEnds: true } : {}),
+            ...(sampleShuffled ? { shuffledSample: true } : {}),
             ...(ecologicalRules ? { fusionEcological } : {}),
             ...(wienFreeGarbage ? { wienFreeGarbage: true } : {}),
         },
@@ -2941,6 +2948,7 @@ export function reconstructionOptions(options: GameOptions, log: LogItem[] = [])
         ...options,
         rechargedStartingResources: options.rechargedStartingResources ?? false,
         stallEnds: options.stallEnds ?? false,
+        shuffledSample: options.shuffledSample ?? false,
         legacyEcological: options.fusionEcological === undefined,
         ...(wienFreeGarbage ? { wienFreeGarbage: true } : {}),
     };

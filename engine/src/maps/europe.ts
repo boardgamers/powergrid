@@ -375,8 +375,15 @@ export const map: GameMap = {
     // The Step 2 trigger for Europe is handled in engine.ts (special branch): it
     // removes the lowest plant from the current market once, then re-sorts the
     // remaining 8 plants into 4 actual + 4 future without drawing from the deck.
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, powerPlantDeck: PowerPlantDeck = 'standard') {
-        const powerPlantsDeck = cloneDeep(dealtCatalogue('Europe', powerPlantDeck, rng));
+    setupDeck(
+        numPlayers: number,
+        variant: string,
+        rng: seedrandom.prng,
+        powerPlantDeck: PowerPlantDeck = 'standard',
+        _fusionEcological?: boolean,
+        sampleShuffled = false
+    ) {
+        const powerPlantsDeck = cloneDeep(dealtCatalogue('Europe', powerPlantDeck, rng, sampleShuffled));
         const isPlug = (p: PowerPlant) => isPlugPlant(p, powerPlantDeck);
 
         const step3Index = powerPlantsDeck.findIndex((p) => p.type === PowerPlantType.Step3);

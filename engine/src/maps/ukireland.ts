@@ -237,10 +237,17 @@ export const map: GameMap = {
     // Step 3 is placed 3rd from last in the deck (two plants below it) so Step
     // 3 starts earlier than on most maps. Otherwise standard recharged/original
     // deck prep.
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, deck: PowerPlantDeck = 'standard') {
+    setupDeck(
+        numPlayers: number,
+        variant: string,
+        rng: seedrandom.prng,
+        deck: PowerPlantDeck = 'standard',
+        _fusionEcological?: boolean,
+        sampleShuffled = false
+    ) {
         // UK&I: Step 3 sits 3rd from last (two plants below it). The engine's standard
         // Step 3 trigger reshuffles plants below + discard into the new face-down deck.
-        return defaultSetupDeck(numPlayers, variant, rng, true, deck, 'UK & Ireland', 2);
+        return defaultSetupDeck(numPlayers, variant, rng, true, deck, 'UK & Ireland', 2, sampleShuffled);
     },
     mapSpecificRules:
         'Two networks: Ireland (Green and Orange regions) and Great Britain ' +

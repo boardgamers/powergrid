@@ -1,5 +1,6 @@
 import { cloneDeep } from 'lodash';
 import { GameOptions, PowerPlant, PowerPlantDeck, PowerPlantType, SingleDeck } from './gamestate';
+import { shuffle } from './utils';
 
 const powerPlants: PowerPlant[] = [
     { number: 3, type: PowerPlantType.Oil, cost: 2, citiesPowered: 1 },
@@ -253,10 +254,32 @@ function plantCatalogue(mapName: string, deck: PowerPlantDeck = 'standard'): Pow
     return deck == 'deck1' ? deck1PowerPlants : deck == 'deck2' ? alternatePowerPlants : powerPlants;
 }
 
-// The plants a game is dealt from: the catalogue, or for 'shuffledUnique' one random
-// copy of each number (the Step 3 card stays last).
-function dealtCatalogue(mapName: string, deck: PowerPlantDeck, rng: () => number): PowerPlant[] {
+// A sampled 'shuffled' game deals as many plug and socket cards as the standard deck has.
+const STANDARD_PLUG_PLANTS = powerPlants.filter(
+    (pp) => pp.type != PowerPlantType.Step3 && isPlugPlant(pp, 'standard')
+).length;
+const STANDARD_SOCKET_PLANTS =
+    powerPlants.filter((pp) => pp.type != PowerPlantType.Step3).length - STANDARD_PLUG_PLANTS;
+
+// The plants a game is dealt from: the catalogue; for 'shuffledUnique' one random
+// copy of each number; for a sampled 'shuffled' game a standard-sized random draw
+// from all three decks. The Step 3 card stays last.
+function dealtCatalogue(mapName: string, deck: PowerPlantDeck, rng: () => number, sample = false): PowerPlant[] {
     const catalogue = plantCatalogue(mapName, deck);
+    if (deck == 'shuffled' && sample) {
+        const plants = catalogue.filter((pp) => pp.type != PowerPlantType.Step3);
+        const plug = shuffle(
+            plants.filter((pp) => isPlugPlant(pp, deck)),
+            rng() + ''
+        ).slice(0, STANDARD_PLUG_PLANTS);
+        const socket = shuffle(
+            plants.filter((pp) => !isPlugPlant(pp, deck)),
+            rng() + ''
+        ).slice(0, STANDARD_SOCKET_PLANTS);
+        return [...plug, ...socket]
+            .sort((a, b) => a.number - b.number)
+            .concat(catalogue.filter((pp) => pp.type == PowerPlantType.Step3));
+    }
     if (deck != 'shuffledUnique') {
         return catalogue;
     }

@@ -1993,15 +1993,16 @@ export default class Game extends Vue {
         return remaining.length === 1 && remaining[0].id === this.player;
     }
 
-    // Minimum price the sole buyer pays: the plant number, or $1 for the recharged
-    // discount plant (the cheapest in the market) — mirrors the engine's minimum bid.
+    // Minimum price the sole buyer pays: the printed plant number, or $1 for the recharged
+    // discount plant (the cheapest in the market) — mirrors the engine's minimum bid. The
+    // shuffled decks number their extra copies 13.1 / 13.2, which still cost $13.
     soleBuyerPrice(): number {
         if (!this.soleBuyerPlant) return 0;
         const discounted =
             this.G!.options.variant === 'recharged' &&
             this.G!.plantDiscountActive &&
             this.G!.actualMarket[0]?.number === this.soleBuyerPlant.number;
-        return discounted ? 1 : this.soleBuyerPlant.number;
+        return discounted ? 1 : Math.floor(this.soleBuyerPlant.number);
     }
 
     confirmSoleBuyerPurchase() {

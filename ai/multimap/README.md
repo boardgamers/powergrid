@@ -909,7 +909,27 @@ preflight evidence is remotely verified at revision
 Actual job environment, image, command, flavor and labels match the receipts;
 all 1,381 source-manifest files and the remotely downloaded archive are verified.
 Both jobs were RUNNING at post-launch verification, with completion/error watchers
-attached. This is execution state, not a completed training or strength result.
+attached. Both original jobs subsequently reached their three-hour timeout after
+committing all 32 training updates and the selected-policy confirmation.
+
+The bounded recovery audit verified **5,600 saved outcomes per replica** (2,720
+training, 2,240 selection/control, 640 selected confirmation), all artifact hashes
+and full source/runtime identities. It independently recomputed checkpoint
+selection: replica 1 selected update24; replica 2 selected update32. These are
+independent selection results, not a choice between replicas. Model, optimizer,
+selected bytes and history match each preconfirmation transaction; only the
+expected model-constructor RNG advance occurred during confirmation.
+
+**The one authorized continuation per replica is running**:
+[replica 1 continuation](https://huggingface.co/jobs/coyotte508/6af22c909737d9a9e08d6193),
+[replica 2 continuation](https://huggingface.co/jobs/coyotte508/6af22cd59737d9a9e08d62a8).
+Each reuses the exact original source and immutable checkpoint, with only **640
+teacher-control confirmation games remaining**—no optimization or reselection.
+[`expert-replicas-continuations-v1.json`](expert-replicas-continuations-v1.json)
+records admission checks, immutable recovery pins and verified job configuration.
+All four allowed job segments are now allocated; **no further continuation or
+replacement seed is authorized**. Completion/error watchers are attached to both.
+This is execution state, not a completed strength result.
 
 [`expert-replicas-launch-v1.json`](expert-replicas-launch-v1.json) pins the jobs,
 source, budgets and production plan hashes.

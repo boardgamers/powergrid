@@ -136,4 +136,14 @@ checks. After that source-freeze checkpoint, both initial replicas were submitte
 on 2026-11-09 from Git `a75b787f38a833a8736ab6b84c7a2019f3773a55`. They were RUNNING
 at post-launch verification, with completion/error notifications attached. Actual
 submissions and immutable source pins are recorded separately in
-`expert-replicas-launch-v1.json` and `runs.json`; no training outcome is claimed yet.
+`expert-replicas-launch-v1.json` and `runs.json`.
+
+Both initial segments later timed out after training update32 and selected-policy
+confirmation. The recovery audit verified 5,600 saved outcomes per replica and the
+complete source/config/optimizer transaction, with independently recomputed
+selection (replica 1 update24, replica 2 update32). The single authorized exact
+continuation for each was submitted with the same frozen source, only to complete
+the remaining 640 teacher-control games. No optimization or reselection remains.
+`expert-replicas-continuations-v1.json` records these jobs and recovery checks.
+All four authorized segments are allocated; no further continuation/replacement
+is permitted. Final paired outcome reporting awaits both complete integrity audits.

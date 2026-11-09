@@ -1046,7 +1046,26 @@ strength observations**. [`replica-stress-preflight-v1.json`](replica-stress-pre
 pins the remotely verified private archive at revision
 `1d859ae85fb8a9ac1dbe4dd68d1df9efdd741e14`: **58 files / 5,804,466 bytes**.
 The archive was downloaded and its 198 matches independently rechecked by the
-launcher. No new-study paid jobs have been submitted at this source-freeze checkpoint.
+launcher. The source freeze was committed and remotely verified at
+`7bab96167ee32d691b2ccc450c50162283b0a473` before submission.
+
+The strong initial job is running:
+[`6af24e8a9737d9a9e08ddd53`](https://huggingface.co/jobs/coyotte508/6af24e8a9737d9a9e08ddd53).
+The original launcher stopped **after** recording that ID and **before** attempting
+mixed: the live response reports integer seconds under `timeout` and represents
+disabled access as `expose: {ports: []}` / `ssh: {enabled: false}`, unlike the
+anticipated response shape. Independent backend observation confirmed **21,600
+seconds, no exposed ports, SSH disabled**, and matching environment, image,
+command and labels. The strong job was not retried. Its source archive, original
+owner/slot ledger and failed-admission observation are retained in
+[`replica-stress-launch-v1.json`](replica-stress-launch-v1.json).
+
+A strict versioned control-plane decoder is being validated before explicit
+original-ledger submission of the missing mixed initial job. It does not change
+the 13 frozen runtime files, source archive, bootstrap, tasks or models. Six
+requested job-hours are consumed; mixed remains unsubmitted and the shared
+recovery remains conditional. Completion notification is attached to strong.
+No production strength result is available yet.
 
 **Readiness now: promising research, not a production-integrated bot.** I will
 explicitly reassess after the study. Approaching controlled human playtesting

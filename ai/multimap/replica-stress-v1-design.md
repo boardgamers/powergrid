@@ -318,5 +318,20 @@ model revision `1d859ae85fb8a9ac1dbe4dd68d1df9efdd741e14`, prefix
 `diagnostics/replica-stress-v1-preflight`. The actual launcher independently
 rechecked all 198 matches from the downloaded archive; the generated gate receipt
 is [`replica-stress-preflight-v1.json`](replica-stress-preflight-v1.json).
-No new-study production jobs have been submitted at this source-freeze checkpoint.
-The completed training replicas and evidence remain unchanged.
+The source freeze `7bab96167ee32d691b2ccc450c50162283b0a473` was pushed and remotely
+verified before submission. Strong initial job `6af24e8a9737d9a9e08ddd53` is running.
+The first launcher stopped after its returned ID and durable receipt, before any
+mixed submission: live response fields use `timeout: 21600`, `expose: {ports: []}`
+and `ssh: {enabled: false}`. The actual six-hour timeout, disabled access and all
+other expected job fields were independently observed. No job was retried.
+
+A new non-serving reconciliation decoder is being tested for that strict response
+schema, using private bindings of the original inventory/submit/continuation
+functions. It must preserve every owner/budget/source/preflight guard and may only
+submit the missing initial peer or the already-authorized conditional recovery.
+The original 13 runtime files and source/bootstrap remain unchanged. The immutable
+first launch/admission record is
+[`replica-stress-launch-v1.json`](replica-stress-launch-v1.json). At this checkpoint
+six requested hours are consumed; mixed and recovery are unsubmitted. No production
+strength inference has been released. The completed training replicas and their
+evidence remain unchanged.

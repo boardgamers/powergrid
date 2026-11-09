@@ -898,8 +898,8 @@ counts/rules are separately checked through exhaustive Python/JS plan validation
 The unchanged trainer's extra model-constructor RNG advance on confirmation-only
 resume is explicitly tested and documented, not mistaken for optimization drift.
 
-The full suites pass: **422 Python, 54 Node, and 366 engine tests**. Private
-preflight evidence is remotely verified at revision
+At the production source freeze, **422 Python, 54 Node, and 366 engine tests**
+passed. Private preflight evidence is remotely verified at revision
 `15fe726e333c5a36257cf712ed98667678690038` (105 files / 24,156,457 bytes).
 
 **Both production replicas were launched on 2026-11-09** from frozen Git source
@@ -933,13 +933,67 @@ no jobs remain active. Final immutable revisions are
 `ebb354b5c2206376fb65ee7d8e19e2809bb72a70` (replica 1) and
 `9a116e30b14eb32b48603475f5036d510177f1b9` (replica 2). All **178 snapshot files /
 48,078,990 bytes** are hash-verified, and the independent JSON audit passes all
-**12,480 saved outcomes** and both checkpoint selections. Strength reporting is
-still withheld pending the separate source/checkpoint integrity and replay audit.
+**12,480 saved outcomes** and both checkpoint selections. Both complete external
+source/checkpoint/optimizer/RNG/provenance audits passed, followed by **32/32 exact
+predeclared evaluation replays** with zero expert labels. An independent second
+calculation reproduced all 114 statistical subsets per replica from raw outcomes
+(maximum floating-point discrepancy 2.22e-16), including both checkpoint choices.
 
 [`expert-replicas-launch-v1.json`](expert-replicas-launch-v1.json) pins the jobs,
 source, budgets and production plan hashes.
 [`expert-replicas-preflight-v1.json`](expert-replicas-preflight-v1.json) pins all
-validation evidence. `runs.json` records current experiment state. Keep the
-complete ignored group ledger for any exact continuation; never rerun the initial
-launch command after a partial or uncertain submission. Both outcomes will be
-audited and reported; the historical update24 policy remains unchanged.
+validation evidence. `runs.json` records current experiment state. Retain the
+complete ignored group ledger for provenance, but **do not launch another segment**.
+The historical update24 policy remains unchanged.
+
+#### Audited replica results — research only
+
+| Replica / seed | Selected update | Selected macro credit | Teacher-v2 macro credit | Paired gain | Exploratory normal 95% interval for gain |
+| -------------- | --------------: | --------------------: | ----------------------: | ----------: | ---------------------------------------- |
+| 1 / 190731     |              24 |               0.54635 |                 0.29953 |    +0.24682 | [0.19235, 0.30129]                       |
+| 2 / 827119     |              32 |               0.54844 |                 0.27714 |    +0.27130 | [0.21738, 0.32522]                       |
+
+This is equal-cell-weighted win credit (ties share credit), **not a pooled game
+win rate**. Each replica has 640 games per arm but 160 independent paired deal
+roots. The two runs use different panels and are not paired with each other.
+
+All four map means improved over teacher-v2 in both runs:
+
+| Map          | Replica 1 paired gain | Replica 2 paired gain |
+| ------------ | --------------------: | --------------------: |
+| Germany      |              +0.16750 |              +0.20375 |
+| USA          |              +0.29667 |              +0.22125 |
+| France       |              +0.27875 |              +0.27979 |
+| UK & Ireland |              +0.24438 |              +0.38042 |
+
+The replication is broad, **not universal**: 8/80 and 12/80 individual cells have
+negative means. Replica 2's USA two-player marginal is negative; its Germany
+2-player recharged/fast watchpoint is also negative. Two deals per cell make
+subgroup normal intervals unstable, sometimes zero-width or outside feasible
+bounds. All 114 subsets are retained; intervals are exploratory and unadjusted,
+not a new qualification gate or simultaneous guarantee.
+
+These are **teacher-v2 comparisons**, not repeats of the PPO2 strong/mixed stress
+panels. Prior stress watchpoints remain unresolved by a different comparator.
+Both selected Germany intervals include the neutral 0.29 benchmark; superiority
+over the historical reference remains unestablished. Two fresh runs sharing a
+pretrained representation/opponent pool cannot precisely measure training
+variability; spread also includes selection-panel and evaluation-panel randomness.
+No winner, pooled inference, Italy/Benelux transfer, human-strength claim,
+qualification, promotion, or deployment follows.
+
+[`expert-replicas-results-v1.json`](expert-replicas-results-v1.json) preserves both
+results, all subsets, limitations and immutable model pins.
+[`expert-replicas-audit-v1.json`](expert-replicas-audit-v1.json) pins the remotely
+verified private evidence archive: revision
+`76f87d113a3873e58ee42737a6062597132268db`, **53 files / 6,281,733 bytes**. The final
+48 MB outcome snapshots are pinned rather than uploaded again. Final checks:
+**477 Python tests** (including 55 new integrity tests); the frozen serving code's
+54 Node and 366 engine checks remain unchanged and passed. Reference cache and
+Python environments are retained.
+
+The unchanged recipe reproduced substantial teacher-baseline gains in both
+independent end-to-end runs. A separately budgeted fresh fixed stress evaluation
+of both frozen replicas, with more deal roots and no winner selection, is a
+reasonable next research step—not permission to start more jobs. No jobs remain
+active and no additional budget has been allocated.

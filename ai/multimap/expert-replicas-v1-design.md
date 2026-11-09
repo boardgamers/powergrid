@@ -171,5 +171,26 @@ actual provenance/checkpoint component checks pass with this explicit adapter.
 The 16 predeclared evaluation replays
 per replica compare all non-timing terminal/controller/public/request fields;
 they add no independent strength observations. No training/gradient replay is
-claimed. Final paired reporting remains gated on both actual integrity audits
-and all 32 exact replays.
+claimed. Both final actual integrity audits passed from committed auditor source
+`1b09d92315bb744cda9b0a9de655c525bf87987c`, and **32/32 replays matched exactly**.
+The full Python suite passes 477 tests. Both outcomes and all 114 subsets per
+replica are retained in `expert-replicas-results-v1.json`; no winner or pooled
+inference is produced. A separate raw-outcome recalculation reproduced every
+subset and both checkpoint selections.
+
+Replica 1's macro paired teacher-v2 gain is 0.2468229167, exploratory normal 95%
+interval [0.1923546899, 0.3012911435]; replica 2's is 0.2713020833,
+[0.2173799505, 0.3252242162]. All four map means are positive in both runs, but
+8/80 and 12/80 individual cell means are negative. These teacher comparisons do
+not settle the earlier PPO2 stress watchpoints or establish superiority over the
+historical Germany reference. With two deals per cell and two independent runs,
+subgroup intervals and between-run spread remain exploratory; no new gate,
+qualification, human-strength or deployment claim is made.
+
+`expert-replicas-audit-v1.json` binds the full private evidence archive at revision
+`76f87d113a3873e58ee42737a6062597132268db` (53 files / 6,281,733 bytes), including
+actual integrity/replay receipts, full statistics, source/tests, recovery evidence,
+failed-closed audit diagnostics, and checks. All remote bytes/hashes were verified;
+outcome snapshots are immutably pinned rather than reuploaded. All four allowed
+segments are consumed and there are no active jobs. Further research requires a
+separate design and budget, not another continuation of this study.

@@ -145,5 +145,20 @@ selection (replica 1 update24, replica 2 update32). The single authorized exact
 continuation for each was submitted with the same frozen source, only to complete
 the remaining 640 teacher-control games. No optimization or reselection remains.
 `expert-replicas-continuations-v1.json` records these jobs and recovery checks.
-All four authorized segments are allocated; no further continuation/replacement
-is permitted. Final paired outcome reporting awaits both complete integrity audits.
+All four authorized segments are consumed; no further continuation/replacement
+is permitted. Both continuations completed. Their final 178 files / 48,078,990
+bytes are hash-verified, and all 12,480 scheduled saved outcomes pass the
+independent JSON audit. No paid jobs remain active.
+
+`audit_expert_replicas_integrity_v1.py` separately authenticates source, runtime,
+reference and frozen-model provenance, actual job configuration/publication
+chronology, complete checkpoint/optimizer/RNG transactions, embedded best bytes,
+and inherited committed outputs. Startup-test mock events are separated from
+production at the successful Python-suite boundary; every production upload,
+including runtime-ready, is bound to the saved receipt chain. Its 52 offline
+tests include both complete synthetic checkpoint chains and the log-boundary
+regression found during independent review. The 16 predeclared evaluation replays
+per replica compare all non-timing terminal/controller/public/request fields;
+they add no independent strength observations. No training/gradient replay is
+claimed. Final paired reporting remains gated on both actual integrity audits
+and all 32 exact replays.

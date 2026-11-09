@@ -1,8 +1,5 @@
 {
-    "activeRuns": [
-        "multimap-expert-replicas-20261109-v1-continuation-r1",
-        "multimap-expert-replicas-20261109-v1-continuation-r2"
-    ],
+    "activeRuns": [],
     "runs": [
         {
             "id": "multimap-expert-replicas-20261109-v1-continuation-r1",
@@ -11,6 +8,13 @@
             "segment": 2,
             "statusAtVerification": "RUNNING",
             "jobId": "6af22c909737d9a9e08d6193",
+            "terminalStatus": "COMPLETED",
+            "terminalModelRevision": "ebb354b5c2206376fb65ee7d8e19e2809bb72a70",
+            "completedUniqueScheduledOutcomes": 6240,
+            "verifiedArtifactFiles": 89,
+            "verifiedArtifactBytes": 24040001,
+            "independentJsonAuditPassed": true,
+            "auditStatus": "pending-independent-integrity-and-replay",
             "url": "https://huggingface.co/jobs/coyotte508/6af22c909737d9a9e08d6193",
             "workflow": "independent-expert-replication-confirmation-continuation",
             "protocol": "expert-replicas-protocol-v1.json",
@@ -42,6 +46,13 @@
             "segment": 2,
             "statusAtVerification": "RUNNING",
             "jobId": "6af22cd59737d9a9e08d62a8",
+            "terminalStatus": "COMPLETED",
+            "terminalModelRevision": "9a116e30b14eb32b48603475f5036d510177f1b9",
+            "completedUniqueScheduledOutcomes": 6240,
+            "verifiedArtifactFiles": 89,
+            "verifiedArtifactBytes": 24038989,
+            "independentJsonAuditPassed": true,
+            "auditStatus": "pending-independent-integrity-and-replay",
             "url": "https://huggingface.co/jobs/coyotte508/6af22cd59737d9a9e08d62a8",
             "workflow": "independent-expert-replication-confirmation-continuation",
             "protocol": "expert-replicas-protocol-v1.json",

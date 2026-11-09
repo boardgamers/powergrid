@@ -920,16 +920,21 @@ independent selection results, not a choice between replicas. Model, optimizer,
 selected bytes and history match each preconfirmation transaction; only the
 expected model-constructor RNG advance occurred during confirmation.
 
-**The one authorized continuation per replica is running**:
+**Both authorized confirmation-only continuations completed successfully**:
 [replica 1 continuation](https://huggingface.co/jobs/coyotte508/6af22c909737d9a9e08d6193),
 [replica 2 continuation](https://huggingface.co/jobs/coyotte508/6af22cd59737d9a9e08d62a8).
-Each reuses the exact original source and immutable checkpoint, with only **640
-teacher-control confirmation games remaining**—no optimization or reselection.
+Each reused the exact original source and immutable checkpoint to finish **640
+teacher-control confirmation games**, with no optimization or reselection.
 [`expert-replicas-continuations-v1.json`](expert-replicas-continuations-v1.json)
 records admission checks, immutable recovery pins and verified job configuration.
 All four allowed job segments are now allocated; **no further continuation or
-replacement seed is authorized**. Completion/error watchers are attached to both.
-This is execution state, not a completed strength result.
+replacement seed is authorized**. Both completion watchers have returned success;
+no jobs remain active. Final immutable revisions are
+`ebb354b5c2206376fb65ee7d8e19e2809bb72a70` (replica 1) and
+`9a116e30b14eb32b48603475f5036d510177f1b9` (replica 2). All **178 snapshot files /
+48,078,990 bytes** are hash-verified, and the independent JSON audit passes all
+**12,480 saved outcomes** and both checkpoint selections. Strength reporting is
+still withheld pending the separate source/checkpoint integrity and replay audit.
 
 [`expert-replicas-launch-v1.json`](expert-replicas-launch-v1.json) pins the jobs,
 source, budgets and production plan hashes.

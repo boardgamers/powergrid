@@ -1067,10 +1067,19 @@ job through the unchanged job validator. It uses private function bindings, not
 global monkeypatches or receipt-derived timeout fallbacks. The 13 frozen runtime
 files, preflight, source archive, bootstrap, tasks and models remain unchanged.
 [`replica-stress-reconciliation-v1.json`](replica-stress-reconciliation-v1.json)
-records this evidence before explicit original-ledger submission of mixed. Six
-requested job-hours are consumed at this reconciliation checkpoint; mixed remains
-unsubmitted and recovery remains conditional. Completion notification is attached
-to strong. No production strength result is available yet.
+records this evidence before explicit original-ledger submission of mixed.
+
+Both initial jobs are now running. Mixed is
+[`6af2549c9737d9a9e08df3e7`](https://huggingface.co/jobs/coyotte508/6af2549c9737d9a9e08df3e7),
+with an actual **10,800-second** timeout. Its one submission used the unchanged
+original source/bootstrap and owner ledger after reconciliation commit
+`4dceb9c16a9690d3e22fcedb9fed64043d66e505` was pushed. The original strong receipt is
+unchanged. [`replica-stress-peer-v1.json`](replica-stress-peer-v1.json) records both
+actual job configurations, source/owner verification and the completed initial
+pair. **Nine requested hours are committed; one shared conditional three-hour
+recovery is unused.** Completion notifications are attached to both jobs. Neither
+panel's strength results are released before the joint integrity/statistical
+checks and all 48 preregistered exact replays pass.
 
 **Readiness now: promising research, not a production-integrated bot.** I will
 explicitly reassess after the study. Approaching controlled human playtesting

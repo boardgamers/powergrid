@@ -337,7 +337,15 @@ evidence is retained. The proof is
 [`replica-stress-reconciliation-v1.json`](replica-stress-reconciliation-v1.json).
 The original 13 runtime files and source/bootstrap remain unchanged. The immutable
 first launch/admission record is
-[`replica-stress-launch-v1.json`](replica-stress-launch-v1.json). At this checkpoint
-six requested hours are consumed; mixed and recovery are unsubmitted. No production
-strength inference has been released. The completed training replicas and their
-evidence remain unchanged.
+[`replica-stress-launch-v1.json`](replica-stress-launch-v1.json).
+
+After reconciliation commit `4dceb9c16a9690d3e22fcedb9fed64043d66e505` was pushed,
+the missing mixed initial was submitted once through the original ledger:
+`6af2549c9737d9a9e08df3e7`, with actual timeout **10,800 seconds** and disabled
+HTTP/SSH access. Both originals are running and actual inventory, configuration,
+source and owner checks passed. Strong's original receipt is byte-identical.
+[`replica-stress-peer-v1.json`](replica-stress-peer-v1.json) records the completed
+initial pair. **Nine requested hours are committed; the single shared three-hour
+recovery is unsubmitted and remains conditional.** Both completion watchers are
+attached. No production strength inference has been released. The completed
+training replicas and their evidence remain unchanged.

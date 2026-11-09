@@ -523,6 +523,16 @@ def frozen_models(protocol, config, remote, helpers):
     return paths, dict(warmStart=protocol['warmStart'], opponents=reports, allModelTensorsFinite=True)
 
 
+def source_verifier(helpers, config):
+    # The frozen replica launcher permits <256 MiB expanded source, distinct
+    # from its 128 MiB compressed/artifact budget. The older shared auditor used
+    # <=128 MiB for both. Bind only this source function to the launcher's exact
+    # expanded-byte boundary; never alter the old module or RemoteFiles limit.
+    return helpers['audit_expert'].reuse(helpers['audit_neural'].verify_source, ROOT=ROOT, HERE=HERE,
+        SOURCE=SOURCE, SOURCE_NAMES=set(config['sourceFiles']), git_bytes=git_bytes,
+        local_source_difference=local_source_difference, LIMIT=2 * LIMIT - 1)
+
+
 def verify_runtime_source(replica, base, remote, helpers):
     audit = helpers['audit_expert_replicas_v1']
     config = read(Path(base) / 'expert/config.json')
@@ -530,9 +540,7 @@ def verify_runtime_source(replica, base, remote, helpers):
     require(source.is_file() and source.stat().st_size == 49280401 and digest(source) == SOURCE_SHA, 'Local source archive pin')
     source = remote.get(dict(repo=DATASET, repo_type='dataset', revision=SOURCE_REVISION,
                              path=SOURCE_PATH, sha256=SOURCE_SHA), cached=source)
-    report = helpers['audit_expert'].reuse(helpers['audit_neural'].verify_source, ROOT=ROOT, HERE=HERE,
-        SOURCE=SOURCE, SOURCE_NAMES=set(config['sourceFiles']), git_bytes=git_bytes,
-        local_source_difference=local_source_difference)(source, config)
+    report = source_verifier(helpers, config)(source, config)
     require(report['manifestFiles'] == 1381, 'Complete 1381-file source archive')
     # Only import serving dependencies after their archive/Git/local hashes match.
     from expert_replicas_v1 import Replica

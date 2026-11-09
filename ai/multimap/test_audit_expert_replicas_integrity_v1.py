@@ -101,6 +101,23 @@ class StandardLibraryTests(unittest.TestCase):
                 "assert 'expert_replicas_v1' not in sys.modules")
         subprocess.run([sys.executable, '-B', '-c', code], check=True)
 
+    def test_source_expansion_budget_is_private_and_matches_frozen_launcher(self):
+        helpers = a.authenticate_helpers()
+        old = helpers['audit_neural']
+        before = dict(old.verify_source.__globals__)
+        bound = a.source_verifier(helpers, {'sourceFiles': {'example.py': 'a'*64}})
+        self.assertIs(bound.__code__, old.verify_source.__code__)
+        self.assertEqual(bound.__globals__['LIMIT'], 256 * 1024**2 - 1)
+        self.assertEqual(old.LIMIT, 128 * 1024**2)
+        self.assertEqual(old.verify_source.__globals__, before)
+        for size in (128 * 1024**2, 134987579, 256 * 1024**2 - 1):
+            self.assertLessEqual(size, bound.__globals__['LIMIT'])
+        self.assertGreater(256 * 1024**2, bound.__globals__['LIMIT'])
+        remote = old.RemoteFiles(NS())
+        with self.assertRaisesRegex(ValueError, '128 MiB'):
+            remote.get(dict(repo='private', revision='f'*40, path='file'),
+                       metadata=NS(size=128 * 1024**2 + 1), cached='/not-read')
+
     def test_replica_scope_is_literal(self):
         for invalid in (True, False, 0, 3, '1', 1.):
             with self.subTest(invalid=invalid), self.assertRaises(ValueError):

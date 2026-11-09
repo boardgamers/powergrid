@@ -155,9 +155,15 @@ reference and frozen-model provenance, actual job configuration/publication
 chronology, complete checkpoint/optimizer/RNG transactions, embedded best bytes,
 and inherited committed outputs. Startup-test mock events are separated from
 production at the successful Python-suite boundary; every production upload,
-including runtime-ready, is bound to the saved receipt chain. Its 52 offline
+including runtime-ready, is bound to the saved receipt chain. Its 53 offline
 tests include both complete synthetic checkpoint chains and the log-boundary
-regression found during independent review. The 16 predeclared evaluation replays
+regression found during independent review. Source expansion uses the frozen
+launcher's strict 256 MiB bound via a private helper binding, while compressed
+source/artifact accounting remains capped at 128 MiB. The first real integrity
+attempt exposed the older shared source check's 128 MiB expansion assumption;
+it failed closed before issuing any success receipt. The pinned replica archive
+expands to 134,987,579 bytes, within the already-authorized launcher bound. No
+historical guard or serving code was changed. The 16 predeclared evaluation replays
 per replica compare all non-timing terminal/controller/public/request fields;
 they add no independent strength observations. No training/gradient replay is
 claimed. Final paired reporting remains gated on both actual integrity audits

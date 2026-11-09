@@ -1,0 +1,75 @@
+{
+    "schema": "multimap-replica-stress-reconciliation-record-v1",
+    "group": "multimap-replica-stress-20261109-v1",
+    "source": {
+        "group": "multimap-replica-stress-20261109-v1",
+        "preflightSha256": "780d8ee78fca181318b0eab45e361d2b55e5d9db9e525276c357c241d5e7d192",
+        "protocolSha256": "1ca5a8fd0979f785cec0656a8738fbc7d5b92f9eb70a9729e0c26ec7916477d3",
+        "reservationOwner": "a5f5b5bb15e747fbb37280d3d5e9f6ff",
+        "reservationPath": "multimap/multimap-replica-stress-20261109-v1/reservation.json",
+        "reservationSha256": "57829f7e0b846b3f01e4cc46d368a0b637e43714d3b93b35e78ad99cda68611f",
+        "schema": "multimap-replica-stress-launch-v1",
+        "sourceBytes": 49988970,
+        "sourceCommit": "7bab96167ee32d691b2ccc450c50162283b0a473",
+        "sourceParentRevision": "dd2cc82ce85066101ff27d40680fb5939c0d9e68",
+        "sourcePath": "multimap/multimap-replica-stress-20261109-v1/source.tgz",
+        "sourceRepo": "coyotte508/powergrid-ai-training-v1",
+        "sourceRevision": "6eec23b7c0b07c2ae3514f46d1e9b5157f79c969",
+        "sourceSha256": "ccf09e2cb52e30ec1c96008c6bf9bd5e7ee80291742dd220d5c9d0681c0f3c08"
+    },
+    "originalLaunchRecord": {
+        "path": "ai/multimap/replica-stress-launch-v1.json",
+        "git": "f1903aa078e581a3030ee0c5703786f7047eec38",
+        "sha256": "3c99d0ae8d214a90d6570ba99431290e90b6daa116d9a6223d48960c2a57e2cf"
+    },
+    "actualReadOnlyVerification": {
+        "schema": "multimap-replica-stress-decoder-reconciliation-v1",
+        "observedAt": "2026-11-09T23:13:33.065178+00:00",
+        "jobId": "6af24e8a9737d9a9e08ddd53",
+        "stage": "RUNNING",
+        "actualTimeoutSeconds": 21600,
+        "configuredExposureDisabled": true,
+        "configuredSshDisabled": true,
+        "activeEndpointsAbsent": true,
+        "unchangedOriginalJobValidatorPassed": true,
+        "frozenSourceAndPreflightExact": true,
+        "frozenSourceCommit": "7bab96167ee32d691b2ccc450c50162283b0a473",
+        "originalReceiptSha256": "adca66e5372792048b471e55c0db8b7ec0be1b74b47730b5078989774e3d7dba",
+        "decoderSha256": "55d66336acc4d35a081fdf766132551ec6efbc912e584144baba608251b17ce0",
+        "testSha256": "7a30b2f6dd6b77d4be74ca1773358670ebfbacd64b06af4f08ab10ff670d1e50",
+        "paidCallsMade": 0,
+        "notes": "Read-only actual backend inspection with the new strict decoder and unchanged original job validator. No receipt rewrite, resubmission, source replacement or study observation."
+    },
+    "tests": {
+        "passed": 110,
+        "unchangedWorkerLauncher": 74,
+        "newDecoderAndBindings": 36,
+        "logSha256": "eac6f08bfc28e77b5e2a7a2066a29dc833184d83a6c6b0d3d68e063918e80cbe",
+        "independentReadOnlySubsetPassed": 16
+    },
+    "independentReview": {
+        "scope": "Strict live-response decoder, private call graph, frozen-source pins and retained original safeguards",
+        "actionableDefects": 0,
+        "noNetworkOrJobs": true
+    },
+    "initialSourceAnd13FilesAndPreflightUnchanged": true,
+    "globalMonkeypatches": false,
+    "newSourceArchive": false,
+    "originalStrongRetried": false,
+    "mixedSubmitted": false,
+    "requestedHoursAttempted": 6,
+    "sharedRecoverySubmitted": false,
+    "jobBudget": {
+        "initialHours": {
+            "strong": 6,
+            "mixed": 3
+        },
+        "recoveryHours": 3,
+        "maxRecoveryJobs": 1,
+        "maxJobs": 3,
+        "maxTotalJobHours": 12
+    },
+    "qualified": false,
+    "qualificationEligible": false,
+    "note": "Control-plane compatibility only. The new driver can submit only the missing mixed initial peer, or the original single conditional shared recovery, with the canonical ledger and exactly the original runtime archive/bootstrap. No initial-launch mode or receipt-derived timeout fallback. Commit and push this driver before using it."
+}

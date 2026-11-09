@@ -325,10 +325,16 @@ mixed submission: live response fields use `timeout: 21600`, `expose: {ports: []
 and `ssh: {enabled: false}`. The actual six-hour timeout, disabled access and all
 other expected job fields were independently observed. No job was retried.
 
-A new non-serving reconciliation decoder is being tested for that strict response
-schema, using private bindings of the original inventory/submit/continuation
-functions. It must preserve every owner/budget/source/preflight guard and may only
-submit the missing initial peer or the already-authorized conditional recovery.
+The new non-serving reconciliation decoder passed **110 tests** (74 original
+worker/launcher and 36 new), independent focused review and 16 additional read-only
+test executions, plus actual read-only admission of strong with the unchanged job
+validator. Private bindings of the original inventory/submit/continuation functions
+preserve every owner/budget/source/preflight guard. The driver may only submit the
+missing mixed initial peer or the already-authorized conditional recovery; there
+is no initial-launch mode. Both actual timeout aliases are strictly typed and must
+agree, disabled exposure shapes are narrowly allowlisted, and active endpoint
+evidence is retained. The proof is
+[`replica-stress-reconciliation-v1.json`](replica-stress-reconciliation-v1.json).
 The original 13 runtime files and source/bootstrap remain unchanged. The immutable
 first launch/admission record is
 [`replica-stress-launch-v1.json`](replica-stress-launch-v1.json). At this checkpoint

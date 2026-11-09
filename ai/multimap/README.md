@@ -1060,12 +1060,17 @@ command and labels. The strong job was not retried. Its source archive, original
 owner/slot ledger and failed-admission observation are retained in
 [`replica-stress-launch-v1.json`](replica-stress-launch-v1.json).
 
-A strict versioned control-plane decoder is being validated before explicit
-original-ledger submission of the missing mixed initial job. It does not change
-the 13 frozen runtime files, source archive, bootstrap, tasks or models. Six
-requested job-hours are consumed; mixed remains unsubmitted and the shared
-recovery remains conditional. Completion notification is attached to strong.
-No production strength result is available yet.
+The strict versioned control-plane decoder passed **110 tests** (74 unchanged
+worker/launcher plus 36 new), an independent focused review with 16 additional
+read-only test executions, and actual read-only admission of the existing strong
+job through the unchanged job validator. It uses private function bindings, not
+global monkeypatches or receipt-derived timeout fallbacks. The 13 frozen runtime
+files, preflight, source archive, bootstrap, tasks and models remain unchanged.
+[`replica-stress-reconciliation-v1.json`](replica-stress-reconciliation-v1.json)
+records this evidence before explicit original-ledger submission of mixed. Six
+requested job-hours are consumed at this reconciliation checkpoint; mixed remains
+unsubmitted and recovery remains conditional. Completion notification is attached
+to strong. No production strength result is available yet.
 
 **Readiness now: promising research, not a production-integrated bot.** I will
 explicitly reassess after the study. Approaching controlled human playtesting

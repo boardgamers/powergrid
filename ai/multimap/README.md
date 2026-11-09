@@ -995,5 +995,64 @@ Python environments are retained.
 The unchanged recipe reproduced substantial teacher-baseline gains in both
 independent end-to-end runs. A separately budgeted fresh fixed stress evaluation
 of both frozen replicas, with more deal roots and no winner selection, is a
-reasonable next research step—not permission to start more jobs. No jobs remain
-active and no additional budget has been allocated.
+reasonable next research step—not permission to start more jobs. At this completed
+study's boundary, no jobs remained active and no additional budget was allocated.
+The distinct authorization below does not reopen the completed training study.
+
+### Fresh replica population stress v1 — new authorization
+
+The user subsequently authorized **design + run, at most 12 aggregate remote
+job-hours**, and requested explicit assessments when the AI approaches readiness.
+[`replica-stress-v1-design.md`](replica-stress-v1-design.md) and
+[`replica-stress-protocol-v1.json`](replica-stress-protocol-v1.json) freeze this
+separate evaluation-only study. Both audited replica checkpoints remain unchanged;
+there is no retraining, new training seed, winner selection, promotion or deployment.
+
+Three focal arms—replica1, replica2 and frozen PPO2—share fresh roots and identical
+opponent assignments within each strong/mixed panel. Strong and mixed roots are
+disjoint. The four maps, five counts and four rule combinations have **eight deals
+per cell**, all seats: **7,680 games / 640 independent roots per panel, 15,360 games
+/ 1,280 roots total**. Shared PPO2 outcomes are played and counted once. Original
+expert24 remains an opponent only; the historical exact reference remains
+Germany-only. The mixed schedule extends its original formula to actual deal
+indices 0–7, rather than repeating four lineups modulo four.
+
+Four primary replica-minus-PPO2 contrasts use paired deal means and equal cell
+weights, exploratory normal 95% intervals and four-primary Bonferroni 98.75%
+intervals. All adverse cells and watchpoints stay visible. No automatic research
+progression, readiness or qualification gate is introduced, and the old
+homogeneous expert24 self-play neutrality assertion does not apply to replicas.
+
+The hard reservation is **6 hours strong + 3 hours mixed + one shared 3-hour
+recovery slot**, at most three jobs including ambiguous submissions. Recovery
+requires both initials to be terminal and an actual timeout with verified
+incomplete data; strong has fixed priority if both need recovery. Stop at the cap
+and report incompleteness rather than extending on observed results.
+
+Versioned tooling preserves old source/guards. Before paid launch, require full
+offline checks, a real pinned-runtime smoke (**396 executions / 198 exact
+matches**, first-batch interruption/resume), privately archived/verified evidence,
+and a committed/pushed source freeze. Final reporting also requires independent
+source/model/job/statistical audits and **48 predeclared exact production
+replays**.
+
+Pre-launch validation passed **637 Python / 60 Node / 366 engine tests**. The
+real pinned-runtime preflight completed **396 terminal executions with 198/198
+exact replay matches, zero failures**, all ten controllers exercised, zero expert
+labels, and unchanged complete model states/inference flags and source identities.
+First-batch preservation, interrupted temporary-file replacement, and no-work
+completed resume all passed. These are engineering checks, **not independent
+strength observations**. [`replica-stress-preflight-v1.json`](replica-stress-preflight-v1.json)
+pins the remotely verified private archive at revision
+`1d859ae85fb8a9ac1dbe4dd68d1df9efdd741e14`: **58 files / 5,804,466 bytes**.
+The archive was downloaded and its 198 matches independently rechecked by the
+launcher. No new-study paid jobs have been submitted at this source-freeze checkpoint.
+
+**Readiness now: promising research, not a production-integrated bot.** I will
+explicitly reassess after the study. Approaching controlled human playtesting
+requires credible stress results **and** a validated serving adapter, platform
+state/legality checks, timeout/error fallback, and target-host latency/concurrency
+measurements. These PyTorch checkpoints are not drop-in replacements for legacy
+Germany ONNX serving. Release is a later decision requiring supervised human
+feedback, scope/acceptance criteria, monitored rollout and tested rollback.
+This evaluation authorization does not authorize serving integration or release.

@@ -1,6 +1,6 @@
-# Expert-v2 independent training replicas v1 — prelaunch implementation
+# Expert-v2 independent training replicas v1 — frozen design and launch
 
-This is an unlaunched research protocol, not a qualification or deployment.
+This is a qualification-ineligible research protocol, not a deployment.
 `expert-replicas-protocol-v1.json` must be reviewed and committed with source and
 real-service preflight evidence before any job submission. The separately
 versioned `launch_expert_replicas_v1.py` enforces the source/preflight gate and
@@ -39,7 +39,7 @@ must be inspected, never automatically retried.
 
 ## Isolation and reuse
 
-All preexisting files remain untouched. Python functions are bound to private
+All preexisting serving files remain untouched. Python functions are bound to private
 copies of globals, preserving unchanged optimizer/selection/transaction function
 bytecode. Original config validation executes against the original expert-v2
 protocol before adding replica identity and source hashes. No global monkeypatch,
@@ -132,5 +132,8 @@ boundary and verify committed outputs, allowing replay of uncommitted batches.
 The private preflight archive is remotely hash-verified at model-repository
 revision `15fe726e333c5a36257cf712ed98667678690038`: 105 files / 24,156,457 bytes.
 `expert-replicas-preflight-v1.json` records its pins, all serving identities and
-checks. No paid job has run at this source-freeze checkpoint; actual submissions
-are recorded separately in the launch receipt and `runs.json`.
+checks. After that source-freeze checkpoint, both initial replicas were submitted
+on 2026-11-09 from Git `a75b787f38a833a8736ab6b84c7a2019f3773a55`. They were RUNNING
+at post-launch verification, with completion/error notifications attached. Actual
+submissions and immutable source pins are recorded separately in
+`expert-replicas-launch-v1.json` and `runs.json`; no training outcome is claimed yet.

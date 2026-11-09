@@ -898,7 +898,23 @@ counts/rules are separately checked through exhaustive Python/JS plan validation
 The unchanged trainer's extra model-constructor RNG advance on confirmation-only
 resume is explicitly tested and documented, not mistaken for optimization drift.
 
-The full suites pass: **422 Python, 54 Node, and 366 engine tests**. Publication
-and production remain gated on archived evidence and clean committed source.
-Consult [`expert-replicas-preflight-v1.json`](expert-replicas-preflight-v1.json),
-`runs.json` and the eventual replica launch receipt for verified execution state.
+The full suites pass: **422 Python, 54 Node, and 366 engine tests**. Private
+preflight evidence is remotely verified at revision
+`15fe726e333c5a36257cf712ed98667678690038` (105 files / 24,156,457 bytes).
+
+**Both production replicas were launched on 2026-11-09** from frozen Git source
+`a75b787f38a833a8736ab6b84c7a2019f3773a55` and one identical source archive:
+[replica 1](https://huggingface.co/jobs/coyotte508/6af2014f9737d9a9e08cea58),
+[replica 2](https://huggingface.co/jobs/coyotte508/6af20150ab34849891a86aea).
+Actual job environment, image, command, flavor and labels match the receipts;
+all 1,381 source-manifest files and the remotely downloaded archive are verified.
+Both jobs were RUNNING at post-launch verification, with completion/error watchers
+attached. This is execution state, not a completed training or strength result.
+
+[`expert-replicas-launch-v1.json`](expert-replicas-launch-v1.json) pins the jobs,
+source, budgets and production plan hashes.
+[`expert-replicas-preflight-v1.json`](expert-replicas-preflight-v1.json) pins all
+validation evidence. `runs.json` records current experiment state. Keep the
+complete ignored group ledger for any exact continuation; never rerun the initial
+launch command after a partial or uncertain submission. Both outcomes will be
+audited and reported; the historical update24 policy remains unchanged.

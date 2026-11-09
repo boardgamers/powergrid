@@ -118,6 +118,31 @@ class StandardLibraryTests(unittest.TestCase):
             remote.get(dict(repo='private', revision='f'*40, path='file'),
                        metadata=NS(size=128 * 1024**2 + 1), cached='/not-read')
 
+    def test_environment_is_bound_to_actual_expert_preflight_schema(self):
+        config = dict(smoke=False, runtimeVersions={'reference': {'numpy': 'pinned'}})
+        preflight = dict(smokeIdentities={'1': dict(config, smoke=True)})
+        protocol = dict(referenceRequirementsSha256='a'*64, referenceVenvMaxBytes=100)
+        environment = dict(versions=config['runtimeVersions'], requirementsSha256='a'*64, referenceVenvBytes=100)
+        with patch.object(a, 'git_bytes', return_value=json.dumps(preflight).encode()):
+            result = a.verify_recorded_environment(1, protocol, environment, config)
+            self.assertTrue(result['frozenPreflightVerified'])
+            self.assertEqual(result['replayVersions'], config['runtimeVersions'])
+            for changed in (dict(config, smoke=True), dict(config, runtimeVersions={'reference': {'numpy': 'other'}})):
+                with self.assertRaises(ValueError):
+                    a.verify_recorded_environment(1, protocol, environment, changed)
+
+    def test_environment_rejects_version_requirements_and_budget_drift(self):
+        config = dict(smoke=False, runtimeVersions={'reference': {'numpy': 'pinned'}})
+        preflight = dict(smokeIdentities={'1': dict(config, smoke=True)})
+        protocol = dict(referenceRequirementsSha256='a'*64, referenceVenvMaxBytes=100)
+        good = dict(versions=config['runtimeVersions'], requirementsSha256='a'*64, referenceVenvBytes=50)
+        changes = [dict(good, versions={}), dict(good, requirementsSha256='b'*64)]
+        changes += [dict(good, referenceVenvBytes=size) for size in (0, -1, 101, True, 50.)]
+        with patch.object(a, 'git_bytes', return_value=json.dumps(preflight).encode()):
+            for changed in changes:
+                with self.subTest(changed=changed), self.assertRaises(ValueError):
+                    a.verify_recorded_environment(1, protocol, changed, config)
+
     def test_replica_scope_is_literal(self):
         for invalid in (True, False, 0, 3, '1', 1.):
             with self.subTest(invalid=invalid), self.assertRaises(ValueError):

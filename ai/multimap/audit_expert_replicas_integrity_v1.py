@@ -533,6 +533,21 @@ def source_verifier(helpers, config):
         local_source_difference=local_source_difference, LIMIT=2 * LIMIT - 1)
 
 
+def verify_recorded_environment(replica, protocol, environment, config):
+    # Expert-v2 records its principal versions in the frozen real preflight,
+    # not the older gap protocol's referenceEnvironment/torchEnvironment keys.
+    preflight = json.loads(git_bytes('ai/multimap/expert-replicas-preflight-v1.json'))
+    expected = copy.deepcopy(preflight['smokeIdentities'][str(replica)])
+    expected['smoke'] = False
+    exact(config, expected, 'Complete configuration matches frozen real preflight')
+    exact(environment['versions'], config['runtimeVersions'], 'Recorded environment/principal runtime identity')
+    require(environment['requirementsSha256'] == protocol['referenceRequirementsSha256'] and
+            type(environment['referenceVenvBytes']) is int and
+            0 < environment['referenceVenvBytes'] <= protocol['referenceVenvMaxBytes'], 'Reference environment requirements/budget')
+    return dict(recorded=environment, replayVersions=config['runtimeVersions'], frozenPreflightVerified=True,
+        caveat='Historical transitive Python dependencies are not fully pinned or recorded; exact principal versions do not prove complete environment reproduction.')
+
+
 def verify_runtime_source(replica, base, remote, helpers):
     audit = helpers['audit_expert_replicas_v1']
     config = read(Path(base) / 'expert/config.json')
@@ -550,7 +565,7 @@ def verify_runtime_source(replica, base, remote, helpers):
     runner = Replica(replica)
     rebuilt = runner.config(False, runner.protocol, workers=6, artifact=artifact, reference_python=reference_python)
     exact(config, rebuilt, 'Full 42-module/dependencies/reference/runtime/serving identity')
-    environment = helpers['audit_neural'].verify_environment(runner.protocol, read(Path(base) / 'environment.json'), config)
+    environment = verify_recorded_environment(replica, runner.protocol, read(Path(base) / 'environment.json'), config)
     reference = helpers['audit_gap'].verify_reference(dict(runner.protocol, compressedArchiveRamMaxBytes=LIMIT),
                                                      read(Path(base) / 'recovery.json'), remote)
     require(sum(p.stat().st_size for p in reference_python.parent.parent.rglob('*') if p.is_file()) <=

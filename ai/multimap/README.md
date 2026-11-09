@@ -851,5 +851,54 @@ stress results. Persistent weaknesses across replicas would justify a later,
 separately specified tuning study. Do not tune on Italy/Benelux or relabel their
 already-viewed confirmation results as unseen transfer.
 
-No subsequent experiment has been launched at this audit checkpoint; `activeRuns`
-is empty. Update24 stays frozen, with no qualification, promotion or deployment.
+At that audit checkpoint, no subsequent experiment had been launched. Update24
+stays frozen, with no qualification, promotion or deployment.
+
+### Expert-v2 independent training replicas v1
+
+[`expert-replicas-protocol-v1.json`](expert-replicas-protocol-v1.json) fixes two
+additional independent seeds (**190731 / 827119**) and fresh, disjoint namespaces.
+The bootstrap representation, exact Germany reference, teacher-v2 mechanics,
+bound16 residual, objectives, population schedule and checkpoint-selection rule
+are unchanged. Each run has the same **160-game / 24-epoch expert warmup**, then
+**32 × 80 four-map PPO games**. The selected checkpoint may legitimately be the
+initial teacher-equivalent fallback, warmup, or update8/16/24/32; update24 is not
+forced and no winner is selected between replicas.
+
+Each replica uses its own fixed fresh selection panel. After selection, the
+selected policy and teacher-v2 are paired on **two fresh deals per four-map cell,
+all seats: 640 games per arm / 160 independent deal roots per replica**. Germany
+opponents are the exact reference, other maps the frozen PPO0/1/2 population.
+Italy/Benelux, stress-v1 roots, and reserved final seeds are excluded. Overall this
+is **6,240 scheduled games per run / 12,480 total**, including training, selection
+and evaluation—not 12,480 independent strength observations.
+
+The predeclared report uses paired all-seat deal means and equal weights for the
+80 map/count/rule cells, with per-replica exploratory normal 95% intervals.
+Between-replica spread is **descriptive**, combining training, checkpoint-selection
+panel and evaluation-panel randomness. There is no pooled inference or precise
+training-variance estimate from two runs. Report both runs, including any failure,
+incomplete run or fallback, rather than selecting whichever looks best.
+
+[`expert-replicas-v1-design.md`](expert-replicas-v1-design.md) describes isolation,
+validation and recovery. Versioned adapters preserve original serving source and
+algorithm bytecode; only the training RNG/namespace and removal of the two transfer
+maps differ. Replicas execute in separate processes. The bounded allocation is
+**two six-worker CPU jobs, three hours each**, with **at most one exact three-hour
+continuation per replica** (12 total job-hours maximum). No outcome-dependent new
+seed or replacement run is allowed. Existing reference artifacts and environments
+are reused, and raw trajectories remain RAM-only.
+
+The real-service preflight **passed: 264 terminal smoke games, 132 exact replay
+matches, zero failures**, with both replica identities verified before and after.
+It proves exact model/optimizer/RNG/history recovery after update 1, repairs a
+deliberately damaged uncommitted best checkpoint, and verifies no collection on
+completed resume. It uses two-player original/open smoke tasks; all production
+counts/rules are separately checked through exhaustive Python/JS plan validation.
+The unchanged trainer's extra model-constructor RNG advance on confirmation-only
+resume is explicitly tested and documented, not mistaken for optimization drift.
+
+The full suites pass: **422 Python, 54 Node, and 366 engine tests**. Publication
+and production remain gated on archived evidence and clean committed source.
+Consult [`expert-replicas-preflight-v1.json`](expert-replicas-preflight-v1.json),
+`runs.json` and the eventual replica launch receipt for verified execution state.

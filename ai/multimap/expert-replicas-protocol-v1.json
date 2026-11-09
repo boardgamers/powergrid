@@ -1,0 +1,63 @@
+{
+    "schema": "multimap-expert-replicas-v1",
+    "baseProtocol": "expert-protocol-v2.json",
+    "frozenSources": {
+        "expert-protocol-v2.json": "d9180c76ce072fe03fb1c325466d8d768a919d040ffd27229d4f375f61065796",
+        "expert_ppo.py": "4357357fde973deff89d9df908622297ccce6fb89446c6e4cf314f20a5383bd0",
+        "expert_rollout.py": "3deb6af55d5210caa04d02210a14bd3ff9c7af413afa2b39ef72bb3e3ebfb77e",
+        "expert_game.cjs": "6d0580b5054e5fb18b5b872827796665125d9997dd31b720dfe2becb00369942",
+        "expert_policy.py": "5304112f56195eec7aa6f89967503e6d08768be7ffb4fc232a7fcfe3349b4213",
+        "job_expert.py": "58a1d8bfe189228f48a4f139e4b8727a58cdfd65d8efd0ff6a8d0e182c24a8cb",
+        "teacher_v2.cjs": "89a5b6c9e8520224eeb1cb34d8543cfccb2d8313002626a50907d4fa996cbdf6",
+        "economics_v2.cjs": "dbb2216b3572e4afc882a3da11f683abd998a54b8672c7acda4843ee142d1897",
+        "candidate-pool-v1.json": "a4f5d80966d9dd5b7af712459dffea255590eeb158b3a8e73cb66b0045d29a4b"
+    },
+    "replicas": [
+        {
+            "id": 1,
+            "seed": 190731,
+            "seedNamespace": "pg-multimap-expert-replicas-v1-r1"
+        },
+        {
+            "id": 2,
+            "seed": 827119,
+            "seedNamespace": "pg-multimap-expert-replicas-v1-r2"
+        }
+    ],
+    "transferMaps": [],
+    "qualificationEligible": false,
+    "reservedFinalSeedsUsed": false,
+    "selection": "Unchanged expert-v2 rule on each replica own fresh selection roots; teacher fallback, strict improvement/earliest tie; warmup and updates8/16/24/32.",
+    "evaluation": "After selection only: selected and teacher-v2 paired on two fresh deals per four-training-map cell, all seats; Germany exact reference, elsewhere fixed ppo0/ppo1/ppo2. No Italy/Benelux. Report all replicas without winner selection.",
+    "reporting": "Report both replicas including failures/fallbacks, selected stage/update, per-map and macro paired selected-minus-teacher credit; descriptive between-training spread. Original seed is historical context only, not pooled on mismatched evaluation roots. No claim of unseen transfer or qualification.",
+    "counts": {
+        "trainingGamesPerReplica": 2720,
+        "selectionGamesPerReplica": 2240,
+        "confirmationGamesPerArmPerReplica": 640,
+        "confirmationDealRootsPerReplica": 160,
+        "totalGamesPerReplica": 6240,
+        "totalGames": 12480
+    },
+    "analysis": {
+        "primary": "selected-minus-teacher-v2",
+        "unit": "paired-all-seat-deal",
+        "weighting": "equal-80-map-count-rule-cells",
+        "dealsPerCell": 2,
+        "normal95Z": 1.96,
+        "pooledInference": false,
+        "winnerSelection": false,
+        "betweenReplicaSpread": "descriptive-includes-evaluation-noise"
+    },
+    "budget": {
+        "replicas": 2,
+        "workers": 6,
+        "flavor": "cpu-upgrade",
+        "timeout": "3h",
+        "maxSegmentsPerReplica": 2,
+        "maxTotalJobHours": 12,
+        "studyArtifactMaxBytes": 134217728,
+        "localStorageMaxBytes": 8589934592,
+        "minimumFreeBytes": 2147483648
+    },
+    "resume": "Same replica/source/config/runtime immutable transaction only; at most one 3h continuation per replica. Stop/report incomplete on cap; never replace failures or change hyperparameters."
+}

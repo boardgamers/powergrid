@@ -342,13 +342,24 @@ first launch/admission record is
 After reconciliation commit `4dceb9c16a9690d3e22fcedb9fed64043d66e505` was pushed,
 the missing mixed initial was submitted once through the original ledger:
 `6af2549c9737d9a9e08df3e7`, with actual timeout **10,800 seconds** and disabled
-HTTP/SSH access. Both originals are running and actual inventory, configuration,
-source and owner checks passed. Strong's original receipt is byte-identical.
+HTTP/SSH access. At initial-pair verification both originals were running and
+actual inventory, configuration, source and owner checks passed. Strong's original receipt is byte-identical.
 [`replica-stress-peer-v1.json`](replica-stress-peer-v1.json) records the completed
 initial pair. **Nine requested hours are committed; the single shared three-hour
 recovery is unsubmitted and remains conditional.** Both completion watchers are
 attached. No production strength inference has been released. The completed
 training replicas and their evidence remain unchanged.
+
+Mixed completed at `2026-11-10T01:24:15.429Z` under its verified 10,800-second
+limit. Its authenticated final own upload is
+`0fa0ff123e9d5a135aa8e490475dbb03e885309a`, containing **647 files / 29,766,403 bytes**.
+Remote metadata/member hashes, independent full JSON validation, and the exact
+43-upload production log chain passed. The panel contains **7,680 saved games /
+640 independent roots / 2,560 games per arm**, with zero expert labels. It remains
+**integrity-pending**: no one-panel strength estimates are released, no production
+replays have run, and strong's completion notification is still pending. The
+shared recovery remains unsubmitted. See
+[`replica-stress-mixed-completion-v1.json`](replica-stress-mixed-completion-v1.json).
 
 ### External integrity tooling (separate from the frozen worker)
 

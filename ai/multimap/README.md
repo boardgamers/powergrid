@@ -1069,7 +1069,7 @@ files, preflight, source archive, bootstrap, tasks and models remain unchanged.
 [`replica-stress-reconciliation-v1.json`](replica-stress-reconciliation-v1.json)
 records this evidence before explicit original-ledger submission of mixed.
 
-Both initial jobs are now running. Mixed is
+Both initial jobs were running at the initial-pair verification. Mixed is
 [`6af2549c9737d9a9e08df3e7`](https://huggingface.co/jobs/coyotte508/6af2549c9737d9a9e08df3e7),
 with an actual **10,800-second** timeout. Its one submission used the unchanged
 original source/bootstrap and owner ledger after reconciliation commit
@@ -1080,6 +1080,15 @@ pair. **Nine requested hours are committed; one shared conditional three-hour
 recovery is unused.** Completion notifications are attached to both jobs. Neither
 panel's strength results are released before the joint integrity/statistical
 checks and all 48 preregistered exact replays pass.
+
+Mixed subsequently **completed** at `2026-11-10T01:24:15.429Z`. Its own final upload
+is revision `0fa0ff123e9d5a135aa8e490475dbb03e885309a`: **647 files / 29,766,403 bytes**.
+All remote metadata and member hashes, the 43-upload production log chain, and
+independent complete-JSON checks passed: **7,680 games, 640 independent roots,
+2,560 games per arm**, zero expert labels. This remains **integrity-pending**, not
+a one-panel strength result. Strong is awaiting its completion notification; no
+recovery was submitted. The operational evidence is
+[`replica-stress-mixed-completion-v1.json`](replica-stress-mixed-completion-v1.json).
 
 The separate [`audit_replica_stress_integrity_v1.py`](audit_replica_stress_integrity_v1.py)
 verifier requires both immutable panels and the **original canonical paid-job

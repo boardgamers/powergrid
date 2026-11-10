@@ -1,13 +1,20 @@
 {
-    "activeRuns": ["multimap-replica-stress-20261109-v1-strong", "multimap-replica-stress-20261109-v1-mixed"],
+    "activeRuns": ["multimap-replica-stress-20261109-v1-strong"],
     "runs": [
         {
             "id": "multimap-replica-stress-20261109-v1-mixed",
             "group": "multimap-replica-stress-20261109-v1",
             "panel": "mixed",
             "segment": 1,
-            "statusAtVerification": "RUNNING",
+            "statusAtVerification": "COMPLETED",
             "jobId": "6af2549c9737d9a9e08df3e7",
+            "finishedAt": "2026-11-10T01:24:15.429000+00:00",
+            "completionRecord": "replica-stress-mixed-completion-v1.json",
+            "resultRevision": "0fa0ff123e9d5a135aa8e490475dbb03e885309a",
+            "completedGames": 7680,
+            "completedIndependentDealRoots": 640,
+            "compactSnapshotFiles": 647,
+            "compactSnapshotBytes": 29766403,
             "url": "https://huggingface.co/jobs/coyotte508/6af2549c9737d9a9e08df3e7",
             "workflow": "fixed-replica-population-stress-v1",
             "protocol": "replica-stress-protocol-v1.json",
@@ -35,7 +42,7 @@
             "completionNotificationsEnabled": true,
             "sourceArchiveReusedExactly": true,
             "admissionStatus": "Verified actual backend configuration after explicit original-ledger missing-peer submission; no initial-launch retry or source replacement.",
-            "auditStatus": "pending",
+            "auditStatus": "integrity-pending; immutable snapshot, independent complete JSON and authenticated log chain verified; joint external checks and 48 replays outstanding",
             "qualified": false,
             "reservedFinalSeedsUsed": false
         },

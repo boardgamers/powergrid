@@ -771,6 +771,10 @@ export function stripSecret(G: GameState, player?: number): GameState {
                     availableMoves: pl.availableMoves ? {} : null,
                     money: ended(G) || G.options.showMoney || G.analysisMoney === 'hypothetical' ? pl.money : -1,
                     bid: G.options.fastBid ? 0 : pl.bid,
+                    // A sealed response must not leak via its duplicate in lastMove.
+                    // Hide every opponent's last move throughout the pending auction,
+                    // including passes and revisions, rather than revealing its kind.
+                    lastMove: G.options.fastBid && G.phase === Phase.Auction && G.chosenPowerPlant ? null : pl.lastMove,
                 };
             }
         }),

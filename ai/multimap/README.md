@@ -1,7 +1,12 @@
 # Multi-map Power Grid AI — v1 bootstrap
 
-See `runs.json` for the active HF job, immutable source/data pins and evidence.
+See `runs.json` for job history, immutable source/data pins and evidence.
 Completion/error watchers wake the owning session; no user ping is required.
+
+**Latest completed study:** [fixed-replica population stress results](replica-stress-results-v1.md).
+Both panels and **48/48 exact replay comparisons passed**. Both fixed replicas
+improved over PPO2 in the two tested populations; no model was selected or
+promoted. The integrated bot is not yet controlled-playtest or release ready.
 
 The first job (`6ae8bd6cc78863f9c630be9c`) archived all 1,760 complete games,
 then correctly refused to fit because 15 opening observations also appeared in
@@ -1085,8 +1090,8 @@ Mixed subsequently **completed** at `2026-11-10T01:24:15.429Z`. Its own final up
 is revision `0fa0ff123e9d5a135aa8e490475dbb03e885309a`: **647 files / 29,766,403 bytes**.
 All remote metadata and member hashes, the 43-upload production log chain, and
 independent complete-JSON checks passed: **7,680 games, 640 independent roots,
-2,560 games per arm**, zero expert labels. This remains **integrity-pending**, not
-a one-panel strength result. Its earlier operational evidence is
+2,560 games per arm**, zero expert labels. At that checkpoint it remained
+**integrity-pending**, not a one-panel strength result. Its earlier operational evidence is
 [`replica-stress-mixed-completion-v1.json`](replica-stress-mixed-completion-v1.json).
 
 Strong also **completed**, at `2026-11-10T03:47:29.178Z`, with final own revision
@@ -1097,8 +1102,8 @@ Its remote metadata/member hashes, complete independent JSON validation and
 was needed or submitted.** Requested budget usage is nine hours across two jobs,
 with the three-hour recovery unused and not repurposed. The joint operational
 record is [`replica-stress-completion-v1.json`](replica-stress-completion-v1.json).
-Joint external integrity checks and all 48 fixed replays still gate strength
-reporting; these completion checks are not an integrity attestation.
+Joint external integrity checks and all 48 fixed replays still gated strength
+reporting at that checkpoint; the completion record is not an integrity attestation.
 
 The separate [`audit_replica_stress_integrity_v1.py`](audit_replica_stress_integrity_v1.py)
 verifier requires both immutable panels and the **original canonical paid-job
@@ -1127,11 +1132,47 @@ engineering checks, not remote production authentication or replay evidence.
 [`replica-stress-integrity-tool-v1.json`](replica-stress-integrity-tool-v1.json)
 records the exact source/test hashes, test revisions, review scope and limitations.
 
-**Readiness now: promising research, not a production-integrated bot.** I will
-explicitly reassess after the study. Approaching controlled human playtesting
-requires credible stress results **and** a validated serving adapter, platform
-state/legality checks, timeout/error fallback, and target-host latency/concurrency
-measurements. These PyTorch checkpoints are not drop-in replacements for legacy
-Germany ONNX serving. Release is a later decision requiring supervised human
-feedback, scope/acceptance criteria, monitored rollout and tested rollback.
-This evaluation authorization does not authorize serving integration or release.
+#### Completed joint audit and results
+
+Full actual source/runtime/reference, six-checkpoint, job-budget and ownership
+verification passed. **All 48 fixed production replay comparisons matched** every
+saved non-timing field; tensors, modes, gradient flags and serving configuration
+were unchanged. There were zero labels and zero new independent strength
+observations. Both genuine attestations were issued together after both replay
+sets passed. Independent standard-library recalculation confirmed all four
+primaries, all 114 subgroup sets per panel and all 48 existing replay comparisons.
+
+| Panel  | Replica1 minus PPO2          | Replica2 minus PPO2          |
+| ------ | ---------------------------- | ---------------------------- |
+| Strong | **+15.32 pp [12.23, 18.41]** | **+14.96 pp [11.67, 18.25]** |
+| Mixed  | **+19.30 pp [16.03, 22.57]** | **+18.68 pp [15.47, 21.90]** |
+
+Intervals are four-primary Bonferroni 98.75% **approximate normal** intervals.
+The metric is paired fractional win credit, averaged within roots and then equally
+across 80 cells—not a naive pooled game win rate. All map-wide and player-count-wide
+marginals are positive, but strong USA/3-player cross-marginals remain negative.
+Strong replica1 USA/3/Original/sealed is **−25 pp**; mixed Germany/2/Recharged/sealed
+is **−18.75 / −12.50 pp** for replica1/replica2. Sparse mixed occupancy and all other
+adverse cells remain retained. Strong Germany intervals still include analytical
+`.29`; historical-reference superiority is not established. No winner or pooled
+training-recipe inference is made.
+
+The [full report](replica-stress-results-v1.md) and
+[untrimmed results](replica-stress-results-v1.json) retain every subgroup,
+watchpoint, raw arm, occupancy result, cell/deal mean and reciprocal outcome.
+The [private publication receipt](replica-stress-audit-v1.json) pins **85 files /
+11,933,091 bytes**, remotely inventory/hash-verified at model-repository revision
+`df4c22f914a5131c7d7bee1a39703e1c8dbf3132`. Original snapshots, source archive,
+canonical paid ledger, durable replay authority, reference cache and environments
+remain intact. Earlier admission/test failures are retained with the final proofs.
+
+**Readiness now: credible fixed-checkpoint stress gains, but not an integrated
+controlled-playtest-ready bot.** The evidence supports considering a serving
+prototype, not automatic progression or release. Remaining requirements include
+validated serving/export and action-output parity, platform state/legality and
+deduplication checks, timeout/error fallback, and target-host latency, concurrency,
+memory and persistence validation. These PyTorch checkpoints are not drop-in
+legacy Germany ONNX replacements. Supervised human feedback, scope/acceptance
+criteria, monitored rollout and tested rollback remain necessary for release.
+No serving integration, selection, promotion, deployment or BGS publication was
+performed or newly authorized by this evaluation.

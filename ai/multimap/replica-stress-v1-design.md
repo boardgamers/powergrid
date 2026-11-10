@@ -1,5 +1,13 @@
 # Frozen replica population stress study v1
 
+**Final status:** both original panels completed; joint external integrity and all
+48 fixed saved-outcome replays passed. Nine requested job-hours were used, without
+recovery, selection, promotion or deployment. See the
+[final report](replica-stress-results-v1.md), [full results](replica-stress-results-v1.json)
+and [verified private archive](replica-stress-audit-v1.json). The frozen scientific
+design below is unchanged; execution updates distinguish historical checkpoints
+from the final state.
+
 ## Authorization and purpose
 
 This is a **new evaluation-only study**, separately authorized after completion of
@@ -346,17 +354,17 @@ HTTP/SSH access. At initial-pair verification both originals were running and
 actual inventory, configuration, source and owner checks passed. Strong's original receipt is byte-identical.
 [`replica-stress-peer-v1.json`](replica-stress-peer-v1.json) records the completed
 initial pair. **Nine requested hours are committed; the single shared three-hour
-recovery is unsubmitted and remains conditional.** Both completion watchers are
-attached. No production strength inference has been released. The completed
-training replicas and their evidence remain unchanged.
+recovery was unsubmitted and remained conditional at that checkpoint.** Both
+completion watchers were attached; no production strength inference had been
+released. The completed training replicas and their evidence remain unchanged.
 
 Mixed completed at `2026-11-10T01:24:15.429Z` under its verified 10,800-second
 limit. Its authenticated final own upload is
 `0fa0ff123e9d5a135aa8e490475dbb03e885309a`, containing **647 files / 29,766,403 bytes**.
 Remote metadata/member hashes, independent full JSON validation, and the exact
 43-upload production log chain passed. The panel contains **7,680 saved games /
-640 independent roots / 2,560 games per arm**, with zero expert labels. It remains
-**integrity-pending**: no one-panel strength estimates are released, no production
+640 independent roots / 2,560 games per arm**, with zero expert labels. It remained
+**integrity-pending**: no one-panel strength estimates were released, no production
 replays had run, and strong was still pending at that checkpoint. See
 [`replica-stress-mixed-completion-v1.json`](replica-stress-mixed-completion-v1.json).
 
@@ -367,9 +375,9 @@ Remote metadata/raw hashes, independent full JSON checks, and the 43-upload
 production log chain passed. Both originals completed, yielding **15,360 saved
 games / 1,280 independent roots**, without recovery. The study consumed nine
 requested hours across two initial jobs; the conditional three-hour recovery is
-unused and will not be repurposed. Both panels remain integrity-pending until
-joint external verification and all 48 fixed replays pass. The combined
-operational record is
+unused and will not be repurposed. Both panels remained integrity-pending at this
+operational checkpoint, pending joint external verification and all 48 fixed
+replays. The combined operational record is
 [`replica-stress-completion-v1.json`](replica-stress-completion-v1.json).
 
 ### External integrity tooling (separate from the frozen worker)
@@ -410,3 +418,47 @@ Offline retained-byte compatibility checks verified all 1,404 source-manifest
 files and all six real cached checkpoints, including complete saved config,
 tensors, class, width and bound. No remote production attestation or actual fixed
 production replay was performed during this development validation.
+
+### Final external audit, statistical review and preservation
+
+Subsequent actual joint verification passed all source/runtime/reference,
+six-decoded-checkpoint, owner, job-budget and chronology checks. The separate final
+process re-verified inputs and completed **24 strong + 24 mixed exact saved-outcome
+comparisons** before issuing either attestation. Only the four preregistered timing
+fields were excluded. Full model fingerprints were unchanged, with zero labels
+or new independent strength observations. All four exclusive durable replay
+intent/result files are retained; no retry or replacement occurred.
+
+Independent standard-library review recalculated all four primaries and all
+114 subgroup sets per panel from the 15,360 saved games, checked the literal
+lineups, and independently compared the 48 existing replays. It found no numerical
+or replay mismatch. Supplementary rational-credit analysis resolved two tiny
+negative floating-point cell means to exact zero without changing any original
+statistic; actual negative cell counts are strong 7/8 and mixed 3/2 for
+replica1/replica2. All adverse data, occupancy sparsity and watchpoints remain.
+
+The four replica-minus-PPO2 means are strong **+0.153177 / +0.149583** and mixed
+**+0.192995 / +0.186849**. Every primary Bonferroni 98.75% normal interval is positive,
+but coverage remains approximate and conditional on the fixed checkpoints and
+schedules. This does not imply every subgroup improves, establish historical
+Germany-reference superiority or human strength, select a replica, or estimate
+training variance. See the [full report](replica-stress-results-v1.md) and
+[untrimmed result record](replica-stress-results-v1.json).
+
+The bounded final archive contains **85 files / 11,933,091 bytes**, with exact
+remote inventory and downloaded content hashes verified at private model revision
+`df4c22f914a5131c7d7bee1a39703e1c8dbf3132`; the
+[publication receipt](replica-stress-audit-v1.json) binds all members. It preserves
+both genuine attestations/replays, full statistics, independent review, source,
+validation and adverse operational evidence. The archive publisher was separately
+reviewed: frozen secret-scanned upload bytes, pre-upload proof-chain binding,
+optimized-Python rejection, one CAS commit and retained intent/receipt were checked.
+Original snapshots keep their own immutable revisions; the canonical paid ledger
+was not moved or copied, and all retained reference/training artifacts remain.
+
+Strength evidence now supports considering a bounded serving prototype. The
+integrated bot is **not controlled-playtest ready or release ready**: export/action
+parity, platform state/legality/deduplication, fallback and target-host performance
+still need validation, followed by supervised human testing and monitored
+rollout/rollback. No new progression/qualification gate or serving/release
+authorization is introduced by these results.

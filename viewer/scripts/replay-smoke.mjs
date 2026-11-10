@@ -1,5 +1,57 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import { createRequire } from 'node:module';
+
+const require = createRequire(import.meta.url);
+const engine = require('../../engine/dist/index.js');
+const wrapper = require('../../engine/dist/wrapper.js');
+
+// Public replay must count unseen cards as well as recorded draws, including
+// plants returned to the bottom before the Step 3 shuffle.
+export async function checkReplayDeckCount(page) {
+    const fixture = JSON.parse(await readFile(new URL('../../engine/src/fixtures/USAOriginal.json', import.meta.url)));
+    for (const to of [200, 400]) {
+        // Fresh document: destroyed Vue roots can remain in the sandbox DOM.
+        await page.reload();
+        const live = wrapper.replay(fixture, { to });
+        const state = JSON.parse(JSON.stringify(engine.stripSecret(live)));
+        // Mount this historical checkpoint as a standalone snapshot, not a
+        // tentative move response (the viewer deliberately ignores those on load).
+        state.newTurn = true;
+        const indices = state.log
+            .map((entry, index) => ({ entry, index }))
+            .filter(({ entry }) => entry.type === 'move')
+            .map(({ index }) => index);
+        await page.evaluate((state) => {
+            window.host = window.powergrid.launch('#app');
+            host.emit('preferences', { sound: false });
+            host.emit('player', {});
+            host.emit('state', state);
+        }, state);
+        const expectCount = async (count) => {
+            await page.waitForFunction(
+                (count) => document.querySelector('.game')?.__vue__?.G?.cardsLeft === count,
+                count
+            );
+            if (count > 0) {
+                await page.waitForFunction(
+                    (count) => document.querySelector('[data-deck-count]')?.textContent.trim() === String(count),
+                    count
+                );
+            } else assert.equal(await page.locator('[data-deck-count]').count(), 0);
+        };
+        await expectCount(live.cardsLeft);
+        await page.evaluate(() => host.emit('replay:start'));
+        for (const position of [indices.length, indices.length - 1, 1, indices.length - 1, indices.length]) {
+            const expected = wrapper.replay(live, { to: indices[position - 1] + 1 }).cardsLeft;
+            await page.evaluate((position) => host.emit('replay:to', position), position);
+            await expectCount(expected);
+        }
+        console.log(
+            `Replay deck count: round ${live.round}, step ${live.step}, ${live.cardsLeft} cards; latest/back/start/repeated seeks passed`
+        );
+    }
+}
 
 // Public spectator snapshot of MHABKH0215, with player names anonymized.
 // Move 331 draws the Step 3 card during Middle East's Step 1 -> Step 2 transition.

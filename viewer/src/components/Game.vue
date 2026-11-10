@@ -1108,10 +1108,9 @@ let nextGeographyClipId = 0;
             const log = this._futureState!.log.map((l, i) => ({ index: i, ...l })).filter((l) => l.type == 'move');
             to = log[to - 1].index;
 
-            // Middle East reshuffles at Step 2: replay the recorded draws so the
-            // Step 3 card cannot be drawn repeatedly from a reconstructed deck.
-            const recordedDraws = this._futureState!.map.name === 'Middle East';
-            this.replaceState(reconstructState(this._futureState!, to + 1, recordedDraws), false);
+            // Public reconstruction uses recorded draws for card identities while
+            // tracking the full physical deck separately, including bottomed cards.
+            this.replaceState(reconstructState(this._futureState!, to + 1), false);
 
             this.emitter.emit('replay:info', {
                 start: 1,

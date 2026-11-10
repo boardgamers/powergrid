@@ -1,5 +1,5 @@
 import { checkHostPresentation } from './host-presentation-smoke.mjs';
-import { checkMiddleEastReplay } from './replay-smoke.mjs';
+import { checkMiddleEastReplay, checkReplayDeckCount } from './replay-smoke.mjs';
 import { checkUndoMove } from './undo-smoke.mjs';
 import { checkPlayerColors } from './player-colors-smoke.mjs';
 import assert from 'node:assert/strict';
@@ -431,6 +431,7 @@ try {
         assert.deepEqual(await page.evaluate(() => preferenceUpdates), [{ name: 'colorBlind', value: false }]);
         await checkPlayerColors(page, engine);
         await checkHostPresentation(page, 'host', `/tmp/powergrid-board-thumbnail-${width}.png`);
+        await checkReplayDeckCount(page);
         if (width === 1400) await checkMiddleEastReplay(page);
         await checkUndoMove(page);
         assert.deepEqual(errors, []);

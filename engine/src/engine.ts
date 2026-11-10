@@ -2262,11 +2262,13 @@ export function scores(G: GameState): number[] {
 // queue never enters a saved state or a scenario snapshot.
 const publicReplayDraws = new WeakMap<GameState, PowerPlant[]>();
 
-export function reconstructState(gameState: GameState, to?: number, forcePublicDraws = false): GameState {
+// The third argument is retained for callers that previously opted into public
+// draws. All secret-seed reconstructions now use that path.
+export function reconstructState(gameState: GameState, to?: number, _forcePublicDraws = false): GameState {
     const initialState = getBaseState(gameState);
     const G = cloneDeep(initialState);
 
-    if (to != undefined && gameState.seed == 'secret') {
+    if (gameState.seed == 'secret') {
         if (gameState.knownPowerPlantDeck) {
             G.map = gameState.map;
             G.blockedCities = gameState.blockedCities?.slice();
@@ -2276,40 +2278,44 @@ export function reconstructState(gameState: GameState, to?: number, forcePublicD
             // by the same setupDeck, so its market sizes are authoritative even
             // though the (seeded) contents are not. knownPowerPlantDeck is
             // actual-then-future at game start with the draws appended, so the
-            // first actualN+futureN entries seed the market and the rest the deck.
+            // first actualN+futureN entries seed the market; the rest are draws.
             const actualN = initialState.actualMarket.length;
             const futureN = initialState.futureMarket.length;
             G.actualMarket = G.powerPlantsDeck.splice(0, actualN);
             G.futureMarket = G.powerPlantsDeck.splice(0, futureN);
             G.players[G.currentPlayers[0]].availableMoves = availableMoves(G, G.players[G.currentPlayers[0]]);
-            // cloneDeep: addPowerPlant() replaces powerPlantsDeck with this array and
-            // shift()s draws off it — sharing the caller's array would consume
-            // knownPowerPlantDeckStep3 across successive replays (each replayTo
-            // must see the full deck).
-            G.powerPlantDeckAfterStep3 = cloneDeep(gameState.knownPowerPlantDeckStep3);
             G.knownPowerPlantDeck = G.actualMarket.concat(G.futureMarket);
-            if (forcePublicDraws) {
-                publicReplayDraws.set(
-                    G,
+            // Observations are a draw transcript, not a physical deck: they omit
+            // unseen cards and include cards drawn again after being bottomed.
+            // Keep setup's physical deck for its size and normal lifecycle (bottoming,
+            // Step 3 shuffles, Manhattan recycling, Spain's held-back plants), but
+            // take card identities from the transcript. Never replace the physical
+            // deck with the Step 3 transcript, which may still be only a prefix.
+            publicReplayDraws.set(
+                G,
+                cloneDeep(
                     gameState.knownPowerPlantDeck
                         .slice(actualN + futureN)
                         .concat(gameState.knownPowerPlantDeckStep3 || [])
-                );
-                G.powerPlantsDeck = cloneDeep(initialState.powerPlantsDeck);
-                G.powerPlantDeckAfterStep3 = undefined;
-                if (G.map.name === 'Middle East') {
-                    G.powerPlantsDeck = defaultSetupDeck(
-                        G.players.length,
-                        G.options.variant!,
-                        seedrandom('public-replay'),
-                        G.options.useNewRechargedSetup ?? true,
-                        gameDeck(G.options),
-                        G.map.name
-                    ).powerPlantsDeck;
-                    removePlantsForMiddleEastStep1(G);
-                    G.players[G.currentPlayers[0]].availableMoves = availableMoves(G, G.players[G.currentPlayers[0]]);
-                }
+                )
+            );
+            G.powerPlantsDeck = cloneDeep(initialState.powerPlantsDeck);
+            G.powerPlantDeckAfterStep3 = undefined;
+            if (G.map.name === 'Middle East') {
+                // Setup already filtered its randomly seeded market. Repeat that
+                // filtering from the recorded initial market and an unfiltered deck.
+                G.powerPlantsDeck = defaultSetupDeck(
+                    G.players.length,
+                    G.options.variant!,
+                    seedrandom('public-replay'),
+                    G.options.useNewRechargedSetup ?? true,
+                    gameDeck(G.options),
+                    G.map.name
+                ).powerPlantsDeck;
+                removePlantsForMiddleEastStep1(G);
+                G.players[G.currentPlayers[0]].availableMoves = availableMoves(G, G.players[G.currentPlayers[0]]);
             }
+            G.cardsLeft = G.powerPlantsDeck.length;
         }
     }
 

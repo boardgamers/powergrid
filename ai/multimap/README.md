@@ -1081,6 +1081,33 @@ recovery is unused.** Completion notifications are attached to both jobs. Neithe
 panel's strength results are released before the joint integrity/statistical
 checks and all 48 preregistered exact replays pass.
 
+The separate [`audit_replica_stress_integrity_v1.py`](audit_replica_stress_integrity_v1.py)
+verifier requires both immutable panels and the **original canonical paid-job
+ledger**. It authenticates retained source/runtime/reference bytes, decodes all six
+checkpoints (including PPO0's historical saved configuration), and checks actual
+job settings, chronology, ownership, recovery authority and inherited raw bytes.
+Payload fetches and games require separate explicit permissions. A verify-only
+report is not authority to issue an integrity receipt.
+
+Replay authority is held privately in a live verified session; public model views
+contain metadata, not live policies. Tensors, modes, gradient flags, policy class,
+width and residual bound are checked. Before each fixed 24-game panel replay,
+exclusive, fsynced evidence consumes its study-wide slot under
+`ai/runs/multimap-replica-stress-20261109-v1-integrity-attempts-v1`. That directory
+must be retained. Changing report directories or processes cannot retry a failed,
+unknown or previously completed replay; saved JSON cannot resume that authority.
+Neither external receipt is released until both fixed replay sets pass.
+
+The final auditor implementation passed the **790-test full Python suite** and
+independent focused review. After a final test-only portability correction, all
+**117 component tests passed again in an isolated public-source tree with no
+private ledger, retained checkpoints or network access**. Offline checks also
+verified the 1,404 packaged source files and all six actual retained checkpoints,
+including their full saved configurations and serving attributes. These are
+engineering checks, not remote production authentication or replay evidence.
+[`replica-stress-integrity-tool-v1.json`](replica-stress-integrity-tool-v1.json)
+records the exact source/test hashes, test revisions, review scope and limitations.
+
 **Readiness now: promising research, not a production-integrated bot.** I will
 explicitly reassess after the study. Approaching controlled human playtesting
 requires credible stress results **and** a validated serving adapter, platform

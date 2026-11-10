@@ -349,3 +349,42 @@ initial pair. **Nine requested hours are committed; the single shared three-hour
 recovery is unsubmitted and remains conditional.** Both completion watchers are
 attached. No production strength inference has been released. The completed
 training replicas and their evidence remain unchanged.
+
+### External integrity tooling (separate from the frozen worker)
+
+`audit_replica_stress_integrity_v1.py` provides explicitly gated bounded payload
+fetching, joint verification without games, the 48 literal production replays,
+and joint receipt finalization. The original paid-job ledger is fixed at
+`ai/runs/multimap-replica-stress-20261109-v1`; an alternate or copied ledger cannot
+replace its unknown-attempt accounting. All source/runtime/model/job/recovery
+checks remain required. The posthoc control-plane decoder is executed from
+privately authenticated bytes, not a preloaded module namespace.
+
+Verification issues only a live, closure-owned authority. Public session fields
+are checked detached views, and public model descriptors do not expose live
+policies. Actual model fingerprints cover tensors, all submodule modes and grad
+flags, roles, class, width and residual bound. Constructed/copied sessions or saved
+verification JSON cannot authorize replays or final receipts.
+
+Each replay panel consumes one exclusive, fsynced intent in the fixed protected
+`ai/runs/multimap-replica-stress-20261109-v1-integrity-attempts-v1` directory before
+collection. It binds both snapshots, source, tasks, models, common budget evidence
+and output. Success/failure evidence is retained there independently of the chosen
+report directory. A failed, interrupted or unknown attempt cannot be retried by
+changing directories or processes. Even a successful partial replay cannot be
+resumed in a fresh process; this conservative restriction must not be bypassed by
+removing its evidence. Both 24-game comparisons must succeed before either
+external attestation is written. No integrity-tool test or offline compatibility
+probe is itself production replay evidence or an independent strength observation.
+
+The final implementation passed **790 full-suite Python tests** and independent
+focused review. The last review's remaining test-only retained-file dependency was
+removed; all **117 final component tests then passed in an isolated public-source
+copy with no private artifacts or network**. The full suite ran the final auditor
+with the immediately preceding test revision; the final test-only change and its
+portable rerun are recorded explicitly in
+[`replica-stress-integrity-tool-v1.json`](replica-stress-integrity-tool-v1.json).
+Offline retained-byte compatibility checks verified all 1,404 source-manifest
+files and all six real cached checkpoints, including complete saved config,
+tensors, class, width and bound. No remote production attestation or actual fixed
+production replay was performed during this development validation.

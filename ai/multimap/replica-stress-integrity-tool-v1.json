@@ -1,0 +1,67 @@
+{
+    "externalIntegrityReceiptsIssued": false,
+    "finalTestOnlyPortabilityFix": "After the full-suite start and final focused review, the metadata-before-payload test was changed to supply three temporary placeholders rather than depend on retained expert files. All 117 final component tests were rerun in a temporary public-source-only tree with no ai/runs or private artifacts.",
+    "frozen13FilesAndPreflightUnchanged": true,
+    "fullSuiteTestRevisionSha256": "099a23f16a1f7b281745a5d4ac05b999f65e55833c66072a94e5b027d483e4a6",
+    "group": "multimap-replica-stress-20261109-v1",
+    "independentReview": {
+        "finalAuditorSha256": "26ab516f70f8302d4dc6d8886363ec97cc45ae7de56c66e5e3020ba81536d654",
+        "finalFinding": "Test-only retained-checkpoint existence dependency; fixed with temporary placeholders and portable rerun.",
+        "independentlyPassed": 117,
+        "remainingProductionBlockers": 0,
+        "scope": "Ordinary API session mutation/copy, canonical paid-ledger accounting, durable cross-output replay lockout, authenticated decoder and frozen serving configuration; not arbitrary hostile interpreter modification."
+    },
+    "note": "Commit and push these exact tool bytes before actual final verification or games. Both complete panels and all 48 fixed replay comparisons remain required. Keep the canonical paid ledger and the separate fixed durable replay-attempt directory; no copied-ledger or new-output retry/resume.",
+    "offlineRetainedByteCompatibility": {
+        "actualCachedCheckpoints": 6,
+        "completeSavedConfigsAndTensorsAndRootConfiguration": true,
+        "externalAttestation": false,
+        "games": 0,
+        "remoteMetadataAuthenticated": false,
+        "sourceManifestFiles": 1404
+    },
+    "paidJobHoursCommittedAtInitialPair": 9,
+    "portableCheck": {
+        "networkAllowed": false,
+        "privateArtifactsPresent": false,
+        "privateLedgerPresent": false,
+        "productionReplayAuthorityCreated": false
+    },
+    "productionReplayAttempts": 0,
+    "productionRuntimeGit": "7bab96167ee32d691b2ccc450c50162283b0a473",
+    "qualificationEligible": false,
+    "qualified": false,
+    "resolvedFindings": [
+        "caller-constructed proof authority",
+        "parent-traversal output aliases",
+        "output-local replay lockout",
+        "preloaded decoder replacement",
+        "copied paid ledger omitting unknown attempts",
+        "mutable exposed live serving models",
+        "shared discovery import-state assumptions",
+        "private artifact dependencies in offline tests"
+    ],
+    "schema": "multimap-replica-stress-integrity-tool-development-v1",
+    "servingIntegrationAuthorized": false,
+    "sharedConditionalRecoverySubmitted": false,
+    "sourceFiles": {
+        "audit_replica_stress_integrity_v1.py": "26ab516f70f8302d4dc6d8886363ec97cc45ae7de56c66e5e3020ba81536d654",
+        "test_audit_replica_stress_integrity_v1.py": "544113da0fb73d8cf57264222acaff79bf3844ddf6c96f50e8ab2204b64d0abf"
+    },
+    "sourceGitParent": "0f9848da243157fc3139b284a8e449c3df8b9b9a",
+    "strengthStatisticsReleased": false,
+    "threeImmutablePublicRecordsUnchanged": true,
+    "validation": {
+        "full": {
+            "logSha256": "63343dddd9a1641e23c3ba558c60c434908ddaa62b5b5e494c4e966b1486c50f",
+            "passed": 790,
+            "seconds": 535.193
+        },
+        "portableComponent": {
+            "logSha256": "6d874f3e81a4f3373ac72cd67ec14c140d0fd9c8096299f6f1ccf91b596f88b3",
+            "passed": 117,
+            "seconds": 88.834
+        }
+    },
+    "validationScope": "Engineering validation of posthoc tooling, not production study integrity or strength evidence."
+}

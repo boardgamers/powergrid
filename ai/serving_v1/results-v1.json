@@ -1,0 +1,325 @@
+{
+    "schema": "pg-replica-serving-results-v1",
+    "status": "locally-validated-node-only-prototype",
+    "baseGit": "b5f55e7b41807b61facb2968092efdd3ea7ecf81",
+    "sourceFiles": {
+        "ai/serving_v1/README.md": "784ba911c9ce6b9b1e89f894e8830868ddf7c673783530e63175692aba81a3a7",
+        "ai/serving_v1/adapter.cjs": "083945cae7245d7b27e09e89c4903482b72aa25b3a282f34a09ddb92e3ca4acf",
+        "ai/serving_v1/check.cjs": "7652ba3003dc228d4f32adf933f70469ce264bd3740e53c66a5f912a2e6d9c4a",
+        "ai/serving_v1/deadline.cjs": "12c7b8d341277fadb917569144c06a3243d65184ae846135818adfe2758b1bb9",
+        "ai/serving_v1/export_onnx.py": "d734a150e98caa20c31685a290714edb7d319b1f2dcf51bea397b09144235637",
+        "ai/serving_v1/fixtures.cjs": "6adbe0691f32ad6ead28d3d895611d55b7461b04853f4e7fbab56846bd0bdb86",
+        "ai/serving_v1/identity.cjs": "417bebe271f6fe01773962497513466e6125dea17e382bc3c86fd8bb79ebc15d",
+        "ai/serving_v1/manifest.json": "8197fb7e35ed25a924d75e99eafcc140827b46ab441341bb14cd398c832b9f93",
+        "ai/serving_v1/onnx.cjs": "da46363fe00079cf9b24e3f361c139937d3c50683bd0c12c3769db6fded4d804",
+        "ai/serving_v1/onnx_worker.cjs": "3185ded30aa80c5eee4d41034ba586adffe8e09eb0e43f0e575ea4ed533af8fa",
+        "ai/serving_v1/package.json": "d3e3f4104b9e8f3bc50a061d012034cb220975a65ec3c0a5e36de884fdbfcef7",
+        "ai/serving_v1/pnpm-lock.yaml": "9507742a6e2dd4d72e2105068b3c4bafd61136dc9c15e13abc22474b95ecf094",
+        "ai/serving_v1/requirements-export.txt": "1dfc25f690c3f722ea3b7b6119b5e3ed6a20b44c226a256f28b3a41b0bf43130",
+        "ai/serving_v1/test_adapter.cjs": "ee54223a6d1c6d4618ca2b3477e25bb5b58c6664d563a32528e63b92e093505c",
+        "ai/serving_v1/test_deadline.cjs": "65cb5721bc4c4270d3838c2b3dd2fb3de5aece4bed1f4af4e0944404085443e0",
+        "ai/serving_v1/test_export.py": "9d304d40086765a41098c3d06ba6ac7fdeda44e837826d209c721bcb4dced578",
+        "ai/serving_v1/test_onnx.cjs": "cb01790f8f75b6afbcfd4817e88a8cfbb188de2797e41e5ffcfa31aa7b846fd4",
+        "ai/serving_v1/test_worker.py": "9fa7453bbac5f63326ff4ac42efd95d2d8dbc80dd928fb2b887a53feb10cf078",
+        "ai/serving_v1/worker.py": "3e606a271ee130eb3504b4f623ca25a3b991bd5d8295fc01dba2141c5b58ed07"
+    },
+    "export": {
+        "schema": "pg-replica-onnx-export-v1",
+        "sourceManifestSha256": "8197fb7e35ed25a924d75e99eafcc140827b46ab441341bb14cd398c832b9f93",
+        "replicas": {
+            "replica1": {
+                "file": "replica1.onnx",
+                "sha256": "53db9aa38c0797f2aa54f3e466f040958f270361b89076e8f6bcc12c80cf40aa",
+                "bytes": 621002,
+                "checkpointSha256": "7918c5ceec29ee181721eaaa3a38f63fd94cf0248c34d192e0b3f65960c729e5"
+            },
+            "replica2": {
+                "file": "replica2.onnx",
+                "sha256": "0e88c054cb500c36f314fb1fcd5920a955d48917e22a9dba91d06a719b3ba7e9",
+                "bytes": 621002,
+                "checkpointSha256": "89d03f5b23fd6d088e175d32ff9c90ff88bd947f7e8b17d508b1b2f641a037fa"
+            }
+        },
+        "runtimes": {
+            "python": "3.12.8",
+            "torch": "2.10.0+cpu",
+            "numpy": "2.2.6"
+        },
+        "exporter": {
+            "name": "torch.onnx.export",
+            "torch": "2.10.0+cpu",
+            "onnx": "1.17.0",
+            "protobuf": "5.29.5",
+            "dynamo": false,
+            "opset": 17,
+            "externalData": false,
+            "dtype": "float32",
+            "mode": "eval"
+        }
+    },
+    "finalCheck": {
+        "schema": "pg-node-serving-check-v1",
+        "namespace": "pg-serving-prototype-v1",
+        "strengthEvaluation": false,
+        "weightsChanged": false,
+        "productionPython": false,
+        "bgsDeployed": false,
+        "targetHostValidated": false,
+        "sourceManifestSha256": "8197fb7e35ed25a924d75e99eafcc140827b46ab441341bb14cd398c832b9f93",
+        "exportManifestSha256": "8dac4ba18002a38868920875f0201f54200ac1ae062c51da3d615b189ffad543",
+        "referenceSha256": "ff1b90feb8eb41b0b76a5c8a0d159df04c044a211dbba4bb8353a526d70220ec",
+        "fixturesInputSha256": "8295e8f96cfd3e943d57c0788fafe9e7fce7c521ce5045054ed61a75d724b8e4",
+        "observationSha256": "1a4f11a0e946b9e1f4e0afa4fc727e34ddffd59ac5ac22a9506f5495e2d89e58",
+        "tolerance": {
+            "absolute": 2e-5,
+            "relative": 1e-6,
+            "selectedIndex": "exact"
+        },
+        "runtimes": {
+            "node": "v24.20.0",
+            "ort": "1.31.1",
+            "platform": "linux",
+            "arch": "x64"
+        },
+        "scope": {
+            "maps": ["Germany", "USA", "France", "UK & Ireland"],
+            "players": [2, 3, 4, 5, 6],
+            "variants": ["original", "recharged"],
+            "fastBid": [false, true],
+            "independentStrengthObservations": 0,
+            "fixtures": 96,
+            "tensorFixtures": 80,
+            "normallyLearnedTensorFixtures": 48
+        },
+        "replicas": {
+            "replica1": {
+                "checkpointSha256": "7918c5ceec29ee181721eaaa3a38f63fd94cf0248c34d192e0b3f65960c729e5",
+                "tensorComparisons": 80,
+                "exactIndices": 80,
+                "maxLogitError": 9.298324584960938e-6,
+                "maxValueError": 2.682209014892578e-7,
+                "coldStartMs": 89.85935400000005,
+                "roundTripMs": {
+                    "n": 80,
+                    "p50": 2.463318000000015,
+                    "p95": 3.6567609999999604,
+                    "max": 4.1233270000000175
+                },
+                "committedTurnMs": {
+                    "n": 96,
+                    "p50": 3.040572999999995,
+                    "p95": 10.54331100000013,
+                    "max": 12.984909000000016
+                },
+                "turnsValidated": 96,
+                "actionsValidated": 198,
+                "learnedRequests": 84,
+                "fallbacks": 0,
+                "indexDigest": "caaf9b947bb13e54ac96e590f4b1a3d5862f6a1d2e86c4b92100f77964af0b48",
+                "memory": {
+                    "beforeWorkerRssBytes": 166932480,
+                    "afterWorkerReadyRssBytes": 214564864,
+                    "checkProcessRssBytes": 256245760,
+                    "processMaxRssKiB": 250240
+                }
+            },
+            "replica2": {
+                "checkpointSha256": "89d03f5b23fd6d088e175d32ff9c90ff88bd947f7e8b17d508b1b2f641a037fa",
+                "tensorComparisons": 80,
+                "exactIndices": 80,
+                "maxLogitError": 1.0251998901367188e-5,
+                "maxValueError": 2.980232238769531e-7,
+                "coldStartMs": 46.916906000000154,
+                "roundTripMs": {
+                    "n": 80,
+                    "p50": 2.0205470000000787,
+                    "p95": 3.111686999999847,
+                    "max": 4.0698979999999665
+                },
+                "committedTurnMs": {
+                    "n": 96,
+                    "p50": 3.337180999999873,
+                    "p95": 11.134852000000137,
+                    "max": 15.161869000000024
+                },
+                "turnsValidated": 96,
+                "actionsValidated": 201,
+                "learnedRequests": 85,
+                "fallbacks": 0,
+                "indexDigest": "40114a4bb5214545f997250d372db2734ff29734add74d34f1c0ddc6af85479d",
+                "memory": {
+                    "beforeWorkerRssBytes": 256245760,
+                    "afterWorkerReadyRssBytes": 255672320,
+                    "checkProcessRssBytes": 260194304,
+                    "processMaxRssKiB": 254096
+                }
+            }
+        }
+    },
+    "developmentCheck": {
+        "schema": "pg-node-serving-check-v1",
+        "namespace": "pg-serving-prototype-v1",
+        "strengthEvaluation": false,
+        "weightsChanged": false,
+        "productionPython": false,
+        "bgsDeployed": false,
+        "targetHostValidated": false,
+        "sourceManifestSha256": "8a082c1ce438ea0100f7b3aeb6d78ee7bfdb6f920e2bef1f80d3351be1005f18",
+        "exportManifestSha256": "666a08403eb63d23bf67fcda04d592e0c49a68173372c1e08bd8bc6593e17ecc",
+        "referenceSha256": "9906784522900c0b187aadc54479d4e63ed0f7f8d5dda70b9c6e1a1cfc266421",
+        "observationSha256": "1a4f11a0e946b9e1f4e0afa4fc727e34ddffd59ac5ac22a9506f5495e2d89e58",
+        "tolerance": {
+            "absolute": 2e-5,
+            "relative": 1e-6,
+            "selectedIndex": "exact"
+        },
+        "runtimes": {
+            "node": "v24.20.0",
+            "ort": "1.31.1",
+            "platform": "linux",
+            "arch": "x64"
+        },
+        "scope": {
+            "maps": ["Germany", "USA", "France", "UK & Ireland"],
+            "players": [2, 3, 4, 5, 6],
+            "variants": ["original", "recharged"],
+            "fastBid": [false, true],
+            "independentStrengthObservations": 0,
+            "fixtures": 96,
+            "tensorFixtures": 80,
+            "normallyLearnedTensorFixtures": 48
+        },
+        "replicas": {
+            "replica1": {
+                "checkpointSha256": "7918c5ceec29ee181721eaaa3a38f63fd94cf0248c34d192e0b3f65960c729e5",
+                "tensorComparisons": 80,
+                "exactIndices": 80,
+                "maxLogitError": 9.298324584960938e-6,
+                "maxValueError": 2.682209014892578e-7,
+                "coldStartMs": 120.103928,
+                "roundTripMs": {
+                    "n": 80,
+                    "p50": 6.222037,
+                    "p95": 14.476392000000033,
+                    "max": 21.138234999999895
+                },
+                "committedTurnMs": {
+                    "n": 96,
+                    "p50": 10.690421000000242,
+                    "p95": 54.750340999999935,
+                    "max": 82.88323500000024
+                },
+                "turnsValidated": 96,
+                "actionsValidated": 198,
+                "learnedRequests": 84,
+                "fallbacks": 0,
+                "indexDigest": "caaf9b947bb13e54ac96e590f4b1a3d5862f6a1d2e86c4b92100f77964af0b48",
+                "memory": {
+                    "beforeWorkerRssBytes": 135753728,
+                    "afterWorkerReadyRssBytes": 188993536,
+                    "checkProcessRssBytes": 245694464,
+                    "processMaxRssKiB": 239936
+                }
+            },
+            "replica2": {
+                "checkpointSha256": "89d03f5b23fd6d088e175d32ff9c90ff88bd947f7e8b17d508b1b2f641a037fa",
+                "tensorComparisons": 80,
+                "exactIndices": 80,
+                "maxLogitError": 1.0251998901367188e-5,
+                "maxValueError": 2.980232238769531e-7,
+                "coldStartMs": 114.87209099999973,
+                "roundTripMs": {
+                    "n": 80,
+                    "p50": 6.806415000000015,
+                    "p95": 18.828717000000324,
+                    "max": 31.53985299999931
+                },
+                "committedTurnMs": {
+                    "n": 96,
+                    "p50": 6.048550999999861,
+                    "p95": 30.545515000000705,
+                    "max": 56.25764200000049
+                },
+                "turnsValidated": 96,
+                "actionsValidated": 201,
+                "learnedRequests": 85,
+                "fallbacks": 0,
+                "indexDigest": "40114a4bb5214545f997250d372db2734ff29734add74d34f1c0ddc6af85479d",
+                "memory": {
+                    "beforeWorkerRssBytes": 245694464,
+                    "afterWorkerReadyRssBytes": 245571584,
+                    "checkProcessRssBytes": 259727360,
+                    "processMaxRssKiB": 253640
+                }
+            }
+        }
+    },
+    "actualEvidenceFiles": {
+        "ai/runs/serving-prototype-v1/check-final.json": "5b9c929a1a025e8a8bb6081315f6269aab6075cff8ec341887dfd90c9e354911",
+        "ai/runs/serving-prototype-v1/check-development.json": "00e72bea5c5812634d0e148a1aabe301ee9bb0899b3224392326013f9e0248c7",
+        "ai/runs/serving-prototype-v1/fixtures-final.json": "8295e8f96cfd3e943d57c0788fafe9e7fce7c521ce5045054ed61a75d724b8e4",
+        "ai/runs/serving-prototype-v1/reference-final.json": "ff1b90feb8eb41b0b76a5c8a0d159df04c044a211dbba4bb8353a526d70220ec",
+        "ai/runs/serving-prototype-v1/onnx-final/export-manifest.json": "8dac4ba18002a38868920875f0201f54200ac1ae062c51da3d615b189ffad543"
+    },
+    "validationLogs": {
+        "ai/runs/serving-prototype-v1/validation/node-final.log": "0068f55645aed0817938d1c7dd64c713576c957f534e7ae341333c216fde34d3",
+        "ai/runs/serving-prototype-v1/validation/python-final.log": "d9603f93e3612d3178c1da142a81e68fd2cef3328844dbef639562775c872acf",
+        "ai/runs/serving-prototype-v1/validation/engine-final.log": "167fb7426c8e24e816a0cf01f84cb06674063121e33fcee530b6f9c8bf30bb9c",
+        "ai/runs/serving-prototype-v1/validation/portable-final.log": "3c368bbbec1cd892bb978b8108e9b29f67066e132fc5afae71618ec2da7edcef",
+        "ai/runs/serving-prototype-v1/validation/export-final.log": "e452ec69db554d615445ccc06d35a67370e9f4eb192c08482d2271d6a44d9980",
+        "ai/runs/serving-prototype-v1/validation/check-final.log": "626715a6a9881dcfb8df98f7d96f0ab44bd3b0f0b32046953432792430171353",
+        "ai/runs/serving-prototype-v1/validation/development-adapter-failure.log": "72d41654fbbdce97c62ec7b8db0f4b59c9bea469e0917519565f4261387575a0"
+    },
+    "tests": {
+        "nodePassed": 51,
+        "pythonPassed": 45,
+        "enginePassed": 366,
+        "pythonWithoutTorchPassed": 27,
+        "pythonWithoutTorchSkipped": 18
+    },
+    "checkpointFilesUnchanged": {
+        "ai/runs/multimap-expert-replicas-20261109-v1-continuation-r1/audit/restored/expert/best.pt": "7918c5ceec29ee181721eaaa3a38f63fd94cf0248c34d192e0b3f65960c729e5",
+        "ai/runs/multimap-expert-replicas-20261109-v1-continuation-r2/audit/restored/expert/best.pt": "89d03f5b23fd6d088e175d32ff9c90ff88bd947f7e8b17d508b1b2f641a037fa"
+    },
+    "protectedStudyReplayFilesUnchanged": {
+        "ai/runs/multimap-replica-stress-20261109-v1-integrity-attempts-v1/mixed.intent.json": "c80a06cf94c887148478653fdc60f03b9804c7d270456c9fe4efc3137e77d0b1",
+        "ai/runs/multimap-replica-stress-20261109-v1-integrity-attempts-v1/mixed.result.json": "6bac1b74dcffc5884bfd4149f411bc49901c2da77309e493c070c44a001ab658",
+        "ai/runs/multimap-replica-stress-20261109-v1-integrity-attempts-v1/strong.intent.json": "87f461c1bf5e9328bba4c084b9a2ea551ecf06cbc9b863a7444352e80ce0adf0",
+        "ai/runs/multimap-replica-stress-20261109-v1-integrity-attempts-v1/strong.result.json": "272c6d373c97eeca59cb38307b46e9edf8beb6cf6b57660a3cacc3f69af45b59"
+    },
+    "independentReviews": {
+        "worker": "Passed after checked-hash-bytecode flag correction",
+        "adapter": "Passed after containing synchronous and asynchronous timeout cleanup errors",
+        "export": "Fresh CLI and artifact checks passed; programmatic fixture validation and original-model fingerprints added",
+        "nodeBackend": "Passed; fractional-timer early expiry corrected with monotonic deadline rescheduling",
+        "finalFocusedReview": "All previous findings closed; no new concrete blocker"
+    },
+    "adverseDevelopmentEvidence": [
+        "Initial adapter test failed because a deferred fake transport resolved only one atomic request of a multi-action nomination turn. The fixture now resolves subsequent requests and verifies no duplicate inference/commit; failed log retained.",
+        "Initial clone rejected France map.setupDeck, an engine-only function omitted by the platform JSON boundary. Object helpers are now normalized identically; nonfinite numbers and non-JSON array entries remain rejected.",
+        "A bounded serialization investigation traversed fresh teacher-only engineering games; no winner statistics, training labels or independent strength observations were collected or pooled.",
+        "Checked-hash Python cache validation under --check-hash-based-pycs never was incomplete; authentication and a regression now cover that flag.",
+        "Timeout cleanup could throw or return a rejected promise; deadline settlement now precedes contained best-effort cleanup, with regressions.",
+        "Node timer truncation could expire a fractional deadline early; both transport and adapter now check the monotonic deadline and reschedule early wakes.",
+        "Offline helper callers could mutate loaded weights before export or provide unvalidated fixture rows; original model fingerprints and direct fixture validation now reject these cases.",
+        "Development and final latency observations differ under different host load/cache conditions. Neither is a target-host performance qualification."
+    ],
+    "limitations": [
+        "No production Python execution. Python is offline export/reference tooling only.",
+        "No manual tuning, training, quantization, model reselection, ensemble, winner selection, default-bot replacement, BGS publication or new paid jobs.",
+        "No frozen study replay was rerun. The four durable authority files and checkpoints were checked unchanged.",
+        "Finite fixture score tolerance plus exact greedy action agreement is not universal bitwise equivalence; unseen near-ties remain possible.",
+        "Local Node host memory/timing measurements are not BGS 512 MiB/1 CPU/concurrency/cold-import acceptance tests.",
+        "MemoryHost is single-process in-memory CAS/dedup. It is not durable persistence or platform exactly-once processing.",
+        "This worktree-based runtime still needs production packaging, actual platform moveAI integration, private human testing, monitoring and rollback.",
+        "Model artifacts and detailed local logs remain in ignored ai/runs; no private weights were published to Git or uploaded in this task."
+    ],
+    "readiness": {
+        "nodeOnlyLocalServing": true,
+        "controlledBgsPlaytestReady": false,
+        "releaseReady": false,
+        "targetHostValidated": false,
+        "humanTested": false,
+        "deployed": false
+    }
+}

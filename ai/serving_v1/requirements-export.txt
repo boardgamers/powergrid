@@ -1,0 +1,27 @@
+# OFFLINE EXPORT ONLY. Production uses Node ONNX inference, not Python.
+# Never pip/uv install into ai/.venv or ai/.venv-reference.
+# These two additions are sufficient for the legacy dynamo=False exporter;
+# onnxscript and onnxruntime are deliberately not required/downloaded.
+# The existing read-only environment supplies Python 3.12.8,
+# torch==2.10.0+cpu and numpy==2.2.6, checked by ReplicaPolicy.
+#
+# From repository root (uv's no-cache also keeps downloads out of frozen envs):
+#   DEPS=$(mktemp -d /tmp/pg-onnx-export-deps.XXXXXX)
+#   uv pip install --python ai/.venv/bin/python --target "$DEPS" \
+#     --no-deps --no-cache -r ai/serving_v1/requirements-export.txt
+#   PYTHONPATH="$DEPS" ai/.venv/bin/python -B -m unittest \
+#     discover -s ai/serving_v1 -p test_export.py -v
+#   PYTHONPATH="$DEPS" ai/.venv/bin/python -B -m ai.serving_v1.export_onnx \
+#     --replica1-checkpoint /explicit/replica1/best.pt \
+#     --replica2-checkpoint /explicit/replica2/best.pt \
+#     --output ai/runs/serving-prototype-v1/onnx
+#
+# --output must be a NEW directory and is never overwritten. Both roles required.
+# --reference-fixtures FILE --reference-output NEW_FILE can be used with or
+# without --output. Reference-only mode needs no ONNX dependencies at all.
+# The fixture JSON contract and result schema are described in export_onnx.py.
+# Both simple [{id, observation}] arrays and the JS public fixture envelope
+# (schema pg-serving-engineering-fixtures-v1, namespace pg-serving-prototype-v1)
+# are accepted. Metadata never enters the model; output retains each fixture id.
+onnx==1.17.0
+protobuf==5.29.5

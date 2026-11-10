@@ -1,0 +1,16 @@
+{
+    "name": "powergrid-private-serving-integration-v1",
+    "version": "0.0.0-test.1",
+    "private": true,
+    "description": "Private Node-only BGS host conformance tooling; never publish this package",
+    "scripts": {
+        "test": "node --test test_*.cjs"
+    },
+    "dependencies": {
+        "delaunator": "4.0.1",
+        "lodash": "4.17.21",
+        "onnxruntime-node": "1.31.1",
+        "seedrandom": "3.0.5"
+    },
+    "packageManager": "pnpm@7.33.7"
+}

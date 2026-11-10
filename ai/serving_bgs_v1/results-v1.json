@@ -1,0 +1,1087 @@
+{
+    "schema": "pg-private-bgs-integration-results-v1",
+    "status": "host-integration-passed-sandbox-qualification-blocked",
+    "baseGit": "cfb5aa9b6af4bbf9715268362263bb649c41d5cd",
+    "branch": "moon/ai-multimap",
+    "sourceFiles": {
+        "ai/serving_bgs_v1/README.md": "b20e2d2fce3fab48d845706d4a25a7ed54704238aa4d85dc6a2868874717f6e3",
+        "ai/serving_bgs_v1/adapter.cjs": "083945cae7245d7b27e09e89c4903482b72aa25b3a282f34a09ddb92e3ca4acf",
+        "ai/serving_bgs_v1/admission.cjs": "8e59704f52c30301985ac602181a212e8c9d574296b0b5cc77bcb39cf1636a96",
+        "ai/serving_bgs_v1/build.cjs": "a0a770341c720ee4feb000d82c19884b8ba5e8af8deb5f67b08d4aa86dc6661f",
+        "ai/serving_bgs_v1/conformance.cjs": "8675fe71830870ee2d30f5edf3bf94a82924251d3572fb5ddf886f04e88a9ffb",
+        "ai/serving_bgs_v1/deadline.cjs": "12c7b8d341277fadb917569144c06a3243d65184ae846135818adfe2758b1bb9",
+        "ai/serving_bgs_v1/entry.template.mjs": "8bebbbc1996f3e858ceffccc302c5d5ceda4a71ddb8a265231f1243eacc35fa0",
+        "ai/serving_bgs_v1/host_client.cjs": "077cf036038b7b123e11f4614750030bf696efde37b8aee4c5f2d904294fdffb",
+        "ai/serving_bgs_v1/identity.cjs": "08ebf72c602deb9028a79a17baf3f005b6b6038916b2d75ca55cde9d3f5147b5",
+        "ai/serving_bgs_v1/launch_admission.py": "ec8ebf911f5dc4d2f6d7b442a17ea74b2883c3c3e6d6687ebde38e1fcd49549f",
+        "ai/serving_bgs_v1/manifest.json": "e520a7d53d6582a3fcaadc9f2d369f0494029020772eb30ea20ac710fe23a659",
+        "ai/serving_bgs_v1/onnx.cjs": "5d209272a2181c96f15badccad6be62c6862dcf1ac082ab09a6fc30715c58e64",
+        "ai/serving_bgs_v1/onnx_worker.cjs": "3185ded30aa80c5eee4d41034ba586adffe8e09eb0e43f0e575ea4ed533af8fa",
+        "ai/serving_bgs_v1/package.json": "a6a9bee83535d42664fbf6adf6687fac2007874b42bdc261fedb6ab0e4b056ed",
+        "ai/serving_bgs_v1/parity.cjs": "602104baf5a63381c63a7265f9d6c0c154b75dc35d669b60e173e9aa91f2cc12",
+        "ai/serving_bgs_v1/playthrough.cjs": "25cd755c59381417ce293186bf1a3177e8aa536436d035656b4c8022b013e5f9",
+        "ai/serving_bgs_v1/pnpm-lock.yaml": "935db921482482cb879d805e295f5c0d2688362fc8b12d0c847afa581e28417d",
+        "ai/serving_bgs_v1/runtime.cjs": "08c0b5195e226818c2efd93dc21743a0108acd91737a4f9ac43cddedb728f1b8",
+        "ai/serving_bgs_v1/test_admission.py": "4816cd5551042a0fabc13abf2cb8867bd29de2f086eaaf964e1c2187d12e57c1",
+        "ai/serving_bgs_v1/test_build.cjs": "b0e278a77feae9ce3871e4b457b24e92e1a2931684117c861951830593235cff",
+        "ai/serving_bgs_v1/test_host_client.cjs": "22508d0e1c6ec5f772a9ba45b511f405a996ec69237fe4dad9509ad1240a8909",
+        "ai/serving_bgs_v1/test_identity.cjs": "ae0d950979ff91d97d58443ec6779c58cfdc0d6094fe62d60231de85d3b0750b",
+        "ai/serving_bgs_v1/test_native_boundary.cjs": "40c12828a723a4be7f6efd94e8f3f4936648778f1d9ba9b186894a8779d768d3",
+        "ai/serving_bgs_v1/test_runtime.cjs": "c78be2eadd562a27721019a17053bf4d95e53bca952081f433ef3290629e2c92"
+    },
+    "hostSource": {
+        "repository": "boardgamers-mono",
+        "commit": "735f8e6804704572e8042b886cf2af3d9753d550",
+        "directory": "apps/game-server/app/engine-host",
+        "sha256": {
+            "host.ts": "c6dcd5486289a9542dbcbaa205902192e47628f8b072bf5242cded94109b7bd7",
+            "host-protocol.ts": "7738c0826b72909a4a2c2511de98730641aa7a5b89d2d76a9f177dbdb871760b",
+            "analysis-adapter.ts": "672d5c29c15c053697355f3249c4d1b1b1a2a35657cd6558a84bde2f2e21a496"
+        },
+        "files": {
+            "host.ts": {
+                "sha256": "c6dcd5486289a9542dbcbaa205902192e47628f8b072bf5242cded94109b7bd7",
+                "bytes": 4678
+            },
+            "host-protocol.ts": {
+                "sha256": "7738c0826b72909a4a2c2511de98730641aa7a5b89d2d76a9f177dbdb871760b",
+                "bytes": 173
+            },
+            "analysis-adapter.ts": {
+                "sha256": "672d5c29c15c053697355f3249c4d1b1b1a2a35657cd6558a84bde2f2e21a496",
+                "bytes": 1254
+            }
+        }
+    },
+    "artifacts": {
+        "replica1": {
+            "build": {
+                "schema": "pg-private-bgs-build-v1",
+                "replica": "replica1",
+                "packageName": "powergrid-private-ai-replica1",
+                "version": "0.0.0-test.1",
+                "entryPoint": "index.mjs",
+                "packageFiles": 1180,
+                "packageBytes": 51992748,
+                "targetImage": "docker.io/library/node:24.22.1-bookworm-slim@sha256:2dd9a4f758e173b65fee15388f7706af6fb01ef50cf7a2c0538711d67a6981ae",
+                "sourceFiles": {
+                    "build.cjs": "a0a770341c720ee4feb000d82c19884b8ba5e8af8deb5f67b08d4aa86dc6661f",
+                    "entry.template.mjs": "8bebbbc1996f3e858ceffccc302c5d5ceda4a71ddb8a265231f1243eacc35fa0"
+                },
+                "runtimeManifestSha256": "afd662db9879ee7ca5fb1a3f29e2eba836352740f2289ed211504bf05c1c2615",
+                "entrySha256": "14638957c7640884ae3195d0d2116bf9be39be0c9939ecf0dd0aed499012daae",
+                "tarball": "powergrid-private-ai-replica1-0.0.0-test.1.tgz",
+                "tarballBytes": 20104203,
+                "tarballSha256": "dd8dab084e1fa81d445cbbfe3e31f591a31aa4c4cbd8096423e1572ff109ed0b",
+                "published": false
+            },
+            "installation": {
+                "npmAlias": "pg-test-r1",
+                "offline": true,
+                "ignoreScripts": true,
+                "emptyCache": true,
+                "exactInventoryVerified": true,
+                "externalResolution": false
+            },
+            "parity": {
+                "schema": "pg-bgs-target-parity-v1",
+                "node": "v24.22.1",
+                "replica": "replica1",
+                "fixtureSha256": "8295e8f96cfd3e943d57c0788fafe9e7fce7c521ce5045054ed61a75d724b8e4",
+                "referenceSha256": "ff1b90feb8eb41b0b76a5c8a0d159df04c044a211dbba4bb8353a526d70220ec",
+                "runtimeManifestSha256": "afd662db9879ee7ca5fb1a3f29e2eba836352740f2289ed211504bf05c1c2615",
+                "observations": 80,
+                "exactIndices": 80,
+                "maxLogitError": 9.298324584960938e-6,
+                "maxValueError": 2.682209014892578e-7,
+                "tolerance": {
+                    "absolute": 2e-5,
+                    "relative": 1e-6
+                },
+                "strengthEvaluation": false
+            },
+            "host": {
+                "packageIdentity": {
+                    "entry": "index.mjs",
+                    "entrySha256": "14638957c7640884ae3195d0d2116bf9be39be0c9939ecf0dd0aed499012daae",
+                    "runtimeManifestSha256": "afd662db9879ee7ca5fb1a3f29e2eba836352740f2289ed211504bf05c1c2615",
+                    "packageJsonSha256": "bfca3779a9ceda6884865fadf83ea7a85b30679459e13c5f3677b907b31601d7"
+                },
+                "runtimes": {
+                    "hostNode": "v24.22.1",
+                    "harnessNode": "v24.22.1",
+                    "platform": "linux",
+                    "arch": "x64"
+                },
+                "isolation": {
+                    "childEnvironmentKeys": 0,
+                    "cwd": "/",
+                    "oldSpaceMiB": 400,
+                    "networkNamespaceEnforced": false,
+                    "readOnlyFilesystemEnforced": false,
+                    "memory512MiBEnforced": false,
+                    "oneCpuQuotaEnforced": false,
+                    "pids64Enforced": false,
+                    "exactProductionSandboxValidated": false
+                },
+                "targeted": {
+                    "committedTurns": 96,
+                    "atomicActions": 195,
+                    "replayJsonExact": 96,
+                    "toSaveExact": 96,
+                    "callerInputsUnchanged": 96,
+                    "wrapperReadParity": 96,
+                    "sealedVisibleLogChecks": 7,
+                    "learnedCalls": 82,
+                    "fixedV2Actions": 113,
+                    "fallbackTurns": 0,
+                    "coldReadyMs": 205.014435,
+                    "coldMoveMs": 90.153075,
+                    "fullTurnMs": {
+                        "n": 96,
+                        "p50": 10.087912000000074,
+                        "p95": 19.021506000000045,
+                        "max": 90.153075
+                    },
+                    "replayEquality": "all JSON values exact, including clocks; object property order immaterial"
+                },
+                "concurrency": {
+                    "bursts": [
+                        {
+                            "width": 2,
+                            "differentGames": 2,
+                            "completedTurns": 2,
+                            "learnedCalls": 4,
+                            "fallbackTurns": 0,
+                            "elapsedMs": 17.419678000000204,
+                            "perCallMs": {
+                                "n": 2,
+                                "p50": 14.299098999999842,
+                                "p95": 17.09498799999983,
+                                "max": 17.09498799999983
+                            },
+                            "decisionParity": true
+                        },
+                        {
+                            "width": 4,
+                            "differentGames": 4,
+                            "completedTurns": 4,
+                            "learnedCalls": 8,
+                            "fallbackTurns": 0,
+                            "elapsedMs": 36.615310000000136,
+                            "perCallMs": {
+                                "n": 4,
+                                "p50": 30.436689000000115,
+                                "p95": 36.05517899999995,
+                                "max": 36.05517899999995
+                            },
+                            "decisionParity": true
+                        },
+                        {
+                            "width": 8,
+                            "differentGames": 8,
+                            "completedTurns": 8,
+                            "learnedCalls": 16,
+                            "fallbackTurns": 0,
+                            "elapsedMs": 75.20377599999983,
+                            "perCallMs": {
+                                "n": 8,
+                                "p50": 62.52935800000023,
+                                "p95": 74.10656700000027,
+                                "max": 74.10656700000027
+                            },
+                            "decisionParity": true
+                        }
+                    ],
+                    "noCrossGameStateContamination": true,
+                    "workerStarts": null,
+                    "workerStartEvidence": "not exposed by aiStatus; singleton separately unit-tested, not measured here",
+                    "completedCallCounterChecked": true
+                },
+                "unsupported": [
+                    {
+                        "scope": "hidden-money",
+                        "map": "Germany",
+                        "showMoney": false,
+                        "fallbackTurns": 1,
+                        "learnedCalls": 0,
+                        "heuristicActions": 2,
+                        "committed": true,
+                        "replayExact": true,
+                        "elapsedMs": 5.978355000000192
+                    },
+                    {
+                        "scope": "outside-map",
+                        "map": "Italy",
+                        "showMoney": true,
+                        "fallbackTurns": 1,
+                        "learnedCalls": 0,
+                        "heuristicActions": 2,
+                        "committed": true,
+                        "replayExact": true,
+                        "elapsedMs": 5.4550130000002355
+                    }
+                ],
+                "restart": {
+                    "newHostProcess": true,
+                    "coldReadyMs": 197.10908100000006,
+                    "coldMoveMs": 121.383014,
+                    "learnedCalls": 2,
+                    "fallbackTurns": 0,
+                    "replayExact": true,
+                    "decisionParity": true,
+                    "comparison": "move player/name/data sequence; wall-clock fields excluded ONLY for cross-run decisions"
+                },
+                "accounting": {
+                    "primaryMoveAICalls": 114,
+                    "restartMoveAICalls": 1,
+                    "totalMoveAICalls": 115,
+                    "supportedPrimaryStatus": {
+                        "replica": "replica1",
+                        "state": "ready",
+                        "circuitReason": null,
+                        "activeCalls": 0,
+                        "diagnostics": {
+                            "turns": 112,
+                            "learned": 114,
+                            "fixedV2": 113,
+                            "heuristicFallback": 0,
+                            "fallbackTurns": 0,
+                            "circuitOpenEvents": 0
+                        }
+                    },
+                    "primaryFinalStatus": {
+                        "replica": "replica1",
+                        "state": "ready",
+                        "circuitReason": null,
+                        "activeCalls": 0,
+                        "diagnostics": {
+                            "turns": 114,
+                            "learned": 114,
+                            "fixedV2": 113,
+                            "heuristicFallback": 4,
+                            "fallbackTurns": 2,
+                            "circuitOpenEvents": 0
+                        }
+                    },
+                    "restartFinalStatus": {
+                        "replica": "replica1",
+                        "state": "ready",
+                        "circuitReason": null,
+                        "activeCalls": 0,
+                        "diagnostics": {
+                            "turns": 1,
+                            "learned": 2,
+                            "fixedV2": 0,
+                            "heuristicFallback": 0,
+                            "fallbackTurns": 0,
+                            "circuitOpenEvents": 0
+                        }
+                    }
+                },
+                "resources": {
+                    "primary": {
+                        "sampleIntervalMs": 50,
+                        "samples": 47,
+                        "procAvailable": true,
+                        "peakRssBytes": 211423232,
+                        "peakHighWaterRssBytes": 211423232,
+                        "peakThreads": 9,
+                        "userCpuTicks": 180,
+                        "systemCpuTicks": 49,
+                        "cpuUnits": "Linux /proc clock ticks; not CPU quota or CPU utilization"
+                    },
+                    "restart": {
+                        "sampleIntervalMs": 50,
+                        "samples": 8,
+                        "procAvailable": true,
+                        "peakRssBytes": 152244224,
+                        "peakHighWaterRssBytes": 152244224,
+                        "peakThreads": 9,
+                        "userCpuTicks": 34,
+                        "systemCpuTicks": 10,
+                        "cpuUnits": "Linux /proc clock ticks; not CPU quota or CPU utilization"
+                    },
+                    "note": "External /proc process samples include worker threads; peaks are observed, not enforced sandbox budgets."
+                },
+                "transport": {
+                    "primary": {
+                        "readyMs": 205.014435,
+                        "callsSent": 1067,
+                        "replies": 1067,
+                        "remoteErrors": 0,
+                        "stdoutBytes": 11056127,
+                        "stderrBytes": 492,
+                        "ignoredStdoutLines": 0,
+                        "pending": 0
+                    },
+                    "restart": {
+                        "readyMs": 197.10908100000006,
+                        "callsSent": 11,
+                        "replies": 11,
+                        "remoteErrors": 0,
+                        "stdoutBytes": 35840,
+                        "stderrBytes": 492,
+                        "ignoredStdoutLines": 0,
+                        "pending": 0
+                    }
+                }
+            },
+            "playthrough": {
+                "schema": "pg-bgs-playthrough-v1",
+                "node": "v24.22.1",
+                "replica": "replica1",
+                "namespace": "pg-bgs-serving-v1:playthrough",
+                "strengthEvaluation": false,
+                "productionSandboxValidated": false,
+                "runtimeManifestSha256": "afd662db9879ee7ca5fb1a3f29e2eba836352740f2289ed211504bf05c1c2615",
+                "sourceSha256": "25cd755c59381417ce293186bf1a3177e8aa536436d035656b4c8022b013e5f9",
+                "limits": {
+                    "games": 8,
+                    "turnsPerGame": 400,
+                    "totalWallMs": 540000
+                },
+                "games": [
+                    {
+                        "map": "Germany",
+                        "players": 2,
+                        "variant": "original",
+                        "fastBid": false,
+                        "seed": "pg-bgs-serving-v1:playthrough:0:0",
+                        "turns": 129,
+                        "ended": true,
+                        "persistentReplayExact": true
+                    },
+                    {
+                        "map": "Germany",
+                        "players": 3,
+                        "variant": "recharged",
+                        "fastBid": true,
+                        "seed": "pg-bgs-serving-v1:playthrough:0:1",
+                        "turns": 165,
+                        "ended": true,
+                        "persistentReplayExact": true
+                    },
+                    {
+                        "map": "USA",
+                        "players": 3,
+                        "variant": "original",
+                        "fastBid": false,
+                        "seed": "pg-bgs-serving-v1:playthrough:1:0",
+                        "turns": 205,
+                        "ended": true,
+                        "persistentReplayExact": true
+                    },
+                    {
+                        "map": "USA",
+                        "players": 4,
+                        "variant": "recharged",
+                        "fastBid": true,
+                        "seed": "pg-bgs-serving-v1:playthrough:1:1",
+                        "turns": 214,
+                        "ended": true,
+                        "persistentReplayExact": true
+                    },
+                    {
+                        "map": "France",
+                        "players": 4,
+                        "variant": "original",
+                        "fastBid": false,
+                        "seed": "pg-bgs-serving-v1:playthrough:2:0",
+                        "turns": 268,
+                        "ended": true,
+                        "persistentReplayExact": true
+                    },
+                    {
+                        "map": "France",
+                        "players": 5,
+                        "variant": "recharged",
+                        "fastBid": true,
+                        "seed": "pg-bgs-serving-v1:playthrough:2:1",
+                        "turns": 260,
+                        "ended": true,
+                        "persistentReplayExact": true
+                    },
+                    {
+                        "map": "UK & Ireland",
+                        "players": 5,
+                        "variant": "original",
+                        "fastBid": false,
+                        "seed": "pg-bgs-serving-v1:playthrough:3:0",
+                        "turns": 331,
+                        "ended": true,
+                        "persistentReplayExact": true
+                    },
+                    {
+                        "map": "UK & Ireland",
+                        "players": 6,
+                        "variant": "recharged",
+                        "fastBid": true,
+                        "seed": "pg-bgs-serving-v1:playthrough:3:1",
+                        "turns": 300,
+                        "ended": true,
+                        "persistentReplayExact": true
+                    }
+                ],
+                "turns": 1872,
+                "replayChecks": 80,
+                "transientMessageChecks": 45,
+                "replayComparison": "All JSON including clocks, except transient pendingMessages intentionally cleared by unchanged wrapper.replay",
+                "maxMoveMs": 88.38626899999997,
+                "peakObservedRssBytes": 381186048,
+                "peakObservedThreads": 12,
+                "status": {
+                    "replica": "replica1",
+                    "state": "ready",
+                    "circuitReason": null,
+                    "activeCalls": 0,
+                    "limits": {
+                        "startupMs": 2000,
+                        "inferenceMs": 1000,
+                        "turnMs": 3000,
+                        "fallbackMs": 1000,
+                        "maxActiveCalls": 8
+                    },
+                    "diagnostics": {
+                        "turns": 1872,
+                        "learned": 1669,
+                        "fixedV2": 2417,
+                        "heuristicFallback": 0,
+                        "fallbackTurns": 0,
+                        "circuitOpenEvents": 0
+                    }
+                },
+                "elapsedMs": 44641.752133
+            }
+        },
+        "replica2": {
+            "build": {
+                "schema": "pg-private-bgs-build-v1",
+                "replica": "replica2",
+                "packageName": "powergrid-private-ai-replica2",
+                "version": "0.0.0-test.1",
+                "entryPoint": "index.mjs",
+                "packageFiles": 1180,
+                "packageBytes": 51992748,
+                "targetImage": "docker.io/library/node:24.22.1-bookworm-slim@sha256:2dd9a4f758e173b65fee15388f7706af6fb01ef50cf7a2c0538711d67a6981ae",
+                "sourceFiles": {
+                    "build.cjs": "a0a770341c720ee4feb000d82c19884b8ba5e8af8deb5f67b08d4aa86dc6661f",
+                    "entry.template.mjs": "8bebbbc1996f3e858ceffccc302c5d5ceda4a71ddb8a265231f1243eacc35fa0"
+                },
+                "runtimeManifestSha256": "28dbb8591be6a3ed6dce57b69e075a01a9788afa981aaecfc323ea32d3fb2797",
+                "entrySha256": "8e63a9a53baedb627a5f9969f92abb717f4fb9ab686c58a74eddc705979307eb",
+                "tarball": "powergrid-private-ai-replica2-0.0.0-test.1.tgz",
+                "tarballBytes": 20104201,
+                "tarballSha256": "38149a80e0b83d95923d5035c836c84c98e2ce5ab4527089f1fc0a077fead817",
+                "published": false
+            },
+            "installation": {
+                "npmAlias": "pg-test-r2",
+                "offline": true,
+                "ignoreScripts": true,
+                "emptyCache": true,
+                "exactInventoryVerified": true,
+                "externalResolution": false
+            },
+            "parity": {
+                "schema": "pg-bgs-target-parity-v1",
+                "node": "v24.22.1",
+                "replica": "replica2",
+                "fixtureSha256": "8295e8f96cfd3e943d57c0788fafe9e7fce7c521ce5045054ed61a75d724b8e4",
+                "referenceSha256": "ff1b90feb8eb41b0b76a5c8a0d159df04c044a211dbba4bb8353a526d70220ec",
+                "runtimeManifestSha256": "28dbb8591be6a3ed6dce57b69e075a01a9788afa981aaecfc323ea32d3fb2797",
+                "observations": 80,
+                "exactIndices": 80,
+                "maxLogitError": 1.0251998901367188e-5,
+                "maxValueError": 2.980232238769531e-7,
+                "tolerance": {
+                    "absolute": 2e-5,
+                    "relative": 1e-6
+                },
+                "strengthEvaluation": false
+            },
+            "host": {
+                "packageIdentity": {
+                    "entry": "index.mjs",
+                    "entrySha256": "8e63a9a53baedb627a5f9969f92abb717f4fb9ab686c58a74eddc705979307eb",
+                    "runtimeManifestSha256": "28dbb8591be6a3ed6dce57b69e075a01a9788afa981aaecfc323ea32d3fb2797",
+                    "packageJsonSha256": "f84f33f9fddcd8a38752b97ff19b01650fb1f35b93bd01e5d9aa5130f9d20570"
+                },
+                "runtimes": {
+                    "hostNode": "v24.22.1",
+                    "harnessNode": "v24.22.1",
+                    "platform": "linux",
+                    "arch": "x64"
+                },
+                "isolation": {
+                    "childEnvironmentKeys": 0,
+                    "cwd": "/",
+                    "oldSpaceMiB": 400,
+                    "networkNamespaceEnforced": false,
+                    "readOnlyFilesystemEnforced": false,
+                    "memory512MiBEnforced": false,
+                    "oneCpuQuotaEnforced": false,
+                    "pids64Enforced": false,
+                    "exactProductionSandboxValidated": false
+                },
+                "targeted": {
+                    "committedTurns": 96,
+                    "atomicActions": 197,
+                    "replayJsonExact": 96,
+                    "toSaveExact": 96,
+                    "callerInputsUnchanged": 96,
+                    "wrapperReadParity": 96,
+                    "sealedVisibleLogChecks": 7,
+                    "learnedCalls": 83,
+                    "fixedV2Actions": 114,
+                    "fallbackTurns": 0,
+                    "coldReadyMs": 152.53047999999998,
+                    "coldMoveMs": 94.47744700000004,
+                    "fullTurnMs": {
+                        "n": 96,
+                        "p50": 10.649996999999985,
+                        "p95": 19.882582999999954,
+                        "max": 94.47744700000004
+                    },
+                    "replayEquality": "all JSON values exact, including clocks; object property order immaterial"
+                },
+                "concurrency": {
+                    "bursts": [
+                        {
+                            "width": 2,
+                            "differentGames": 2,
+                            "completedTurns": 2,
+                            "learnedCalls": 4,
+                            "fallbackTurns": 0,
+                            "elapsedMs": 16.85678100000041,
+                            "perCallMs": {
+                                "n": 2,
+                                "p50": 13.32050100000015,
+                                "p95": 16.528776000000107,
+                                "max": 16.528776000000107
+                            },
+                            "decisionParity": true
+                        },
+                        {
+                            "width": 4,
+                            "differentGames": 4,
+                            "completedTurns": 4,
+                            "learnedCalls": 8,
+                            "fallbackTurns": 0,
+                            "elapsedMs": 44.442317,
+                            "perCallMs": {
+                                "n": 4,
+                                "p50": 37.0769479999999,
+                                "p95": 43.95709600000009,
+                                "max": 43.95709600000009
+                            },
+                            "decisionParity": true
+                        },
+                        {
+                            "width": 8,
+                            "differentGames": 8,
+                            "completedTurns": 8,
+                            "learnedCalls": 16,
+                            "fallbackTurns": 0,
+                            "elapsedMs": 76.76811499999985,
+                            "perCallMs": {
+                                "n": 8,
+                                "p50": 63.82621399999971,
+                                "p95": 75.70417700000007,
+                                "max": 75.70417700000007
+                            },
+                            "decisionParity": true
+                        }
+                    ],
+                    "noCrossGameStateContamination": true,
+                    "workerStarts": null,
+                    "workerStartEvidence": "not exposed by aiStatus; singleton separately unit-tested, not measured here",
+                    "completedCallCounterChecked": true
+                },
+                "unsupported": [
+                    {
+                        "scope": "hidden-money",
+                        "map": "Germany",
+                        "showMoney": false,
+                        "fallbackTurns": 1,
+                        "learnedCalls": 0,
+                        "heuristicActions": 2,
+                        "committed": true,
+                        "replayExact": true,
+                        "elapsedMs": 6.302834999999959
+                    },
+                    {
+                        "scope": "outside-map",
+                        "map": "Italy",
+                        "showMoney": true,
+                        "fallbackTurns": 1,
+                        "learnedCalls": 0,
+                        "heuristicActions": 2,
+                        "committed": true,
+                        "replayExact": true,
+                        "elapsedMs": 5.742541999999958
+                    }
+                ],
+                "restart": {
+                    "newHostProcess": true,
+                    "coldReadyMs": 150.73367700000017,
+                    "coldMoveMs": 129.7786100000003,
+                    "learnedCalls": 2,
+                    "fallbackTurns": 0,
+                    "replayExact": true,
+                    "decisionParity": true,
+                    "comparison": "move player/name/data sequence; wall-clock fields excluded ONLY for cross-run decisions"
+                },
+                "accounting": {
+                    "primaryMoveAICalls": 114,
+                    "restartMoveAICalls": 1,
+                    "totalMoveAICalls": 115,
+                    "supportedPrimaryStatus": {
+                        "replica": "replica2",
+                        "state": "ready",
+                        "circuitReason": null,
+                        "activeCalls": 0,
+                        "diagnostics": {
+                            "turns": 112,
+                            "learned": 115,
+                            "fixedV2": 114,
+                            "heuristicFallback": 0,
+                            "fallbackTurns": 0,
+                            "circuitOpenEvents": 0
+                        }
+                    },
+                    "primaryFinalStatus": {
+                        "replica": "replica2",
+                        "state": "ready",
+                        "circuitReason": null,
+                        "activeCalls": 0,
+                        "diagnostics": {
+                            "turns": 114,
+                            "learned": 115,
+                            "fixedV2": 114,
+                            "heuristicFallback": 4,
+                            "fallbackTurns": 2,
+                            "circuitOpenEvents": 0
+                        }
+                    },
+                    "restartFinalStatus": {
+                        "replica": "replica2",
+                        "state": "ready",
+                        "circuitReason": null,
+                        "activeCalls": 0,
+                        "diagnostics": {
+                            "turns": 1,
+                            "learned": 2,
+                            "fixedV2": 0,
+                            "heuristicFallback": 0,
+                            "fallbackTurns": 0,
+                            "circuitOpenEvents": 0
+                        }
+                    }
+                },
+                "resources": {
+                    "primary": {
+                        "sampleIntervalMs": 50,
+                        "samples": 47,
+                        "procAvailable": true,
+                        "peakRssBytes": 213368832,
+                        "peakHighWaterRssBytes": 213368832,
+                        "peakThreads": 9,
+                        "userCpuTicks": 185,
+                        "systemCpuTicks": 48,
+                        "cpuUnits": "Linux /proc clock ticks; not CPU quota or CPU utilization"
+                    },
+                    "restart": {
+                        "sampleIntervalMs": 50,
+                        "samples": 8,
+                        "procAvailable": true,
+                        "peakRssBytes": 152588288,
+                        "peakHighWaterRssBytes": 152588288,
+                        "peakThreads": 9,
+                        "userCpuTicks": 32,
+                        "systemCpuTicks": 8,
+                        "cpuUnits": "Linux /proc clock ticks; not CPU quota or CPU utilization"
+                    },
+                    "note": "External /proc process samples include worker threads; peaks are observed, not enforced sandbox budgets."
+                },
+                "transport": {
+                    "primary": {
+                        "readyMs": 152.53047999999998,
+                        "callsSent": 1067,
+                        "replies": 1067,
+                        "remoteErrors": 0,
+                        "stdoutBytes": 11059569,
+                        "stderrBytes": 492,
+                        "ignoredStdoutLines": 0,
+                        "pending": 0
+                    },
+                    "restart": {
+                        "readyMs": 150.73367700000017,
+                        "callsSent": 11,
+                        "replies": 11,
+                        "remoteErrors": 0,
+                        "stdoutBytes": 35840,
+                        "stderrBytes": 492,
+                        "ignoredStdoutLines": 0,
+                        "pending": 0
+                    }
+                }
+            },
+            "playthrough": {
+                "schema": "pg-bgs-playthrough-v1",
+                "node": "v24.22.1",
+                "replica": "replica2",
+                "namespace": "pg-bgs-serving-v1:playthrough",
+                "strengthEvaluation": false,
+                "productionSandboxValidated": false,
+                "runtimeManifestSha256": "28dbb8591be6a3ed6dce57b69e075a01a9788afa981aaecfc323ea32d3fb2797",
+                "sourceSha256": "25cd755c59381417ce293186bf1a3177e8aa536436d035656b4c8022b013e5f9",
+                "limits": {
+                    "games": 8,
+                    "turnsPerGame": 400,
+                    "totalWallMs": 540000
+                },
+                "games": [
+                    {
+                        "map": "Germany",
+                        "players": 2,
+                        "variant": "original",
+                        "fastBid": false,
+                        "seed": "pg-bgs-serving-v1:playthrough:0:0",
+                        "turns": 156,
+                        "ended": true,
+                        "persistentReplayExact": true
+                    },
+                    {
+                        "map": "Germany",
+                        "players": 3,
+                        "variant": "recharged",
+                        "fastBid": true,
+                        "seed": "pg-bgs-serving-v1:playthrough:0:1",
+                        "turns": 171,
+                        "ended": true,
+                        "persistentReplayExact": true
+                    },
+                    {
+                        "map": "USA",
+                        "players": 3,
+                        "variant": "original",
+                        "fastBid": false,
+                        "seed": "pg-bgs-serving-v1:playthrough:1:0",
+                        "turns": 203,
+                        "ended": true,
+                        "persistentReplayExact": true
+                    },
+                    {
+                        "map": "USA",
+                        "players": 4,
+                        "variant": "recharged",
+                        "fastBid": true,
+                        "seed": "pg-bgs-serving-v1:playthrough:1:1",
+                        "turns": 189,
+                        "ended": true,
+                        "persistentReplayExact": true
+                    },
+                    {
+                        "map": "France",
+                        "players": 4,
+                        "variant": "original",
+                        "fastBid": false,
+                        "seed": "pg-bgs-serving-v1:playthrough:2:0",
+                        "turns": 271,
+                        "ended": true,
+                        "persistentReplayExact": true
+                    },
+                    {
+                        "map": "France",
+                        "players": 5,
+                        "variant": "recharged",
+                        "fastBid": true,
+                        "seed": "pg-bgs-serving-v1:playthrough:2:1",
+                        "turns": 252,
+                        "ended": true,
+                        "persistentReplayExact": true
+                    },
+                    {
+                        "map": "UK & Ireland",
+                        "players": 5,
+                        "variant": "original",
+                        "fastBid": false,
+                        "seed": "pg-bgs-serving-v1:playthrough:3:0",
+                        "turns": 349,
+                        "ended": true,
+                        "persistentReplayExact": true
+                    },
+                    {
+                        "map": "UK & Ireland",
+                        "players": 6,
+                        "variant": "recharged",
+                        "fastBid": true,
+                        "seed": "pg-bgs-serving-v1:playthrough:3:1",
+                        "turns": 347,
+                        "ended": true,
+                        "persistentReplayExact": true
+                    }
+                ],
+                "turns": 1938,
+                "replayChecks": 81,
+                "transientMessageChecks": 45,
+                "replayComparison": "All JSON including clocks, except transient pendingMessages intentionally cleared by unchanged wrapper.replay",
+                "maxMoveMs": 92.59763700000002,
+                "peakObservedRssBytes": 381980672,
+                "peakObservedThreads": 12,
+                "status": {
+                    "replica": "replica2",
+                    "state": "ready",
+                    "circuitReason": null,
+                    "activeCalls": 0,
+                    "limits": {
+                        "startupMs": 2000,
+                        "inferenceMs": 1000,
+                        "turnMs": 3000,
+                        "fallbackMs": 1000,
+                        "maxActiveCalls": 8
+                    },
+                    "diagnostics": {
+                        "turns": 1938,
+                        "learned": 1703,
+                        "fixedV2": 2589,
+                        "heuristicFallback": 0,
+                        "fallbackTurns": 0,
+                        "circuitOpenEvents": 0
+                    }
+                },
+                "elapsedMs": 41787.111768
+            }
+        }
+    },
+    "evidenceFiles": {
+        "ai/runs/bgs-serving-v1/build-final-r1/build.json": {
+            "sha256": "194e2a5d72afc4634b1e08d06495bdec615098d749e6fef18e1524081f5cfee6",
+            "bytes": 986
+        },
+        "ai/runs/bgs-serving-v1/build-final-r1/powergrid-private-ai-replica1-0.0.0-test.1.tgz": {
+            "sha256": "dd8dab084e1fa81d445cbbfe3e31f591a31aa4c4cbd8096423e1572ff109ed0b",
+            "bytes": 20104203
+        },
+        "ai/runs/bgs-serving-v1/parity-final-r1.json": {
+            "sha256": "c7d7723e07f4c16abff80451520dc6d15161710c3a2ca4511372179529695683",
+            "bytes": 626
+        },
+        "ai/runs/bgs-serving-v1/conformance-final-r1.json": {
+            "sha256": "ae679f4cd8c09c502c11891e0e53903bbf1e71f9ffb6f30c74470e8f44553254",
+            "bytes": 15140
+        },
+        "ai/runs/bgs-serving-v1/playthrough-final-r1.json": {
+            "sha256": "e1a6b2970def88959ec0431a0576322927a0b1a4a29c7742f575f5d1469b7fed",
+            "bytes": 3775
+        },
+        "ai/runs/bgs-serving-v1/build-final-r2/build.json": {
+            "sha256": "651578dc55565a7d67bca67d6f5866623c2b21feb9392aad227895ef61f118f5",
+            "bytes": 986
+        },
+        "ai/runs/bgs-serving-v1/build-final-r2/powergrid-private-ai-replica2-0.0.0-test.1.tgz": {
+            "sha256": "38149a80e0b83d95923d5035c836c84c98e2ce5ab4527089f1fc0a077fead817",
+            "bytes": 20104201
+        },
+        "ai/runs/bgs-serving-v1/parity-final-r2.json": {
+            "sha256": "f3a3254c672aa5bf73b2a5d464970566cb6f6422f8ae5584373199d1cb4d4da9",
+            "bytes": 626
+        },
+        "ai/runs/bgs-serving-v1/conformance-final-r2.json": {
+            "sha256": "d3681ed5221ad046dc1eac600b578898aea587543be7628e2b440f70eba50372",
+            "bytes": 15166
+        },
+        "ai/runs/bgs-serving-v1/playthrough-final-r2.json": {
+            "sha256": "bf63d2938de7aa49833ec7f19bc965d420de51483dc5eefd80b1651c886f3b1a",
+            "bytes": 3775
+        },
+        "ai/runs/bgs-serving-v1/tests-node24.22.1-final.tap": {
+            "sha256": "36b3bfbda1388067eafe813f2396685e91af9fb3ba12250549323e453bdaa74c",
+            "bytes": 25384
+        },
+        "ai/runs/bgs-serving-v1/tests-control-plane-final.log": {
+            "sha256": "256e590ba9183f73cc663d8cfa132c3c8611787f5bb806ea54e951f3d8a7d3ca",
+            "bytes": 102
+        },
+        "ai/runs/bgs-serving-v1/tests-engine-final.log": {
+            "sha256": "f3e91131458310d528519e0799ccd2d174c0178c683f52d18c45dfa70ed28b47",
+            "bytes": 29427
+        },
+        "ai/runs/bgs-serving-v1/install-final-v3.log": {
+            "sha256": "0191f4ec153d9830dee4ac1be24d206ee0536c5707cd884c4f505d7a92e3ca6e",
+            "bytes": 233
+        },
+        "ai/runs/bgs-serving-v1/admission/intent.json": {
+            "sha256": "338b5853e69b66fa24d84148739a1bb100b6d6bd09662d0ff26cf6503c592722",
+            "bytes": 3276
+        },
+        "ai/runs/bgs-serving-v1/admission/submitted-id.json": {
+            "sha256": "9608b62e1ab234755fe97d71cc34392a1fe4f4520d473fba0213f44b3417ca1b",
+            "bytes": 71
+        },
+        "ai/runs/bgs-serving-v1/admission/receipt.json": {
+            "sha256": "209d7a1a19be523a1b7fc7c581107c6cbb1128ccb4a2d05e73df11fa42e977ca",
+            "bytes": 3670
+        },
+        "ai/runs/bgs-serving-v1/admission/terminal.json": {
+            "sha256": "de34bc45c4a25b5f161c9c8e7226316b4bde4f3444cfde6c0e26e32a6b4de04b",
+            "bytes": 3722
+        },
+        "ai/runs/bgs-serving-v1/admission/terminal.log": {
+            "sha256": "0dba98f11d051c4f9469a211617bfe084dc642ee47a2d0d85fcd61e4c6f19187",
+            "bytes": 668
+        },
+        "ai/runs/bgs-serving-v1/admission/actual-terminal.json": {
+            "sha256": "a2c3f92caafb78f36924dbbb152e0d1485140b08ca04bb63233359670ba208c9",
+            "bytes": 4011
+        }
+    },
+    "tests": {
+        "node24.22.1": {
+            "passed": 102,
+            "failed": 0,
+            "skipped": 0
+        },
+        "offlineControlPlane": {
+            "passed": 4
+        },
+        "engineRegression": {
+            "passed": 366,
+            "node": "v24.20.0"
+        }
+    },
+    "paidAdmission": {
+        "jobId": "6af32a3c9737d9a9e090acb9",
+        "namespace": "coyotte508",
+        "image": "docker.io/library/node:24.22.1-bookworm-slim@sha256:2dd9a4f758e173b65fee15388f7706af6fb01ef50cf7a2c0538711d67a6981ae",
+        "flavor": "cpu-basic",
+        "requestedTimeoutSeconds": 600,
+        "status": {
+            "stage": "COMPLETED",
+            "message": null,
+            "failureCount": 0
+        },
+        "createdAt": "2026-11-10T14:29:16.955Z",
+        "startedAt": "2026-11-10T14:29:24.510Z",
+        "finishedAt": "2026-11-10T14:29:24.593Z",
+        "durations": {
+            "schedulingSecs": 7,
+            "runningSecs": 0,
+            "totalSecs": 7
+        },
+        "submissions": 1,
+        "modelWorkloads": 0,
+        "secretsSupplied": false,
+        "portsExposed": false,
+        "ssh": false,
+        "probe": {
+            "schema": "pg-bgs-container-admission-v1",
+            "node": "v24.22.1",
+            "platform": "linux",
+            "arch": "x64",
+            "os": ["VERSION_ID=\"12\"", "ID=debian"],
+            "security": {
+                "CapEff": "00000000a80405fb",
+                "NoNewPrivs": "0",
+                "Seccomp": "2"
+            },
+            "outerLimits": {
+                "cpu.max": "200000 100000",
+                "memory.max": "16000000000",
+                "memory.swap.max": "3752300544",
+                "pids.max": "152022",
+                "cgroup.controllers": "cpuset cpu io memory hugetlb pids misc",
+                "cgroup.subtree_control": ""
+            },
+            "namespace": {
+                "executableAvailable": true,
+                "success": false,
+                "exitCode": 1,
+                "errorCode": null
+            },
+            "delegatedChildControllers": false,
+            "cgroupError": "EROFS",
+            "nestedContainerPossible": false,
+            "productionSandboxValidated": false,
+            "modelsLoaded": false,
+            "networkExposed": false
+        },
+        "billing": "No invoice observed. Advertised cpu-basic $0.01/hour; 600s requested ceiling about $0.00167 before billing granularity."
+    },
+    "preserved": {
+        "originalManifestSha256": "8197fb7e35ed25a924d75e99eafcc140827b46ab441341bb14cd398c832b9f93",
+        "originalResultSha256": "dc8e3c2894257e976f753c67b0ca0207d7a1f20ce10f5d1e73643d8fdd96de9c",
+        "frozenSourceFilesVerified": 61,
+        "prototypeSourceFilesVerified": 19,
+        "checkpointFilesUnchanged": {
+            "ai/runs/multimap-expert-replicas-20261109-v1-continuation-r1/audit/restored/expert/best.pt": "7918c5ceec29ee181721eaaa3a38f63fd94cf0248c34d192e0b3f65960c729e5",
+            "ai/runs/multimap-expert-replicas-20261109-v1-continuation-r2/audit/restored/expert/best.pt": "89d03f5b23fd6d088e175d32ff9c90ff88bd947f7e8b17d508b1b2f641a037fa"
+        },
+        "protectedStudyReplayFilesUnchanged": {
+            "ai/runs/multimap-replica-stress-20261109-v1-integrity-attempts-v1/mixed.intent.json": "c80a06cf94c887148478653fdc60f03b9804c7d270456c9fe4efc3137e77d0b1",
+            "ai/runs/multimap-replica-stress-20261109-v1-integrity-attempts-v1/mixed.result.json": "6bac1b74dcffc5884bfd4149f411bc49901c2da77309e493c070c44a001ab658",
+            "ai/runs/multimap-replica-stress-20261109-v1-integrity-attempts-v1/strong.intent.json": "87f461c1bf5e9328bba4c084b9a2ea551ecf06cbc9b863a7444352e80ce0adf0",
+            "ai/runs/multimap-replica-stress-20261109-v1-integrity-attempts-v1/strong.result.json": "272c6d373c97eeca59cb38307b46e9edf8beb6cf6b57660a3cacc3f69af45b59"
+        },
+        "exportManifestSha256": "8dac4ba18002a38868920875f0201f54200ac1ae062c51da3d615b189ffad543"
+    },
+    "independentReview": {
+        "highSeverityRegressionFound": false,
+        "findingsResolved": [
+            "Exact actual package inventory now rejects dependency/extensionless shadows before imports; tested",
+            "File and directory modes normalized, deterministic tar checked across umasks 022 and 077",
+            "Packaged negative tamper/missing/symlink tests, offline alias installation and UID65534 readability tested",
+            "Core identity failures injected during startup failure handling and after inference; no commit/fallback event",
+            "Both final artifact identities have independent target-Node parity, host and bounded full-game evidence"
+        ],
+        "remainingBoundary": "Native FD writes bypass worker JS stream capture; documented and harmless-marker regression test added, not claimed isolated"
+    },
+    "adverseDevelopmentEvidence": {
+        "files": {
+            "ai/runs/bgs-serving-v1/playthrough-development-r1.json": {
+                "sha256": "8f15f94589f100abd27b0e7adb642315be24cde121b2ec4e6a13e94de1e1086c",
+                "bytes": 49
+            },
+            "ai/runs/bgs-serving-v1/playthrough-development-r1-persistent.json": {
+                "sha256": "8f15f94589f100abd27b0e7adb642315be24cde121b2ec4e6a13e94de1e1086c",
+                "bytes": 49
+            },
+            "ai/runs/bgs-serving-v1/playthrough-development-diagnostic.json": {
+                "sha256": "2ac2f9d8be6c31b4104da257da0fe927720c014331abfdee69ecc92bc8588a0b",
+                "bytes": 1049
+            },
+            "ai/runs/bgs-serving-v1/install-final.log": {
+                "sha256": "250e369d730a46c4d41df37449a5c58c169b4b1d2ab546951a8bed0285805a95",
+                "bytes": 117
+            },
+            "ai/runs/bgs-serving-v1/install-final-v2.log": {
+                "sha256": "62c1ff59d7a45c0dd4043f282db7d0295fc582769b9cd50bbdc3c3a6bef5dfa4",
+                "bytes": 738
+            }
+        },
+        "explanations": [
+            "Initial full-playthrough assertion wrongly required transient pendingMessages to survive original wrapper.replay; persistent state comparison and message drain now explicit",
+            "Next harness assertion treated original wrapper.messages as an array instead of its {messages,data} return; corrected without engine/runtime/model changes",
+            "npm rejected /dev/null used simultaneously as user and global config; changed to two distinct empty config files",
+            "Second empty staging directory had no package.json and npm walked up to an ancestor project; offline empty-cache resolution failed without installs. Fresh explicit private project root succeeded; original workspace package/lock files unchanged",
+            "Post-admission validation initially rejected secrets represented as empty list; saved backend response validated by empty type/length, without resubmission"
+        ]
+    },
+    "readiness": {
+        "bgsPublished": false,
+        "bgsActivated": false,
+        "defaultBotChanged": false,
+        "privateModelsCommitted": false,
+        "training": false,
+        "manualWeightEditing": false,
+        "selection": false,
+        "oldStudyReplays": false,
+        "nodeOnlyInference": true,
+        "bothFinalArtifactsHostValidated": true,
+        "exactProductionSandboxValidated": false,
+        "actualPlatformPersistenceValidated": false,
+        "humanPlaytested": false,
+        "recommendation": "Keep private experimental. Do not replace default moveAI until exact pinned-image sandbox and production-shaped persistence/playtest gates pass."
+    }
+}

@@ -23,9 +23,16 @@ import { shuffle } from './utils';
 /** Unknown cards come from the published catalogue, never the live draw pile. */
 export function createAnalysisScenario(
     data: GameState,
-    { player, seed }: { player?: number; seed: string }
+    { player, seed, interactive = false }: { player?: number; seed: string; interactive?: boolean }
 ): GameState {
-    const s: GameState = JSON.parse(JSON.stringify(stripSecret(data, player)));
+    // Interactive branches never retain even the requester's sealed bid or private
+    // revision snapshot. The default remains the AI information-set sampler.
+    const s: GameState = JSON.parse(JSON.stringify(stripSecret(data, interactive ? undefined : player)));
+    if (interactive) {
+        delete s.poweringChoices;
+        delete s.revisedPowering;
+        if (!s.options.showMoney) s.analysisMoney = 'hypothetical';
+    }
     delete s.powerPlantDeckAfterStep3;
     const rng = seedrandom(seed);
     const name = s.map.name;
@@ -242,20 +249,30 @@ export function createAnalysisScenario(
             }, bottom ${fixedBottom}, recycled ${[...recycled]}`
         );
     // The visible history permits money accounting without reading hidden balances.
-    const publicReplay = reconstructState(s, s.log.length, true);
+    const publicReplay = interactive ? undefined : reconstructState(s, s.log.length, true);
     s.players.forEach((p, i) => {
-        if (p.money < 0) p.money = publicReplay.players[i].money;
+        if (interactive && !s.options.showMoney && data.analysisMoney !== 'hypothetical') p.money = 999;
+        else if (p.money < 0 && publicReplay) p.money = publicReplay.players[i].money;
         p.isAI = false;
         p.isDropped = false;
         p.lastMove = null;
         delete p.targetCitiesPowered;
-        if (s.options.fastBid && i !== player) {
+        if (s.options.fastBid && (interactive || i !== player)) {
             p.bid =
-                s.chosenPowerPlant && !s.currentPlayers.includes(i) && !p.skipAuction && p.money >= s.minimunBid
+                !interactive &&
+                s.chosenPowerPlant &&
+                !s.currentPlayers.includes(i) &&
+                !p.skipAuction &&
+                p.money >= s.minimunBid
                     ? Math.min(p.money, s.minimunBid + Math.floor(rng() * Math.max(1, p.money - s.minimunBid + 1)))
                     : 0;
         }
     });
+    if (interactive && s.options.fastBid && s.chosenPowerPlant) {
+        // A partially sealed auction is reopened for ALL eligible seats; no
+        // sampled or source commitment may make a choice on a human's behalf.
+        s.currentPlayers = s.playerOrder.filter((id) => !s.players[id].skipAuction);
+    }
     s.seed = seed;
     s.hiddenLog = [];
     delete s.automation;

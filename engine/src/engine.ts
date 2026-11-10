@@ -769,7 +769,7 @@ export function stripSecret(G: GameState, player?: number): GameState {
                     ...pl,
                     settings: undefined,
                     availableMoves: pl.availableMoves ? {} : null,
-                    money: ended(G) || G.options.showMoney ? pl.money : -1,
+                    money: ended(G) || G.options.showMoney || G.analysisMoney === 'hypothetical' ? pl.money : -1,
                     bid: G.options.fastBid ? 0 : pl.bid,
                 };
             }

@@ -1,4 +1,5 @@
 import type { GameState } from './index';
+import { createAnalysisScenario as sampleAnalysisScenario } from './src/analysis';
 import { autoPassAuctions } from './src/auction-auto-pass';
 import { alreadyCreditedPowering, canReviseChoice } from './src/choice-revisions';
 import * as engine from './src/engine';
@@ -152,7 +153,10 @@ export function toSave(G: GameState): GameState | undefined {
     return G.newTurn === false ? undefined : G;
 }
 
-export { createAnalysisScenario } from './src/analysis';
+/** Host-facing interactive policy; AI callers import the sampler from src/analysis. */
+export function createAnalysisScenario(data: GameState, options: { player?: number; seed: string }): GameState {
+    return sampleAnalysisScenario(data, { ...options, interactive: true });
+}
 export { ended, scores, stripSecret } from './src/engine';
 
 /**
@@ -373,7 +377,10 @@ export function createAnalysis(data: GameState, { to }: { to: number; sourceEnde
     if (!Number.isInteger(to) || to < 0 || to > data.log.length) throw new Error('Invalid history position');
     const copy = replay(JSON.parse(JSON.stringify(data)), { to });
     delete copy.automation;
-    for (const player of copy.players) player.isDropped = false;
+    for (const player of copy.players) {
+        player.isDropped = false;
+        player.isAI = false;
+    }
     copy.newTurn = true;
     return copy;
 }
@@ -381,7 +388,22 @@ export function createAnalysis(data: GameState, { to }: { to: number; sourceEnde
 export async function analysisMove(data: GameState, input: Move | Move[], player: number): Promise<GameState> {
     if (isPremoveCommand(input)) throw new Error('Premoves are not available in an analysis');
     delete data.automation;
-    const result = await move(data, input, player);
-    delete result.automation;
-    return result;
+    // Deliberately bypass the live wrapper: clearing premoves alone does not
+    // suppress preference/public-money auto-passes. engine.move still performs
+    // mandatory auction resolution, upkeep and phase transitions.
+    data.players.forEach((seat) => {
+        seat.isAI = false;
+        seat.isDropped = false;
+    });
+    const moves = Array.isArray(input) ? input : [input];
+    if (!moves.length) return { ...data, newTurn: false };
+    const now = Date.now();
+    for (let i = 0; i < moves.length; i++) {
+        const atomic = { ...moves[i] };
+        delete atomic.poweringClock;
+        data = engine.move(data, { ...atomic, serverTime: now }, player);
+        if (data.newTurn !== false && i < moves.length - 1)
+            throw new Error('The turn buffer continues past a turn boundary: only one turn may be played per call');
+    }
+    return data;
 }

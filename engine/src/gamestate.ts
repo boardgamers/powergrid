@@ -194,6 +194,8 @@ export enum Phase {
 }
 
 export interface GameState {
+    /** Interactive sandbox cash, initialized once; never attached to live games. */
+    analysisMoney?: 'hypothetical';
     poweringChoices?: Record<number, import('./choice-revisions').PoweringChoice>;
     revisedPowering?: Record<number, number>;
     pendingMessages?: string[];

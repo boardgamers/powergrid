@@ -39,8 +39,14 @@
         >
             {{ getPlayerName() }}
         </text>
-        <text v-if="showMoney" x="250" y="13" font-weight="600" :fill="colorText(color)"
-            >Money: ${{ player.money }}</text
+        <text
+            v-if="showMoney"
+            x="250"
+            y="13"
+            font-weight="600"
+            :font-size="hypotheticalMoney ? 10 : undefined"
+            :fill="colorText(color)"
+            >{{ hypotheticalMoney ? 'Hypothetical' : 'Money' }}: ${{ player.money }}</text
         >
 
         <!-- Keep the full preference inside the viewer's own player card. -->
@@ -234,6 +240,7 @@ export default class PlayerBoard extends Vue {
     @Prop() isPlayer?: boolean;
     @Prop() ranking?: number;
     @Prop() showMoney?: boolean;
+    @Prop() hypotheticalMoney?: boolean;
     @Prop() showBid?: boolean;
     @Prop() phase?: Phase;
     // Australia: uranium plants are "mines" — flag so the hand marks them distinctly.

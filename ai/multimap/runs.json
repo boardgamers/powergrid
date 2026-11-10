@@ -1,5 +1,5 @@
 {
-    "activeRuns": ["multimap-replica-stress-20261109-v1-strong"],
+    "activeRuns": [],
     "runs": [
         {
             "id": "multimap-replica-stress-20261109-v1-mixed",
@@ -51,8 +51,15 @@
             "group": "multimap-replica-stress-20261109-v1",
             "panel": "strong",
             "segment": 1,
-            "statusAtVerification": "RUNNING",
+            "statusAtVerification": "COMPLETED",
             "jobId": "6af24e8a9737d9a9e08ddd53",
+            "finishedAt": "2026-11-10T03:47:29.178000+00:00",
+            "completionRecord": "replica-stress-completion-v1.json",
+            "resultRevision": "a0ff9f45bcc008eea22bb5a74fc65d9ae1a9ea36",
+            "completedGames": 7680,
+            "completedIndependentDealRoots": 640,
+            "compactSnapshotFiles": 647,
+            "compactSnapshotBytes": 29839370,
             "url": "https://huggingface.co/jobs/coyotte508/6af24e8a9737d9a9e08ddd53",
             "workflow": "fixed-replica-population-stress-v1",
             "protocol": "replica-stress-protocol-v1.json",
@@ -79,7 +86,7 @@
             "reconciliationReceipt": "replica-stress-reconciliation-v1.json",
             "peerLaunchReceipt": "replica-stress-peer-v1.json",
             "admissionStatus": "Original post-submit response-schema stop was reconciled with the strict reviewed decoder and unchanged validator. Actual six-hour timeout, disabled access and all expected job fields verified. Strong receipt/source unchanged; no retry.",
-            "auditStatus": "pending",
+            "auditStatus": "integrity-pending; immutable snapshot, independent complete JSON and authenticated log chain verified; joint external checks and 48 replays outstanding",
             "qualified": false,
             "reservedFinalSeedsUsed": false
         },

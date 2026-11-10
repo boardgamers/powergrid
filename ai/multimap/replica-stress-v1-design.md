@@ -319,7 +319,7 @@ model revision `1d859ae85fb8a9ac1dbe4dd68d1df9efdd741e14`, prefix
 rechecked all 198 matches from the downloaded archive; the generated gate receipt
 is [`replica-stress-preflight-v1.json`](replica-stress-preflight-v1.json).
 The source freeze `7bab96167ee32d691b2ccc450c50162283b0a473` was pushed and remotely
-verified before submission. Strong initial job `6af24e8a9737d9a9e08ddd53` is running.
+verified before submission. Strong initial job `6af24e8a9737d9a9e08ddd53` was submitted.
 The first launcher stopped after its returned ID and durable receipt, before any
 mixed submission: live response fields use `timeout: 21600`, `expose: {ports: []}`
 and `ssh: {enabled: false}`. The actual six-hour timeout, disabled access and all
@@ -357,9 +357,20 @@ Remote metadata/member hashes, independent full JSON validation, and the exact
 43-upload production log chain passed. The panel contains **7,680 saved games /
 640 independent roots / 2,560 games per arm**, with zero expert labels. It remains
 **integrity-pending**: no one-panel strength estimates are released, no production
-replays have run, and strong's completion notification is still pending. The
-shared recovery remains unsubmitted. See
+replays had run, and strong was still pending at that checkpoint. See
 [`replica-stress-mixed-completion-v1.json`](replica-stress-mixed-completion-v1.json).
+
+Strong subsequently completed at `2026-11-10T03:47:29.178Z` under its verified
+21,600-second limit. Its final own upload is
+`a0ff9f45bcc008eea22bb5a74fc65d9ae1a9ea36`, with **647 files / 29,839,370 bytes**.
+Remote metadata/raw hashes, independent full JSON checks, and the 43-upload
+production log chain passed. Both originals completed, yielding **15,360 saved
+games / 1,280 independent roots**, without recovery. The study consumed nine
+requested hours across two initial jobs; the conditional three-hour recovery is
+unused and will not be repurposed. Both panels remain integrity-pending until
+joint external verification and all 48 fixed replays pass. The combined
+operational record is
+[`replica-stress-completion-v1.json`](replica-stress-completion-v1.json).
 
 ### External integrity tooling (separate from the frozen worker)
 

@@ -1049,7 +1049,7 @@ The archive was downloaded and its 198 matches independently rechecked by the
 launcher. The source freeze was committed and remotely verified at
 `7bab96167ee32d691b2ccc450c50162283b0a473` before submission.
 
-The strong initial job is running:
+The strong initial job was submitted as:
 [`6af24e8a9737d9a9e08ddd53`](https://huggingface.co/jobs/coyotte508/6af24e8a9737d9a9e08ddd53).
 The original launcher stopped **after** recording that ID and **before** attempting
 mixed: the live response reports integer seconds under `timeout` and represents
@@ -1086,9 +1086,19 @@ is revision `0fa0ff123e9d5a135aa8e490475dbb03e885309a`: **647 files / 29,766,403
 All remote metadata and member hashes, the 43-upload production log chain, and
 independent complete-JSON checks passed: **7,680 games, 640 independent roots,
 2,560 games per arm**, zero expert labels. This remains **integrity-pending**, not
-a one-panel strength result. Strong is awaiting its completion notification; no
-recovery was submitted. The operational evidence is
+a one-panel strength result. Its earlier operational evidence is
 [`replica-stress-mixed-completion-v1.json`](replica-stress-mixed-completion-v1.json).
+
+Strong also **completed**, at `2026-11-10T03:47:29.178Z`, with final own revision
+`a0ff9f45bcc008eea22bb5a74fc65d9ae1a9ea36`: **647 files / 29,839,370 bytes**.
+Its remote metadata/member hashes, complete independent JSON validation and
+43-upload log chain passed as well. Both panels contain **15,360 saved games /
+1,280 independent roots** in total. **Both original jobs completed; no recovery
+was needed or submitted.** Requested budget usage is nine hours across two jobs,
+with the three-hour recovery unused and not repurposed. The joint operational
+record is [`replica-stress-completion-v1.json`](replica-stress-completion-v1.json).
+Joint external integrity checks and all 48 fixed replays still gate strength
+reporting; these completion checks are not an integrity attestation.
 
 The separate [`audit_replica_stress_integrity_v1.py`](audit_replica_stress_integrity_v1.py)
 verifier requires both immutable panels and the **original canonical paid-job

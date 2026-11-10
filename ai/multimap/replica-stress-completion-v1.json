@@ -1,0 +1,176 @@
+{
+    "attemptedSlots": ["strong", "mixed"],
+    "auditorSourceGit": "bda1310a08456ec8874be408d92b2e44639c1005",
+    "bothInitialJobsCompleted": true,
+    "executionGit": "14bd98c665e1cccd46b0977cc7ceb9935dc02595",
+    "externalIntegrityReceiptsIssued": false,
+    "group": "multimap-replica-stress-20261109-v1",
+    "mixedEarlierCompletionRecord": {
+        "git": "14bd98c665e1cccd46b0977cc7ceb9935dc02595",
+        "path": "ai/multimap/replica-stress-mixed-completion-v1.json",
+        "sha256": "ef8a43659c589c360a50faf4daa53488fe62ff8fbb32d8547d7f6829f004677f"
+    },
+    "note": "Operational completion, authenticated compact snapshots/logs and independent JSON consistency only. Joint source/runtime/reference/six-checkpoint/job-budget integrity and all 48 fixed production replays remain outstanding. No one-panel or joint strength results released; unused three-hour recovery is not repurposed.",
+    "panels": {
+        "mixed": {
+            "authenticatedLog": {
+                "generatedBatches": 640,
+                "jobStage": "COMPLETED",
+                "logSha256": "0987ab803cb1cc0d0943177bf76fb6e09e6b785e83a1c7b546915f92bf613bca",
+                "sha256": "870cbe6e26492ffee03e991c11b3e9e3868698d95f7b4858e2241019fd5b0adf",
+                "uploads": 43
+            },
+            "independentJson": {
+                "counts": {
+                    "batches": 640,
+                    "expectedBatches": 640,
+                    "expectedGames": 7680,
+                    "games": 7680,
+                    "gamesByPolicy": {
+                        "ppo2": 2560,
+                        "replica1": 2560,
+                        "replica2": 2560
+                    },
+                    "independentDeals": 640,
+                    "remainingGames": 0,
+                    "scheduledGamesByPolicy": {
+                        "ppo2": 2560,
+                        "replica1": 2560,
+                        "replica2": 2560
+                    }
+                },
+                "expertLabels": 0,
+                "localJsonChecksPassed": true,
+                "sha256": "f96aa2f0d51c6d0c42b8fdcbbdc3675e3990e87dd9774d83a8c33724a4ed487e",
+                "status": "integrity-pending",
+                "strengthStatisticsReleased": false
+            },
+            "snapshot": {
+                "allRemoteMetadataAndRawMemberHashesVerified": true,
+                "bytes": 29766403,
+                "fetchEvidenceSha256": "ac3a2b3781a59161a3a75edb2be73292ac912b0f25ccf2abc7f72a36738f5e08",
+                "files": 647,
+                "manifestSha256": "96a46c42d6cb009a9bd6a4c12b34bb0adfd2d24357d5af13e529700a8a76b607",
+                "prefix": "runs/multimap-replica-stress-20261109-v1-mixed",
+                "repo": "coyotte508/powergrid-ai-multimap-v1",
+                "revision": "0fa0ff123e9d5a135aa8e490475dbb03e885309a"
+            },
+            "terminalObservation": {
+                "actualConfigurationVerified": true,
+                "actualTimeoutSeconds": 10800,
+                "attemptedSlots": ["strong", "mixed"],
+                "auditStatus": "integrity-pending",
+                "auditorGit": "bda1310a08456ec8874be408d92b2e44639c1005",
+                "authenticatedLogSha256": "0987ab803cb1cc0d0943177bf76fb6e09e6b785e83a1c7b546915f92bf613bca",
+                "canonicalReceiptSha256": "3e499c4adbdf1fb0ad21d126192bb6477a5351ba52092cb040a7b7d813fb1167",
+                "createdAt": "2026-11-09T23:17:48.838000+00:00",
+                "finalOwnUploadRevision": "0fa0ff123e9d5a135aa8e490475dbb03e885309a",
+                "finishedAt": "2026-11-10T01:24:15.429000+00:00",
+                "jobId": "6af2549c9737d9a9e08df3e7",
+                "localWatcherLogSha256": "0987ab803cb1cc0d0943177bf76fb6e09e6b785e83a1c7b546915f92bf613bca",
+                "note": "Operational terminal observation only; complete remote snapshot and joint integrity/statistical/replay gates still required. No score or strength analysis.",
+                "panel": "mixed",
+                "productionReplays": 0,
+                "qualified": false,
+                "reportedBatches": 640,
+                "reportedGames": 7680,
+                "requestedHours": 9,
+                "run": "multimap-replica-stress-20261109-v1-mixed",
+                "schema": "multimap-replica-stress-terminal-observation-v1",
+                "sharedRecoverySubmitted": false,
+                "sourceCommit": "7bab96167ee32d691b2ccc450c50162283b0a473",
+                "sourceRevision": "6eec23b7c0b07c2ae3514f46d1e9b5157f79c969",
+                "sourceSha256": "ccf09e2cb52e30ec1c96008c6bf9bd5e7ee80291742dd220d5c9d0681c0f3c08",
+                "stage": "COMPLETED",
+                "startedAt": "2026-11-09T23:17:53.478000+00:00",
+                "strengthStatisticsReleased": false
+            }
+        },
+        "strong": {
+            "authenticatedLog": {
+                "generatedBatches": 640,
+                "jobStage": "COMPLETED",
+                "logSha256": "66e28e1b1cbd6ce274f1580fd0f2d6f7aa401166e07dd8bc0658cacbb435f177",
+                "sha256": "c02fb2d9e9546346e987b4d00887b370214a536ad117a58cae712be7109e746f",
+                "uploads": 43
+            },
+            "independentJson": {
+                "counts": {
+                    "batches": 640,
+                    "expectedBatches": 640,
+                    "expectedGames": 7680,
+                    "games": 7680,
+                    "gamesByPolicy": {
+                        "ppo2": 2560,
+                        "replica1": 2560,
+                        "replica2": 2560
+                    },
+                    "independentDeals": 640,
+                    "remainingGames": 0,
+                    "scheduledGamesByPolicy": {
+                        "ppo2": 2560,
+                        "replica1": 2560,
+                        "replica2": 2560
+                    }
+                },
+                "expertLabels": 0,
+                "localJsonChecksPassed": true,
+                "sha256": "51502140392310ff88d38e15f0bfd5bd62ebd38dd07d051a38deacc9127b2663",
+                "status": "integrity-pending",
+                "strengthStatisticsReleased": false
+            },
+            "snapshot": {
+                "allRemoteMetadataAndRawMemberHashesVerified": true,
+                "bytes": 29839370,
+                "fetchEvidenceSha256": "da7e2f71be1cd3037081f861061941a2e6a2ddd7834ced55a86cc353155c2719",
+                "files": 647,
+                "manifestSha256": "beb6ee41a2b9b8f78c87c50974bd6d55049051a3e8ccd27d72f2e0c2e334ff0c",
+                "prefix": "runs/multimap-replica-stress-20261109-v1-strong",
+                "repo": "coyotte508/powergrid-ai-multimap-v1",
+                "revision": "a0ff9f45bcc008eea22bb5a74fc65d9ae1a9ea36"
+            },
+            "terminalObservation": {
+                "actualConfigurationVerified": true,
+                "actualTimeoutSeconds": 21600,
+                "attemptedSlots": ["strong", "mixed"],
+                "auditStatus": "integrity-pending",
+                "auditorGit": "14bd98c665e1cccd46b0977cc7ceb9935dc02595",
+                "authenticatedLogSha256": "66e28e1b1cbd6ce274f1580fd0f2d6f7aa401166e07dd8bc0658cacbb435f177",
+                "canonicalReceiptSha256": "adca66e5372792048b471e55c0db8b7ec0be1b74b47730b5078989774e3d7dba",
+                "createdAt": "2026-11-09T22:51:54.937000+00:00",
+                "finalOwnUploadRevision": "a0ff9f45bcc008eea22bb5a74fc65d9ae1a9ea36",
+                "finishedAt": "2026-11-10T03:47:29.178000+00:00",
+                "jobId": "6af24e8a9737d9a9e08ddd53",
+                "localWatcherLogSha256": "66e28e1b1cbd6ce274f1580fd0f2d6f7aa401166e07dd8bc0658cacbb435f177",
+                "note": "Operational terminal observation only; complete remote snapshot and joint integrity/statistical/replay gates still required. No score or strength analysis.",
+                "panel": "strong",
+                "productionReplays": 0,
+                "qualified": false,
+                "reportedBatches": 640,
+                "reportedGames": 7680,
+                "requestedHours": 9,
+                "run": "multimap-replica-stress-20261109-v1-strong",
+                "schema": "multimap-replica-stress-terminal-observation-v1",
+                "sharedRecoverySubmitted": false,
+                "sourceCommit": "7bab96167ee32d691b2ccc450c50162283b0a473",
+                "sourceRevision": "6eec23b7c0b07c2ae3514f46d1e9b5157f79c969",
+                "sourceSha256": "ccf09e2cb52e30ec1c96008c6bf9bd5e7ee80291742dd220d5c9d0681c0f3c08",
+                "stage": "COMPLETED",
+                "startedAt": "2026-11-09T22:51:59.933000+00:00",
+                "strengthStatisticsReleased": false
+            }
+        }
+    },
+    "productionReplayAttempts": 0,
+    "qualificationEligible": false,
+    "qualified": false,
+    "recoveryNeeded": false,
+    "requestedJobHoursCommitted": 9,
+    "schema": "multimap-replica-stress-completion-v1",
+    "sharedRecoverySubmitted": false,
+    "strengthStatisticsReleased": false,
+    "totalIndependentRoots": 1280,
+    "totalSavedGames": 15360,
+    "totalSnapshotBytes": 59605773,
+    "totalSnapshotFiles": 1294
+}

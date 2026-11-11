@@ -6,7 +6,7 @@
     <g
         v-else
         :id="elId"
-        :class="[{ canClick: canClick }, activationState && 'plant-' + activationState]"
+        :class="['power-plant-card', { canClick: canClick }, activationState && 'plant-' + activationState]"
         :data-activation="activationState"
         :transform="`translate(${currentX}, ${currentY})`"
         @click="canClick && $emit('click')"
@@ -16,8 +16,8 @@
             width="60"
             height="40"
             :fill="getColor()"
-            :stroke="hasDiscount ? 'palegreen' : 'black'"
-            stroke-width="2"
+            :stroke="highlightColor || (hasDiscount ? 'palegreen' : 'black')"
+            :stroke-width="highlightColor ? 4 : 2"
             rx="4"
         />
         <g v-if="hasDiscount">
@@ -99,7 +99,7 @@ import Piece from './Piece.vue';
 @Component({
     created(this: Card) {
         this.pieceType = PieceType.Card;
-    }
+    },
 })
 export default class Card extends Mixins(Piece) {
     @Prop()
@@ -110,6 +110,9 @@ export default class Card extends Mixins(Piece) {
 
     @Prop()
     canClick?: boolean;
+
+    @Prop()
+    highlightColor?: string;
 
     @Prop({ default: false })
     hasDiscount?: boolean;
@@ -123,36 +126,58 @@ export default class Card extends Mixins(Piece) {
     }
 
     get activationLabel() {
-        return this.activationState === 'used' ? 'Activated' :
-            this.activationState === 'unavailable' ? 'Not enough fuel' :
-            this.activationState === 'ready' ? 'Ready to activate' : 'Not activated';
+        return this.activationState === 'used'
+            ? 'Activated'
+            : this.activationState === 'unavailable'
+            ? 'Not enough fuel'
+            : this.activationState === 'ready'
+            ? 'Ready to activate'
+            : 'Not activated';
     }
 
     getColor() {
         switch (this.powerPlant?.type) {
-            case PowerPlantType.Coal: return '#8b4513';
-            case PowerPlantType.Oil: return '#445';
-            case PowerPlantType.Garbage: return 'goldenrod';
-            case PowerPlantType.Uranium: return 'red';
-            case PowerPlantType.Hybrid: return 'url(#hybrid)';
-            case PowerPlantType.Wind: return 'limegreen';
-            case PowerPlantType.Nuclear: return 'dodgerblue';
-            case PowerPlantType.Step3: return 'dodgerblue';
-            case PowerPlantType.GarbageOilHybrid: return 'url(#garbageOilHybrid)';
+            case PowerPlantType.Coal:
+                return '#8b4513';
+            case PowerPlantType.Oil:
+                return '#445';
+            case PowerPlantType.Garbage:
+                return 'goldenrod';
+            case PowerPlantType.Uranium:
+                return 'red';
+            case PowerPlantType.Hybrid:
+                return 'url(#hybrid)';
+            case PowerPlantType.Wind:
+                return 'limegreen';
+            case PowerPlantType.Nuclear:
+                return 'dodgerblue';
+            case PowerPlantType.Step3:
+                return 'dodgerblue';
+            case PowerPlantType.GarbageOilHybrid:
+                return 'url(#garbageOilHybrid)';
         }
     }
 
     getResourcePath() {
         switch (this.powerPlant?.type) {
-            case PowerPlantType.Coal: return 'M0,3 L7.5,0 L15,3 L15,12 L7.5,15 L0,12Z';
-            case PowerPlantType.Oil: return 'M3,2 A6,3 0 0,1 12,2 L12,12 A6,3 0 0,1 3,12Z';
-            case PowerPlantType.Garbage: return 'M0,3 A7.5,3 0 0,1 15,3 L15,12 A7.5,3 0 0,1 0,12Z';
-            case PowerPlantType.Uranium: return 'M1,2 l4,-2 l6,0 l4,2 l0,11 l-4,2 l-6,0 l-4,-2Z';
-            case PowerPlantType.Hybrid: return 'M0,3 L7.5,0 L15,3 L15,12 L7.5,15 L0,12Z M9,1 A6,3 0 0,1 18,1 L18,10 A6,3 0 0,1 10,10Z';
-            case PowerPlantType.Wind: return '';
-            case PowerPlantType.Nuclear: return '';
-            case PowerPlantType.Step3: return '';
-            case PowerPlantType.GarbageOilHybrid: return 'M0,3 A7.5,3 0 0,1 15,3 L15,12 A7.5,3 0 0,1 0,12Z M9,1 A6,3 0 0,1 18,1 L18,10 A6,3 0 0,1 10,10Z';
+            case PowerPlantType.Coal:
+                return 'M0,3 L7.5,0 L15,3 L15,12 L7.5,15 L0,12Z';
+            case PowerPlantType.Oil:
+                return 'M3,2 A6,3 0 0,1 12,2 L12,12 A6,3 0 0,1 3,12Z';
+            case PowerPlantType.Garbage:
+                return 'M0,3 A7.5,3 0 0,1 15,3 L15,12 A7.5,3 0 0,1 0,12Z';
+            case PowerPlantType.Uranium:
+                return 'M1,2 l4,-2 l6,0 l4,2 l0,11 l-4,2 l-6,0 l-4,-2Z';
+            case PowerPlantType.Hybrid:
+                return 'M0,3 L7.5,0 L15,3 L15,12 L7.5,15 L0,12Z M9,1 A6,3 0 0,1 18,1 L18,10 A6,3 0 0,1 10,10Z';
+            case PowerPlantType.Wind:
+                return '';
+            case PowerPlantType.Nuclear:
+                return '';
+            case PowerPlantType.Step3:
+                return '';
+            case PowerPlantType.GarbageOilHybrid:
+                return 'M0,3 A7.5,3 0 0,1 15,3 L15,12 A7.5,3 0 0,1 0,12Z M9,1 A6,3 0 0,1 18,1 L18,10 A6,3 0 0,1 10,10Z';
         }
     }
 }
@@ -164,5 +189,8 @@ export default class Card extends Mixins(Piece) {
 }
 .canClick {
     cursor: pointer;
+}
+.power-plant-card.canClick:hover > rect:first-of-type {
+    stroke: white;
 }
 </style>

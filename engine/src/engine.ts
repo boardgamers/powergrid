@@ -3,6 +3,7 @@ import { cloneDeep, isEqual, range } from 'lodash';
 import seedrandom from 'seedrandom';
 import {
     availableMoves,
+    buildOptions,
     coalOilOverCapacity,
     computeRegionGraph,
     fuelOverCapacity,
@@ -18,7 +19,7 @@ import {
     replacePoweringLog,
     restorePowering,
 } from './choice-revisions';
-import { originalTopPlants, removedPlants, SPAIN_STEP_2_PLANTS } from './deckChanges';
+import { originalTopPlants, removedPlants, spainStep2Plants, SPAIN_STEP_2_PLANTS } from './deckChanges';
 import {
     countHeldPowerPlants,
     GameOptions,
@@ -34,6 +35,7 @@ import {
     ResourceType,
     resupplyUraniumMine,
     sellUraniumMine,
+    SingleDeck,
 } from './gamestate';
 import { LogItem } from './log';
 import { GameMap, maps, mapsRecharged } from './maps';
@@ -46,7 +48,6 @@ import {
     gameDeck,
     isEcological,
     isPlugPlant,
-    lastPlugPlant,
     phaseOutPlants,
     plantCatalogue,
     plantLabel,
@@ -81,13 +82,21 @@ export function defaultSetupDeck(
     useNewRechargedSetup: boolean,
     deck: PowerPlantDeck = 'standard',
     mapName = '',
-    step3FromBottom = 0
+    step3FromBottom = 0,
+    sampleShuffled = false
 ) {
     let actualMarket: PowerPlant[];
     let futureMarket: PowerPlant[];
     const removed = removedPlants(mapName, deck, numPlayers, variant);
-    const catalogue = dealtCatalogue(mapName, deck, rng).filter((p) => !removed.includes(p.number));
+    const dealt = dealtCatalogue(mapName, deck, rng, sampleShuffled);
+    const catalogue = dealt.filter((p) => !removed.includes(p.number));
     let powerPlantsDeck: PowerPlant[] = cloneDeep(catalogue);
+    // Spain & Portugal with the shuffled decks: which held-back copies were dealt.
+    const held = spainStep2Plants(deck);
+    const heldPowerPlants =
+        mapName == 'Spain & Portugal' && (deck == 'shuffled' || deck == 'shuffledUnique')
+            ? cloneDeep(dealt.filter((p) => held.includes(p.number)))
+            : undefined;
 
     if (variant == 'original') {
         // The eight smallest plants open the market; the map's opening plants (13 in
@@ -149,7 +158,7 @@ export function defaultSetupDeck(
         powerPlantsDeck.splice(powerPlantsDeck.length - step3FromBottom, 0, step3);
     }
 
-    return { actualMarket, futureMarket, powerPlantsDeck };
+    return { actualMarket, futureMarket, powerPlantsDeck, ...(heldPowerPlants ? { heldPowerPlants } : {}) };
 }
 
 export function setup(
@@ -168,6 +177,9 @@ export function setup(
         alternatePowerPlants = false,
         powerPlantDeck,
         rechargedStartingResources = true,
+        stallEnds = true,
+        step2BeforeStep3 = true,
+        shuffledSample = true,
         fusionEcological = FUSION_IS_ECOLOGICAL,
         legacyEcological = false,
         wienFreeGarbage = false,
@@ -203,7 +215,7 @@ export function setup(
         ? chosenMap.startingResources.recharged
         : chosenMap.startingResources.original;
     if (startingResources) chosenMap.startingResources = startingResources;
-    const decks = availableDecks(chosenMap.name);
+    const decks = availableDecks();
     // A random deck is one of the three single decks. Dedicated rng so the pick
     // doesn't shift the rest of the setup's draws.
     const singleDecks: PowerPlantDeck[] = ['standard', 'deck1', 'deck2'];
@@ -218,11 +230,13 @@ export function setup(
         : requestedDeck && decks.includes(requestedDeck)
         ? requestedDeck
         : 'standard';
+    const sampleShuffled = chosenDeck == 'shuffled' && shuffledSample;
     const ecologicalRules = ECOLOGICAL_RULE_MAPS.includes(chosenMap.name) && !legacyEcological;
 
     let actualMarket: PowerPlant[];
     let futureMarket: PowerPlant[];
     let powerPlantsDeck: PowerPlant[];
+    let heldPowerPlants: PowerPlant[] | undefined;
 
     if (forceDeck) {
         powerPlantsDeck = forceDeck;
@@ -230,12 +244,13 @@ export function setup(
         futureMarket = powerPlantsDeck.splice(0, 4);
     } else {
         if (chosenMap.setupDeck) {
-            ({ actualMarket, futureMarket, powerPlantsDeck } = chosenMap.setupDeck(
+            ({ actualMarket, futureMarket, powerPlantsDeck, heldPowerPlants } = chosenMap.setupDeck(
                 numPlayers,
                 variant,
                 rng,
                 chosenDeck,
-                legacyEcological ? true : fusionEcological
+                legacyEcological ? true : fusionEcological,
+                sampleShuffled
             ));
         } else {
             ({ actualMarket, futureMarket, powerPlantsDeck } = defaultSetupDeck(
@@ -244,7 +259,9 @@ export function setup(
                 rng,
                 useNewRechargedSetup,
                 chosenDeck,
-                chosenMap.name
+                chosenMap.name,
+                0,
+                sampleShuffled
             ));
         }
     }
@@ -485,6 +502,7 @@ export function setup(
         // Australia: the separate uranium-mine market starts full (6 prices $2–$7,
         // two tokens each). Undefined on every other map.
         uraniumMineMarket: (forceMap || finalMap).name == 'Australia' ? [2, 2, 2, 2, 2, 2] : undefined,
+        ...(heldPowerPlants ? { heldPowerPlants } : {}),
         coalPrices,
         oilPrices,
         garbagePrices,
@@ -525,6 +543,9 @@ export function setup(
                 ? { powerPlantDeck: chosenDeck }
                 : {}),
             ...(variantStartingResources && rechargedStartingResources ? { rechargedStartingResources: true } : {}),
+            ...(stallEnds ? { stallEnds: true } : {}),
+            ...(step2BeforeStep3 ? { step2BeforeStep3: true } : {}),
+            ...(sampleShuffled ? { shuffledSample: true } : {}),
             ...(ecologicalRules ? { fusionEcological } : {}),
             ...(wienFreeGarbage ? { wienFreeGarbage: true } : {}),
         },
@@ -587,7 +608,7 @@ export function setup(
     if (G.map.name == 'Middle East') {
         removePlantsForMiddleEastStep1(G);
         G.cardsLeft = G.powerPlantsDeck.length;
-        G.nextCardWeak = variant === 'recharged' && G.cardsLeft > 0 && G.powerPlantsDeck[0].number <= 15;
+        G.nextCardWeak = nextCardIsPlug(G);
     }
 
     // chooseRegions: start in the region draft instead of the auction. The map
@@ -645,6 +666,9 @@ function filterMapToRegions(map: GameMap, playRegions: Set<string>): GameMap {
 // matching plant numbers. Mutates the passed arrays in place.
 // The map's numbers win over the deck's: a regional card the deck has no plant for
 // (Deck 1 has no 18) is shuffled into the draw pile, below its top card.
+// The shuffled decks: the regional card takes the place of one dealt copy of its
+// number and the other copies leave the game; a regional card whose number wasn't
+// dealt is shuffled in the same way.
 function applyRegionalPowerPlants(
     map: GameMap,
     playRegions: Set<string>,
@@ -659,10 +683,31 @@ function applyRegionalPowerPlants(
     }
     const catalogue = plantCatalogue(map.name, deck);
     const rng = seedrandom(seed + '-regional');
+    const shuffledDeck = deck == 'shuffled' || deck == 'shuffledUnique';
+    const actualSize = actualMarket.length;
+    const marketSize = actualSize + futureMarket.length;
     for (const region of playRegions) {
         const replacements = map.regionalPowerPlants[region];
         if (replacements) {
             for (const newPlant of replacements) {
+                if (shuffledDeck) {
+                    const sameNumber = (p: PowerPlant) => Math.floor(p.number) === newPlant.number;
+                    const holders = [actualMarket, futureMarket, powerPlantsDeck];
+                    const keeper = holders.find((arr) => arr.some(sameNumber));
+                    if (keeper) {
+                        const regional = { ...newPlant };
+                        keeper[keeper.findIndex(sameNumber)] = regional;
+                        for (const arr of holders) {
+                            for (let i = arr.length - 1; i >= 0; i--) {
+                                if (sameNumber(arr[i]) && arr[i] !== regional) arr.splice(i, 1);
+                            }
+                        }
+                    } else {
+                        const index = 1 + Math.floor(rng() * (powerPlantsDeck.length - 1));
+                        powerPlantsDeck.splice(index, 0, { ...newPlant });
+                    }
+                    continue;
+                }
                 const swapIn = (arr: PowerPlant[]) => {
                     const idx = arr.findIndex((p) => p.number === newPlant.number);
                     if (idx !== -1) arr[idx] = { ...newPlant };
@@ -677,6 +722,14 @@ function applyRegionalPowerPlants(
                 }
             }
         }
+    }
+    if (shuffledDeck) {
+        // A removed copy may have left the market: refill it from the top of the deck.
+        const market = [...actualMarket, ...futureMarket];
+        while (market.length < marketSize && powerPlantsDeck.length > 1) market.push(powerPlantsDeck.shift()!);
+        market.sort((a, b) => a.number - b.number);
+        actualMarket.splice(0, actualMarket.length, ...market.slice(0, actualSize));
+        futureMarket.splice(0, futureMarket.length, ...market.slice(actualSize));
     }
 }
 
@@ -699,6 +752,9 @@ function finalizeRegions(G: GameState) {
     );
     // knownPowerPlantDeck mirrors actualMarket+futureMarket and must reflect any swap.
     G.knownPowerPlantDeck = G.actualMarket.concat(G.futureMarket);
+    // Regional cards can add plants to the deck, or (shuffled decks) take copies out.
+    G.cardsLeft = G.powerPlantsDeck.length;
+    G.nextCardWeak = G.options.variant === 'recharged' && G.cardsLeft > 0 && G.powerPlantsDeck[0].number <= 15;
 
     // UK & Ireland 2p caps the end-game target at the number of cities actually in
     // play, which is only known once the regions are chosen.
@@ -736,6 +792,18 @@ function advanceColorDraft(G: GameState) {
     }
 }
 
+// The draw pile shows whether its top card has a plug on the back (Recharged only).
+// Which plants are plug cards depends on the deck: Deck 1 has plugs up to 16, and the
+// shuffled decks mix copies from every deck (16.1, 15.2, ...), so ask the deck rather
+// than comparing the number with 15.
+function nextCardIsPlug(G: GameState): boolean {
+    return (
+        G.options.variant == 'recharged' &&
+        G.powerPlantsDeck.length > 0 &&
+        isPlugPlant(G.powerPlantsDeck[0], gameDeck(G.options))
+    );
+}
+
 export function stripSecret(G: GameState, player?: number): GameState {
     return {
         ...G,
@@ -759,8 +827,12 @@ export function stripSecret(G: GameState, player?: number): GameState {
                     ...pl,
                     settings: undefined,
                     availableMoves: pl.availableMoves ? {} : null,
-                    money: ended(G) || G.options.showMoney ? pl.money : -1,
+                    money: ended(G) || G.options.showMoney || G.analysisMoney === 'hypothetical' ? pl.money : -1,
                     bid: G.options.fastBid ? 0 : pl.bid,
+                    // A sealed response must not leak via its duplicate in lastMove.
+                    // Hide every opponent's last move throughout the pending auction,
+                    // including passes and revisions, rather than revealing its kind.
+                    lastMove: G.options.fastBid && G.phase === Phase.Auction && G.chosenPowerPlant ? null : pl.lastMove,
                 };
             }
         }),
@@ -1159,39 +1231,28 @@ export function move(
                                 G.map.name != 'Middle East' &&
                                 G.map.name != 'Manhattan'
                             ) {
-                                const powerPlant = G.actualMarket.shift()!;
-                                startStep(
-                                    G,
-                                    2,
-                                    `Starting Step 2, Power Plant ${plantLabel(powerPlant?.number)} discarded.`
-                                );
-
-                                // Spain & Portugal: put the held-back plants on top (18, 22, 27 in the standard deck)
-                                if (G.map.name == 'Spain & Portugal') {
-                                    const deck = gameDeck(G.options);
-                                    const held = SPAIN_STEP_2_PLANTS[deck];
-                                    if (!G.powerPlantsDeck.find((p) => p.number == held[0])) {
-                                        G.powerPlantsDeck.unshift(
-                                            ...held.map((n) => getPowerPlant(n, G.map.name, deck))
-                                        );
-                                    }
-                                }
-
-                                if (G.map.name == 'Europe') {
-                                    // Europe: do NOT draw a replacement from the deck.
-                                    // The future market shrinks from 5 to 4; reorganize
-                                    // the remaining 8 plants so actual stays at 4.
-                                    const market = [...G.actualMarket, ...G.futureMarket];
-                                    market.sort((a, b) => a.number - b.number);
-                                    G.actualMarket = market.slice(0, 4);
-                                    G.futureMarket = market.slice(4);
-                                } else {
-                                    addPowerPlant(G);
-                                }
+                                beginStep2(G, 'Starting Step 2');
                             }
                         }
 
-                        if (maxCities >= G.citiesToEndGame) {
+                        // A game nobody can finish ends anyway: in Step 3 (every city's capacity
+                        // at its last), if no player could ever build another house, the end
+                        // count can never be reached. UK & Ireland can get here: the island jump
+                        // needs an empty city, so a player locked on one island tops out at its
+                        // cities (13 or 12 on a 4-region board) once the other island fills.
+                        const stuck =
+                            !!G.options.stallEnds &&
+                            maxCities < G.citiesToEndGame &&
+                            G.step == 3 &&
+                            noPlayerCanBuild(G);
+                        if (stuck) {
+                            G.log.push({
+                                type: 'event',
+                                event: 'No player can build another city, so the game ends.',
+                            });
+                        }
+
+                        if (maxCities >= G.citiesToEndGame || stuck) {
                             G.phase = Phase.GameEnd;
                             G.currentPlayers = [];
                             calculateCitiesPowered(G);
@@ -1997,7 +2058,7 @@ export function move(
         : move;
 
     G.cardsLeft = G.powerPlantsDeck.length;
-    G.nextCardWeak = G.options.variant == 'recharged' && G.cardsLeft > 0 && G.powerPlantsDeck[0].number <= 15;
+    G.nextCardWeak = nextCardIsPlug(G);
 
     updateClocks(G, move.poweringClock?.at ?? move.serverTime ?? move.time);
     if (move.poweringClock) {
@@ -2212,6 +2273,12 @@ function chooseRandom(moves: any[]) {
     return moves[Math.floor(Math.random() * moves.length)];
 }
 
+// True when no active player has any city left they could build in, whatever their money:
+// every option is priced 9999 (taken, unreachable, or a jump into an occupied city).
+export function noPlayerCanBuild(G: GameState): boolean {
+    return G.players.filter((p) => !p.isDropped).every((p) => buildOptions(G, p).every((c) => c.price >= 9999));
+}
+
 export function ended(G: GameState): boolean {
     return G.phase == Phase.GameEnd;
 }
@@ -2225,11 +2292,13 @@ export function scores(G: GameState): number[] {
 // queue never enters a saved state or a scenario snapshot.
 const publicReplayDraws = new WeakMap<GameState, PowerPlant[]>();
 
-export function reconstructState(gameState: GameState, to?: number, forcePublicDraws = false): GameState {
+// The third argument is retained for callers that previously opted into public
+// draws. All secret-seed reconstructions now use that path.
+export function reconstructState(gameState: GameState, to?: number, _forcePublicDraws = false): GameState {
     const initialState = getBaseState(gameState);
     const G = cloneDeep(initialState);
 
-    if (to != undefined && gameState.seed == 'secret') {
+    if (gameState.seed == 'secret') {
         if (gameState.knownPowerPlantDeck) {
             G.map = gameState.map;
             G.blockedCities = gameState.blockedCities?.slice();
@@ -2239,40 +2308,48 @@ export function reconstructState(gameState: GameState, to?: number, forcePublicD
             // by the same setupDeck, so its market sizes are authoritative even
             // though the (seeded) contents are not. knownPowerPlantDeck is
             // actual-then-future at game start with the draws appended, so the
-            // first actualN+futureN entries seed the market and the rest the deck.
+            // first actualN+futureN entries seed the market; the rest are draws.
             const actualN = initialState.actualMarket.length;
             const futureN = initialState.futureMarket.length;
             G.actualMarket = G.powerPlantsDeck.splice(0, actualN);
             G.futureMarket = G.powerPlantsDeck.splice(0, futureN);
             G.players[G.currentPlayers[0]].availableMoves = availableMoves(G, G.players[G.currentPlayers[0]]);
-            // cloneDeep: addPowerPlant() replaces powerPlantsDeck with this array and
-            // shift()s draws off it — sharing the caller's array would consume
-            // knownPowerPlantDeckStep3 across successive replays (each replayTo
-            // must see the full deck).
-            G.powerPlantDeckAfterStep3 = cloneDeep(gameState.knownPowerPlantDeckStep3);
             G.knownPowerPlantDeck = G.actualMarket.concat(G.futureMarket);
-            if (forcePublicDraws) {
-                publicReplayDraws.set(
-                    G,
+            // Observations are a draw transcript, not a physical deck: they omit
+            // unseen cards and include cards drawn again after being bottomed.
+            // Keep setup's physical deck for its size and normal lifecycle (bottoming,
+            // Step 3 shuffles, Manhattan recycling, Spain's held-back plants), but
+            // take card identities from the transcript. Never replace the physical
+            // deck with the Step 3 transcript, which may still be only a prefix.
+            publicReplayDraws.set(
+                G,
+                cloneDeep(
                     gameState.knownPowerPlantDeck
                         .slice(actualN + futureN)
                         .concat(gameState.knownPowerPlantDeckStep3 || [])
-                );
-                G.powerPlantsDeck = cloneDeep(initialState.powerPlantsDeck);
-                G.powerPlantDeckAfterStep3 = undefined;
-                if (G.map.name === 'Middle East') {
-                    G.powerPlantsDeck = defaultSetupDeck(
-                        G.players.length,
-                        G.options.variant!,
-                        seedrandom('public-replay'),
-                        G.options.useNewRechargedSetup ?? true,
-                        gameDeck(G.options),
-                        G.map.name
-                    ).powerPlantsDeck;
-                    removePlantsForMiddleEastStep1(G);
-                    G.players[G.currentPlayers[0]].availableMoves = availableMoves(G, G.players[G.currentPlayers[0]]);
-                }
+                )
+            );
+            G.powerPlantsDeck = cloneDeep(initialState.powerPlantsDeck);
+            G.powerPlantDeckAfterStep3 = undefined;
+            if (G.map.name === 'Middle East') {
+                // Setup already filtered its randomly seeded market. Repeat that
+                // filtering from the recorded initial market and an unfiltered deck.
+                G.powerPlantsDeck = defaultSetupDeck(
+                    G.players.length,
+                    G.options.variant!,
+                    seedrandom('public-replay'),
+                    G.options.useNewRechargedSetup ?? true,
+                    gameDeck(G.options),
+                    G.map.name,
+                    0,
+                    gameDeck(G.options) == 'shuffled' && G.options.shuffledSample === true
+                ).powerPlantsDeck;
+                // The placeholder setup's own filtering may have used up the discount.
+                G.plantDiscountActive = G.options.variant == 'recharged';
+                removePlantsForMiddleEastStep1(G);
+                G.players[G.currentPlayers[0]].availableMoves = availableMoves(G, G.players[G.currentPlayers[0]]);
             }
+            G.cardsLeft = G.powerPlantsDeck.length;
         }
     }
 
@@ -2407,6 +2484,11 @@ export function addPowerPlant(G: GameState): void {
 
         let skipAdd = false;
         if (powerPlant.number == 99) {
+            // Drawn before Step 2 has begun: Step 2's setup comes first, then Step 3's.
+            // In the auction it waits for the end of the phase, with Step 3's.
+            if (G.phase != Phase.Auction && step2BeforeStep3(G)) {
+                beginStep2(G, 'Starting Step 2 (the Step 3 card came first)');
+            }
             if (G.powerPlantDeckAfterStep3) {
                 G.powerPlantsDeck = G.powerPlantDeckAfterStep3;
             } else if (G.map.name == 'China') {
@@ -2664,7 +2746,7 @@ function removePlantsForMiddleEastStep1(G: GameState) {
         removePowerPlant(G, plantToRemove);
 
         // Plug plants leave the game (06, 11 and 14 in the standard deck); others go under.
-        if (plantToRemove.number <= lastPlugPlant(gameDeck(G.options))) {
+        if (isPlugPlant(plantToRemove, gameDeck(G.options))) {
             G.log.push({
                 type: 'event',
                 event: `Removing Power Plant ${plantLabel(plantToRemove.number)} from game.`,
@@ -2700,6 +2782,49 @@ function removePlantsForMiddleEastStep1(G: GameState) {
         plantToRemove = G.actualMarket.find(
             (pp: PowerPlant) => pp.type == PowerPlantType.Garbage || pp.type == PowerPlantType.Uranium
         );
+    }
+}
+
+// Maps with their own rule for an early Step 3 card: Middle East's second pass,
+// China's ordered deck, and Manhattan, which has no Step 3.
+const OWN_EARLY_STEP_3_MAPS = ['Middle East', 'China', 'Manhattan'];
+
+// The rulebooks: when the Step 3 card is drawn before Step 2 has begun, carry out
+// everything that begins Step 2, then prepare Step 3, back to back. Games created
+// before this rule was followed keep their old sequence (see reconstructionOptions).
+function step2BeforeStep3(G: GameState): boolean {
+    return !!G.options.step2BeforeStep3 && G.step == 1 && !OWN_EARLY_STEP_3_MAPS.includes(G.map.name);
+}
+
+// Step 2's setup: the smallest plant leaves the market and a new one is drawn (Spain &
+// Portugal first puts its held-back plants on top). Also run, back to back with Step
+// 3's, when the Step 3 card is drawn before Step 2 has begun.
+function beginStep2(G: GameState, event: string) {
+    const powerPlant = G.actualMarket.shift()!;
+    startStep(G, 2, `${event}, Power Plant ${plantLabel(powerPlant?.number)} discarded.`);
+
+    // Spain & Portugal: put the held-back plants on top (18, 22, 27 in the standard deck)
+    if (G.map.name == 'Spain & Portugal' && G.heldPowerPlants) {
+        // The shuffled decks: the held-back copies that were dealt, smallest on top.
+        G.powerPlantsDeck.unshift(...cloneDeep(G.heldPowerPlants));
+    } else if (G.map.name == 'Spain & Portugal') {
+        const deck = gameDeck(G.options) as SingleDeck;
+        const held = SPAIN_STEP_2_PLANTS[deck];
+        if (!G.powerPlantsDeck.find((p) => p.number == held[0])) {
+            G.powerPlantsDeck.unshift(...held.map((n) => getPowerPlant(n, G.map.name, deck)));
+        }
+    }
+
+    if (G.map.name == 'Europe') {
+        // Europe: do NOT draw a replacement from the deck.
+        // The future market shrinks from 5 to 4; reorganize
+        // the remaining 8 plants so actual stays at 4.
+        const market = [...G.actualMarket, ...G.futureMarket];
+        market.sort((a, b) => a.number - b.number);
+        G.actualMarket = market.slice(0, 4);
+        G.futureMarket = market.slice(4);
+    } else {
+        addPowerPlant(G);
     }
 }
 
@@ -2914,6 +3039,9 @@ export function reconstructionOptions(options: GameOptions, log: LogItem[] = [])
     return {
         ...options,
         rechargedStartingResources: options.rechargedStartingResources ?? false,
+        stallEnds: options.stallEnds ?? false,
+        step2BeforeStep3: options.step2BeforeStep3 ?? false,
+        shuffledSample: options.shuffledSample ?? false,
         legacyEcological: options.fusionEcological === undefined,
         ...(wienFreeGarbage ? { wienFreeGarbage: true } : {}),
     };
@@ -3089,6 +3217,11 @@ function toResourcesPhase(G: GameState) {
         if (G.map.name == 'Middle East' && G.step == 1) {
             enterStepTwoMiddleEast(G);
         } else {
+            if (step2BeforeStep3(G)) {
+                // Step 2's setup, then Step 3's, which shuffles the draw pile again.
+                beginStep2(G, 'Starting Step 2 (the Step 3 card came first)');
+                G.powerPlantsDeck = shuffle(G.powerPlantsDeck, G.seed);
+            }
             const powerPlantDiscarded = G.actualMarket.shift();
             G.futureMarket.pop();
             startStep(G, 3, `Starting Step 3, Power Plant ${plantLabel(powerPlantDiscarded?.number)} discarded.`);

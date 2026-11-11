@@ -157,6 +157,19 @@
                             {{ G.cardsLeft }} cards left{{ G.nextCardWeak ? ', next is an initial plant' : '' }}
                         </title>
                     </rect>
+                    <text
+                        data-deck-count
+                        :x="65 + G.cardsLeft / 5"
+                        :y="58 - G.cardsLeft / 10"
+                        text-anchor="middle"
+                        dominant-baseline="central"
+                        font-size="20"
+                        font-weight="700"
+                        fill="black"
+                        pointer-events="none"
+                    >
+                        {{ G.cardsLeft }}
+                    </text>
                 </template>
             </g>
 
@@ -470,8 +483,11 @@
                 <PassButton
                     transform="translate(15, 15)"
                     :enabled="canUsePhaseButton"
-                    :highlightButton="canUsePhaseButton"
+                    :highlightButton="highlightPhaseButton"
                     :text="phaseButtonText"
+                    :showText="!!preferences.textActions"
+                    :width="168"
+                    :height="32"
                     :icon="phaseButtonIcon"
                     :action="phaseButtonAction"
                     @click="usePhaseButton"
@@ -485,6 +501,9 @@
                     transform="translate(15, 56)"
                     control="undo-move"
                     text="Undo my move"
+                    :showText="!!preferences.textActions"
+                    :width="168"
+                    :height="32"
                     :enabled="true"
                     :highlightButton="true"
                     @click="undoMove()"
@@ -497,10 +516,25 @@
                     :highlightButton="changingBid || canUndo()"
                     :icon="changingBid ? 'cancel' : 'undo'"
                     :text="changingBid ? 'Cancel bid edit' : 'Undo last move'"
+                    :showText="!!preferences.textActions"
+                    :width="168"
+                    :height="32"
                     @click="useUndoButton()"
                 />
                 <BoardOption
                     transform="translate(15, 97)"
+                    :width="30"
+                    :height="32"
+                    control="text-actions"
+                    icon="text"
+                    label="Show action labels"
+                    :active="!!preferences.textActions"
+                    @click="toggleTextActions()"
+                />
+                <BoardOption
+                    transform="translate(49.5, 97)"
+                    :width="30"
+                    :height="32"
                     control="color-blind"
                     icon="shapes"
                     label="Color-blind mode"
@@ -509,7 +543,9 @@
                 />
                 <BoardOption
                     v-if="roundPlan || canPlanRound"
-                    transform="translate(59, 97)"
+                    transform="translate(84, 97)"
+                    :width="30"
+                    :height="32"
                     control="plan"
                     :icon="roundPlan ? 'return' : 'plan'"
                     :label="
@@ -529,17 +565,27 @@
                             : startPlanning()
                     "
                 />
-                <SoundButton :transform="iconButton(0)" :isOn="preferences.sound" @click="toggleSound()" />
                 <BoardOption
                     v-if="hasUnselectedRegions"
-                    :transform="iconButton(1)"
+                    transform="translate(118.5, 97)"
+                    :width="30"
+                    :height="32"
                     control="unselected-regions"
                     icon="regions"
                     label="Show unselected regions"
                     :active="preferences.showUnselectedRegions !== false"
                     @click="toggleUnselectedRegions()"
                 />
-                <RulesButton :transform="iconButton(hasUnselectedRegions ? 2 : 1)" @click="rulesVisible = true" />
+                <BoardOption
+                    transform="translate(153, 97)"
+                    :width="30"
+                    :height="32"
+                    control="rules"
+                    icon="rules"
+                    label="Rules"
+                    :toggle="false"
+                    @click="rulesVisible = true"
+                />
             </g>
 
             <g
@@ -562,7 +608,8 @@
                         :ended="gameEnded(G)"
                         :isPlayer="player == playerIndex"
                         :ranking="sortedPlayers.findIndex((x) => x.id == G.players[playerIndex].id) + 1"
-                        :showMoney="player == playerIndex || moneyIsPublic"
+                        :showMoney="player == playerIndex || moneyIsPublic || G.analysisMoney === 'hypothetical'"
+                        :hypotheticalMoney="G.analysisMoney === 'hypothetical'"
                         :showBid="!G.options.fastBid"
                         :phase="G.phase"
                         :isAustralia="G.map.name === 'Australia'"
@@ -809,6 +856,10 @@
                                         slots filled), even if no player reached
                                         {{ G.citiesToStep2 }}
                                     </li>
+                                    <li v-if="G.map.name !== 'Middle East' && G.map.name !== 'Europe'">
+                                        When it starts, the smallest power plant leaves the market and a new one is
+                                        drawn
+                                    </li>
                                     <li>Two players per city</li>
                                     <li>
                                         Resource Resupply: {{ G.resourceResupply[1] }}
@@ -828,6 +879,14 @@
                                 <strong>Step 3:</strong>
                                 <ul>
                                     <li>Starts after the "Step 3" card is drawn from the deck</li>
+                                    <li v-if="G.map.name !== 'China'">
+                                        When it starts, the Step 3 card and the smallest power plant leave the market,
+                                        and the draw pile is shuffled
+                                    </li>
+                                    <li v-if="earlyStep3StartsStep2">
+                                        If the Step 3 card is drawn before Step 2 has begun, Step 2 begins first, with
+                                        its own setup, and Step 3 follows straight after
+                                    </li>
                                     <li>Three players per city</li>
                                     <li>
                                         Resource Resupply: {{ G.resourceResupply[2] }}
@@ -851,21 +910,30 @@
                         The winner is the player that can power the most cities. Money and number of cities built are
                         tiebreakers.
                     </div>
-                    <template v-if="G.map.mapSpecificRules">
+                    <template v-if="mapSpecificRules">
                         <br />
                         <div>
                             <strong>Map Specific Rules:</strong><br />
-                            <span class="map-specific-rules">{{ G.map.mapSpecificRules }}</span>
+                            <span class="map-specific-rules">{{ mapSpecificRules }}</span>
                         </div>
                     </template>
                     <br />
                     <div>
                         <strong>Deck build:</strong><br />
-                        <span class="map-specific-rules">{{ standardDeckBuild }}</span>
-                        <template v-if="mapDeckBuild">
+                        <!-- One span per sentence: the catalogues translate each template sentence. -->
+                        <span class="map-specific-rules"
+                            ><template v-for="(sentence, i) in deckBuild.standard"
+                                ><span :key="'deck-build-' + i">{{ sentence }}</span
+                                >{{ ' ' }}</template
+                            ></span
+                        >
+                        <template v-if="deckBuild.map.length">
                             <br />
                             <span class="map-specific-rules"
-                                ><strong>On {{ G.map.name }}:</strong> {{ mapDeckBuild }}</span
+                                ><strong>On {{ G.map.name }}:</strong
+                                ><template v-for="(sentence, i) in deckBuild.map"
+                                    >{{ ' ' }}<span :key="'map-deck-build-' + i">{{ sentence }}</span></template
+                                ></span
                             >
                         </template>
                     </div>
@@ -901,11 +969,13 @@
 </template>
 <script lang="ts">
 import { isEqual } from 'lodash';
+import './buttons/board-control.css';
 import { resolvePlayerColors, colorText } from '../player-colors';
 import InlineLog from './InlineLog.vue';
 import { Vue, Component, Prop, Watch, Provide, ProvideReactive, Ref } from 'vue-property-decorator';
 import { MoveName, ended, playersSortedByScore, reconstructState } from 'powergrid-engine';
 import type { GameState, LogItem, Move, Player } from 'powergrid-engine';
+import { deckBuildText, DeckBuildText } from 'powergrid-engine/src/deckBuildText';
 import { plantLabel } from 'powergrid-engine/src/powerPlants';
 import { EventEmitter } from 'events';
 import {
@@ -919,7 +989,7 @@ import {
 } from '../util/turn-buffer';
 import { UIData, Preferences } from '../types/ui-data';
 import { Card, House, Coal, Oil, Garbage, Uranium } from './pieces';
-import { Button, PassButton, UndoButton, BoardOption, SoundButton, RulesButton } from './buttons';
+import { Button, PassButton, UndoButton, BoardOption } from './buttons';
 import PlayerBoard from './PlayerBoard.vue';
 import Calculator from './Calculator.vue';
 import PowerPlantMarket from './boards/PowerPlantMarket.vue';
@@ -951,7 +1021,7 @@ import {
     PowerPlantType,
     ResourceType,
 } from 'powergrid-engine/src/gamestate';
-import { City } from 'powergrid-engine/src/maps';
+import { City, maps, mapsRecharged } from 'powergrid-engine/src/maps';
 import { formatDuration } from '../util/time';
 import { playerOrderForDisplay } from '../util/player-order';
 import { freePlantMoves, canAutoFinishPowering, poweredCities } from '../util/powering';
@@ -1021,26 +1091,6 @@ const STACK_SLOT_MAX_WIDTH: Record<string, number> = {
     resources: 0.94,
 };
 
-/**
- * How the deck and opening market are built when a map says nothing special —
- * i.e. the rule the per-map `deckBuild` notes are differences FROM. Wording is
- * the legend row of the deck-build grid Mike reviewed on 2026-08-13.
- */
-const STANDARD_DECK_BUILD: Record<string, string> = {
-    recharged:
-        'Shuffle the 13 low power plants — the "plug plants" (3-15), named for the plug on the back of ' +
-        'the printed cards. Draw 8 and sort them ascending: the 4 cheapest form the ' +
-        'current market, the next 4 the future market. One of the remaining low plants goes face down on ' +
-        'top of the draw deck. Player-count removal: 2 players remove 1 low + 5 higher plants; 3 players ' +
-        'remove 2 low + 6 higher; 4 players remove 1 low + 3 higher; 5-6 players remove none. The leftover ' +
-        'low plants are shuffled into the deck, with the Step 3 card on the bottom.',
-    original:
-        'The market is fixed: power plants 3, 4, 5, 6 are the current market and 7, 8, 9, 10 the future ' +
-        'market. Power plant 13 and the Step 3 card are set aside and the rest of the deck is shuffled, ' +
-        'then 8 random plants are removed for 2-3 players, 4 for 4 players, and none for 5-6 players. ' +
-        'Power plant 13 goes on top of the deck and the Step 3 card on the bottom.',
-};
-
 const slotRef = (name: string) => `slot${name[0].toUpperCase()}${name.slice(1)}`;
 const round = (n: number, digits = 2) => Number(n.toFixed(digits));
 let nextGeographyClipId = 0;
@@ -1060,10 +1110,9 @@ let nextGeographyClipId = 0;
             const log = this._futureState!.log.map((l, i) => ({ index: i, ...l })).filter((l) => l.type == 'move');
             to = log[to - 1].index;
 
-            // Middle East reshuffles at Step 2: replay the recorded draws so the
-            // Step 3 card cannot be drawn repeatedly from a reconstructed deck.
-            const recordedDraws = this._futureState!.map.name === 'Middle East';
-            this.replaceState(reconstructState(this._futureState!, to + 1, recordedDraws), false);
+            // Public reconstruction uses recorded draws for card identities while
+            // tracking the full physical deck separately, including bottomed cards.
+            this.replaceState(reconstructState(this._futureState!, to + 1), false);
 
             this.emitter.emit('replay:info', {
                 start: 1,
@@ -1090,8 +1139,6 @@ let nextGeographyClipId = 0;
         PassButton,
         UndoButton,
         BoardOption,
-        SoundButton,
-        RulesButton,
         Button,
         Calculator,
         RoundPlanner,
@@ -1355,6 +1402,16 @@ export default class Game extends Vue {
         if (this.changingBid) return this.player !== this.G!.auctioningPlayer;
         return !!this.revisableBid || this.canChangePowering || this.canPass();
     }
+    get highlightPhaseButton(): boolean {
+        if (!this.canUsePhaseButton) return false;
+        if (this.phaseButtonAction !== 'skip') return true;
+        if (this.changingBid) return this.revisionBids.length === 0;
+        const moves = this.G?.players[this.player!]?.availableMoves;
+        if (this.G?.phase === Phase.Resources) return !moves?.[MoveName.BuyResource]?.length;
+        if (this.G?.phase === Phase.Building) return !moves?.[MoveName.Build]?.length;
+        if (this.G?.phase === Phase.Bureaucracy) return !moves?.[MoveName.UsePowerPlant]?.length;
+        return !moves?.[MoveName.Bid]?.length && !moves?.[MoveName.ChoosePowerPlant]?.length;
+    }
     get phaseButtonText(): string {
         if (this.changingBid) return 'Pass bid';
         if (this.revisableBid) return 'Edit bid';
@@ -1376,6 +1433,9 @@ export default class Game extends Vue {
     get phaseButtonAction(): string {
         if ((this.revisableBid && !this.changingBid) || this.canChangePowering) return 'edit';
         if (this.changingBid) return 'skip';
+        if (this.G?.phase === Phase.Resources) return this.playerBoughtResourceThisTurn() ? 'finish' : 'skip';
+        if (this.G?.phase === Phase.Building) return this.playerBuiltCityThisTurn() ? 'finish' : 'skip';
+        if (this.G?.phase === Phase.Bureaucracy) return this.playerActivatedPlantThisTurn() ? 'finish' : 'skip';
         if (this.tutorialMove || this.roundPlan) return 'finish';
         return this.G?.phase === Phase.Auction ? 'skip' : 'finish';
     }
@@ -1935,15 +1995,16 @@ export default class Game extends Vue {
         return remaining.length === 1 && remaining[0].id === this.player;
     }
 
-    // Minimum price the sole buyer pays: the plant number, or $1 for the recharged
-    // discount plant (the cheapest in the market) — mirrors the engine's minimum bid.
+    // Minimum price the sole buyer pays: the printed plant number, or $1 for the recharged
+    // discount plant (the cheapest in the market) — mirrors the engine's minimum bid. The
+    // shuffled decks number their extra copies 13.1 / 13.2, which still cost $13.
     soleBuyerPrice(): number {
         if (!this.soleBuyerPlant) return 0;
         const discounted =
             this.G!.options.variant === 'recharged' &&
             this.G!.plantDiscountActive &&
             this.G!.actualMarket[0]?.number === this.soleBuyerPlant.number;
-        return discounted ? 1 : this.soleBuyerPlant.number;
+        return discounted ? 1 : Math.floor(this.soleBuyerPlant.number);
     }
 
     confirmSoleBuyerPurchase() {
@@ -2762,16 +2823,34 @@ export default class Game extends Vue {
         return false;
     }
 
+    playerActivatedPlantThisTurn(): boolean {
+        const player = this.player === undefined ? undefined : this.G?.players[this.player];
+        // Powering can be simultaneous: use this player's activation state rather
+        // than the log tail, which may include other players' actions.
+        return !!player?.powerPlants.some((plant) => !player.powerPlantsNotUsed.includes(plant.number));
+    }
+
+    // Check this building turn, not the player's total city count from older rounds.
+    playerBuiltCityThisTurn(): boolean {
+        const log = this.G!.log;
+        for (let i = log.length - 1; i >= 0; i--) {
+            const entry = log[i];
+            if (entry.type !== 'move' || entry.player !== this.player) return false;
+            if (entry.move.name === MoveName.Pass) return false;
+            if (entry.move.name === MoveName.Build) return true;
+        }
+        return false;
+    }
+
     toggleColorBlind() {
         this.preferences.colorBlind = !this.preferences.colorBlind;
         this.emitter.emit('update:preference', { name: 'colorBlind', value: this.preferences.colorBlind });
     }
 
-    toggleSound() {
-        const newSound = !this.preferences.sound;
-
-        this.emitter.emit('update:preference', { name: 'sound', value: newSound });
-        this.preferences.sound = newSound;
+    toggleTextActions() {
+        const value = !this.preferences.textActions;
+        this.$set(this.preferences, 'textActions', value);
+        this.emitter.emit('update:preference', { name: 'textActions', value });
     }
 
     toggleUnselectedRegions() {
@@ -2931,19 +3010,30 @@ export default class Game extends Vue {
         ];
     }
 
-    // The standard deck build for the variant in play. Shown on EVERY map: the
-    // per-map notes are written as differences from it, so without it a line like
-    // "18, 22 and 27 are set aside" tells a new player nothing about the rest.
-    get standardDeckBuild(): string {
-        return STANDARD_DECK_BUILD[this.G?.options.variant ?? 'recharged'] ?? STANDARD_DECK_BUILD.recharged;
+    // The map's rules as the map now defines them: a game keeps the text it was created
+    // with in its state, so rules written later still reach games already under way.
+    get mapSpecificRules(): string {
+        if (!this.G) return '';
+        const current = (this.G.options.variant == 'recharged' ? mapsRecharged : maps).find(
+            (map) => map.name == this.G!.map.name
+        );
+        return current?.mapSpecificRules ?? this.G.map.mapSpecificRules ?? '';
     }
 
-    /** This map's departure from the standard build, or '' when it follows it. */
-    get mapDeckBuild(): string {
-        const deckBuild = this.G?.map.deckBuild;
-        if (!deckBuild) return '';
-        if (typeof deckBuild === 'string') return deckBuild;
-        return deckBuild[(this.G!.options.variant ?? 'recharged') as 'recharged' | 'original'] ?? '';
+    // Games created since the engine followed this rule; Middle East and China have their own.
+    get earlyStep3StartsStep2(): boolean {
+        return (
+            !!this.G?.options.step2BeforeStep3 &&
+            this.G.map.name !== 'Middle East' &&
+            this.G.map.name !== 'China'
+        );
+    }
+
+    // The deck build for the deck and variant in play: the standard build, then this
+    // map's departure from it (see deckBuildText).
+    get deckBuild(): DeckBuildText {
+        if (!this.G) return { standard: [], map: [] };
+        return deckBuildText(this.G.map.name, this.G.options, this.G.players.length);
     }
 
     get mapTransform() {
@@ -3009,12 +3099,6 @@ export default class Game extends Vue {
 
     slotT(name: string): string | undefined {
         return this.slotTransforms[name];
-    }
-
-    /** Align portrait icons with the compact action buttons; retain desktop spacing. */
-    iconButton(index: number): string {
-        if (!this.portraitViewport) return `translate(110, ${13 + 41 * index})`;
-        return `translate(110, ${13 + 30 * index}) scale(${round(26 / 30, 4)})`;
     }
 
     /**
@@ -3276,6 +3360,8 @@ export default class Game extends Vue {
     get layoutPreferencesKey() {
         const preferences = { ...this.preferences };
         delete preferences.showUnselectedRegions;
+        // Both presentations reserve identical button bounds; toggling is purely visual.
+        delete preferences.textActions;
         return JSON.stringify(preferences);
     }
 
@@ -3492,26 +3578,12 @@ text {
         cursor: pointer;
 
         &:hover {
-            rect {
+            // Only the outer surface reacts. Nested shapes, text and SVG images
+            // are pictograms, not separate button backgrounds.
+            > rect,
+            > circle {
                 fill: silver;
                 stroke: white;
-            }
-
-            circle {
-                fill: silver;
-                stroke: white;
-            }
-
-            line {
-                stroke: white;
-            }
-
-            image {
-                filter: invert(1);
-            }
-
-            text {
-                fill: white;
             }
         }
     }

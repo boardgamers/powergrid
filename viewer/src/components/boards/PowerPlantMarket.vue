@@ -16,7 +16,12 @@
                 :key="card.id"
                 :targetState="{ x: card.x, y: card.y }"
                 :powerPlant="card.powerPlant"
-                :canClick="chooseablePowerPlants && chooseablePowerPlants.includes(card.powerPlant.number)"
+                :class="{
+                    'unavailable-plant':
+                        canChoose && !(chooseablePowerPlants && chooseablePowerPlants.includes(card.powerPlant.number)),
+                }"
+                :data-market-plant="card.powerPlant.number"
+                :canClick="canChoose && chooseablePowerPlants && chooseablePowerPlants.includes(card.powerPlant.number)"
                 :hasDiscount="plantDiscountActive && i == 0"
                 @click="choosePowerPlant(card.powerPlant)"
             />
@@ -50,33 +55,21 @@
             />
         </template>
 
-        <template>
-            <g v-if="canChoose">
-                <rect
-                    v-if="futureMarketCards.length > 0"
-                    x="160"
-                    y="5"
-                    :width="65 * actualMarketCards.length + 5"
-                    height="65"
-                    fill="none"
-                    stroke="blue"
-                    stroke-width="2px"
-                    rx="2px"
-                />
-
-                <rect
-                    v-else
-                    x="160"
-                    y="5"
-                    :width="actualMarketHighlightWidth"
-                    height="120"
-                    fill="none"
-                    stroke="blue"
-                    stroke-width="2px"
-                    rx="2px"
-                />
-            </g>
-        </template>
+        <!-- Keep the active market grouped; unavailable choices are muted individually. -->
+        <rect
+            v-if="canChoose && hasAvailablePlant"
+            data-market-highlight
+            x="160"
+            y="5"
+            :width="marketHighlightWidth"
+            :height="marketHighlightHeight"
+            fill="none"
+            stroke="blue"
+            stroke-width="2"
+            rx="2"
+            pointer-events="none"
+            aria-hidden="true"
+        />
     </g>
 </template>
 
@@ -115,7 +108,17 @@ export default class PowerPlantMarket extends Vue {
     futureMarketCards: Piece[] = [];
     chosenPowerPlant: Piece | null = null;
     actualMarketWidth: number = 430;
-    actualMarketHighlightWidth: number = 200;
+    get hasAvailablePlant(): boolean {
+        return this.actualMarketCards.some((card) => this.chooseablePowerPlants?.includes(card.powerPlant!.number));
+    }
+
+    get marketHighlightWidth(): number {
+        return Math.max(...this.actualMarketCards.map((card) => card.x + 65)) - 160;
+    }
+
+    get marketHighlightHeight(): number {
+        return Math.max(...this.actualMarketCards.map((card) => card.y + 46)) - 5;
+    }
 
     createPieces(gameState: GameState) {
         this.actualMarketWidth = gameState.map.actualMarketWidth ?? 430;
@@ -124,7 +127,7 @@ export default class PowerPlantMarket extends Vue {
         // "whole market buyable" state keeps up to 8 in the actual market — wrap
         // at 4 per row there so cards 7 and 8 don't paint on top of the second row.
         const actualPerRow = gameState.actualMarket.length > 6 ? 4 : 3;
-        this.actualMarketHighlightWidth = 65 * Math.min(gameState.actualMarket.length, actualPerRow) + 5;
+
         gameState.actualMarket.forEach((card, i) => {
             if (gameState.futureMarket.length > 0) {
                 if (card.number != gameState.chosenPowerPlant?.number) {
@@ -183,3 +186,10 @@ export default class PowerPlantMarket extends Vue {
     }
 }
 </script>
+
+<style scoped>
+.unavailable-plant {
+    filter: grayscale(0.85);
+    opacity: 0.45;
+}
+</style>

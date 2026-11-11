@@ -1,0 +1,52 @@
+{
+    "game": "powergrid",
+    "gameVersion": 13,
+    "publishedAt": "2026-11-02T21:04:06.134Z",
+    "viewer": {
+        "version": "2.3.23",
+        "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-fdd1a2db7176e23c0b50/powergrid-viewer.umd.min.js",
+        "stylesheets": [
+            "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-fdd1a2db7176e23c0b50/powergrid-viewer.css"
+        ],
+        "scriptBytes": 1226805,
+        "sha256": "ddd2b31175fc8d71617bd289323590424355f9537eaad31043e3c10016f791fb",
+        "bundle": "split-fdd1a2db7176e23c0b50",
+        "files": 42
+    },
+    "addedPreferences": ["textActions"],
+    "preferences": [
+        {
+            "label": "Enable sound when players move",
+            "type": "checkbox",
+            "name": "sound",
+            "items": null,
+            "default": false
+        },
+        {
+            "name": "showUnselectedRegions",
+            "label": "Show unselected regions",
+            "type": "checkbox",
+            "default": true
+        },
+        {
+            "label": "Adjust player order",
+            "type": "checkbox",
+            "name": "adjustPlayerOrder",
+            "items": null,
+            "default": false
+        },
+        {
+            "name": "colorBlind",
+            "label": "Color-blind mode",
+            "type": "checkbox",
+            "default": false
+        },
+        {
+            "name": "textActions",
+            "label": "Show action labels",
+            "type": "checkbox",
+            "default": false
+        }
+    ],
+    "verified": true
+}

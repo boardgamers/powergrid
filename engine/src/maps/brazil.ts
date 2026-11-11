@@ -4,7 +4,7 @@ import { originalTopPlants, rechargedMarketPlants } from '../deckChanges';
 import { PowerPlant, PowerPlantDeck, PowerPlantType } from '../gamestate';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
-import { lastPlugPlant, plantCatalogue } from './../powerPlants';
+import { dealtCatalogue, isPlugPlant } from './../powerPlants';
 
 export enum Regions {
     Red = 'red',
@@ -233,15 +233,22 @@ export const map: GameMap = {
     ],
     // Recharged rulebook: coal 1–8, oil 3–8, biogas 6–8, uranium 14–16.
     startingResources: { original: [24, 18, 6, 2], recharged: [24, 18, 9, 2] },
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, deck: PowerPlantDeck = 'standard') {
-        const catalogue = plantCatalogue('Brazil', deck);
+    setupDeck(
+        numPlayers: number,
+        variant: string,
+        rng: seedrandom.prng,
+        deck: PowerPlantDeck = 'standard',
+        _fusionEcological?: boolean,
+        sampleShuffled = false
+    ) {
+        const catalogue = dealtCatalogue('Brazil', deck, rng, sampleShuffled);
         let powerPlantsDeck = cloneDeep(catalogue);
         let actualMarket: PowerPlant[];
         let futureMarket: PowerPlant[];
 
         // The biogas (garbage) plants beyond the plug cards sit out the player-count removal.
         const garbagePlants = powerPlantsDeck.filter(
-            (pp) => pp.type == PowerPlantType.Garbage && pp.number > lastPlugPlant(deck)
+            (pp) => pp.type == PowerPlantType.Garbage && !isPlugPlant(pp, deck)
         );
 
         if (variant == 'original') {
@@ -255,7 +262,7 @@ export const map: GameMap = {
             const step3 = powerPlantsDeck.pop()!;
 
             powerPlantsDeck = shuffle(
-                powerPlantsDeck.filter((pp) => pp.type != PowerPlantType.Garbage),
+                powerPlantsDeck.filter((pp) => !garbagePlants.includes(pp)),
                 rng() + ''
             );
             if (numPlayers == 2 || numPlayers == 3) {
@@ -277,9 +284,10 @@ export const map: GameMap = {
             const marketPlants = rechargedMarketPlants('Brazil', deck);
             const biogasPlants = powerPlantsDeck.filter((pp) => marketPlants.includes(pp.number));
             powerPlantsDeck = powerPlantsDeck.filter((pp) => !marketPlants.includes(pp.number));
-            const plugCount = powerPlantsDeck.filter((pp) => pp.number <= lastPlugPlant(deck)).length;
+            const plugPlants = powerPlantsDeck.filter((pp) => isPlugPlant(pp, deck));
+            powerPlantsDeck = powerPlantsDeck.filter((pp) => !isPlugPlant(pp, deck));
 
-            let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, plugCount), rng() + '');
+            let initialPowerPlants = shuffle(plugPlants, rng() + '');
             let initialPlantMarket = initialPowerPlants.splice(0, 8 - biogasPlants.length);
             initialPlantMarket.push(...biogasPlants);
             initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);
@@ -290,7 +298,7 @@ export const map: GameMap = {
             const step3 = powerPlantsDeck.pop()!;
 
             powerPlantsDeck = shuffle(
-                powerPlantsDeck.filter((pp) => pp.type != PowerPlantType.Garbage),
+                powerPlantsDeck.filter((pp) => !garbagePlants.includes(pp)),
                 rng() + ''
             );
             if (numPlayers == 2) {
@@ -317,15 +325,4 @@ export const map: GameMap = {
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
     mapSpecificRules: 'Play with all garbage power plants.\n',
-    deckBuild: {
-        recharged:
-            'power plants 6 and 14 always start in the ' +
-            'market; the other six market plants are drawn from the remaining low ' +
-            'plants. Garbage plants above 14 are set aside during the player-count ' +
-            'removal and shuffled back in, so no garbage plant ever leaves the game.',
-        original:
-            'both 13 and 14 are set aside; after the ' +
-            'player-count removal (garbage plants excluded and shuffled back in), ' +
-            '13 goes on top of the deck with 14 directly below it.',
-    },
 };

@@ -1,7 +1,7 @@
 import { cloneDeep } from 'lodash';
 import { originalTopPlants, removedPlants, RUSSIA_ORIGINAL_NEXT_PLANTS } from '../deckChanges';
 import { PowerPlant, PowerPlantDeck } from '../gamestate';
-import { lastPlugPlant, plantCatalogue } from '../powerPlants';
+import { dealtCatalogue, isPlugPlant } from '../powerPlants';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
 
@@ -230,10 +230,19 @@ export const map: GameMap = {
         ],
     ],
     startingResources: [18, 24, 0, 7],
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, deck: PowerPlantDeck = 'standard') {
+    setupDeck(
+        numPlayers: number,
+        variant: string,
+        rng: seedrandom.prng,
+        deck: PowerPlantDeck = 'standard',
+        _fusionEcological?: boolean,
+        sampleShuffled = false
+    ) {
         // Two plants leave the game: 06 and 14 in the standard deck.
         const removed = removedPlants('Russia', deck, numPlayers, variant);
-        let powerPlantsDeck = cloneDeep(plantCatalogue('Russia', deck)).filter((p) => !removed.includes(p.number));
+        let powerPlantsDeck = cloneDeep(dealtCatalogue('Russia', deck, rng, sampleShuffled)).filter(
+            (p) => !removed.includes(p.number)
+        );
         let actualMarket: PowerPlant[] = [];
         let futureMarket: PowerPlant[] = [];
         const step3 = powerPlantsDeck.pop()!;
@@ -244,9 +253,14 @@ export const map: GameMap = {
             futureMarket = powerPlantsDeck.slice(3, 6);
 
             // Set aside the top plant (13) and the next two plants after the market (10, 11).
+            // The shuffled decks: the standard deck's 13 if it was dealt, and the 7th and
+            // 8th smallest plants dealt.
             const rest = powerPlantsDeck.slice(6);
-            const plant13 = rest.find((p) => p.number == originalTopPlants('Russia', deck)[0])!;
-            const [plant10, plant11] = RUSSIA_ORIGINAL_NEXT_PLANTS[deck].map((n) => rest.find((p) => p.number == n)!);
+            const plant13 = rest.find((p) => p.number == originalTopPlants('Russia', deck)[0]);
+            const [plant10, plant11] =
+                deck == 'shuffled' || deck == 'shuffledUnique'
+                    ? rest.filter((p) => p != plant13).slice(0, 2)
+                    : RUSSIA_ORIGINAL_NEXT_PLANTS[deck].map((n) => rest.find((p) => p.number == n)!);
 
             // Shuffle the rest of the plants.
             const mainPlants = rest.filter((p) => p != plant13 && p != plant10 && p != plant11);
@@ -264,12 +278,12 @@ export const map: GameMap = {
             topPlants = shuffle(topPlants, rng() + '');
 
             // Place plant 13 on top of deck, shuffled cards with 10 and 11 next, then the rest of the deck, then the step 3 card.
-            powerPlantsDeck = [plant13].concat(topPlants, mainPlantsShuffled.slice(3), step3);
+            powerPlantsDeck = (plant13 ? [plant13] : []).concat(topPlants, mainPlantsShuffled.slice(3), step3);
         } else {
-            const initialPlants = powerPlantsDeck.filter((p) => p.number <= lastPlugPlant(deck));
+            const initialPlants = powerPlantsDeck.filter((p) => isPlugPlant(p, deck));
             const initialPlantsShuffled = shuffle(initialPlants, rng() + '');
 
-            const mainPlants = powerPlantsDeck.filter((p) => p.number > lastPlugPlant(deck));
+            const mainPlants = powerPlantsDeck.filter((p) => !isPlugPlant(p, deck));
             let mainPlantsShuffled = shuffle(mainPlants, rng() + '');
 
             if (numPlayers == 2) {
@@ -291,17 +305,4 @@ export const map: GameMap = {
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
     mapSpecificRules: 'The power plant market is restricted, and the rules for removing old ' + 'plants are changed.\n',
-    deckBuild: {
-        recharged:
-            'plants 6 and 14 are removed from the game. The ' +
-            'market has 6 plants (3 current, 3 future) drawn at random from the ' +
-            'low plants; the six undrawn low plants sit shuffled on top of the ' +
-            'deck. Removal by player count (higher plants only): 2 players remove ' +
-            '6, 3 players remove 8, 4 players remove 4.',
-        original:
-            'plants 6 and 14 are removed from the game; the ' +
-            'market is 3, 4, 5 / 7, 8, 9. Plant 13 goes on top of the deck, then ' +
-            'five shuffled cards (plants 10, 11 and the top three of the deck), ' +
-            'then the rest, with the Step 3 card on the bottom.',
-    },
 };

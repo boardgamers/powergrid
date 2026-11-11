@@ -1,7 +1,7 @@
 import { cloneDeep } from 'lodash';
 import { originalTopPlants, QUEBEC_RECHARGED_TOP_PLANTS, rechargedMarketPlants } from '../deckChanges';
 import { PowerPlant, PowerPlantDeck } from '../gamestate';
-import { isEcological, lastPlugPlant, plantCatalogue } from '../powerPlants';
+import { dealtCatalogue, isEcological, isPlugPlant, lastPlugPlant, plantCatalogue } from '../powerPlants';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
 
@@ -57,6 +57,66 @@ export enum Cities {
     Maniwaki = 'Maniwaki',
     Gatineau = 'Gatineau',
     Hull = 'Hull',
+}
+
+// The shuffled decks, where the three decks' Québec rules disagree, follow the rule's
+// purpose: one plug card on top of the deck, then the two smallest ecological plants
+// dealt that aren't in the market. The Recharged market is drawn from the plug cards;
+// the Original market is the eight smallest plants, and its plug card the standard
+// deck's top plant (13) if dealt, otherwise the smallest plug card left. Ecological
+// plants are never removed.
+function shuffledSetup(
+    numPlayers: number,
+    variant: string,
+    rng: seedrandom.prng,
+    deck: PowerPlantDeck,
+    ecological: (pp: PowerPlant) => boolean,
+    sampleShuffled: boolean
+) {
+    const plants = cloneDeep(dealtCatalogue('Quebec', deck, rng, sampleShuffled));
+    const step3 = plants.pop()!;
+    const isPlug = (pp: PowerPlant) => isPlugPlant(pp, deck);
+    let market: PowerPlant[];
+    let top: PowerPlant | undefined;
+    let rest: PowerPlant[];
+    if (variant == 'original') {
+        market = plants.slice(0, 8);
+        rest = plants.slice(8);
+        const topNumber = originalTopPlants('Quebec', deck)[0];
+        top = rest.find((pp) => pp.number == topNumber) ?? rest.find(isPlug);
+    } else {
+        const plugs = shuffle(plants.filter(isPlug), rng() + '');
+        market = plugs.splice(0, 8).sort((a, b) => a.number - b.number);
+        top = plugs.shift();
+        rest = plugs.concat(plants.filter((pp) => !isPlug(pp)));
+    }
+    rest = rest.filter((pp) => pp != top);
+    const winds = rest
+        .filter(ecological)
+        .sort((a, b) => a.number - b.number)
+        .slice(0, 2);
+    rest = rest.filter((pp) => !winds.includes(pp));
+
+    // Player-count removal, skipping ecological plants.
+    const removable = (pool: PowerPlant[], count: number) => {
+        const removed = shuffle(pool, rng() + '')
+            .filter((pp) => !ecological(pp))
+            .slice(0, count);
+        return pool.filter((pp) => !removed.includes(pp));
+    };
+    if (variant == 'original') {
+        rest = removable(rest, [8, 8, 4][numPlayers - 2] ?? 0);
+    } else {
+        rest = removable(rest.filter(isPlug), [1, 2, 1][numPlayers - 2] ?? 0).concat(
+            removable(
+                rest.filter((pp) => !isPlug(pp)),
+                [5, 6, 3][numPlayers - 2] ?? 0
+            )
+        );
+    }
+
+    const powerPlantsDeck = (top ? [top] : []).concat(winds, shuffle(rest, rng() + ''), step3);
+    return { actualMarket: market.slice(0, 4), futureMarket: market.slice(4), powerPlantsDeck };
 }
 
 export const map: GameMap = {
@@ -211,9 +271,13 @@ export const map: GameMap = {
         variant: string,
         rng: seedrandom.prng,
         deck: PowerPlantDeck = 'standard',
-        fusionEcological?: boolean
+        fusionEcological?: boolean,
+        sampleShuffled = false
     ) {
         const ecological = (pp: PowerPlant) => isEcological(pp, fusionEcological);
+        if (deck == 'shuffled' || deck == 'shuffledUnique') {
+            return shuffledSetup(numPlayers, variant, rng, deck, ecological, sampleShuffled);
+        }
         let powerPlantsDeck = cloneDeep(plantCatalogue('Quebec', deck));
         let actualMarket: PowerPlant[];
         let futureMarket: PowerPlant[];
@@ -332,15 +396,4 @@ export const map: GameMap = {
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
     mapSpecificRules: 'Ecological power plants will never be put on the bottom of the deck.\n',
-    deckBuild: {
-        recharged:
-            'the starting market is drawn from the low ' +
-            'plants (including 13); one more low plant goes on top of the deck, ' +
-            'with 18 and 22 placed directly beneath it. Ecological plants are ' +
-            'never removed during setup.',
-        original:
-            'power plants 13, 18, 22 are set aside and ' +
-            'placed on top of the deck (13 topmost); ecological plants are ' +
-            'excluded from the player-count removal.',
-    },
 };

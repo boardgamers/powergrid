@@ -245,6 +245,33 @@ describe('turn-buffer', () => {
         expect(state.players[player].availableMoves![MoveName.ChoosePowerPlant]).to.be.undefined;
     });
 
+    it('preserves public deck counters while previewing purchases on a secret deck', () => {
+        let G: GameState = setup(4, { variant: 'recharged' }, 'turn-buffer-resources');
+        for (let i = 0; i < 4000; i++) {
+            const seat = G.players.findIndex((p) => p.availableMoves);
+            if (seat < 0) break;
+            const buys = G.players[seat].availableMoves![MoveName.BuyResource];
+            if (G.phase === Phase.Resources && buys && buys.length) {
+                const stripped = stripSecret(clone(G), seat);
+                expect(stripped.powerPlantsDeck).to.deep.equal([]);
+                expect(stripped.cardsLeft).to.be.greaterThan(0);
+                const buy: Move = { name: MoveName.BuyResource, data: buys[0], time: 1000 };
+                const preview = replayTurnBuffer(stripped, [buy], seat);
+                expect(preview.failure).to.equal(undefined);
+                expect(preview.state.newTurn).to.equal(false);
+                expect(preview.state.cardsLeft).to.equal(stripped.cardsLeft);
+                expect(preview.state.nextCardWeak).to.equal(stripped.nextCardWeak);
+                const server = stripSecret(engineMove(clone(G), buy, seat), seat);
+                expect(preview.state.cardsLeft).to.equal(server.cardsLeft);
+                expect(preview.state.nextCardWeak).to.equal(server.nextCardWeak);
+                expect(replayTurnBuffer(stripped, [], seat).state.cardsLeft).to.equal(stripped.cardsLeft);
+                return;
+            }
+            G = moveAI(G, seat);
+        }
+        expect.fail('never reached a resource purchase');
+    });
+
     it('a preview after every buy stops a resource click going past storage capacity', () => {
         // Drive a real game to a seat that can buy resources.
         let G: GameState = setup(4, {}, 'turn-buffer-resources');

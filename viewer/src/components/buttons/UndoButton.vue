@@ -10,11 +10,20 @@
         @keydown.enter.prevent="enabled && $emit('click')"
         @keydown.space.prevent="enabled && $emit('click')"
     >
-        <rect width="80" height="26" fill="gainsboro" stroke="black" rx="2" />
+        <rect
+            class="undo-background board-control-border turn-action-border"
+            :width="width"
+            :height="height"
+            fill="gainsboro"
+            stroke="black"
+            rx="4"
+        />
+        <ActionLabel v-if="showText" :text="text" :width="width" :height="height" />
         <image
-            v-if="icon === 'undo'"
-            x="30"
-            y="3"
+            v-else-if="icon === 'undo'"
+            data-action-icon
+            :x="width / 2 - 10"
+            :y="height / 2 - 10"
             width="20"
             height="20"
             href="../../icons/undo.svg"
@@ -22,7 +31,9 @@
         />
         <path
             v-else
-            d="M33 6L47 20 M47 6L33 20"
+            data-action-icon
+            d="M-7 -7L7 7 M7 -7L-7 7"
+            :transform="`translate(${width / 2}, ${height / 2})`"
             stroke="black"
             stroke-width="2"
             stroke-linecap="round"
@@ -33,13 +44,17 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
+import ActionLabel from './ActionLabel.vue';
 
-@Component
+@Component({ components: { ActionLabel } })
 export default class UndoButton extends Vue {
     @Prop({ default: 'Undo last move' }) text!: string;
     @Prop() enabled!: boolean;
     @Prop() highlightButton!: boolean;
     @Prop({ default: 'undo' }) control!: string;
     @Prop({ default: 'undo' }) icon!: 'undo' | 'cancel';
+    @Prop({ default: false }) showText!: boolean;
+    @Prop({ default: 80 }) width!: number;
+    @Prop({ default: 26 }) height!: number;
 }
 </script>

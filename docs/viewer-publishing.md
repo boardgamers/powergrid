@@ -22,4 +22,43 @@ Remove those two entries from the BGS game-version preferences, preserving all
 other entries. Local undo now always removes one unconfirmed action, and board
 sizing is always automatic; old saved values for these preferences are ignored.
 The phase control pairs a phase pictogram with a skip, finish or edit pictogram.
-Only the action inset highlights on hover/focus; the whole control is clickable.
+From viewer 2.3.20, the paired pictograms use one shared grey surface with the
+same silver/white-border hover as the color-blind and simulation controls. The
+separator darkens on hover to preserve contrast. Passing has a normal black
+border unless it is the only legal option, when it gets a blue cue. Unaffordable
+plants are muted while choosing; the market outline is hidden when there are no
+legal plant choices. The resource action shows skip until a purchase is made,
+then finish; undoing all purchases restores skip. Phase actions and Undo share
+2-unit borders while enabled and 1-unit borders while disabled. Local tentative
+previews preserve public deck counters so buying resources does not flash an empty
+draw pile. Existing pass-confirmation dialogs are unchanged.
+
+Viewer 2.3.21 extends skip/finish behaviour to building and powering: skip before
+any city is built or plant activated, finish afterwards, and skip again if all
+those actions are undone. Skip only receives a blue cue when no legal action is
+available. Button pictograms stay black on light hover backgrounds. Clickable
+plants use their own border for the white hover cue, retaining the original
+4-unit highlighted and 3-unit activated border widths and original blue.
+
+Viewer 2.3.22 adds the remaining-card count centered on the draw pile's top card.
+It uses the public deck count and remains stable during resource purchases and undo.
+
+After packaging, run `node viewer/scripts/action-controls-smoke.mjs` to check
+normal/only-pass states, hover/focus styling against the board-option buttons,
+resource/building/powering transitions, and plant borders.
+
+## Viewer 2.3.23: action labels
+
+The Aa toggle switches the phase and Undo buttons between pictograms and full,
+translated text. Both modes reserve identical bounds, and disabled pictograms
+fade like disabled text. The utility buttons share a light surface and an active
+marker; the duplicate board sound button is removed (sound remains in the sidebar).
+
+This release adds
+`{ "name": "textActions", "label": "Show action labels", "type": "checkbox", "default": false }`
+to the BGS version 13 preferences, preserving every other preference. BGS only
+persists declared preference names, so this addition must accompany the release.
+
+After packaging, `node viewer/scripts/action-labels-smoke.mjs` checks the two
+presentations, keyboard toggling, translated text fitting in all 17 languages,
+mobile/desktop geometry, saved-move undo and text-mode local undo.

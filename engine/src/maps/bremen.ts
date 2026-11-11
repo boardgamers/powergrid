@@ -5,7 +5,7 @@ import { originalTopPlants, removedPlants } from '../deckChanges';
 import { PowerPlant, PowerPlantDeck } from '../gamestate';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
-import { lastPlugPlant, plantCatalogue } from './../powerPlants';
+import { dealtCatalogue, isPlugPlant } from './../powerPlants';
 
 export enum Regions {
     Blue = 'blue',
@@ -225,9 +225,18 @@ export const map: GameMap = {
     // market is then drawn from the remaining "weak" pool (≤15) per the recharged
     // convention — 8 open the market, one goes on top of the deck and the leftovers
     // are shuffled in — and NO further player-count deck reduction is applied.
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, powerPlantDeck: PowerPlantDeck = 'standard') {
+    setupDeck(
+        numPlayers: number,
+        variant: string,
+        rng: seedrandom.prng,
+        powerPlantDeck: PowerPlantDeck = 'standard',
+        _fusionEcological?: boolean,
+        sampleShuffled = false
+    ) {
         const removed = new Set(removedPlants('Bremen', powerPlantDeck, numPlayers, variant));
-        const catalogue = plantCatalogue('Bremen', powerPlantDeck).filter((pp) => !removed.has(pp.number));
+        const catalogue = dealtCatalogue('Bremen', powerPlantDeck, rng, sampleShuffled).filter(
+            (pp) => !removed.has(pp.number)
+        );
         const deck = cloneDeep(catalogue);
         // The Step 3 card is the last entry of the master list and is never removed.
         const step3 = deck.pop()!;
@@ -251,12 +260,11 @@ export const map: GameMap = {
         }
 
         // Recharged: the opening 8 plants come from the weak (plug) pool.
-        const lastPlug = lastPlugPlant(powerPlantDeck);
         const weak = shuffle(
-            deck.filter((pp) => pp.number <= lastPlug),
+            deck.filter((pp) => isPlugPlant(pp, powerPlantDeck)),
             rng() + ''
         );
-        let rest = deck.filter((pp) => pp.number > lastPlug);
+        let rest = deck.filter((pp) => !isPlugPlant(pp, powerPlantDeck));
         const initialMarket = weak.splice(0, 8).sort((a, b) => a.number - b.number);
         actualMarket = initialMarket.slice(0, 4);
         futureMarket = initialMarket.slice(4);
@@ -280,18 +288,4 @@ export const map: GameMap = {
         'players.\n' +
         'Step 2 begins once a player has 5 connected districts (4 for 6 players); the ' +
         'game ends when a player connects 13 districts (12 for 5 players, 11 for 6).\n',
-    deckBuild: {
-        recharged:
-            'power plants 11, 17, 23, 28, 34, 36, 38, 39 and 46 ' +
-            'are removed before setup — the six uranium plants plus the three plants ' +
-            'that power 7 cities. With 2 to 4 players, plants 31 and 50 are removed as ' +
-            'well. No further power plants are removed for the number of players. The ' +
-            'opening market of eight is then drawn from the low plants (numbered 15 or ' +
-            'less); of the low plants left over, one is placed on top of the draw deck ' +
-            'and the rest are shuffled into it, with the Step 3 card on the bottom.',
-        original:
-            'same removals; the market is the fixed 3-6 / 7-10 ' +
-            '(none of these are removed on Bremen), plant 13 is placed on top of the ' +
-            'deck and the Step 3 card on the bottom.',
-    },
 };

@@ -502,172 +502,14 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
         }
 
         case Phase.Building: {
-            if (player.cities.length < 21) {
-                const isJapan = G.map.name === 'Japan';
-                const japanStartingCities = isJapan ? new Set(G.map.startingCities ?? []) : new Set<string>();
+            // 9999 marks a city that can never be built in; before stallEnds a player who saved
+            // that much in a stuck game could build there anyway (across the sea, into a full city).
+            const toBuild = buildOptions(G, player).filter(
+                (c) => c.price <= player.money && (!G.options.stallEnds || c.price < 9999)
+            );
 
-                let toBuild: { name: string; price: number; freeJump?: boolean }[];
-                if (player.cities.length == 0) {
-                    // Japan: first house must go in one of the 6 designated starting cities.
-                    const candidates = isJapan
-                        ? G.map.cities.filter((c) => japanStartingCities.has(c.name))
-                        : G.map.cities;
-                    toBuild = candidates.map((c) => ({ name: c.name, price: 0 }));
-                } else if (isJapan && G.round === 1) {
-                    // Japan round 1: the only legal builds are starting cities, and a player
-                    // may place at most two houses — the initial placement plus the one free
-                    // jump. The jump is auto-consumed on the second starting-city build, so
-                    // once it is spent no further round-1 builds are offered (players cannot
-                    // extend to adjacent non-starting cities until round 2 either way).
-                    toBuild = player.usedFreeJump
-                        ? []
-                        : G.map.cities
-                              .filter((c) => japanStartingCities.has(c.name))
-                              .map((c) => ({ name: c.name, price: 0 }));
-                } else {
-                    toBuild = dijkstra(G, player).map((c) => ({ name: c.name, price: c.price }));
-
-                    // Japan: while the player still holds their one free jump, they may
-                    // start a house in any available starting city paying only the slot
-                    // cost (no connection fee). We add a freeJump:true entry at connection
-                    // cost 0 for each such city, alongside any normal-price entry, so the
-                    // player can explicitly choose to spend the jump or pay full price.
-                    // Availability is tracked solely by player.usedFreeJump — never inferred
-                    // from network topology: owned cities connect *through* unowned ones, so a
-                    // single intended network routinely looks like several components.
-                    if (isJapan && !player.usedFreeJump) {
-                        const freeJumpEntries: { name: string; price: number; freeJump?: boolean }[] = [];
-                        japanStartingCities.forEach((cityName) => {
-                            if (!player.cities.find((c) => c.name === cityName)) {
-                                freeJumpEntries.push({ name: cityName, price: 0, freeJump: true });
-                            }
-                        });
-                        toBuild = [...toBuild, ...freeJumpEntries];
-                    }
-                }
-
-                toBuild.forEach((city) => {
-                    const cityData = G.map.cities.find((c) => c.name == city.name);
-                    if (!cityData) {
-                        // City not found in map (stale game state / map update mismatch) — skip it.
-                        city.price = 9999;
-                        return;
-                    }
-
-                    // Manhattan: blocked spaces are transitable but never buildable.
-                    // They remain in the connection graph (so dijkstra still routes
-                    // through them at the flat-5 transit cost) but can never hold a
-                    // house. Blocking is fixed per game by player count at setup.
-                    if (G.blockedCities?.includes(city.name)) {
-                        city.price = 9999;
-                        return;
-                    }
-                    const othersCount = G.players.filter((p) => p.cities.find((c) => city.name == c.name)).length;
-
-                    // Transregional cities (e.g. Strasbourg on Baden-Württemberg) are only open
-                    // in Step 2 onward. The slot fee is replaced by a flat 15 (Step 2) or 20
-                    // (Step 3); the dijkstra connection cost from the player's existing network
-                    // is still paid on top.
-                    if (cityData.transregional) {
-                        if (G.step < 2) {
-                            city.price = 9999;
-                            return;
-                        }
-
-                        const trSlotCosts = cityData.slotCosts;
-                        const trMaxSlots = cityData.stepSlots ? cityData.stepSlots[G.step - 1] : G.step;
-                        const trTotalSlots = trSlotCosts ? trSlotCosts.length : 3;
-
-                        if (othersCount >= trMaxSlots || othersCount >= trTotalSlots) {
-                            city.price = 9999;
-                        } else {
-                            city.price += trSlotCosts ? trSlotCosts[othersCount] : G.step == 3 ? 20 : 15;
-                        }
-
-                        if (player.cities.find((c) => c.name == city.name)) {
-                            city.price = 9999;
-                        }
-                        return;
-                    }
-
-                    // UK & Ireland: starting a network on an island where the player has
-                    // no city yet pays the first-house base + crossIslandSurcharge. There
-                    // is no sea edge so dijkstra reports the target city as unreachable
-                    // (price=9999); we override here. The first build ever (player.cities
-                    // empty) goes through the normal first-build path and pays no surcharge.
-                    // The jump can only START a city — an empty one (first house). Cities
-                    // already holding a house are not reachable via the jump, even in
-                    // Steps 2/3 when their later slots are open to same-island networks.
-                    if (cityData.island && G.map.crossIslandSurcharge !== undefined && player.cities.length > 0) {
-                        const playerIslands = new Set(
-                            player.cities
-                                .map((c) => G.map.cities.find((mc) => mc.name == c.name)?.island)
-                                .filter((i): i is string => !!i)
-                        );
-                        if (!playerIslands.has(cityData.island)) {
-                            city.price = othersCount > 0 ? 9999 : 10 + G.map.crossIslandSurcharge;
-                            return;
-                        }
-                    }
-
-                    // South Africa's cross-border foreign-country spaces: cap at 1 occupant
-                    // ever, and the dijkstra path cost (30 via the cross-border edge) is the
-                    // complete cost — no 10+position*5 house base is added. Players cannot
-                    // start in one of these (you have to build INTO South Africa first).
-                    if (cityData.singleOccupancy) {
-                        if (player.cities.length == 0) {
-                            city.price = 9999;
-                            return;
-                        }
-                        if (othersCount >= 1) {
-                            city.price = 9999;
-                            return;
-                        }
-                        if (player.cities.find((c) => c.name == city.name)) {
-                            city.price = 9999;
-                        }
-                        return;
-                    }
-
-                    // Australia "general connection": any single build may connect a
-                    // city for a flat 20 Elektro instead of its shortest-path cost,
-                    // including cities not (yet) reachable from the player's network
-                    // (dijkstra reports those as 9999). The slot/house base is still
-                    // added below, and the capped connection cost flows to
-                    // totalSpentConnections via the engine's price-minus-base split.
-                    if (G.map.name == 'Australia' && player.cities.length > 0) {
-                        city.price = Math.min(city.price, 20);
-                    }
-
-                    // Manhattan: connections cost a flat 5 Elektro per space transited
-                    // (not per edge). connectionCost:5 on every space makes the dijkstra
-                    // charge 5 on entry — including the target, which we refund here
-                    // because you BUILD on the target (paying its building cost below),
-                    // you don't transit it. Adjacent target: 5 → 0; +5 per extra hop.
-                    if (G.map.name == 'Manhattan' && player.cities.length > 0) {
-                        city.price = Math.max(0, city.price - 5);
-                    }
-
-                    const slotCosts = cityData.slotCosts;
-                    const maxSlotsThisStep = cityData.stepSlots ? cityData.stepSlots[G.step - 1] : G.step;
-                    const totalSlots = slotCosts ? slotCosts.length : 3;
-
-                    if (othersCount >= maxSlotsThisStep || othersCount >= totalSlots) {
-                        city.price = 9999;
-                    } else {
-                        city.price += slotCosts ? slotCosts[othersCount] : 10 + othersCount * 5;
-                    }
-
-                    if (player.cities.find((c) => c.name == city.name)) {
-                        city.price = 9999;
-                    }
-                });
-
-                toBuild = toBuild.filter((c) => c.price <= player.money);
-
-                if (toBuild.length > 0) {
-                    moves[MoveName.Build] = toBuild;
-                }
+            if (toBuild.length > 0) {
+                moves[MoveName.Build] = toBuild;
             }
 
             moves[MoveName.Pass] = [true];
@@ -979,4 +821,170 @@ function dijkstra(G: GameState, player: Player): { name: string; price: number }
     }
 
     return nodes;
+}
+
+// Every city this player could build in now, priced, BEFORE the money filter: a city they
+// can never build in (taken, blocked, unreachable, a jump into an occupied city) is priced 9999.
+// Shared by availableMoves (which then filters by money) and noPlayerCanBuild.
+export function buildOptions(G: GameState, player: Player): { name: string; price: number; freeJump?: boolean }[] {
+    if (player.cities.length >= 21) {
+        return [];
+    }
+    const isJapan = G.map.name === 'Japan';
+    const japanStartingCities = isJapan ? new Set(G.map.startingCities ?? []) : new Set<string>();
+
+    let toBuild: { name: string; price: number; freeJump?: boolean }[];
+    if (player.cities.length == 0) {
+        // Japan: first house must go in one of the 6 designated starting cities.
+        const candidates = isJapan ? G.map.cities.filter((c) => japanStartingCities.has(c.name)) : G.map.cities;
+        toBuild = candidates.map((c) => ({ name: c.name, price: 0 }));
+    } else if (isJapan && G.round === 1) {
+        // Japan round 1: the only legal builds are starting cities, and a player
+        // may place at most two houses — the initial placement plus the one free
+        // jump. The jump is auto-consumed on the second starting-city build, so
+        // once it is spent no further round-1 builds are offered (players cannot
+        // extend to adjacent non-starting cities until round 2 either way).
+        toBuild = player.usedFreeJump
+            ? []
+            : G.map.cities.filter((c) => japanStartingCities.has(c.name)).map((c) => ({ name: c.name, price: 0 }));
+    } else {
+        toBuild = dijkstra(G, player).map((c) => ({ name: c.name, price: c.price }));
+
+        // Japan: while the player still holds their one free jump, they may
+        // start a house in any available starting city paying only the slot
+        // cost (no connection fee). We add a freeJump:true entry at connection
+        // cost 0 for each such city, alongside any normal-price entry, so the
+        // player can explicitly choose to spend the jump or pay full price.
+        // Availability is tracked solely by player.usedFreeJump — never inferred
+        // from network topology: owned cities connect *through* unowned ones, so a
+        // single intended network routinely looks like several components.
+        if (isJapan && !player.usedFreeJump) {
+            const freeJumpEntries: { name: string; price: number; freeJump?: boolean }[] = [];
+            japanStartingCities.forEach((cityName) => {
+                if (!player.cities.find((c) => c.name === cityName)) {
+                    freeJumpEntries.push({ name: cityName, price: 0, freeJump: true });
+                }
+            });
+            toBuild = [...toBuild, ...freeJumpEntries];
+        }
+    }
+
+    toBuild.forEach((city) => {
+        const cityData = G.map.cities.find((c) => c.name == city.name);
+        if (!cityData) {
+            // City not found in map (stale game state / map update mismatch) — skip it.
+            city.price = 9999;
+            return;
+        }
+
+        // Manhattan: blocked spaces are transitable but never buildable.
+        // They remain in the connection graph (so dijkstra still routes
+        // through them at the flat-5 transit cost) but can never hold a
+        // house. Blocking is fixed per game by player count at setup.
+        if (G.blockedCities?.includes(city.name)) {
+            city.price = 9999;
+            return;
+        }
+        const othersCount = G.players.filter((p) => p.cities.find((c) => city.name == c.name)).length;
+
+        // Transregional cities (e.g. Strasbourg on Baden-Württemberg) are only open
+        // in Step 2 onward. The slot fee is replaced by a flat 15 (Step 2) or 20
+        // (Step 3); the dijkstra connection cost from the player's existing network
+        // is still paid on top.
+        if (cityData.transregional) {
+            if (G.step < 2) {
+                city.price = 9999;
+                return;
+            }
+
+            const trSlotCosts = cityData.slotCosts;
+            const trMaxSlots = cityData.stepSlots ? cityData.stepSlots[G.step - 1] : G.step;
+            const trTotalSlots = trSlotCosts ? trSlotCosts.length : 3;
+
+            if (othersCount >= trMaxSlots || othersCount >= trTotalSlots) {
+                city.price = 9999;
+            } else {
+                city.price += trSlotCosts ? trSlotCosts[othersCount] : G.step == 3 ? 20 : 15;
+            }
+
+            if (player.cities.find((c) => c.name == city.name)) {
+                city.price = 9999;
+            }
+            return;
+        }
+
+        // UK & Ireland: starting a network on an island where the player has
+        // no city yet pays the first-house base + crossIslandSurcharge. There
+        // is no sea edge so dijkstra reports the target city as unreachable
+        // (price=9999); we override here. The first build ever (player.cities
+        // empty) goes through the normal first-build path and pays no surcharge.
+        // The jump can only START a city — an empty one (first house). Cities
+        // already holding a house are not reachable via the jump, even in
+        // Steps 2/3 when their later slots are open to same-island networks.
+        if (cityData.island && G.map.crossIslandSurcharge !== undefined && player.cities.length > 0) {
+            const playerIslands = new Set(
+                player.cities
+                    .map((c) => G.map.cities.find((mc) => mc.name == c.name)?.island)
+                    .filter((i): i is string => !!i)
+            );
+            if (!playerIslands.has(cityData.island)) {
+                city.price = othersCount > 0 ? 9999 : 10 + G.map.crossIslandSurcharge;
+                return;
+            }
+        }
+
+        // South Africa's cross-border foreign-country spaces: cap at 1 occupant
+        // ever, and the dijkstra path cost (30 via the cross-border edge) is the
+        // complete cost — no 10+position*5 house base is added. Players cannot
+        // start in one of these (you have to build INTO South Africa first).
+        if (cityData.singleOccupancy) {
+            if (player.cities.length == 0) {
+                city.price = 9999;
+                return;
+            }
+            if (othersCount >= 1) {
+                city.price = 9999;
+                return;
+            }
+            if (player.cities.find((c) => c.name == city.name)) {
+                city.price = 9999;
+            }
+            return;
+        }
+
+        // Australia "general connection": any single build may connect a
+        // city for a flat 20 Elektro instead of its shortest-path cost,
+        // including cities not (yet) reachable from the player's network
+        // (dijkstra reports those as 9999). The slot/house base is still
+        // added below, and the capped connection cost flows to
+        // totalSpentConnections via the engine's price-minus-base split.
+        if (G.map.name == 'Australia' && player.cities.length > 0) {
+            city.price = Math.min(city.price, 20);
+        }
+
+        // Manhattan: connections cost a flat 5 Elektro per space transited
+        // (not per edge). connectionCost:5 on every space makes the dijkstra
+        // charge 5 on entry — including the target, which we refund here
+        // because you BUILD on the target (paying its building cost below),
+        // you don't transit it. Adjacent target: 5 → 0; +5 per extra hop.
+        if (G.map.name == 'Manhattan' && player.cities.length > 0) {
+            city.price = Math.max(0, city.price - 5);
+        }
+
+        const slotCosts = cityData.slotCosts;
+        const maxSlotsThisStep = cityData.stepSlots ? cityData.stepSlots[G.step - 1] : G.step;
+        const totalSlots = slotCosts ? slotCosts.length : 3;
+
+        if (othersCount >= maxSlotsThisStep || othersCount >= totalSlots) {
+            city.price = 9999;
+        } else {
+            city.price += slotCosts ? slotCosts[othersCount] : 10 + othersCount * 5;
+        }
+
+        if (player.cities.find((c) => c.name == city.name)) {
+            city.price = 9999;
+        }
+    });
+
+    return toBuild;
 }

@@ -70,6 +70,17 @@ export interface GameOptions {
     // created before this existed started Recharged with the Original market, so
     // reconstructing one without the flag keeps that (see reconstructionOptions).
     rechargedStartingResources?: boolean;
+    // Stored by setup on every game created since this existed (2026-11-04): a game nobody can
+    // finish ends (Step 3, no player could ever build again), and the 9999 "impossible" price is
+    // never affordable. Older games have none, so they keep playing and replaying as they did.
+    stallEnds?: boolean;
+    // Stored by setup on 'shuffled' games created since this existed (2026-11-07): the
+    // game deals a standard-sized deck at random from all three decks. Older shuffled
+    // games have none and play with every plant of all three decks.
+    shuffledSample?: boolean;
+    // A Step 3 card drawn in Step 1 first begins Step 2 (with its setup), as the
+    // rulebooks say. Stored on new games; older games replay without it.
+    step2BeforeStep3?: boolean;
     // Whether fusion plants count as ecological (see FUSION_IS_ECOLOGICAL). Stored by
     // setup on the maps in ECOLOGICAL_RULE_MAPS; older games have none and play as
     // wind-only, except that their Québec deck setup protected fusion too.
@@ -186,6 +197,8 @@ export enum Phase {
 }
 
 export interface GameState {
+    /** Interactive sandbox cash, initialized once; never attached to live games. */
+    analysisMoney?: 'hypothetical';
     poweringChoices?: Record<number, import('./choice-revisions').PoweringChoice>;
     revisedPowering?: Record<number, number>;
     pendingMessages?: string[];
@@ -282,6 +295,9 @@ export interface GameState {
     knownPowerPlantDeck: PowerPlant[];
     knownPowerPlantDeckStep3: PowerPlant[];
     powerPlantDeckAfterStep3: PowerPlant[] | undefined;
+    // Spain & Portugal with the shuffled decks: the held-back copies that were dealt,
+    // set aside in the open until Step 2 puts them on top of the deck.
+    heldPowerPlants?: PowerPlant[];
     // Manhattan market lifecycle (see applyManhattanMarketLifecycle in engine.ts).
     // The "separate pile" of plants set aside from the future market each round —
     // recyclable (reshuffled into a new deck at the first depletion), NOT boxed.

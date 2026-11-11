@@ -1,0 +1,28 @@
+{
+    "game": "powergrid",
+    "gameVersion": 13,
+    "publishedAt": "2026-11-10T18:22:54.716Z",
+    "engine": {
+        "version": "2.0.26",
+        "package": {
+            "name": "powergrid-engine",
+            "version": "2.0.26",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/engine/205bbfe810742768/powergrid-engine-2.0.26.tgz"
+        },
+        "entryPoint": "dist/wrapper.js",
+        "sha256": "205bbfe8107427684381b1c22a1189e49843f937ad31b33b71afbc7f6fad5651",
+        "bytes": 378982
+    },
+    "changes": [
+        "Hide opponents lastMove throughout pending sealed auctions, including bids, passes and revisions; preserve own moves and public resolved-auction history."
+    ],
+    "verification": {
+        "engineTests": 425,
+        "viewerUnitTests": 95,
+        "engineBuild": true,
+        "publicTarballHash": true,
+        "liveSpectatorEndpoint": "https://boardgamers.space/api/gameplay/Adrenal-gadget-8637",
+        "pendingAuctionLastMovesAllNull": true
+    },
+    "verified": true
+}

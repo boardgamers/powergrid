@@ -228,12 +228,16 @@ export const map: GameMap = {
     garbagePrices: [1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6],
     uraniumPrices: [1, 2, 3, 4, 5, 6, 7, 8],
 
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, deck: PowerPlantDeck = 'standard') {
-        return defaultSetupDeck(numPlayers, variant, rng, true, deck, 'India');
+    setupDeck(
+        numPlayers: number,
+        variant: string,
+        rng: seedrandom.prng,
+        deck: PowerPlantDeck = 'standard',
+        _fusionEcological?: boolean,
+        sampleShuffled = false
+    ) {
+        return defaultSetupDeck(numPlayers, variant, rng, true, deck, 'India', 0, sampleShuffled);
     },
     mapSpecificRules:
         'The power grid will suffer a power outage if the number of cities built in one round is more than twice the number of players — 9 or more cities in a 4-player game. Every player is then penalized $3 for each city they own, though income for the round never falls below $0.\nPlayers take turns buying one resource at a time. The resource market is limited by step: only resources costing $3 or less may be bought in step 1, $5 or less in step 2, and the whole market is open from step 3.\nGarbage plants are less efficient. Their cost is one higher, but their storage capacity is not changed.\nPlayers must power as many cities as possible in each round.',
-    deckBuild:
-        'power plant 11 is removed from the game; otherwise standard setup for ' +
-        'both variants (original: plant 13 on top of the deck).',
 };

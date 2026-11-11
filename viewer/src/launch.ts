@@ -45,6 +45,7 @@ function launch(selector: string) {
             preferredPlayerColors: undefined as (string | null)[] | undefined,
             sound: true,
             colorBlind: false,
+            textActions: false,
             showUnselectedRegions: true,
             adjustPlayerOrder: false,
 

@@ -535,4 +535,34 @@ describe('shuffled power plant decks', () => {
             expect(replay.players.map((p) => p.money)).to.deep.equal(G.players.map((p) => p.money));
         });
     }
+
+    it("marks the draw pile by the deck's own plug cards, not by plant 15", () => {
+        // Deck 1 has plug cards up to 16, and the shuffled decks mix in copies such as
+        // 16.1 and 15.2. Comparing the number with 15 showed those as ordinary cards.
+        const fresh = (deck: PowerPlantDeck) =>
+            setup(5, { map: 'Germany', variant: 'recharged', powerPlantDeck: deck }, 'plug-flag');
+        for (const deck of ['standard', 'deck1', 'shuffled', 'shuffledUnique'] as PowerPlantDeck[]) {
+            const dealt = visible(fresh(deck)).filter((pp) => pp.number != 99);
+            const plugAbove15 = dealt.find((pp) => pp.number > 15 && isPlugPlant(pp, deck));
+            const ordinary = dealt.find((pp) => !isPlugPlant(pp, deck))!;
+            if (deck == 'standard') expect(plugAbove15, deck).to.equal(undefined);
+            else expect(plugAbove15, `${deck} deals a plug card above 15`).to.not.equal(undefined);
+
+            for (const top of [plugAbove15, ordinary]) {
+                if (!top) continue;
+                const G = fresh(deck);
+                // Swap the chosen plant onto the top of the draw pile, wherever it was dealt.
+                for (const row of [G.actualMarket, G.futureMarket, G.powerPlantsDeck]) {
+                    const at = row.findIndex((pp) => pp.number == top.number);
+                    if (at >= 0) [row[at], G.powerPlantsDeck[0]] = [G.powerPlantsDeck[0], row[at]];
+                }
+                const player = G.currentPlayers[0];
+                G.players[player].availableMoves = availableMoves(G, G.players[player]);
+                const chosen = G.actualMarket[0].number;
+                const after = move(G, { name: MoveName.ChoosePowerPlant, data: chosen } as Move, player);
+                expect(after.powerPlantsDeck[0].number, deck).to.equal(top.number);
+                expect(after.nextCardWeak, `${deck}: ${top.number} on top`).to.equal(isPlugPlant(top, deck));
+            }
+        }
+    });
 });

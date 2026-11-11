@@ -235,8 +235,4 @@ export const map: GameMap = {
         'available from the start of the game. The 30 Elektro is the complete cost ' +
         '— no house-base cost is added on top. Only a single player can build on ' +
         'each cross-border space (cap of 1 instead of the standard 3).\n',
-    deckBuild:
-        'power plant 07 is removed from the game; otherwise ' +
-        'standard setup for both variants (in the original variant the future ' +
-        'market becomes 8, 9, 10, 11).',
 };

@@ -240,8 +240,4 @@ export const map: GameMap = {
         'Metropolises: Melbourne and Sydney each consist of two cities (1 and 2) ' +
         'connected by a 0-cost edge. ' +
         'Regions need not be adjacent: any combination of regions may be in play.\n',
-    deckBuild:
-        'power plant 17 is removed from the game; the five uranium ' +
-        'mines (11, 23, 28, 34, 39) stay in the deck. Otherwise standard setup ' +
-        'for both variants.',
 };

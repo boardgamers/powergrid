@@ -908,11 +908,20 @@
                     <br />
                     <div>
                         <strong>Deck build:</strong><br />
-                        <span class="map-specific-rules">{{ standardDeckBuild }}</span>
-                        <template v-if="mapDeckBuild">
+                        <!-- One span per sentence: the catalogues translate each template sentence. -->
+                        <span class="map-specific-rules"
+                            ><template v-for="(sentence, i) in deckBuild.standard"
+                                ><span :key="'deck-build-' + i">{{ sentence }}</span
+                                >{{ ' ' }}</template
+                            ></span
+                        >
+                        <template v-if="deckBuild.map.length">
                             <br />
                             <span class="map-specific-rules"
-                                ><strong>On {{ G.map.name }}:</strong> {{ mapDeckBuild }}</span
+                                ><strong>On {{ G.map.name }}:</strong
+                                ><template v-for="(sentence, i) in deckBuild.map"
+                                    >{{ ' ' }}<span :key="'map-deck-build-' + i">{{ sentence }}</span></template
+                                ></span
                             >
                         </template>
                     </div>
@@ -954,6 +963,7 @@ import InlineLog from './InlineLog.vue';
 import { Vue, Component, Prop, Watch, Provide, ProvideReactive, Ref } from 'vue-property-decorator';
 import { MoveName, ended, playersSortedByScore, reconstructState } from 'powergrid-engine';
 import type { GameState, LogItem, Move, Player } from 'powergrid-engine';
+import { deckBuildText, DeckBuildText } from 'powergrid-engine/src/deckBuildText';
 import { plantLabel } from 'powergrid-engine/src/powerPlants';
 import { EventEmitter } from 'events';
 import {
@@ -1067,26 +1077,6 @@ const STACK_SLOT_MAX_WIDTH: Record<string, number> = {
     // The box market is one tall stack of full-width buttons; run edge to edge it
     // reads as though it had been cropped rather than laid out.
     resources: 0.94,
-};
-
-/**
- * How the deck and opening market are built when a map says nothing special —
- * i.e. the rule the per-map `deckBuild` notes are differences FROM. Wording is
- * the legend row of the deck-build grid Mike reviewed on 2026-08-13.
- */
-const STANDARD_DECK_BUILD: Record<string, string> = {
-    recharged:
-        'Shuffle the 13 low power plants — the "plug plants" (3-15), named for the plug on the back of ' +
-        'the printed cards. Draw 8 and sort them ascending: the 4 cheapest form the ' +
-        'current market, the next 4 the future market. One of the remaining low plants goes face down on ' +
-        'top of the draw deck. Player-count removal: 2 players remove 1 low + 5 higher plants; 3 players ' +
-        'remove 2 low + 6 higher; 4 players remove 1 low + 3 higher; 5-6 players remove none. The leftover ' +
-        'low plants are shuffled into the deck, with the Step 3 card on the bottom.',
-    original:
-        'The market is fixed: power plants 3, 4, 5, 6 are the current market and 7, 8, 9, 10 the future ' +
-        'market. Power plant 13 and the Step 3 card are set aside and the rest of the deck is shuffled, ' +
-        'then 8 random plants are removed for 2-3 players, 4 for 4 players, and none for 5-6 players. ' +
-        'Power plant 13 goes on top of the deck and the Step 3 card on the bottom.',
 };
 
 const slotRef = (name: string) => `slot${name[0].toUpperCase()}${name.slice(1)}`;
@@ -3008,21 +2998,11 @@ export default class Game extends Vue {
         ];
     }
 
-    // The standard deck build for the variant in play. Shown on EVERY map: the
-    // per-map notes are written as differences from it, so without it a line like
-    // "18, 22 and 27 are set aside" tells a new player nothing about the rest.
-    get standardDeckBuild(): string {
-        return STANDARD_DECK_BUILD[this.G?.options.variant ?? 'recharged'] ?? STANDARD_DECK_BUILD.recharged;
-    }
-
-    /** This map's departure from the standard build, or '' when it follows it. */
-    get mapDeckBuild(): string {
-        const deckBuild = this.G?.map.deckBuild;
-        if (!deckBuild) return '';
-        if (typeof deckBuild === 'string') return deckBuild;
-        const deck = this.G!.options.powerPlantDeck;
-        if ((deck === 'shuffled' || deck === 'shuffledUnique') && deckBuild.shuffled) return deckBuild.shuffled;
-        return deckBuild[(this.G!.options.variant ?? 'recharged') as 'recharged' | 'original'] ?? '';
+    // The deck build for the deck and variant in play: the standard build, then this
+    // map's departure from it (see deckBuildText).
+    get deckBuild(): DeckBuildText {
+        if (!this.G) return { standard: [], map: [] };
+        return deckBuildText(this.G.map.name, this.G.options, this.G.players.length);
     }
 
     get mapTransform() {

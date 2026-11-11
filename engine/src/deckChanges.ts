@@ -100,8 +100,8 @@ export function originalTopPlants(mapName: string, deck: PowerPlantDeck): number
 }
 
 // Original Russia: the two plants shuffled into the top five cards, beneath the top
-// plant; they are the two plants after the six-plant opening market. Single decks
-// only: the shuffled decks aren't offered on Original Russia.
+// plant; they are the two plants after the six-plant opening market. The shuffled
+// decks take the 7th and 8th smallest dealt plants instead (see maps/russia.ts).
 export const RUSSIA_ORIGINAL_NEXT_PLANTS: PerDeck<number[]> = { standard: [10, 11], deck1: [8, 9], deck2: [10, 11] };
 
 // Recharged edition: plants that always open the market; the rest of its eight are
@@ -122,7 +122,7 @@ export function rechargedMarketPlants(mapName: string, deck: PowerPlantDeck): nu
 
 // Recharged Québec: plants set aside and placed on top of the finished deck, topmost
 // first. The standard deck puts them beneath one plug card; Deck 2 on the very top.
-// Single decks only: the shuffled decks aren't offered on Québec.
+// The shuffled decks follow the rule's purpose instead (see maps/quebec.ts).
 export const QUEBEC_RECHARGED_TOP_PLANTS: PerDeck<number[]> = { standard: [18, 22], deck1: [], deck2: [17, 24] };
 
 // Spain & Portugal: the ecological plants held back until Step 2, then drawn first.

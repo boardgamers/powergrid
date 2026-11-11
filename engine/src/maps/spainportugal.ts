@@ -249,8 +249,4 @@ export const map: GameMap = {
         return defaultSetupDeck(numPlayers, variant, rng, true, deck, 'Spain & Portugal', 0, sampleShuffled);
     },
     mapSpecificRules: 'You cannot buy a nuclear power plant if you only have cities in Portugal.\n',
-    deckBuild:
-        'power plants 18, 22 and 27 are set aside at setup; when ' +
-        'Step 2 begins they are placed on top of the deck (18 topmost, then ' +
-        '22, then 27).',
 };

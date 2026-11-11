@@ -188,21 +188,6 @@ export const map: GameMap = {
         'Nuclear plants may only be purchased by players with at least one city in Sweden, Finland, or the Baltic States. ' +
         'Players with cities only in Norway or Denmark may not bid on or buy nuclear plants. ' +
         'Resources start at: coal 3 Elektro, oil 3 Elektro, garbage 5 Elektro, uranium 7 Elektro.\n',
-    deckBuild: {
-        recharged:
-            'standard setup; the regions in play swap in regional ' +
-            'versions of certain power plants (same numbers, different fuel or ' +
-            'output).',
-        original:
-            'standard setup; the regions in play swap in regional ' +
-            'versions of certain power plants (same numbers, different fuel or ' +
-            'output).',
-        shuffled:
-            'standard setup; each regional power plant in play takes the place of a ' +
-            'dealt plant with its number, and every other dealt copy of that number ' +
-            'leaves the game. A regional plant whose number was not dealt is shuffled ' +
-            'into the deck.',
-    },
     connections: [
         { nodes: [Cities.Bood, Cities.Tromso], cost: 17 },
         { nodes: [Cities.Tromso, Cities.Oulu], cost: 25 },

@@ -396,20 +396,4 @@ export const map: GameMap = {
         return { actualMarket, futureMarket, powerPlantsDeck };
     },
     mapSpecificRules: 'Ecological power plants will never be put on the bottom of the deck.\n',
-    deckBuild: {
-        recharged:
-            'the starting market is drawn from the low ' +
-            'plants (including 13); one more low plant goes on top of the deck, ' +
-            'with 18 and 22 placed directly beneath it. Ecological plants are ' +
-            'never removed during setup.',
-        original:
-            'power plants 13, 18, 22 are set aside and ' +
-            'placed on top of the deck (13 topmost); ecological plants are ' +
-            'excluded from the player-count removal.',
-        shuffled:
-            'one plug card goes on top of the deck (in the Original edition plant 13 if ' +
-            'it was dealt, otherwise the smallest plug card left), with the two smallest ' +
-            'ecological plants not in the market directly beneath it. Ecological plants are ' +
-            'never removed during setup.',
-    },
 };

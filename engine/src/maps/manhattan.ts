@@ -354,6 +354,7 @@ export const map: GameMap = {
         // game can never advance out of Step 1.
         deck.pop();
 
+        const lastPlug = lastPlugPlant(powerPlantDeck);
         const plug = shuffle(
             deck.filter((pp) => isPlugPlant(pp, powerPlantDeck)),
             rng() + ''

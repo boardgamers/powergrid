@@ -5,7 +5,7 @@ import { originalTopPlants, removedPlants } from '../deckChanges';
 import { PowerPlant, PowerPlantDeck } from '../gamestate';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
-import { lastPlugPlant, plantCatalogue } from './../powerPlants';
+import { dealtCatalogue, isPlugPlant } from './../powerPlants';
 
 export enum Regions {
     Blue = 'blue',
@@ -225,9 +225,18 @@ export const map: GameMap = {
     // market is then drawn from the remaining "weak" pool (≤15) per the recharged
     // convention — 8 open the market, one goes on top of the deck and the leftovers
     // are shuffled in — and NO further player-count deck reduction is applied.
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, powerPlantDeck: PowerPlantDeck = 'standard') {
+    setupDeck(
+        numPlayers: number,
+        variant: string,
+        rng: seedrandom.prng,
+        powerPlantDeck: PowerPlantDeck = 'standard',
+        _fusionEcological?: boolean,
+        sampleShuffled = false
+    ) {
         const removed = new Set(removedPlants('Bremen', powerPlantDeck, numPlayers, variant));
-        const catalogue = plantCatalogue('Bremen', powerPlantDeck).filter((pp) => !removed.has(pp.number));
+        const catalogue = dealtCatalogue('Bremen', powerPlantDeck, rng, sampleShuffled).filter(
+            (pp) => !removed.has(pp.number)
+        );
         const deck = cloneDeep(catalogue);
         // The Step 3 card is the last entry of the master list and is never removed.
         const step3 = deck.pop()!;
@@ -251,12 +260,11 @@ export const map: GameMap = {
         }
 
         // Recharged: the opening 8 plants come from the weak (plug) pool.
-        const lastPlug = lastPlugPlant(powerPlantDeck);
         const weak = shuffle(
-            deck.filter((pp) => pp.number <= lastPlug),
+            deck.filter((pp) => isPlugPlant(pp, powerPlantDeck)),
             rng() + ''
         );
-        let rest = deck.filter((pp) => pp.number > lastPlug);
+        let rest = deck.filter((pp) => !isPlugPlant(pp, powerPlantDeck));
         const initialMarket = weak.splice(0, 8).sort((a, b) => a.number - b.number);
         actualMarket = initialMarket.slice(0, 4);
         futureMarket = initialMarket.slice(4);

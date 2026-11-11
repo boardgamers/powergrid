@@ -1,7 +1,7 @@
 import { cloneDeep } from 'lodash';
 import { originalTopPlants, removedPlants, RUSSIA_ORIGINAL_NEXT_PLANTS } from '../deckChanges';
-import { PowerPlant, PowerPlantDeck } from '../gamestate';
-import { lastPlugPlant, plantCatalogue } from '../powerPlants';
+import { PowerPlant, PowerPlantDeck, SingleDeck } from '../gamestate';
+import { dealtCatalogue, isPlugPlant } from '../powerPlants';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
 
@@ -230,15 +230,25 @@ export const map: GameMap = {
         ],
     ],
     startingResources: [18, 24, 0, 7],
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, deck: PowerPlantDeck = 'standard') {
+    setupDeck(
+        numPlayers: number,
+        variant: string,
+        rng: seedrandom.prng,
+        deck: PowerPlantDeck = 'standard',
+        _fusionEcological?: boolean,
+        sampleShuffled = false
+    ) {
         // Two plants leave the game: 06 and 14 in the standard deck.
         const removed = removedPlants('Russia', deck, numPlayers, variant);
-        let powerPlantsDeck = cloneDeep(plantCatalogue('Russia', deck)).filter((p) => !removed.includes(p.number));
+        let powerPlantsDeck = cloneDeep(dealtCatalogue('Russia', deck, rng, sampleShuffled)).filter(
+            (p) => !removed.includes(p.number)
+        );
         let actualMarket: PowerPlant[] = [];
         let futureMarket: PowerPlant[] = [];
         const step3 = powerPlantsDeck.pop()!;
 
         if (variant == 'original') {
+            // Single decks only: the shuffled decks aren't offered on Original Russia.
             // The six smallest plants open the market (03–05 / 07–09 in the standard deck).
             actualMarket = powerPlantsDeck.slice(0, 3);
             futureMarket = powerPlantsDeck.slice(3, 6);
@@ -246,7 +256,9 @@ export const map: GameMap = {
             // Set aside the top plant (13) and the next two plants after the market (10, 11).
             const rest = powerPlantsDeck.slice(6);
             const plant13 = rest.find((p) => p.number == originalTopPlants('Russia', deck)[0])!;
-            const [plant10, plant11] = RUSSIA_ORIGINAL_NEXT_PLANTS[deck].map((n) => rest.find((p) => p.number == n)!);
+            const [plant10, plant11] = RUSSIA_ORIGINAL_NEXT_PLANTS[deck as SingleDeck].map(
+                (n) => rest.find((p) => p.number == n)!
+            );
 
             // Shuffle the rest of the plants.
             const mainPlants = rest.filter((p) => p != plant13 && p != plant10 && p != plant11);
@@ -266,10 +278,10 @@ export const map: GameMap = {
             // Place plant 13 on top of deck, shuffled cards with 10 and 11 next, then the rest of the deck, then the step 3 card.
             powerPlantsDeck = [plant13].concat(topPlants, mainPlantsShuffled.slice(3), step3);
         } else {
-            const initialPlants = powerPlantsDeck.filter((p) => p.number <= lastPlugPlant(deck));
+            const initialPlants = powerPlantsDeck.filter((p) => isPlugPlant(p, deck));
             const initialPlantsShuffled = shuffle(initialPlants, rng() + '');
 
-            const mainPlants = powerPlantsDeck.filter((p) => p.number > lastPlugPlant(deck));
+            const mainPlants = powerPlantsDeck.filter((p) => !isPlugPlant(p, deck));
             let mainPlantsShuffled = shuffle(mainPlants, rng() + '');
 
             if (numPlayers == 2) {

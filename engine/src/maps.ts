@@ -133,6 +133,8 @@ export interface GameMap {
         actualMarket: PowerPlant[];
         futureMarket: PowerPlant[];
         powerPlantsDeck: PowerPlant[];
+        // Spain & Portugal with the shuffled decks: the held-back copies dealt.
+        heldPowerPlants?: PowerPlant[];
     };
     // Manhattan: with fewer players some building spaces are blocked at setup —
     // transitable (you still pay the flat-5 to route through them) but never

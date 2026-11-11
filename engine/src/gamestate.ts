@@ -292,6 +292,9 @@ export interface GameState {
     knownPowerPlantDeck: PowerPlant[];
     knownPowerPlantDeckStep3: PowerPlant[];
     powerPlantDeckAfterStep3: PowerPlant[] | undefined;
+    // Spain & Portugal with the shuffled decks: the held-back copies that were dealt,
+    // set aside in the open until Step 2 puts them on top of the deck.
+    heldPowerPlants?: PowerPlant[];
     // Manhattan market lifecycle (see applyManhattanMarketLifecycle in engine.ts).
     // The "separate pile" of plants set aside from the future market each round —
     // recyclable (reshuffled into a new deck at the first depletion), NOT boxed.

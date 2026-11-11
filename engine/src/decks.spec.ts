@@ -2,8 +2,15 @@ import { expect } from 'chai';
 import { range } from 'lodash';
 import 'mocha';
 import seedrandom from 'seedrandom';
+import { createAnalysisScenario } from './analysis';
 import { availableMoves } from './available-moves';
-import { QUEBEC_RECHARGED_TOP_PLANTS, removedPlants, SPAIN_STEP_2_PLANTS } from './deckChanges';
+import {
+    QUEBEC_RECHARGED_TOP_PLANTS,
+    rechargedMarketPlants,
+    removedPlants,
+    spainStep2Plants,
+    SPAIN_STEP_2_PLANTS,
+} from './deckChanges';
 import { ended, move, moveAI, reconstructionOptions, setup, updatePlayerCapacity } from './engine';
 import { GameState, MapName, Phase, PowerPlantDeck, PowerPlantType, ResourceType, Variant } from './gamestate';
 import { maps, mapsRecharged } from './maps';
@@ -14,10 +21,10 @@ import {
     deck1PowerPlants,
     isPlugPlant,
     labelledPlant,
-    NUMBERED_SETUP_MAPS,
     plantCatalogue,
     plantLabel,
     powerPlants,
+    SINGLE_DECK_MAPS,
 } from './powerPlants';
 
 const numbers = (plants: { number: number }[]) => plants.map((pp) => pp.number);
@@ -383,15 +390,16 @@ describe('shuffled power plant decks', () => {
         expect(labelledPlant('46', undefined)).to.equal(46);
     });
 
-    it('is only offered on maps whose rules name no plant numbers', () => {
+    it("is offered on every map except where the decks' rules clash", () => {
+        expect(SINGLE_DECK_MAPS).to.deep.equal(['Northern Europe', 'Quebec']);
         for (const deck of ['shuffled', 'shuffledUnique'] as PowerPlantDeck[]) {
-            for (const map of NUMBERED_SETUP_MAPS as MapName[]) {
-                const G = setup(4, { map, variant: 'recharged', powerPlantDeck: deck }, 'blocked');
-                expect(G.options, `${map} ${deck}`).to.not.have.property('powerPlantDeck');
-            }
-            for (const map of ['USA', 'Germany', 'Italy', 'Benelux', 'Europe', 'UK & Ireland'] as MapName[]) {
-                const G = setup(4, { map, variant: 'recharged', powerPlantDeck: deck }, 'offered');
-                expect(G.options.powerPlantDeck, `${map} ${deck}`).to.equal(deck);
+            for (const variant of ['original', 'recharged'] as Variant[]) {
+                for (const map of new Set((variant == 'original' ? maps : mapsRecharged).map((m) => m.name))) {
+                    const G = setup(4, { map: map as MapName, variant, powerPlantDeck: deck }, 'offered');
+                    const offered = !SINGLE_DECK_MAPS.includes(map) && !(map == 'Russia' && variant == 'original');
+                    if (offered) expect(G.options.powerPlantDeck, `${map} ${variant} ${deck}`).to.equal(deck);
+                    else expect(G.options, `${map} ${variant} ${deck}`).to.not.have.property('powerPlantDeck');
+                }
             }
         }
     });
@@ -565,4 +573,172 @@ describe('shuffled power plant decks', () => {
             }
         }
     });
+});
+
+describe('shuffled power plant decks on maps with deck-specific changes', function () {
+    this.timeout(120000);
+    // Every map whose rules name plant numbers, now with all three decks' rules at once.
+    const combinedMaps: [MapName, Variant[]][] = [
+        ['Australia', ['original', 'recharged']],
+        ['Brazil', ['original', 'recharged']],
+        ['Bremen', ['original', 'recharged']],
+        ['China', ['original', 'recharged']],
+        ['France', ['original', 'recharged']],
+        ['India', ['original', 'recharged']],
+        ['Manhattan', ['original', 'recharged']],
+        ['Middle East', ['original', 'recharged']],
+        ['Russia', ['recharged']],
+        ['South Africa', ['original', 'recharged']],
+        ['Spain & Portugal', ['original', 'recharged']],
+    ];
+    const decks: PowerPlantDeck[] = ['shuffled', 'shuffledUnique'];
+    // The map setups deal from the seeded catalogue before any other draw.
+    const dealtFor = (map: MapName, deck: PowerPlantDeck, seed: string) =>
+        numbers(dealtCatalogue(map, deck, seedrandom(seed), deck == 'shuffled'));
+
+    it("follows every deck's removals for the copies dealt, and deals no other card", () => {
+        for (const [map, variants] of combinedMaps) {
+            for (const variant of variants) {
+                for (const deck of decks) {
+                    for (const numPlayers of [2, 3, 4, 5, 6]) {
+                        const seed = `${map}-${variant}-${deck}-${numPlayers}`;
+                        const G = setup(numPlayers, { map, variant, powerPlantDeck: deck }, seed);
+                        const removed = removedPlants(map, deck, numPlayers, variant);
+                        const dealt = dealtFor(map, deck, seed);
+                        for (const number of numbers(visible(G))) {
+                            expect(removed, `${seed}: ${number} is removed`).to.not.include(number);
+                            expect(dealt, `${seed}: ${number} was dealt`).to.include(number);
+                        }
+                        expect(G.options.powerPlantDeck, seed).to.equal(deck);
+                    }
+                }
+            }
+        }
+        expect(removedPlants('Australia', 'shuffled', 4, 'recharged')).to.deep.equal([17, 19.1, 21.2]);
+        expect(removedPlants('France', 'shuffled', 4, 'original')).to.deep.equal([13, 11.1, 11.2]);
+        expect(removedPlants('France', 'shuffled', 4, 'recharged')).to.deep.equal([13, 10.1, 11.2]);
+        expect(removedPlants('India', 'shuffled', 4, 'recharged')).to.deep.equal([11, 8.1, 13.2]);
+        expect(removedPlants('India', 'standard', 4, 'recharged')).to.deep.equal([]);
+    });
+
+    it("opens the Recharged France and Brazil markets with every dealt copy of the decks' plants", () => {
+        for (const map of ['France', 'Brazil'] as MapName[]) {
+            for (const deck of decks) {
+                for (const seed of range(12).map((i) => `${map}-${deck}-${i}`)) {
+                    const G = setup(4, { map, variant: 'recharged', powerPlantDeck: deck }, seed);
+                    const forced = rechargedMarketPlants(map, deck);
+                    const market = numbers([...G.actualMarket, ...G.futureMarket]);
+                    expect(market, seed).to.include.members(
+                        dealtFor(map, deck, seed).filter((n) => forced.includes(n))
+                    );
+                    expect(market.length, seed).to.equal(8);
+                    expect(market).to.deep.equal([...market].sort((a, b) => a - b));
+                }
+            }
+        }
+        expect(rechargedMarketPlants('Brazil', 'shuffled')).to.deep.equal([6, 14, 6.1, 5.2, 14.2]);
+    });
+
+    it('keeps every dealt Brazil biogas plant above the plug cards in the game', () => {
+        for (const variant of ['original', 'recharged'] as Variant[]) {
+            for (const deck of decks) {
+                const seed = `brazil-biogas-${variant}-${deck}`;
+                const G = setup(2, { map: 'Brazil', variant, powerPlantDeck: deck }, seed);
+                const biogas = dealtCatalogue('Brazil', deck, seedrandom(seed), deck == 'shuffled').filter(
+                    (pp) => pp.type == PowerPlantType.Garbage && !isPlugPlant(pp, deck)
+                );
+                expect(numbers(visible(G)), seed).to.include.members(numbers(biogas));
+            }
+        }
+    });
+
+    it("uses the standard deck's Original top plants, when dealt", () => {
+        for (const seed of range(8).map((i) => `france-top-${i}`)) {
+            const G = setup(4, { map: 'France', variant: 'original', powerPlantDeck: 'shuffledUnique' }, seed);
+            if (dealtFor('France', 'shuffledUnique', seed).includes(11))
+                expect(G.powerPlantsDeck[0].number, seed).to.equal(11);
+            else expect(numbers(visible(G)), seed).to.not.include(11);
+        }
+    });
+
+    it('sorts China by printed number, extra copies included', () => {
+        for (const deck of decks) {
+            for (const numPlayers of [2, 4, 6]) {
+                const seed = `china-${deck}-${numPlayers}`;
+                const G = setup(numPlayers, { map: 'China', variant: 'recharged', powerPlantDeck: deck }, seed);
+                const low = [...G.actualMarket, ...G.powerPlantsDeck].filter((pp) => Math.floor(pp.number) <= 30);
+                expect(numbers(low), seed).to.deep.equal([...numbers(low)].sort((a, b) => a - b));
+                expect(G.actualMarket.length, seed).to.equal(numPlayers);
+                const removed = removedPlants('China', deck, numPlayers, 'recharged');
+                const kept = dealtFor('China', deck, seed).filter((n) => !removed.includes(n));
+                expect(numbers(visible(G)).sort(), seed).to.deep.equal(kept.sort());
+            }
+        }
+    });
+
+    it('holds back the dealt Spain & Portugal ecological copies and returns them at Step 2', () => {
+        for (const deck of decks) {
+            const seed = `spain-${deck}`;
+            let G = setup(4, { map: 'Spain & Portugal', variant: 'recharged', powerPlantDeck: deck }, seed);
+            const held = numbers(G.heldPowerPlants!);
+            expect(held).to.deep.equal(
+                dealtFor('Spain & Portugal', deck, seed).filter((n) => spainStep2Plants(deck).includes(n))
+            );
+            expect(held.length, deck).to.be.greaterThan(0);
+            expect(numbers(visible(G))).to.not.include.members(held);
+            G.players.forEach((p) => (p.isAI = true));
+            while (G.step == 1 && !ended(G)) G = moveAI(G, G.currentPlayers[0]);
+            const top = numbers([...G.actualMarket, ...G.futureMarket, ...G.powerPlantsDeck.slice(0, held.length)]);
+            expect(top, deck).to.include.members(held);
+        }
+        expect(setup(4, { map: 'Spain & Portugal', variant: 'recharged' }, 's')).to.not.have.property(
+            'heldPowerPlants'
+        );
+    });
+
+    it('builds the India deck with India garbage plants', () => {
+        const india = plantCatalogue('India', 'shuffled').filter((pp) => pp.type == PowerPlantType.Garbage);
+        const plain = plantCatalogue('USA', 'shuffled').filter((pp) => pp.type == PowerPlantType.Garbage);
+        expect(india.map((pp) => pp.cost)).to.deep.equal(plain.map((pp) => pp.cost + 1));
+    });
+
+    for (const [map, variant, deck] of [
+        ['Australia', 'recharged', 'shuffledUnique'],
+        ['Brazil', 'original', 'shuffled'],
+        ['Bremen', 'recharged', 'shuffled'],
+        ['China', 'recharged', 'shuffledUnique'],
+        ['France', 'recharged', 'shuffled'],
+        ['India', 'original', 'shuffledUnique'],
+        ['Manhattan', 'recharged', 'shuffled'],
+        ['Middle East', 'recharged', 'shuffled'],
+        ['Russia', 'recharged', 'shuffledUnique'],
+        ['South Africa', 'original', 'shuffled'],
+        ['Spain & Portugal', 'original', 'shuffled'],
+    ] as [MapName, Variant, PowerPlantDeck][]) {
+        it(`plays a whole bot game on ${map} ${variant} with ${deck}, rebuilds its deck and replays it`, () => {
+            let G = setup(4, { map, variant, powerPlantDeck: deck }, `bots-${map}-${deck}`);
+            G.players.forEach((p, i) => {
+                p.name = `AI ${i}`;
+                p.isAI = true;
+            });
+            for (let turn = 0; turn < 8000 && !ended(G) && G.currentPlayers.length > 0; turn++) {
+                if (turn % 60 == 0) {
+                    const scenario = createAnalysisScenario(G, { player: 0, seed: `analysis-${turn}` });
+                    expect(scenario.powerPlantsDeck.length, `turn ${turn}`).to.equal(G.cardsLeft);
+                }
+                G = moveAI(G, G.currentPlayers[0]);
+            }
+            expect(ended(G), 'game finished').to.be.true;
+
+            let replay = setup(4, G.options, G.seed);
+            replay.players.forEach((p, i) => {
+                p.name = `AI ${i}`;
+                p.isAI = true;
+            });
+            for (const item of G.log) {
+                if (item.type === 'move') replay = move(replay, item.move, item.player);
+            }
+            expect(replay.players.map((p) => p.money)).to.deep.equal(G.players.map((p) => p.money));
+        });
+    }
 });

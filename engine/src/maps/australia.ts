@@ -203,8 +203,15 @@ export const map: GameMap = {
     // Everything else follows the standard recharged/original deck setup. Note #17 is
     // a socket card (>15), so unlike South Africa (which removes weak plant 07 and
     // shrinks its starter pool to 12), Australia's plug pool stays 13.
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, deck: PowerPlantDeck = 'standard') {
-        return defaultSetupDeck(numPlayers, variant, rng, true, deck, 'Australia');
+    setupDeck(
+        numPlayers: number,
+        variant: string,
+        rng: seedrandom.prng,
+        deck: PowerPlantDeck = 'standard',
+        _fusionEcological?: boolean,
+        sampleShuffled = false
+    ) {
+        return defaultSetupDeck(numPlayers, variant, rng, true, deck, 'Australia', 0, sampleShuffled);
     },
     mapSpecificRules:
         'Uranium mines: the five uranium power plants (11, 23, 28, 34, 39) are ' +

@@ -1,7 +1,7 @@
 import { cloneDeep } from 'lodash';
 import { removedPlants } from '../deckChanges';
 import { PowerPlant, PowerPlantDeck, PowerPlantType } from '../gamestate';
-import { plantCatalogue } from '../powerPlants';
+import { dealtCatalogue } from '../powerPlants';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
 
@@ -224,7 +224,14 @@ export const map: GameMap = {
         ],
     ],
     startingResources: [12, 12, 6, 0],
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, deck: PowerPlantDeck = 'standard') {
+    setupDeck(
+        numPlayers: number,
+        variant: string,
+        rng: seedrandom.prng,
+        deck: PowerPlantDeck = 'standard',
+        _fusionEcological?: boolean,
+        sampleShuffled = false
+    ) {
         /* Instructions for power plant setup:
         Depending on the number of players, remove the following power plants from the game and place them in the box:
             with 2 and 3 players: 3, 4, 9, 11, 16, 18, 20, 24, 30, 33, 46.
@@ -236,19 +243,20 @@ export const map: GameMap = {
                 already placed on the supply
             plants 5 – 30: sort in ascending order with 30 on the bottom and 5 on the top and place face-down on the supply
         */
-        // The other decks remove their own plants (see removedPlants) but sort the same way.
-        const allPlants = cloneDeep(plantCatalogue('China', deck));
+        // The other decks remove their own plants (see removedPlants) but sort the same way,
+        // by printed number.
+        const allPlants = cloneDeep(dealtCatalogue('China', deck, rng, sampleShuffled));
         const plantsToRemove = removedPlants('China', deck, numPlayers, variant);
         const filteredPlants = allPlants.filter((p) => !plantsToRemove.includes(p.number));
 
-        const lowPlants = filteredPlants.filter((p) => p.number <= 30);
+        const lowPlants = filteredPlants.filter((p) => Math.floor(p.number) <= 30);
         const step3Card = filteredPlants.filter((p) => p.type == PowerPlantType.Step3);
         const middlePlants = shuffle(
-            filteredPlants.filter((p) => p.number >= 31 && p.number <= 35).concat(step3Card),
+            filteredPlants.filter((p) => Math.floor(p.number) >= 31 && Math.floor(p.number) <= 35).concat(step3Card),
             rng() + ''
         );
         const highPlants = shuffle(
-            filteredPlants.filter((p) => p.number >= 36 && p.number <= 50),
+            filteredPlants.filter((p) => Math.floor(p.number) >= 36 && Math.floor(p.number) <= 50),
             rng() + ''
         );
 

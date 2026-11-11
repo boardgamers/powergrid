@@ -238,8 +238,15 @@ export const map: GameMap = {
         ],
     ],
     startingResources: [24, 18, 9, 8],
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, deck: PowerPlantDeck = 'standard') {
-        return defaultSetupDeck(numPlayers, variant, rng, true, deck, 'Spain & Portugal');
+    setupDeck(
+        numPlayers: number,
+        variant: string,
+        rng: seedrandom.prng,
+        deck: PowerPlantDeck = 'standard',
+        _fusionEcological?: boolean,
+        sampleShuffled = false
+    ) {
+        return defaultSetupDeck(numPlayers, variant, rng, true, deck, 'Spain & Portugal', 0, sampleShuffled);
     },
     mapSpecificRules: 'You cannot buy a nuclear power plant if you only have cities in Portugal.\n',
     deckBuild:

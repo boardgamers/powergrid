@@ -5,7 +5,7 @@ import { defaultSetupDeck } from '../engine';
 import { PowerPlantDeck } from '../gamestate';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
-import { lastPlugPlant, plantCatalogue } from './../powerPlants';
+import { dealtCatalogue, isPlugPlant } from './../powerPlants';
 
 export enum Regions {
     Brown = 'brown',
@@ -237,23 +237,34 @@ export const map: GameMap = {
     ],
     // Recharged rulebook: coal 1–8, oil 3–8, garbage 6–8, uranium 5–16.
     startingResources: { original: [24, 18, 6, 8], recharged: [24, 18, 9, 8] },
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, deck: PowerPlantDeck = 'standard') {
+    setupDeck(
+        numPlayers: number,
+        variant: string,
+        rng: seedrandom.prng,
+        deck: PowerPlantDeck = 'standard',
+        _fusionEcological?: boolean,
+        sampleShuffled = false
+    ) {
         // Original: an ecological plant leaves the game and the nuclear plant goes on
         // top (13 and 11 in the standard deck), as deckChanges.ts lists per deck.
         if (variant == 'original') {
-            return defaultSetupDeck(numPlayers, variant, rng, true, deck, 'France');
+            return defaultSetupDeck(numPlayers, variant, rng, true, deck, 'France', 0, sampleShuffled);
         }
 
         // Recharged: the ecological plant leaves the game and the nuclear plant (11 in
         // the standard deck) always opens the market, with seven more plug cards.
         const removed = removedPlants('France', deck, numPlayers, variant);
-        let powerPlantsDeck = cloneDeep(plantCatalogue('France', deck)).filter((p) => !removed.includes(p.number));
+        let powerPlantsDeck = cloneDeep(dealtCatalogue('France', deck, rng, sampleShuffled)).filter(
+            (p) => !removed.includes(p.number)
+        );
+        // The shuffled decks force every dealt copy of their decks' plants into the market.
         const marketPlants = rechargedMarketPlants('France', deck);
         const powerPlant11 = powerPlantsDeck.filter((p) => marketPlants.includes(p.number));
         powerPlantsDeck = powerPlantsDeck.filter((p) => !marketPlants.includes(p.number));
-        const plugCount = powerPlantsDeck.filter((p) => p.number <= lastPlugPlant(deck)).length;
+        const plugPlants = powerPlantsDeck.filter((p) => isPlugPlant(p, deck));
+        powerPlantsDeck = powerPlantsDeck.filter((p) => !isPlugPlant(p, deck));
 
-        let initialPowerPlants = shuffle(powerPlantsDeck.splice(0, plugCount), rng() + '');
+        let initialPowerPlants = shuffle(plugPlants, rng() + '');
         let initialPlantMarket = initialPowerPlants.splice(0, 8 - powerPlant11.length);
         initialPlantMarket.push(...powerPlant11);
         initialPlantMarket = initialPlantMarket.sort((a, b) => a.number - b.number);

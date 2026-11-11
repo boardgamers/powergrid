@@ -5,7 +5,7 @@ import { removedPlants } from '../deckChanges';
 import { PowerPlantDeck } from '../gamestate';
 import { shuffle } from '../utils';
 import { City, Connection, GameMap } from './../maps';
-import { lastPlugPlant, plantCatalogue } from './../powerPlants';
+import { dealtCatalogue, isPlugPlant } from './../powerPlants';
 
 // Manhattan (RIO 686 Bremen/Manhattan expansion) is unlike every other board:
 //  • A SINGLE region. Every building space holds exactly ONE house, at its printed
@@ -338,20 +338,28 @@ export const map: GameMap = {
     // ≤ 15): box 4, keep 9 on top of the stack; the opening 8-card market is drawn
     // from them. "Socket" cards (> 15) form the rest of the stack. The deck-depletion
     // market lifecycle (separate-pile reshuffle → all-buyable → shrink) is Session 2.
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, powerPlantDeck: PowerPlantDeck = 'standard') {
+    setupDeck(
+        numPlayers: number,
+        variant: string,
+        rng: seedrandom.prng,
+        powerPlantDeck: PowerPlantDeck = 'standard',
+        _fusionEcological?: boolean,
+        sampleShuffled = false
+    ) {
         const boxed = new Set(removedPlants('Manhattan', powerPlantDeck, numPlayers, variant));
-        const deck = cloneDeep(plantCatalogue('Manhattan', powerPlantDeck)).filter((pp) => !boxed.has(pp.number));
+        const deck = cloneDeep(dealtCatalogue('Manhattan', powerPlantDeck, rng, sampleShuffled)).filter(
+            (pp) => !boxed.has(pp.number)
+        );
         // Last entry of the master list is the Step 3 card → boxed (dropped), so the
         // game can never advance out of Step 1.
         deck.pop();
 
-        const lastPlug = lastPlugPlant(powerPlantDeck);
         const plug = shuffle(
-            deck.filter((pp) => pp.number <= lastPlug),
+            deck.filter((pp) => isPlugPlant(pp, powerPlantDeck)),
             rng() + ''
         );
         const socket = shuffle(
-            deck.filter((pp) => pp.number > lastPlug),
+            deck.filter((pp) => !isPlugPlant(pp, powerPlantDeck)),
             rng() + ''
         );
         plug.splice(0, plug.length - 9); // plug cards to the box, leaving nine (four in the standard deck)

@@ -5,19 +5,12 @@ import {
     QUEBEC_RECHARGED_TOP_PLANTS,
     removedPlants,
     RUSSIA_ORIGINAL_NEXT_PLANTS,
+    spainStep2Plants,
     SPAIN_STEP_2_PLANTS,
 } from './deckChanges';
 import { defaultSetupDeck, reconstructState, setup, stripSecret } from './engine';
-import { GameState, PowerPlant, PowerPlantType } from './gamestate';
-import {
-    gameDeck,
-    isEcological,
-    isPlugPlant,
-    labelledPlant,
-    lastPlugPlant,
-    plantCatalogue,
-    PLANT_LABEL_PATTERN,
-} from './powerPlants';
+import { GameState, PowerPlant, PowerPlantType, SingleDeck } from './gamestate';
+import { gameDeck, isEcological, isPlugPlant, labelledPlant, plantCatalogue, PLANT_LABEL_PATTERN } from './powerPlants';
 import { shuffle } from './utils';
 
 /** Unknown cards come from the published catalogue, never the live draw pile. */
@@ -38,9 +31,13 @@ export function createAnalysisScenario(
     const name = s.map.name;
     const n = s.players.length;
     const powerPlantDeck = gameDeck(s.options);
+    const isShuffled = powerPlantDeck === 'shuffled' || powerPlantDeck === 'shuffledUnique';
     // Spain & Portugal's held-back plants return at Step 2; Manhattan boxes its Step 3 card.
     let excluded = removedPlants(name, powerPlantDeck, n, s.options.variant!);
-    if (name === 'Spain & Portugal' && s.step !== 1) excluded = [];
+    // With the shuffled decks, only the held-back copies that were dealt return.
+    const held = s.heldPowerPlants?.map((p) => p.number);
+    if (name === 'Spain & Portugal' && s.step !== 1)
+        excluded = held ? spainStep2Plants(powerPlantDeck).filter((number) => !held.includes(number)) : [];
     if (name === 'Manhattan') excluded = [99, ...excluded];
     const catalogue = JSON.parse(JSON.stringify(plantCatalogue(name, powerPlantDeck))) as PowerPlant[];
     for (const region of new Set(s.regionDraft ? [] : s.map.cities.map((c) => c.region))) {
@@ -137,19 +134,28 @@ export function createAnalysisScenario(
     const fixedTop: number[] = [];
     const original = s.options.variant === 'original';
     if (original && name !== 'China' && name !== 'Manhattan') {
-        for (const number of originalTopPlants(name, powerPlantDeck)) if (!seen.has(number)) fixedTop.push(number);
+        const tops = originalTopPlants(name, powerPlantDeck);
+        // The top plants are drawn first. A shuffled deck may not have dealt them: once
+        // that many cards have been drawn past the opening market, any still unseen
+        // were never in the game.
+        const undealt = isShuffled && s.knownPowerPlantDeck.length - 8 >= tops.length;
+        if (!undealt) for (const number of tops) if (!seen.has(number)) fixedTop.push(number);
     }
     if (!original && name === 'Quebec') {
         // The first low plant is followed by the two guaranteed ecological plants.
         for (const number of QUEBEC_RECHARGED_TOP_PLANTS[powerPlantDeck]) if (!seen.has(number)) fixedTop.push(number);
     }
     if (name === 'Spain & Portugal' && s.step === 2) {
-        for (const number of SPAIN_STEP_2_PLANTS[powerPlantDeck]) if (!seen.has(number)) fixedTop.push(number);
+        for (const number of held ?? SPAIN_STEP_2_PLANTS[powerPlantDeck as SingleDeck])
+            if (!seen.has(number)) fixedTop.push(number);
     }
-    const top = fixedTop.map(byNumber).filter((p) => candidates.some((c) => c.number === p.number));
+    const top = fixedTop
+        .map(byNumber)
+        .filter((p) => candidates.some((c) => c.number === p.number))
+        .slice(0, Math.max(0, count));
     candidates = candidates.filter((p) => !top.some((t) => t.number === p.number));
     const mandatory = (p: PowerPlant) =>
-        (name === 'Brazil' && p.type === PowerPlantType.Garbage && p.number > lastPlugPlant(powerPlantDeck)) ||
+        (name === 'Brazil' && p.type === PowerPlantType.Garbage && !isPlugPlant(p, powerPlantDeck)) ||
         // Games without the stored ruling built their Québec deck protecting fusion too.
         (name === 'Quebec' && isEcological(p, s.options.fusionEcological ?? true)) ||
         (name === 'Russia' && original && RUSSIA_ORIGINAL_NEXT_PLANTS[powerPlantDeck].includes(p.number));
@@ -169,7 +175,8 @@ export function createAnalysisScenario(
         if (index >= 0) top.unshift(...candidates.splice(index, 1));
     }
     const select = (cards: PowerPlant[], amount: number) => {
-        const required = cards.filter(mandatory);
+        // A shuffled deck holds more copies of the protected plants than it dealt.
+        const required = cards.filter(mandatory).slice(0, Math.max(0, amount));
         return required.concat(cards.filter((p) => !mandatory(p)).slice(0, Math.max(0, amount - required.length)));
     };
     let rest: PowerPlant[];
@@ -187,7 +194,9 @@ export function createAnalysisScenario(
                       seedrandom(seed + ':catalogue-counts'),
                       s.options.useNewRechargedSetup ?? true,
                       powerPlantDeck,
-                      name
+                      name,
+                      0,
+                      powerPlantDeck === 'shuffled' && s.options.shuffledSample === true
                   )
                 : setup(n, s.options, seed + ':catalogue-counts');
         const low = (p: { number: number }) => (name === 'India' ? p.number <= 16 : isPlugPlant(p, powerPlantDeck));
@@ -196,13 +205,21 @@ export function createAnalysisScenario(
         ).length;
         const seenLow = [...seen].filter((number) => low({ number })).length;
         const recycledLow = [...recycled].filter((number) => low({ number }) && !unavailable.has(number)).length;
-        const lowCount = initialLow - seenLow + recycledLow - top.filter(low).length;
-        rest = select(candidates.filter(low), Math.max(0, lowCount)).concat(
+        // A shuffled deck's plug-card count varies with the deal; keep the estimate in the deck.
+        const lowCount = Math.min(
+            Math.max(0, initialLow - seenLow + recycledLow - top.filter(low).length),
+            count - top.length
+        );
+        const lowPlants = select(candidates.filter(low), lowCount);
+        rest = lowPlants.concat(
             select(
                 candidates.filter((p) => !low(p)),
-                count - top.length - Math.max(0, lowCount)
+                count - top.length - lowPlants.length
             )
         );
+        // Fewer socket cards left than the estimate allows: fill with plug cards.
+        const spare = candidates.filter((p) => low(p) && !rest.includes(p));
+        rest = rest.concat(spare.slice(0, Math.max(0, count - top.length - rest.length)));
         rest = shuffle(rest, seed + ':remaining');
     } else rest = select(candidates, Math.max(0, count - top.length));
     let deck = [...top, ...rest];
@@ -224,19 +241,21 @@ export function createAnalysisScenario(
                 others
             );
         } else {
-            const lastPlug = lastPlugPlant(powerPlantDeck);
-            deck = deck.filter((p) => p.number <= lastPlug).concat(deck.filter((p) => p.number > lastPlug));
+            deck = deck
+                .filter((p) => isPlugPlant(p, powerPlantDeck))
+                .concat(deck.filter((p) => !isPlugPlant(p, powerPlantDeck)));
         }
     }
     if (name === 'China') {
-        const low = deck.filter((p) => p.number <= 30).sort((a, b) => a.number - b.number);
+        const printed = (p: PowerPlant) => Math.floor(p.number);
+        const low = deck.filter((p) => printed(p) <= 30).sort((a, b) => a.number - b.number);
         const middle = shuffle(
-            deck.filter((p) => p.number >= 31 && p.number <= 35).concat(step3 ? [step3] : []),
+            deck.filter((p) => printed(p) >= 31 && printed(p) <= 35).concat(step3 ? [step3] : []),
             seed + ':middle'
         );
         deck = low.concat(
             middle,
-            deck.filter((p) => p.number >= 36)
+            deck.filter((p) => printed(p) >= 36)
         );
     } else if (step3) {
         deck.splice(name === 'UK & Ireland' ? Math.max(0, deck.length - 2) : deck.length, 0, step3);

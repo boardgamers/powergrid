@@ -695,8 +695,17 @@ describe('shuffled power plant decks on maps with deck-specific changes', functi
             expect(numbers(visible(G))).to.not.include.members(held);
             G.players.forEach((p) => (p.isAI = true));
             while (G.step == 1 && !ended(G)) G = moveAI(G, G.currentPlayers[0]);
-            const top = numbers([...G.actualMarket, ...G.futureMarket, ...G.powerPlantsDeck.slice(0, held.length)]);
-            expect(top, deck).to.include.members(held);
+            // An early Step 3 card begins Step 2 first, then Step 3 shuffles the rest in and
+            // discards the smallest plant, which can be one that just came back.
+            const events = G.log.map((item) => (item.type == 'event' ? item.event : ''));
+            const step3First = events.some((e) => e.includes('the Step 3 card came first'));
+            const top = numbers([
+                ...G.actualMarket,
+                ...G.futureMarket,
+                ...(step3First ? G.powerPlantsDeck : G.powerPlantsDeck.slice(0, held.length)),
+            ]);
+            const discarded = held.filter((n) => events.some((e) => e.includes(`${plantLabel(n)} discarded`)));
+            expect([...top, ...discarded], deck).to.include.members(held);
         }
         expect(setup(4, { map: 'Spain & Portugal', variant: 'recharged' }, 's')).to.not.have.property(
             'heldPowerPlants'

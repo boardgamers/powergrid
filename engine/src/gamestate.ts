@@ -78,6 +78,9 @@ export interface GameOptions {
     // game deals a standard-sized deck at random from all three decks. Older shuffled
     // games have none and play with every plant of all three decks.
     shuffledSample?: boolean;
+    // A Step 3 card drawn in Step 1 first begins Step 2 (with its setup), as the
+    // rulebooks say. Stored on new games; older games replay without it.
+    step2BeforeStep3?: boolean;
     // Whether fusion plants count as ecological (see FUSION_IS_ECOLOGICAL). Stored by
     // setup on the maps in ECOLOGICAL_RULE_MAPS; older games have none and play as
     // wind-only, except that their Québec deck setup protected fusion too.

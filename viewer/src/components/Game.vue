@@ -856,6 +856,10 @@
                                         slots filled), even if no player reached
                                         {{ G.citiesToStep2 }}
                                     </li>
+                                    <li v-if="G.map.name !== 'Middle East' && G.map.name !== 'Europe'">
+                                        When it starts, the smallest power plant leaves the market and a new one is
+                                        drawn
+                                    </li>
                                     <li>Two players per city</li>
                                     <li>
                                         Resource Resupply: {{ G.resourceResupply[1] }}
@@ -875,6 +879,14 @@
                                 <strong>Step 3:</strong>
                                 <ul>
                                     <li>Starts after the "Step 3" card is drawn from the deck</li>
+                                    <li v-if="G.map.name !== 'China'">
+                                        When it starts, the Step 3 card and the smallest power plant leave the market,
+                                        and the draw pile is shuffled
+                                    </li>
+                                    <li v-if="earlyStep3StartsStep2">
+                                        If the Step 3 card is drawn before Step 2 has begun, Step 2 begins first, with
+                                        its own setup, and Step 3 follows straight after
+                                    </li>
                                     <li>Three players per city</li>
                                     <li>
                                         Resource Resupply: {{ G.resourceResupply[2] }}
@@ -3006,6 +3018,15 @@ export default class Game extends Vue {
             (map) => map.name == this.G!.map.name
         );
         return current?.mapSpecificRules ?? this.G.map.mapSpecificRules ?? '';
+    }
+
+    // Games created since the engine followed this rule; Middle East and China have their own.
+    get earlyStep3StartsStep2(): boolean {
+        return (
+            !!this.G?.options.step2BeforeStep3 &&
+            this.G.map.name !== 'Middle East' &&
+            this.G.map.name !== 'China'
+        );
     }
 
     // The deck build for the deck and variant in play: the standard build, then this

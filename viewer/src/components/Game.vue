@@ -898,11 +898,11 @@
                         The winner is the player that can power the most cities. Money and number of cities built are
                         tiebreakers.
                     </div>
-                    <template v-if="G.map.mapSpecificRules">
+                    <template v-if="mapSpecificRules">
                         <br />
                         <div>
                             <strong>Map Specific Rules:</strong><br />
-                            <span class="map-specific-rules">{{ G.map.mapSpecificRules }}</span>
+                            <span class="map-specific-rules">{{ mapSpecificRules }}</span>
                         </div>
                     </template>
                     <br />
@@ -1009,7 +1009,7 @@ import {
     PowerPlantType,
     ResourceType,
 } from 'powergrid-engine/src/gamestate';
-import { City } from 'powergrid-engine/src/maps';
+import { City, maps, mapsRecharged } from 'powergrid-engine/src/maps';
 import { formatDuration } from '../util/time';
 import { playerOrderForDisplay } from '../util/player-order';
 import { freePlantMoves, canAutoFinishPowering, poweredCities } from '../util/powering';
@@ -2996,6 +2996,16 @@ export default class Game extends Vue {
             // Every clock is stopped once the game ends, so the banked total is final.
             { label: 'Time Used', value: (p) => formatDuration(playerTimeUsed(p)) },
         ];
+    }
+
+    // The map's rules as the map now defines them: a game keeps the text it was created
+    // with in its state, so rules written later still reach games already under way.
+    get mapSpecificRules(): string {
+        if (!this.G) return '';
+        const current = (this.G.options.variant == 'recharged' ? mapsRecharged : maps).find(
+            (map) => map.name == this.G!.map.name
+        );
+        return current?.mapSpecificRules ?? this.G.map.mapSpecificRules ?? '';
     }
 
     // The deck build for the deck and variant in play: the standard build, then this

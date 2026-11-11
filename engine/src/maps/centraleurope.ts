@@ -236,4 +236,8 @@ export const map: GameMap = {
             [2, 3, 2],
         ],
     ],
+    mapSpecificRules:
+        'Nuclear plants may only be purchased by players with at least one city in Czechia, Slovakia or Hungary. ' +
+        'Players with cities only in Poland or Austria may not bid on or buy nuclear plants. ' +
+        'A player with a city in Wien pays $1 less for each garbage, but never less than $1.\n',
 };

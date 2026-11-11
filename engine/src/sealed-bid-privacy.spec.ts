@@ -47,7 +47,9 @@ describe('sealed auction lastMove privacy', () => {
     }
 
     it('hides pending bids and passes from opponents and spectators, including revisions', async () => {
-        let { state, bidder, plant } = await opening();
+        const opened = await opening();
+        const { bidder, plant } = opened;
+        let { state } = opened;
         assertPrivate(state);
         const second = state.currentPlayers[0];
         state = await wrapper.move(state, { name: MoveName.Pass, data: true }, second);

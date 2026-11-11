@@ -597,7 +597,7 @@ export function setup(
     if (G.map.name == 'Middle East') {
         removePlantsForMiddleEastStep1(G);
         G.cardsLeft = G.powerPlantsDeck.length;
-        G.nextCardWeak = variant === 'recharged' && G.cardsLeft > 0 && G.powerPlantsDeck[0].number <= 15;
+        G.nextCardWeak = nextCardIsPlug(G);
     }
 
     // chooseRegions: start in the region draft instead of the auction. The map
@@ -744,6 +744,18 @@ function advanceColorDraft(G: GameState) {
     } else {
         G.phase = Phase.Auction;
     }
+}
+
+// The draw pile shows whether its top card has a plug on the back (Recharged only).
+// Which plants are plug cards depends on the deck: Deck 1 has plugs up to 16, and the
+// shuffled decks mix copies from every deck (16.1, 15.2, ...), so ask the deck rather
+// than comparing the number with 15.
+function nextCardIsPlug(G: GameState): boolean {
+    return (
+        G.options.variant == 'recharged' &&
+        G.powerPlantsDeck.length > 0 &&
+        isPlugPlant(G.powerPlantsDeck[0], gameDeck(G.options))
+    );
 }
 
 export function stripSecret(G: GameState, player?: number): GameState {
@@ -2028,7 +2040,7 @@ export function move(
         : move;
 
     G.cardsLeft = G.powerPlantsDeck.length;
-    G.nextCardWeak = G.options.variant == 'recharged' && G.cardsLeft > 0 && G.powerPlantsDeck[0].number <= 15;
+    G.nextCardWeak = nextCardIsPlug(G);
 
     updateClocks(G, move.poweringClock?.at ?? move.serverTime ?? move.time);
     if (move.poweringClock) {

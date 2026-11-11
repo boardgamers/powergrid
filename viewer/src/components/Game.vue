@@ -3020,6 +3020,8 @@ export default class Game extends Vue {
         const deckBuild = this.G?.map.deckBuild;
         if (!deckBuild) return '';
         if (typeof deckBuild === 'string') return deckBuild;
+        const deck = this.G!.options.powerPlantDeck;
+        if ((deck === 'shuffled' || deck === 'shuffledUnique') && deckBuild.shuffled) return deckBuild.shuffled;
         return deckBuild[(this.G!.options.variant ?? 'recharged') as 'recharged' | 'original'] ?? '';
     }
 

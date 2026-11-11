@@ -12,19 +12,28 @@ import {
     SPAIN_STEP_2_PLANTS,
 } from './deckChanges';
 import { ended, move, moveAI, reconstructionOptions, setup, updatePlayerCapacity } from './engine';
-import { GameState, MapName, Phase, PowerPlantDeck, PowerPlantType, ResourceType, Variant } from './gamestate';
+import {
+    GameState,
+    MapName,
+    Phase,
+    PowerPlant,
+    PowerPlantDeck,
+    PowerPlantType,
+    ResourceType,
+    Variant,
+} from './gamestate';
 import { maps, mapsRecharged } from './maps';
 import { Move, MoveName } from './move';
 import {
     alternatePowerPlants,
     dealtCatalogue,
     deck1PowerPlants,
+    isEcological,
     isPlugPlant,
     labelledPlant,
     plantCatalogue,
     plantLabel,
     powerPlants,
-    SINGLE_DECK_MAPS,
 } from './powerPlants';
 
 const numbers = (plants: { number: number }[]) => plants.map((pp) => pp.number);
@@ -390,15 +399,12 @@ describe('shuffled power plant decks', () => {
         expect(labelledPlant('46', undefined)).to.equal(46);
     });
 
-    it("is offered on every map except where the decks' rules clash", () => {
-        expect(SINGLE_DECK_MAPS).to.deep.equal(['Northern Europe', 'Quebec']);
+    it('is offered on every map and edition', () => {
         for (const deck of ['shuffled', 'shuffledUnique'] as PowerPlantDeck[]) {
             for (const variant of ['original', 'recharged'] as Variant[]) {
                 for (const map of new Set((variant == 'original' ? maps : mapsRecharged).map((m) => m.name))) {
                     const G = setup(4, { map: map as MapName, variant, powerPlantDeck: deck }, 'offered');
-                    const offered = !SINGLE_DECK_MAPS.includes(map) && !(map == 'Russia' && variant == 'original');
-                    if (offered) expect(G.options.powerPlantDeck, `${map} ${variant} ${deck}`).to.equal(deck);
-                    else expect(G.options, `${map} ${variant} ${deck}`).to.not.have.property('powerPlantDeck');
+                    expect(G.options.powerPlantDeck, `${map} ${variant} ${deck}`).to.equal(deck);
                 }
             }
         }
@@ -587,7 +593,8 @@ describe('shuffled power plant decks on maps with deck-specific changes', functi
         ['India', ['original', 'recharged']],
         ['Manhattan', ['original', 'recharged']],
         ['Middle East', ['original', 'recharged']],
-        ['Russia', ['recharged']],
+        ['Quebec', ['original', 'recharged']],
+        ['Russia', ['original', 'recharged']],
         ['South Africa', ['original', 'recharged']],
         ['Spain & Portugal', ['original', 'recharged']],
     ];
@@ -723,6 +730,175 @@ describe('shuffled power plant decks on maps with deck-specific changes', functi
             });
             for (let turn = 0; turn < 8000 && !ended(G) && G.currentPlayers.length > 0; turn++) {
                 if (turn % 60 == 0) {
+                    const scenario = createAnalysisScenario(G, { player: 0, seed: `analysis-${turn}` });
+                    expect(scenario.powerPlantsDeck.length, `turn ${turn}`).to.equal(G.cardsLeft);
+                }
+                G = moveAI(G, G.currentPlayers[0]);
+            }
+            expect(ended(G), 'game finished').to.be.true;
+
+            let replay = setup(4, G.options, G.seed);
+            replay.players.forEach((p, i) => {
+                p.name = `AI ${i}`;
+                p.isAI = true;
+            });
+            for (const item of G.log) {
+                if (item.type === 'move') replay = move(replay, item.move, item.player);
+            }
+            expect(replay.players.map((p) => p.money)).to.deep.equal(G.players.map((p) => p.money));
+        });
+    }
+});
+
+describe('shuffled power plant decks where the decks disagree', function () {
+    this.timeout(120000);
+    const decks: PowerPlantDeck[] = ['shuffled', 'shuffledUnique'];
+    const variants: Variant[] = ['original', 'recharged'];
+    const dealtFor = (map: MapName, deck: PowerPlantDeck, seed: string) =>
+        dealtCatalogue(map, deck, seedrandom(seed), deck == 'shuffled');
+    const sorted = (plants: { number: number }[]) => [...plants].sort((a, b) => a.number - b.number);
+    const playAll = (G: GameState, until: (G: GameState) => boolean) => {
+        G.players.forEach((p, i) => {
+            p.name = `AI ${i}`;
+            p.isAI = true;
+        });
+        for (let turn = 0; turn < 8000 && !ended(G) && !until(G); turn++) G = moveAI(G, G.currentPlayers[0]);
+        return G;
+    };
+
+    const checkRegionalPlants = (G: GameState, label: string) => {
+        const regions = new Set(G.map.cities.map((city) => city.region));
+        const northernEurope = maps.find((m) => m.name == 'Northern Europe')!;
+        const market = [...G.actualMarket, ...G.futureMarket];
+        expect(market.length, label).to.equal(8);
+        expect(numbers(market), label).to.deep.equal(numbers(sorted(market)));
+        expect(G.cardsLeft, label).to.equal(G.powerPlantsDeck.length);
+        let checked = 0;
+        for (const region of regions) {
+            for (const regional of northernEurope.regionalPowerPlants![region] || []) {
+                const copies = visible(G).filter((pp) => Math.floor(pp.number) == regional.number);
+                expect(copies, `${label}: ${regional.number}`).to.deep.equal([regional]);
+                checked++;
+            }
+        }
+        expect(checked, label).to.be.greaterThan(0);
+    };
+
+    it('deals each Northern Europe regional plant in play once, in place of every copy of its number', () => {
+        for (const variant of variants) {
+            for (const deck of decks) {
+                for (const seed of range(10).map((i) => `ne-${variant}-${deck}-${i}`)) {
+                    checkRegionalPlants(
+                        setup(4, { map: 'Northern Europe', variant, powerPlantDeck: deck }, seed),
+                        seed
+                    );
+                }
+            }
+        }
+    });
+
+    it('adds a Northern Europe regional plant whose number was not dealt', () => {
+        let added = 0;
+        for (const seed of range(40).map((i) => `ne-added-${i}`)) {
+            const G = setup(4, { map: 'Northern Europe', variant: 'recharged', powerPlantDeck: 'shuffled' }, seed);
+            const dealt = dealtFor('Northern Europe', 'shuffled', seed).map((pp) => Math.floor(pp.number));
+            const regions = new Set(G.map.cities.map((city) => city.region));
+            for (const region of regions) {
+                for (const regional of maps.find((m) => m.name == 'Northern Europe')!.regionalPowerPlants![region] ||
+                    []) {
+                    if (!dealt.includes(regional.number)) {
+                        expect(numbers(G.powerPlantsDeck), seed).to.include(regional.number);
+                        added++;
+                    }
+                }
+            }
+        }
+        expect(added, 'some regional number was not dealt').to.be.greaterThan(0);
+    });
+
+    it('applies the Northern Europe regional plants once the regions are drafted', () => {
+        for (const deck of decks) {
+            const label = `ne-draft-${deck}`;
+            let G = setup(
+                4,
+                { map: 'Northern Europe', variant: 'recharged', powerPlantDeck: deck, chooseRegions: true },
+                label
+            );
+            expect(G.phase).to.equal(Phase.RegionSelection);
+            G = playAll(G, (state) => state.phase != Phase.RegionSelection);
+            expect(G.phase, label).to.equal(Phase.Auction);
+            checkRegionalPlants(G, label);
+        }
+    });
+
+    it('puts one plug card on top of the Québec deck, then the two smallest ecological plants', () => {
+        for (const variant of variants) {
+            for (const deck of decks) {
+                for (const numPlayers of [2, 3, 4, 5, 6]) {
+                    const seed = `quebec-${variant}-${deck}-${numPlayers}`;
+                    const G = setup(numPlayers, { map: 'Quebec', variant, powerPlantDeck: deck }, seed);
+                    const ecological = (pp: PowerPlant) => isEcological(pp, G.options.fusionEcological);
+                    const dealt = dealtFor('Quebec', deck, seed);
+                    const market = [...G.actualMarket, ...G.futureMarket];
+                    const [top, ...beneath] = G.powerPlantsDeck;
+                    if (variant == 'original') {
+                        expect(numbers(market), seed).to.deep.equal(numbers(dealt.slice(0, 8)));
+                        const rest = dealt.slice(8);
+                        const expected = rest.find((pp) => pp.number == 13) ?? rest.find((pp) => isPlugPlant(pp, deck));
+                        expect(top.number, seed).to.equal(expected!.number);
+                    } else {
+                        expect(
+                            market.every((pp) => isPlugPlant(pp, deck)),
+                            seed
+                        ).to.be.true;
+                        expect(isPlugPlant(top, deck), seed).to.be.true;
+                    }
+                    const winds = sorted(dealt.filter((pp) => ecological(pp) && !market.includes(pp) && pp != top))
+                        .filter((pp) => !numbers(market).includes(pp.number) && pp.number != top.number)
+                        .slice(0, 2);
+                    expect(numbers(beneath.slice(0, 2)), seed).to.deep.equal(numbers(winds));
+                    // Ecological plants are never removed.
+                    expect(numbers(visible(G)), seed).to.include.members(numbers(dealt.filter(ecological)));
+                }
+            }
+        }
+    });
+
+    it('opens Original Russia with the six smallest plants, 13 on top and the next two in the top five', () => {
+        for (const deck of decks) {
+            for (const numPlayers of [2, 3, 4, 5, 6]) {
+                const seed = `russia-${deck}-${numPlayers}`;
+                const G = setup(numPlayers, { map: 'Russia', variant: 'original', powerPlantDeck: deck }, seed);
+                const removed = removedPlants('Russia', deck, numPlayers, 'original');
+                const dealt = dealtFor('Russia', deck, seed).filter(
+                    (pp) => !removed.includes(pp.number) && pp.number != 99
+                );
+                expect(numbers([...G.actualMarket, ...G.futureMarket]), seed).to.deep.equal(numbers(dealt.slice(0, 6)));
+                const has13 = dealt.some((pp) => pp.number == 13);
+                if (has13) expect(G.powerPlantsDeck[0].number, seed).to.equal(13);
+                const window = numbers(G.powerPlantsDeck.slice(has13 ? 1 : 0, has13 ? 6 : 5));
+                const next = numbers(dealt.slice(6).filter((pp) => pp.number != 13)).slice(0, 2);
+                expect(window, seed).to.include.members(next);
+            }
+        }
+    });
+
+    for (const [map, variant, deck, chooseRegions] of [
+        ['Northern Europe', 'recharged', 'shuffled', false],
+        ['Northern Europe', 'original', 'shuffledUnique', true],
+        ['Quebec', 'original', 'shuffled', false],
+        ['Quebec', 'recharged', 'shuffledUnique', false],
+        ['Russia', 'original', 'shuffled', false],
+    ] as [MapName, Variant, PowerPlantDeck, boolean][]) {
+        const label = `${map} ${variant} with ${deck}${chooseRegions ? ' and drafted regions' : ''}`;
+        it(`plays a whole bot game on ${label}, rebuilds its deck and replays it`, () => {
+            let G = setup(4, { map, variant, powerPlantDeck: deck, chooseRegions }, `bots-${label}`);
+            G.players.forEach((p, i) => {
+                p.name = `AI ${i}`;
+                p.isAI = true;
+            });
+            for (let turn = 0; turn < 8000 && !ended(G) && G.currentPlayers.length > 0; turn++) {
+                if (turn % 40 == 0 && G.phase != Phase.RegionSelection) {
                     const scenario = createAnalysisScenario(G, { player: 0, seed: `analysis-${turn}` });
                     expect(scenario.powerPlantsDeck.length, `turn ${turn}`).to.equal(G.cardsLeft);
                 }

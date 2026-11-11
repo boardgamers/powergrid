@@ -42,8 +42,14 @@ export function createAnalysisScenario(
     const catalogue = JSON.parse(JSON.stringify(plantCatalogue(name, powerPlantDeck))) as PowerPlant[];
     for (const region of new Set(s.regionDraft ? [] : s.map.cities.map((c) => c.region))) {
         for (const replacement of s.map.regionalPowerPlants?.[region] || []) {
+            // The shuffled decks: the regional card replaces every copy of its number.
+            if (isShuffled) {
+                for (let i = catalogue.length - 1; i >= 0; i--)
+                    if (Math.floor(catalogue[i].number) === replacement.number) catalogue.splice(i, 1);
+            }
             const i = catalogue.findIndex((p) => p.number === replacement.number);
             if (i >= 0) catalogue[i] = { ...replacement };
+            else catalogue.splice(catalogue.length - 1, 0, { ...replacement });
         }
     }
     const byNumber = (number: number) => catalogue.find((p) => p.number === number)!;
@@ -133,15 +139,33 @@ export function createAnalysisScenario(
     const count = s.cardsLeft - fixedBottom.length - Number(!!step3);
     const fixedTop: number[] = [];
     const original = s.options.variant === 'original';
-    if (original && name !== 'China' && name !== 'Manhattan') {
+    // Cards drawn since the opening market (Russia's holds six plants).
+    const drawnPastMarket = s.knownPowerPlantDeck.length - (name === 'Russia' ? 6 : 8);
+    const shuffledQuebec = isShuffled && name === 'Quebec';
+    if (original && name !== 'China' && name !== 'Manhattan' && !shuffledQuebec) {
         const tops = originalTopPlants(name, powerPlantDeck);
         // The top plants are drawn first. A shuffled deck may not have dealt them: once
         // that many cards have been drawn past the opening market, any still unseen
         // were never in the game.
-        const undealt = isShuffled && s.knownPowerPlantDeck.length - 8 >= tops.length;
+        const undealt = isShuffled && drawnPastMarket >= tops.length;
         if (!undealt) for (const number of tops) if (!seen.has(number)) fixedTop.push(number);
     }
-    if (!original && name === 'Quebec') {
+    if (shuffledQuebec && drawnPastMarket <= 2) {
+        // One plug card, then the two smallest ecological plants dealt (see quebec.ts).
+        const unseen = candidates.filter((p) => p.number !== 99);
+        if (original && drawnPastMarket === 0) {
+            const plug =
+                unseen.find((p) => p.number === originalTopPlants(name, powerPlantDeck)[0]) ??
+                [...unseen].sort((a, b) => a.number - b.number).find((p) => isPlugPlant(p, powerPlantDeck));
+            if (plug) fixedTop.push(plug.number);
+        }
+        const winds = unseen
+            .filter((p) => isEcological(p, s.options.fusionEcological) && !fixedTop.includes(p.number))
+            .sort((a, b) => a.number - b.number)
+            .slice(0, 2 - Math.max(0, drawnPastMarket - 1));
+        fixedTop.push(...winds.map((p) => p.number));
+    }
+    if (!original && name === 'Quebec' && !isShuffled) {
         // The first low plant is followed by the two guaranteed ecological plants.
         for (const number of QUEBEC_RECHARGED_TOP_PLANTS[powerPlantDeck]) if (!seen.has(number)) fixedTop.push(number);
     }
@@ -158,13 +182,16 @@ export function createAnalysisScenario(
         (name === 'Brazil' && p.type === PowerPlantType.Garbage && !isPlugPlant(p, powerPlantDeck)) ||
         // Games without the stored ruling built their Québec deck protecting fusion too.
         (name === 'Quebec' && isEcological(p, s.options.fusionEcological ?? true)) ||
-        (name === 'Russia' && original && RUSSIA_ORIGINAL_NEXT_PLANTS[powerPlantDeck].includes(p.number));
+        (name === 'Russia' &&
+            original &&
+            !isShuffled &&
+            RUSSIA_ORIGINAL_NEXT_PLANTS[powerPlantDeck as SingleDeck].includes(p.number));
     // A plug-back top card is public information in the recharged edition.
     if (
         (!original || name === 'Manhattan') &&
         name !== 'China' &&
         count > 0 &&
-        (top.length === 0 || (name === 'Quebec' && s.nextCardWeak))
+        (top.length === 0 || (name === 'Quebec' && s.nextCardWeak && !(isShuffled && drawnPastMarket > 0)))
     ) {
         candidates = candidates.filter(mandatory).concat(candidates.filter((p) => !mandatory(p)));
         const index = candidates.findIndex(
@@ -227,7 +254,14 @@ export function createAnalysisScenario(
         if (original) {
             const remainingWindow = Math.max(0, 6 - Math.max(0, s.knownPowerPlantDeck.length - 6));
             const topNumber = originalTopPlants(name, powerPlantDeck)[0];
-            const nextNumbers = RUSSIA_ORIGINAL_NEXT_PLANTS[powerPlantDeck];
+            // The shuffled decks: the 7th and 8th smallest plants this deal holds.
+            const opening = new Set(s.knownPowerPlantDeck.slice(0, 6).map((p) => p.number));
+            const nextNumbers = isShuffled
+                ? [...seen, ...deck.map((p) => p.number)]
+                      .filter((number) => !opening.has(number) && number !== topNumber && number !== 99)
+                      .sort((a, b) => a - b)
+                      .slice(0, 2)
+                : RUSSIA_ORIGINAL_NEXT_PLANTS[powerPlantDeck as SingleDeck];
             const first = deck.filter((p) => p.number === topNumber);
             const guaranteed = deck.filter((p) => nextNumbers.includes(p.number));
             const others = deck.filter((p) => p.number !== topNumber && !nextNumbers.includes(p.number));

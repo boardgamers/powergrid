@@ -1,6 +1,6 @@
 import { cloneDeep } from 'lodash';
 import { originalTopPlants, removedPlants, RUSSIA_ORIGINAL_NEXT_PLANTS } from '../deckChanges';
-import { PowerPlant, PowerPlantDeck, SingleDeck } from '../gamestate';
+import { PowerPlant, PowerPlantDeck } from '../gamestate';
 import { dealtCatalogue, isPlugPlant } from '../powerPlants';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
@@ -248,17 +248,19 @@ export const map: GameMap = {
         const step3 = powerPlantsDeck.pop()!;
 
         if (variant == 'original') {
-            // Single decks only: the shuffled decks aren't offered on Original Russia.
             // The six smallest plants open the market (03–05 / 07–09 in the standard deck).
             actualMarket = powerPlantsDeck.slice(0, 3);
             futureMarket = powerPlantsDeck.slice(3, 6);
 
             // Set aside the top plant (13) and the next two plants after the market (10, 11).
+            // The shuffled decks: the standard deck's 13 if it was dealt, and the 7th and
+            // 8th smallest plants dealt.
             const rest = powerPlantsDeck.slice(6);
-            const plant13 = rest.find((p) => p.number == originalTopPlants('Russia', deck)[0])!;
-            const [plant10, plant11] = RUSSIA_ORIGINAL_NEXT_PLANTS[deck as SingleDeck].map(
-                (n) => rest.find((p) => p.number == n)!
-            );
+            const plant13 = rest.find((p) => p.number == originalTopPlants('Russia', deck)[0]);
+            const [plant10, plant11] =
+                deck == 'shuffled' || deck == 'shuffledUnique'
+                    ? rest.filter((p) => p != plant13).slice(0, 2)
+                    : RUSSIA_ORIGINAL_NEXT_PLANTS[deck].map((n) => rest.find((p) => p.number == n)!);
 
             // Shuffle the rest of the plants.
             const mainPlants = rest.filter((p) => p != plant13 && p != plant10 && p != plant11);
@@ -276,7 +278,7 @@ export const map: GameMap = {
             topPlants = shuffle(topPlants, rng() + '');
 
             // Place plant 13 on top of deck, shuffled cards with 10 and 11 next, then the rest of the deck, then the step 3 card.
-            powerPlantsDeck = [plant13].concat(topPlants, mainPlantsShuffled.slice(3), step3);
+            powerPlantsDeck = (plant13 ? [plant13] : []).concat(topPlants, mainPlantsShuffled.slice(3), step3);
         } else {
             const initialPlants = powerPlantsDeck.filter((p) => isPlugPlant(p, deck));
             const initialPlantsShuffled = shuffle(initialPlants, rng() + '');
@@ -315,5 +317,11 @@ export const map: GameMap = {
             'market is 3, 4, 5 / 7, 8, 9. Plant 13 goes on top of the deck, then ' +
             'five shuffled cards (plants 10, 11 and the top three of the deck), ' +
             'then the rest, with the Step 3 card on the bottom.',
+        shuffled:
+            "each deck's removed plants leave the game (6 and 14; Deck 1's 6 and 21; " +
+            "Deck 2's 5 and 14). Recharged: the market is drawn from the plug cards as " +
+            'usual. Original: the six smallest plants open the market; plant 13 goes on ' +
+            'top of the deck if it was dealt, then five shuffled cards (the 7th and 8th ' +
+            'smallest plants and the top three of the deck).',
     },
 };

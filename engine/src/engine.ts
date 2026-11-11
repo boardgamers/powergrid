@@ -214,7 +214,7 @@ export function setup(
         ? chosenMap.startingResources.recharged
         : chosenMap.startingResources.original;
     if (startingResources) chosenMap.startingResources = startingResources;
-    const decks = availableDecks(chosenMap.name, variant);
+    const decks = availableDecks();
     // A random deck is one of the three single decks. Dedicated rng so the pick
     // doesn't shift the rest of the setup's draws.
     const singleDecks: PowerPlantDeck[] = ['standard', 'deck1', 'deck2'];
@@ -664,6 +664,9 @@ function filterMapToRegions(map: GameMap, playRegions: Set<string>): GameMap {
 // matching plant numbers. Mutates the passed arrays in place.
 // The map's numbers win over the deck's: a regional card the deck has no plant for
 // (Deck 1 has no 18) is shuffled into the draw pile, below its top card.
+// The shuffled decks: the regional card takes the place of one dealt copy of its
+// number and the other copies leave the game; a regional card whose number wasn't
+// dealt is shuffled in the same way.
 function applyRegionalPowerPlants(
     map: GameMap,
     playRegions: Set<string>,
@@ -678,10 +681,31 @@ function applyRegionalPowerPlants(
     }
     const catalogue = plantCatalogue(map.name, deck);
     const rng = seedrandom(seed + '-regional');
+    const shuffledDeck = deck == 'shuffled' || deck == 'shuffledUnique';
+    const actualSize = actualMarket.length;
+    const marketSize = actualSize + futureMarket.length;
     for (const region of playRegions) {
         const replacements = map.regionalPowerPlants[region];
         if (replacements) {
             for (const newPlant of replacements) {
+                if (shuffledDeck) {
+                    const sameNumber = (p: PowerPlant) => Math.floor(p.number) === newPlant.number;
+                    const holders = [actualMarket, futureMarket, powerPlantsDeck];
+                    const keeper = holders.find((arr) => arr.some(sameNumber));
+                    if (keeper) {
+                        const regional = { ...newPlant };
+                        keeper[keeper.findIndex(sameNumber)] = regional;
+                        for (const arr of holders) {
+                            for (let i = arr.length - 1; i >= 0; i--) {
+                                if (sameNumber(arr[i]) && arr[i] !== regional) arr.splice(i, 1);
+                            }
+                        }
+                    } else {
+                        const index = 1 + Math.floor(rng() * (powerPlantsDeck.length - 1));
+                        powerPlantsDeck.splice(index, 0, { ...newPlant });
+                    }
+                    continue;
+                }
                 const swapIn = (arr: PowerPlant[]) => {
                     const idx = arr.findIndex((p) => p.number === newPlant.number);
                     if (idx !== -1) arr[idx] = { ...newPlant };
@@ -696,6 +720,14 @@ function applyRegionalPowerPlants(
                 }
             }
         }
+    }
+    if (shuffledDeck) {
+        // A removed copy may have left the market: refill it from the top of the deck.
+        const market = [...actualMarket, ...futureMarket];
+        while (market.length < marketSize && powerPlantsDeck.length > 1) market.push(powerPlantsDeck.shift()!);
+        market.sort((a, b) => a.number - b.number);
+        actualMarket.splice(0, actualMarket.length, ...market.slice(0, actualSize));
+        futureMarket.splice(0, futureMarket.length, ...market.slice(actualSize));
     }
 }
 
@@ -718,6 +750,9 @@ function finalizeRegions(G: GameState) {
     );
     // knownPowerPlantDeck mirrors actualMarket+futureMarket and must reflect any swap.
     G.knownPowerPlantDeck = G.actualMarket.concat(G.futureMarket);
+    // Regional cards can add plants to the deck, or (shuffled decks) take copies out.
+    G.cardsLeft = G.powerPlantsDeck.length;
+    G.nextCardWeak = G.options.variant === 'recharged' && G.cardsLeft > 0 && G.powerPlantsDeck[0].number <= 15;
 
     // UK & Ireland 2p caps the end-game target at the number of cities actually in
     // play, which is only known once the regions are chosen.

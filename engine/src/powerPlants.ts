@@ -212,18 +212,12 @@ function labelledPlant(printed: string, copy: string | undefined): number {
     return Number(printed) + (copy ? Number(copy) / 10 : 0);
 }
 
-// Maps whose rules for the three decks can't be followed at once, so the shuffled
-// decks aren't offered there: Northern Europe's regional plants replace a number's
-// copy, and Québec's decks disagree on the top of the deck. Everywhere else the
-// shuffled decks follow every deck's rule (see deckChanges.ts).
-const SINGLE_DECK_MAPS: string[] = ['Northern Europe', 'Quebec'];
-
-// The decks a map can be played with: every map takes every single deck. Original
-// Russia opens with one deck's plant numbers, so it takes the single decks only.
-function availableDecks(mapName: string, variant?: string): PowerPlantDeck[] {
-    const singleDecks: PowerPlantDeck[] = ['standard', 'deck1', 'deck2'];
-    const singleOnly = SINGLE_DECK_MAPS.includes(mapName) || (mapName == 'Russia' && variant == 'original');
-    return singleOnly ? singleDecks : [...singleDecks, 'shuffled', 'shuffledUnique'];
+// The decks a map can be played with: every map takes every deck. The shuffled decks
+// follow every deck's map rules at once (see deckChanges.ts); where those clash, the
+// map's setup states the rule by its purpose (Northern Europe's regional cards in
+// applyRegionalPowerPlants, Québec's top of the deck, Original Russia's opening).
+function availableDecks(): PowerPlantDeck[] {
+    return ['standard', 'deck1', 'deck2', 'shuffled', 'shuffledUnique'];
 }
 
 // The deck a game plays with. Games from before powerPlantDeck may carry the
@@ -338,7 +332,6 @@ export {
     isPlugPlant,
     PHASE_OUT_PLANT,
     phaseOutPlants,
-    SINGLE_DECK_MAPS,
     FUSION_IS_ECOLOGICAL,
     ECOLOGICAL_RULE_MAPS,
     isEcological,

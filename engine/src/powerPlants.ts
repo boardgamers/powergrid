@@ -156,8 +156,8 @@ function usesAlternateDeck(mapName: string, alternate: boolean | undefined): boo
 
 // India's version of a deck: one plant leaves the game, and garbage plants cost one
 // more garbage to run but have no additional storage.
-function indiaCatalogue(deck: PowerPlant[], removed: number): PowerPlant[] {
-    const plants = cloneDeep(deck).filter((pp) => pp.number != removed);
+function indiaCatalogue(deck: PowerPlant[], removed: number[]): PowerPlant[] {
+    const plants = cloneDeep(deck).filter((pp) => !removed.includes(pp.number));
     plants.forEach((pp) => {
         if (pp.type == PowerPlantType.Garbage) {
             pp.storage = 2 * pp.cost;
@@ -167,11 +167,11 @@ function indiaCatalogue(deck: PowerPlant[], removed: number): PowerPlant[] {
     return plants;
 }
 
-const indiaPowerPlants = indiaCatalogue(powerPlants, 11);
+const indiaPowerPlants = indiaCatalogue(powerPlants, [11]);
 const indiaCatalogues: Record<SingleDeck, PowerPlant[]> = {
     standard: indiaPowerPlants,
-    deck1: indiaCatalogue(deck1PowerPlants, 8),
-    deck2: indiaCatalogue(alternatePowerPlants, 13),
+    deck1: indiaCatalogue(deck1PowerPlants, [8]),
+    deck2: indiaCatalogue(alternatePowerPlants, [13]),
 };
 
 // The shuffled decks hold copies of the same number. The standard deck's copy keeps
@@ -189,6 +189,9 @@ const shuffledPowerPlants: PowerPlant[] = [
 ]
     .sort((a, b) => a.number - b.number)
     .concat(powerPlants.filter((pp) => pp.type == PowerPlantType.Step3));
+
+// India's shuffled decks: the removed plants leave once dealt (see removedPlants).
+const indiaShuffledPowerPlants = indiaCatalogue(shuffledPowerPlants, []);
 
 // Which deck a plant's copy came from in the shuffled decks: 0 standard, 1, or 2.
 function plantCopy(number: number): number {
@@ -209,28 +212,12 @@ function labelledPlant(printed: string, copy: string | undefined): number {
     return Number(printed) + (copy ? Number(copy) / 10 : 0);
 }
 
-// Maps whose setup or rules name plant numbers: the shuffled decks, which have no
-// official changes for them, aren't offered there.
-const NUMBERED_SETUP_MAPS: string[] = [
-    'Australia',
-    'Brazil',
-    'Bremen',
-    'China',
-    'France',
-    'India',
-    'Manhattan',
-    'Middle East',
-    'Northern Europe',
-    'Quebec',
-    'Russia',
-    'South Africa',
-    'Spain & Portugal',
-];
-
-// The decks a map can be played with: every map takes every single deck.
-function availableDecks(mapName: string): PowerPlantDeck[] {
-    const singleDecks: PowerPlantDeck[] = ['standard', 'deck1', 'deck2'];
-    return NUMBERED_SETUP_MAPS.includes(mapName) ? singleDecks : [...singleDecks, 'shuffled', 'shuffledUnique'];
+// The decks a map can be played with: every map takes every deck. The shuffled decks
+// follow every deck's map rules at once (see deckChanges.ts); where those clash, the
+// map's setup states the rule by its purpose (Northern Europe's regional cards in
+// applyRegionalPowerPlants, Québec's top of the deck, Original Russia's opening).
+function availableDecks(): PowerPlantDeck[] {
+    return ['standard', 'deck1', 'deck2', 'shuffled', 'shuffledUnique'];
 }
 
 // The deck a game plays with. Games from before powerPlantDeck may carry the
@@ -245,7 +232,7 @@ function gameDeck(options: GameOptions): PowerPlantDeck {
 // a subset of it (see dealtCatalogue), so lookups by number still work.
 function plantCatalogue(mapName: string, deck: PowerPlantDeck = 'standard'): PowerPlant[] {
     if (deck == 'shuffled' || deck == 'shuffledUnique') {
-        return shuffledPowerPlants;
+        return mapName == 'India' ? indiaShuffledPowerPlants : shuffledPowerPlants;
     }
     if (mapName == 'India') {
         return indiaCatalogues[deck];
@@ -345,7 +332,6 @@ export {
     isPlugPlant,
     PHASE_OUT_PLANT,
     phaseOutPlants,
-    NUMBERED_SETUP_MAPS,
     FUSION_IS_ECOLOGICAL,
     ECOLOGICAL_RULE_MAPS,
     isEcological,

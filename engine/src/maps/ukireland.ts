@@ -260,7 +260,4 @@ export const map: GameMap = {
         'Early Step 3: the Step 3 card is placed 3rd from last in the deck (two ' +
         'plants below it). Step 2 begins when a player connects their 7th city ' +
         '(6th for 6 players).\n',
-    deckBuild:
-        'standard setup for both variants, except the Step 3 card ' +
-        'is placed third from the bottom of the deck (two plants below it).',
 };

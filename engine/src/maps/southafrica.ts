@@ -212,8 +212,15 @@ export const map: GameMap = {
     // recharged/original deck setup. With 07 gone the "starter pool" is one
     // plant shorter (12 instead of 13 for recharged; future market shifts to
     // 8/9/10/11 instead of 7/8/9/10 for original).
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, deck: PowerPlantDeck = 'standard') {
-        return defaultSetupDeck(numPlayers, variant, rng, true, deck, 'South Africa');
+    setupDeck(
+        numPlayers: number,
+        variant: string,
+        rng: seedrandom.prng,
+        deck: PowerPlantDeck = 'standard',
+        _fusionEcological?: boolean,
+        sampleShuffled = false
+    ) {
+        return defaultSetupDeck(numPlayers, variant, rng, true, deck, 'South Africa', 0, sampleShuffled);
     },
     mapSpecificRules:
         'Coal storage: there is a separate storage space below the resource market, ' +
@@ -228,8 +235,4 @@ export const map: GameMap = {
         'available from the start of the game. The 30 Elektro is the complete cost ' +
         '— no house-base cost is added on top. Only a single player can build on ' +
         'each cross-border space (cap of 1 instead of the standard 3).\n',
-    deckBuild:
-        'power plant 07 is removed from the game; otherwise ' +
-        'standard setup for both variants (in the original variant the future ' +
-        'market becomes 8, 9, 10, 11).',
 };

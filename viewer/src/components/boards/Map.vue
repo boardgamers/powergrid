@@ -373,8 +373,19 @@
 
         <template>
             <template v-for="city in cities">
+                <!-- Bremen's tiles carry numbers inside, so they're outlined around the
+                     outside of the diamond instead of ringed across it. -->
+                <rect
+                    v-if="canBuild(city) && isNodeTile(city)"
+                    :key="city.name + '_tileHelp'"
+                    class="canClick"
+                    v-bind="tileOutline(city)"
+                    fill="none"
+                    stroke="blue"
+                    stroke-width="4px"
+                />
                 <circle
-                    v-if="canBuild(city)"
+                    v-else-if="canBuild(city)"
                     :key="city.name + '_circleHelp'"
                     :class="[{ canClick: canBuild(city) }]"
                     r="18"
@@ -392,8 +403,18 @@
              regardless of the help preference since the draft can't proceed
              without it. -->
         <template v-for="city in cities">
+            <rect
+                v-if="canPickRegion(city) && isNodeTile(city)"
+                :key="city.name + '_pickRegionTile'"
+                class="canClick"
+                v-bind="tileOutline(city)"
+                fill="none"
+                stroke="gold"
+                stroke-width="5px"
+                @click="onCityClick(city)"
+            />
             <circle
-                v-if="canPickRegion(city)"
+                v-else-if="canPickRegion(city)"
                 :key="city.name + '_pickRegion'"
                 class="canClick"
                 r="18"
@@ -768,6 +789,19 @@ export default class Map extends Vue {
     /** A Bremen-style node-weighted district: a diamond tile with several house slots. */
     isNodeTile(city: City) {
         return city.connectionCost != null && !!city.slotCosts && city.slotCosts.length >= 2;
+    }
+
+    /** A diamond just outside a district tile's own region-coloured border. */
+    tileOutline(city: City) {
+        const half = 23 * this.t + 6;
+        return {
+            x: city.x - half,
+            y: city.y - half,
+            width: 2 * half,
+            height: 2 * half,
+            rx: 7 * this.t + 4,
+            transform: `rotate(45, ${city.x}, ${city.y})`,
+        };
     }
 
     canBuild(city: City) {

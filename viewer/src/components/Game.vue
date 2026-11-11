@@ -856,6 +856,10 @@
                                         slots filled), even if no player reached
                                         {{ G.citiesToStep2 }}
                                     </li>
+                                    <li v-if="G.map.name !== 'Middle East' && G.map.name !== 'Europe'">
+                                        When it starts, the smallest power plant leaves the market and a new one is
+                                        drawn
+                                    </li>
                                     <li>Two players per city</li>
                                     <li>
                                         Resource Resupply: {{ G.resourceResupply[1] }}
@@ -875,6 +879,14 @@
                                 <strong>Step 3:</strong>
                                 <ul>
                                     <li>Starts after the "Step 3" card is drawn from the deck</li>
+                                    <li v-if="G.map.name !== 'China'">
+                                        When it starts, the Step 3 card and the smallest power plant leave the market,
+                                        and the draw pile is shuffled
+                                    </li>
+                                    <li v-if="earlyStep3StartsStep2">
+                                        If the Step 3 card is drawn before Step 2 has begun, Step 2 begins first, with
+                                        its own setup, and Step 3 follows straight after
+                                    </li>
                                     <li>Three players per city</li>
                                     <li>
                                         Resource Resupply: {{ G.resourceResupply[2] }}
@@ -898,21 +910,30 @@
                         The winner is the player that can power the most cities. Money and number of cities built are
                         tiebreakers.
                     </div>
-                    <template v-if="G.map.mapSpecificRules">
+                    <template v-if="mapSpecificRules">
                         <br />
                         <div>
                             <strong>Map Specific Rules:</strong><br />
-                            <span class="map-specific-rules">{{ G.map.mapSpecificRules }}</span>
+                            <span class="map-specific-rules">{{ mapSpecificRules }}</span>
                         </div>
                     </template>
                     <br />
                     <div>
                         <strong>Deck build:</strong><br />
-                        <span class="map-specific-rules">{{ standardDeckBuild }}</span>
-                        <template v-if="mapDeckBuild">
+                        <!-- One span per sentence: the catalogues translate each template sentence. -->
+                        <span class="map-specific-rules"
+                            ><template v-for="(sentence, i) in deckBuild.standard"
+                                ><span :key="'deck-build-' + i">{{ sentence }}</span
+                                >{{ ' ' }}</template
+                            ></span
+                        >
+                        <template v-if="deckBuild.map.length">
                             <br />
                             <span class="map-specific-rules"
-                                ><strong>On {{ G.map.name }}:</strong> {{ mapDeckBuild }}</span
+                                ><strong>On {{ G.map.name }}:</strong
+                                ><template v-for="(sentence, i) in deckBuild.map"
+                                    >{{ ' ' }}<span :key="'map-deck-build-' + i">{{ sentence }}</span></template
+                                ></span
                             >
                         </template>
                     </div>
@@ -954,6 +975,7 @@ import InlineLog from './InlineLog.vue';
 import { Vue, Component, Prop, Watch, Provide, ProvideReactive, Ref } from 'vue-property-decorator';
 import { MoveName, ended, playersSortedByScore, reconstructState } from 'powergrid-engine';
 import type { GameState, LogItem, Move, Player } from 'powergrid-engine';
+import { deckBuildText, DeckBuildText } from 'powergrid-engine/src/deckBuildText';
 import { plantLabel } from 'powergrid-engine/src/powerPlants';
 import { EventEmitter } from 'events';
 import {
@@ -999,7 +1021,7 @@ import {
     PowerPlantType,
     ResourceType,
 } from 'powergrid-engine/src/gamestate';
-import { City } from 'powergrid-engine/src/maps';
+import { City, maps, mapsRecharged } from 'powergrid-engine/src/maps';
 import { formatDuration } from '../util/time';
 import { playerOrderForDisplay } from '../util/player-order';
 import { freePlantMoves, canAutoFinishPowering, poweredCities } from '../util/powering';
@@ -1067,26 +1089,6 @@ const STACK_SLOT_MAX_WIDTH: Record<string, number> = {
     // The box market is one tall stack of full-width buttons; run edge to edge it
     // reads as though it had been cropped rather than laid out.
     resources: 0.94,
-};
-
-/**
- * How the deck and opening market are built when a map says nothing special —
- * i.e. the rule the per-map `deckBuild` notes are differences FROM. Wording is
- * the legend row of the deck-build grid Mike reviewed on 2026-08-13.
- */
-const STANDARD_DECK_BUILD: Record<string, string> = {
-    recharged:
-        'Shuffle the 13 low power plants — the "plug plants" (3-15), named for the plug on the back of ' +
-        'the printed cards. Draw 8 and sort them ascending: the 4 cheapest form the ' +
-        'current market, the next 4 the future market. One of the remaining low plants goes face down on ' +
-        'top of the draw deck. Player-count removal: 2 players remove 1 low + 5 higher plants; 3 players ' +
-        'remove 2 low + 6 higher; 4 players remove 1 low + 3 higher; 5-6 players remove none. The leftover ' +
-        'low plants are shuffled into the deck, with the Step 3 card on the bottom.',
-    original:
-        'The market is fixed: power plants 3, 4, 5, 6 are the current market and 7, 8, 9, 10 the future ' +
-        'market. Power plant 13 and the Step 3 card are set aside and the rest of the deck is shuffled, ' +
-        'then 8 random plants are removed for 2-3 players, 4 for 4 players, and none for 5-6 players. ' +
-        'Power plant 13 goes on top of the deck and the Step 3 card on the bottom.',
 };
 
 const slotRef = (name: string) => `slot${name[0].toUpperCase()}${name.slice(1)}`;
@@ -3008,19 +3010,30 @@ export default class Game extends Vue {
         ];
     }
 
-    // The standard deck build for the variant in play. Shown on EVERY map: the
-    // per-map notes are written as differences from it, so without it a line like
-    // "18, 22 and 27 are set aside" tells a new player nothing about the rest.
-    get standardDeckBuild(): string {
-        return STANDARD_DECK_BUILD[this.G?.options.variant ?? 'recharged'] ?? STANDARD_DECK_BUILD.recharged;
+    // The map's rules as the map now defines them: a game keeps the text it was created
+    // with in its state, so rules written later still reach games already under way.
+    get mapSpecificRules(): string {
+        if (!this.G) return '';
+        const current = (this.G.options.variant == 'recharged' ? mapsRecharged : maps).find(
+            (map) => map.name == this.G!.map.name
+        );
+        return current?.mapSpecificRules ?? this.G.map.mapSpecificRules ?? '';
     }
 
-    /** This map's departure from the standard build, or '' when it follows it. */
-    get mapDeckBuild(): string {
-        const deckBuild = this.G?.map.deckBuild;
-        if (!deckBuild) return '';
-        if (typeof deckBuild === 'string') return deckBuild;
-        return deckBuild[(this.G!.options.variant ?? 'recharged') as 'recharged' | 'original'] ?? '';
+    // Games created since the engine followed this rule; Middle East and China have their own.
+    get earlyStep3StartsStep2(): boolean {
+        return (
+            !!this.G?.options.step2BeforeStep3 &&
+            this.G.map.name !== 'Middle East' &&
+            this.G.map.name !== 'China'
+        );
+    }
+
+    // The deck build for the deck and variant in play: the standard build, then this
+    // map's departure from it (see deckBuildText).
+    get deckBuild(): DeckBuildText {
+        if (!this.G) return { standard: [], map: [] };
+        return deckBuildText(this.G.map.name, this.G.options, this.G.players.length);
     }
 
     get mapTransform() {

@@ -3434,7 +3434,11 @@ function fastAuction(G: GameState, player: Player, bid: number) {
     G.currentPlayers = G.currentPlayers.filter((id) => id !== player.id);
 
     if (G.currentPlayers.length === 0) {
-        G.log.push(...G.hiddenLog);
+        // Reveal simultaneous responses in fixed seat order, not submission order
+        // (nor the changing playerOrder used for auction nominations).
+        G.log.push(
+            ...G.hiddenLog.slice().sort((a, b) => (a.type === 'move' && b.type === 'move' ? a.player - b.player : 0))
+        );
         G.hiddenLog = [];
 
         const bids = G.players.map((p) => p.bid).filter((b) => b > 0);

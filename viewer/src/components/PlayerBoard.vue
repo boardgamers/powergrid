@@ -41,13 +41,34 @@
         </text>
         <text
             v-if="showMoney"
-            x="250"
+            :x="moneyEditable ? 320 : 345"
+            text-anchor="end"
             y="13"
             font-weight="600"
-            :font-size="hypotheticalMoney ? 10 : undefined"
             :fill="colorText(color)"
-            >{{ hypotheticalMoney ? 'Hypothetical' : 'Money' }}: ${{ player.money }}</text
+            :tabindex="hypotheticalMoney ? 0 : undefined"
+            :style="hypotheticalMoney ? { pointerEvents: 'all', cursor: 'help' } : undefined"
+            data-player-money
         >
+            <title v-if="hypotheticalMoney">Hypothetical</title>
+            ${{ player.money }}<tspan v-if="hypotheticalMoney" font-size="10" baseline-shift="super">*</tspan>
+        </text>
+
+        <g
+            v-if="moneyEditable"
+            role="button"
+            tabindex="0"
+            aria-label="Edit analysis money"
+            class="analysis-money-edit"
+            :data-money-player="owner"
+            @click="$emit('editMoney')"
+            @keydown.enter.prevent="$emit('editMoney')"
+            @keydown.space.prevent="$emit('editMoney')"
+        >
+            <rect x="326" y="0" width="24" height="25" fill="transparent" />
+            <text x="338" y="13" text-anchor="middle" :fill="colorText(color)">✎</text>
+            <title>Edit analysis money</title>
+        </g>
 
         <!-- Keep the full preference inside the viewer's own player card. -->
         <template v-if="showAutoPass">
@@ -241,6 +262,7 @@ export default class PlayerBoard extends Vue {
     @Prop() ranking?: number;
     @Prop() showMoney?: boolean;
     @Prop() hypotheticalMoney?: boolean;
+    @Prop({ default: false }) moneyEditable!: boolean;
     @Prop() showBid?: boolean;
     @Prop() phase?: Phase;
     // Australia: uranium plants are "mines" — flag so the hand marks them distinctly.
@@ -443,5 +465,16 @@ export default class PlayerBoard extends Vue {
 .auction-auto-pass:focus-visible .auto-pass-hit {
     stroke: currentColor;
     stroke-width: 2;
+}
+</style>
+
+<style scoped>
+.analysis-money-edit {
+    cursor: pointer;
+    pointer-events: all;
+}
+.analysis-money-edit:focus rect {
+    stroke: currentColor;
+    stroke-width: 2px;
 }
 </style>

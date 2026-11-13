@@ -1,5 +1,6 @@
 import { cloneDeep } from 'lodash';
 import { Move, Phase, setup, stripSecret } from 'powergrid-engine';
+import { isAnalysisMoneyCommand } from 'powergrid-engine/src/analysis-money';
 import type { GameState, MapName, PowerPlantDeck, Variant } from 'powergrid-engine/src/gamestate';
 import type { PremoveCommand } from 'powergrid-engine/src/premoves';
 import { move as wrapperMove, moveAI as wrapperAI } from 'powergrid-engine/wrapper';
@@ -77,13 +78,16 @@ function launchSelfContained(selector = '#app') {
         offerUndo();
     });
 
-    emitter.on('move', async (moves: Move[] | PremoveCommand) => {
+    emitter.on('move', async (moves) => {
+        // This standalone demo is a live game, never an analysis host.
+        if (Array.isArray(moves) && moves.some(isAnalysisMoneyCommand)) return;
+        const liveMoves = moves as Move[] | PremoveCommand;
         setTimeout(async () => {
             console.log('moves received', moves);
 
             // Mimic the platform: replay the whole turn buffer from the last committed
             // state; only keep (persist) the result once the turn is committed.
-            const newState = await wrapperMove(cloneDeep(gameState), moves, playerIndex);
+            const newState = await wrapperMove(cloneDeep(gameState), liveMoves, playerIndex);
             console.log('new game state', newState);
 
             if (newState.newTurn === false) {

@@ -1,5 +1,7 @@
+import { cloneDeep } from 'lodash';
 import type { GameState } from './index';
 import { createAnalysisScenario as sampleAnalysisScenario } from './src/analysis';
+import { applyAnalysisMoney, isAnalysisMoneyCommand, SetAnalysisMoney } from './src/analysis-money';
 import { autoPassAuctions } from './src/auction-auto-pass';
 import { alreadyCreditedPowering, canReviseChoice } from './src/choice-revisions';
 import * as engine from './src/engine';
@@ -17,6 +19,9 @@ import {
     setPremoves,
 } from './src/premoves';
 import { asserts } from './src/utils';
+export { MAX_ANALYSIS_MONEY } from './src/analysis-money';
+export type { SetAnalysisMoney } from './src/analysis-money';
+export { ended, scores, stripSecret } from './src/engine';
 
 export async function init(
     nbPlayers: number,
@@ -76,6 +81,8 @@ export async function move(
     move: Move | Move[] | PremoveCommand | null | undefined,
     player: number
 ): Promise<GameState> {
+    if ((Array.isArray(move) ? move : [move]).some(isAnalysisMoneyCommand))
+        throw new Error('SetAnalysisMoney is only available in an analysis');
     automation(G).liveUpdate = false;
     if (isPremoveCommand(move)) {
         setPremoves(G, move, player);
@@ -157,7 +164,6 @@ export function toSave(G: GameState): GameState | undefined {
 export function createAnalysisScenario(data: GameState, options: { player?: number; seed: string }): GameState {
     return sampleAnalysisScenario(data, { ...options, interactive: true });
 }
-export { ended, scores, stripSecret } from './src/engine';
 
 /**
  * Play a full turn for `player`. The engine's own `moveAI` plays one atomic move at a
@@ -245,7 +251,14 @@ export function replay(G: GameState, { to = Infinity }: { to?: number } = {}): G
     // a historical state and must NOT append the hidden log.
     const items = to >= oldG.log.length ? [...oldG.log, ...(oldG.hiddenLog ?? [])] : oldG.log.slice(0, to);
 
-    for (const move of items.filter((event) => event.type === 'move')) {
+    for (const move of items) {
+        if (move.type === 'event') {
+            if (move.analysisMoney) {
+                applyAnalysisMoney(G, move.analysisMoney);
+                G.log.push(cloneDeep(move));
+            }
+            continue;
+        }
         asserts<LogMove>(move);
 
         G = engine.move(G, move.move, move.player);
@@ -385,7 +398,35 @@ export function createAnalysis(data: GameState, { to }: { to: number; sourceEnde
     return copy;
 }
 
-export async function analysisMove(data: GameState, input: Move | Move[], player: number): Promise<GameState> {
+export async function analysisMove(
+    data: GameState,
+    input: Move | SetAnalysisMoney | (Move | SetAnalysisMoney)[],
+    player: number
+): Promise<GameState> {
+    const buffer = Array.isArray(input) ? input : [input];
+    if (buffer.some(isAnalysisMoneyCommand)) {
+        if (buffer.length !== 1) throw new Error('Analysis money edits must be sent alone');
+        if (data.newTurn === false) throw new Error('Analysis money edits require a committed state');
+        if (engine.ended(data)) throw new Error('Cannot edit money in an ended analysis');
+        if (
+            !Number.isSafeInteger(player) ||
+            !data.players[player] ||
+            !data.currentPlayers.includes(player) ||
+            data.players[player].isDropped
+        )
+            throw new Error('Only an active player can edit analysis money');
+        const command = buffer[0] as SetAnalysisMoney;
+        const copy = cloneDeep(data);
+        const previous = copy.players[command.data?.player]?.money;
+        applyAnalysisMoney(copy, command.data);
+        copy.log.push({
+            type: 'event',
+            event: `Analysis: player ${command.data.player} money changed from ${previous} to ${command.data.money}`,
+            analysisMoney: { ...command.data },
+        });
+        return copy;
+    }
+    data = cloneDeep(data);
     if (isPremoveCommand(input)) throw new Error('Premoves are not available in an analysis');
     delete data.automation;
     // Deliberately bypass the live wrapper: clearing premoves alone does not
@@ -395,7 +436,7 @@ export async function analysisMove(data: GameState, input: Move | Move[], player
         seat.isAI = false;
         seat.isDropped = false;
     });
-    const moves = Array.isArray(input) ? input : [input];
+    const moves = buffer as Move[];
     if (!moves.length) return { ...data, newTurn: false };
     const now = Date.now();
     for (let i = 0; i < moves.length; i++) {

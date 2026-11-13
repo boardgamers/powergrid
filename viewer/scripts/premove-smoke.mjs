@@ -92,7 +92,7 @@ try {
     assert.equal(await button('Start over').count(), 0, 'use the board Undo control');
     await city('Osnabrück').click();
     await city('Münster').click();
-    assert.match(await ownBoard().textContent(), /Money: \$43/);
+    assert.match(await ownBoard().textContent(), /\$43/);
     assert.equal(await deckLabel(), initialDeck, 'public deck display survives local city builds');
     await done().click();
     await phase('Powering');
@@ -100,7 +100,7 @@ try {
     await card('players', 13).click();
     await done().click();
     await phase('Simulation complete');
-    assert.match(await ownBoard().textContent(), /Money: \$76/);
+    assert.match(await ownBoard().textContent(), /\$76/);
     assert.equal(sent, 0, 'planning never submits real moves');
     assert.deepEqual(await state(), initial, 'live state unchanged by simulation');
     await screenshot('planning');
@@ -125,7 +125,7 @@ try {
     );
     await phase('Simulation complete');
     assert.equal((await state()).automation.plans[0].phases.length, 0);
-    assert.match(await ownBoard().textContent(), /Money: \$76/, 'cancelling keeps local simulation');
+    assert.match(await ownBoard().textContent(), /\$76/, 'cancelling keeps local simulation');
     await button('Validate').click();
     await queuedPlan(4).waitFor();
     for (let i = 0; i < 2; i++) {
@@ -160,7 +160,7 @@ try {
     for (let i = 0; i < 12; i++) await page.locator('.calculator > g').nth(0).click();
     await page.locator('.calculator g').filter({ hasText: 'OK' }).click();
     await phase('Resources');
-    assert.match(await ownBoard().textContent(), /Money: \$55/);
+    assert.match(await ownBoard().textContent(), /\$55/);
     const oil = () =>
         page
             .locator('[data-tutorial="resources"] g.canClick')
@@ -171,7 +171,7 @@ try {
     await done().click();
     await phase('Building');
     await city('Osnabrück').click();
-    assert.match(await ownBoard().textContent(), /Money: \$39/);
+    assert.match(await ownBoard().textContent(), /\$39/);
     assert.equal(await button('Validate').count(), 0, 'assumed purchases cannot be queued');
     await screenshot('auction');
     for (let i = 0; i < 6; i++) await undo().click();
@@ -180,7 +180,7 @@ try {
     await done().click();
     await page.locator('.modal.visible').getByRole('button', { name: 'OK', exact: true }).click();
     await phase('Resources');
-    assert.match(await ownBoard().textContent(), /Money: \$70/);
+    assert.match(await ownBoard().textContent(), /\$70/);
     assert.equal(sent, sentBeforeAuction);
     assert.equal((await state('auction')).players[0].money, 70);
     console.log('Assumed plant price, fuel purchases, no purchase, and simulation-only restriction passed.');
@@ -193,7 +193,7 @@ try {
     await card('players', 13).click();
     await done().click();
     await phase('Simulation complete');
-    assert.match(await ownBoard().textContent(), /Money: \$75/);
+    assert.match(await ownBoard().textContent(), /\$75/);
     assert.ok(
         await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1),
         'no mobile horizontal overflow'

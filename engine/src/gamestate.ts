@@ -199,6 +199,8 @@ export enum Phase {
 export interface GameState {
     /** Interactive sandbox cash, initialized once; never attached to live games. */
     analysisMoney?: 'hypothetical';
+    /** Seats whose sandbox cash starts from known money rather than an assumption. */
+    analysisKnownMoney?: number[];
     poweringChoices?: Record<number, import('./choice-revisions').PoweringChoice>;
     revisedPowering?: Record<number, number>;
     pendingMessages?: string[];

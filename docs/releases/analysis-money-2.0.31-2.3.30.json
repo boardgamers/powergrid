@@ -1,0 +1,393 @@
+{
+    "game": "powergrid",
+    "gameVersion": 13,
+    "publishedAt": "2026-11-13T12:52:58.610Z",
+    "engine": {
+        "version": "2.0.31",
+        "package": {
+            "name": "powergrid-engine",
+            "version": "2.0.31",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/engine/bc8d36d6ca61a8d7/powergrid-engine-2.0.31.tgz"
+        },
+        "entryPoint": "dist/wrapper.js",
+        "sha256": "bc8d36d6ca61a8d77bb2354338613623ab11a72064ed6fbdbc24c52408f60a44",
+        "bytes": 403465
+    },
+    "viewer": {
+        "version": "2.3.30",
+        "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.js",
+        "stylesheets": [
+            "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.css"
+        ],
+        "scriptBytes": 1249589,
+        "bundle": "split-35414e493acc9a213b39",
+        "sha256": "ffbc8cbe5d60b5de615b64b721ffc3eded751b89117f51d7565603c638f05207",
+        "files": [
+            {
+                "name": "powergrid-viewer.css",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.css",
+                "bytes": 12404,
+                "storedBytes": 3342,
+                "sha256": "1ff7d6b7fac6e8773c47887195b62d37a77e697af8fa60a43f1daea14301730e"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-america.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-america.js",
+                "bytes": 85113,
+                "storedBytes": 34477,
+                "sha256": "4ddebf42d3994d82cc6fa466752d13f0b074d84a01591f119e1f9ddea8c4538c"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-australia.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-australia.js",
+                "bytes": 38512,
+                "storedBytes": 16689,
+                "sha256": "747be93e1177cd8290953bef54b9268701c862f8966d757ac5cb10d613456225"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-badenwurttemberg.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-badenwurttemberg.js",
+                "bytes": 8577,
+                "storedBytes": 4136,
+                "sha256": "ce042333f4d39d0d7d2235c5edf4201659b40d615c8b47774a40f8627059c012"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-benelux.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-benelux.js",
+                "bytes": 16630,
+                "storedBytes": 7505,
+                "sha256": "c8f996deeb74e4867dc89f5a9056689355236aa6983e336925ffa7ed3b28e1fe"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-brazil.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-brazil.js",
+                "bytes": 86016,
+                "storedBytes": 33420,
+                "sha256": "b8caa8bdf9fefcc087b35427489786903d042be093426d53aae9d9a7b2143b6c"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-bremen.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-bremen.js",
+                "bytes": 2372,
+                "storedBytes": 1333,
+                "sha256": "3a6c1031e0e3843b863ee831763cde8efa289c73e677a30a19419fb70c82cc0e"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-centraleurope.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-centraleurope.js",
+                "bytes": 55706,
+                "storedBytes": 24066,
+                "sha256": "8d531c9be5729b2a0856b4a97988ce4d23172456dd1ed2f4ff9dea644ac60efa"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-china.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-china.js",
+                "bytes": 106839,
+                "storedBytes": 45313,
+                "sha256": "283746e4373666d5e6d4944366c189a8a892eeb9dec046f96995fc09a861cc52"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-europe.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-europe.js",
+                "bytes": 102212,
+                "storedBytes": 43493,
+                "sha256": "1d59984f7f8b9761ab50f6dfa3e8aef6073f02f9972b7946db5d962af43adea0"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-france.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-france.js",
+                "bytes": 45372,
+                "storedBytes": 19312,
+                "sha256": "3c3e6e707b22dbaa561d483034306d388807ab4f58d73c83b42621a36249a47a"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-germany.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-germany.js",
+                "bytes": 44921,
+                "storedBytes": 19464,
+                "sha256": "4642891b80a542f828856d153f55e4cb2a4ba5cfed4ad001ce1f3265fd1e380c"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-indian.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-indian.js",
+                "bytes": 78059,
+                "storedBytes": 31059,
+                "sha256": "243e69b7198cf82e3916b256bb9f1d738ebf287d1caaba4237c2d5cdf4e9bd90"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-italy.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-italy.js",
+                "bytes": 48012,
+                "storedBytes": 19877,
+                "sha256": "837ba8420705c6f0c3be3434560121e6ae991519c94ff2b24e35268629d1a319"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-japan.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-japan.js",
+                "bytes": 36346,
+                "storedBytes": 15348,
+                "sha256": "da76e790643b7f49efba878c1050bcf1af7c50a532e7f4f00d5627dded9837e7"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-korea.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-korea.js",
+                "bytes": 22329,
+                "storedBytes": 10151,
+                "sha256": "6f2036391e9148110173dcfb6e9a6ca8e2883674b76f5cdf151ac385d12cb37d"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-manhattan.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-manhattan.js",
+                "bytes": 22389,
+                "storedBytes": 9353,
+                "sha256": "479cd7dc11bf83ca568a5df508e66245d4c479aab12fb511e924772e980044bf"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-middleeast.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-middleeast.js",
+                "bytes": 69713,
+                "storedBytes": 28367,
+                "sha256": "dd7826081b63a249c3dc69eaacf3b99fae1dcde4b7f8b69abe6c89acf0183539"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-northamerica.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-northamerica.js",
+                "bytes": 71472,
+                "storedBytes": 28257,
+                "sha256": "103e64a35e89640109f18fb40706b9725a18499a4337efba36402b57ba3407c7"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-northerneurope.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-northerneurope.js",
+                "bytes": 57391,
+                "storedBytes": 24075,
+                "sha256": "8ad128444440301b24882260b9f7ea75aef3bcbdc0be5cbfedb36e1dbfd4ef84"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-quebec.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-quebec.js",
+                "bytes": 96526,
+                "storedBytes": 42220,
+                "sha256": "143b6a429239264130d7150b1976b885fa1e782567eb5fe6443b9cdd8f98a0d4"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-russia.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-russia.js",
+                "bytes": 91649,
+                "storedBytes": 39307,
+                "sha256": "8d922e14bd5418c85c38cf2859f16650e11319cdb50a7ae923f887392f928840"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-southafrica.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-southafrica.js",
+                "bytes": 10242,
+                "storedBytes": 4599,
+                "sha256": "4eebe1fd7936ad4b9a213f013bf29f86637d879f30a3e233c0d394bf702a99a4"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-spainportugal.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-spainportugal.js",
+                "bytes": 40537,
+                "storedBytes": 17762,
+                "sha256": "a7d37eba954fbd8359f7d3ceaec6ca51c99853cad138e4ccca369a98fdeb7779"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-ukireland.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.geography-ukireland.js",
+                "bytes": 29283,
+                "storedBytes": 12489,
+                "sha256": "6e58fc86f032014533c9ab4bedced3ff975d0c798e80944c2cda7d0d7418974e"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.js",
+                "bytes": 1249589,
+                "storedBytes": 323083,
+                "sha256": "ffbc8cbe5d60b5de615b64b721ffc3eded751b89117f51d7565603c638f05207"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-da.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.locale-da.js",
+                "bytes": 131247,
+                "storedBytes": 41776,
+                "sha256": "9e9d17fec7716d39daafd1be2b77d0727c436a9dfdfd31ac759963accfcd1aba"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-de.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.locale-de.js",
+                "bytes": 137401,
+                "storedBytes": 44658,
+                "sha256": "78f5d2e67626f1edf405d8b42e7a74332dd47164468ca884cc003025e9495397"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-el.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.locale-el.js",
+                "bytes": 196780,
+                "storedBytes": 55988,
+                "sha256": "2d4e3d120f3638593c274cbde6871d21df7fd38ea03833e3ad0de379d75ab0ac"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-fa.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.locale-fa.js",
+                "bytes": 168771,
+                "storedBytes": 46626,
+                "sha256": "acb177ac565267b4a0ac2c885c2693cfc6331ec42ed8ef843a1e00a8f115a36a"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-fr.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.locale-fr.js",
+                "bytes": 142638,
+                "storedBytes": 44425,
+                "sha256": "6d79f92e59f848d60360bfb8cfbb0b756f632f049e64868653924aabb32efd1c"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-hi.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.locale-hi.js",
+                "bytes": 217247,
+                "storedBytes": 53416,
+                "sha256": "5250de52ebfb45d623dafe99a5017d791dc22024f32daed6e5816b2c14995770"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-it.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.locale-it.js",
+                "bytes": 137956,
+                "storedBytes": 43291,
+                "sha256": "24f6996865c1f7d4fe15ef31011759340560df9a66ee7406ffc9bb5ca0c52451"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-ko.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.locale-ko.js",
+                "bytes": 145242,
+                "storedBytes": 48936,
+                "sha256": "a566beaec25e49dcc7bd1c449eccdf7a3d088997485540e154dfcbe09dda3f81"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-nl.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.locale-nl.js",
+                "bytes": 135252,
+                "storedBytes": 42956,
+                "sha256": "e60517ab400e7b27eb4bf059a3785aeb678efed129425e78af35131604d08200"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-pl.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.locale-pl.js",
+                "bytes": 134760,
+                "storedBytes": 44943,
+                "sha256": "f67d10622ecc0bbd7292a1e2e0e53fd4ddace19355bb988965574c3dd402e785"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-pt-BR.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.locale-pt-BR.js",
+                "bytes": 136481,
+                "storedBytes": 43110,
+                "sha256": "cbe3c22ee4f4ab6ea8f34c172f11d93bcd5c1db5d3d84e065addd5500b32ef63"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-ro.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.locale-ro.js",
+                "bytes": 139672,
+                "storedBytes": 44035,
+                "sha256": "c4b09c04bc3c2fcbd7c7d9da7fd127f70a55d41999faa3996ac0a3f662639bce"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-ru.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.locale-ru.js",
+                "bytes": 182569,
+                "storedBytes": 54205,
+                "sha256": "2d037e307399831478ce26555054f7e2e1a5cc2ce9b23f5f5fcf88be4a3d7aef"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-vi.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.locale-vi.js",
+                "bytes": 150916,
+                "storedBytes": 44651,
+                "sha256": "fe9630f2b3e2fc5dec6e825ce6e439512f09dddf266f47abc21e7899279f4906"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-zh-CN.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.locale-zh-CN.js",
+                "bytes": 124113,
+                "storedBytes": 43886,
+                "sha256": "5251c6f7a718446a741477a6e03da5ee3f58a88fe63f21f6ef82a4b6907ff7a7"
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-zh-TW.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-35414e493acc9a213b39/powergrid-viewer.umd.min.locale-zh-TW.js",
+                "bytes": 128552,
+                "storedBytes": 48495,
+                "sha256": "fcf451174398d5c9b787b52d5e5094b27628f93f93f43338d172352ffec998af"
+            }
+        ]
+    },
+    "previousEngine": {
+        "package": {
+            "name": "powergrid-engine",
+            "version": "2.0.30",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/engine/101b512ed7f78afb/powergrid-engine-2.0.30.tgz"
+        },
+        "entryPoint": "dist/wrapper.js"
+    },
+    "previousViewer": {
+        "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-1fcab9d51da13679c8e4/powergrid-viewer.umd.min.js",
+        "topLevelVariable": "powergrid",
+        "dependencies": {
+            "scripts": ["https://cdn.jsdelivr.net/npm/vue@^2/dist/vue.min.js"],
+            "stylesheets": [
+                "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-1fcab9d51da13679c8e4/powergrid-viewer.css"
+            ]
+        },
+        "fullScreen": true,
+        "replayable": true,
+        "trusted": false,
+        "alternate": {
+            "url": "",
+            "topLevelVariable": "",
+            "dependencies": {
+                "scripts": [],
+                "stylesheets": []
+            },
+            "fullScreen": true,
+            "replayable": false,
+            "trusted": false
+        },
+        "chat": true,
+        "fullScreenMobile": true,
+        "thumbnail": true,
+        "scriptBytes": 1232200
+    },
+    "changes": [
+        "Preserve the analysis creator own-POV balance while giving opponents hypothetical money; keep finite balances on regeneration.",
+        "Add analysis-only money editing with bounded validation, replayable events, refreshed affordability, and live-game rejection.",
+        "Add accessible money editor and safe host response/rejection/refresh handling; compact right-aligned money labels and hypothetical marker."
+    ],
+    "verification": {
+        "engineTests": 575,
+        "engineBuild": true,
+        "engineLint": {
+            "errors": 0,
+            "warnings": 41
+        },
+        "viewerUnitTests": 102,
+        "localizationTests": 8,
+        "viewerPackage": true,
+        "browser": {
+            "widths": [390, 1400],
+            "analysisMoney": true,
+            "protocol": true,
+            "replay": true
+        },
+        "layout": true,
+        "publicEngineTarballHash": true,
+        "publicViewerAssetHashes": true,
+        "publishedCDNViewer": {
+            "widths": [390, 1400],
+            "moneyEditor": true,
+            "rightAlignedCompactLabels": true,
+            "liveAndSpectatorEditingDisabled": true
+        },
+        "unrelatedAdminMetadataPreserved": true,
+        "viewerPreferencesPreserved": true,
+        "noLiveGameWrites": true
+    },
+    "verified": true
+}

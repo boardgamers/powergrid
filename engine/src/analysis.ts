@@ -24,7 +24,14 @@ export function createAnalysisScenario(
     if (interactive) {
         delete s.poweringChoices;
         delete s.revisedPowering;
-        if (!s.options.showMoney) s.analysisMoney = 'hypothetical';
+        if (!s.options.showMoney) {
+            s.analysisMoney = 'hypothetical';
+            if (data.analysisMoney !== 'hypothetical') {
+                s.analysisKnownMoney = data.players
+                    .map((p, i) => (i === player && p.money >= 0 ? i : -1))
+                    .filter((i) => i >= 0);
+            }
+        }
     }
     delete s.powerPlantDeckAfterStep3;
     const rng = seedrandom(seed);
@@ -304,8 +311,11 @@ export function createAnalysisScenario(
     // The visible history permits money accounting without reading hidden balances.
     const publicReplay = interactive ? undefined : reconstructState(s, s.log.length, true);
     s.players.forEach((p, i) => {
-        if (interactive && !s.options.showMoney && data.analysisMoney !== 'hypothetical') p.money = 999;
-        else if (p.money < 0 && publicReplay) p.money = publicReplay.players[i].money;
+        if (interactive && !s.options.showMoney && data.analysisMoney !== 'hypothetical') {
+            // The host supplies the creator's source-game seat. Retain only that
+            // known balance; spectators and opponents still use hypothetical cash.
+            p.money = i === player && data.players[i].money >= 0 ? data.players[i].money : 999;
+        } else if (p.money < 0 && publicReplay) p.money = publicReplay.players[i].money;
         p.isAI = false;
         p.isDropped = false;
         p.lastMove = null;

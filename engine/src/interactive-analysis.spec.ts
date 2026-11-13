@@ -8,7 +8,7 @@ import { MoveName } from './move';
 
 const clone = (s: GameState): GameState => JSON.parse(JSON.stringify(s));
 describe('manual interactive analysis policy', () => {
-    it('uses only hypothetical cash and reopens sealed commitments for every seat', async () => {
+    it('retains only the creator cash and reopens sealed commitments for every seat', async () => {
         const live = setup(3, { fastBid: true }, 'private');
         const actor = live.currentPlayers[0];
         let source = await wrapper.analysisMove(
@@ -23,19 +23,56 @@ describe('manual interactive analysis policy', () => {
         other.powerPlantsDeck.reverse();
         other.powerPlantDeckAfterStep3 = [];
         other.hiddenLog = [];
-        other.players.forEach((p) => {
-            p.money += 123;
+        other.players.forEach((p, i) => {
+            if (i !== actor) p.money += 123;
             p.bid += 37;
         });
         const branch = wrapper.createAnalysisScenario(source, { player: actor, seed: 'sandbox' });
         expect(branch).to.deep.equal(wrapper.createAnalysisScenario(other, { player: actor, seed: 'sandbox' }));
-        expect(branch.players.map((p) => p.money)).to.deep.equal([999, 999, 999]);
+        const balances = source.players.map((p, i) => (i === actor ? p.money : 999));
+        expect(branch.players.map((p) => p.money)).to.deep.equal(balances);
         expect(branch.players.map((p) => p.bid)).to.deep.equal([0, 0, 0]);
         expect(branch.currentPlayers).to.have.length(3);
         expect(branch.analysisMoney).to.equal('hypothetical');
-        expect(stripSecret(branch).players.map((p) => p.money)).to.deep.equal([999, 999, 999]);
+        expect(branch.analysisKnownMoney).to.deep.equal([actor]);
+        expect(wrapper.createAnalysisScenario(branch, { seed: 'resample' }).analysisKnownMoney).to.deep.equal([actor]);
+        const edited = await wrapper.analysisMove(
+            branch,
+            { name: 'SetAnalysisMoney', data: { player: actor, money: 123 } },
+            branch.currentPlayers[0]
+        );
+        expect(edited.analysisKnownMoney).to.deep.equal([]);
+        expect(branch.analysisKnownMoney).to.deep.equal([actor]);
+        expect(stripSecret(branch).players.map((p) => p.money)).to.deep.equal(balances);
         expect(stripSecret(source).players.map((p) => p.money)).to.deep.equal([-1, -1, -1]);
         expect(clone(source)).to.deep.equal(before);
+    });
+
+    for (const player of [0, 1, 2]) {
+        it(`preserves seat ${player}'s own zero balance and affordability on regeneration`, () => {
+            const source = setup(3, {}, 'source');
+            source.players[player].money = 0;
+            const branch = wrapper.createAnalysisScenario(source, { player, seed: 'sandbox' });
+            const balances = source.players.map((p, i) => (i === player ? 0 : 999));
+            expect(branch.players.map((p) => p.money)).to.deep.equal(balances);
+            expect(availableMoves(branch, branch.players[player]).ChoosePowerPlant || []).to.have.length(0);
+            branch.players[player].money = 10;
+            const regenerated = wrapper.createAnalysisScenario(branch, { player, seed: 'new-scenario' });
+            expect(regenerated.players.map((p) => p.money)).to.deep.equal(branch.players.map((p) => p.money));
+        });
+    }
+
+    for (const player of [undefined, -1, 3]) {
+        it(`uses hypothetical cash without a valid source seat (${player})`, () => {
+            const branch = wrapper.createAnalysisScenario(setup(3, {}, 'source'), { player, seed: 'sandbox' });
+            expect(branch.players.map((p) => p.money)).to.deep.equal([999, 999, 999]);
+        });
+    }
+
+    it('does not treat an already redacted own balance as known cash', () => {
+        const source = stripSecret(setup(3, {}, 'source'));
+        const branch = wrapper.createAnalysisScenario(source, { player: 0, seed: 'sandbox' });
+        expect(branch.players.map((p) => p.money)).to.deep.equal([999, 999, 999]);
     });
 
     it('hands off opponents manually and spends finite cash without resetting on move or resample', async () => {

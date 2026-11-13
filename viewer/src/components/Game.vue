@@ -609,7 +609,11 @@
                         :isPlayer="player == playerIndex"
                         :ranking="sortedPlayers.findIndex((x) => x.id == G.players[playerIndex].id) + 1"
                         :showMoney="player == playerIndex || moneyIsPublic || G.analysisMoney === 'hypothetical'"
-                        :hypotheticalMoney="G.analysisMoney === 'hypothetical'"
+                        :moneyEditable="canEditAnalysisMoney()"
+                        @editMoney="openAnalysisMoney(playerIndex)"
+                        :hypotheticalMoney="
+                            G.analysisMoney === 'hypothetical' && !(G.analysisKnownMoney || []).includes(playerIndex)
+                        "
                         :showBid="!G.options.fastBid"
                         :phase="G.phase"
                         :isAustralia="G.map.name === 'Australia'"
@@ -629,6 +633,41 @@
         <div class="journal-and-chat">
             <InlineLog v-if="G" :entries="logReversed.slice().reverse()" :state="G" />
             <div class="chat-host"></div>
+        </div>
+
+        <div v-if="analysisMoneyTarget !== null" class="modal visible" @keydown.esc.prevent="closeAnalysisMoney">
+            <form
+                ref="analysisMoneyForm"
+                class="modal-content analysis-money-form"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="analysis-money-title"
+                @submit.prevent="saveAnalysisMoney"
+                @keydown.tab="trapAnalysisMoneyFocus"
+            >
+                <h2 id="analysis-money-title">Edit analysis money</h2>
+                <p translate="no">{{ G && G.players[analysisMoneyTarget].name }}</p>
+                <label for="analysis-money-input">Money</label>
+                <input
+                    id="analysis-money-input"
+                    ref="analysisMoneyInput"
+                    v-model="analysisMoneyValue"
+                    type="number"
+                    min="0"
+                    max="9999"
+                    step="1"
+                    required
+                    :disabled="analysisMoneyPending"
+                    aria-describedby="analysis-money-help"
+                />
+                <p id="analysis-money-help">Enter a whole number from 0 to 9999, not below the outstanding bid.</p>
+                <p v-if="analysisMoneyError" role="alert">{{ analysisMoneyError }}</p>
+                <p v-if="analysisMoneyPending" role="status">Waiting for analysis update…</p>
+                <button type="submit" :disabled="!canEditAnalysisMoney() || !validAnalysisMoney">Save</button>
+                <p v-if="analysisMoneyPending">Closing refreshes the board but does not cancel the submitted edit.</p>
+                <button v-if="analysisMoneyPending" type="button" @click="closeAnalysisMoney">Close and refresh</button>
+                <button v-else type="button" @click="closeAnalysisMoney">Cancel</button>
+            </form>
         </div>
 
         <div v-if="G" :class="['modal', { visible: confirmVisible }]">
@@ -972,6 +1011,7 @@ import { isEqual } from 'lodash';
 import './buttons/board-control.css';
 import { resolvePlayerColors, colorText } from '../player-colors';
 import InlineLog from './InlineLog.vue';
+import { MAX_ANALYSIS_MONEY } from 'powergrid-engine/src/analysis-money';
 import { Vue, Component, Prop, Watch, Provide, ProvideReactive, Ref } from 'vue-property-decorator';
 import { MoveName, ended, playersSortedByScore, reconstructState } from 'powergrid-engine';
 import type { GameState, LogItem, Move, Player } from 'powergrid-engine';
@@ -1097,7 +1137,9 @@ let nextGeographyClipId = 0;
 
 @Component({
     created(this: Game) {
+        this.emitter.on('analysisMoneyResult', this.onAnalysisMoneyResult);
         this.emitter.on('replayStart', () => {
+            this.cancelAnalysisMoney();
             this.paused = true;
             this.emitter.emit('replay:info', {
                 start: 1,
@@ -1185,6 +1227,110 @@ export default class Game extends Vue {
 
     @Prop({ default: null })
     settings!: Record<string, unknown> | null;
+
+    analysisMoneyTarget: number | null = null;
+    analysisMoneyValue = '';
+    analysisMoneyPending = false;
+    analysisMoneyError = '';
+    private analysisMoneyReturnFocus: Element | null = null;
+
+    // Deliberately a method: host preferences can be plain, force-updated objects.
+    canEditAnalysisMoney(): boolean {
+        return !!(
+            this.preferences.analysis &&
+            this.G &&
+            this.committedState &&
+            this.G.newTurn !== false &&
+            this.player != null &&
+            this.G.players[this.player] &&
+            this.G.currentPlayers.includes(this.player) &&
+            !ended(this.G) &&
+            !this.paused &&
+            !this.interactionDisabled &&
+            !this.tutorialMove &&
+            !this.roundPlan &&
+            !this.turnMoves.length &&
+            !this.pendingPlanId &&
+            !this.changingBid &&
+            !this.poweringSubmitting &&
+            !this.undoRequested &&
+            !this.recentLocalUndo &&
+            !this.analysisMoneyPending
+        );
+    }
+
+    get validAnalysisMoney(): boolean {
+        const target = this.analysisMoneyTarget;
+        if (target === null || !this.G?.players[target] || !this.analysisMoneyValue.trim()) return false;
+        const money = Number(this.analysisMoneyValue);
+        const bid = this.G.chosenPowerPlant ? this.G.players[target].bid : 0;
+        return Number.isSafeInteger(money) && money >= Math.max(0, bid || 0) && money <= MAX_ANALYSIS_MONEY;
+    }
+
+    openAnalysisMoney(target: number) {
+        if (!this.canEditAnalysisMoney() || !this.G?.players[target]) return;
+        this.analysisMoneyReturnFocus = document.activeElement;
+        this.analysisMoneyTarget = target;
+        this.analysisMoneyValue = String(this.G.players[target].money);
+        this.analysisMoneyError = '';
+        this.$nextTick(() => (this.$refs.analysisMoneyInput as HTMLInputElement)?.focus());
+    }
+
+    closeAnalysisMoney() {
+        this.cancelAnalysisMoney();
+        // BGS may report a failed change only in its own UI, without a move result.
+        // Explicit recovery requests its cached authoritative view; do not retry or
+        // unlock locally. A later successful edit still arrives through normal state updates.
+        if (this.analysisMoneyPending) this.emitter.emit('fetchState');
+    }
+
+    cancelAnalysisMoney() {
+        this.analysisMoneyTarget = null;
+        this.analysisMoneyError = '';
+        this.$nextTick(() => (this.analysisMoneyReturnFocus as HTMLElement)?.focus?.());
+    }
+
+    trapAnalysisMoneyFocus(event: KeyboardEvent) {
+        const form = this.$refs.analysisMoneyForm as HTMLElement;
+        const controls = Array.from(form.querySelectorAll<HTMLElement>('input:not(:disabled), button:not(:disabled)'));
+        const first = controls[0],
+            last = controls[controls.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+        }
+    }
+
+    saveAnalysisMoney() {
+        if (!this.canEditAnalysisMoney() || !this.validAnalysisMoney) return;
+        this.analysisMoneyPending = true;
+        this.$nextTick(() =>
+            (this.$refs.analysisMoneyForm as HTMLElement)
+                ?.querySelector<HTMLButtonElement>('button[type="button"]')
+                ?.focus()
+        );
+        // Wrapper-only command: never simulate it or mix it into the tentative turn.
+        this.emitter.emit('move', [
+            {
+                name: 'SetAnalysisMoney',
+                data: {
+                    player: this.analysisMoneyTarget,
+                    money: Number(this.analysisMoneyValue),
+                },
+            },
+        ]);
+    }
+
+    onAnalysisMoneyResult(result: { ok: boolean; move?: unknown }) {
+        if (!this.analysisMoneyPending || result.ok) return;
+        const moves = result.move;
+        if (!Array.isArray(moves) || !moves.some((move) => move.name === 'SetAnalysisMoney')) return;
+        this.analysisMoneyPending = false;
+        this.analysisMoneyError = 'Analysis money update failed. Please try again.';
+    }
 
     get showAutoPass(): boolean {
         return (
@@ -1357,7 +1503,13 @@ export default class Game extends Vue {
     editingBid: string | null = null;
     replacementBid = 0;
     get revisableBid(): string | undefined {
-        return !this.paused && !this.interactionDisabled && !this.roundPlan && this.G && this.player !== undefined
+        return !this.analysisMoneyPending &&
+            this.analysisMoneyTarget === null &&
+            !this.paused &&
+            !this.interactionDisabled &&
+            !this.roundPlan &&
+            this.G &&
+            this.player !== undefined
             ? bidRevision(this.G, this.player)
             : undefined;
     }
@@ -1369,6 +1521,8 @@ export default class Game extends Vue {
     }
     get canChangePowering(): boolean {
         return !!(
+            !this.analysisMoneyPending &&
+            this.analysisMoneyTarget === null &&
             !this.paused &&
             !this.interactionDisabled &&
             !this.roundPlan &&
@@ -1480,6 +1634,8 @@ export default class Game extends Vue {
             !this.tutorialMove &&
             !this.paused &&
             !this.interactionDisabled &&
+            !this.analysisMoneyPending &&
+            this.analysisMoneyTarget === null &&
             this.player != undefined &&
             !!this.committedState &&
             !!nextPlanningPhase(this.committedState, this.player)
@@ -1627,6 +1783,10 @@ export default class Game extends Vue {
 
     @Watch('state', { immediate: true })
     onStateChanged(state: GameState) {
+        if (state && state.newTurn !== false) {
+            this.analysisMoneyPending = false;
+            if (this.analysisMoneyTarget !== null) this.cancelAnalysisMoney();
+        }
         if (this.tutorialMove) {
             // Tutorial moves are individual engine checkpoints, not server turn buffers.
             // Rewinds must also clear temporary UI selections from a later step.
@@ -2411,7 +2571,7 @@ export default class Game extends Vue {
     }
 
     sendMove(move, submit = true) {
-        if (this.paused || this.interactionDisabled) {
+        if (this.paused || this.interactionDisabled || this.analysisMoneyPending || this.analysisMoneyTarget !== null) {
             return;
         }
 
@@ -2534,6 +2694,8 @@ export default class Game extends Vue {
     canMove() {
         return (
             !this.interactionDisabled &&
+            !this.analysisMoneyPending &&
+            this.analysisMoneyTarget === null &&
             this.player != undefined &&
             this.G &&
             this.G.currentPlayers.includes(this.player!) &&
@@ -3022,11 +3184,7 @@ export default class Game extends Vue {
 
     // Games created since the engine followed this rule; Middle East and China have their own.
     get earlyStep3StartsStep2(): boolean {
-        return (
-            !!this.G?.options.step2BeforeStep3 &&
-            this.G.map.name !== 'Middle East' &&
-            this.G.map.name !== 'China'
-        );
+        return !!this.G?.options.step2BeforeStep3 && this.G.map.name !== 'Middle East' && this.G.map.name !== 'China';
     }
 
     // The deck build for the deck and variant in play: the standard build, then this
@@ -3338,6 +3496,7 @@ export default class Game extends Vue {
     }
 
     beforeDestroy() {
+        this.emitter.removeListener('analysisMoneyResult', this.onAnalysisMoneyResult);
         if (this.pendingPlanTimer) clearTimeout(this.pendingPlanTimer);
         if (this.undoRequestTimer) clearTimeout(this.undoRequestTimer);
         if (this.recentLocalUndoTimer) clearTimeout(this.recentLocalUndoTimer);
@@ -3858,5 +4017,20 @@ text {
     .journal-and-chat .chat-status {
         flex-shrink: 0;
     }
+}
+</style>
+
+<style scoped>
+.analysis-money-form {
+    max-width: 420px;
+}
+.analysis-money-form input {
+    font-size: 1.2em;
+    margin: 8px;
+    width: 8em;
+}
+.analysis-money-form button {
+    margin: 8px;
+    padding: 8px 16px;
 }
 </style>

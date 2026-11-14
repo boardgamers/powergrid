@@ -1,0 +1,160 @@
+{
+    "game": "powergrid",
+    "gameVersion": 13,
+    "publishedAt": "2026-11-14T00:51:32.539Z",
+    "sourceCommit": "d4c4b236aaff594aed8a04eb0f76dd53933f6f6f",
+    "approvedCommit": "c8aae01636a1d29c13ff2fe2d3fb0397a3b0e25d",
+    "engine": {
+        "version": "2.0.32",
+        "package": {
+            "name": "powergrid-engine",
+            "version": "2.0.32",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/engine/29068a7dc3426cd8/powergrid-engine-2.0.32.tgz"
+        },
+        "entryPoint": "dist/wrapper.js",
+        "sha256": "29068a7dc3426cd8878faca44dccd30d131a19cdf8a796b54869a5ebff021722",
+        "bytes": 410284
+    },
+    "previousEngine": {
+        "package": {
+            "name": "powergrid-engine",
+            "version": "2.0.31",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/engine/bc8d36d6ca61a8d7/powergrid-engine-2.0.31.tgz"
+        },
+        "entryPoint": "dist/wrapper.js"
+    },
+    "viewerUnchanged": true,
+    "iconUrl": "https://s3.fr-par.scw.cloud/bgs-assets/assets/powergrid/pictogram/75a7b5816f82c060/pictogram.webp",
+    "verification": {
+        "engineTests": 625,
+        "achievementTests": 50,
+        "engineBuild": true,
+        "protocolSchemas": true,
+        "cleanTarballInstall": true,
+        "engineLint": {
+            "errors": 0,
+            "warnings": 41
+        },
+        "viewerUnitTests": 102,
+        "viewerPackageBuild": true,
+        "publicTarballHash": true,
+        "adminMetadata": true,
+        "viewerUnchanged": true,
+        "installerCatalog": {
+            "revision": 1,
+            "count": 16,
+            "exactManifestMatch": true,
+            "verifiedAt": "2026-11-14T00:52:22.051Z"
+        },
+        "latestCatalogMatches": true,
+        "publicAlbum": {
+            "url": "https://boardgamers.space/badges/games/powergrid",
+            "status": 200,
+            "all16Ids": true,
+            "fallbackGameIcon": true,
+            "browserVerified": true,
+            "allFallbackIconsLoaded": true
+        },
+        "gameIcon": {
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/assets/powergrid/pictogram/75a7b5816f82c060/pictogram.webp",
+            "status": 200,
+            "contentType": "image/webp"
+        },
+        "fabricatedGamesCreated": false
+    },
+    "achievementManifest": {
+        "revision": 1,
+        "achievements": [
+            {
+                "id": "grid-champion",
+                "name": "Grid Champion",
+                "description": "Win a game of Power Grid."
+            },
+            {
+                "id": "head-to-head",
+                "name": "Head to Head",
+                "description": "Win a two-player game."
+            },
+            {
+                "id": "full-table",
+                "name": "Full Table",
+                "description": "Win a six-player game."
+            },
+            {
+                "id": "germany-champion",
+                "name": "Germany Champion",
+                "description": "Win on the Germany map."
+            },
+            {
+                "id": "usa-champion",
+                "name": "USA Champion",
+                "description": "Win on the USA map."
+            },
+            {
+                "id": "france-champion",
+                "name": "France Champion",
+                "description": "Win on the France map."
+            },
+            {
+                "id": "japan-champion",
+                "name": "Japan Champion",
+                "description": "Win on the Japan map."
+            },
+            {
+                "id": "power-fifteen",
+                "name": "Power Fifteen",
+                "description": "Finish able to power at least 15 cities in your network."
+            },
+            {
+                "id": "power-eighteen",
+                "name": "Power Eighteen",
+                "description": "Finish able to power at least 18 cities in your network."
+            },
+            {
+                "id": "fully-supplied",
+                "name": "Fully Supplied",
+                "description": "Finish able to power every city in a network of at least 10 cities."
+            },
+            {
+                "id": "network-seventeen",
+                "name": "Network Seventeen",
+                "description": "Finish with at least 17 cities in your network."
+            },
+            {
+                "id": "network-twenty",
+                "name": "Network Twenty",
+                "description": "Finish with at least 20 cities in your network."
+            },
+            {
+                "id": "cash-reserve",
+                "name": "Cash Reserve",
+                "description": "Finish with at least 100 Elektro."
+            },
+            {
+                "id": "deep-reserves",
+                "name": "Deep Reserves",
+                "description": "Finish with at least 200 Elektro."
+            },
+            {
+                "id": "wind-farm",
+                "name": "Wind Farm",
+                "description": "Finish owning wind plants with a combined capacity of at least 8 cities."
+            },
+            {
+                "id": "atomic-power",
+                "name": "Atomic Power",
+                "description": "Finish owning uranium-fuelled power plants with a combined capacity of at least 8 cities. Australian uranium mines do not count."
+            }
+        ]
+    },
+    "verified": true,
+    "gitDelivery": {
+        "canonical": "https://github.com/boardgamers/powergrid",
+        "branch": "master",
+        "sourceCommit": "d4c4b236aaff594aed8a04eb0f76dd53933f6f6f",
+        "approvedSourceContained": true,
+        "nonForcePush": true,
+        "publicMirror": "Canonical repository is public; no separate required mirror workflow. Divergent contributor fork m left untouched.",
+        "unrelatedDrift": false
+    }
+}

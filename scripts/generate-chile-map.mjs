@@ -17,7 +17,7 @@ const colour = Object.fromEntries(data.regions.map((r) => [r.name, r.color]));
 const q = (s) => `'${s.replace(/'/g, "\\'")}'`;
 
 const cities = data.cities.map((c) => {
-    const extra = (c.singleOccupancy ? ', singleOccupancy: true' : '') + (c.slotCosts ? `, slotCosts: [${c.slotCosts.join(', ')}]` : '');
+    const extra = (c.singleOccupancy ? ', singleOccupancy: true' : '') + (c.slotCosts ? `, slotCosts: [${c.slotCosts.join(', ')}]` : '') + (c.minPlayers ? `, minPlayers: ${c.minPlayers}` : '');
     if (c.grid !== 'North' && c.grid !== 'Central') throw new Error(`${c.name} has no grid`);
     const region = q(c.region ? colour[c.region] : '');
     return `    { name: ${q(c.name)}, region: ${region}, grid: ${q(c.grid)}, x: ${c.x}, y: ${c.y}${extra} },`;

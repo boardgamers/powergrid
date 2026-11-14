@@ -38,7 +38,7 @@ import {
     SingleDeck,
 } from './gamestate';
 import { LogItem } from './log';
-import { GameMap, maps, mapsRecharged } from './maps';
+import { City, GameMap, maps, mapsRecharged } from './maps';
 import { Move, MoveName, Moves } from './move';
 import {
     availableDecks,
@@ -441,7 +441,7 @@ export function setup(
                 }
             }
 
-            finalMap = filterMapToRegions(chosenMap, playRegions);
+            finalMap = filterMapToRegions(chosenMap, playRegions, numPlayers);
             applyRegionalPowerPlants(
                 chosenMap,
                 playRegions,
@@ -671,12 +671,15 @@ export function setup(
 
 // Filters a (full) map down to just the chosen regions: keeps only cities in
 // those regions and connections whose endpoints are both kept. Returns a new map;
-// the input is not mutated.
-function filterMapToRegions(map: GameMap, playRegions: Set<string>): GameMap {
+// the input is not mutated. A city with minPlayers is left out below that player count.
+function filterMapToRegions(map: GameMap, playRegions: Set<string>, numPlayers: number): GameMap {
     const filteredMap = cloneDeep(map);
-    const kept = new Set(map.cities.filter((city) => playRegions.has(city.region)).map((city) => city.name));
+    const counts = (city: City) => !city.minPlayers || numPlayers >= city.minPlayers;
+    const kept = new Set(
+        map.cities.filter((city) => playRegions.has(city.region) && counts(city)).map((city) => city.name)
+    );
     // A city in no region (Chile's Salta) is in play when a connection joins it to a city that is.
-    for (const city of map.cities.filter((c) => !c.region)) {
+    for (const city of map.cities.filter((c) => !c.region && counts(c))) {
         if (map.connections.some((con) => con.nodes.includes(city.name) && con.nodes.some((n) => kept.has(n)))) {
             kept.add(city.name);
         }
@@ -770,7 +773,7 @@ function finalizeRegions(G: GameState) {
     const playRegions = new Set(G.regionDraft!.picked);
     const fullMap = G.map;
 
-    G.map = filterMapToRegions(fullMap, playRegions);
+    G.map = filterMapToRegions(fullMap, playRegions, G.players.length);
     applyRegionalPowerPlants(
         fullMap,
         playRegions,

@@ -59,14 +59,22 @@ const buyOptions = (G: GameState, p = 0) =>
 
 describe('Chile', () => {
     describe('board', () => {
-        it('has six regions of seven cities, Salta in no region, a grid for every city, 58 connections and two gates', () => {
+        it('has six regions of seven cities, three border spaces in no region, a grid for every city, 60 connections and two gates', () => {
             const byRegion: Record<string, number> = {};
             for (const c of chile.cities) byRegion[c.region] = (byRegion[c.region] ?? 0) + 1;
-            expect(byRegion).to.deep.equal({ brown: 7, yellow: 7, purple: 7, red: 7, green: 7, pink: 7, '': 1 });
+            expect(byRegion).to.deep.equal({ brown: 7, yellow: 7, purple: 7, red: 7, green: 7, pink: 7, '': 3 });
             const salta = chile.cities.find((c) => c.name == 'Salta')!;
             expect(salta.region).to.equal('');
             expect(salta.grid).to.equal('North');
             expect(salta.singleOccupancy).to.be.true;
+            expect(salta.minPlayers).to.be.undefined;
+            for (const name of ['Tacna', 'Jujuy']) {
+                const space = chile.cities.find((c) => c.name == name)!;
+                expect(
+                    [space.region, space.grid, space.singleOccupancy, space.slotCosts, space.minPlayers],
+                    name
+                ).to.deep.equal(['', 'North', true, [10], 4]);
+            }
             expect(chile.cities.every((c) => c.grid == 'North' || c.grid == 'Central')).to.be.true;
             // Brown and yellow each hold five North and two Central cities; the other regions are all Central.
             for (const region of NORTH) {
@@ -82,7 +90,7 @@ describe('Chile', () => {
             }
             expect(chile.cities.filter((c) => c.region && !NORTH.includes(c.region)).every((c) => c.grid == 'Central'))
                 .to.be.true;
-            expect(chile.connections).to.have.length(58);
+            expect(chile.connections).to.have.length(60);
             expect(chile.step3Connections).to.have.length(2);
         });
 
@@ -132,6 +140,12 @@ describe('Chile', () => {
                     if (fixed[n]) expect(regions, `${n}P`).to.deep.equal(fixed[n]);
                     else expect(regions, `${n}P`).to.have.length(5);
                     expect(G.map.cities.some((c) => c.name == 'Salta')).to.be.true;
+                    // Tacna and Jujuy are only in play with 4-6 players.
+                    for (const name of ['Tacna', 'Jujuy'])
+                        expect(
+                            G.map.cities.some((c) => c.name == name),
+                            `${n}P ${name}`
+                        ).to.equal(n >= 4);
                     expect(G.map.step3Connections).to.have.length(2);
                     expect(
                         G.map.connections.every((con) =>
@@ -160,6 +174,10 @@ describe('Chile', () => {
                 const regions = [...new Set(G.map.cities.map((c) => c.region).filter((r) => r))].sort();
                 expect(regions).to.include.members([...NORTH, 'purple']);
                 expect(regions).to.have.length(n == 3 ? 3 : 5);
+                expect(
+                    G.map.cities.some((c) => c.name == 'Tacna'),
+                    `${n}P`
+                ).to.equal(n >= 4);
             }
         });
     });
@@ -394,7 +412,13 @@ describe('Chile', () => {
 
         it('restocks the merged market from the Step 3 column', () => {
             // coal, oil, garbage
-            const table: Record<number, number[]> = { 2: [4, 4, 4], 3: [4, 4, 4], 4: [5, 5, 5], 5: [5, 6, 5], 6: [6, 7, 6] };
+            const table: Record<number, number[]> = {
+                2: [4, 4, 4],
+                3: [4, 4, 4],
+                4: [5, 5, 5],
+                5: [5, 6, 5],
+                6: [6, 7, 6],
+            };
             for (const n of [2, 3, 4, 5, 6]) {
                 const G = restock(n, (s) => {
                     s.step = 3;
@@ -447,7 +471,7 @@ describe('Chile', () => {
             expect(G.coalMarketNorth).to.be.undefined;
             expect(G.coalResupplyNorth).to.be.undefined;
             // 2. Gates open.
-            expect(G.map.connections).to.have.length(60);
+            expect(G.map.connections).to.have.length(62);
             expect(G.map.step3Connections).to.be.undefined;
             // 3. Set-aside plants on top, in order.
             expect(G.powerPlantsDeck.map((pp) => pp.number)).to.deep.equal([...SET_ASIDE, ...deckBefore]);

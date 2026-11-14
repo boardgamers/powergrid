@@ -46,6 +46,8 @@ export interface City {
     // 10+position*5 house-base cost — the dijkstra path cost (the 30-Elektro edge)
     // is the complete cost.
     singleOccupancy?: boolean;
+    // In play only with at least this many players (Chile's Tacna and Jujuy: 4).
+    minPlayers?: number;
     // UK & Ireland: which physical island this city sits on ('gb' or 'ie'). Used
     // together with GameMap.crossIslandSurcharge to model the two-network mechanic
     // (no sea edges; starting a network on a new island costs a flat surcharge on

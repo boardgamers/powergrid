@@ -114,7 +114,7 @@ describe('achievements', function () {
 
     it('publishes all 36 stable IDs in a fresh revisioned manifest', () => {
         const manifest = achievementDefinitions();
-        expect(manifest.revision).to.equal(2);
+        expect(manifest.revision).to.equal(3);
         expect(manifest.achievements.map((a) => a.id)).to.deep.equal(ids);
         expect(new Set(ids).size).to.equal(36);
         manifest.achievements.forEach((a) => {

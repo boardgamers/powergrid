@@ -7,6 +7,7 @@ import { map as benelux } from './maps/benelux';
 import { map as brazil } from './maps/brazil';
 import { map as bremen } from './maps/bremen';
 import { map as centraleurope } from './maps/centraleurope';
+import { map as chile } from './maps/chile';
 import { map as china } from './maps/china';
 import { map as europe } from './maps/europe';
 import { map as france } from './maps/france';
@@ -110,6 +111,9 @@ export interface GameMap {
     // for the starting arrays (no uranium row — North bans nuclear).
     resupplyNorth?: number[][][];
     startingResourcesNorth?: number[];
+    // Chile: the regions of the North grid. Until Step 3 a player with cities buys only from the market of their
+    // grid: North if their cities are in these regions, else the main (Central) market.
+    northRegions?: string[];
     coalPricesNorth?: number[];
     oilPricesNorth?: number[];
     garbagePricesNorth?: number[];
@@ -143,6 +147,13 @@ export interface GameMap {
     // choose which spaces to block, so the selection is random within cost tiers.
     blockSpaces?: (numPlayers: number, cities: City[], rng: seedrandom.prng) => string[];
     regionalPowerPlants?: Record<string, PowerPlant[]>;
+    // Chile: connections that open when Step 3 begins (the gates between the grids). Until then they are kept out of
+    // `connections`, so no build or path uses them, but they count when choosing play areas: two regions joined only
+    // by one are adjacent.
+    step3Connections?: Connection[];
+    // Chile: plant numbers set aside at setup (held in GameState.setAsidePlants) and put on top of the draw stack
+    // when Step 3 begins.
+    setAsidePlants?: number[];
     // UK & Ireland: extra Elektro paid to start a network on an island where the
     // player has no city yet. Builds on the new island skip the dijkstra path
     // cost (there is no sea edge) and pay 10+position*5 + this surcharge.
@@ -186,6 +197,7 @@ export const maps: GameMap[] = [
     bremen,
     manhattan,
     japan,
+    chile,
 ];
 
 export const mapsRecharged: GameMap[] = [
@@ -214,4 +226,5 @@ export const mapsRecharged: GameMap[] = [
     manhattan,
     // china,
     japanRecharged,
+    chile,
 ];

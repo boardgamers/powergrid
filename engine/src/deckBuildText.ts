@@ -91,6 +91,9 @@ export const DECK_BUILD_TEMPLATES = {
         'Power plant {p0} goes on top of the deck if it was dealt, then five shuffled cards (the 7th and 8th smallest plants and the top three of the deck).',
     spainHeld:
         'Power plants {p0} are set aside at setup; when Step 2 begins they are placed on top of the deck, smallest on top.',
+    chileSetAside:
+        'Ecological power plants {p0} are set aside at setup; when Step 3 begins they are placed on top of the deck, smallest on top.',
+    chileNoRemoval: 'No power plants are removed for the number of players.',
     ukStep3: 'The Step 3 card is placed third from the bottom of the deck (two plants below it).',
 } as const;
 
@@ -310,6 +313,8 @@ function mapText(mapName: string, options: GameOptions, numPlayers: number): str
         }
         case 'UK & Ireland':
             return [fill('ukStep3'), fill('standardSetup')];
+        case 'Chile':
+            return [...gone, fill('chileSetAside', '33, 37, 44'), fill('chileNoRemoval')];
         default:
             return [];
     }

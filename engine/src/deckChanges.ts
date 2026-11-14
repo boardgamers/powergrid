@@ -30,6 +30,12 @@ export function removedPlants(mapName: string, deck: PowerPlantDeck, numPlayers:
             return forDeck({ standard: [6, 14], deck1: [6, 21], deck2: [5, 14] }, deck);
         case 'India':
             return isShuffled(deck) ? forDeck({ standard: [11], deck1: [8], deck2: [13] }, deck) : [];
+        case 'Chile':
+            // Chile's uranium plants (it has no uranium); its three set-aside ecological plants are in setAsidePlants.
+            return forDeck(
+                { standard: [11, 17, 23, 28, 34, 39], deck1: [8, 19, 24, 31, 38, 50], deck2: [13, 21, 32, 37, 50] },
+                deck
+            );
         case 'Australia':
             return forDeck({ standard: [17], deck1: [19], deck2: [21] }, deck);
         case 'South Africa':

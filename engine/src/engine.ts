@@ -196,7 +196,9 @@ export function setup(
     if (map == 'Random') {
         // Dedicated rng so the pick doesn't shift the rest of the setup's draws.
         const mapRng = seedrandom(seed + '-map');
-        map = variantMaps[Math.floor(mapRng() * variantMaps.length)].name as MapName;
+        // Chile is in testing: left out of the random pick, which also keeps every other seed's pick unchanged.
+        const pool = variantMaps.filter((m) => m.name != 'Chile');
+        map = pool[Math.floor(mapRng() * pool.length)].name as MapName;
     }
     const chosenMapRaw = variantMaps.find((m) => m.name == map);
     if (!chosenMapRaw) {
@@ -232,6 +234,9 @@ export function setup(
         : 'standard';
     const sampleShuffled = chosenDeck == 'shuffled' && shuffledSample;
     const ecologicalRules = ECOLOGICAL_RULE_MAPS.includes(chosenMap.name) && !legacyEcological;
+    if (chosenMap.name == 'Chile' && chosenDeck !== 'standard') {
+        throw new Error('Chile is built for the standard power plant deck only');
+    }
 
     let actualMarket: PowerPlant[];
     let futureMarket: PowerPlant[];
@@ -520,6 +525,16 @@ export function setup(
         garbagePricesNorth,
         actualMarket,
         futureMarket,
+        // Chile: copies, never the catalogue's shared objects (the Step 3 boost replaces them anyway).
+        ...(chosenMap.setAsidePlants
+            ? {
+                  setAsidePlants: cloneDeep(
+                      plantCatalogue(chosenMap.name, 'standard').filter((pp) =>
+                          chosenMap.setAsidePlants!.includes(pp.number)
+                      )
+                  ),
+              }
+            : {}),
         chosenPowerPlant: undefined,
         currentBid: undefined,
         highestBidders: [],
@@ -654,10 +669,20 @@ export function setup(
 // the input is not mutated.
 function filterMapToRegions(map: GameMap, playRegions: Set<string>): GameMap {
     const filteredMap = cloneDeep(map);
-    filteredMap.cities = filteredMap.cities.filter((city) => playRegions.has(city.region));
-    filteredMap.connections = filteredMap.connections.filter((con) =>
-        con.nodes.map((n) => map.cities.find((city) => city.name == n)!.region).every((r) => playRegions.has(r))
-    );
+    const kept = new Set(map.cities.filter((city) => playRegions.has(city.region)).map((city) => city.name));
+    // A city in no region (Chile's Salta) is in play when a connection joins it to a city that is.
+    for (const city of map.cities.filter((c) => !c.region)) {
+        if (map.connections.some((con) => con.nodes.includes(city.name) && con.nodes.some((n) => kept.has(n)))) {
+            kept.add(city.name);
+        }
+    }
+    filteredMap.cities = filteredMap.cities.filter((city) => kept.has(city.name));
+    filteredMap.connections = filteredMap.connections.filter((con) => con.nodes.every((n) => kept.has(n)));
+    if (filteredMap.step3Connections) {
+        filteredMap.step3Connections = filteredMap.step3Connections.filter((con) =>
+            con.nodes.every((n) => kept.has(n))
+        );
+    }
     return filteredMap;
 }
 
@@ -1179,7 +1204,7 @@ export function move(
 
                     // Korea: end of this player's buying turn — clear the side lock
                     // so the next player can pick freely.
-                    if (G.map.name == 'Korea') {
+                    if (G.map.name == 'Korea' || G.map.name == 'Chile') {
                         G.chosenSide = undefined;
                     }
 
@@ -1317,6 +1342,7 @@ export function move(
                                 // market lifecycle, not a step change.
                                 startStep(G, 3);
                                 applyAustraliaStep3Shift(G);
+                                applyChileStep3(G);
                             }
                         }
                     } else {
@@ -1496,7 +1522,9 @@ export function move(
                         if (G.coalResupplyNorth) {
                             G.log.push({
                                 type: 'event',
-                                event: `Resupplying resources — North: [${coalResupplyNorthValue}, ${oilResupplyNorthValue}, ${garbageResupplyNorthValue}], South: [${coalResupplyValue}, ${oilResupplyValue}, ${garbageResupplyValue}, ${uraniumResupplyValue}].`,
+                                event: `Resupplying resources — North: [${coalResupplyNorthValue}, ${oilResupplyNorthValue}, ${garbageResupplyNorthValue}], ${
+                                    G.map.name == 'Chile' ? 'Central' : 'South'
+                                }: [${coalResupplyValue}, ${oilResupplyValue}, ${garbageResupplyValue}, ${uraniumResupplyValue}].`,
                             });
                         } else {
                             G.log.push({
@@ -1614,6 +1642,7 @@ export function move(
                             if (G.futureMarket.length == 0 && G.map.name != 'China' && G.map.name != 'Manhattan') {
                                 startStep(G, 3);
                                 applyAustraliaStep3Shift(G);
+                                applyChileStep3(G);
                             }
 
                             G.plantDiscountActive =
@@ -2894,6 +2923,79 @@ export function applyAustraliaStep3Shift(G: GameState) {
     });
 }
 
+/**
+ * Chile, when Step 3 begins (after the usual shuffle), in this order:
+ * 1. The two markets merge onto the standard 24-slot tracks, filling from the most expensive spaces; from now on
+ *    the main market restocks with its Step 3 column and the North market is gone.
+ * 2. The gates open.
+ * 3. The set-aside ecological plants go on top of the draw stack (33 on top, then 37, then 44).
+ * 4. Every ecological plant powers one more city than printed, wherever it is: deck, market or a player's hand.
+ *    Fusion plant 50 is not boosted. Plants are replaced by boosted copies, never changed in place, so no shared
+ *    catalogue object is touched.
+ * Runs once (the North market is gone afterwards), so it is safe at every Step 3 entry.
+ */
+export function applyChileStep3(G: GameState) {
+    if (G.map.name !== 'Chile' || G.coalMarketNorth === undefined) {
+        return;
+    }
+
+    G.coalPrices = [...prices[ResourceType.Coal]];
+    G.oilPrices = [...prices[ResourceType.Oil]];
+    G.garbagePrices = [...prices[ResourceType.Garbage]];
+    G.coalMarket += G.coalMarketNorth;
+    G.oilMarket += G.oilMarketNorth ?? 0;
+    G.garbageMarket += G.garbageMarketNorth ?? 0;
+    delete G.coalMarketNorth;
+    delete G.oilMarketNorth;
+    delete G.garbageMarketNorth;
+    delete G.coalResupplyNorth;
+    delete G.oilResupplyNorth;
+    delete G.garbageResupplyNorth;
+    delete G.coalPricesNorth;
+    delete G.oilPricesNorth;
+    delete G.garbagePricesNorth;
+    delete G.resourceResupplyNorth;
+    G.chosenSide = undefined;
+    G.log.push({ type: 'event', event: 'Step 3: the North and Central resource markets merge into one.' });
+
+    const gates = G.map.step3Connections ?? [];
+    G.map = { ...G.map, connections: [...G.map.connections, ...gates] };
+    delete G.map.step3Connections;
+    if (gates.length > 0) {
+        G.log.push({ type: 'event', event: 'Step 3: the gated connections open.' });
+    }
+
+    // A replay from known draws (secret seed) already holds these plants in its Step 3 deck.
+    if (G.setAsidePlants?.length && G.powerPlantDeckAfterStep3 === undefined) {
+        G.powerPlantsDeck = [...G.setAsidePlants, ...G.powerPlantsDeck];
+        G.log.push({
+            type: 'event',
+            event: `Step 3: power plants ${G.setAsidePlants.map((pp) => pp.number).join(', ')} go on top of the deck.`,
+        });
+    }
+    delete G.setAsidePlants;
+
+    // From the printed value, so boosting twice can't add two.
+    const boost = (plants: PowerPlant[]) =>
+        plants.map((pp) =>
+            pp.type == PowerPlantType.Wind
+                ? {
+                      ...pp,
+                      citiesPowered:
+                          (plantCatalogue('Chile', 'standard').find((c) => c.number == pp.number)?.citiesPowered ??
+                              pp.citiesPowered) + 1,
+                  }
+                : pp
+        );
+    G.powerPlantsDeck = boost(G.powerPlantsDeck);
+    G.actualMarket = boost(G.actualMarket);
+    G.futureMarket = boost(G.futureMarket);
+    G.players.forEach((player) => (player.powerPlants = boost(player.powerPlants)));
+    if (G.chosenPowerPlant) G.chosenPowerPlant = boost([G.chosenPowerPlant])[0];
+    if (G.powerPlantDeckAfterStep3) G.powerPlantDeckAfterStep3 = boost(G.powerPlantDeckAfterStep3);
+    G.log.push({ type: 'event', event: 'Step 3: every ecological power plant now powers one more city.' });
+}
+
 export function rebuildPlantMarketForChina(G: GameState) {
     /*At the beginning of phase 5, the players fill the power plant market with new power plants. Depending on the
 number of players, the players always add a minimum of 1, 2, or 3 power plants to the market from the supply:
@@ -3226,6 +3328,7 @@ function toResourcesPhase(G: GameState) {
             G.futureMarket.pop();
             startStep(G, 3, `Starting Step 3, Power Plant ${plantLabel(powerPlantDiscarded?.number)} discarded.`);
             applyAustraliaStep3Shift(G);
+            applyChileStep3(G);
 
             G.actualMarket = [...G.actualMarket, ...G.futureMarket];
             G.futureMarket = [];

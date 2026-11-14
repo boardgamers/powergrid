@@ -1,6 +1,6 @@
-# Power Grid achievements (review candidate)
+# Power Grid achievements
 
-This feature is **not published**. The engine version remains 2.0.31 pending coordinator review and release version allocation. No viewer or production assets change.
+Approved for engine **2.0.32** after independent review of `c8aae016`. No viewer or artwork changes are required. Publication verification is recorded in `docs/releases/achievements-2.0.32.json`.
 
 ## Contract
 
@@ -60,4 +60,4 @@ An earlier full engine run concurrent with builds hit two 2-second replay-test t
 -   Review all 16 IDs/descriptions, thresholds, tie semantics, and human-versus-bot policy with the coordinator.
 -   Validate the compiled hooks against protocol manifest/result schemas and the actual BGS install/adjudication path before release, including cancellation, bot/account filtering, duplicate completion, and edited-solo exclusions. Unit tests cannot substitute for server-owned eligibility checks.
 -   After approval, allocate an engine release version, fetch/integrate the latest canonical release, rerun relevant checks, and publish through the existing engine release workflow. Verify the installed artifact contains both hooks and the expected manifest revision. No artwork is required.
--   Only when authorized to publish: follow AGENTS.md's corresponding source/lockfile/version commit, canonical release-branch push, public mirror update, and remote-delivery verification requirements. This feature branch intentionally performs none of those production actions.
+-   Only when authorized to publish: follow AGENTS.md's corresponding source/lockfile/version commit, canonical release-branch push, public mirror update, and remote-delivery verification requirements. The approved 2.0.32 delivery follows that workflow; consult its release receipt for the installed artifact and verification results.

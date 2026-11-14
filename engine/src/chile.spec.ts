@@ -392,6 +392,21 @@ describe('Chile', () => {
             expect([G.oilMarketNorth, G.oilMarket]).to.deep.equal([1, 0]);
         });
 
+        it('restocks the merged market from the Step 3 column', () => {
+            // coal, oil, garbage
+            const table: Record<number, number[]> = { 2: [4, 4, 4], 3: [4, 4, 4], 4: [5, 5, 5], 5: [5, 6, 5], 6: [6, 7, 6] };
+            for (const n of [2, 3, 4, 5, 6]) {
+                const G = restock(n, (s) => {
+                    s.step = 3;
+                    applyChileStep3(s);
+                    s.coalMarket = s.oilMarket = s.garbageMarket = 0;
+                    s.coalSupply = s.oilSupply = s.garbageSupply = 20;
+                });
+                expect(G.coalMarketNorth, `${n}P`).to.be.undefined;
+                expect([G.coalMarket, G.oilMarket, G.garbageMarket], `${n}P`).to.deep.equal(table[n]);
+            }
+        });
+
         it('restocks only one oil per market in Step 2', () => {
             const G = restock(6, (s) => {
                 empty(s);

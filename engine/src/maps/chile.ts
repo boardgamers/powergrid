@@ -21,13 +21,13 @@ export const map: GameMap = {
     fixedRegions: ['brown', 'yellow'],
     setAsidePlants: chileSetAsidePlants,
     viewBox: chileViewBox,
-    // Central market (the engine's main market). [resource][players-2][step-1]; 2P copies 3P. The Step 3 column is
+    // Central market (the engine's main market). [resource][players-2][step-1]. The Step 3 column is
     // the merged market's restock.
     resupply: [
         // Coal
         [
             [2, 3, 4],
-            [2, 3, 4],
+            [3, 3, 4],
             [3, 4, 5],
             [3, 5, 4],
             [4, 6, 6],
@@ -62,7 +62,7 @@ export const map: GameMap = {
         // Coal
         [
             [2, 3, 0],
-            [2, 3, 0],
+            [1, 3, 0],
             [2, 3, 0],
             [2, 3, 0],
             [3, 4, 0],

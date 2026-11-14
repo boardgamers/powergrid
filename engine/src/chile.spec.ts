@@ -381,12 +381,13 @@ describe('Chile', () => {
         it('restocks North then Central from the table, garbage only in Central', () => {
             const table: Record<number, number[]> = {
                 // north coal, north oil, central coal, central oil, central garbage (Step 1)
-                3: [2, 1, 2, 1, 1],
+                2: [2, 1, 2, 1, 1],
+                3: [1, 1, 3, 1, 1],
                 4: [2, 1, 3, 2, 2],
                 5: [2, 2, 3, 2, 3],
                 6: [3, 2, 4, 3, 3],
             };
-            for (const n of [3, 4, 5, 6]) {
+            for (const n of [2, 3, 4, 5, 6]) {
                 const G = restock(n, (s) => {
                     empty(s);
                     s.coalSupply = s.oilSupply = s.garbageSupply = 20;

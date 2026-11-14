@@ -336,6 +336,7 @@ export function createAnalysisScenario(
         // sampled or source commitment may make a choice on a human's behalf.
         s.currentPlayers = s.playerOrder.filter((id) => !s.players[id].skipAuction);
     }
+    s.achievementAnalysis = true;
     s.seed = seed;
     s.hiddenLog = [];
     delete s.automation;

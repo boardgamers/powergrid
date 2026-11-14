@@ -19,6 +19,7 @@ import {
     setPremoves,
 } from './src/premoves';
 import { asserts } from './src/utils';
+export { achievementDefinitions, achievements } from './src/achievements';
 export { MAX_ANALYSIS_MONEY } from './src/analysis-money';
 export type { SetAnalysisMoney } from './src/analysis-money';
 export { ended, scores, stripSecret } from './src/engine';
@@ -284,6 +285,7 @@ export function replay(G: GameState, { to = Infinity }: { to?: number } = {}): G
         }
         if (oldG.revisedPowering) G.revisedPowering = { ...oldG.revisedPowering };
     }
+    if (oldG.achievementAnalysis) G.achievementAnalysis = true;
     delete G.pendingMessages;
     return G;
 }
@@ -389,6 +391,7 @@ export function logSlice(G: GameState, options?: { player?: number; start?: numb
 export function createAnalysis(data: GameState, { to }: { to: number; sourceEnded: boolean }): GameState {
     if (!Number.isInteger(to) || to < 0 || to > data.log.length) throw new Error('Invalid history position');
     const copy = replay(JSON.parse(JSON.stringify(data)), { to });
+    copy.achievementAnalysis = true;
     delete copy.automation;
     for (const player of copy.players) {
         player.isDropped = false;
@@ -417,6 +420,7 @@ export async function analysisMove(
             throw new Error('Only an active player can edit analysis money');
         const command = buffer[0] as SetAnalysisMoney;
         const copy = cloneDeep(data);
+        copy.achievementAnalysis = true;
         const previous = copy.players[command.data?.player]?.money;
         applyAnalysisMoney(copy, command.data);
         copy.log.push({
@@ -427,6 +431,7 @@ export async function analysisMove(
         return copy;
     }
     data = cloneDeep(data);
+    data.achievementAnalysis = true;
     if (isPremoveCommand(input)) throw new Error('Premoves are not available in an analysis');
     delete data.automation;
     // Deliberately bypass the live wrapper: clearing premoves alone does not

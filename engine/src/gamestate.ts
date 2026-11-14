@@ -197,6 +197,8 @@ export enum Phase {
 }
 
 export interface GameState {
+    /** Analysis/simulation branches are never eligible for achievements. */
+    achievementAnalysis?: true;
     /** Interactive sandbox cash, initialized once; never attached to live games. */
     analysisMoney?: 'hypothetical';
     /** Seats whose sandbox cash starts from known money rather than an assumption. */

@@ -56,7 +56,7 @@ export const chileCities: City[] = [
     { name: 'Temuco', region: 'pink', grid: 'Central', x: 1769, y: 1492 },
     { name: 'Valdivia', region: 'pink', grid: 'Central', x: 1781, y: 1658 },
     { name: 'Puerto Montt', region: 'pink', grid: 'Central', x: 1980, y: 1665 },
-    { name: 'Salta', region: '', grid: 'North', x: 815, y: 110, singleOccupancy: true },
+    { name: 'Salta', region: '', grid: 'North', x: 815, y: 110, singleOccupancy: true, slotCosts: [10] },
 ];
 
 export const chileConnections: Connection[] = [

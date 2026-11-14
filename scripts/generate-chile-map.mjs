@@ -1,7 +1,7 @@
 // Writes engine/src/maps/chile-board.ts from the Chile design's board data (chile-map-data.json, the source of truth).
 //   node scripts/generate-chile-map.mjs <path to chile-map-data.json>
-// Regions become their colours (as on the other maps); Salta, in no region, gets the empty region ''. Each city
-// carries its grid (North or Central).
+// Regions become their colours (as on the other maps); Salta, in no region, gets the empty region '' and keeps its
+// one slot cost (its $10 house). Each city carries its grid (North or Central).
 // Connections marked closedUntilStep3 go to step3Connections, which join the board when Step 3 begins.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -17,7 +17,7 @@ const colour = Object.fromEntries(data.regions.map((r) => [r.name, r.color]));
 const q = (s) => `'${s.replace(/'/g, "\\'")}'`;
 
 const cities = data.cities.map((c) => {
-    const extra = c.singleOccupancy ? ', singleOccupancy: true' : '';
+    const extra = (c.singleOccupancy ? ', singleOccupancy: true' : '') + (c.slotCosts ? `, slotCosts: [${c.slotCosts.join(', ')}]` : '');
     if (c.grid !== 'North' && c.grid !== 'Central') throw new Error(`${c.name} has no grid`);
     const region = q(c.region ? colour[c.region] : '');
     return `    { name: ${q(c.name)}, region: ${region}, grid: ${q(c.grid)}, x: ${c.x}, y: ${c.y}${extra} },`;

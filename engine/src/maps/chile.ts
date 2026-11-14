@@ -140,6 +140,6 @@ export const map: GameMap = {
         'There is no uranium: all uranium power plants are removed and there is no uranium market. No power plants are removed for the number of players.\n' +
         'The three largest ecological power plants are set aside at setup.\n' +
         'Both markets share one supply. During bureaucracy, North restocks first, then Central. Garbage is only restocked in the Central market. In Step 2, oil restocks only 1 per market.\n' +
-        'Gated connections cannot be built across until Step 3. Salta (Argentina) holds one city and cannot be your first city.\n' +
+        'Gated connections cannot be built across until Step 3. Salta (Argentina) holds one city, costs $10 plus the connection, and cannot be your first city.\n' +
         'Step 3: the two markets merge into one, the gated connections open, the set-aside ecological plants go on top of the deck, and every ecological plant (except fusion) powers one additional city.',
 };

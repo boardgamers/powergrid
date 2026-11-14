@@ -317,12 +317,12 @@ describe('Chile', () => {
             expect(builds(sierra).find((b) => b.name == 'El Salvador')!.price).to.equal(20 + 10);
         });
 
-        it('keeps Salta to one city, never a first city, reached for its connection cost only', () => {
+        it('keeps Salta to one city, never a first city, for its $20 connection plus a $10 house', () => {
             const first = buildState([]);
             expect(builds(first).map((b) => b.name)).to.not.include('Salta');
             expect(builds(first).map((b) => b.name)).to.include('San Pedro');
             const G = buildState(['San Pedro']);
-            expect(builds(G).find((b) => b.name == 'Salta')!.price).to.equal(20);
+            expect(builds(G).find((b) => b.name == 'Salta')!.price).to.equal(30);
             G.players[1].cities = [{ name: 'Salta', position: 0 }];
             G.step = 3;
             G.players[0].availableMoves = availableMoves(G, G.players[0]);

@@ -1990,8 +1990,10 @@ export function move(
             if (G.options.trackTotalSpent) {
                 const cityData = G.map.cities.find((c) => c.name == move.data.name)!;
                 if (cityData.singleOccupancy) {
-                    // SA cross-border: no house base — full price is "connection".
-                    player.totalSpentConnections += move.data.price;
+                    // SA cross-border: no house base — full price is "connection". Chile's Salta: its one slot cost.
+                    const house = cityData.slotCosts?.[0] ?? 0;
+                    player.totalSpentCities += house;
+                    player.totalSpentConnections += move.data.price - house;
                 } else {
                     player.totalSpentCities += 10 + position * 5;
                     player.totalSpentConnections += move.data.price - (10 + position * 5);

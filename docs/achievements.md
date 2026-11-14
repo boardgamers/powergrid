@@ -1,12 +1,12 @@
 # Power Grid achievements
 
-**Unpublished review candidate: engine 2.0.33, manifest revision 2, 36 achievements.** Adds 20 map victories (24 total) and raises Fully Supplied from a 10-city to a 15-city minimum, preserving its complete-network condition. The separate powered-city tiers remain 15 and 18. No viewer, artwork, map-cap, scoring, or backfill changes. Existing awards are not recalculated or revoked by this change.
+**Published: engine 2.0.33, manifest revision 2, 36 achievements.** Adds 20 map victories (24 total) and raises Fully Supplied from a 10-city to a 15-city minimum, preserving its complete-network condition. The separate powered-city tiers remain 15 and 18. No viewer, artwork, map-cap, scoring, or backfill changes. Existing awards are not recalculated or revoked by this change.
 
-The live 2.0.32 / revision-1 release remains documented in `docs/releases/achievements-2.0.32.json`. Do not publish this candidate until coordinator review.
+Independent review approved `2f89876`; publication and installer verification are recorded in `docs/releases/achievements-2.0.33.json`. The previous revision-1 release receipt remains in `docs/releases/achievements-2.0.32.json`.
 
 ## Contract
 
-`engine/wrapper.ts` exports the optional `achievementDefinitions()` and `achievements(data)` hooks. Both use the published `@boardgamers/protocol@0.11.0` `/engine` types. The candidate manifest has revision 2. IDs are stable game-local identifiers: do not rename or reuse them after publication. Future definition changes require a manifest revision bump. Icons are omitted, allowing platform fallback icons; no asset upload is needed.
+`engine/wrapper.ts` exports the optional `achievementDefinitions()` and `achievements(data)` hooks. Both use the published `@boardgamers/protocol@0.11.0` `/engine` types. The manifest has revision 2. IDs are stable game-local identifiers: do not rename or reuse them after publication. Future definition changes require a manifest revision bump. Icons are omitted, allowing platform fallback icons; no asset upload is needed.
 
 The input is the deserialized, authoritative saved `GameState`, not a viewer payload or client-supplied achievement claim. Evaluation is pure, repeatable, and does not store counters or mutate state. Results use player-array indexes as seats. The hook returns nothing for unfinished, tentative, analysis/simulation, or fewer-than-two-player states. Power Grid has no standalone solo rules; a human against bots competes normally and receives an explicit win/loss outcome.
 
@@ -88,7 +88,7 @@ Analysis constructors and moves mark their copies with `achievementAnalysis: tru
 -   Full suite: **725 passing** with `pnpm --filter powergrid-engine exec mocha -r ts-node/register 'src/*.spec.ts' --timeout 10000`. An archived unchanged `eb08aaf` baseline passes **625** with the same timeout. Both baseline and candidate hit existing 2-second replay timeouts under the default limit; the override is command-line only, with no skipped tests or assertion changes. An initial candidate run also hit the historically recorded China shuffled-deck analysis assertion; it did not recur in the comparison runs or targeted baseline test.
 -   Engine build and published protocol schema validation pass. The compiled manifest is compared with the recorded revision-1 catalog: exactly 20 additions, with only Fully Supplied's approved description change among existing IDs.
 -   102 viewer unit tests pass. Engine lint passes with 0 errors and 41 warnings. Frozen installation, formatting, and whitespace checks pass.
--   Scoped read-only review found no concrete issues; final coordinator approval is still required before publication.
+-   Scoped read-only review found no concrete issues; a fresh independent review approved `2f89876`, followed by coordinator publication authorization.
 
 ## Previous release verification (2.0.32)
 

@@ -1,0 +1,272 @@
+{
+    "game": "powergrid",
+    "gameVersion": 13,
+    "publishedAt": "2026-11-14T01:30:04.529Z",
+    "sourceCommit": "2f89876e712ccd3edc70683189057975cab6b521",
+    "approvedCommit": "2f89876e712ccd3edc70683189057975cab6b521",
+    "engine": {
+        "version": "2.0.33",
+        "package": {
+            "name": "powergrid-engine",
+            "version": "2.0.33",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/engine/4a6efaf8b7f6c5b5/powergrid-engine-2.0.33.tgz"
+        },
+        "entryPoint": "dist/wrapper.js",
+        "sha256": "4a6efaf8b7f6c5b5e3d7c2234228f70014c7dceb9a640e3c79da22b4daacfcfc",
+        "bytes": 411657
+    },
+    "previousEngine": {
+        "package": {
+            "name": "powergrid-engine",
+            "version": "2.0.32",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/engine/29068a7dc3426cd8/powergrid-engine-2.0.32.tgz"
+        },
+        "entryPoint": "dist/wrapper.js"
+    },
+    "viewerUnchanged": true,
+    "settingsUnchanged": true,
+    "optionsUnchanged": true,
+    "preferencesUnchanged": true,
+    "expansionsUnchanged": true,
+    "iconUrl": "https://s3.fr-par.scw.cloud/bgs-assets/assets/powergrid/pictogram/75a7b5816f82c060/pictogram.webp",
+    "verification": {
+        "engineTests": 725,
+        "engineTestTimeoutMs": 10000,
+        "achievementTests": 150,
+        "engineBuild": true,
+        "protocolSchemas": true,
+        "cleanTarballInstall": true,
+        "engineLint": {
+            "errors": 0,
+            "warnings": 41
+        },
+        "viewerUnitTests": 102,
+        "publicTarballHash": true,
+        "adminMetadata": true,
+        "viewerUnchanged": true,
+        "settingsUnchanged": true,
+        "optionsUnchanged": true,
+        "preferencesUnchanged": true,
+        "expansionsUnchanged": true,
+        "fullySuppliedMinimum": 15,
+        "powerTiers": [15, 18],
+        "installerCatalog": {
+            "revision": 2,
+            "count": 36,
+            "mapWinCount": 24,
+            "exactManifestMatch": true,
+            "verifiedAt": "2026-11-14T01:30:47.756Z"
+        },
+        "latestCatalogMatches": true,
+        "publicAlbum": {
+            "url": "https://boardgamers.space/badges/games/powergrid",
+            "status": 200,
+            "all36Ids": true,
+            "fallbackGameIcon": true,
+            "browserVerified": true,
+            "allFallbackIconsLoaded": true
+        },
+        "gameIcon": {
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/assets/powergrid/pictogram/75a7b5816f82c060/pictogram.webp",
+            "status": 200,
+            "contentType": "image/webp"
+        },
+        "fabricatedGamesCreated": false,
+        "localInstalledArtifactThresholdBoundaries": [10, 14, 15, 16]
+    },
+    "achievementManifest": {
+        "revision": 2,
+        "achievements": [
+            {
+                "id": "grid-champion",
+                "name": "Grid Champion",
+                "description": "Win a game of Power Grid."
+            },
+            {
+                "id": "head-to-head",
+                "name": "Head to Head",
+                "description": "Win a two-player game."
+            },
+            {
+                "id": "full-table",
+                "name": "Full Table",
+                "description": "Win a six-player game."
+            },
+            {
+                "id": "germany-champion",
+                "name": "Germany Champion",
+                "description": "Win on the Germany map."
+            },
+            {
+                "id": "usa-champion",
+                "name": "USA Champion",
+                "description": "Win on the USA map."
+            },
+            {
+                "id": "france-champion",
+                "name": "France Champion",
+                "description": "Win on the France map."
+            },
+            {
+                "id": "japan-champion",
+                "name": "Japan Champion",
+                "description": "Win on the Japan map."
+            },
+            {
+                "id": "brazil-champion",
+                "name": "Brazil Champion",
+                "description": "Win on the Brazil map."
+            },
+            {
+                "id": "spain-portugal-champion",
+                "name": "Spain & Portugal Champion",
+                "description": "Win on the Spain & Portugal map."
+            },
+            {
+                "id": "india-champion",
+                "name": "India Champion",
+                "description": "Win on the India map."
+            },
+            {
+                "id": "italy-champion",
+                "name": "Italy Champion",
+                "description": "Win on the Italy map."
+            },
+            {
+                "id": "quebec-champion",
+                "name": "Quebec Champion",
+                "description": "Win on the Quebec map."
+            },
+            {
+                "id": "middle-east-champion",
+                "name": "Middle East Champion",
+                "description": "Win on the Middle East map."
+            },
+            {
+                "id": "china-champion",
+                "name": "China Champion",
+                "description": "Win on the China map."
+            },
+            {
+                "id": "benelux-champion",
+                "name": "Benelux Champion",
+                "description": "Win on the Benelux map."
+            },
+            {
+                "id": "russia-champion",
+                "name": "Russia Champion",
+                "description": "Win on the Russia map."
+            },
+            {
+                "id": "central-europe-champion",
+                "name": "Central Europe Champion",
+                "description": "Win on the Central Europe map."
+            },
+            {
+                "id": "baden-wurttemberg-champion",
+                "name": "Baden-W\u00fcrttemberg Champion",
+                "description": "Win on the Baden-W\u00fcrttemberg map."
+            },
+            {
+                "id": "northern-europe-champion",
+                "name": "Northern Europe Champion",
+                "description": "Win on the Northern Europe map."
+            },
+            {
+                "id": "korea-champion",
+                "name": "Korea Champion",
+                "description": "Win on the Korea map."
+            },
+            {
+                "id": "europe-champion",
+                "name": "Europe Champion",
+                "description": "Win on the Europe map."
+            },
+            {
+                "id": "north-america-champion",
+                "name": "North America Champion",
+                "description": "Win on the North America map."
+            },
+            {
+                "id": "south-africa-champion",
+                "name": "South Africa Champion",
+                "description": "Win on the South Africa map."
+            },
+            {
+                "id": "uk-ireland-champion",
+                "name": "UK & Ireland Champion",
+                "description": "Win on the UK & Ireland map."
+            },
+            {
+                "id": "australia-champion",
+                "name": "Australia Champion",
+                "description": "Win on the Australia map."
+            },
+            {
+                "id": "bremen-champion",
+                "name": "Bremen Champion",
+                "description": "Win on the Bremen map."
+            },
+            {
+                "id": "manhattan-champion",
+                "name": "Manhattan Champion",
+                "description": "Win on the Manhattan map."
+            },
+            {
+                "id": "power-fifteen",
+                "name": "Power Fifteen",
+                "description": "Finish able to power at least 15 cities in your network."
+            },
+            {
+                "id": "power-eighteen",
+                "name": "Power Eighteen",
+                "description": "Finish able to power at least 18 cities in your network."
+            },
+            {
+                "id": "fully-supplied",
+                "name": "Fully Supplied",
+                "description": "Finish able to power every city in a network of at least 15 cities."
+            },
+            {
+                "id": "network-seventeen",
+                "name": "Network Seventeen",
+                "description": "Finish with at least 17 cities in your network."
+            },
+            {
+                "id": "network-twenty",
+                "name": "Network Twenty",
+                "description": "Finish with at least 20 cities in your network."
+            },
+            {
+                "id": "cash-reserve",
+                "name": "Cash Reserve",
+                "description": "Finish with at least 100 Elektro."
+            },
+            {
+                "id": "deep-reserves",
+                "name": "Deep Reserves",
+                "description": "Finish with at least 200 Elektro."
+            },
+            {
+                "id": "wind-farm",
+                "name": "Wind Farm",
+                "description": "Finish owning wind plants with a combined capacity of at least 8 cities."
+            },
+            {
+                "id": "atomic-power",
+                "name": "Atomic Power",
+                "description": "Finish owning uranium-fuelled power plants with a combined capacity of at least 8 cities. Australian uranium mines do not count."
+            }
+        ]
+    },
+    "verified": true,
+    "gitDelivery": {
+        "canonical": "https://github.com/boardgamers/powergrid",
+        "branch": "master",
+        "sourceCommit": "2f89876e712ccd3edc70683189057975cab6b521",
+        "approvedSourceContained": true,
+        "nonForcePush": true,
+        "unrelatedDrift": false,
+        "publicMirror": "Canonical GitHub is public; no separate required mirror workflow. Divergent contributor fork untouched."
+    }
+}

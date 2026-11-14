@@ -7,8 +7,9 @@ import { createAnalysisScenario } from './analysis';
 import { setup } from './engine';
 import GermanyRecharged from './fixtures/GermanyRecharged.json';
 import USAOriginal from './fixtures/USAOriginal.json';
-import { GameState, MapName, Phase, Player, PowerPlantType } from './gamestate';
+import { GameState, MapName, Phase, Player, PowerPlantType, Variant } from './gamestate';
 import { LogMove } from './log';
+import { maps, mapsRecharged } from './maps';
 
 const ids = [
     'grid-champion',
@@ -18,6 +19,26 @@ const ids = [
     'usa-champion',
     'france-champion',
     'japan-champion',
+    'brazil-champion',
+    'spain-portugal-champion',
+    'india-champion',
+    'italy-champion',
+    'quebec-champion',
+    'middle-east-champion',
+    'china-champion',
+    'benelux-champion',
+    'russia-champion',
+    'central-europe-champion',
+    'baden-wurttemberg-champion',
+    'northern-europe-champion',
+    'korea-champion',
+    'europe-champion',
+    'north-america-champion',
+    'south-africa-champion',
+    'uk-ireland-champion',
+    'australia-champion',
+    'bremen-champion',
+    'manhattan-champion',
     'power-fifteen',
     'power-eighteen',
     'fully-supplied',
@@ -29,10 +50,38 @@ const ids = [
     'atomic-power',
 ];
 
+// Independent explicit expectations: do not derive badge IDs from implementation slugs.
+const mapBadges: [MapName, string][] = [
+    ['Germany', 'germany-champion'],
+    ['USA', 'usa-champion'],
+    ['France', 'france-champion'],
+    ['Japan', 'japan-champion'],
+    ['Brazil', 'brazil-champion'],
+    ['Spain & Portugal', 'spain-portugal-champion'],
+    ['India', 'india-champion'],
+    ['Italy', 'italy-champion'],
+    ['Quebec', 'quebec-champion'],
+    ['Middle East', 'middle-east-champion'],
+    ['China', 'china-champion'],
+    ['Benelux', 'benelux-champion'],
+    ['Russia', 'russia-champion'],
+    ['Central Europe', 'central-europe-champion'],
+    ['Baden-Württemberg', 'baden-wurttemberg-champion'],
+    ['Northern Europe', 'northern-europe-champion'],
+    ['Korea', 'korea-champion'],
+    ['Europe', 'europe-champion'],
+    ['North America', 'north-america-champion'],
+    ['South Africa', 'south-africa-champion'],
+    ['UK & Ireland', 'uk-ireland-champion'],
+    ['Australia', 'australia-champion'],
+    ['Bremen', 'bremen-champion'],
+    ['Manhattan', 'manhattan-champion'],
+];
+
 // Deliberately synthetic final positions: setup supplies the complete state shape,
 // but these boundary tests do not claim their scores came from legal game play.
-function finalState(count = 2, map: MapName = 'Germany'): GameState {
-    const state = setup(count, { map }, 'achievement-boundaries');
+function finalState(count = 2, map: MapName = 'Germany', variant: Variant = 'original'): GameState {
+    const state = setup(count, { map, variant }, 'achievement-boundaries');
     state.phase = Phase.GameEnd;
     state.newTurn = true;
     state.currentPlayers = [];
@@ -63,11 +112,11 @@ function freezeDeep(value: unknown) {
 describe('achievements', function () {
     this.timeout(30000);
 
-    it('publishes all 16 stable IDs in a fresh revisioned manifest', () => {
+    it('publishes all 36 stable IDs in a fresh revisioned manifest', () => {
         const manifest = achievementDefinitions();
-        expect(manifest.revision).to.equal(1);
+        expect(manifest.revision).to.equal(2);
         expect(manifest.achievements.map((a) => a.id)).to.deep.equal(ids);
-        expect(new Set(ids).size).to.equal(16);
+        expect(new Set(ids).size).to.equal(36);
         manifest.achievements.forEach((a) => {
             expect(a.name).to.be.a('string').and.not.equal('');
             expect(a.description).to.be.a('string').and.not.equal('');
@@ -79,23 +128,48 @@ describe('achievements', function () {
         expect(wrapper.achievementDefinitions()).to.deep.equal(original);
     });
 
-    for (const map of ['Germany', 'USA', 'France', 'Japan'] as MapName[]) {
-        for (const count of [2, 6]) {
-            it(`awards only the ${map} and ${count}-seat win predicates to the winner`, () => {
-                const state = finalState(count, map);
-                state.players[1].citiesPowered = 1;
-                const expected = [
-                    'grid-champion',
-                    count === 2 ? 'head-to-head' : 'full-table',
-                    `${map.toLowerCase()}-champion`,
-                ];
-                expect(earned(state, 1)).to.deep.equal(expected);
-                expect(earned(state)).to.deep.equal([]);
-                expect(achievements(state).map((r) => r.outcome)).to.deep.equal(
-                    state.players.map((_, seat) => (seat === 1 ? 'win' : 'loss'))
-                );
-            });
+    for (const [variant, runtimeMaps] of [
+        ['original', maps],
+        ['recharged', mapsRecharged],
+    ] as const) {
+        it(`${variant} runtime maps exactly match the 24 supported badge names`, () => {
+            expect(mapBadges).to.have.length(24);
+            expect(new Set(mapBadges.map(([name]) => name)).size).to.equal(24);
+            expect(runtimeMaps.map((map) => map.name).sort()).to.deep.equal(mapBadges.map(([name]) => name).sort());
+        });
+
+        for (const [map, badge] of mapBadges) {
+            for (const count of [2, 6]) {
+                it(`awards only the ${map} (${variant}) and ${count}-seat win predicates to the winner`, () => {
+                    const state = finalState(count, map, variant);
+                    expect(state.map.name).to.equal(map);
+                    state.players[1].citiesPowered = 1;
+                    const expected = ['grid-champion', count === 2 ? 'head-to-head' : 'full-table', badge];
+                    expect(earned(state, 1)).to.deep.equal(expected);
+                    state.players.forEach((_, seat) => {
+                        if (seat !== 1) expect(earned(state, seat)).to.deep.equal([]);
+                    });
+                    expect(achievements(state).map((r) => r.outcome)).to.deep.equal(
+                        state.players.map((_, seat) => (seat === 1 ? 'win' : 'loss'))
+                    );
+                    // Requested options may be Random or stale; only the resolved map counts.
+                    state.options.map = 'Random';
+                    expect(earned(state, 1)).to.deep.equal(expected);
+                    state.options.map = map === 'Germany' ? 'USA' : 'Germany';
+                    expect(earned(state, 1)).to.deep.equal(expected);
+                });
+            }
         }
+    }
+
+    for (const unsupported of ['Atlantis', 'Random', 'toString', '__proto__']) {
+        it(`does not award a map badge for unsupported resolved map ${unsupported}`, () => {
+            const state = finalState();
+            state.map.name = unsupported as MapName;
+            state.players[0].citiesPowered = 1;
+            expect(earned(state)).to.deep.equal(['grid-champion', 'head-to-head']);
+            expect(earned(state, 1)).to.deep.equal([]);
+        });
     }
 
     for (const [id, field, threshold] of [
@@ -123,11 +197,17 @@ describe('achievements', function () {
     for (const [network, power, eligible] of [
         [9, 9, false],
         [10, 9, false],
-        [10, 10, true],
+        [10, 10, false],
         [10, 11, false],
-        [11, 11, true],
+        [14, 14, false],
+        [15, 14, false],
+        [15, 15, true],
+        [15, 16, false],
+        [16, 15, false],
+        [16, 16, true],
+        [16, 17, false],
     ] as const) {
-        it(`fully supplied requires at least ten cities and exact supply (${network}/${power})`, () => {
+        it(`fully supplied requires at least fifteen cities and exact supply (${network}/${power})`, () => {
             const state = finalState();
             cities(state.players[0], network);
             state.players[0].citiesPowered = power;
@@ -155,7 +235,10 @@ describe('achievements', function () {
         const state = finalState(2, 'Australia');
         state.players[0].powerPlants = [{ number: 50, type: PowerPlantType.Uranium, cost: 2, citiesPowered: 8 }];
         expect(earned(state)).not.to.include('atomic-power');
-        expect(earned(state).filter((id) => id.endsWith('-champion'))).to.deep.equal(['grid-champion']);
+        expect(earned(state).filter((id) => id.endsWith('-champion'))).to.deep.equal([
+            'grid-champion',
+            'australia-champion',
+        ]);
         for (const map of ['Australia', 'Germany'] as MapName[]) {
             const fusion = finalState(2, map);
             fusion.players[0].powerPlants = [{ number: 50, type: PowerPlantType.Nuclear, cost: 0, citiesPowered: 8 }];

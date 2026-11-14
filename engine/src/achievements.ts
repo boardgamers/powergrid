@@ -1,15 +1,45 @@
 import type { AchievementDefinition, AchievementManifest, SeatAchievements } from '@boardgamers/protocol/engine';
 import { ended, playersSortedByScore } from './engine';
-import { GameState, Player, PowerPlantType } from './gamestate';
+import { GameState, MapName, Player, PowerPlantType } from './gamestate';
+
+// Explicit stable IDs, not generated slugs. Match the resolved map name, never
+// the requested option (which may be Random). Original/Recharged share a badge.
+const mapAchievements: Record<MapName, string> = {
+    Germany: 'germany-champion',
+    USA: 'usa-champion',
+    France: 'france-champion',
+    Japan: 'japan-champion',
+    Brazil: 'brazil-champion',
+    'Spain & Portugal': 'spain-portugal-champion',
+    India: 'india-champion',
+    Italy: 'italy-champion',
+    Quebec: 'quebec-champion',
+    'Middle East': 'middle-east-champion',
+    China: 'china-champion',
+    Benelux: 'benelux-champion',
+    Russia: 'russia-champion',
+    'Central Europe': 'central-europe-champion',
+    'Baden-Württemberg': 'baden-wurttemberg-champion',
+    'Northern Europe': 'northern-europe-champion',
+    Korea: 'korea-champion',
+    Europe: 'europe-champion',
+    'North America': 'north-america-champion',
+    'South Africa': 'south-africa-champion',
+    'UK & Ireland': 'uk-ireland-champion',
+    Australia: 'australia-champion',
+    Bremen: 'bremen-champion',
+    Manhattan: 'manhattan-champion',
+};
 
 const definitions: AchievementDefinition[] = [
     { id: 'grid-champion', name: 'Grid Champion', description: 'Win a game of Power Grid.' },
     { id: 'head-to-head', name: 'Head to Head', description: 'Win a two-player game.' },
     { id: 'full-table', name: 'Full Table', description: 'Win a six-player game.' },
-    { id: 'germany-champion', name: 'Germany Champion', description: 'Win on the Germany map.' },
-    { id: 'usa-champion', name: 'USA Champion', description: 'Win on the USA map.' },
-    { id: 'france-champion', name: 'France Champion', description: 'Win on the France map.' },
-    { id: 'japan-champion', name: 'Japan Champion', description: 'Win on the Japan map.' },
+    ...Object.entries(mapAchievements).map(([map, id]) => ({
+        id,
+        name: `${map} Champion`,
+        description: `Win on the ${map} map.`,
+    })),
     {
         id: 'power-fifteen',
         name: 'Power Fifteen',
@@ -23,7 +53,7 @@ const definitions: AchievementDefinition[] = [
     {
         id: 'fully-supplied',
         name: 'Fully Supplied',
-        description: 'Finish able to power every city in a network of at least 10 cities.',
+        description: 'Finish able to power every city in a network of at least 15 cities.',
     },
     {
         id: 'network-seventeen',
@@ -48,7 +78,7 @@ const definitions: AchievementDefinition[] = [
 
 export function achievementDefinitions(): AchievementManifest {
     // A host may cache or modify its copy without changing future evaluations.
-    return { revision: 1, achievements: definitions.map((definition) => ({ ...definition })) };
+    return { revision: 2, achievements: definitions.map((definition) => ({ ...definition })) };
 }
 
 function tied(a: Player, b: Player): boolean {
@@ -81,17 +111,14 @@ export function achievements(data: GameState): SeatAchievements[] {
             earned.push('grid-champion');
             if (data.players.length === 2) earned.push('head-to-head');
             if (data.players.length === 6) earned.push('full-table');
-            const maps: Record<string, string> = {
-                Germany: 'germany-champion',
-                USA: 'usa-champion',
-                France: 'france-champion',
-                Japan: 'japan-champion',
-            };
-            if (maps[data.map.name]) earned.push(maps[data.map.name]);
+            const mapAchievement = Object.prototype.hasOwnProperty.call(mapAchievements, data.map.name)
+                ? mapAchievements[data.map.name as MapName]
+                : undefined;
+            if (mapAchievement) earned.push(mapAchievement);
         }
         if (player.citiesPowered >= 15) earned.push('power-fifteen');
         if (player.citiesPowered >= 18) earned.push('power-eighteen');
-        if (player.cities.length >= 10 && player.citiesPowered === player.cities.length) earned.push('fully-supplied');
+        if (player.cities.length >= 15 && player.citiesPowered === player.cities.length) earned.push('fully-supplied');
         if (player.cities.length >= 17) earned.push('network-seventeen');
         if (player.cities.length >= 20) earned.push('network-twenty');
         if (player.money >= 100) earned.push('cash-reserve');

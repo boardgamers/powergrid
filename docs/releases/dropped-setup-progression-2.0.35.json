@@ -1,0 +1,45 @@
+{
+    "game": "powergrid",
+    "gameVersion": 13,
+    "publishedAt": "2026-11-14T18:19:49.549Z",
+    "engine": {
+        "package": {
+            "name": "powergrid-engine",
+            "version": "2.0.35",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/engine/910f3441acd04344/powergrid-engine-2.0.35.tgz"
+        },
+        "entryPoint": "dist/wrapper.js",
+        "version": "2.0.35",
+        "sha256": "910f3441acd04344623cc7bb7ddf445d78bb82ffd46c6da7c848a7185783fa72",
+        "bytes": 412162
+    },
+    "previousEngine": {
+        "package": {
+            "name": "powergrid-engine",
+            "version": "2.0.34",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/engine/ffabbfcb33d1d2b0/powergrid-engine-2.0.34.tgz"
+        },
+        "entryPoint": "dist/wrapper.js"
+    },
+    "changes": [
+        "Approved dropped-player setup progression and regression tests; reviewed implementation unchanged."
+    ],
+    "verification": {
+        "engineTests": 730,
+        "engineBuild": true,
+        "engineLint": true,
+        "localizationTests": 8,
+        "achievementManifestRevision": 3,
+        "achievementDefinitions": 36,
+        "packedArtifactInstalled": true,
+        "packedAchievementSchemaAndTwoReplayFixtures": true,
+        "packedSourceTestsAndCompiledWrapperMatch": true,
+        "productionMetadataActivated": true,
+        "publicTarballHash": true,
+        "unchangedNonEngineMetadata": true,
+        "noGameMutations": true,
+        "reviewedWrapperSha256": "e62735b2c3b211764a74357ae44efd86652e26367acc4d098605b316b709e893",
+        "reviewedTestsSha256": "e6635bd1209d2f5879c919ba01d2d1d80b5f02799137fa7d3ad0d12f1709d2e0"
+    },
+    "verified": true
+}

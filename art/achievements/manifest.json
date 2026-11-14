@@ -3,7 +3,8 @@
   "engine": "2.0.34",
   "revision": 3,
   "provenance": "PROVENANCE.md",
-  "generatorSha256": "e6bd36bb0f24e0b621b318967323d2bcc812fc441439aa9e3d2f271cdab56de4",
+  "framingSha256": "516883e4548988a28caf6c7cf1902090881700d77276c51e11c40140bb9178cf",
+  "generatorSha256": "147ac3464fe309461fd9efff3d1f9b31a2b11f424ed0dd820a0689b3bc52b78d",
   "assets": [
     {
       "id": "grid-champion",
@@ -37,216 +38,696 @@
       "key": "achievement-germany-champion",
       "svg": "achievement-germany-champion.svg",
       "png": "achievement-germany-champion.png",
-      "sha256": "dd697ea2121f7e8d96d6bf443594a683c49f4b87be8265516f22a8155d50d24d",
-      "source": "viewer/src/geography/assets/germany.json",
-      "sourceSha256": "89721df979abf3e483860ab2a902abea0587b4554390056b7cb1388d882cbf2d"
+      "sha256": "8a4ca7ce42ac435ab5a71ddff53d257d40f22667676e72dc761fff1bf1e321ad",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "germany",
+      "framing": {
+        "window": [
+          5,
+          47,
+          16,
+          56
+        ],
+        "reason": "Germany mainland; omit subpixel coastal islets.",
+        "components": 2,
+        "bounds": [
+          34.835902336316224,
+          31.0,
+          93.16409766368379,
+          109.0
+        ],
+        "principalSpan": 78.0,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "usa-champion",
       "key": "achievement-usa-champion",
       "svg": "achievement-usa-champion.svg",
       "png": "achievement-usa-champion.png",
-      "sha256": "32bbd176b1c157e1acbf75d44e94da34fe16bc2e8c0af3beec71bf6d30caad53",
-      "source": "viewer/src/geography/assets/america.json",
-      "sourceSha256": "edd660ef3ba8bcb1727138a5ae7746e170a91751d16f31b4dfb49413b726c3a0"
+      "sha256": "748cfce134b84371b39d44537e641e3effb53bf8675317074d9497f7981aafaa",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "america",
+      "framing": {
+        "window": [
+          -125,
+          24,
+          -66,
+          50
+        ],
+        "reason": "Contiguous USA; omit Alaska, Hawaii and overseas islands.",
+        "components": 1,
+        "bounds": [
+          19.0,
+          46.70935226864694,
+          108.99999999999999,
+          93.29064773135306
+        ],
+        "principalSpan": 89.99999999999999,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "france-champion",
       "key": "achievement-france-champion",
       "svg": "achievement-france-champion.svg",
       "png": "achievement-france-champion.png",
-      "sha256": "0d701aa10f9eaf85dedb87d3e82969e9b78323dea8a99d14e878affbac917bb4",
-      "source": "viewer/src/geography/assets/france.json",
-      "sourceSha256": "3732ae05a0f8f9bda3d11b6b8370acc389aaf39eb00a8bb51d2c51ebd6a2a9ea"
+      "sha256": "e867f91c436ac53ba4451fae4b462aacf344f549721e60d0bc0660e699044fa3",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "france",
+      "framing": {
+        "window": [
+          -6,
+          41,
+          10,
+          52
+        ],
+        "reason": "Metropolitan France including Corsica; omit overseas departments.",
+        "components": 2,
+        "bounds": [
+          24.420536641730266,
+          31.0,
+          103.57946335826973,
+          109.0
+        ],
+        "principalSpan": 71.33027836365183,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "japan-champion",
       "key": "achievement-japan-champion",
       "svg": "achievement-japan-champion.svg",
       "png": "achievement-japan-champion.png",
-      "sha256": "4ded8fc20e09fe89356cd75414a960269c3c1f5982d16f22415669b6f5233c8b",
-      "source": "viewer/src/geography/assets/japan.json",
-      "sourceSha256": "e4f409b11081387332f0689ea36ea84643db4ec76d659e357b46f73d85b8678d"
+      "sha256": "c059d6a7f8e682be2bc6d27b8e7ff15708aad65827e3089c106301706332d86a",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "japan",
+      "framing": {
+        "window": [
+          128,
+          30,
+          146,
+          46
+        ],
+        "reason": "Four main islands in true geographic positions; omit remote Ryukyu/Bonin chain.",
+        "components": 5,
+        "bounds": [
+          29.53893831658695,
+          30.99999999999997,
+          98.46106168341305,
+          108.99999999999997
+        ],
+        "principalSpan": 47.08718853681398,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "brazil-champion",
       "key": "achievement-brazil-champion",
       "svg": "achievement-brazil-champion.svg",
       "png": "achievement-brazil-champion.png",
-      "sha256": "6c29ba9d63bb46fba009b204113eb5c6b9332969305a581d4df3c1b5318bb697",
-      "source": "viewer/src/geography/assets/brazil.json",
-      "sourceSha256": "b842bd387cfb180f3a8c0e00956e6ca7f0a7412415b42b608a5a6dde98fcef5d"
+      "sha256": "2bf10eb1d65b6d5816a1867b4574fa972c3916178dd0492e70f227b16bf982a6",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "brazil",
+      "framing": {
+        "window": [
+          -75,
+          -35,
+          -34,
+          6
+        ],
+        "reason": "Continental Brazil; omit subpixel offshore islands.",
+        "components": 2,
+        "bounds": [
+          26.052064660338488,
+          31.0,
+          101.9479353396615,
+          109.0
+        ],
+        "principalSpan": 78.0,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "spain-portugal-champion",
       "key": "achievement-spain-portugal-champion",
       "svg": "achievement-spain-portugal-champion.svg",
       "png": "achievement-spain-portugal-champion.png",
-      "sha256": "fd5d5ca0b3da8f913053ebe07944b86494a110f5947e0bfd861670de82f8b3f1",
-      "source": "viewer/src/geography/assets/spainportugal.json",
-      "sourceSha256": "6725ac815b06dd76bbe74698fb6eb5605bb9de9131bd0981da09b7537b69935e"
+      "sha256": "9d007b273a9dab0b414bc40ebfa0342d5aa824bb1321592d833ddb76a4bbc7da",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "spainportugal",
+      "framing": {
+        "window": [
+          -10,
+          35.5,
+          4.5,
+          44.5
+        ],
+        "reason": "Iberian mainland and Balearics; omit Azores, Madeira and Canaries.",
+        "components": 2,
+        "bounds": [
+          19.0,
+          34.87341940813985,
+          109.0,
+          105.12658059186015
+        ],
+        "principalSpan": 88.92153429511391,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "india-champion",
       "key": "achievement-india-champion",
       "svg": "achievement-india-champion.svg",
       "png": "achievement-india-champion.png",
-      "sha256": "d8deebc8234ea161488dc2450dd794797bef7250f74cd62688a4152fd337d94c",
-      "source": "viewer/src/geography/assets/indian.json",
-      "sourceSha256": "f5c8796af2520f3d6bc3419127564bc8c40ae21d455ebb5d37159c76e7c81eda"
+      "sha256": "8d7e698b03caf910918448d134c81e21d8a40730c94577850c8721f55dbccaa4",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "indian",
+      "framing": {
+        "window": [
+          67,
+          6,
+          98,
+          37.5
+        ],
+        "reason": "Indian mainland; omit Andaman/Nicobar and Lakshadweep islets.",
+        "components": 1,
+        "bounds": [
+          25.455716877099206,
+          31.0,
+          102.5442831229008,
+          109.0
+        ],
+        "principalSpan": 78.0,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "italy-champion",
       "key": "achievement-italy-champion",
       "svg": "achievement-italy-champion.svg",
       "png": "achievement-italy-champion.png",
-      "sha256": "53dc0da4fa39b8cb80c541412b710b3f0bdf3fc7f25b6d40bb9965ad2506f595",
-      "source": "viewer/src/geography/assets/italy.json",
-      "sourceSha256": "1a2ceed78d288bc32e1ff9584ee873229cfd9ad8c007f68d67e7f2148ac175eb"
+      "sha256": "914e32cf112a5d40d181678168a23dd88767239e50ab7a13ce59e2be8cc59058",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "italy",
+      "framing": {
+        "window": [
+          6,
+          36,
+          19,
+          48
+        ],
+        "reason": "Peninsula, Sicily and Sardinia; omit subpixel islets.",
+        "components": 3,
+        "bounds": [
+          30.93574898974454,
+          30.999999999999943,
+          97.06425101025548,
+          108.99999999999994
+        ],
+        "principalSpan": 68.61032449844811,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "quebec-champion",
       "key": "achievement-quebec-champion",
       "svg": "achievement-quebec-champion.svg",
       "png": "achievement-quebec-champion.png",
-      "sha256": "5e5b12fea992c8be77521c977eff33c2d1a80d7726676ab91d8b55fdcb9a0f94",
-      "source": "viewer/src/geography/assets/quebec.json",
-      "sourceSha256": "7893d44b29cf95221f000fda15844ccbd22311dce2829af56de07f58c5f32bb1"
+      "sha256": "579ec414b3d0ff282364ae3f57df8fadcdb37a938e7569e118a79147d32ec502",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "quebec",
+      "framing": {
+        "window": [
+          -81,
+          44,
+          -57,
+          63
+        ],
+        "reason": "Whole Quebec mainland, not just the southern city corridor.",
+        "components": 3,
+        "bounds": [
+          34.116265742653326,
+          31.000000000000057,
+          93.88373425734667,
+          109.00000000000006
+        ],
+        "principalSpan": 77.01887793405268,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "middle-east-champion",
       "key": "achievement-middle-east-champion",
       "svg": "achievement-middle-east-champion.svg",
       "png": "achievement-middle-east-champion.png",
-      "sha256": "09d54c6076b9519bcf171f33b71f562b3b99c75802384b6e54c13b3fea2b0e3c",
-      "source": "viewer/src/geography/assets/middleeast.json",
-      "sourceSha256": "0fe08b50e669cfdefbc7fbd034b30f64231d03eb94f48eb6e84a923c6436b2cd"
+      "sha256": "d36535d1f4c1366fc7a37d0c1769ff901a6c14ac0f55761d6bdcca8b5315b4b6",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "middleeast",
+      "framing": {
+        "window": [
+          33,
+          12,
+          64,
+          40
+        ],
+        "reason": "Authored Middle East country union; omit distant/subpixel islands.",
+        "components": 1,
+        "bounds": [
+          26.43540406348383,
+          31.0,
+          101.56459593651616,
+          109.00000000000001
+        ],
+        "principalSpan": 78.00000000000001,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "china-champion",
       "key": "achievement-china-champion",
       "svg": "achievement-china-champion.svg",
       "png": "achievement-china-champion.png",
-      "sha256": "78d7ba2760ad5d7b28e6b31bec26ce3596ea6b286a758e9c82630a04ffe8e65a",
-      "source": "viewer/src/geography/assets/china.json",
-      "sourceSha256": "b0b8731f978a0edf6ebf0101f3d5facd52f298225aded9ac1c713d73f7a6ab11"
+      "sha256": "5ed145365c7cfedf55ab17424a370b40bc05366c5bd7c96ae759ff5679ba27ad",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "china",
+      "framing": {
+        "window": [
+          73,
+          18,
+          135.5,
+          54
+        ],
+        "reason": "Mainland and Hainan from curated active geometry.",
+        "components": 2,
+        "bounds": [
+          18.999999999999986,
+          37.85393691291986,
+          108.99999999999997,
+          102.14606308708011
+        ],
+        "principalSpan": 89.99999999999999,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "benelux-champion",
       "key": "achievement-benelux-champion",
       "svg": "achievement-benelux-champion.svg",
       "png": "achievement-benelux-champion.png",
-      "sha256": "4d00b10ed67c21d5c3602d5028e1d76403a4d517be315fed6d37512cb471eb9f",
-      "source": "viewer/src/geography/assets/benelux.json",
-      "sourceSha256": "293834f1fedaa3ad47826492198f9fe2479db9e08b229c817a8601d66af6b105"
+      "sha256": "05947708c2e8abf1023e47bf53b8573ad2ca5d1637cb254008be512fb34f1a64",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "benelux",
+      "framing": {
+        "window": [
+          2,
+          49,
+          8,
+          54
+        ],
+        "reason": "Belgium, Netherlands and Luxembourg union; omit subpixel islets.",
+        "components": 2,
+        "bounds": [
+          35.610506554103466,
+          31.0,
+          92.38949344589653,
+          109.0
+        ],
+        "principalSpan": 78.0,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "russia-champion",
       "key": "achievement-russia-champion",
       "svg": "achievement-russia-champion.svg",
       "png": "achievement-russia-champion.png",
-      "sha256": "f0600ef87d1dfee62aa340f066f249a4bfffdef285bc15de439e9d98154f4068",
-      "source": "viewer/src/geography/assets/russia.json",
-      "sourceSha256": "282d78564b601d5508cd91a8ed1ba03d22b83e6cf9fa11457690012245df6b42"
+      "sha256": "452e058d9bdf5e4b31aed01ff8e5c149246879ff3afaeb900800ee22d8ef01d1",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "russia",
+      "framing": {
+        "window": [
+          19,
+          40,
+          180,
+          78
+        ],
+        "reason": "Russian mainland to Bering Strait; omit dateline fragments and Arctic archipelagos below size cutoff.",
+        "components": 4,
+        "bounds": [
+          19.0,
+          49.09781316245963,
+          109.0,
+          90.90218683754038
+        ],
+        "principalSpan": 90.0,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "central-europe-champion",
       "key": "achievement-central-europe-champion",
       "svg": "achievement-central-europe-champion.svg",
       "png": "achievement-central-europe-champion.png",
-      "sha256": "33369762e9e758a352f452b3f771570ba44938b629570fa49fcca1d5bd85612d",
-      "source": "viewer/src/geography/assets/centraleurope.json",
-      "sourceSha256": "4af68efdf1049483243dbfd847c58f933598f0bcd8f51097a2328002b1f9c24f"
+      "sha256": "69fb5383e7e6964545d2b84bc04ce2d439e180a37e5f68c1caca40e41f7ce088",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "centraleurope",
+      "framing": {
+        "window": [
+          9,
+          45,
+          25,
+          56
+        ],
+        "reason": "Complete authored Central Europe country union.",
+        "components": 1,
+        "bounds": [
+          24.194114918934005,
+          31.0,
+          103.805885081066,
+          109.0
+        ],
+        "principalSpan": 79.61177016213199,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "baden-wurttemberg-champion",
       "key": "achievement-baden-wurttemberg-champion",
       "svg": "achievement-baden-wurttemberg-champion.svg",
       "png": "achievement-baden-wurttemberg-champion.png",
-      "sha256": "3113933fd89db37bc7cc7c1258293111db8ccfd2a4eb257a04fcbddbd1690e25",
-      "source": "viewer/src/geography/assets/badenwurttemberg.json",
-      "sourceSha256": "c9a50f803051b7977b0aef8498b557d54dc7505714457f1eb84fe6f83d4b7c42"
+      "sha256": "4514f86a556184a2ed2e55fad7f7d0989f729fd9165d3131355cfe58ad2c852b",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "badenwurttemberg",
+      "framing": {
+        "window": [
+          7,
+          47,
+          11,
+          50
+        ],
+        "reason": "Complete Baden-Wuerttemberg provincial outline.",
+        "components": 1,
+        "bounds": [
+          29.756681856657053,
+          31.0,
+          98.24331814334295,
+          109.0
+        ],
+        "principalSpan": 78.0,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "northern-europe-champion",
       "key": "achievement-northern-europe-champion",
       "svg": "achievement-northern-europe-champion.svg",
       "png": "achievement-northern-europe-champion.png",
-      "sha256": "de219278a0532c876690e53fb6dc312b22400720a71f9139401e2a9723027b1a",
-      "source": "viewer/src/geography/assets/northerneurope.json",
-      "sourceSha256": "7a1397b3d85a37f7337cfae32634b639e8df4124efeae6c7e4ab5d77ccf9a4b6"
+      "sha256": "e354b7ea72e28e7c8b194ec8a974d4dbec7d41c381fede6dde9500274d25c47e",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "northerneurope",
+      "framing": {
+        "window": [
+          3,
+          53,
+          33,
+          72
+        ],
+        "reason": "Scandinavian/Baltic mainland and major Danish islands; omit Svalbard and remote Arctic islands.",
+        "components": 5,
+        "bounds": [
+          36.120024149694316,
+          31.0,
+          91.8799758503057,
+          109.0
+        ],
+        "principalSpan": 71.40828219467693,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "korea-champion",
       "key": "achievement-korea-champion",
       "svg": "achievement-korea-champion.svg",
       "png": "achievement-korea-champion.png",
-      "sha256": "3b1bb677bf56b4d177b9622270d3c4a5442b6b3da361453346d1c910073004a1",
-      "source": "viewer/src/geography/assets/korea.json",
-      "sourceSha256": "55365e5a87d259e4450b5bf5b7f5806fe5c7b2ff75a95eadc69e7a0ab01b8c94"
+      "sha256": "7be4b478360ed403271c56ddb21d2bf87edc23667562785869f284dac001c6cc",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "korea",
+      "framing": {
+        "window": [
+          124,
+          32.7,
+          132,
+          44
+        ],
+        "reason": "Korean peninsula and Jeju; omit subpixel islets.",
+        "components": 2,
+        "bounds": [
+          44.210606937883085,
+          30.999999999999943,
+          83.78939306211714,
+          108.99999999999994
+        ],
+        "principalSpan": 69.1404204159573,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "europe-champion",
       "key": "achievement-europe-champion",
       "svg": "achievement-europe-champion.svg",
       "png": "achievement-europe-champion.png",
-      "sha256": "78cb5d6abeffcce8c5ada1c8ea598cc2a0813c0911ae5d346e41b2a7fcbf4904",
-      "source": "viewer/src/geography/assets/europe.json",
-      "sourceSha256": "d7d3ffa09315bc6a02924cef0f2ce72c8bc4da08eedecbba4676a5ea3b01d8db"
+      "sha256": "df966881960e9bab841a7e5878bca6ecd7b7045afacf3e2a31f0bd72cf1fd33e",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "europe",
+      "framing": {
+        "window": [
+          -12,
+          34,
+          45,
+          72
+        ],
+        "reason": "European mainland to 45E plus Britain/Ireland and major Mediterranean islands; omit overseas territories and remote Arctic islands.",
+        "components": 4,
+        "bounds": [
+          27.129400518187254,
+          31.0,
+          100.87059948181275,
+          109.00000000000001
+        ],
+        "principalSpan": 77.56977502806025,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "north-america-champion",
       "key": "achievement-north-america-champion",
       "svg": "achievement-north-america-champion.svg",
       "png": "achievement-north-america-champion.png",
-      "sha256": "87f361c5d873714fa6afa69cf4312cadbf614762f466a20b8f2207aa77eba363",
-      "source": "viewer/src/geography/assets/northamerica.json",
-      "sourceSha256": "20987d660b364fcd91ed4fdcf968c82514c77dd59410fdfc285750334c2f2e91"
+      "sha256": "d48288f43cf82c8fd8f3afbdf6b719868c9ca5f3d1a8f3c5dfcbf911d5503219",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "northamerica",
+      "framing": {
+        "window": [
+          -169,
+          7,
+          -52,
+          75
+        ],
+        "reason": "Continental North America including Alaska, Canada and Mexico; omit Hawaii and far Arctic islands.",
+        "components": 7,
+        "bounds": [
+          19.00000000000003,
+          39.008304392988876,
+          109.00000000000001,
+          100.99169560701114
+        ],
+        "principalSpan": 87.64609211975629,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "south-africa-champion",
       "key": "achievement-south-africa-champion",
       "svg": "achievement-south-africa-champion.svg",
       "png": "achievement-south-africa-champion.png",
-      "sha256": "439e2b88b0fa61d126981d78467eb006ca097902b77b4c0b825dd99cbbe366b3",
-      "source": "viewer/src/geography/assets/southafrica.json",
-      "sourceSha256": "b0ee35ed103a63536ae8c3d103df11f6f9cc45d0e8590a19e928c2c678299c58"
+      "sha256": "0e188cf53c6b620494396e6b8e563a9aa618c68495f0612ba39f2fdf186a8042",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "southafrica",
+      "framing": {
+        "window": [
+          16,
+          -35,
+          33,
+          -22
+        ],
+        "reason": "South African mainland; omit remote Prince Edward islands.",
+        "components": 1,
+        "bounds": [
+          19.42421769205974,
+          31.0,
+          108.57578230794024,
+          109.0
+        ],
+        "principalSpan": 89.1515646158805,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "uk-ireland-champion",
       "key": "achievement-uk-ireland-champion",
       "svg": "achievement-uk-ireland-champion.svg",
       "png": "achievement-uk-ireland-champion.png",
-      "sha256": "c179250e1c7e42ccc319f2e29bf5b6ff3f1f38cc468937145ca0dc7797a00a44",
-      "source": "viewer/src/geography/assets/ukireland.json",
-      "sourceSha256": "80a9e87eac813c4d4aff587156423f729d63aad4c9ade3bab3de6e72887b7077"
+      "sha256": "a8159a2469e9e3734beb9faeffe773e11611d332560ffaf4ccfdcd84f5436393",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "ukireland",
+      "framing": {
+        "window": [
+          -11,
+          49,
+          2,
+          61
+        ],
+        "reason": "Great Britain and Ireland, with larger coastal islands.",
+        "components": 6,
+        "bounds": [
+          38.3587473764662,
+          31.0,
+          89.6412526235338,
+          109.0
+        ],
+        "principalSpan": 63.564429704322265,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "australia-champion",
       "key": "achievement-australia-champion",
       "svg": "achievement-australia-champion.svg",
       "png": "achievement-australia-champion.png",
-      "sha256": "606e931fe96c68636e130ac1f0650a9e1098949b5df659d5bb4cc15f9c164e89",
-      "source": "viewer/src/geography/assets/australia.json",
-      "sourceSha256": "233502d3596c31039ca37152606043ee50cb94b2e13133887210b0536ef07b3e"
+      "sha256": "82a49b58805874ba955b553036b59de7d12bd9925db88f2ec1e6441948b308ef",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "australia",
+      "framing": {
+        "window": [
+          112,
+          -44,
+          154,
+          -10
+        ],
+        "reason": "Australian mainland and Tasmania; omit external Indian/Pacific Ocean territories.",
+        "components": 2,
+        "bounds": [
+          21.301965553771794,
+          30.999999999999996,
+          106.69803444622823,
+          109.0
+        ],
+        "principalSpan": 85.39606889245644,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "bremen-champion",
       "key": "achievement-bremen-champion",
       "svg": "achievement-bremen-champion.svg",
       "png": "achievement-bremen-champion.png",
-      "sha256": "6938150dadac2e7ab1c076fc5a3fa68c1a4bfe63cf4b43f94550289f5216cdb1",
-      "source": "viewer/src/geography/assets/bremen.json",
-      "sourceSha256": "2cbb06876a0585c3b655946e0b14d6302ea73b4958cdbb7f92772848d2f0433d"
+      "sha256": "044af0a3fde416f56cdd98985ebc01b61ee2cecb09047153957afc3057eb7ee3",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "bremen",
+      "framing": {
+        "window": [
+          8.4,
+          52.98,
+          9.03,
+          53.27
+        ],
+        "reason": "Bremen city component; omit detached Bremerhaven to preserve city silhouette.",
+        "components": 1,
+        "bounds": [
+          19.000000000000227,
+          39.40572459649047,
+          109.00000000000023,
+          100.59427540350589
+        ],
+        "principalSpan": 90.0,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "manhattan-champion",
       "key": "achievement-manhattan-champion",
       "svg": "achievement-manhattan-champion.svg",
       "png": "achievement-manhattan-champion.png",
-      "sha256": "9e4e59b90a8b255d9abd2ebc8bc714161bd4b16914a00284b21361ae816ef3b9",
-      "source": "viewer/src/geography/assets/manhattan.json",
-      "sourceSha256": "900b98da9feff3de4a15809e884d8c34dc54f6c1a1d7bdc9093822dd4df09a21"
+      "sha256": "fbeaed8202273bbdf0af462d8cd355d854e0ba105c7686a65112d75847f5614f",
+      "source": "viewer/scripts/geography/source.json",
+      "sourceSha256": "02b58fe735a1fd1a3ffe70f32c80f4dbdf03ad6f9f134782700e482e3945700d",
+      "map": "manhattan",
+      "framing": {
+        "window": [
+          -74.025,
+          40.68,
+          -73.9,
+          40.885
+        ],
+        "reason": "Manhattan main island; omit tiny detached borough islets.",
+        "components": 5,
+        "bounds": [
+          46.17980717212049,
+          31.0,
+          81.82019282787587,
+          109.0
+        ],
+        "principalSpan": 70.73096591536705,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003
+      }
     },
     {
       "id": "power-fifteen",
@@ -271,7 +752,7 @@
       "key": "achievement-fully-supplied",
       "svg": "achievement-fully-supplied.svg",
       "png": "achievement-fully-supplied.png",
-      "sha256": "17824df4a3ccd9cae4860688fa9af7228623efb7c91423c73537df169f5a2ff6",
+      "sha256": "535d7190ec37a617df130fa32401ea223fa68b17c4358b5ffa23f6ee6a752540",
       "source": null,
       "sourceSha256": null
     },

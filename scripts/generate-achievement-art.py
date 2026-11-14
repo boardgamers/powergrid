@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Offline achievement exports. Requires CairoSVG 2.9.1 and Pillow 13.0.0."""
+"""Offline achievement exports. Requires CairoSVG 2.9.1, Pillow 13.0.0, Shapely 2.1.2."""
 import hashlib
 import json
 import math
-import re
+import runpy
 from pathlib import Path
 import cairosvg
 from PIL import Image, ImageDraw
@@ -13,6 +13,7 @@ OUT = ROOT / 'art/achievements'
 OUT.mkdir(parents=True, exist_ok=True)
 GOLD, INK, BLUE, WHITE = '#ffcf66', '#102b3b', '#65d4d1', '#f4f5de'
 BASE = json.loads((ROOT / 'docs/releases/achievements-2.0.33.json').read_text())['achievementManifest']
+FRAMING = runpy.run_path(str(ROOT / 'scripts/achievement-map-framing.py'))
 MAPS = dict(zip([d['id'] for d in BASE['achievements'][3:27]], ['germany','america','france','japan','brazil','spainportugal','indian','italy','quebec','middleeast','china','benelux','russia','centraleurope','badenwurttemberg','northerneurope','korea','europe','northamerica','southafrica','ukireland','australia','bremen','manhattan']))
 def path(d, fill=BLUE, stroke=INK, width=2):
     return f'<path d="{d}" fill="{fill}" stroke="{stroke}" stroke-width="{width}" stroke-linejoin="round" stroke-linecap="round"/>'
@@ -34,18 +35,9 @@ def notes(x,y):
     return f'<g transform="translate({x} {y})">'+path('M-24,-13 H24 V13 H-24 Z',BLUE)+path('M-18,-7 H18 V7 H-18 Z','none',INK,1.5)+bolt(0,0,.65)+'</g>'
 def motif(id):
     if id in MAPS:
-        source=ROOT / f'viewer/src/geography/assets/{MAPS[id]}.json'
-        geo=json.loads(source.read_text())
-        coords=[tuple(map(float,p)) for d in geo['land'] for p in re.findall(r'(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)',d)]
-        xs,ys=zip(*coords); minx,maxx,miny,maxy=min(xs),max(xs),min(ys),max(ys)
-        scale=min(84/(maxx-minx),74/(maxy-miny)); tx=64-(minx+maxx)/2*scale; ty=65-(miny+maxy)/2*scale
-        body=f'<g transform="translate({tx} {ty}) scale({scale})">'+''.join(path(d,BLUE,WHITE,1/scale) for d in geo['land'])+'</g>'
-        # Representative city anchors remain in their actual source positions.
-        cities=geo['cities']; picked=[cities[round(i*(len(cities)-1)/3)] for i in range(4)]
-        points=[(x*scale+tx,y*scale+ty) for _,x,y in picked]
-        body+=''.join(line(a,b,INK,1.5) for a,b in zip(points,points[1:]))
-        body+=''.join(f'<circle cx="{x}" cy="{y}" r="2.7" fill="{GOLD}" stroke="{INK}" stroke-width="1"/>' for x,y in points)
-        return body+crown(64,21), str(source.relative_to(ROOT))
+        paths, _ = FRAMING['framed_map'](MAPS[id])
+        body=''.join(path(d,BLUE,WHITE,1.25) for d in paths)
+        return body+crown(64,21), FRAMING['SOURCE']
     if id=='grid-champion':
         return crown()+path('M64,38 L46,91 M64,38 L82,91 M49,58 H79 M44,73 H84 M55,62 L75,84 M73,62 L53,84','none',BLUE,4)+house(33,85,.8,True)+house(95,85,.8,True),None
     if id=='head-to-head':
@@ -59,7 +51,7 @@ def motif(id):
         body=plant(64,44)+''.join(line((64,57),(x,y),GOLD,3)+house(x,y,.8,True) for x,y in points)
         if id=='power-eighteen':
             body=plant(43,40)+plant(85,40)+''.join(line((43 if i<2 else 85,53),(x,y),GOLD,3)+house(x,y,.8,True) for i,(x,y) in enumerate(points))
-        if id=='fully-supplied': body=path('M31,44 A38,38 0 1 0 96,44','none',BLUE,3)+body
+        if id=='fully-supplied': body=path('M25,39 A45,45 0 1 0 103,39','none',BLUE,5)+body
         return body+label({'power-fifteen':'15','power-eighteen':'18','fully-supplied':'15+'}[id]),None
     if id.startswith('network-'):
         pts=[(35,43),(77,39),(94,67),(65,79),(30,76)]
@@ -79,7 +71,11 @@ for definition in BASE['achievements']:
     (OUT/(key+'.svg')).write_text(svg+'\n')
     cairosvg.svg2png(bytestring=svg.encode(),write_to=str(OUT/(key+'.png')))
     manifest.append(dict(id=id,key=key,svg=key+'.svg',png=key+'.png',sha256=hashlib.sha256((OUT/(key+'.png')).read_bytes()).hexdigest(),source=source,sourceSha256=hashlib.sha256((ROOT/source).read_bytes()).hexdigest() if source else None))
-(OUT/'manifest.json').write_text(json.dumps(dict(game='powergrid',engine='2.0.34',revision=3,provenance='PROVENANCE.md',generatorSha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),assets=manifest),indent=2)+'\n')
+for item in manifest:
+    if item['id'] in MAPS:
+        item['map'] = MAPS[item['id']]
+        item['framing'] = FRAMING['framed_map'](item['map'])[1]
+(OUT/'manifest.json').write_text(json.dumps(dict(game='powergrid',engine='2.0.34',revision=3,provenance='PROVENANCE.md',framingSha256=hashlib.sha256((ROOT/'scripts/achievement-map-framing.py').read_bytes()).hexdigest(),generatorSha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),assets=manifest),indent=2)+'\n')
 # Actual raster exports composited at display sizes, not enlarged SVG screenshots.
 for size in [32,48,64]:
     sheet=Image.new('RGB',(960,6*(size+55)*2),'#eef1f3'); draw=ImageDraw.Draw(sheet)

@@ -237,6 +237,9 @@ export function setup(
     if (chosenMap.name == 'Chile' && chosenDeck !== 'standard') {
         throw new Error('Chile is built for the standard power plant deck only');
     }
+    if (chosenMap.name == 'Chile' && randomizeMap) {
+        throw new Error('Chile cannot be played on a randomized map: its gates and grids belong to its own board');
+    }
 
     let actualMarket: PowerPlant[];
     let futureMarket: PowerPlant[];
@@ -2329,7 +2332,8 @@ export function reconstructState(gameState: GameState, to?: number, _forcePublic
 
     if (gameState.seed == 'secret') {
         if (gameState.knownPowerPlantDeck) {
-            G.map = gameState.map;
+            // Chile: the live map may already have its gates open, but the replay starts before Step 3.
+            G.map = closeChileGates(gameState.map);
             G.blockedCities = gameState.blockedCities?.slice();
             G.powerPlantsDeck = cloneDeep(gameState.knownPowerPlantDeck);
             // Split sizes must match the map's setup, not the standard 4+4: Russia
@@ -2934,6 +2938,21 @@ export function applyAustraliaStep3Shift(G: GameState) {
  *    catalogue object is touched.
  * Runs once (the North market is gone afterwards), so it is safe at every Step 3 entry.
  */
+/** Chile: the map as it was before Step 3, with any open gates back in step3Connections. Other maps unchanged. */
+export function closeChileGates(map: GameMap): GameMap {
+    if (map.name !== 'Chile' || map.step3Connections) {
+        return map;
+    }
+    const chile = maps.find((m) => m.name == 'Chile')!;
+    const isGate = (con: { nodes: string[] }) =>
+        chile.step3Connections!.some((gate) => gate.nodes.every((n) => con.nodes.includes(n)));
+    return {
+        ...map,
+        connections: map.connections.filter((con) => !isGate(con)),
+        step3Connections: map.connections.filter(isGate),
+    };
+}
+
 export function applyChileStep3(G: GameState) {
     if (G.map.name !== 'Chile' || G.coalMarketNorth === undefined) {
         return;
@@ -2965,9 +2984,9 @@ export function applyChileStep3(G: GameState) {
         G.log.push({ type: 'event', event: 'Step 3: the gated connections open.' });
     }
 
-    // A replay from known draws (secret seed) already holds these plants in its Step 3 deck.
-    if (G.setAsidePlants?.length && G.powerPlantDeckAfterStep3 === undefined) {
-        G.powerPlantsDeck = [...G.setAsidePlants, ...G.powerPlantsDeck];
+    if (G.setAsidePlants?.length) {
+        // A replay from known draws (secret seed) already holds these plants in its Step 3 deck.
+        if (G.powerPlantDeckAfterStep3 === undefined) G.powerPlantsDeck = [...G.setAsidePlants, ...G.powerPlantsDeck];
         G.log.push({
             type: 'event',
             event: `Step 3: power plants ${G.setAsidePlants.map((pp) => pp.number).join(', ')} go on top of the deck.`,

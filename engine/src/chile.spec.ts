@@ -2,8 +2,9 @@ import { expect } from 'chai';
 import { cloneDeep } from 'lodash';
 import 'mocha';
 import seedrandom from 'seedrandom';
+import { createAnalysisScenario } from './analysis';
 import { availableMoves, computeRegionGraph, marketSideOf } from './available-moves';
-import { applyChileStep3, currentPlayers, ended, move, reconstructState, setup } from './engine';
+import { applyChileStep3, currentPlayers, ended, move, reconstructState, setup, stripSecret } from './engine';
 import { GameState, Phase, PowerPlant, PowerPlantType, ResourceType } from './gamestate';
 import { map as chile } from './maps/chile';
 import { Move, MoveName } from './move';
@@ -162,6 +163,7 @@ describe('Chile', () => {
 
         it('builds for the standard deck only, and stays out of the random map pick', () => {
             expect(() => setup(4, { map: 'Chile', variant: 'recharged', plantDeck: 'set1' }, 'x')).to.throw(/standard/);
+            expect(() => setup(4, { map: 'Chile', randomizeMap: true }, 'x')).to.throw(/randomized/);
             for (let i = 0; i < 200; i++) {
                 expect(setup(4, { map: 'Random' }, `random-${i}`).map.name).to.not.equal('Chile');
             }
@@ -452,6 +454,67 @@ describe('Chile', () => {
         it('saw a boosted ecological plant offered in Bureaucracy in most of those games', () => {
             expect(boostedUses).to.be.at.least(4);
         });
+    });
+
+    describe('hidden-deck replay and analysis', () => {
+        const isGate = (con: { nodes: string[] }) =>
+            chile.step3Connections!.some((gate) => gate.nodes.every((n) => con.nodes.includes(n)));
+        const toStep3 = (seed: string, variant: 'original' | 'recharged' = 'original') =>
+            playUntil(setup(4, { map: 'Chile', variant }, seed), seed, (s) => s.step == 3 && s.phase == Phase.Building);
+
+        it('rewinds a secret-seed game to closed gates, and replays it to the same log', () => {
+            let withGate = 0;
+            for (const seed of ['r1', 'r2', 'r3', 'r4', 'r5', 'r6']) {
+                const G = toStep3(seed);
+                expect(G.step, seed).to.equal(3);
+                const s = stripSecret(cloneDeep(G), 0);
+                const early = reconstructState(s, 30);
+                expect(early.step).to.be.below(3);
+                expect(early.map.connections.filter(isGate), seed).to.be.empty;
+                withGate += early.map.step3Connections!.length > 0 ? 1 : 0;
+                const full = reconstructState(s, s.log.length);
+                expect(full.log.length, seed).to.equal(G.log.length);
+                expect(full.map.connections.filter(isGate).length).to.equal(G.map.connections.filter(isGate).length);
+                expect(full.players.map((p) => [p.money, p.cities.length])).to.deep.equal(
+                    G.players.map((p) => [p.money, p.cities.length])
+                );
+            }
+            expect(withGate).to.be.greaterThan(0);
+        });
+
+        for (const variant of ['original', 'recharged'] as const) {
+            it(`${variant}: analysis scenarios deal a Chile deck in every step`, () => {
+                for (const [label, stop] of [
+                    ['step 1', (s: GameState) => s.round == 3],
+                    ['step 2', (s: GameState) => s.step == 2],
+                    ['step 3', (s: GameState) => s.step == 3],
+                ] as const) {
+                    const G = playUntil(setup(4, { map: 'Chile', variant }, 'scenario'), 'scenario', stop);
+                    const s = createAnalysisScenario(G, { player: 0, seed: 'x' });
+                    const deck = s.powerPlantsDeck.map((pp) => pp.number);
+                    expect(
+                        deck.filter((x) => URANIUM.includes(x)),
+                        label
+                    ).to.be.empty;
+                    expect(deck.length, label).to.equal(G.powerPlantsDeck.length);
+                    if (G.step < 3) {
+                        expect(
+                            deck.filter((x) => SET_ASIDE.includes(x)),
+                            label
+                        ).to.be.empty;
+                        expect(s.setAsidePlants!.map((pp) => pp.number)).to.deep.equal(SET_ASIDE);
+                    } else {
+                        // The set-aside plants still in the deck are on top, in order, as in the real game.
+                        const real = G.powerPlantsDeck.map((pp) => pp.number).filter((x) => SET_ASIDE.includes(x));
+                        expect(deck.slice(0, real.length), label).to.deep.equal(real);
+                        for (const pp of s.powerPlantsDeck) {
+                            const printed = powerPlants.find((c) => c.number == pp.number)!.citiesPowered;
+                            expect(pp.citiesPowered).to.equal(printed + (pp.type == PowerPlantType.Wind ? 1 : 0));
+                        }
+                    }
+                }
+            });
+        }
     });
 
     describe('whole games', () => {

@@ -39,6 +39,8 @@ export function createAnalysisScenario(
     if (name === 'Spain & Portugal' && s.step !== 1)
         excluded = held ? spainStep2Plants(powerPlantDeck).filter((number) => !held.includes(number)) : [];
     if (name === 'Manhattan') excluded = [99, ...excluded];
+    // Chile: 33, 37 and 44 are set aside (in s.setAsidePlants) until Step 3; removedPlants has its uranium plants.
+    if (name === 'Chile' && s.step < 3) excluded = [...excluded, 33, 37, 44];
     const catalogue = JSON.parse(JSON.stringify(plantCatalogue(name, powerPlantDeck))) as PowerPlant[];
     for (const region of new Set(s.regionDraft ? [] : s.map.cities.map((c) => c.region))) {
         for (const replacement of s.map.regionalPowerPlants?.[region] || []) {
@@ -51,6 +53,12 @@ export function createAnalysisScenario(
             if (i >= 0) catalogue[i] = { ...replacement };
             else catalogue.splice(catalogue.length - 1, 0, { ...replacement });
         }
+    }
+    // Chile, Step 3: every ecological plant powers one more city.
+    if (name === 'Chile' && s.step === 3) {
+        catalogue.forEach((p) => {
+            if (p.type === PowerPlantType.Wind) p.citiesPowered++;
+        });
     }
     const byNumber = (number: number) => catalogue.find((p) => p.number === number)!;
     const seen = new Set([...s.knownPowerPlantDeck, ...s.knownPowerPlantDeckStep3].map((p) => p.number));
@@ -172,6 +180,10 @@ export function createAnalysisScenario(
     if (name === 'Spain & Portugal' && s.step === 2) {
         for (const number of held ?? SPAIN_STEP_2_PLANTS[powerPlantDeck as SingleDeck])
             if (!seen.has(number)) fixedTop.push(number);
+    }
+    if (name === 'Chile' && s.step === 3) {
+        // The set-aside plants went on top of the deck in this order when Step 3 began.
+        for (const number of [33, 37, 44]) if (!seen.has(number)) fixedTop.push(number);
     }
     const top = fixedTop
         .map(byNumber)

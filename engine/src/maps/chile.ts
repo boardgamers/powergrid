@@ -5,7 +5,7 @@ import { PowerPlant } from '../gamestate';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
 import { powerPlants } from './../powerPlants';
-import { chileCities, chileConnections, chileGates, chileNorthRegions, chileViewBox } from './chile-board';
+import { chileCities, chileConnections, chileGates, chileViewBox } from './chile-board';
 
 /** No nuclear power in Chile: the standard deck's uranium plants are out of the game. Fusion plant 50 stays. */
 export const chileRemovedPlants = [11, 17, 23, 28, 34, 39];
@@ -17,7 +17,8 @@ export const map: GameMap = {
     cities: chileCities,
     connections: chileConnections,
     step3Connections: chileGates,
-    northRegions: chileNorthRegions,
+    // The two northern regions, each holding a gate, are always in play.
+    fixedRegions: ['brown', 'yellow'],
     setAsidePlants: chileSetAsidePlants,
     viewBox: chileViewBox,
     // Central market (the engine's main market). [resource][players-2][step-1]; 2P copies 3P. The Step 3 column is

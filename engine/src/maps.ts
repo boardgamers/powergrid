@@ -58,6 +58,9 @@ export interface City {
     // makes links naturally asymmetric (A→B costs B, B→A costs A) and charges
     // transit through unbuilt districts, matching the printed Bremen rules.
     connectionCost?: number;
+    // Chile: the grid this city belongs to. Until Step 3 a player with cities buys only from their grid's market
+    // (North, or the main market for Central).
+    grid?: 'North' | 'Central';
 }
 
 export interface Connection {
@@ -111,9 +114,8 @@ export interface GameMap {
     // for the starting arrays (no uranium row — North bans nuclear).
     resupplyNorth?: number[][][];
     startingResourcesNorth?: number[];
-    // Chile: the regions of the North grid. Until Step 3 a player with cities buys only from the market of their
-    // grid: North if their cities are in these regions, else the main (Central) market.
-    northRegions?: string[];
+    // Regions always in play (Chile: the two northern regions). The others are picked, or drafted, as usual.
+    fixedRegions?: string[];
     coalPricesNorth?: number[];
     oilPricesNorth?: number[];
     garbagePricesNorth?: number[];
@@ -148,8 +150,7 @@ export interface GameMap {
     blockSpaces?: (numPlayers: number, cities: City[], rng: seedrandom.prng) => string[];
     regionalPowerPlants?: Record<string, PowerPlant[]>;
     // Chile: connections that open when Step 3 begins (the gates between the grids). Until then they are kept out of
-    // `connections`, so no build or path uses them, but they count when choosing play areas: two regions joined only
-    // by one are adjacent.
+    // `connections`, so no build or path uses them.
     step3Connections?: Connection[];
     // Chile: plant numbers set aside at setup (held in GameState.setAsidePlants) and put on top of the draw stack
     // when Step 3 begins.

@@ -54,16 +54,13 @@ export interface AvailableMoves {
 
 /**
  * Chile, while it has two markets (before Step 3): the market a player with cities must buy from, the one of the
- * grid their cities are in. Undefined on every other map, and for a player with no cities, who chooses a market for
- * the turn as on Korea. Before Step 3 only the gates join the grids, so a player's cities are all in one grid.
+ * grid their cities are in. The grid belongs to each city, not to its region. Undefined on every other map, and for a
+ * player with no cities, who chooses a market for the turn as on Korea. Before Step 3 only the gates join the grids,
+ * so a player's cities are all in one grid.
  */
 export function marketSideOf(G: GameState, player: Player): 'north' | 'south' | undefined {
-    const north = G.map.northRegions;
-    if (!north || G.coalResupplyNorth === undefined || player.cities.length == 0) return undefined;
-    // Salta, in no region, can't be a first city, so whoever has it also has a North city.
-    const inNorth = player.cities.some((pc) =>
-        north.includes(G.map.cities.find((c) => c.name == pc.name)?.region ?? '')
-    );
+    if (G.map.name != 'Chile' || G.coalResupplyNorth === undefined || player.cities.length == 0) return undefined;
+    const inNorth = player.cities.some((pc) => G.map.cities.find((c) => c.name == pc.name)?.grid == 'North');
     return inNorth ? 'north' : 'south';
 }
 
@@ -722,15 +719,12 @@ export interface RegionGraph {
 // Builds the region adjacency graph used by region selection (both the random
 // setup picker and the chooseRegions draft). Single source of truth so the two
 // paths can never diverge on what "connected" means.
-export function computeRegionGraph(
-    map: Pick<GameMap, 'cities' | 'connections'> & Pick<Partial<GameMap>, 'step3Connections'>
-): RegionGraph {
+export function computeRegionGraph(map: Pick<GameMap, 'cities' | 'connections'>): RegionGraph {
     // A city in no region (Chile's Salta) is not a play area.
     const regions = map.cities
         .filter((c, i) => c.region && map.cities.findIndex((cc) => cc.region == c.region) == i)
         .map((c) => c.region);
-    // Chile: regions joined only by a gate that opens in Step 3 still count as adjacent.
-    const connections = [...map.connections, ...(map.step3Connections ?? [])].map((con) =>
+    const connections = map.connections.map((con) =>
         con.nodes.map((n) => map.cities.find((city) => city.name == n)!.region)
     );
     const regionConnections = regions.map((region) =>

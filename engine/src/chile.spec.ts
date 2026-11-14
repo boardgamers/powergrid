@@ -59,63 +59,108 @@ const buyOptions = (G: GameState, p = 0) =>
 
 describe('Chile', () => {
     describe('board', () => {
-        it('has six regions of seven cities, Salta in no region, 59 open connections and two gates into Norte Chico', () => {
+        it('has six regions of seven cities, Salta in no region, a grid for every city, 58 connections and two gates', () => {
             const byRegion: Record<string, number> = {};
             for (const c of chile.cities) byRegion[c.region] = (byRegion[c.region] ?? 0) + 1;
             expect(byRegion).to.deep.equal({ brown: 7, yellow: 7, purple: 7, red: 7, green: 7, pink: 7, '': 1 });
             const salta = chile.cities.find((c) => c.name == 'Salta')!;
             expect(salta.region).to.equal('');
+            expect(salta.grid).to.equal('North');
             expect(salta.singleOccupancy).to.be.true;
-            expect(chile.connections).to.have.length(59);
+            expect(chile.cities.every((c) => c.grid == 'North' || c.grid == 'Central')).to.be.true;
+            // Brown and yellow each hold five North and two Central cities; the other regions are all Central.
+            for (const region of NORTH) {
+                const inRegion = chile.cities.filter((c) => c.region == region);
+                expect(
+                    inRegion.filter((c) => c.grid == 'North'),
+                    region
+                ).to.have.length(5);
+                expect(
+                    inRegion.filter((c) => c.grid == 'Central'),
+                    region
+                ).to.have.length(2);
+            }
+            expect(chile.cities.filter((c) => c.region && !NORTH.includes(c.region)).every((c) => c.grid == 'Central'))
+                .to.be.true;
+            expect(chile.connections).to.have.length(58);
             expect(chile.step3Connections).to.have.length(2);
-            const regionOf = (name: string) => chile.cities.find((c) => c.name == name)!.region;
-            for (const gate of chile.step3Connections!) {
-                const regions = gate.nodes.map(regionOf).sort();
-                expect(regions).to.include('purple');
-                expect(NORTH).to.include(regions.find((r) => r != 'purple'));
-            }
-            // No open connection joins the grids.
-            for (const con of chile.connections) {
-                const [a, b] = con.nodes.map(regionOf).map((r) => NORTH.includes(r) || r == '');
-                expect(a, con.nodes.join('-')).to.equal(b);
-            }
         });
 
-        it('counts regions joined only by a gate as adjacent, and Salta is not a play area', () => {
+        it('joins the grids only by the gates, one inside each northern region', () => {
+            const city = (name: string) => chile.cities.find((c) => c.name == name)!;
+            for (const con of chile.connections) {
+                const [a, b] = con.nodes.map(city);
+                expect(a.grid, con.nodes.join('-')).to.equal(b.grid);
+            }
+            const gateRegions = chile.step3Connections!.map((gate) => {
+                const [a, b] = gate.nodes.map(city);
+                expect([a.grid, b.grid].sort(), gate.nodes.join('-')).to.deep.equal(['Central', 'North']);
+                expect(a.region, gate.nodes.join('-')).to.equal(b.region);
+                return a.region;
+            });
+            expect(gateRegions.sort()).to.deep.equal(['brown', 'yellow']);
+            // Every city keeps a connection.
+            const all = [...chile.connections, ...chile.step3Connections!];
+            for (const c of chile.cities)
+                expect(
+                    all.some((con) => con.nodes.includes(c.name)),
+                    c.name
+                ).to.be.true;
+        });
+
+        it('builds the region graph from open connections; Salta is not a play area', () => {
             const graph = computeRegionGraph(chile);
             expect([...graph.regions].sort()).to.deep.equal(['brown', 'green', 'pink', 'purple', 'red', 'yellow']);
             const adjacent = (r: string) => graph.regionConnections[graph.regions.indexOf(r)];
-            expect(adjacent('purple')).to.include.members(['brown', 'yellow']);
-            const withoutGates = computeRegionGraph({ cities: chile.cities, connections: chile.connections });
-            expect(withoutGates.regionConnections[withoutGates.regions.indexOf('purple')]).to.not.include('brown');
+            expect(adjacent('purple')).to.include.members(['brown', 'yellow', 'red']);
+            expect(adjacent('red')).to.include.members(['purple', 'green', 'pink']);
         });
 
-        it('chooses connected play areas, with Salta in play exactly when the Atacama Desert is', () => {
-            const seen = new Set<string>();
-            for (let i = 0; i < 200; i++) {
-                const n = 3 + (i % 4);
-                const G = setup(n, { map: 'Chile' }, `areas-${i}`);
-                const regions = [...new Set(G.map.cities.map((c) => c.region).filter((r) => r))].sort();
-                expect(regions).to.have.length([3, 4, 5, 5][n - 3]);
-                expect(G.map.cities.some((c) => c.name == 'Salta')).to.equal(regions.includes('yellow'));
-                // Gates stay out of the board until Step 3 and only join regions in play.
-                for (const gate of G.map.step3Connections ?? []) {
-                    expect(gate.nodes.every((name) => G.map.cities.some((c) => c.name == name))).to.be.true;
+        it('always plays brown and yellow, with fixed areas at 2-4P and green or pink added at 5-6P', () => {
+            const fixed: Record<number, string[]> = {
+                2: ['brown', 'purple', 'yellow'],
+                3: ['brown', 'purple', 'yellow'],
+                4: ['brown', 'purple', 'red', 'yellow'],
+            };
+            const seen: Record<number, Set<string>> = {};
+            for (const n of [2, 3, 4, 5, 6]) {
+                seen[n] = new Set();
+                for (let i = 0; i < 60; i++) {
+                    const G = setup(n, { map: 'Chile' }, `areas-${n}-${i}`);
+                    const regions = [...new Set(G.map.cities.map((c) => c.region).filter((r) => r))].sort();
+                    expect(regions, `${n}P`).to.include.members(NORTH);
+                    if (fixed[n]) expect(regions, `${n}P`).to.deep.equal(fixed[n]);
+                    else expect(regions, `${n}P`).to.have.length(5);
+                    expect(G.map.cities.some((c) => c.name == 'Salta')).to.be.true;
+                    expect(G.map.step3Connections).to.have.length(2);
+                    expect(
+                        G.map.connections.every((con) =>
+                            con.nodes.every((nm) => G.map.cities.some((c) => c.name == nm))
+                        )
+                    ).to.be.true;
+                    seen[n].add(regions.join(','));
                 }
-                expect(
-                    G.map.connections.every((con) => con.nodes.every((nm) => G.map.cities.some((c) => c.name == nm)))
-                ).to.be.true;
-                seen.add(regions.join(','));
             }
-            // Three regions can be one North region plus Norte Chico joined only by a gate.
-            expect(
-                [...seen].some(
-                    (s) =>
-                        s.split(',').length == 3 &&
-                        s.includes('purple') &&
-                        (s.includes('brown') || s.includes('yellow'))
-                )
-            ).to.be.true;
+            for (const n of [5, 6]) {
+                expect([...seen[n]].sort(), `${n}P`).to.deep.equal([
+                    'brown,green,purple,red,yellow',
+                    'brown,pink,purple,red,yellow',
+                ]);
+            }
+        });
+
+        it('drafts only the remaining regions when players choose them', () => {
+            for (const n of [3, 5]) {
+                const G = setup(n, { map: 'Chile', chooseRegions: true }, `draft-${n}`);
+                expect(G.phase).to.equal(Phase.RegionSelection);
+                expect(G.regionDraft!.picked).to.deep.equal(NORTH);
+                const first = Math.min(...currentPlayers(G));
+                expect(G.players[first].availableMoves![MoveName.ChooseRegion]).to.deep.equal(['purple']);
+                playUntil(G, `draft-${n}`, (s) => s.phase != Phase.RegionSelection);
+                const regions = [...new Set(G.map.cities.map((c) => c.region).filter((r) => r))].sort();
+                expect(regions).to.include.members([...NORTH, 'purple']);
+                expect(regions).to.have.length(n == 3 ? 3 : 5);
+            }
         });
     });
 
@@ -201,6 +246,25 @@ describe('Chile', () => {
             expect(buyOptions(central).every((o) => o.side == 'south')).to.be.true;
         });
 
+        it('goes by the city’s grid, not its region: Taltal and Copiapó buy from Central, Antofagasta and Calama from North', () => {
+            for (const [city, side] of [
+                ['Taltal', 'south'],
+                ['Chañaral', 'south'],
+                ['El Salvador', 'south'],
+                ['Copiapó', 'south'],
+                ['Antofagasta', 'north'],
+                ['Calama', 'north'],
+            ]) {
+                const G = resourcesState([city]);
+                expect(marketSideOf(G, G.players[0]), city).to.equal(side);
+                expect(buyOptions(G), city).to.not.be.empty;
+                expect(
+                    buyOptions(G).every((o) => o.side == side),
+                    city
+                ).to.be.true;
+            }
+        });
+
         it('never offers garbage or uranium in the North', () => {
             const G = resourcesState(['Calama']);
             G.players[0].powerPlants.push(cloneDeep(powerPlants.find((pp) => pp.number == 6)!));
@@ -229,26 +293,28 @@ describe('Chile', () => {
             (G.players[0].availableMoves?.[MoveName.Build] ?? []) as { name: string; price: number }[];
 
         it('offers no build across a gate before Step 3, and the gates’ cost once they open', () => {
+            const gridOf = (name: string) => chile.cities.find((c) => c.name == name)!.grid;
             for (const step of [1, 2]) {
-                const G = buildState(['Antofagasta S'], step);
-                expect(builds(G).map((b) => b.name)).to.not.include.members(['Caldera', 'Copiapó']);
-                expect(
-                    builds(G).every(
-                        (b) =>
-                            !['purple', 'red', 'green', 'pink'].includes(
-                                chile.cities.find((c) => c.name == b.name)!.region
-                            )
-                    )
-                ).to.be.true;
+                for (const [start, grid] of [
+                    ['Antofagasta', 'North'],
+                    ['Taltal', 'Central'],
+                ]) {
+                    const G = buildState([start], step);
+                    expect(builds(G), start).to.not.be.empty;
+                    expect(
+                        builds(G).every((b) => gridOf(b.name) == grid),
+                        `${start} step ${step}`
+                    ).to.be.true;
+                }
             }
-            const G = buildState(['Antofagasta S'], 3);
+            const G = buildState(['Antofagasta'], 3);
             applyChileStep3(G);
             G.players[0].availableMoves = availableMoves(G, G.players[0]);
-            expect(builds(G).find((b) => b.name == 'Caldera')!.price).to.equal(20 + 10);
+            expect(builds(G).find((b) => b.name == 'Taltal')!.price).to.equal(13 + 10);
             const sierra = buildState(['Sierra Gorda'], 3);
             applyChileStep3(sierra);
             sierra.players[0].availableMoves = availableMoves(sierra, sierra.players[0]);
-            expect(builds(sierra).find((b) => b.name == 'Copiapó')!.price).to.equal(22 + 10);
+            expect(builds(sierra).find((b) => b.name == 'El Salvador')!.price).to.equal(20 + 10);
         });
 
         it('keeps Salta to one city, never a first city, reached for its connection cost only', () => {
@@ -366,7 +432,7 @@ describe('Chile', () => {
             expect(G.coalMarketNorth).to.be.undefined;
             expect(G.coalResupplyNorth).to.be.undefined;
             // 2. Gates open.
-            expect(G.map.connections).to.have.length(61);
+            expect(G.map.connections).to.have.length(60);
             expect(G.map.step3Connections).to.be.undefined;
             // 3. Set-aside plants on top, in order.
             expect(G.powerPlantsDeck.map((pp) => pp.number)).to.deep.equal([...SET_ASIDE, ...deckBefore]);
@@ -462,8 +528,11 @@ describe('Chile', () => {
         const toStep3 = (seed: string, variant: 'original' | 'recharged' = 'original') =>
             playUntil(setup(4, { map: 'Chile', variant }, seed), seed, (s) => s.step == 3 && s.phase == Phase.Building);
 
-        it('rewinds a secret-seed game to closed gates, and replays it to the same log', () => {
-            let withGate = 0;
+        it('rewinds a secret-seed game to closed gates, and replays its Step 3 events', () => {
+            // The full log isn't compared: on every map, a hidden-deck replay can leave out a "drawn from the deck"
+            // entry around the Step 3 card (USA seed r2 too), which predates Chile.
+            const step3Events = (s: GameState) =>
+                s.log.map((l) => (l as { event?: string }).event ?? '').filter((e) => e.startsWith('Step 3:'));
             for (const seed of ['r1', 'r2', 'r3', 'r4', 'r5', 'r6']) {
                 const G = toStep3(seed);
                 expect(G.step, seed).to.equal(3);
@@ -471,15 +540,15 @@ describe('Chile', () => {
                 const early = reconstructState(s, 30);
                 expect(early.step).to.be.below(3);
                 expect(early.map.connections.filter(isGate), seed).to.be.empty;
-                withGate += early.map.step3Connections!.length > 0 ? 1 : 0;
+                expect(early.map.step3Connections, seed).to.have.length(2);
                 const full = reconstructState(s, s.log.length);
-                expect(full.log.length, seed).to.equal(G.log.length);
-                expect(full.map.connections.filter(isGate).length).to.equal(G.map.connections.filter(isGate).length);
+                expect(step3Events(full), seed).to.deep.equal(step3Events(G));
+                expect(step3Events(G), seed).to.have.length(4);
+                expect(full.map.connections.filter(isGate)).to.have.length(2);
                 expect(full.players.map((p) => [p.money, p.cities.length])).to.deep.equal(
                     G.players.map((p) => [p.money, p.cities.length])
                 );
             }
-            expect(withGate).to.be.greaterThan(0);
         });
 
         for (const variant of ['original', 'recharged'] as const) {

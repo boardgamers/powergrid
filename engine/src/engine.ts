@@ -409,6 +409,8 @@ export function setup(
         const graph = computeRegionGraph(chosenMap);
         const regions = graph.regions;
         const regionsNeeded = Math.min(regionsInPlay[p], regions.length);
+        // Regions always in play (Chile's two northern regions); the rest are picked or drafted as usual.
+        const fixedRegions = chosenMap.fixedRegions ?? [];
 
         if (chooseRegions && regions.length > regionsNeeded) {
             // Defer region selection to a player draft (the RegionSelection phase).
@@ -416,9 +418,9 @@ export function setup(
             // chosen regions once the draft completes, and applies the
             // regionalPowerPlants swap at that point.
             finalMap = chosenMap;
-            pendingRegionDraft = { regionsNeeded, picked: [] };
+            pendingRegionDraft = { regionsNeeded, picked: [...fixedRegions] };
         } else {
-            const playRegions = new Set<string>();
+            const playRegions = new Set<string>(fixedRegions);
             while (playRegions.size != regionsNeeded) {
                 const region = regions[Math.floor(rng() * regions.length)];
 

@@ -11,6 +11,7 @@ import { map as china } from './maps/china';
 import { map as europe } from './maps/europe';
 import { map as france } from './maps/france';
 import { map as germany, mapRecharged as germanyRecharged } from './maps/germany';
+import { map as hawaii } from './maps/hawaii';
 import { map as indian } from './maps/indian';
 import { map as italy } from './maps/italy';
 import { map as japan, mapRecharged as japanRecharged } from './maps/japan';
@@ -62,6 +63,14 @@ export interface City {
 export interface Connection {
     nodes: string[];
     cost: number;
+    // Purely visual: when set, the viewer draws this link as a curve bending toward
+    // this control point (map coords) instead of a straight line. Pricing is unchanged.
+    via?: [number, number];
+    // Purely visual: a sea crossing, drawn as a dashed blue line. Pricing is unchanged.
+    sea?: boolean;
+    // Does not count when deciding which regions are neighbours (region selection).
+    // The link itself still exists whenever both of its cities are in play.
+    ignoreForRegions?: boolean;
 }
 
 export interface Polygon {
@@ -159,7 +168,15 @@ export interface GameMap {
     // to [1,1] and `mapRotation` to 0 while picking so the logged coords are
     // in the same space you'll save them in.
     devBackdrop?: { src: string; width: number; height: number; opacity?: number };
+    // Map-specific payout table (cities powered -> Elektro). Defaults to the standard table.
+    paymentTable?: number[];
+    // A house-price key drawn on the board (map coords), one row per named region.
+    // For maps whose slotCosts differ by region.
+    houseLegend?: { position: [number, number]; names: Record<string, string> };
 }
+
+// Community custom maps: selectable by name, never drawn by 'Random'.
+export const customMaps: GameMap[] = [hawaii];
 
 export const maps: GameMap[] = [
     america,

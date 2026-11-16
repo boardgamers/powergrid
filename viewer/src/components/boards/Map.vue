@@ -80,23 +80,46 @@
         </template>
 
         <template v-for="connection in connections">
+            <!-- A link with a `via` control point (e.g. a ferry across open water) is
+                 drawn as a curve so it does not run over the cities in between. -->
+            <path
+                v-if="connection.via"
+                :key="connection.nodes[0] + '_' + connection.nodes[1] + '_curve1'"
+                :d="linkPath(connection)"
+                fill="none"
+                stroke-width="10"
+                :stroke="connection.sea ? SEA_OUTER : 'black'"
+            />
+            <path
+                v-if="connection.via"
+                :key="connection.nodes[0] + '_' + connection.nodes[1] + '_curve2'"
+                :d="linkPath(connection)"
+                fill="none"
+                stroke-width="9"
+                :stroke="connection.sea ? SEA_INNER : 'gray'"
+                :stroke-dasharray="connection.sea ? SEA_DASH : undefined"
+            />
+            <!-- Sea crossings: a light blue dashed line over a dark blue edge. -->
             <line
+                v-if="!connection.via"
                 :key="connection.nodes[0] + '_' + connection.nodes[1] + '_line1'"
                 :x1="getX1(connection)"
                 :y1="getY1(connection)"
                 :x2="getX2(connection)"
                 :y2="getY2(connection)"
                 stroke-width="10"
-                stroke="black"
+                :stroke="connection.sea ? SEA_OUTER : 'black'"
             />
             <line
+                v-if="!connection.via"
                 :key="connection.nodes[0] + '_' + connection.nodes[1] + '_line2'"
                 :x1="getX1(connection)"
                 :y1="getY1(connection)"
                 :x2="getX2(connection)"
                 :y2="getY2(connection)"
                 stroke-width="9"
-                stroke="gray"
+                :stroke="connection.sea ? SEA_INNER : 'gray'"
+                :stroke-dasharray="connection.sea ? SEA_DASH : undefined"
             />
         </template>
 
@@ -223,16 +246,16 @@
                 :key="connection.nodes[0] + '_' + connection.nodes[1] + '_border'"
                 stroke="black"
                 :r="10 + (connection.cost * 10) / 28"
-                :cx="(getX1(connection) + getX2(connection)) / 2"
-                :cy="(getY1(connection) + getY2(connection)) / 2"
+                :cx="linkMidX(connection)"
+                :cy="linkMidY(connection)"
                 :fill="connection.cost > 15 ? 'gold' : connection.cost > 10 ? 'lightgray' : 'tan'"
             />
             <circle
                 v-if="connection.cost > 0"
                 :key="connection.nodes[0] + '_' + connection.nodes[1] + '_circle'"
                 :r="6 + (connection.cost * 10) / 28"
-                :cx="(getX1(connection) + getX2(connection)) / 2"
-                :cy="(getY1(connection) + getY2(connection)) / 2"
+                :cx="linkMidX(connection)"
+                :cy="linkMidY(connection)"
                 fill="gray"
                 stroke="black"
             />
@@ -242,19 +265,48 @@
                 text-anchor="middle"
                 :style="`font-size: ${12 + (connection.cost * 6) / 28}px`"
                 fill="black"
-                :x="(getX1(connection) + getX2(connection)) / 2"
-                :y="(getY1(connection) + getY2(connection)) / 2"
+                :x="linkMidX(connection)"
+                :y="linkMidY(connection)"
                 :transform="
                     mapRotation
-                        ? `rotate(${-mapRotation}, ${(getX1(connection) + getX2(connection)) / 2}, ${
-                              (getY1(connection) + getY2(connection)) / 2
-                          })`
+                        ? `rotate(${-mapRotation}, ${linkMidX(connection)}, ${linkMidY(connection)})`
                         : undefined
                 "
             >
                 {{ connection.cost }}
             </text>
         </template>
+        <!-- House-price key: one row per region in play, in its ring colour. -->
+        <g
+            v-if="houseLegend && houseLegendRows.length"
+            class="house-legend"
+            :transform="`translate(${houseLegend.position[0]}, ${houseLegend.position[1]})`"
+        >
+            <rect
+                x="0"
+                y="0"
+                width="350"
+                :height="50 + houseLegendRows.length * 34"
+                rx="10"
+                fill="#fffbe9"
+                fill-opacity="0.92"
+                stroke="#333"
+                stroke-width="2"
+            />
+            <text x="16" y="34" style="font-size: 22px; font-weight: bold" fill="black">House prices</text>
+            <g
+                v-for="(row, i) in houseLegendRows"
+                :key="'legend_' + row.region"
+                :transform="`translate(0, ${50 + i * 34})`"
+            >
+                <circle cx="28" cy="12" r="11" fill="gray" :stroke="row.region" stroke-width="5" />
+                <text x="50" y="19" style="font-size: 19px" fill="black">{{ row.name }}</text>
+                <text x="334" y="19" text-anchor="end" style="font-size: 19px; font-weight: bold" fill="black">
+                    {{ row.costs }}
+                </text>
+            </g>
+        </g>
+
         <template v-for="house in houses">
             <House
                 :key="house.id"
@@ -558,6 +610,8 @@ export default class Map extends Vue {
     @Prop() pickableRegions?: string[];
     // Regions where nuclear plants are banned; each gets a struck-through marker.
     @Prop() noUraniumRegions?: string[];
+    // Maps whose house prices differ by region (e.g. HawaiiCustom): a small key on the board.
+    @Prop() houseLegend?: { position: [number, number]; names: Record<string, string> };
     @Prop() devBackdrop?: { src: string; width: number; height: number; opacity?: number };
     @Prop({ default: 0 }) mapRotation!: number;
 
@@ -670,6 +724,40 @@ export default class Map extends Vue {
     getY2(connection) {
         const city = this.cities!.find((city) => city.name == connection.nodes[1])!;
         return city.y;
+    }
+
+    // One legend row per named region that has cities on the board, with its house prices.
+    get houseLegendRows(): { region: string; name: string; costs: string }[] {
+        if (!this.houseLegend) return [];
+        const rows: { region: string; name: string; costs: string }[] = [];
+        for (const [region, name] of Object.entries(this.houseLegend.names)) {
+            const city = (this.cities ?? []).find((c) => c.region === region);
+            if (!city) continue;
+            rows.push({ region, name, costs: (city.slotCosts ?? [10, 15, 20]).join(' · ') });
+        }
+        return rows;
+    }
+
+    // Sea-crossing colours: light blue dashes over a dark blue edge.
+    readonly SEA_OUTER = '#1d4e89';
+    readonly SEA_INNER = '#8fd3ff';
+    readonly SEA_DASH = '16 9';
+
+    // Quadratic curve from one end to the other, bending toward `via`.
+    linkPath(connection) {
+        const [vx, vy] = connection.via;
+        return `M ${this.getX1(connection)} ${this.getY1(connection)} Q ${vx} ${vy} ${this.getX2(connection)} ${this.getY2(connection)}`;
+    }
+
+    // Where the cost badge sits: the link's midpoint, or the curve's midpoint (t = 0.5).
+    linkMidX(connection) {
+        const a = this.getX1(connection), b = this.getX2(connection);
+        return connection.via ? 0.25 * a + 0.5 * connection.via[0] + 0.25 * b : (a + b) / 2;
+    }
+
+    linkMidY(connection) {
+        const a = this.getY1(connection), b = this.getY2(connection);
+        return connection.via ? 0.25 * a + 0.5 * connection.via[1] + 0.25 * b : (a + b) / 2;
     }
 
     nodeSlotPos(i: number) {

@@ -214,6 +214,7 @@
                     :blockedCities="G.blockedCities"
                     :pickableRegions="getPickableRegions()"
                     :noUraniumRegions="G.map.noUraniumRegions"
+                    :houseLegend="G.map.houseLegend"
                     :devBackdrop="G.map.devBackdrop"
                     :mapRotation="G.map.mapRotation || 0"
                     @build="build($event)"

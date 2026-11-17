@@ -2,6 +2,7 @@ import { cloneDeep } from 'lodash';
 import { Move, Phase, setup, stripSecret } from 'powergrid-engine';
 import { isAnalysisMoneyCommand } from 'powergrid-engine/src/analysis-money';
 import type { GameState, MapName, PowerPlantDeck, Variant } from 'powergrid-engine/src/gamestate';
+import { customMaps, maps } from 'powergrid-engine/src/maps';
 import type { PremoveCommand } from 'powergrid-engine/src/premoves';
 import { move as wrapperMove, moveAI as wrapperAI } from 'powergrid-engine/wrapper';
 import { installLocalChat } from './game-chat';
@@ -34,6 +35,15 @@ function launchSelfContained(selector = '#app') {
         powerPlantDeck: (params.get('deck') || undefined) as PowerPlantDeck | 'random' | undefined,
     };
     let gameState = setup(Number(params.get('players')) || 6, gameOptions, params.get('seed') || '0');
+
+    // ?fullmap=1 shows every region of the map, whatever the player count (layout checks).
+    if (params.get('fullmap') === '1') {
+        const full = [...maps, ...customMaps].find((m) => m.name === gameState.map.name);
+        if (full) {
+            gameState.map.cities = cloneDeep(full.cities);
+            gameState.map.connections = cloneDeep(full.connections);
+        }
+    }
 
     // Dev coord-picker example (commented; uncomment + drop a board photo into
     // viewer/public/ to author city coordinates for a new map). See the picker

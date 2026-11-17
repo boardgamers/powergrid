@@ -724,9 +724,11 @@ export function computeRegionGraph(map: Pick<GameMap, 'cities' | 'connections'>)
     const regions = map.cities
         .filter((c, i) => c.region && map.cities.findIndex((cc) => cc.region == c.region) == i)
         .map((c) => c.region);
-    const connections = map.connections.map((con) =>
-        con.nodes.map((n) => map.cities.find((city) => city.name == n)!.region)
-    );
+    // A link flagged ignoreForRegions (HawaiiCustom's ferry) never makes two regions
+    // neighbours, so it can't be the only bridge holding a dealt region set together.
+    const connections = map.connections
+        .filter((con) => !con.ignoreForRegions)
+        .map((con) => con.nodes.map((n) => map.cities.find((city) => city.name == n)!.region));
     const regionConnections = regions.map((region) =>
         regions.filter(
             (area2) => region != area2 && connections.some((con) => con.includes(region) && con.includes(area2))

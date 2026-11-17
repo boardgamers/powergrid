@@ -39,7 +39,7 @@ import {
     SingleDeck,
 } from './gamestate';
 import { LogItem } from './log';
-import { City, GameMap, maps, mapsRecharged } from './maps';
+import { City, customMaps, GameMap, maps, mapsRecharged } from './maps';
 import { Move, MoveName, Moves } from './move';
 import {
     availableDecks,
@@ -201,7 +201,7 @@ export function setup(
         const pool = variantMaps.filter((m) => m.name != 'Chile');
         map = pool[Math.floor(mapRng() * pool.length)].name as MapName;
     }
-    const chosenMapRaw = variantMaps.find((m) => m.name == map);
+    const chosenMapRaw = variantMaps.find((m) => m.name == map) ?? customMaps.find((m) => m.name == map);
     if (!chosenMapRaw) {
         throw new Error(`Map "${map}" not found for variant "${variant}"`);
     }
@@ -597,7 +597,7 @@ export function setup(
                       `[${coalResupplyNorth[p][2]}, ${oilResupplyNorth[p][2]}, ${garbageResupplyNorth[p][2]}]`,
                   ]
                 : undefined,
-        paymentTable: cityIncome,
+        paymentTable: (forceMap || finalMap).paymentTable ?? cityIncome,
         variant,
         minimunBid: 0,
         plantDiscountActive:

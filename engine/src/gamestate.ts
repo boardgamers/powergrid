@@ -34,7 +34,8 @@ export type MapName =
     | 'Australia'
     | 'Bremen'
     | 'Manhattan'
-    | 'Chile';
+    | 'Chile'
+    | 'HawaiiCustom';
 export type Variant = 'original' | 'recharged';
 // 'standard' is the base game's deck; deck1 and deck2 are The New Power Plants
 // (Set 1) and Set 2. 'shuffled' plays every plant of all three decks together;

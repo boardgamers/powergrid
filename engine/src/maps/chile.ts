@@ -53,14 +53,17 @@ export const map: GameMap = {
     step3Connections: chileGates,
     // The two northern regions, each holding a gate, are always in play.
     fixedRegions: ['brown', 'yellow'],
-    // Viewer layout: the board (drawn at 2156 x 2341, Chile running down at 36 degrees and stretched 2x east-west) at 70%, turned to run left to
-    // right across the middle, around the whole board's centre so it sits still whichever regions are in play. Plant
-    // market along the top, player boards on the right, North and Central markets side by side underneath.
+    // Viewer layout: the board (drawn upright, north at the top, at 1683 x 2542, stretched 2x east-west) at 70%. On
+    // wide screens it is turned to run diagonally from the top left (north) to the bottom right; on tall screens (the
+    // stacked layout) it stays upright. It turns around the whole board's centre, so it sits still whichever regions
+    // are in play. Plant market along the top, player boards on the right, North and Central markets side by side
+    // underneath.
     layout: 'Landscape',
     adjustRatio: [0.7, 0.7],
-    mapRotation: -36,
-    mapRotationCenter: [755, 812],
-    mapPosition: [31, -150],
+    mapRotation: -70,
+    mapRotationPortrait: 0,
+    mapRotationCenter: [589, 890],
+    mapPosition: [197, -259],
     viewBox: [2010, 1250],
     playerBoardsPosition: [1650, 240],
     supplyPosition: [0, 990],

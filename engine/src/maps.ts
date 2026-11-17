@@ -100,6 +100,8 @@ export interface GameMap {
     // The point mapRotation turns around, in board coordinates (after adjustRatio). Without it, the centre of the
     // cities in play; with it, the board sits still whichever regions are in play (Chile).
     mapRotationCenter?: [number, number];
+    // The turn in the viewer's stacked layout (tall screens), in place of mapRotation there (Chile: north up).
+    mapRotationPortrait?: number;
     buttonsPosition?: [number, number];
     playerBoardsPosition?: [number, number];
     supplyPosition?: [number, number];

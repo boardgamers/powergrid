@@ -1,4 +1,7 @@
 {
+    "Auto-pass if unaffordable (auction)": "자금 부족 시 자동 패스 (경매)",
+    "Auto-pass if unaffordable (resources)": "자금 부족 시 자동 패스 (자원)",
+    "Auto-pass if unaffordable (building)": "자금 부족 시 자동 패스 (건설)",
     "Auto-pass if unaffordable": "자금 부족 시 자동 패스",
     "Money is public: players automatically pass auctions they cannot afford.": "자금이 공개되어 있습니다. 입찰할 돈이 부족한 플레이어는 자동으로 패스합니다.",
     "Automatically pass auctions you cannot afford. With hidden money, this can reveal that you cannot afford the bid. Applies after the next move.": "입찰할 돈이 부족하면 자동으로 패스합니다. 자금이 비공개일 때는 입찰 금액을 감당할 수 없다는 사실이 드러날 수 있습니다. 다음 행동 이후 적용됩니다.",
@@ -2061,5 +2064,7 @@
     "Analysis money update failed. Please try again.": "분석 자금 업데이트에 실패했습니다. 다시 시도하세요.",
     "Save": "저장",
     "Close and refresh": "닫고 새로고침",
-    "Closing refreshes the board but does not cancel the submitted edit.": "닫으면 보드가 새로고침되지만 제출한 수정은 취소되지 않습니다."
+    "Closing refreshes the board but does not cancel the submitted edit.": "닫으면 보드가 새로고침되지만 제출한 수정은 취소되지 않습니다.",
+    "Money is public: automatically pass when no resource or city can be bought. Always on.": "자금 공개: 자원이나 도시를 구매할 수 없으면 자동 패스합니다. 항상 켜짐.",
+    "Automatically pass when nothing is affordable in this phase. This may reveal hidden money. Publicly impossible actions are always skipped. Applies after the next move.": "이 단계에서 아무것도 살 돈이 없으면 자동 패스합니다. 숨겨진 자금이 드러날 수 있습니다. 공개 정보상 불가능한 행동은 항상 건너뜁니다. 다음 행동 후 적용됩니다."
 }

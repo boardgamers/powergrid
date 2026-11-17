@@ -9,6 +9,7 @@ import { playersSortedByScore } from './src/engine';
 import { GameOptions, Phase } from './src/gamestate';
 import type { LogMove } from './src/log';
 import { Move, MoveName } from './src/move';
+import { autoPassResourcesAndBuilding } from './src/phase-auto-pass';
 import {
     automation,
     canManagePremoves,
@@ -42,24 +43,40 @@ export function setPlayerMetaData(G: GameState, player: number, metaData: { name
 }
 
 export function setPlayerSettings(G: GameState, player: number, settings: Record<string, unknown>): GameState {
-    if (G.players[player]) G.players[player].settings = { autoPassBids: settings.autoPassBids === true };
+    if (G.players[player])
+        G.players[player].settings = {
+            autoPassBids: settings.autoPassBids === true,
+            autoPassResources: settings.autoPassResources === true,
+            autoPassBuilding: settings.autoPassBuilding === true,
+        };
     // The host settings endpoint only persists preferences: it does not advance
     // turns or clocks. Apply automation after the next committed game move.
     return G;
 }
 
 export function playerSettings(G: GameState, player: number): Record<string, unknown> {
-    return { autoPassBids: G.players[player]?.settings?.autoPassBids === true };
+    return {
+        autoPassBids: G.players[player]?.settings?.autoPassBids === true,
+        autoPassResources: G.players[player]?.settings?.autoPassResources === true,
+        autoPassBuilding: G.players[player]?.settings?.autoPassBuilding === true,
+    };
 }
 
 function runAutomaticMoves(G: GameState, now: number): GameState {
-    // Premoves can finish upkeep and enter a new auction round; passing can enter
-    // Resources. Settle both in order without re-running them inside replay.
-    G = advanceDroppedPlayers(G);
-    G = autoPassAuctions(G, now);
-    G = runPremoves(G, now);
-    G = autoPassAuctions(G, now);
-    return advanceDroppedPlayers(runPremoves(G, now));
+    if (G.newTurn === false || G.achievementAnalysis) return G;
+    // Settle to a fixed point: queued powering can enter auctions, whose passes
+    // can enter resources, whose passes can unlock another queued building turn.
+    // Run submitted plans first so an automatic Pass cannot supersede them.
+    for (let guard = 0; guard < MAX_AUTO_MOVES; guard++) {
+        const before = G.log.length + (G.hiddenLog?.length ?? 0);
+        G = advanceDroppedPlayers(G);
+        G = runPremoves(G, now);
+        G = autoPassAuctions(G, now);
+        G = autoPassResourcesAndBuilding(G, now);
+        const after = G.log.length + (G.hiddenLog?.length ?? 0);
+        if (after === before) return G;
+    }
+    throw new Error('Automatic moves did not settle');
 }
 
 /**

@@ -1,0 +1,351 @@
+{
+    "game": "powergrid",
+    "gameVersion": 13,
+    "publishedAt": "2026-11-17T22:21:19.895Z",
+    "sourceBase": "0c2f9b9",
+    "engine": {
+        "version": "2.0.37",
+        "package": {
+            "name": "powergrid-engine",
+            "version": "2.0.37",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/engine/0505a49678106c83/powergrid-engine-2.0.37.tgz"
+        },
+        "entryPoint": "dist/wrapper.js",
+        "sha256": "0505a49678106c8351bed5e89daa52762a8bf818478ff03bcaa6b2e14a95c223",
+        "bytes": 448863
+    },
+    "viewer": {
+        "version": "2.3.32",
+        "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.js",
+        "stylesheets": [
+            "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.css"
+        ],
+        "scriptBytes": 1276327,
+        "bundle": "split-e8cf0a84135f735b13bd",
+        "files": [
+            {
+                "name": "powergrid-viewer.css",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.css",
+                "bytes": 12404,
+                "storedBytes": 3341
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-america.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-america.js",
+                "bytes": 85113,
+                "storedBytes": 34477
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-australia.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-australia.js",
+                "bytes": 38512,
+                "storedBytes": 16689
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-badenwurttemberg.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-badenwurttemberg.js",
+                "bytes": 8577,
+                "storedBytes": 4136
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-benelux.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-benelux.js",
+                "bytes": 16630,
+                "storedBytes": 7505
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-brazil.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-brazil.js",
+                "bytes": 86016,
+                "storedBytes": 33420
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-bremen.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-bremen.js",
+                "bytes": 2372,
+                "storedBytes": 1333
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-centraleurope.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-centraleurope.js",
+                "bytes": 55706,
+                "storedBytes": 24066
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-chile.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-chile.js",
+                "bytes": 45296,
+                "storedBytes": 19728
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-china.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-china.js",
+                "bytes": 106839,
+                "storedBytes": 45313
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-europe.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-europe.js",
+                "bytes": 102212,
+                "storedBytes": 43493
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-france.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-france.js",
+                "bytes": 45373,
+                "storedBytes": 19313
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-germany.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-germany.js",
+                "bytes": 44921,
+                "storedBytes": 19464
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-hawaii.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-hawaii.js",
+                "bytes": 2690,
+                "storedBytes": 1443
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-indian.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-indian.js",
+                "bytes": 78059,
+                "storedBytes": 31059
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-italy.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-italy.js",
+                "bytes": 48012,
+                "storedBytes": 19877
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-japan.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-japan.js",
+                "bytes": 36346,
+                "storedBytes": 15348
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-korea.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-korea.js",
+                "bytes": 22329,
+                "storedBytes": 10151
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-manhattan.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-manhattan.js",
+                "bytes": 22389,
+                "storedBytes": 9353
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-middleeast.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-middleeast.js",
+                "bytes": 69713,
+                "storedBytes": 28367
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-northamerica.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-northamerica.js",
+                "bytes": 71472,
+                "storedBytes": 28257
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-northerneurope.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-northerneurope.js",
+                "bytes": 57391,
+                "storedBytes": 24075
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-quebec.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-quebec.js",
+                "bytes": 96526,
+                "storedBytes": 42220
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-russia.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-russia.js",
+                "bytes": 91649,
+                "storedBytes": 39307
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-southafrica.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-southafrica.js",
+                "bytes": 10242,
+                "storedBytes": 4599
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-spainportugal.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-spainportugal.js",
+                "bytes": 40537,
+                "storedBytes": 17762
+            },
+            {
+                "name": "powergrid-viewer.umd.min.geography-ukireland.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.geography-ukireland.js",
+                "bytes": 29283,
+                "storedBytes": 12489
+            },
+            {
+                "name": "powergrid-viewer.umd.min.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.js",
+                "bytes": 1276327,
+                "storedBytes": 329957
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-da.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.locale-da.js",
+                "bytes": 133192,
+                "storedBytes": 42216
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-de.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.locale-de.js",
+                "bytes": 139411,
+                "storedBytes": 45106
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-el.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.locale-el.js",
+                "bytes": 199636,
+                "storedBytes": 56520
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-fa.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.locale-fa.js",
+                "bytes": 171388,
+                "storedBytes": 47135
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-fr.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.locale-fr.js",
+                "bytes": 144749,
+                "storedBytes": 44871
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-hi.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.locale-hi.js",
+                "bytes": 220529,
+                "storedBytes": 53916
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-it.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.locale-it.js",
+                "bytes": 139926,
+                "storedBytes": 43738
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-ko.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.locale-ko.js",
+                "bytes": 147290,
+                "storedBytes": 49397
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-nl.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.locale-nl.js",
+                "bytes": 137209,
+                "storedBytes": 43382
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-pl.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.locale-pl.js",
+                "bytes": 136720,
+                "storedBytes": 45387
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-pt-BR.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.locale-pt-BR.js",
+                "bytes": 138441,
+                "storedBytes": 43550
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-ro.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.locale-ro.js",
+                "bytes": 141689,
+                "storedBytes": 44490
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-ru.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.locale-ru.js",
+                "bytes": 185194,
+                "storedBytes": 54716
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-vi.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.locale-vi.js",
+                "bytes": 153192,
+                "storedBytes": 45113
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-zh-CN.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.locale-zh-CN.js",
+                "bytes": 125903,
+                "storedBytes": 44370
+            },
+            {
+                "name": "powergrid-viewer.umd.min.locale-zh-TW.js",
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/viewer/split-e8cf0a84135f735b13bd/powergrid-viewer.umd.min.locale-zh-TW.js",
+                "bytes": 130375,
+                "storedBytes": 48976
+            }
+        ],
+        "sha256": "ddad6c0c4c928545c047f874fd25cafba98a6576b8dec7be7f56f3ca01899ec0"
+    },
+    "settings": {
+        "added": [
+            "autoPassResources",
+            "autoPassBuilding"
+        ],
+        "before": [
+            {
+                "name": "autoPassBids",
+                "label": "Auto-pass auctions I cannot afford (always on with public money)",
+                "type": "checkbox",
+                "default": false
+            }
+        ],
+        "after": [
+            {
+                "name": "autoPassBids",
+                "label": "Auto-pass auctions I cannot afford (always on with public money)",
+                "type": "checkbox",
+                "default": false
+            },
+            {
+                "name": "autoPassResources",
+                "label": "Auto-pass resources I cannot afford (always on with public money)",
+                "type": "checkbox",
+                "default": false
+            },
+            {
+                "name": "autoPassBuilding",
+                "label": "Auto-pass building when I cannot afford a city (always on with public money)",
+                "type": "checkbox",
+                "default": false
+            }
+        ],
+        "preferencesPreserved": true,
+        "unrelatedSettingsPreserved": true,
+        "unrelatedMetadataPreserved": true,
+        "apiNote": "Settings are top-level in the merged admin gameinfo API response; only settings were PATCHed via PUT, not preferences or the full metadata document."
+    },
+    "verification": {
+        "engineTests": 861,
+        "viewerUnitTests": 106,
+        "localizationTests": 8,
+        "localeCatalogs": 17,
+        "engineBuildAndPack": true,
+        "viewerPackageAndBundleBudget": true,
+        "protocolBrowser": "390px and 1400px, replay and undo checks passed",
+        "stableLayout": "Six map/player/locale scenarios plus three short desktop viewports passed",
+        "localPhaseScenarios": 8,
+        "localLabelChecks": 136,
+        "cdnPhaseScenarios": 8,
+        "cdnLabelChecks": 136,
+        "cdnLabelResult": "Auto-pass labels: 136 phase/locale/viewport checks passed (17 locales, 390/1400px, live phase and locale switching). Smallest: {\"font\":12.85,\"x\":37,\"y\":10.529212951660156,\"right\":339.92486572265625,\"bottom\":25.470787048339844,\"inside\":true,\"gap\":9.03519058227539,\"locale\":\"el\",\"width\":390,\"phase\":\"auction\"}",
+        "publicAssetHashesVerified": true,
+        "publicViewerAssets": 44,
+        "activeMetadataVerified": true,
+        "noLiveGameWrites": true
+    },
+    "verified": true
+}

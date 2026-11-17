@@ -4,5 +4,17 @@
         "label": "Auto-pass auctions I cannot afford (always on with public money)",
         "type": "checkbox",
         "default": false
+    },
+    {
+        "name": "autoPassResources",
+        "label": "Auto-pass resources I cannot afford (always on with public money)",
+        "type": "checkbox",
+        "default": false
+    },
+    {
+        "name": "autoPassBuilding",
+        "label": "Auto-pass building when I cannot afford a city (always on with public money)",
+        "type": "checkbox",
+        "default": false
     }
 ]

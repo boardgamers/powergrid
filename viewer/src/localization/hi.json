@@ -1,4 +1,7 @@
 {
+    "Auto-pass if unaffordable (auction)": "पैसे कम हों तो अपने-आप पास (नीलामी)",
+    "Auto-pass if unaffordable (resources)": "पैसे कम हों तो अपने-आप पास (संसाधन)",
+    "Auto-pass if unaffordable (building)": "पैसे कम हों तो अपने-आप पास (निर्माण)",
     "Auto-pass if unaffordable": "पैसे कम हों तो अपने-आप पास",
     "Money is public: players automatically pass auctions they cannot afford.": "पैसा खुला है: खिलाड़ी उन नीलामियों में अपने-आप पास करते हैं जिनकी बोली वे नहीं चुका सकते।",
     "Automatically pass auctions you cannot afford. With hidden money, this can reveal that you cannot afford the bid. Applies after the next move.": "जिन नीलामियों की बोली आप नहीं चुका सकते, उनमें अपने-आप पास करें। पैसा छिपा होने पर इससे पता चल सकता है कि आपके पास बोली के लिए पर्याप्त पैसे नहीं हैं। अगली चाल के बाद लागू होगा।",
@@ -2061,5 +2064,7 @@
     "Analysis money update failed. Please try again.": "विश्लेषण के पैसे अपडेट नहीं हो सके। फिर कोशिश करें।",
     "Save": "सहेजें",
     "Close and refresh": "बंद करें और रीफ़्रेश करें",
-    "Closing refreshes the board but does not cancel the submitted edit.": "बंद करने से बोर्ड रीफ़्रेश होता है, लेकिन भेजा गया बदलाव रद्द नहीं होता।"
+    "Closing refreshes the board but does not cancel the submitted edit.": "बंद करने से बोर्ड रीफ़्रेश होता है, लेकिन भेजा गया बदलाव रद्द नहीं होता।",
+    "Money is public: automatically pass when no resource or city can be bought. Always on.": "पैसा सार्वजनिक है: कोई संसाधन या शहर न खरीद पाने पर अपने-आप पास। हमेशा चालू।",
+    "Automatically pass when nothing is affordable in this phase. This may reveal hidden money. Publicly impossible actions are always skipped. Applies after the next move.": "इस चरण में कुछ भी खरीदने के पैसे न हों तो अपने-आप पास। इससे छिपे पैसे का पता चल सकता है। सार्वजनिक रूप से असंभव कार्य हमेशा छोड़ दिए जाते हैं। अगली चाल के बाद लागू।"
 }

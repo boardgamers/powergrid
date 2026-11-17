@@ -620,8 +620,10 @@
                         :phase="G.phase"
                         :isAustralia="G.map.name === 'Australia'"
                         :showAutoPass="player == playerIndex && showAutoPass"
-                        :autoPass="!!G.options.showMoney || !!(settings && settings.autoPassBids)"
+                        :reserveAutoPass="player == playerIndex && reserveAutoPass"
+                        :autoPass="!!G.options.showMoney || !!(settings && settings[autoPassSetting])"
                         :autoPassPublic="!!G.options.showMoney"
+                        :autoPassSetting="autoPassSetting"
                         :autoPassDisabled="!canEditAuctionSettings"
                         @toggleAutoPass="toggleAutoPass()"
                         @powerPlantClick="powerPlantClick($event)"
@@ -1334,8 +1336,21 @@ export default class Game extends Vue {
         this.analysisMoneyError = 'Analysis money update failed. Please try again.';
     }
 
+    get autoPassSetting(): string {
+        if (this.G?.phase === Phase.Resources) return 'autoPassResources';
+        if (this.G?.phase === Phase.Building) return 'autoPassBuilding';
+        return 'autoPassBids';
+    }
+
     get showAutoPass(): boolean {
+        return !!this.G && this.reserveAutoPass && [Phase.Auction, Phase.Resources, Phase.Building].includes(this.G.phase);
+    }
+
+    // Reserve the own-player preference row across phases, even when no setting
+    // applies. Hiding its control must not move the map or subsequent boards.
+    get reserveAutoPass(): boolean {
         return (
+            !!this.G &&
             !this.tutorialMove &&
             !this.preferences.analysis &&
             this.player != null &&
@@ -1356,7 +1371,7 @@ export default class Game extends Vue {
     }
     toggleAutoPass() {
         if (this.canEditAuctionSettings)
-            this.emitter.emit('update:setting', { name: 'autoPassBids', value: !this.settings?.autoPassBids });
+            this.emitter.emit('update:setting', { name: this.autoPassSetting, value: !this.settings?.[this.autoPassSetting] });
     }
 
     @Prop()
@@ -3309,7 +3324,7 @@ export default class Game extends Vue {
             map: this.G?.map,
             players: this.G?.players.length,
             locale: this.preferences.locale,
-            auctionSettings: this.showAutoPass,
+            auctionSettings: this.reserveAutoPass,
         });
         if (!this.shouldStack() && !this.stacked && desktopKey === this.desktopLayoutKey) return;
 
@@ -3542,7 +3557,7 @@ export default class Game extends Vue {
     @Watch('G')
     @Watch('layoutPreferencesKey')
     @Watch('hasPlanPanel')
-    @Watch('showAutoPass')
+    @Watch('reserveAutoPass')
     onSceneContentChanged() {
         this.scheduleRelayout();
     }
@@ -3553,7 +3568,7 @@ export default class Game extends Vue {
 
     playerBoardOffset(index: number): number {
         const ownIndex = this.player == null ? -1 : this.adjustedPlayerOrder.indexOf(this.player);
-        const extraHeight = this.showAutoPass && ownIndex >= 0 && ownIndex < index ? PLAYER_SETTING_ROW_HEIGHT : 0;
+        const extraHeight = this.reserveAutoPass && ownIndex >= 0 && ownIndex < index ? PLAYER_SETTING_ROW_HEIGHT : 0;
         return 110 * index + extraHeight;
     }
 

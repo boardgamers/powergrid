@@ -1,4 +1,7 @@
 {
+    "Auto-pass if unaffordable (auction)": "資金不足時自動放棄競價 (拍賣)",
+    "Auto-pass if unaffordable (resources)": "資金不足時自動放棄競價 (資源)",
+    "Auto-pass if unaffordable (building)": "資金不足時自動放棄競價 (建造)",
     "Auto-pass if unaffordable": "資金不足時自動放棄競價",
     "Money is public: players automatically pass auctions they cannot afford.": "資金公開：玩家在無力支付出價時自動放棄競價。",
     "Automatically pass auctions you cannot afford. With hidden money, this can reveal that you cannot afford the bid. Applies after the next move.": "在無力支付出價時自動放棄競價。資金隱藏時，這可能暴露你無力支付該出價。下次行動後生效。",
@@ -2061,5 +2064,7 @@
     "Analysis money update failed. Please try again.": "分析資金更新失敗。請重試。",
     "Save": "儲存",
     "Close and refresh": "關閉並重新整理",
-    "Closing refreshes the board but does not cancel the submitted edit.": "關閉會重新整理棋盤，但不會取消已提交的修改。"
+    "Closing refreshes the board but does not cancel the submitted edit.": "關閉會重新整理棋盤，但不會取消已提交的修改。",
+    "Money is public: automatically pass when no resource or city can be bought. Always on.": "資金公開：無法購買任何資源或城市時自動跳過。始終啟用。",
+    "Automatically pass when nothing is affordable in this phase. This may reveal hidden money. Publicly impossible actions are always skipped. Applies after the next move.": "本階段資金不足以購買任何東西時自動跳過。這可能透露隱藏的資金。根據公開資訊不可能執行的行動一律跳過。下次行動後生效。"
 }

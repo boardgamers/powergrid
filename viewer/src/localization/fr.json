@@ -1,4 +1,7 @@
 {
+    "Auto-pass if unaffordable (auction)": "Passer si l’argent ne suffit pas (enchères)",
+    "Auto-pass if unaffordable (resources)": "Passer si l’argent ne suffit pas (ressources)",
+    "Auto-pass if unaffordable (building)": "Passer si l’argent ne suffit pas (construction)",
     "Auto-pass if unaffordable": "Passer si l’argent ne suffit pas",
     "Money is public: players automatically pass auctions they cannot afford.": "L’argent est visible : les joueurs passent automatiquement les enchères qu’ils ne peuvent pas payer.",
     "Automatically pass auctions you cannot afford. With hidden money, this can reveal that you cannot afford the bid. Applies after the next move.": "Passer automatiquement les enchères que vous ne pouvez pas payer. Avec l’argent caché, cela peut révéler que vos fonds sont insuffisants. S’applique après le prochain coup.",
@@ -2061,5 +2064,7 @@
     "Analysis money update failed. Please try again.": "La mise à jour de l’argent a échoué. Réessayez.",
     "Save": "Enregistrer",
     "Close and refresh": "Fermer et actualiser",
-    "Closing refreshes the board but does not cancel the submitted edit.": "Fermer actualise le plateau mais n’annule pas la modification envoyée."
+    "Closing refreshes the board but does not cancel the submitted edit.": "Fermer actualise le plateau mais n’annule pas la modification envoyée.",
+    "Money is public: automatically pass when no resource or city can be bought. Always on.": "Argent public : passer automatiquement si aucune ressource ou ville ne peut être achetée. Toujours actif.",
+    "Automatically pass when nothing is affordable in this phase. This may reveal hidden money. Publicly impossible actions are always skipped. Applies after the next move.": "Passer automatiquement si rien n’est abordable dans cette phase. Cela peut révéler de l’argent caché. Les actions publiquement impossibles sont toujours sautées. Après le prochain coup."
 }

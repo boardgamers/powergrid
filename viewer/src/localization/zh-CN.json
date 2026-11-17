@@ -1,4 +1,7 @@
 {
+    "Auto-pass if unaffordable (auction)": "资金不足时自动放弃竞价 (拍卖)",
+    "Auto-pass if unaffordable (resources)": "资金不足时自动放弃竞价 (资源)",
+    "Auto-pass if unaffordable (building)": "资金不足时自动放弃竞价 (建造)",
     "Auto-pass if unaffordable": "资金不足时自动放弃竞价",
     "Money is public: players automatically pass auctions they cannot afford.": "资金公开：玩家在无力支付出价时自动放弃竞价。",
     "Automatically pass auctions you cannot afford. With hidden money, this can reveal that you cannot afford the bid. Applies after the next move.": "在无力支付出价时自动放弃竞价。资金隐藏时，这可能暴露你无力支付该出价。下次行动后生效。",
@@ -2061,5 +2064,7 @@
     "Analysis money update failed. Please try again.": "分析资金更新失败。请重试。",
     "Save": "保存",
     "Close and refresh": "关闭并刷新",
-    "Closing refreshes the board but does not cancel the submitted edit.": "关闭会刷新棋盘，但不会取消已提交的修改。"
+    "Closing refreshes the board but does not cancel the submitted edit.": "关闭会刷新棋盘，但不会取消已提交的修改。",
+    "Money is public: automatically pass when no resource or city can be bought. Always on.": "资金公开：无法购买任何资源或城市时自动跳过。始终启用。",
+    "Automatically pass when nothing is affordable in this phase. This may reveal hidden money. Publicly impossible actions are always skipped. Applies after the next move.": "本阶段资金不足以购买任何东西时自动跳过。这可能透露隐藏的资金。根据公开信息不可能执行的行动一律跳过。下次行动后生效。"
 }

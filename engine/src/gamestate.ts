@@ -134,6 +134,9 @@ export interface CityPosition {
 export interface PlayerSettings {
     /** Opt in to revealing inability to afford an auction when money is hidden. */
     autoPassBids?: boolean;
+    /** Private opt-ins to reveal inability to afford actions in these phases. */
+    autoPassResources?: boolean;
+    autoPassBuilding?: boolean;
 }
 
 export interface Player {

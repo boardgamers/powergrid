@@ -44,7 +44,11 @@ describe('authoritative auction auto-pass', () => {
 
     it('leaves hidden money alone unless that player opted in; turning it off restores manual passing', async () => {
         const G = position(false);
-        expect(wrapper.playerSettings(G, 1)).to.deep.equal({ autoPassBids: false });
+        expect(wrapper.playerSettings(G, 1)).to.deep.equal({
+            autoPassBids: false,
+            autoPassResources: false,
+            autoPassBuilding: false,
+        });
         expect((await wrapper.move(cloneDeep(G), opening(G), 0)).currentPlayers).to.deep.equal([1]);
         wrapper.setPlayerSettings(G, 1, { autoPassBids: true });
         expect((await wrapper.move(cloneDeep(G), opening(G), 0)).currentPlayers).to.deep.equal([2]);
@@ -57,9 +61,17 @@ describe('authoritative auction auto-pass', () => {
         wrapper.setPlayerSettings(G, 1, { autoPassBids: true });
         expect(stripSecret(G, 0).players[1].settings).to.equal(undefined);
         expect(stripSecret(G).players[1].settings).to.equal(undefined);
-        expect(stripSecret(G, 1).players[1].settings).to.deep.equal({ autoPassBids: true });
+        expect(stripSecret(G, 1).players[1].settings).to.deep.equal({
+            autoPassBids: true,
+            autoPassResources: false,
+            autoPassBuilding: false,
+        });
         wrapper.setPlayerSettings(G, 1, { autoPassBids: 'true' });
-        expect(wrapper.playerSettings(G, 1)).to.deep.equal({ autoPassBids: false });
+        expect(wrapper.playerSettings(G, 1)).to.deep.equal({
+            autoPassBids: false,
+            autoPassResources: false,
+            autoPassBuilding: false,
+        });
     });
 
     it('never advances turns when the host saves settings', () => {

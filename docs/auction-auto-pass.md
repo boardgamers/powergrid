@@ -14,6 +14,35 @@ skipped. Automatic passes use normal move logs (hidden until resolution for seal
 bids), timestamps and time increments. Historical replay does not re-evaluate
 today's settings or insert new passes.
 
+## Resources and Building
+
+Resources and Building also auto-pass when Pass is the only legal action. With
+public money this is automatic. With hidden money, inability to act even with
+unlimited money is public information and needs no opt-in (for example, no usable
+fuel storage, empty supply, or nowhere legal to build). When only affordability
+prevents acting, the private `autoPassResources` or `autoPassBuilding` setting must
+be enabled. Both default to false and take effect after the next committed move.
+
+The player-card checkbox follows the current phase. Existing settings are retained
+when toggling another phase's setting. Analysis stays manual; tentative purchases
+and builds remain undoable and are never automatically confirmed. Queued plans
+run before automatic passes. Ordinary Pass logs, clocks and replay are preserved.
+
+Published on BGS v13 with engine **2.0.37** and viewer **2.3.32**. The two new
+checkbox declarations from `scripts/player-settings.json` were merged into the
+BGS game settings alongside `autoPassBids`, preserving unrelated settings and
+viewer preferences. All three labels name their current phase, are translated
+in all 17 languages and fit left-aligned within the existing reserved row.
+See [the release record](releases/phase-auto-pass-2.0.37-2.3.32.json) for public
+asset hashes and verification.
+
+Use `/?mode=fuel-hidden` or `/?mode=city-hidden` to let Ada take the last affordable
+option. Reset and compare with the checkbox enabled or the public-money scenarios.
+`/?mode=fuel-hidden-impossible` demonstrates a publicly empty oil market being
+skipped even when the hidden-money checkbox is off.
+
+## Preview and existing auction release
+
 Preview: build the engine and viewer, then run
 `node viewer/scripts/auction-preview.mjs` (default port 5216). The scenario selector
 offers public/hidden money and normal/sealed bidding. In the hidden-money preview,

@@ -2,7 +2,7 @@
     <g class="player-board">
         <rect
             width="350"
-            :height="100 + (showAutoPass ? settingRowHeight : 0)"
+            :height="100 + (reserveAutoPass || showAutoPass ? settingRowHeight : 0)"
             x="0"
             y="0"
             fill="gold"
@@ -76,12 +76,13 @@
                 class="auction-auto-pass"
                 :class="{ editable: !autoPassDisabled }"
                 transform="translate(0, 100)"
-                data-auction-auto-pass
+                :data-auction-auto-pass="autoPassSetting === 'autoPassBids' ? '' : undefined"
+                :data-auto-pass-setting="autoPassSetting"
                 :role="autoPassPublic ? 'note' : 'checkbox'"
                 :aria-checked="autoPassPublic ? undefined : String(autoPass)"
                 :aria-disabled="autoPassDisabled ? 'true' : 'false'"
                 :tabindex="autoPassPublic || autoPassDisabled ? -1 : 0"
-                aria-label="Auto-pass if unaffordable"
+                :aria-label="autoPassLabel"
                 @click="!autoPassDisabled && $emit('toggleAutoPass')"
                 @keydown.enter.prevent="!autoPassDisabled && $emit('toggleAutoPass')"
                 @keydown.space.prevent="!autoPassDisabled && $emit('toggleAutoPass')"
@@ -98,12 +99,23 @@
                     stroke="#304b3b"
                 />
                 <path v-if="autoPass" d="M14 18L18 22L24 14" fill="none" stroke="white" stroke-width="2" />
-                <text x="37" y="18" fill="#24382b" style="font: 16px Arial, sans-serif; dominant-baseline: central"
-                    >Auto-pass if unaffordable</text
-                >
+                <g transform="translate(29, 0)">
+                    <ActionLabel
+                        :text="autoPassLabel"
+                        align="left"
+                        :width="321"
+                        :height="settingRowHeight"
+                        :maxFontSize="16"
+                        style="font-family: Arial, sans-serif; fill: #24382b"
+                    />
+                </g>
                 <title>
                     {{
-                        autoPassPublic
+                        autoPassSetting !== 'autoPassBids'
+                            ? autoPassPublic
+                                ? 'Money is public: automatically pass when no resource or city can be bought. Always on.'
+                                : 'Automatically pass when nothing is affordable in this phase. This may reveal hidden money. Publicly impossible actions are always skipped. Applies after the next move.'
+                            : autoPassPublic
                             ? 'Money is public: players automatically pass auctions they cannot afford.'
                             : 'Automatically pass auctions you cannot afford. With hidden money, this can reveal that you cannot afford the bid. Applies after the next move.'
                     }}
@@ -240,9 +252,11 @@ import { Preferences } from '../types/ui-data';
 import { formatDuration } from '../util/time';
 import { PLAYER_SETTING_ROW_HEIGHT } from '../util/board-layout';
 import { Coal, Oil, Garbage, Uranium, Card } from './pieces';
+import ActionLabel from './buttons/ActionLabel.vue';
 
 @Component({
     components: {
+        ActionLabel,
         Coal,
         Oil,
         Garbage,
@@ -267,12 +281,20 @@ export default class PlayerBoard extends Vue {
     @Prop() phase?: Phase;
     // Australia: uranium plants are "mines" — flag so the hand marks them distinctly.
     @Prop() isAustralia?: boolean;
+    @Prop({ default: 'autoPassBids' }) autoPassSetting!: string;
+    @Prop({ default: false }) reserveAutoPass!: boolean;
     @Prop({ default: false }) showAutoPass!: boolean;
     @Prop({ default: false }) autoPass!: boolean;
     @Prop({ default: false }) autoPassPublic!: boolean;
     @Prop({ default: true }) autoPassDisabled!: boolean;
 
     settingRowHeight = PLAYER_SETTING_ROW_HEIGHT;
+
+    get autoPassLabel() {
+        if (this.autoPassSetting === 'autoPassResources') return 'Auto-pass if unaffordable (resources)';
+        if (this.autoPassSetting === 'autoPassBuilding') return 'Auto-pass if unaffordable (building)';
+        return 'Auto-pass if unaffordable (auction)';
+    }
 
     @Inject() preferences!: Preferences;
 

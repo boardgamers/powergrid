@@ -2,9 +2,10 @@
     <text
         ref="label"
         data-action-label
-        :x="width / 2"
+        :x="align === 'left' ? 8 : width / 2"
         :y="height / 2"
-        text-anchor="middle"
+        :text-anchor="align === 'left' ? 'start' : 'middle'"
+        :direction="align === 'left' ? 'ltr' : undefined"
         dominant-baseline="central"
         :font-size="fontSize"
         fill="black"
@@ -23,6 +24,8 @@ export default class ActionLabel extends Vue {
     @Prop() text!: string;
     @Prop() width!: number;
     @Prop() height!: number;
+    @Prop({ default: 13 }) maxFontSize!: number;
+    @Prop({ default: 'center' }) align!: 'left' | 'center';
     fontSize = 13;
     private textObserver: MutationObserver | null = null;
     private sizeObserver: ResizeObserver | null = null;
@@ -40,8 +43,12 @@ export default class ActionLabel extends Vue {
         if (!length || !height) return; // Hidden iframe: ResizeObserver retries on reveal.
         const current = Number(label.getAttribute('font-size'));
         this.fontSize =
-            Math.round(
-                Math.min(13, (current * (this.width - 16)) / length, (current * (this.height - 8)) / height) * 100
+            Math.floor(
+                Math.min(
+                    this.maxFontSize,
+                    (current * (this.width - (this.align === 'left' ? 18 : 16))) / length,
+                    (current * (this.height - 8)) / height
+                ) * 100
             ) / 100;
     }
 

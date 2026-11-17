@@ -65,3 +65,36 @@ When the only human of a game plays against bots, BGS can take back their last s
 The viewer accepts BGS's `colorBlind` boolean preference (default `false`). The eye button on the board changes it through `update:preference`, so BGS saves the setting across games. It also works locally in tutorials.
 
 When enabled, houses on the map, turn-order track and city-count track carry their owner's seat number. Player panels use the same number, regardless of turn order or selected color. City rims use contrasting dash and dot patterns to distinguish map regions without extra labels. Each region keeps its pattern after region selection. Resources already use different shapes.
+
+### Local phase auto-pass preview (no BGS connection)
+
+From the repository root, build the engine and viewer, then start the preview:
+
+```sh
+pnpm --dir engine build
+NODE_OPTIONS=--openssl-legacy-provider pnpm --dir viewer exec vue-cli-service build --target lib --name powergrid-viewer src/wrapper.ts
+node viewer/scripts/auction-preview.mjs
+```
+
+Open <http://127.0.0.1:5216/?mode=fuel-hidden> (or `?mode=city-hidden`).
+The scenario selector also offers public-money versions and an empty oil market.
+Toggle the checkbox in **your** player card, then click Ada's action in the top
+bar. Ada takes the last affordable oil/city and finishes via the real engine
+wrapper. Hidden money without opt-in retains your turn; opt-in or public money
+skips it. An empty oil market skips even with hidden money and opt-in disabled,
+because the impossibility is public. Reset before comparing scenarios.
+Preferences persist through the wrapper's private player-settings API; no
+client-side auto-pass simulation is used. Preview state is held in memory only.
+
+Run the eight browser scenarios after building:
+
+```sh
+node viewer/scripts/phase-auto-pass-smoke.mjs
+node viewer/scripts/auto-pass-label-smoke.mjs
+```
+
+The label smoke checks all 17 languages at 390px and 1400px, switching phases
+and locales live and checking left alignment, checkbox clearance and row bounds.
+To verify a published viewer, set `POWERGRID_VIEWER_URL` to its public
+`powergrid-viewer.umd.min.js` URL when running either smoke. Only viewer assets
+are fetched from the CDN; game state, moves and settings remain local in memory.

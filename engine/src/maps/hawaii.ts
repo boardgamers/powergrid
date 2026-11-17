@@ -61,10 +61,12 @@ export enum Cities {
     Punaluu = 'Punaluu',
 }
 
-// House prices by island (standard is 10/15/20). Maui and Oahu are dear,
-// Kauai and the Big Island cheap.
+// House prices by island (standard is 10/15/20). Maui and Oahu are dear, the Big
+// Island cheap. Kauai is standard: it already has the cheapest links on the board,
+// so cheap houses on top made it too strong (BootlegTampico, Discord, 2026-11-17).
 const MAUI = [12, 18, 24];
 const OAHU = [11, 17, 22];
+const KAUAI = [10, 15, 20];
 const CHEAP = [8, 13, 18];
 
 // Payout one Elektro higher at every step than the standard table: Hawaii's
@@ -76,13 +78,13 @@ const paymentTable = [
 export const map: GameMap = {
     name: 'HawaiiCustom',
     cities: [
-        { name: Cities.Hanalei, region: Regions.Green, slotCosts: CHEAP, x: 189, y: 115 },
-        { name: Cities.NaPali, region: Regions.Green, slotCosts: CHEAP, x: 110, y: 161 },
-        { name: Cities.KalalauLookout, region: Regions.Green, slotCosts: CHEAP, x: 112, y: 243 },
-        { name: Cities.Kapaa, region: Regions.Green, slotCosts: CHEAP, x: 285, y: 137 },
-        { name: Cities.WaimeaCanyon, region: Regions.Green, slotCosts: CHEAP, x: 174, y: 295 },
-        { name: Cities.Lihue, region: Regions.Green, slotCosts: CHEAP, x: 297, y: 217 },
-        { name: Cities.Poipu, region: Regions.Green, slotCosts: CHEAP, x: 255, y: 302 },
+        { name: Cities.Hanalei, region: Regions.Green, slotCosts: KAUAI, x: 189, y: 115 },
+        { name: Cities.NaPali, region: Regions.Green, slotCosts: KAUAI, x: 110, y: 161 },
+        { name: Cities.KalalauLookout, region: Regions.Green, slotCosts: KAUAI, x: 112, y: 243 },
+        { name: Cities.Kapaa, region: Regions.Green, slotCosts: KAUAI, x: 285, y: 137 },
+        { name: Cities.WaimeaCanyon, region: Regions.Green, slotCosts: KAUAI, x: 174, y: 295 },
+        { name: Cities.Lihue, region: Regions.Green, slotCosts: KAUAI, x: 297, y: 217 },
+        { name: Cities.Poipu, region: Regions.Green, slotCosts: KAUAI, x: 255, y: 302 },
         { name: Cities.Waianae, region: Regions.Yellow, slotCosts: OAHU, x: 356, y: 392 },
         { name: Cities.Haleiwa, region: Regions.Yellow, slotCosts: OAHU, x: 379, y: 314 },
         { name: Cities.WaimeaBay, region: Regions.Yellow, slotCosts: OAHU, x: 416, y: 242 },
@@ -190,8 +192,13 @@ export const map: GameMap = {
         { nodes: [Cities.Poipu, Cities.Kona], cost: 31, sea: true, ignoreForRegions: true, via: [65, 672] },
     ],
     paymentTable,
+    // Fuel is shipped in: the market starts with the three cheapest coal and the three
+    // cheapest oil left in the supply, so coal starts at 2 and oil at 4. Garbage and
+    // uranium start as each variant has them (Recharged fills garbage to 9).
+    startingResources: { original: [21, 15, 6, 2], recharged: [21, 15, 9, 2] },
     mapSpecificRules:
         'House prices differ by island (see the key on the board). Payout is 1 Elektro higher at every step. ' +
+        'Fuel is shipped in: at the start, coal begins at 2 and oil at 4. ' +
         'Dashed blue links are sea crossings. The Kauai-Big Island ferry (31) is a direct link, but it never ' +
         'counts as a border when regions are chosen: regions in play always join up over land and short crossings.',
     houseLegend: {

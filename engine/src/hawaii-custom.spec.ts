@@ -1,6 +1,8 @@
 import { expect } from 'chai';
 import { setup } from './engine';
+import { ResourceType } from './gamestate';
 import { map as hawaii, Regions } from './maps/hawaii';
+import prices from './prices';
 
 // The islands in chain order. Region sets must always be a run of neighbours along
 // this chain: the Kauai-Big Island ferry never counts as a border (ignoreForRegions).
@@ -51,7 +53,25 @@ describe('HawaiiCustom', () => {
         expect(price(Regions.Purple)).to.deep.equal([12, 18, 24]);
         expect(price(Regions.Red)).to.deep.equal([11, 17, 22]);
         expect(price(Regions.Yellow)).to.deep.equal([11, 17, 22]);
-        for (const r of [Regions.Green, Regions.Blue, Regions.Brown]) expect(price(r)).to.deep.equal([8, 13, 18]);
+        expect(price(Regions.Green)).to.deep.equal([10, 15, 20]);
+        for (const r of [Regions.Blue, Regions.Brown]) expect(price(r)).to.deep.equal([8, 13, 18]);
+        // every city in a region shares its region's price
+        for (const c of hawaii.cities) expect(c.slotCosts, c.name).to.deep.equal(price(c.region));
+    });
+
+    it('starts coal at 2 and oil at 4, garbage and uranium as standard, in both variants', () => {
+        const cheapest = (r: ResourceType, inMarket: number) => prices[r][prices[r].length - inMarket];
+        for (const variant of ['original', 'recharged'] as const) {
+            const G = setup(4, { map: 'HawaiiCustom', variant }, 'fuel');
+            expect(cheapest(ResourceType.Coal, G.coalMarket), variant).to.equal(2);
+            expect(cheapest(ResourceType.Oil, G.oilMarket), variant).to.equal(4);
+            const std = setup(4, { map: 'Germany', variant }, 'fuel');
+            expect(G.garbageMarket, variant).to.equal(std.garbageMarket);
+            expect(G.uraniumMarket, variant).to.equal(std.uraniumMarket);
+            // the six tokens left out stay in the supply
+            expect(G.coalMarket + G.coalSupply, variant).to.equal(std.coalMarket + std.coalSupply);
+            expect(G.oilMarket + G.oilSupply, variant).to.equal(std.oilMarket + std.oilSupply);
+        }
     });
 
     it('gives every city at least two links on the full board', () => {

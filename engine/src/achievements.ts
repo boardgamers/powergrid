@@ -29,6 +29,7 @@ const mapAchievements: Record<MapName, string> = {
     Australia: 'australia-champion',
     Bremen: 'bremen-champion',
     Manhattan: 'manhattan-champion',
+    Chile: 'chile-champion',
 };
 
 const definitions: AchievementDefinition[] = [
@@ -79,7 +80,7 @@ const definitions: AchievementDefinition[] = [
 export function achievementDefinitions(): AchievementManifest {
     // A host may cache or modify its copy without changing future evaluations.
     return {
-        revision: 3,
+        revision: 4,
         achievements: definitions.map((definition) => ({
             ...definition,
             icon: { type: 'asset', key: `achievement-${definition.id}` },

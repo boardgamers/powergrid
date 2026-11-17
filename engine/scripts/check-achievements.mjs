@@ -7,15 +7,17 @@ import wrapper from '../dist/wrapper.js';
 // entry point, not local copies of the contract or TypeScript-only assertions.
 const manifest = wrapper.achievementDefinitions();
 achievementManifestSchema.parse(manifest);
-assert.equal(manifest.revision, 3);
-assert.equal(manifest.achievements.length, 36);
+assert.equal(manifest.revision, 4);
+assert.equal(manifest.achievements.length, 37);
 const previous = JSON.parse(
     readFileSync(new URL('../../docs/releases/achievements-2.0.33.json', import.meta.url), 'utf8')
 ).achievementManifest;
 const artwork = JSON.parse(readFileSync(new URL('../../art/achievements/manifest.json', import.meta.url), 'utf8'));
+// Revision 4 only adds Chile Champion, after the other map badges; the 36 published definitions are unchanged.
+const added = { id: 'chile-champion', name: 'Chile Champion', description: 'Win on the Chile map.' };
 assert.deepEqual(
     manifest.achievements.map(({ icon, ...definition }) => definition),
-    previous.achievements
+    [...previous.achievements.slice(0, 27), added, ...previous.achievements.slice(27)]
 );
 assert.deepEqual(
     manifest.achievements.map(({ id }) => id),

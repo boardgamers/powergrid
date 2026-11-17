@@ -202,7 +202,8 @@ function flatRow(G: GameState, cubes: number, fromStorage: boolean, label: strin
  * permanently empty box.
  */
 function uraniumOnTrack(G: GameState): boolean {
-    return G.map.name !== 'Australia' && G.map.name !== 'Bremen';
+    // Chile has no uranium at all.
+    return G.map.name !== 'Australia' && G.map.name !== 'Bremen' && G.map.name !== 'Chile';
 }
 
 function rowsFor(G: GameState, north: boolean, opts: RowOptions): ResourceRow[] {
@@ -226,7 +227,8 @@ function rowsFor(G: GameState, north: boolean, opts: RowOptions): ResourceRow[] 
     }
 
     rows.push(marketRow(G, 'oil', north, opts));
-    rows.push(marketRow(G, 'garbage', north, opts));
+    // Chile's North market sells no garbage.
+    if (!(north && G.map.name === 'Chile')) rows.push(marketRow(G, 'garbage', north, opts));
 
     // Korea's north side has no uranium row.
     if (!north && uraniumOnTrack(G)) {
@@ -261,7 +263,7 @@ export function resourceBlocks(G: GameState, opts: RowOptions = {}): ResourceBlo
 
     const southRows = rowsFor(G, false, opts);
     blocks.push({
-        title: isKorea(G) ? 'South Market' : undefined,
+        title: isKorea(G) ? (G.map.name === 'Chile' ? 'Central Market' : 'South Market') : undefined,
         restock: restockText(opts.resupply, southRows),
         rows: southRows,
     });

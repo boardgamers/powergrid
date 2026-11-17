@@ -33,7 +33,8 @@ export type MapName =
     | 'Japan'
     | 'Australia'
     | 'Bremen'
-    | 'Manhattan';
+    | 'Manhattan'
+    | 'Chile';
 export type Variant = 'original' | 'recharged';
 // 'standard' is the base game's deck; deck1 and deck2 are The New Power Plants
 // (Set 1) and Set 2. 'shuffled' plays every plant of all three decks together;
@@ -255,6 +256,8 @@ export interface GameState {
     uraniumPrices?: number[];
     actualMarket: PowerPlant[];
     futureMarket: PowerPlant[];
+    // Chile: the ecological plants set aside at setup; emptied onto the draw stack when Step 3 begins.
+    setAsidePlants?: PowerPlant[];
     chosenPowerPlant: PowerPlant | undefined;
     chosenResource?: ResourceType | undefined; // Used for India map, where only one resource can be bought at a time.
     // Korea: locked to the side a player bought their first resource from this turn.

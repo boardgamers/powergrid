@@ -1,10 +1,10 @@
 {
   "game": "powergrid",
-  "engine": "2.0.34",
-  "revision": 3,
+  "engine": "2.0.35",
+  "revision": 4,
   "provenance": "PROVENANCE.md",
-  "framingSha256": "516883e4548988a28caf6c7cf1902090881700d77276c51e11c40140bb9178cf",
-  "generatorSha256": "147ac3464fe309461fd9efff3d1f9b31a2b11f424ed0dd820a0689b3bc52b78d",
+  "framingSha256": "071ea76615673dd34cd2af9ff7b87ed02271372e6c36efd2f7262d76c6c985ad",
+  "generatorSha256": "414ec598073e0eee413f5c9d4e9fba81f412b3684cfb16c9132d6810feeac47c",
   "assets": [
     {
       "id": "grid-champion",
@@ -727,6 +727,37 @@
         "principalSpan": 70.73096591536705,
         "simplifyTolerance": 0.45,
         "minRelativeArea": 0.003
+      }
+    },
+    {
+      "id": "chile-champion",
+      "key": "achievement-chile-champion",
+      "svg": "achievement-chile-champion.svg",
+      "png": "achievement-chile-champion.png",
+      "sha256": "d33ad797fbe4e50b76a07e8f22c733a9e56ffb49e98b3c421c8f10ab5aa9df8d",
+      "source": "viewer/scripts/geography/chile-badge.json",
+      "sourceSha256": "b476e8800aca03e3de2144cb686a9d45527a38dcfe9bd767e3419f23e445fb7b",
+      "map": "chile",
+      "framing": {
+        "window": [
+          -76,
+          -43,
+          -66,
+          -17
+        ],
+        "reason": "Chile from Arica to Puerto Montt, the stretch on the board; widened 2x east-west and turned 40 degrees, as on the board, so the thin country reads at badge size.",
+        "components": 2,
+        "bounds": [
+          42.72489130315381,
+          30.999999999999993,
+          85.27510869684625,
+          108.99999999999999
+        ],
+        "principalSpan": 73.15246079580555,
+        "simplifyTolerance": 0.45,
+        "minRelativeArea": 0.003,
+        "widen": 2,
+        "turn": -40
       }
     },
     {

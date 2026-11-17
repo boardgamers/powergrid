@@ -208,6 +208,7 @@
                     :cities="G.map.cities"
                     :tutorialCity="tutorialCity"
                     :connections="G.map.connections"
+                    :gates="G.map.step3Connections"
                     :polygons="G.map.polygons"
                     :buildableCities="getBuildableCities()"
                     :buildPrices="getBuildableCityPrices()"
@@ -216,7 +217,7 @@
                     :noUraniumRegions="G.map.noUraniumRegions"
                     :houseLegend="G.map.houseLegend"
                     :devBackdrop="G.map.devBackdrop"
-                    :mapRotation="G.map.mapRotation || 0"
+                    :mapRotation="mapRotation"
                     @build="build($event)"
                     @pickRegion="pickRegion($event)"
                 />
@@ -3195,11 +3196,22 @@ export default class Game extends Vue {
         return deckBuildText(this.G.map.name, this.G.options, this.G.players.length);
     }
 
+    /** The board's turn: a map may set its own for the stacked (tall-screen) layout. */
+    get mapRotation(): number {
+        if (!this.G?.map) return 0;
+        const portrait = this.G.map.mapRotationPortrait;
+        return this.stacked && portrait !== undefined ? portrait : this.G.map.mapRotation || 0;
+    }
+
     get mapTransform() {
         if (!this.G?.map) return '';
         const [mx, my] = this.G.map.mapPosition!;
-        const rotation = this.G.map.mapRotation;
+        const rotation = this.mapRotation;
         if (!rotation) return `translate(${mx}, ${my})`;
+        if (this.G.map.mapRotationCenter) {
+            const [rx, ry] = this.G.map.mapRotationCenter;
+            return `translate(${mx}, ${my}) rotate(${rotation}, ${rx}, ${ry})`;
+        }
         const cities = this.G.map.cities;
         const xs = cities.map((c) => c.x);
         const ys = cities.map((c) => c.y);

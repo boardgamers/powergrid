@@ -53,6 +53,18 @@ export interface AvailableMoves {
 }
 
 /**
+ * Chile, while it has two markets (before Step 3): the market a player with cities must buy from, the one of the
+ * grid their cities are in. The grid belongs to each city, not to its region. Undefined on every other map, and for a
+ * player with no cities, who chooses a market for the turn as on Korea. Before Step 3 only the gates join the grids,
+ * so a player's cities are all in one grid.
+ */
+export function marketSideOf(G: GameState, player: Player): 'north' | 'south' | undefined {
+    if (G.map.name != 'Chile' || G.coalResupplyNorth === undefined || player.cities.length == 0) return undefined;
+    const inNorth = player.cities.some((pc) => G.map.cities.find((c) => c.name == pc.name)?.grid == 'North');
+    return inNorth ? 'north' : 'south';
+}
+
+/**
  * Which of coal and oil the player is holding more of than they can store.
  *
  * A hybrid plant's capacity is a shared tank, so an overflow of one resource eats into
@@ -360,8 +372,10 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
             // Korea: each side is offered separately, tagged with the side. The
             // player's chosenSide locks them to one side once they make a buy.
             const isKorea = G.coalResupplyNorth !== undefined;
-            const allowSouth = !isKorea || G.chosenSide !== 'north';
-            const allowNorth = isKorea && G.chosenSide !== 'south';
+            // Chile (until Step 3, while it has two markets): a player with cities buys only from their grid's market.
+            const side = (isKorea && marketSideOf(G, player)) || G.chosenSide;
+            const allowSouth = !isKorea || side !== 'north';
+            const allowNorth = isKorea && side !== 'south';
 
             // Room for one more cube. A garbage/oil hybrid shares oil with a second
             // tank, so its owner goes through the general check; everyone else keeps
@@ -706,8 +720,9 @@ export interface RegionGraph {
 // setup picker and the chooseRegions draft). Single source of truth so the two
 // paths can never diverge on what "connected" means.
 export function computeRegionGraph(map: Pick<GameMap, 'cities' | 'connections'>): RegionGraph {
+    // A city in no region (Chile's Salta) is not a play area.
     const regions = map.cities
-        .filter((c, i) => map.cities.findIndex((cc) => cc.region == c.region) == i)
+        .filter((c, i) => c.region && map.cities.findIndex((cc) => cc.region == c.region) == i)
         .map((c) => c.region);
     // A link flagged ignoreForRegions (HawaiiCustom's ferry) never makes two regions
     // neighbours, so it can't be the only bridge holding a dealt region set together.
@@ -950,7 +965,11 @@ export function buildOptions(G: GameState, player: Player): { name: string; pric
             }
             if (player.cities.find((c) => c.name == city.name)) {
                 city.price = 9999;
+                return;
             }
+            // Chile's border spaces also pay a house ($10), given as their one slot cost. South Africa's spaces
+            // have no slot costs and stay connection-only.
+            city.price += cityData.slotCosts?.[0] ?? 0;
             return;
         }
 

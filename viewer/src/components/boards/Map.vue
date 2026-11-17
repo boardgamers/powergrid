@@ -75,11 +75,15 @@
                     stroke="black"
                     stroke-width="1"
                 />
-                <title>{{ city.name }} — cross-border space (1 house max, 30 Elektro total cost)</title>
+                <title v-if="city.slotCosts && city.slotCosts.length == 1">
+                    {{ city.name }} — border space (1 house, {{ city.slotCosts[0] }} Elektro plus the connection; not a
+                    first city)
+                </title>
+                <title v-else>{{ city.name }} — cross-border space (1 house max, 30 Elektro total cost)</title>
             </g>
         </template>
 
-        <template v-for="connection in connections">
+        <template v-for="connection in drawnConnections">
             <!-- A link with a `via` control point (e.g. a ferry across open water) is
                  drawn as a curve so it does not run over the cities in between. -->
             <path
@@ -121,6 +125,21 @@
                 :stroke="connection.sea ? SEA_INNER : 'gray'"
                 :stroke-dasharray="connection.sea ? SEA_DASH : undefined"
             />
+        </template>
+        <!-- Chile: connections closed until Step 3 (the gates), dashed orange over the gray line. -->
+        <template v-for="gate in gates || []">
+            <line
+                :key="gate.nodes[0] + '_' + gate.nodes[1] + '_gate'"
+                :x1="getX1(gate)"
+                :y1="getY1(gate)"
+                :x2="getX2(gate)"
+                :y2="getY2(gate)"
+                stroke-width="5"
+                stroke="darkorange"
+                stroke-dasharray="12 8"
+            >
+                <title>Closed until Step 3</title>
+            </line>
         </template>
 
         <!-- Bremen-style node-weighted districts: clean labeled tiles (entry-cost
@@ -240,7 +259,7 @@
             </circle>
         </template>
 
-        <template v-for="connection in connections">
+        <template v-for="connection in drawnConnections">
             <circle
                 v-if="connection.cost > 0"
                 :key="connection.nodes[0] + '_' + connection.nodes[1] + '_border'"
@@ -307,6 +326,29 @@
             </g>
         </g>
 
+        <template v-for="gate in gates || []">
+            <g :key="gate.nodes[0] + '_' + gate.nodes[1] + '_s3'" :transform="gateMarker(gate)">
+                <rect
+                    x="-15"
+                    y="-15"
+                    width="30"
+                    height="30"
+                    rx="4"
+                    fill="darkorange"
+                    stroke="black"
+                    stroke-width="1.5"
+                    transform="rotate(45)"
+                />
+                <text
+                    text-anchor="middle"
+                    dominant-baseline="central"
+                    style="font-size: 14px; font-weight: bold"
+                    fill="black"
+                    >S3</text
+                >
+                <title>Closed until Step 3</title>
+            </g>
+        </template>
         <template v-for="house in houses">
             <House
                 :key="house.id"
@@ -600,6 +642,19 @@ export default class Map extends Vue {
     @Prop() polygons?: Polygon[];
     @Prop() cities?: City[];
     @Prop() connections?: Connection[];
+    // Chile: connections closed until Step 3, drawn with their cost and an S3 marker.
+    @Prop() gates?: Connection[];
+    get drawnConnections(): Connection[] {
+        return [...(this.connections ?? []), ...(this.gates ?? [])];
+    }
+    // The S3 marker sits beside the gate's cost badge, on the upper side of the line.
+    gateMarker(gate: Connection): string {
+        const [x1, y1, x2, y2] = [this.getX1(gate), this.getY1(gate), this.getX2(gate), this.getY2(gate)];
+        const len = Math.hypot(x2 - x1, y2 - y1) || 1;
+        let [nx, ny] = [(y2 - y1) / len, -(x2 - x1) / len];
+        if (ny > 0) [nx, ny] = [-nx, -ny];
+        return `translate(${(x1 + x2) / 2 + nx * 42}, ${(y1 + y2) / 2 + ny * 42})`;
+    }
     @Prop() playerColors?: string[];
     @Prop() buildableCities?: string[];
     // #148: what each of those cities would cost this player, from available-moves.

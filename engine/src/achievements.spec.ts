@@ -39,6 +39,7 @@ const ids = [
     'australia-champion',
     'bremen-champion',
     'manhattan-champion',
+    'chile-champion',
     'power-fifteen',
     'power-eighteen',
     'fully-supplied',
@@ -76,6 +77,7 @@ const mapBadges: [MapName, string][] = [
     ['Australia', 'australia-champion'],
     ['Bremen', 'bremen-champion'],
     ['Manhattan', 'manhattan-champion'],
+    ['Chile', 'chile-champion'],
 ];
 
 // Deliberately synthetic final positions: setup supplies the complete state shape,
@@ -112,11 +114,11 @@ function freezeDeep(value: unknown) {
 describe('achievements', function () {
     this.timeout(30000);
 
-    it('publishes all 36 stable IDs in a fresh revisioned manifest', () => {
+    it('publishes all 37 stable IDs in a fresh revisioned manifest', () => {
         const manifest = achievementDefinitions();
-        expect(manifest.revision).to.equal(3);
+        expect(manifest.revision).to.equal(4);
         expect(manifest.achievements.map((a) => a.id)).to.deep.equal(ids);
-        expect(new Set(ids).size).to.equal(36);
+        expect(new Set(ids).size).to.equal(37);
         manifest.achievements.forEach((a) => {
             expect(a.name).to.be.a('string').and.not.equal('');
             expect(a.description).to.be.a('string').and.not.equal('');
@@ -132,9 +134,9 @@ describe('achievements', function () {
         ['original', maps],
         ['recharged', mapsRecharged],
     ] as const) {
-        it(`${variant} runtime maps exactly match the 24 supported badge names`, () => {
-            expect(mapBadges).to.have.length(24);
-            expect(new Set(mapBadges.map(([name]) => name)).size).to.equal(24);
+        it(`${variant} runtime maps exactly match the 25 supported badge names`, () => {
+            expect(mapBadges).to.have.length(25);
+            expect(new Set(mapBadges.map(([name]) => name)).size).to.equal(25);
             expect(runtimeMaps.map((map) => map.name).sort()).to.deep.equal(mapBadges.map(([name]) => name).sort());
         });
 

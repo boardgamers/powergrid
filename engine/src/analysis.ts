@@ -10,6 +10,7 @@ import {
 } from './deckChanges';
 import { defaultSetupDeck, reconstructState, setup, stripSecret } from './engine';
 import { GameState, PowerPlant, PowerPlantType, SingleDeck } from './gamestate';
+import { chileSetAsideFromLog } from './maps/chile';
 import { gameDeck, isEcological, isPlugPlant, labelledPlant, plantCatalogue, PLANT_LABEL_PATTERN } from './powerPlants';
 import { shuffle } from './utils';
 
@@ -46,6 +47,15 @@ export function createAnalysisScenario(
     if (name === 'Spain & Portugal' && s.step !== 1)
         excluded = held ? spainStep2Plants(powerPlantDeck).filter((number) => !held.includes(number)) : [];
     if (name === 'Manhattan') excluded = [99, ...excluded];
+    // Chile: three ecological plants are set aside (in s.setAsidePlants) until Step 3; removedPlants has its uranium
+    // plants.
+    const chileSetAside =
+        name !== 'Chile'
+            ? []
+            : s.setAsidePlants?.map((pp) => pp.number) ??
+              chileSetAsideFromLog(s.log as { type: string; event?: string }[]) ??
+              [];
+    if (s.step < 3) excluded = [...excluded, ...chileSetAside];
     const catalogue = JSON.parse(JSON.stringify(plantCatalogue(name, powerPlantDeck))) as PowerPlant[];
     for (const region of new Set(s.regionDraft ? [] : s.map.cities.map((c) => c.region))) {
         for (const replacement of s.map.regionalPowerPlants?.[region] || []) {
@@ -58,6 +68,12 @@ export function createAnalysisScenario(
             if (i >= 0) catalogue[i] = { ...replacement };
             else catalogue.splice(catalogue.length - 1, 0, { ...replacement });
         }
+    }
+    // Chile, Step 3: every ecological plant powers one more city.
+    if (name === 'Chile' && s.step === 3) {
+        catalogue.forEach((p) => {
+            if (p.type === PowerPlantType.Wind) p.citiesPowered++;
+        });
     }
     const byNumber = (number: number) => catalogue.find((p) => p.number === number)!;
     const seen = new Set([...s.knownPowerPlantDeck, ...s.knownPowerPlantDeckStep3].map((p) => p.number));
@@ -123,7 +139,8 @@ export function createAnalysisScenario(
     // One per number: a copy already known rules out the number's other copies, and
     // each still-unknown number is in the game exactly once.
     if (powerPlantDeck === 'shuffledUnique') {
-        const known = new Set([...seen, ...unavailable, ...fixedBottom]);
+        // Chile's set-aside copies are known too: out of the deck until Step 3, then on top of it.
+        const known = new Set([...seen, ...unavailable, ...fixedBottom, ...chileSetAside]);
         const knownPrinted = new Set([...known].map((number) => Math.floor(number)));
         const unknown = (p: PowerPlant) => p.number !== 99 && !known.has(p.number);
         pool = pool.filter((p) => !unknown(p) || !knownPrinted.has(Math.floor(p.number)));
@@ -179,6 +196,10 @@ export function createAnalysisScenario(
     if (name === 'Spain & Portugal' && s.step === 2) {
         for (const number of held ?? SPAIN_STEP_2_PLANTS[powerPlantDeck as SingleDeck])
             if (!seen.has(number)) fixedTop.push(number);
+    }
+    if (name === 'Chile' && s.step === 3) {
+        // The set-aside plants went on top of the deck in this order when Step 3 began.
+        for (const number of chileSetAside) if (!seen.has(number)) fixedTop.push(number);
     }
     const top = fixedTop
         .map(byNumber)

@@ -7,6 +7,7 @@ export const geographyLoaders = {
     "brazil": () => import(/* webpackChunkName: "geography-brazil" */ "./assets/brazil.json"),
     "bremen": () => import(/* webpackChunkName: "geography-bremen" */ "./assets/bremen.json"),
     "centraleurope": () => import(/* webpackChunkName: "geography-centraleurope" */ "./assets/centraleurope.json"),
+    "chile": () => import(/* webpackChunkName: "geography-chile" */ "./assets/chile.json"),
     "china": () => import(/* webpackChunkName: "geography-china" */ "./assets/china.json"),
     "europe": () => import(/* webpackChunkName: "geography-europe" */ "./assets/europe.json"),
     "france": () => import(/* webpackChunkName: "geography-france" */ "./assets/france.json"),

@@ -30,32 +30,46 @@ The exact window, component count, principal span and simplification policy are
 recorded per badge in `manifest.json`; it hashes the source and framing code.
 The component count is after the documented window and small-islet filtering.
 
-| Map | Main-region selection / deliberate omissions | Components |
-| --- | --- | --- |
-| germany | Germany mainland; omit subpixel coastal islets. | 2 |
-| america | Contiguous USA; omit Alaska, Hawaii and overseas islands. | 1 |
-| france | Metropolitan France including Corsica; omit overseas departments. | 2 |
-| japan | Four main islands in true geographic positions; omit remote Ryukyu/Bonin chain. | 5 |
-| brazil | Continental Brazil; omit subpixel offshore islands. | 2 |
-| spainportugal | Iberian mainland and Balearics; omit Azores, Madeira and Canaries. | 2 |
-| indian | Indian mainland; omit Andaman/Nicobar and Lakshadweep islets. | 1 |
-| italy | Peninsula, Sicily and Sardinia; omit subpixel islets. | 3 |
-| quebec | Whole Quebec mainland, not just the southern city corridor. | 3 |
-| middleeast | Authored Middle East country union; omit distant/subpixel islands. | 1 |
-| china | Mainland and Hainan from curated active geometry. | 2 |
-| benelux | Belgium, Netherlands and Luxembourg union; omit subpixel islets. | 2 |
-| russia | Russian mainland to Bering Strait; omit dateline fragments and Arctic archipelagos below size cutoff. | 4 |
-| centraleurope | Complete authored Central Europe country union. | 1 |
-| badenwurttemberg | Complete Baden-Wuerttemberg provincial outline. | 1 |
-| northerneurope | Scandinavian/Baltic mainland and major Danish islands; omit Svalbard and remote Arctic islands. | 5 |
-| korea | Korean peninsula and Jeju; omit subpixel islets. | 2 |
-| europe | European mainland to 45E plus Britain/Ireland and major Mediterranean islands; omit overseas territories and remote Arctic islands. | 4 |
-| northamerica | Continental North America including Alaska, Canada and Mexico; omit Hawaii and far Arctic islands. | 7 |
-| southafrica | South African mainland; omit remote Prince Edward islands. | 1 |
-| ukireland | Great Britain and Ireland, with larger coastal islands. | 6 |
-| australia | Australian mainland and Tasmania; omit external Indian/Pacific Ocean territories. | 2 |
-| bremen | Bremen city component; omit detached Bremerhaven to preserve city silhouette. | 1 |
-| manhattan | Manhattan main island; omit tiny detached borough islets. | 5 |
+| Map              | Main-region selection / deliberate omissions                                                                                        | Components |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| germany          | Germany mainland; omit subpixel coastal islets.                                                                                     | 2          |
+| america          | Contiguous USA; omit Alaska, Hawaii and overseas islands.                                                                           | 1          |
+| france           | Metropolitan France including Corsica; omit overseas departments.                                                                   | 2          |
+| japan            | Four main islands in true geographic positions; omit remote Ryukyu/Bonin chain.                                                     | 5          |
+| brazil           | Continental Brazil; omit subpixel offshore islands.                                                                                 | 2          |
+| spainportugal    | Iberian mainland and Balearics; omit Azores, Madeira and Canaries.                                                                  | 2          |
+| indian           | Indian mainland; omit Andaman/Nicobar and Lakshadweep islets.                                                                       | 1          |
+| italy            | Peninsula, Sicily and Sardinia; omit subpixel islets.                                                                               | 3          |
+| quebec           | Whole Quebec mainland, not just the southern city corridor.                                                                         | 3          |
+| middleeast       | Authored Middle East country union; omit distant/subpixel islands.                                                                  | 1          |
+| china            | Mainland and Hainan from curated active geometry.                                                                                   | 2          |
+| benelux          | Belgium, Netherlands and Luxembourg union; omit subpixel islets.                                                                    | 2          |
+| russia           | Russian mainland to Bering Strait; omit dateline fragments and Arctic archipelagos below size cutoff.                               | 4          |
+| centraleurope    | Complete authored Central Europe country union.                                                                                     | 1          |
+| badenwurttemberg | Complete Baden-Wuerttemberg provincial outline.                                                                                     | 1          |
+| northerneurope   | Scandinavian/Baltic mainland and major Danish islands; omit Svalbard and remote Arctic islands.                                     | 5          |
+| korea            | Korean peninsula and Jeju; omit subpixel islets.                                                                                    | 2          |
+| europe           | European mainland to 45E plus Britain/Ireland and major Mediterranean islands; omit overseas territories and remote Arctic islands. | 4          |
+| northamerica     | Continental North America including Alaska, Canada and Mexico; omit Hawaii and far Arctic islands.                                  | 7          |
+| southafrica      | South African mainland; omit remote Prince Edward islands.                                                                          | 1          |
+| ukireland        | Great Britain and Ireland, with larger coastal islands.                                                                             | 6          |
+| australia        | Australian mainland and Tasmania; omit external Indian/Pacific Ocean territories.                                                   | 2          |
+| bremen           | Bremen city component; omit detached Bremerhaven to preserve city silhouette.                                                       | 1          |
+| manhattan        | Manhattan main island; omit tiny detached borough islets.                                                                           | 5          |
+
+## Chile Champion (revision 4)
+
+Chile's outline is Natural Earth 1:50m admin-0 Chile (the same public-domain
+release as above), stored on its own in `viewer/scripts/geography/chile-badge.json`
+because Chile has no entry in `source.json`. Its window is the stretch on the
+board, Arica to Puerto Montt (lon -76..-66, lat -43..-17). The true outline is
+too thin to read at badge size (under 1% silhouette ink at 32px against the
+2.5% floor), so, as on the game board, it is widened 2x east-west and turned
+40 degrees (`SHAPES` in `scripts/achievement-map-framing.py`); then it is fitted,
+filtered and simplified exactly like the other 24. Its PNG was rasterised with
+headless Chromium at 256px on a transparent page because CairoSVG's system Cairo
+was not available; re-running the generator with CairoSVG re-renders it. The
+other 36 PNGs are unchanged.
 
 These existing game-map geographic datasets are derived from:
 

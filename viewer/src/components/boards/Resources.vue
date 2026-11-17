@@ -100,9 +100,9 @@
         </g>
 
         <g :transform="isKorea && parallelMarkets ? 'translate(780, 0)' : undefined">
-            <text v-if="isKorea" x="20" y="35" font-weight="700" fill="black" style="font-size: 22px"
-                >South Market</text
-            >
+            <text v-if="isKorea" x="20" y="35" font-weight="700" fill="black" style="font-size: 22px">{{
+                southTitle
+            }}</text>
             <g v-if="resourceResupply" class="resupply-strip">
                 <ResupplySteps
                     :transform="`translate(${isBremenMarket ? 278 : 364}, -6)`"
@@ -477,6 +477,8 @@ export default class Resources extends Vue {
     uraniums: Piece[] = [];
 
     isKorea: boolean = false;
+    // Chile: the split market's second half is Central, not South.
+    isChileMarket: boolean = false;
     coalComesFromSupply: boolean = false;
     isNinePriceMarket: boolean = false;
     // Australia: coal/oil/garbage-only market that can reach $10 after the Step 3
@@ -544,6 +546,7 @@ export default class Resources extends Vue {
         // must not offer to give it back (#127).
         this.coalComesFromSupply = !!this.isUsaRecharged && gameState.coalMarket === 0 && gameState.coalSupply > 0;
         this.isAustraliaMarket = gameState.map?.name === 'Australia';
+        this.isChileMarket = gameState.map?.name === 'Chile';
         this.co2TaxActive = this.isAustraliaMarket && gameState.step >= 3;
         this.isBremenMarket = gameState.map?.name === 'Bremen';
 
@@ -599,6 +602,11 @@ export default class Resources extends Vue {
             this.garbagesNorth = this.buildMainRowPieces(
                 gameState.garbagePricesNorth!, gameState.garbageMarketNorth!, 'garbage_north', -46, { side: 'north' },
             );
+            // Chile: no uranium anywhere, and no garbage in the North market.
+            if (this.isChileMarket) {
+                this.uraniums = [];
+                this.garbagesNorth = [];
+            }
 
             return;
         }
@@ -871,6 +879,11 @@ export default class Resources extends Vue {
 
     get hasBuyableNorth() {
         return !!this.buyableResources?.some(r => r.side === 'north');
+    }
+
+    // Chile's two markets are North and Central; Korea's North and South.
+    get southTitle() {
+        return this.isChileMarket ? 'Central Market' : 'South Market';
     }
 
     get hasBuyableSouth() {

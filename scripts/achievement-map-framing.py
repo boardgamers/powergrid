@@ -9,6 +9,7 @@ import math
 from pathlib import Path
 from shapely.geometry import shape, box
 from shapely.ops import transform
+from shapely import affinity
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = 'viewer/scripts/geography/source.json'
@@ -38,20 +39,31 @@ FRAMES = {
     'australia': ((112, -44, 154, -10), 'Australian mainland and Tasmania; omit external Indian/Pacific Ocean territories.'),
     'bremen': ((8.4, 52.98, 9.03, 53.27), 'Bremen city component; omit detached Bremerhaven to preserve city silhouette.'),
     'manhattan': ((-74.025, 40.68, -73.9, 40.885), 'Manhattan main island; omit tiny detached borough islets.'),
+    'chile': ((-76, -43, -66, -17), 'Chile from Arica to Puerto Montt, the stretch on the board; widened 2x east-west and turned 40 degrees, as on the board, so the thin country reads at badge size.'),
 }
+# Maps whose outline is not in SOURCE (Chile, in testing, has its own Natural Earth cut).
+SOURCES = {'chile': 'viewer/scripts/geography/chile-badge.json'}
+# Chile only: the board's east-west widening and the turn it is drawn at (degrees, clockwise on screen).
+SHAPES = {'chile': dict(widen=2, turn=-40)}
+
+def source_for(name):
+    return SOURCES.get(name, SOURCE)
 
 def polygons(geometry):
     return [geometry] if geometry.geom_type == 'Polygon' else [p for p in geometry.geoms if p.geom_type == 'Polygon']
 
 def framed_map(name):
-    data = json.loads((ROOT / SOURCE).read_text())['maps'][name]
+    data = json.loads((ROOT / source_for(name)).read_text(encoding='utf-8'))['maps'][name]
     bounds, reason = FRAMES[name]
+    shaping = SHAPES.get(name, {})
     # Local equirectangular projection preserves a sensible geographic aspect;
     # unlike the viewer's city-fitted warp it never joins separate islands.
-    cosine = math.cos(math.radians((bounds[1] + bounds[3]) / 2))
+    cosine = math.cos(math.radians((bounds[1] + bounds[3]) / 2)) * shaping.get('widen', 1)
     project = lambda x, y, z=None: (x * cosine, -y)
     selected = shape(data['active']).intersection(box(*bounds))
     projected = transform(project, selected)
+    if shaping.get('turn'):
+        projected = affinity.rotate(projected, shaping['turn'], origin='centroid')
     parts = polygons(projected)
     # Remove subpixel islands BEFORE fitting, so a remote speck cannot set scale.
     largest = max(p.area for p in parts)
@@ -69,5 +81,5 @@ def framed_map(name):
     metrics = dict(window=list(bounds), reason=reason, components=len(parts),
                    bounds=[x0*scale+tx,y0*scale+ty,x1*scale+tx,y1*scale+ty],
                    principalSpan=max(max(p.bounds[2]-p.bounds[0],p.bounds[3]-p.bounds[1]) for p in screen),
-                   simplifyTolerance=.45, minRelativeArea=.003)
+                   simplifyTolerance=.45, minRelativeArea=.003, **shaping)
     return paths, metrics

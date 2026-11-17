@@ -13,8 +13,11 @@ OUT = ROOT / 'art/achievements'
 OUT.mkdir(parents=True, exist_ok=True)
 GOLD, INK, BLUE, WHITE = '#ffcf66', '#102b3b', '#65d4d1', '#f4f5de'
 BASE = json.loads((ROOT / 'docs/releases/achievements-2.0.33.json').read_text())['achievementManifest']
+# Revision 4 adds Chile Champion after the 24 map badges of revision 3.
+CHILE = dict(id='chile-champion', name='Chile Champion', description='Win on the Chile map.')
+BASE['achievements'].insert(27, CHILE)
 FRAMING = runpy.run_path(str(ROOT / 'scripts/achievement-map-framing.py'))
-MAPS = dict(zip([d['id'] for d in BASE['achievements'][3:27]], ['germany','america','france','japan','brazil','spainportugal','indian','italy','quebec','middleeast','china','benelux','russia','centraleurope','badenwurttemberg','northerneurope','korea','europe','northamerica','southafrica','ukireland','australia','bremen','manhattan']))
+MAPS = dict(zip([d['id'] for d in BASE['achievements'][3:28]], ['germany','america','france','japan','brazil','spainportugal','indian','italy','quebec','middleeast','china','benelux','russia','centraleurope','badenwurttemberg','northerneurope','korea','europe','northamerica','southafrica','ukireland','australia','bremen','manhattan','chile']))
 def path(d, fill=BLUE, stroke=INK, width=2):
     return f'<path d="{d}" fill="{fill}" stroke="{stroke}" stroke-width="{width}" stroke-linejoin="round" stroke-linecap="round"/>'
 def line(a,b,color=BLUE,width=3):
@@ -37,7 +40,7 @@ def motif(id):
     if id in MAPS:
         paths, _ = FRAMING['framed_map'](MAPS[id])
         body=''.join(path(d,BLUE,WHITE,1.25) for d in paths)
-        return body+crown(64,21), FRAMING['SOURCE']
+        return body+crown(64,21), FRAMING['source_for'](MAPS[id])
     if id=='grid-champion':
         return crown()+path('M64,38 L46,91 M64,38 L82,91 M49,58 H79 M44,73 H84 M55,62 L75,84 M73,62 L53,84','none',BLUE,4)+house(33,85,.8,True)+house(95,85,.8,True),None
     if id=='head-to-head':
@@ -75,7 +78,7 @@ for item in manifest:
     if item['id'] in MAPS:
         item['map'] = MAPS[item['id']]
         item['framing'] = FRAMING['framed_map'](item['map'])[1]
-(OUT/'manifest.json').write_text(json.dumps(dict(game='powergrid',engine='2.0.34',revision=3,provenance='PROVENANCE.md',framingSha256=hashlib.sha256((ROOT/'scripts/achievement-map-framing.py').read_bytes()).hexdigest(),generatorSha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),assets=manifest),indent=2)+'\n')
+(OUT/'manifest.json').write_text(json.dumps(dict(game='powergrid',engine='2.0.35',revision=4,provenance='PROVENANCE.md',framingSha256=hashlib.sha256((ROOT/'scripts/achievement-map-framing.py').read_bytes()).hexdigest(),generatorSha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),assets=manifest),indent=2)+'\n')
 # Actual raster exports composited at display sizes, not enlarged SVG screenshots.
 for size in [32,48,64]:
     sheet=Image.new('RGB',(960,6*(size+55)*2),'#eef1f3'); draw=ImageDraw.Draw(sheet)

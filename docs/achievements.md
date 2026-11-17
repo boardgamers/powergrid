@@ -1,5 +1,7 @@
 # Power Grid achievements
 
+**Revision 4 (this fork, not yet published): 37 achievements.** Adds `chile-champion` (Chile Champion, "Win on the Chile map.") after the other map badges, for the Chile map now in testing. The 36 published definitions, their order around it, and the evaluator are otherwise unchanged; `engine/scripts/check-achievements.mjs` checks exactly that against the revision-2 receipt. Its badge art is described in `art/achievements/PROVENANCE.md`. Everything below describes the published revision 2.
+
 **Published: engine 2.0.33, manifest revision 2, 36 achievements.** Adds 20 map victories (24 total) and raises Fully Supplied from a 10-city to a 15-city minimum, preserving its complete-network condition. The separate powered-city tiers remain 15 and 18. No viewer, artwork, map-cap, scoring, or backfill changes. Existing awards are not recalculated or revoked by this change.
 
 Independent review approved `2f89876`; publication and installer verification are recorded in `docs/releases/achievements-2.0.33.json`. The previous revision-1 release receipt remains in `docs/releases/achievements-2.0.32.json`.
@@ -66,6 +68,7 @@ Each entry is **Win on the named map**, including shared first place, never mere
 | Australia          | `australia-champion`         |
 | Bremen             | `bremen-champion`            |
 | Manhattan          | `manhattan-champion`         |
+| Chile (revision 4) | `chile-champion`             |
 | Japan              | `japan-champion`             |
 
 Names are matched exactly against resolved `data.map.name`; `options.map` is not consulted. Random selection therefore earns the resolved map badge. Original and Recharged share an ID, as do deck/region variants on the same named map. USA is not an alias for North America. Internal module names such as `america`/`indian`, translations, accent-stripped names, and unsupported names are not accepted map aliases. Explicit ASCII IDs omit ampersands and transliterate ü to u, without runtime slug generation.

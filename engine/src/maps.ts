@@ -7,6 +7,7 @@ import { map as benelux } from './maps/benelux';
 import { map as brazil } from './maps/brazil';
 import { map as bremen } from './maps/bremen';
 import { map as centraleurope } from './maps/centraleurope';
+import { map as chile } from './maps/chile';
 import { map as china } from './maps/china';
 import { map as europe } from './maps/europe';
 import { map as france } from './maps/france';
@@ -46,6 +47,8 @@ export interface City {
     // 10+position*5 house-base cost — the dijkstra path cost (the 30-Elektro edge)
     // is the complete cost.
     singleOccupancy?: boolean;
+    // In play only with at least this many players (Chile's Tacna and Jujuy: 4).
+    minPlayers?: number;
     // UK & Ireland: which physical island this city sits on ('gb' or 'ie'). Used
     // together with GameMap.crossIslandSurcharge to model the two-network mechanic
     // (no sea edges; starting a network on a new island costs a flat surcharge on
@@ -58,6 +61,9 @@ export interface City {
     // makes links naturally asymmetric (A→B costs B, B→A costs A) and charges
     // transit through unbuilt districts, matching the printed Bremen rules.
     connectionCost?: number;
+    // Chile: the grid this city belongs to. Until Step 3 a player with cities buys only from their grid's market
+    // (North, or the main market for Central).
+    grid?: 'North' | 'Central';
 }
 
 export interface Connection {
@@ -100,6 +106,11 @@ export interface GameMap {
     // the city coordinates. Useful for fitting non-rectangular maps into the
     // viewBox (e.g., Europe).
     mapRotation?: number;
+    // The point mapRotation turns around, in board coordinates (after adjustRatio). Without it, the centre of the
+    // cities in play; with it, the board sits still whichever regions are in play (Chile).
+    mapRotationCenter?: [number, number];
+    // The turn in the viewer's stacked layout (tall screens), in place of mapRotation there (Chile: north up).
+    mapRotationPortrait?: number;
     buttonsPosition?: [number, number];
     playerBoardsPosition?: [number, number];
     supplyPosition?: [number, number];
@@ -119,6 +130,8 @@ export interface GameMap {
     // for the starting arrays (no uranium row — North bans nuclear).
     resupplyNorth?: number[][][];
     startingResourcesNorth?: number[];
+    // Regions always in play (Chile: the two northern regions). The others are picked, or drafted, as usual.
+    fixedRegions?: string[];
     coalPricesNorth?: number[];
     oilPricesNorth?: number[];
     garbagePricesNorth?: number[];
@@ -142,6 +155,8 @@ export interface GameMap {
         actualMarket: PowerPlant[];
         futureMarket: PowerPlant[];
         powerPlantsDeck: PowerPlant[];
+        // Chile: the plants set aside until Step 3.
+        setAsidePlants?: PowerPlant[];
         // Spain & Portugal with the shuffled decks: the held-back copies dealt.
         heldPowerPlants?: PowerPlant[];
     };
@@ -152,6 +167,9 @@ export interface GameMap {
     // choose which spaces to block, so the selection is random within cost tiers.
     blockSpaces?: (numPlayers: number, cities: City[], rng: seedrandom.prng) => string[];
     regionalPowerPlants?: Record<string, PowerPlant[]>;
+    // Chile: connections that open when Step 3 begins (the gates between the grids). Until then they are kept out of
+    // `connections`, so no build or path uses them.
+    step3Connections?: Connection[];
     // UK & Ireland: extra Elektro paid to start a network on an island where the
     // player has no city yet. Builds on the new island skip the dijkstra path
     // cost (there is no sea edge) and pay 10+position*5 + this surcharge.
@@ -203,6 +221,7 @@ export const maps: GameMap[] = [
     bremen,
     manhattan,
     japan,
+    chile,
 ];
 
 export const mapsRecharged: GameMap[] = [
@@ -231,4 +250,5 @@ export const mapsRecharged: GameMap[] = [
     manhattan,
     // china,
     japanRecharged,
+    chile,
 ];

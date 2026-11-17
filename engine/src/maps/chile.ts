@@ -5,7 +5,7 @@ import { PowerPlant } from '../gamestate';
 import { shuffle } from '../utils';
 import { GameMap } from './../maps';
 import { powerPlants } from './../powerPlants';
-import { chileCities, chileConnections, chileGates, chileViewBox } from './chile-board';
+import { chileCities, chileConnections, chileGates } from './chile-board';
 
 /** No nuclear power in Chile: the standard deck's uranium plants are out of the game. Fusion plant 50 stays. */
 export const chileRemovedPlants = [11, 17, 23, 28, 34, 39];
@@ -20,7 +20,18 @@ export const map: GameMap = {
     // The two northern regions, each holding a gate, are always in play.
     fixedRegions: ['brown', 'yellow'],
     setAsidePlants: chileSetAsidePlants,
-    viewBox: chileViewBox,
+    // Viewer layout: the board (drawn at 2102 x 1795, Chile running down at 36 degrees) at 70%, turned to run left to
+    // right across the middle, around the whole board's centre so it sits still whichever regions are in play. Plant
+    // market along the top, player boards on the right, North and Central markets side by side underneath.
+    layout: 'Landscape',
+    adjustRatio: [0.7, 0.7],
+    mapRotation: -36,
+    mapRotationCenter: [736, 621],
+    mapPosition: [50, -20],
+    viewBox: [2010, 1100],
+    playerBoardsPosition: [1650, 240],
+    supplyPosition: [0, 830],
+    roundInfoPosition: [1520, 900],
     // Central market (the engine's main market). [resource][players-2][step-1]. The Step 3 column is
     // the merged market's restock.
     resupply: [

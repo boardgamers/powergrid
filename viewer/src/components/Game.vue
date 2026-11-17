@@ -208,6 +208,7 @@
                     :cities="G.map.cities"
                     :tutorialCity="tutorialCity"
                     :connections="G.map.connections"
+                    :gates="G.map.step3Connections"
                     :polygons="G.map.polygons"
                     :buildableCities="getBuildableCities()"
                     :buildPrices="getBuildableCityPrices()"
@@ -3041,6 +3042,10 @@ export default class Game extends Vue {
         const [mx, my] = this.G.map.mapPosition!;
         const rotation = this.G.map.mapRotation;
         if (!rotation) return `translate(${mx}, ${my})`;
+        if (this.G.map.mapRotationCenter) {
+            const [rx, ry] = this.G.map.mapRotationCenter;
+            return `translate(${mx}, ${my}) rotate(${rotation}, ${rx}, ${ry})`;
+        }
         const cities = this.G.map.cities;
         const xs = cities.map((c) => c.x);
         const ys = cities.map((c) => c.y);

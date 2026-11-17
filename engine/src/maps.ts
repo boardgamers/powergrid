@@ -97,6 +97,9 @@ export interface GameMap {
     // the city coordinates. Useful for fitting non-rectangular maps into the
     // viewBox (e.g., Europe).
     mapRotation?: number;
+    // The point mapRotation turns around, in board coordinates (after adjustRatio). Without it, the centre of the
+    // cities in play; with it, the board sits still whichever regions are in play (Chile).
+    mapRotationCenter?: [number, number];
     buttonsPosition?: [number, number];
     playerBoardsPosition?: [number, number];
     supplyPosition?: [number, number];

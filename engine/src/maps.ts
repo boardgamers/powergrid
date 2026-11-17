@@ -1,5 +1,5 @@
 import seedrandom from 'seedrandom';
-import { PowerPlant, PowerPlantDeck } from './gamestate';
+import { PowerPlant, PowerPlantDeck, SingleDeck } from './gamestate';
 import { map as america, mapRecharged as americaRecharged } from './maps/america';
 import { map as australia } from './maps/australia';
 import { map as badenwurttemberg } from './maps/badenwurttemberg';
@@ -157,9 +157,9 @@ export interface GameMap {
     // Chile: connections that open when Step 3 begins (the gates between the grids). Until then they are kept out of
     // `connections`, so no build or path uses them.
     step3Connections?: Connection[];
-    // Chile: plant numbers set aside at setup (held in GameState.setAsidePlants) and put on top of the draw stack
-    // when Step 3 begins.
-    setAsidePlants?: number[];
+    // Chile: for each single deck, the plant numbers set aside at setup (held in GameState.setAsidePlants) and put
+    // on top of the draw stack when Step 3 begins, in this order.
+    setAsidePlants?: Record<SingleDeck, number[]>;
     // UK & Ireland: extra Elektro paid to start a network on an island where the
     // player has no city yet. Builds on the new island skip the dijkstra path
     // cost (there is no sea edge) and pay 10+position*5 + this surcharge.

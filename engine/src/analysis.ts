@@ -10,6 +10,7 @@ import {
 } from './deckChanges';
 import { defaultSetupDeck, reconstructState, setup, stripSecret } from './engine';
 import { GameState, PowerPlant, PowerPlantType, SingleDeck } from './gamestate';
+import { chileSetAsidePlants } from './maps/chile';
 import { gameDeck, isEcological, isPlugPlant, labelledPlant, plantCatalogue, PLANT_LABEL_PATTERN } from './powerPlants';
 import { shuffle } from './utils';
 
@@ -39,8 +40,10 @@ export function createAnalysisScenario(
     if (name === 'Spain & Portugal' && s.step !== 1)
         excluded = held ? spainStep2Plants(powerPlantDeck).filter((number) => !held.includes(number)) : [];
     if (name === 'Manhattan') excluded = [99, ...excluded];
-    // Chile: 33, 37 and 44 are set aside (in s.setAsidePlants) until Step 3; removedPlants has its uranium plants.
-    if (name === 'Chile' && s.step < 3) excluded = [...excluded, 33, 37, 44];
+    // Chile: three ecological plants are set aside (in s.setAsidePlants) until Step 3; removedPlants has its uranium
+    // plants.
+    const chileSetAside = name === 'Chile' ? chileSetAsidePlants[powerPlantDeck as SingleDeck] : [];
+    if (s.step < 3) excluded = [...excluded, ...chileSetAside];
     const catalogue = JSON.parse(JSON.stringify(plantCatalogue(name, powerPlantDeck))) as PowerPlant[];
     for (const region of new Set(s.regionDraft ? [] : s.map.cities.map((c) => c.region))) {
         for (const replacement of s.map.regionalPowerPlants?.[region] || []) {
@@ -183,7 +186,7 @@ export function createAnalysisScenario(
     }
     if (name === 'Chile' && s.step === 3) {
         // The set-aside plants went on top of the deck in this order when Step 3 began.
-        for (const number of [33, 37, 44]) if (!seen.has(number)) fixedTop.push(number);
+        for (const number of chileSetAside) if (!seen.has(number)) fixedTop.push(number);
     }
     const top = fixedTop
         .map(byNumber)

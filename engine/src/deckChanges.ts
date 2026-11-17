@@ -98,6 +98,9 @@ export function originalTopPlants(mapName: string, deck: PowerPlantDeck): number
                 return { standard: [13, 14], deck1: [11], deck2: [13, 14] };
             case 'Quebec':
                 return { standard: [13, 18, 22], deck1: [11, 15, 16], deck2: [11, 17, 24] };
+            case 'Chile':
+                // The smallest ecological plant, as in the base game; Deck 2's 13 is a (removed) uranium plant.
+                return { standard: [13], deck1: [11], deck2: [11] };
             default:
                 return { standard: [13], deck1: [11], deck2: [13] };
         }

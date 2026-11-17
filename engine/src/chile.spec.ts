@@ -8,7 +8,7 @@ import { applyChileStep3, currentPlayers, ended, move, reconstructState, setup, 
 import { GameState, Phase, PowerPlant, PowerPlantType, ResourceType } from './gamestate';
 import { map as chile } from './maps/chile';
 import { Move, MoveName } from './move';
-import { powerPlants } from './powerPlants';
+import { alternatePowerPlants, deck1PowerPlants, powerPlants } from './powerPlants';
 import prices from './prices';
 
 const URANIUM = [11, 17, 23, 28, 34, 39];
@@ -224,10 +224,9 @@ describe('Chile', () => {
             }
         });
 
-        it('builds for the standard deck only, and stays out of the random map pick', () => {
-            expect(() => setup(4, { map: 'Chile', variant: 'recharged', powerPlantDeck: 'deck1' }, 'x')).to.throw(
-                /standard/
-            );
+        it('builds for the single decks only, and stays out of the random map pick', () => {
+            for (const powerPlantDeck of ['shuffled', 'shuffledUnique'] as const)
+                expect(() => setup(4, { map: 'Chile', variant: 'recharged', powerPlantDeck }, 'x')).to.throw(/single/);
             expect(() => setup(4, { map: 'Chile', randomizeMap: true }, 'x')).to.throw(/randomized/);
             for (let i = 0; i < 200; i++) {
                 expect(setup(4, { map: 'Random' }, `random-${i}`).map.name).to.not.equal('Chile');
@@ -649,6 +648,132 @@ describe('Chile', () => {
                     }
                 }
             });
+        }
+    });
+
+    describe('the other single decks', () => {
+        const decks = {
+            deck1: { catalogue: deck1PowerPlants, uranium: [8, 19, 24, 31, 38, 50], setAside: [26, 32, 39], top: 11 },
+            deck2: { catalogue: alternatePowerPlants, uranium: [13, 21, 32, 37, 50], setAside: [31, 36, 44], top: 11 },
+        };
+        for (const [powerPlantDeck, d] of Object.entries(decks) as ['deck1' | 'deck2', typeof decks['deck1']][]) {
+            const printed = (num: number) => d.catalogue.find((c) => c.number == num)!.citiesPowered;
+            for (const variant of ['original', 'recharged'] as const) {
+                it(`${powerPlantDeck} ${variant}: no uranium, the three largest ecological plants set aside`, () => {
+                    for (const n of [2, 3, 4, 5, 6]) {
+                        const G = setup(n, { map: 'Chile', variant, powerPlantDeck }, `deck-${variant}-${n}`);
+                        const inGame = [...G.powerPlantsDeck, ...G.actualMarket, ...G.futureMarket].map(
+                            (pp) => pp.number
+                        );
+                        const expected = d.catalogue
+                            .map((pp) => pp.number)
+                            .filter((x) => !d.uranium.includes(x) && !d.setAside.includes(x));
+                        expect([...inGame].sort((a, b) => a - b)).to.deep.equal([...expected].sort((a, b) => a - b));
+                        expect(G.setAsidePlants!.map((pp) => pp.number)).to.deep.equal(d.setAside);
+                        const winds = d.catalogue.filter((pp) => pp.type == PowerPlantType.Wind).map((pp) => pp.number);
+                        expect(winds.slice(-3)).to.deep.equal(d.setAside);
+                        expect(G.setAsidePlants!.every((pp) => pp.type == PowerPlantType.Wind)).to.be.true;
+                        const types = inGame.map((x) => d.catalogue.find((c) => c.number == x)!.type);
+                        expect(types).to.not.include(PowerPlantType.Uranium);
+                        expect(G.powerPlantsDeck[G.powerPlantsDeck.length - 1].type).to.equal(PowerPlantType.Step3);
+                        if (variant == 'original') {
+                            expect([...G.actualMarket, ...G.futureMarket].map((pp) => pp.number)).to.deep.equal(
+                                expected.slice(0, 8)
+                            );
+                            expect(G.powerPlantsDeck[0].number).to.equal(d.top);
+                        } else {
+                            const lastPlug = powerPlantDeck == 'deck1' ? 16 : 15;
+                            const opening = [...G.actualMarket, ...G.futureMarket, G.powerPlantsDeck[0]];
+                            expect(opening.every((pp) => pp.number <= lastPlug)).to.be.true;
+                        }
+                    }
+                });
+
+                it(`${powerPlantDeck} ${variant}: Step 3 puts the set-aside plants on top, boosted from this deck`, () => {
+                    for (const n of [3, 4, 5, 6]) {
+                        const G = setup(n, { map: 'Chile', variant, powerPlantDeck }, `step3-${variant}-${n}`);
+                        let deckBefore: number[] = [];
+                        playUntil(G, `play-${powerPlantDeck}-${variant}-${n}`, (s) => {
+                            if (s.step < 3) deckBefore = s.powerPlantsDeck.map((pp) => pp.number);
+                            return s.step == 3;
+                        });
+                        expect(G.step, `${n}P`).to.equal(3);
+                        const events = G.log
+                            .filter((l) => l.type == 'event')
+                            .map((l) => (l as { event: string }).event);
+                        expect(events).to.include(
+                            `Step 3: power plants ${d.setAside.join(', ')} go on top of the deck.`
+                        );
+                        const next = G.powerPlantsDeck.slice(0, 3).map((pp) => pp.number);
+                        const drawn = [
+                            ...G.actualMarket,
+                            ...G.futureMarket,
+                            ...([] as PowerPlant[]).concat(...G.players.map((p) => p.powerPlants)),
+                        ].map((pp) => pp.number);
+                        expect(
+                            d.setAside.every((x) => next.includes(x) || drawn.includes(x)),
+                            `${n}P`
+                        ).to.be.true;
+                        expect(deckBefore.filter((x) => d.setAside.includes(x))).to.be.empty;
+                        for (const pp of allPlants(G))
+                            expect(pp.citiesPowered, `plant ${pp.number}`).to.equal(
+                                printed(pp.number) + (pp.type == PowerPlantType.Wind ? 1 : 0)
+                            );
+                    }
+                });
+
+                it(`${powerPlantDeck} ${variant}: seeded games end at 2-6 players and replay exactly`, () => {
+                    for (const n of [2, 3, 4, 5, 6]) {
+                        for (let i = 0; i < 3; i++) {
+                            const G = playUntil(
+                                setup(n, { map: 'Chile', variant, powerPlantDeck }, `game-${variant}-${n}-${i}`),
+                                `moves-${powerPlantDeck}-${i}`
+                            );
+                            expect(ended(G), `${n}P game ${i}`).to.be.true;
+                            expect(G.uraniumMarket + G.uraniumSupply).to.equal(0);
+                            const replayed = reconstructState(cloneDeep(G));
+                            expect(replayed.players.map((p) => [p.money, p.cities.length])).to.deep.equal(
+                                G.players.map((p) => [p.money, p.cities.length])
+                            );
+                            expect(replayed.log.length).to.equal(G.log.length);
+                        }
+                    }
+                });
+
+                it(`${powerPlantDeck} ${variant}: analysis scenarios deal this deck's Chile plants in every step`, () => {
+                    for (const [label, stop] of [
+                        ['step 1', (s: GameState) => s.round == 3],
+                        ['step 2', (s: GameState) => s.step == 2],
+                        ['step 3', (s: GameState) => s.step == 3],
+                    ] as const) {
+                        const G = playUntil(
+                            setup(4, { map: 'Chile', variant, powerPlantDeck }, 'scenario'),
+                            'scenario',
+                            stop
+                        );
+                        const s = createAnalysisScenario(G, { player: 0, seed: 'x' });
+                        const deck = s.powerPlantsDeck.map((pp) => pp.number);
+                        expect(
+                            deck.filter((x) => d.uranium.includes(x)),
+                            label
+                        ).to.be.empty;
+                        expect(deck.length, label).to.equal(G.powerPlantsDeck.length);
+                        if (G.step < 3) {
+                            expect(
+                                deck.filter((x) => d.setAside.includes(x)),
+                                label
+                            ).to.be.empty;
+                        } else {
+                            const real = G.powerPlantsDeck.map((pp) => pp.number).filter((x) => d.setAside.includes(x));
+                            expect(deck.slice(0, real.length), label).to.deep.equal(real);
+                        }
+                        for (const pp of s.powerPlantsDeck)
+                            expect(pp.citiesPowered, `${label} plant ${pp.number}`).to.equal(
+                                printed(pp.number) + (G.step == 3 && pp.type == PowerPlantType.Wind ? 1 : 0)
+                            );
+                    }
+                });
+            }
         }
     });
 });

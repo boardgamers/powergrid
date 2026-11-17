@@ -1,16 +1,24 @@
 // Chile, designed by Mike Isom (draft, in testing). The board itself is generated into chile-board.ts.
 import { cloneDeep } from 'lodash';
 import seedrandom from 'seedrandom';
-import { PowerPlant } from '../gamestate';
+import { PowerPlant, PowerPlantDeck, SingleDeck } from '../gamestate';
 import { shuffle } from '../utils';
+import { originalTopPlants, removedPlants } from './../deckChanges';
 import { GameMap } from './../maps';
-import { powerPlants } from './../powerPlants';
+import { plantCatalogue } from './../powerPlants';
 import { chileCities, chileConnections, chileGates } from './chile-board';
 
 /** No nuclear power in Chile: the standard deck's uranium plants are out of the game. Fusion plant 50 stays. */
 export const chileRemovedPlants = [11, 17, 23, 28, 34, 39];
-/** The three largest ecological plants, set aside at setup; they go on top of the draw stack when Step 3 begins. */
-export const chileSetAsidePlants = [33, 37, 44];
+/**
+ * The three largest ecological plants of each single deck, set aside at setup; they go on top of the draw stack when
+ * Step 3 begins (smallest on top). Deck 1's 44 is fusion, not ecological.
+ */
+export const chileSetAsidePlants: Record<SingleDeck, number[]> = {
+    standard: [33, 37, 44],
+    deck1: [26, 32, 39],
+    deck2: [31, 36, 44],
+};
 
 export const map: GameMap = {
     name: 'Chile',
@@ -109,30 +117,33 @@ export const map: GameMap = {
     garbagePricesNorth: [],
     // The standard deck without its uranium plants and the set-aside plants, built as usual except that no plants are
     // removed for the number of players.
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng) {
-        const out = new Set([...chileRemovedPlants, ...chileSetAsidePlants]);
-        let deck: PowerPlant[] = cloneDeep(powerPlants).filter((pp) => !out.has(pp.number));
+    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, powerPlantDeck: PowerPlantDeck = 'standard') {
+        const single = powerPlantDeck as SingleDeck;
+        const out = new Set([...removedPlants('Chile', single, numPlayers, variant), ...chileSetAsidePlants[single]]);
+        let deck: PowerPlant[] = cloneDeep(plantCatalogue('Chile', single)).filter((pp) => !out.has(pp.number));
         const step3 = deck.pop()!;
         let actualMarket: PowerPlant[];
         let futureMarket: PowerPlant[];
 
         if (variant == 'original') {
-            const market = deck.splice(0, 8); // 3-10
+            const market = deck.splice(0, 8); // The eight smallest: 3-10 in the standard deck
             actualMarket = market.slice(0, 4);
             futureMarket = market.slice(4);
-            const plant13 = deck.splice(
-                deck.findIndex((pp) => pp.number == 13),
+            const [topNumber] = originalTopPlants('Chile', single);
+            const top = deck.splice(
+                deck.findIndex((pp) => pp.number == topNumber),
                 1
             )[0];
             deck = shuffle(deck, rng() + '');
-            deck.unshift(plant13);
+            deck.unshift(top);
         } else {
-            // The plug-back plants 3-15 (12 of them without 11): eight open the market, one goes on top of the deck
-            // and the other three are shuffled into it.
+            // The plug-back plants (3-15 in the standard deck, 12 of them without 11): eight open the market, one
+            // goes on top of the deck and the rest are shuffled into it.
+            const lastPlug = single == 'deck1' ? 16 : 15;
             const initial = shuffle(
                 deck.splice(
                     0,
-                    deck.findIndex((pp) => pp.number > 15)
+                    deck.findIndex((pp) => pp.number > lastPlug)
                 ),
                 rng() + ''
             );

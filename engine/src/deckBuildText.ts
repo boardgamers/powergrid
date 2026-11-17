@@ -7,6 +7,7 @@ import {
     SPAIN_STEP_2_PLANTS,
 } from './deckChanges';
 import { GameOptions, PowerPlant, PowerPlantDeck, PowerPlantType, SingleDeck } from './gamestate';
+import { chileSetAsidePlants } from './maps/chile';
 import { gameDeck, isPlugPlant, plantCatalogue, plantCopy } from './powerPlants';
 
 // The rules dialog's "Deck build" section, generated from the same tables the decks
@@ -314,7 +315,14 @@ function mapText(mapName: string, options: GameOptions, numPlayers: number): str
         case 'UK & Ireland':
             return [fill('ukStep3'), fill('standardSetup')];
         case 'Chile':
-            return [...gone, fill('chileSetAside', '33, 37, 44'), fill('chileNoRemoval')];
+            return [
+                ...gone,
+                fill(
+                    'chileSetAside',
+                    (chileSetAsidePlants[deck as SingleDeck] ?? chileSetAsidePlants.standard).join(', ')
+                ),
+                fill('chileNoRemoval'),
+            ];
         default:
             return [];
     }

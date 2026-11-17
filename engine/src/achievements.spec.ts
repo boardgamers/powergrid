@@ -135,7 +135,16 @@ describe('achievements', function () {
         it(`${variant} runtime maps exactly match the 24 supported badge names`, () => {
             expect(mapBadges).to.have.length(24);
             expect(new Set(mapBadges.map(([name]) => name)).size).to.equal(24);
-            expect(runtimeMaps.map((map) => map.name).sort()).to.deep.equal(mapBadges.map(([name]) => name).sort());
+            // Chile, in testing, has no map badge yet.
+            const badged = runtimeMaps.map((map) => map.name).filter((name) => name !== 'Chile');
+            expect(badged.sort()).to.deep.equal(mapBadges.map(([name]) => name).sort());
+        });
+
+        it(`gives a ${variant} Chile winner the general wins but no map badge`, () => {
+            const state = finalState(6, 'Chile', variant);
+            expect(state.map.name).to.equal('Chile');
+            state.players[1].citiesPowered = 1;
+            expect(earned(state, 1)).to.deep.equal(['grid-champion', 'full-table']);
         });
 
         for (const [map, badge] of mapBadges) {

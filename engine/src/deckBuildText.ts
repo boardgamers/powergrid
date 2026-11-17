@@ -7,6 +7,7 @@ import {
     SPAIN_STEP_2_PLANTS,
 } from './deckChanges';
 import { GameOptions, PowerPlant, PowerPlantDeck, PowerPlantType, SingleDeck } from './gamestate';
+import { chileSetAsidePlants } from './maps/chile';
 import { gameDeck, isPlugPlant, plantCatalogue, plantCopy } from './powerPlants';
 
 // The rules dialog's "Deck build" section, generated from the same tables the decks
@@ -91,6 +92,13 @@ export const DECK_BUILD_TEMPLATES = {
         'Power plant {p0} goes on top of the deck if it was dealt, then five shuffled cards (the 7th and 8th smallest plants and the top three of the deck).',
     spainHeld:
         'Power plants {p0} are set aside at setup; when Step 2 begins they are placed on top of the deck, smallest on top.',
+    chileSetAside:
+        'Ecological power plants {p0} are set aside at setup; when Step 3 begins they are placed on top of the deck, smallest on top.',
+    chileSetAsideShuffled:
+        'The three largest ecological power plants dealt (all of them, if three or fewer are dealt) are set aside at setup; when Step 3 begins they are placed on top of the deck, smallest on top.',
+    chileShuffledTop:
+        'The smallest ecological power plant dealt that is not in the market goes on top of the deck, in place of the usual top plant; if there is none, no plant goes on top.',
+    chileNoRemoval: 'No power plants are removed for the number of players.',
     ukStep3: 'The Step 3 card is placed third from the bottom of the deck (two plants below it).',
 } as const;
 
@@ -310,6 +318,19 @@ function mapText(mapName: string, options: GameOptions, numPlayers: number): str
         }
         case 'UK & Ireland':
             return [fill('ukStep3'), fill('standardSetup')];
+        case 'Chile':
+            return shuffled
+                ? [
+                      ...gone,
+                      fill('chileSetAsideShuffled'),
+                      ...(original ? [fill('chileShuffledTop')] : []),
+                      fill('chileNoRemoval'),
+                  ]
+                : [
+                      ...gone,
+                      fill('chileSetAside', chileSetAsidePlants[deck as SingleDeck].join(', ')),
+                      fill('chileNoRemoval'),
+                  ];
         default:
             return [];
     }

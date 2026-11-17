@@ -1,3 +1,4 @@
+import { checkAnalysisMoney } from './analysis-money-smoke.mjs';
 import { checkHostPresentation } from './host-presentation-smoke.mjs';
 import { checkMiddleEastReplay, checkReplayDeckCount } from './replay-smoke.mjs';
 import { checkUndoMove } from './undo-smoke.mjs';
@@ -434,6 +435,7 @@ try {
         await checkReplayDeckCount(page);
         if (width === 1400) await checkMiddleEastReplay(page);
         await checkUndoMove(page);
+        await checkAnalysisMoney(page);
         assert.deepEqual(errors, []);
         await page.close();
         console.log(`${game} ${width}px: protocol/chat smoke passed`);

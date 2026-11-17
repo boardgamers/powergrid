@@ -1,10 +1,12 @@
+import { cloneDeep } from 'lodash';
 import type { GameState } from './index';
 import { createAnalysisScenario as sampleAnalysisScenario } from './src/analysis';
+import { applyAnalysisMoney, isAnalysisMoneyCommand, SetAnalysisMoney } from './src/analysis-money';
 import { autoPassAuctions } from './src/auction-auto-pass';
 import { alreadyCreditedPowering, canReviseChoice } from './src/choice-revisions';
 import * as engine from './src/engine';
 import { playersSortedByScore } from './src/engine';
-import { GameOptions } from './src/gamestate';
+import { GameOptions, Phase } from './src/gamestate';
 import type { LogMove } from './src/log';
 import { Move, MoveName } from './src/move';
 import {
@@ -17,6 +19,10 @@ import {
     setPremoves,
 } from './src/premoves';
 import { asserts } from './src/utils';
+export { achievementDefinitions, achievements } from './src/achievements';
+export { MAX_ANALYSIS_MONEY } from './src/analysis-money';
+export type { SetAnalysisMoney } from './src/analysis-money';
+export { ended, scores, stripSecret } from './src/engine';
 
 export async function init(
     nbPlayers: number,
@@ -49,10 +55,11 @@ export function playerSettings(G: GameState, player: number): Record<string, unk
 function runAutomaticMoves(G: GameState, now: number): GameState {
     // Premoves can finish upkeep and enter a new auction round; passing can enter
     // Resources. Settle both in order without re-running them inside replay.
+    G = advanceDroppedPlayers(G);
     G = autoPassAuctions(G, now);
     G = runPremoves(G, now);
     G = autoPassAuctions(G, now);
-    return runPremoves(G, now);
+    return advanceDroppedPlayers(runPremoves(G, now));
 }
 
 /**
@@ -76,6 +83,8 @@ export async function move(
     move: Move | Move[] | PremoveCommand | null | undefined,
     player: number
 ): Promise<GameState> {
+    if ((Array.isArray(move) ? move : [move]).some(isAnalysisMoneyCommand))
+        throw new Error('SetAnalysisMoney is only available in an analysis');
     automation(G).liveUpdate = false;
     if (isPremoveCommand(move)) {
         setPremoves(G, move, player);
@@ -157,7 +166,6 @@ export function toSave(G: GameState): GameState | undefined {
 export function createAnalysisScenario(data: GameState, options: { player?: number; seed: string }): GameState {
     return sampleAnalysisScenario(data, { ...options, interactive: true });
 }
-export { ended, scores, stripSecret } from './src/engine';
 
 /**
  * Play a full turn for `player`. The engine's own `moveAI` plays one atomic move at a
@@ -245,7 +253,14 @@ export function replay(G: GameState, { to = Infinity }: { to?: number } = {}): G
     // a historical state and must NOT append the hidden log.
     const items = to >= oldG.log.length ? [...oldG.log, ...(oldG.hiddenLog ?? [])] : oldG.log.slice(0, to);
 
-    for (const move of items.filter((event) => event.type === 'move')) {
+    for (const move of items) {
+        if (move.type === 'event') {
+            if (move.analysisMoney) {
+                applyAnalysisMoney(G, move.analysisMoney);
+                G.log.push(cloneDeep(move));
+            }
+            continue;
+        }
         asserts<LogMove>(move);
 
         G = engine.move(G, move.move, move.player);
@@ -271,6 +286,7 @@ export function replay(G: GameState, { to = Infinity }: { to?: number } = {}): G
         }
         if (oldG.revisedPowering) G.revisedPowering = { ...oldG.revisedPowering };
     }
+    if (oldG.achievementAnalysis) G.achievementAnalysis = true;
     delete G.pendingMessages;
     return G;
 }
@@ -279,10 +295,34 @@ export function round(G: GameState): number {
     return G.round;
 }
 
-// Ceiling on the moves auto-played for one dropped player's turn. Real turns resolve in
-// a handful — the longest is a Resources phase bought one cube at a time — so this sits
-// orders of magnitude above any legitimate turn and only ever trips on a stuck state.
+// Bound the entire dropped-seat chain, not just one seat: setup may hand control
+// to several dropped players, or return to the first seat when auctions begin.
 const MAX_AUTO_MOVES = 1000;
+
+function advanceDroppedPlayers(G: GameState): GameState {
+    if (engine.ended(G)) return G;
+    if (G.players.every((player) => player.isDropped)) {
+        // There is nobody left to receive control. Do not try to play an entire
+        // game with dropped seats (some turn selectors intentionally retain one).
+        G.phase = Phase.GameEnd;
+        G.currentPlayers = [];
+        G.players.forEach((player) => (player.availableMoves = null));
+        G.newTurn = true;
+        return G;
+    }
+
+    for (let count = 0; ; count++) {
+        const seat = G.currentPlayers.find((id) => G.players[id].isDropped);
+        if (engine.ended(G) || seat === undefined) return G;
+        if (count >= MAX_AUTO_MOVES)
+            throw new Error(`Dropped players are still current after ${MAX_AUTO_MOVES} auto-played moves`);
+        // Use the engine directly: wrapper.moveAI would recursively run this
+        // automation and credit time increments to an abandoned seat.
+        G = G.players[seat].availableMoves?.[MoveName.Pass]
+            ? engine.move(G, { name: MoveName.Pass, data: true }, seat)
+            : engine.moveAI(G, seat);
+    }
+}
 
 export async function dropPlayer(G: GameState, playerNum: number): Promise<GameState> {
     automation(G).liveUpdate = false;
@@ -294,32 +334,8 @@ export async function dropPlayer(G: GameState, playerNum: number): Promise<GameS
         event: `Player ${playerNum} was dropped`,
     });
 
-    if (player.availableMoves?.[MoveName.Pass]) {
-        G = engine.move(G, { name: MoveName.Pass, data: true }, playerNum);
-    } else {
-        let autoMoves = 0;
-
-        while (G.currentPlayers.includes(playerNum)) {
-            if (++autoMoves > MAX_AUTO_MOVES) {
-                // A state moveAI cannot advance would otherwise spin this loop forever,
-                // pinning a game-server worker at 100% CPU with no request ever
-                // returning. Fail loudly instead: a thrown error is recoverable and
-                // diagnosable, a hung worker is neither.
-                throw new Error(
-                    `dropPlayer: player ${playerNum} is still current after ${MAX_AUTO_MOVES} auto-played ` +
-                        `moves (phase ${G.phase}, round ${G.round}) — aborting to avoid an infinite loop`
-                );
-            }
-
-            G = engine.moveAI(G, playerNum);
-        }
-    }
-
-    // Dropping a player must always yield a committed state: `G` was committed to
-    // begin with (tentative states are never persisted), and the auto-play above ends
-    // either with a Pass or with the dropped player leaving currentPlayers — both
-    // commit. Force the flag anyway (it costs nothing) so an unexpected auto-play path
-    // can never leave the persisted state un-saveable.
+    // Off-turn drops only mark the seat. Automatic play starts when a dropped
+    // seat becomes current, including after another player's later setup pick.
     G.newTurn = true;
     return runAutomaticMoves(G, Date.now());
 }
@@ -376,6 +392,7 @@ export function logSlice(G: GameState, options?: { player?: number; start?: numb
 export function createAnalysis(data: GameState, { to }: { to: number; sourceEnded: boolean }): GameState {
     if (!Number.isInteger(to) || to < 0 || to > data.log.length) throw new Error('Invalid history position');
     const copy = replay(JSON.parse(JSON.stringify(data)), { to });
+    copy.achievementAnalysis = true;
     delete copy.automation;
     for (const player of copy.players) {
         player.isDropped = false;
@@ -385,7 +402,37 @@ export function createAnalysis(data: GameState, { to }: { to: number; sourceEnde
     return copy;
 }
 
-export async function analysisMove(data: GameState, input: Move | Move[], player: number): Promise<GameState> {
+export async function analysisMove(
+    data: GameState,
+    input: Move | SetAnalysisMoney | (Move | SetAnalysisMoney)[],
+    player: number
+): Promise<GameState> {
+    const buffer = Array.isArray(input) ? input : [input];
+    if (buffer.some(isAnalysisMoneyCommand)) {
+        if (buffer.length !== 1) throw new Error('Analysis money edits must be sent alone');
+        if (data.newTurn === false) throw new Error('Analysis money edits require a committed state');
+        if (engine.ended(data)) throw new Error('Cannot edit money in an ended analysis');
+        if (
+            !Number.isSafeInteger(player) ||
+            !data.players[player] ||
+            !data.currentPlayers.includes(player) ||
+            data.players[player].isDropped
+        )
+            throw new Error('Only an active player can edit analysis money');
+        const command = buffer[0] as SetAnalysisMoney;
+        const copy = cloneDeep(data);
+        copy.achievementAnalysis = true;
+        const previous = copy.players[command.data?.player]?.money;
+        applyAnalysisMoney(copy, command.data);
+        copy.log.push({
+            type: 'event',
+            event: `Analysis: player ${command.data.player} money changed from ${previous} to ${command.data.money}`,
+            analysisMoney: { ...command.data },
+        });
+        return copy;
+    }
+    data = cloneDeep(data);
+    data.achievementAnalysis = true;
     if (isPremoveCommand(input)) throw new Error('Premoves are not available in an analysis');
     delete data.automation;
     // Deliberately bypass the live wrapper: clearing premoves alone does not
@@ -395,7 +442,7 @@ export async function analysisMove(data: GameState, input: Move | Move[], player
         seat.isAI = false;
         seat.isDropped = false;
     });
-    const moves = Array.isArray(input) ? input : [input];
+    const moves = buffer as Move[];
     if (!moves.length) return { ...data, newTurn: false };
     const now = Date.now();
     for (let i = 0; i < moves.length; i++) {

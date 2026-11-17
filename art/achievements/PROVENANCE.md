@@ -57,6 +57,20 @@ The component count is after the documented window and small-islet filtering.
 | bremen           | Bremen city component; omit detached Bremerhaven to preserve city silhouette.                                                       | 1          |
 | manhattan        | Manhattan main island; omit tiny detached borough islets.                                                                           | 5          |
 
+## Chile Champion (revision 4)
+
+Chile's outline is Natural Earth 1:50m admin-0 Chile (the same public-domain
+release as above), stored on its own in `viewer/scripts/geography/chile-badge.json`
+because Chile has no entry in `source.json`. Its window is the stretch on the
+board, Arica to Puerto Montt (lon -76..-66, lat -43..-17). The true outline is
+too thin to read at badge size (under 1% silhouette ink at 32px against the
+2.5% floor), so, as on the game board, it is widened 2x east-west and turned
+40 degrees (`SHAPES` in `scripts/achievement-map-framing.py`); then it is fitted,
+filtered and simplified exactly like the other 24. Its PNG was rasterised with
+headless Chromium at 256px on a transparent page because CairoSVG's system Cairo
+was not available; re-running the generator with CairoSVG re-renders it. The
+other 36 PNGs are unchanged.
+
 These existing game-map geographic datasets are derived from:
 
 -   Natural Earth, public domain, https://www.naturalearthdata.com/about/terms-of-use/

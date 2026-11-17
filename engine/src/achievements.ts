@@ -4,8 +4,7 @@ import { GameState, MapName, Player, PowerPlantType } from './gamestate';
 
 // Explicit stable IDs, not generated slugs. Match the resolved map name, never
 // the requested option (which may be Random). Original/Recharged share a badge.
-// Chile, in testing, has no map badge yet: adding one changes the published manifest.
-const mapAchievements: Record<Exclude<MapName, 'Chile'>, string> = {
+const mapAchievements: Record<MapName, string> = {
     Germany: 'germany-champion',
     USA: 'usa-champion',
     France: 'france-champion',
@@ -30,6 +29,7 @@ const mapAchievements: Record<Exclude<MapName, 'Chile'>, string> = {
     Australia: 'australia-champion',
     Bremen: 'bremen-champion',
     Manhattan: 'manhattan-champion',
+    Chile: 'chile-champion',
 };
 
 const definitions: AchievementDefinition[] = [
@@ -80,7 +80,7 @@ const definitions: AchievementDefinition[] = [
 export function achievementDefinitions(): AchievementManifest {
     // A host may cache or modify its copy without changing future evaluations.
     return {
-        revision: 3,
+        revision: 4,
         achievements: definitions.map((definition) => ({
             ...definition,
             icon: { type: 'asset', key: `achievement-${definition.id}` },
@@ -119,7 +119,7 @@ export function achievements(data: GameState): SeatAchievements[] {
             if (data.players.length === 2) earned.push('head-to-head');
             if (data.players.length === 6) earned.push('full-table');
             const mapAchievement = Object.prototype.hasOwnProperty.call(mapAchievements, data.map.name)
-                ? mapAchievements[data.map.name as keyof typeof mapAchievements]
+                ? mapAchievements[data.map.name as MapName]
                 : undefined;
             if (mapAchievement) earned.push(mapAchievement);
         }

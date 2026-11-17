@@ -13,10 +13,12 @@ const art = require('../art/achievements/manifest.json');
 const manifest = wrapper.achievementDefinitions();
 assert.equal(require(path.join(modules, 'powergrid-engine/package.json')).version, '2.0.34');
 achievementManifestSchema.parse(manifest);
-assert.equal(manifest.revision, 3);
+assert.equal(manifest.revision, 4);
+// Revision 4 only adds Chile Champion, after the other map badges.
+const chile = { id: 'chile-champion', name: 'Chile Champion', description: 'Win on the Chile map.' };
 assert.deepEqual(
     manifest.achievements.map(({ icon, ...rest }) => rest),
-    old.achievements
+    [...old.achievements.slice(0, 27), chile, ...old.achievements.slice(27)]
 );
 assert.deepEqual(
     manifest.achievements.map(({ icon }) => icon),
@@ -34,5 +36,5 @@ for (const fixture of ['GermanyRecharged', 'USAOriginal']) {
     );
 }
 console.log(
-    'Exact installed 2.0.34 tarball: 36 stable refs, revision 3, published schema and two replay fixtures pass.'
+    'Exact installed 2.0.34 tarball: 37 stable refs, revision 4, published schema and two replay fixtures pass.'
 );

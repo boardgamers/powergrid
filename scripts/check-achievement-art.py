@@ -11,8 +11,11 @@ root = Path(__file__).resolve().parents[1]
 folder = root / 'art/achievements'
 manifest = json.loads((folder / 'manifest.json').read_text())
 baseline = json.loads((root / 'docs/releases/achievements-2.0.33.json').read_text())['achievementManifest']
-assert [a['id'] for a in manifest['assets']] == [a['id'] for a in baseline['achievements']]
-assert len(manifest['assets']) == 36
+# Revision 4 adds Chile Champion after the other map badges.
+baseline_ids = [a['id'] for a in baseline['achievements']]
+baseline_ids.insert(27, 'chile-champion')
+assert [a['id'] for a in manifest['assets']] == baseline_ids
+assert len(manifest['assets']) == 37
 framing = runpy.run_path(str(root / 'scripts/achievement-map-framing.py'))
 assert manifest['framingSha256'] == hashlib.sha256((root / 'scripts/achievement-map-framing.py').read_bytes()).hexdigest()
 assert manifest['generatorSha256'] == hashlib.sha256((root / 'scripts/generate-achievement-art.py').read_bytes()).hexdigest()
@@ -51,9 +54,11 @@ for a in manifest['assets']:
                 cyan = sum(1 for r,g,b,alpha in pixels.get_flattened_data()
                            if alpha > 200 and g > r*1.3 and b > r*1.3 and g > 110)
                 assert cyan >= size*size*.025, (a['id'], size, cyan)
-assert sum(bool(a['source']) for a in manifest['assets']) == 24
+assert sum(bool(a['source']) for a in manifest['assets']) == 25
 old = subprocess.check_output(['git', 'show', 'c52a87e4b9c41feb35d8e902643514d99fe722f1:engine/src/achievements.ts'], cwd=root).decode()
-new = (root / 'engine/src/achievements.ts').read_text()
+# The evaluator is unchanged apart from Chile's line in the map table.
+new = (root / 'engine/src/achievements.ts').read_text().replace("    Chile: 'chile-champion',
+", '')
 assert old.split('export function achievementDefinitions')[0] == new.split('export function achievementDefinitions')[0]
 assert old.split('function tied(')[1] == new.split('function tied(')[1]
-print('36 unique decoded 256px PNGs; 24 hashed geographic sources; full IDs/definitions and evaluator unchanged.')
+print('37 unique decoded 256px PNGs; 25 hashed geographic sources; full IDs/definitions and evaluator unchanged.')

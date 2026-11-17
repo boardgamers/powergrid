@@ -1,0 +1,47 @@
+{
+    "game": "powergrid",
+    "gameVersion": 13,
+    "publishedAt": "2026-11-12T21:57:36.758Z",
+    "sourceCommit": "da164b0",
+    "engine": {
+        "version": "2.0.30",
+        "package": {
+            "name": "powergrid-engine",
+            "version": "2.0.30",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/engine/101b512ed7f78afb/powergrid-engine-2.0.30.tgz"
+        },
+        "entryPoint": "dist/wrapper.js",
+        "sha256": "101b512ed7f78afbeb3380d9c7de26f5f44cccd9d96e6d35896feb2e6c2aa524",
+        "bytes": 399043
+    },
+    "previousEngine": {
+        "package": {
+            "name": "powergrid-engine",
+            "version": "2.0.29",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/engine/71c2d208722ab035/powergrid-engine-2.0.29.tgz"
+        },
+        "entryPoint": "dist/wrapper.js"
+    },
+    "changes": [
+        "Reveal sealed auction bids and revised passes in fixed seat order, preserving hidden pending responses and auctioneer-first tie breaks."
+    ],
+    "verification": {
+        "engineTests": {
+            "passing": 560,
+            "failing": 1,
+            "knownBaselineFailure": "China recharged shuffledUnique full bot-game analysis replay: Wrong argument for the command ChoosePowerPlant; reproduced on unchanged e433b2a."
+        },
+        "targetedSealedAuctionAndWrapperTests": 29,
+        "viewerUnitTests": 96,
+        "engineBuild": true,
+        "engineLint": {
+            "errors": 0,
+            "warnings": 38
+        },
+        "localizationTests": 8,
+        "publicTarballHash": true,
+        "adminMetadata": true,
+        "viewerUnchanged": true
+    },
+    "verified": true
+}

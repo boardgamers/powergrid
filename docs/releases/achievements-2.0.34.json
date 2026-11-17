@@ -1,0 +1,879 @@
+{
+    "schema": 1,
+    "game": "powergrid",
+    "status": "activated-and-verified",
+    "sourceCommit": "1e4162a380ddab39f659c01bda3db298f3a3d56a",
+    "envelopeSha256": "d783f8c09d9c2de853e9368643ad554435beca9b90665e8b431be89aa4356c74",
+    "privateReceiptSha256": "421b65229da5439135da72e4aca42a7e6bcfa4f4251d844c6f46ac56e356f436",
+    "assets": {
+        "achievement-atomic-power": {
+            "sourceSha256": "96e81c3063548bc928a37d390586f0555a2da12028fba2efb2dbde7d400622be",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-atomic-power/5d92be2949ff006e/achievement-atomic-power.webp",
+            "sha256": "5d92be2949ff006e496bbcd773e1044e9d690c9238edf357c503874068170555",
+            "size": 6874,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:22.822Z",
+            "metadataPreserved": true
+        },
+        "achievement-australia-champion": {
+            "sourceSha256": "82a49b58805874ba955b553036b59de7d12bd9925db88f2ec1e6441948b308ef",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-australia-champion/c588f325b073458e/achievement-australia-champion.webp",
+            "sha256": "c588f325b073458e3c58ed75d8bfecb2e9bc56a82358f1e3606d2aefcdb47e52",
+            "size": 7978,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:22.851Z",
+            "metadataPreserved": true
+        },
+        "achievement-baden-wurttemberg-champion": {
+            "sourceSha256": "4514f86a556184a2ed2e55fad7f7d0989f729fd9165d3131355cfe58ad2c852b",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-baden-wurttemberg-champion/3bd24672e67153c8/achievement-baden-wurttemberg-champion.webp",
+            "sha256": "3bd24672e67153c805f369f8a98654ccef8dde9eca3e44e0558e1d2b8046afc6",
+            "size": 7878,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:22.881Z",
+            "metadataPreserved": true
+        },
+        "achievement-benelux-champion": {
+            "sourceSha256": "05947708c2e8abf1023e47bf53b8573ad2ca5d1637cb254008be512fb34f1a64",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-benelux-champion/79738d27ff2fce7c/achievement-benelux-champion.webp",
+            "sha256": "79738d27ff2fce7ca2301baf3fa71016df2f87291ce33c3c816a3faa6426bba2",
+            "size": 7714,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:22.908Z",
+            "metadataPreserved": true
+        },
+        "achievement-brazil-champion": {
+            "sourceSha256": "2bf10eb1d65b6d5816a1867b4574fa972c3916178dd0492e70f227b16bf982a6",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-brazil-champion/f6b35e89eb1b60d0/achievement-brazil-champion.webp",
+            "sha256": "f6b35e89eb1b60d03c191fd590f676f89c94a5edd54a5d09ce21e0ba77714b75",
+            "size": 7696,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:22.934Z",
+            "metadataPreserved": true
+        },
+        "achievement-bremen-champion": {
+            "sourceSha256": "044af0a3fde416f56cdd98985ebc01b61ee2cecb09047153957afc3057eb7ee3",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-bremen-champion/5ab30e7fa7fe66b0/achievement-bremen-champion.webp",
+            "sha256": "5ab30e7fa7fe66b0a61ed3462fdb0d318a9edcb41f70d1790fc32c481819162c",
+            "size": 7282,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:23.084Z",
+            "metadataPreserved": true
+        },
+        "achievement-cash-reserve": {
+            "sourceSha256": "53277d48b8cd7f3c99227a563a9addbbba280ab36b48ceedb6eb053681caf9f0",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-cash-reserve/752c6fc34d313267/achievement-cash-reserve.webp",
+            "sha256": "752c6fc34d3132675018915406794bf04a87cceacd2e622113587c9d53fb2572",
+            "size": 6714,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:23.115Z",
+            "metadataPreserved": true
+        },
+        "achievement-central-europe-champion": {
+            "sourceSha256": "69fb5383e7e6964545d2b84bc04ce2d439e180a37e5f68c1caca40e41f7ce088",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-central-europe-champion/696a3e83b34d0817/achievement-central-europe-champion.webp",
+            "sha256": "696a3e83b34d081735429c3d3657cea21c92030d3a85db200869bb7d33cefb5f",
+            "size": 7718,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:23.144Z",
+            "metadataPreserved": true
+        },
+        "achievement-china-champion": {
+            "sourceSha256": "5ed145365c7cfedf55ab17424a370b40bc05366c5bd7c96ae759ff5679ba27ad",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-china-champion/496290f70ee166f0/achievement-china-champion.webp",
+            "sha256": "496290f70ee166f06b9f10469ecfb2c3cc00dc25fe9aa35b8fd2cae88a5a02b5",
+            "size": 8100,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:23.638Z",
+            "metadataPreserved": true
+        },
+        "achievement-deep-reserves": {
+            "sourceSha256": "93b0c56753f1061443d7ba26c38fe84f348e4b822981a0ef154f07668446c4fe",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-deep-reserves/e2e57166eab94900/achievement-deep-reserves.webp",
+            "sha256": "e2e57166eab94900d5dfeda855e8f40c27c12bec86655f5cc698f5c77071d76f",
+            "size": 7626,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:23.667Z",
+            "metadataPreserved": true
+        },
+        "achievement-europe-champion": {
+            "sourceSha256": "df966881960e9bab841a7e5878bca6ecd7b7045afacf3e2a31f0bd72cf1fd33e",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-europe-champion/73099cbe16d2b2aa/achievement-europe-champion.webp",
+            "sha256": "73099cbe16d2b2aa4403a6842aa97ce2fb304ce058e7f2edcb2cb05c8353d260",
+            "size": 10158,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:23.694Z",
+            "metadataPreserved": true
+        },
+        "achievement-france-champion": {
+            "sourceSha256": "e867f91c436ac53ba4451fae4b462aacf344f549721e60d0bc0660e699044fa3",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-france-champion/526e7ea1804255ad/achievement-france-champion.webp",
+            "sha256": "526e7ea1804255ad124d7f0cdf890f86b7aad6dbf9692f8f149d4bf530bee662",
+            "size": 7788,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:23.717Z",
+            "metadataPreserved": true
+        },
+        "achievement-full-table": {
+            "sourceSha256": "5c1b3642ccdcf4f8a2cc195a1c11b26ef6ef15dba6754f2ab8fc18a1d314acb7",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-full-table/7891699337f75b0a/achievement-full-table.webp",
+            "sha256": "7891699337f75b0a2ddfccaed3848e258b90bf3588fae977dab6a87200de0900",
+            "size": 7452,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:23.741Z",
+            "metadataPreserved": true
+        },
+        "achievement-fully-supplied": {
+            "sourceSha256": "535d7190ec37a617df130fa32401ea223fa68b17c4358b5ffa23f6ee6a752540",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-fully-supplied/349993f8e71362aa/achievement-fully-supplied.webp",
+            "sha256": "349993f8e71362aa6d8c58ab71fa018bd33b52d01f29fdafc9fed6814fe0d11e",
+            "size": 9276,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:23.776Z",
+            "metadataPreserved": true
+        },
+        "achievement-germany-champion": {
+            "sourceSha256": "8a4ca7ce42ac435ab5a71ddff53d257d40f22667676e72dc761fff1bf1e321ad",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-germany-champion/a6d47d27485994a8/achievement-germany-champion.webp",
+            "sha256": "a6d47d27485994a8192a4eb41f661de4e31970d7c8fa450218d6096fcb8f16d6",
+            "size": 7842,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:23.800Z",
+            "metadataPreserved": true
+        },
+        "achievement-grid-champion": {
+            "sourceSha256": "6c1b81a9bde1b496a7e7f66b9e7d543e409197152672bb9f665825abcbeeff54",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-grid-champion/3e484c739bcd8cad/achievement-grid-champion.webp",
+            "sha256": "3e484c739bcd8cad9e738d0069d9519c6f1b8f4b2fe6cd6bfdbe46572ac53a11",
+            "size": 7366,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:23.824Z",
+            "metadataPreserved": true
+        },
+        "achievement-head-to-head": {
+            "sourceSha256": "cc0112c80e9396378c161fe9299156117a564db7c4a351fd3a6a5b7a55ecb1b5",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-head-to-head/0f9096dcaaa1458d/achievement-head-to-head.webp",
+            "sha256": "0f9096dcaaa1458d6cd343b4527c071da1537f25bea5a5bb60f1147a432c85b7",
+            "size": 6514,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:23.849Z",
+            "metadataPreserved": true
+        },
+        "achievement-india-champion": {
+            "sourceSha256": "8d7e698b03caf910918448d134c81e21d8a40730c94577850c8721f55dbccaa4",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-india-champion/37d620e483058dfa/achievement-india-champion.webp",
+            "sha256": "37d620e483058dfaf1cc7a3a655a6ca59cd3a9cab27081294cf8a496ebfc212f",
+            "size": 7778,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:23.982Z",
+            "metadataPreserved": true
+        },
+        "achievement-italy-champion": {
+            "sourceSha256": "914e32cf112a5d40d181678168a23dd88767239e50ab7a13ce59e2be8cc59058",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-italy-champion/0a51a5c3e2730b74/achievement-italy-champion.webp",
+            "sha256": "0a51a5c3e2730b7474b562fce21edb225f2effccec3e457a15548f1141c71e00",
+            "size": 8132,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:24.007Z",
+            "metadataPreserved": true
+        },
+        "achievement-japan-champion": {
+            "sourceSha256": "c059d6a7f8e682be2bc6d27b8e7ff15708aad65827e3089c106301706332d86a",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-japan-champion/8cd2c959081ad83d/achievement-japan-champion.webp",
+            "sha256": "8cd2c959081ad83d0f6f26552b140b46e3d7a4703da57282498c5668df59869f",
+            "size": 7982,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:24.033Z",
+            "metadataPreserved": true
+        },
+        "achievement-korea-champion": {
+            "sourceSha256": "7be4b478360ed403271c56ddb21d2bf87edc23667562785869f284dac001c6cc",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-korea-champion/4f7f8234896b1f0f/achievement-korea-champion.webp",
+            "sha256": "4f7f8234896b1f0f30b8861a0b0e53220dbe62d7e7b65345b41ff55ef3bacc1d",
+            "size": 7274,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:24.061Z",
+            "metadataPreserved": true
+        },
+        "achievement-manhattan-champion": {
+            "sourceSha256": "fbeaed8202273bbdf0af462d8cd355d854e0ba105c7686a65112d75847f5614f",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-manhattan-champion/8f036124172503ef/achievement-manhattan-champion.webp",
+            "sha256": "8f036124172503ef2119207a007222356c4551bc407eb6946af6283a7ecaee07",
+            "size": 7148,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:24.090Z",
+            "metadataPreserved": true
+        },
+        "achievement-middle-east-champion": {
+            "sourceSha256": "d36535d1f4c1366fc7a37d0c1769ff901a6c14ac0f55761d6bdcca8b5315b4b6",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-middle-east-champion/d77efe787788196a/achievement-middle-east-champion.webp",
+            "sha256": "d77efe787788196a6fe69cef23d7e7d0805b53ac1636e7e86e107800856422ad",
+            "size": 8042,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:24.121Z",
+            "metadataPreserved": true
+        },
+        "achievement-network-seventeen": {
+            "sourceSha256": "5ece2ac3ad828c61a6d73637075571eb3d54ecdf180b3cb01e79474b61c11ca6",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-network-seventeen/0963104182fcd19d/achievement-network-seventeen.webp",
+            "sha256": "0963104182fcd19da0b363a6ec8dba3fc1ab153232ddc74e517439cb1d117c58",
+            "size": 7178,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:24.166Z",
+            "metadataPreserved": true
+        },
+        "achievement-network-twenty": {
+            "sourceSha256": "ebf73a2a682f7b179a1228eb73edbb5655c7df949e10d00efde259df09277207",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-network-twenty/77fedea787708617/achievement-network-twenty.webp",
+            "sha256": "77fedea78770861784b98c92fecff1cc1f6e5b9bd9752ea90c14a7946bd83953",
+            "size": 8468,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:24.191Z",
+            "metadataPreserved": true
+        },
+        "achievement-north-america-champion": {
+            "sourceSha256": "d48288f43cf82c8fd8f3afbdf6b719868c9ca5f3d1a8f3c5dfcbf911d5503219",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-north-america-champion/28aef407d2cc8f03/achievement-north-america-champion.webp",
+            "sha256": "28aef407d2cc8f034116c8fac18a1ac09fb8f1665e36490e989eba752c7c2698",
+            "size": 8964,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:24.217Z",
+            "metadataPreserved": true
+        },
+        "achievement-northern-europe-champion": {
+            "sourceSha256": "e354b7ea72e28e7c8b194ec8a974d4dbec7d41c381fede6dde9500274d25c47e",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-northern-europe-champion/28da8f1f457775a4/achievement-northern-europe-champion.webp",
+            "sha256": "28da8f1f457775a4bf90a864c4ff6efc7b781d8eaf5fced97097dff11e55525e",
+            "size": 9010,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:24.245Z",
+            "metadataPreserved": true
+        },
+        "achievement-power-eighteen": {
+            "sourceSha256": "7dc32b30e5b72ad893f6dcf9837566707acfe8e2493db1fc25a294efa59e789f",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-power-eighteen/e0dd229da5187854/achievement-power-eighteen.webp",
+            "sha256": "e0dd229da5187854bd7c762f99322f74cda77ea5affe7e103f1a6743b4a62ee7",
+            "size": 8482,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:24.268Z",
+            "metadataPreserved": true
+        },
+        "achievement-power-fifteen": {
+            "sourceSha256": "ec4509d299c2d57390c3656afa8f40875e3729384b93f7dab824c399deb8e776",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-power-fifteen/4d0e75f3fd982d5c/achievement-power-fifteen.webp",
+            "sha256": "4d0e75f3fd982d5c5171559a0c523c2e658b3e2bbca046b33bfd585893c4fe79",
+            "size": 7596,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:24.293Z",
+            "metadataPreserved": true
+        },
+        "achievement-quebec-champion": {
+            "sourceSha256": "579ec414b3d0ff282364ae3f57df8fadcdb37a938e7569e118a79147d32ec502",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-quebec-champion/960ef6f70dbb0b67/achievement-quebec-champion.webp",
+            "sha256": "960ef6f70dbb0b677f67112fc5e433d0d2aab0a821059d4634714026e3d5bb87",
+            "size": 8162,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:24.318Z",
+            "metadataPreserved": true
+        },
+        "achievement-russia-champion": {
+            "sourceSha256": "452e058d9bdf5e4b31aed01ff8e5c149246879ff3afaeb900800ee22d8ef01d1",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-russia-champion/ca1a5efea0bde4d3/achievement-russia-champion.webp",
+            "sha256": "ca1a5efea0bde4d34c2cc14153b6c971efdc9e72b158663f41196381f3455dfa",
+            "size": 8442,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:24.342Z",
+            "metadataPreserved": true
+        },
+        "achievement-south-africa-champion": {
+            "sourceSha256": "0e188cf53c6b620494396e6b8e563a9aa618c68495f0612ba39f2fdf186a8042",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-south-africa-champion/20c0948398616425/achievement-south-africa-champion.webp",
+            "sha256": "20c0948398616425989e00d8f87fcf678cadf33ebc3d83adeec700960b14f71a",
+            "size": 7824,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:24.371Z",
+            "metadataPreserved": true
+        },
+        "achievement-spain-portugal-champion": {
+            "sourceSha256": "9d007b273a9dab0b414bc40ebfa0342d5aa824bb1321592d833ddb76a4bbc7da",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-spain-portugal-champion/1db267c71ebd40bb/achievement-spain-portugal-champion.webp",
+            "sha256": "1db267c71ebd40bb2245c1c0e4f3296fd4ae1362f5389379a65ed3d51361deaf",
+            "size": 7794,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:24.399Z",
+            "metadataPreserved": true
+        },
+        "achievement-uk-ireland-champion": {
+            "sourceSha256": "a8159a2469e9e3734beb9faeffe773e11611d332560ffaf4ccfdcd84f5436393",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-uk-ireland-champion/e4108e5555e4391c/achievement-uk-ireland-champion.webp",
+            "sha256": "e4108e5555e4391c219ca96dcfc7f790c3f025eb076fe3c4f87896d409a56ddf",
+            "size": 8370,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:24.424Z",
+            "metadataPreserved": true
+        },
+        "achievement-usa-champion": {
+            "sourceSha256": "748cfce134b84371b39d44537e641e3effb53bf8675317074d9497f7981aafaa",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-usa-champion/6008f33607d5dfab/achievement-usa-champion.webp",
+            "sha256": "6008f33607d5dfab5f3d669c2515fbb777ed4830e90dfe9826b4822100db8a44",
+            "size": 7528,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:24.458Z",
+            "metadataPreserved": true
+        },
+        "achievement-wind-farm": {
+            "sourceSha256": "f97661b9259b12a101d6b9141a36807e68c5d165206398645fb0a066ece47700",
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/achievements/powergrid/achievement-wind-farm/9073c11463dc4da9/achievement-wind-farm.webp",
+            "sha256": "9073c11463dc4da99ab9da6764f9d98a4219eea68e88e006996673c7608ae9a4",
+            "size": 7054,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:24.482Z",
+            "metadataPreserved": true
+        }
+    },
+    "preserved": {
+        "pictogram": {
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/assets/powergrid/pictogram/75a7b5816f82c060/pictogram.webp",
+            "sha256": "75a7b5816f82c0603b8aed4ccfaa92cdc8d115f86faaa4b8285ddbac0785f5f4",
+            "size": 15038,
+            "format": "webp",
+            "width": 256,
+            "height": 256,
+            "verifiedAt": "2026-11-14T12:46:24.512Z",
+            "metadata": {
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/assets/powergrid/pictogram/75a7b5816f82c060/pictogram.webp",
+                "contentType": "image/webp",
+                "size": 15038,
+                "uploadedAt": "2026-09-28T23:30:12.107Z",
+                "name": "Game pictogram"
+            }
+        },
+        "screenshot-map-manhattan": {
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/assets/powergrid/screenshot-map-manhattan/5816c3856b54427b/screenshot-map-manhattan.webp",
+            "sha256": "5816c3856b54427bb397c895fda286afb8b14b95f18d62b9afdeeae71a48e500",
+            "size": 134568,
+            "format": "webp",
+            "width": 1536,
+            "height": 942,
+            "verifiedAt": "2026-11-14T12:46:24.613Z",
+            "metadata": {
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/assets/powergrid/screenshot-map-manhattan/5816c3856b54427b/screenshot-map-manhattan.webp",
+                "contentType": "image/webp",
+                "size": 134568,
+                "name": "Build a dense network across Manhattan",
+                "uploadedAt": "2026-10-04T22:28:45.999Z"
+            }
+        },
+        "screenshot-map-uk-ireland": {
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/assets/powergrid/screenshot-map-uk-ireland/931ebcf0a688ba75/screenshot-map-uk-ireland.webp",
+            "sha256": "931ebcf0a688ba7505fad6df44d455b84baca1d1730bc509bb8ea8f1bb925cb0",
+            "size": 174508,
+            "format": "webp",
+            "width": 1536,
+            "height": 942,
+            "verifiedAt": "2026-11-14T12:46:24.690Z",
+            "metadata": {
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/assets/powergrid/screenshot-map-uk-ireland/931ebcf0a688ba75/screenshot-map-uk-ireland.webp",
+                "contentType": "image/webp",
+                "size": 174508,
+                "name": "Connect cities across the UK and Ireland",
+                "uploadedAt": "2026-10-04T22:28:46.109Z"
+            }
+        },
+        "screenshot-showcase-1": {
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/assets/powergrid/screenshot-showcase-1/1c8c4bd1b3c9ed39/screenshot-showcase-1.webp",
+            "sha256": "1c8c4bd1b3c9ed3949181a52d00d6412f4572c77ce01bc267652e16514d1376b",
+            "size": 160670,
+            "format": "webp",
+            "width": 1536,
+            "height": 993,
+            "verifiedAt": "2026-11-14T12:46:24.750Z",
+            "metadata": {
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/assets/powergrid/screenshot-showcase-1/1c8c4bd1b3c9ed39/screenshot-showcase-1.webp",
+                "contentType": "image/webp",
+                "size": 160670,
+                "name": "Connect cities across the map",
+                "uploadedAt": "2026-10-04T21:59:50.896Z"
+            }
+        },
+        "screenshot-showcase-2": {
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/assets/powergrid/screenshot-showcase-2/504628d5b59c5023/screenshot-showcase-2.webp",
+            "sha256": "504628d5b59c5023b34ab0eb4bdcb3c46a7b88df3a0496d91a8d789f68607910",
+            "size": 139364,
+            "format": "webp",
+            "width": 1536,
+            "height": 900,
+            "verifiedAt": "2026-11-14T12:46:24.801Z",
+            "metadata": {
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/assets/powergrid/screenshot-showcase-2/504628d5b59c5023/screenshot-showcase-2.webp",
+                "contentType": "image/webp",
+                "size": 139364,
+                "name": "The network, resource market and competing utilities",
+                "uploadedAt": "2026-10-04T21:59:50.957Z"
+            }
+        },
+        "screenshot-showcase-3": {
+            "url": "https://s3.fr-par.scw.cloud/bgs-assets/assets/powergrid/screenshot-showcase-3/2bf0371b65173666/screenshot-showcase-3.webp",
+            "sha256": "2bf0371b65173666092cb1ec8f949176452a23f8ec4950687d98dd8d9177343e",
+            "size": 43914,
+            "format": "webp",
+            "width": 440,
+            "height": 685,
+            "verifiedAt": "2026-11-14T12:46:24.930Z",
+            "metadata": {
+                "url": "https://s3.fr-par.scw.cloud/bgs-assets/assets/powergrid/screenshot-showcase-3/2bf0371b65173666/screenshot-showcase-3.webp",
+                "contentType": "image/webp",
+                "size": 43914,
+                "name": "Power plants, fuel and generation capacity",
+                "uploadedAt": "2026-10-04T21:59:51.060Z"
+            }
+        }
+    },
+    "planSha256": "433487280c03d392ea03d5fa44172c160e9045a16fd0fa8bac337173a59067ec",
+    "activationReceiptSha256": "3a9cf348ec5398cb53fc46d987dd7a779c36cf9276ef7ad4c3457a9a26f09556",
+    "tgzSha256": "ffabbfcb33d1d2b04deab13a245f9c919cea9e2d28f9177758db68c61b6f6c6a",
+    "package": {
+        "name": "powergrid-engine",
+        "version": "2.0.34",
+        "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/engine/ffabbfcb33d1d2b0/powergrid-engine-2.0.34.tgz"
+    },
+    "hostedPackage": {
+        "url": "https://s3.fr-par.scw.cloud/bgs-assets/games/powergrid/13/engine/ffabbfcb33d1d2b0/powergrid-engine-2.0.34.tgz",
+        "size": 411734,
+        "sha256": "ffabbfcb33d1d2b04deab13a245f9c919cea9e2d28f9177758db68c61b6f6c6a"
+    },
+    "manifest": {
+        "revision": 3,
+        "achievements": [
+            {
+                "id": "grid-champion",
+                "name": "Grid Champion",
+                "description": "Win a game of Power Grid.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-grid-champion"
+                }
+            },
+            {
+                "id": "head-to-head",
+                "name": "Head to Head",
+                "description": "Win a two-player game.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-head-to-head"
+                }
+            },
+            {
+                "id": "full-table",
+                "name": "Full Table",
+                "description": "Win a six-player game.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-full-table"
+                }
+            },
+            {
+                "id": "germany-champion",
+                "name": "Germany Champion",
+                "description": "Win on the Germany map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-germany-champion"
+                }
+            },
+            {
+                "id": "usa-champion",
+                "name": "USA Champion",
+                "description": "Win on the USA map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-usa-champion"
+                }
+            },
+            {
+                "id": "france-champion",
+                "name": "France Champion",
+                "description": "Win on the France map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-france-champion"
+                }
+            },
+            {
+                "id": "japan-champion",
+                "name": "Japan Champion",
+                "description": "Win on the Japan map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-japan-champion"
+                }
+            },
+            {
+                "id": "brazil-champion",
+                "name": "Brazil Champion",
+                "description": "Win on the Brazil map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-brazil-champion"
+                }
+            },
+            {
+                "id": "spain-portugal-champion",
+                "name": "Spain & Portugal Champion",
+                "description": "Win on the Spain & Portugal map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-spain-portugal-champion"
+                }
+            },
+            {
+                "id": "india-champion",
+                "name": "India Champion",
+                "description": "Win on the India map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-india-champion"
+                }
+            },
+            {
+                "id": "italy-champion",
+                "name": "Italy Champion",
+                "description": "Win on the Italy map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-italy-champion"
+                }
+            },
+            {
+                "id": "quebec-champion",
+                "name": "Quebec Champion",
+                "description": "Win on the Quebec map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-quebec-champion"
+                }
+            },
+            {
+                "id": "middle-east-champion",
+                "name": "Middle East Champion",
+                "description": "Win on the Middle East map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-middle-east-champion"
+                }
+            },
+            {
+                "id": "china-champion",
+                "name": "China Champion",
+                "description": "Win on the China map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-china-champion"
+                }
+            },
+            {
+                "id": "benelux-champion",
+                "name": "Benelux Champion",
+                "description": "Win on the Benelux map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-benelux-champion"
+                }
+            },
+            {
+                "id": "russia-champion",
+                "name": "Russia Champion",
+                "description": "Win on the Russia map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-russia-champion"
+                }
+            },
+            {
+                "id": "central-europe-champion",
+                "name": "Central Europe Champion",
+                "description": "Win on the Central Europe map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-central-europe-champion"
+                }
+            },
+            {
+                "id": "baden-wurttemberg-champion",
+                "name": "Baden-W\u00fcrttemberg Champion",
+                "description": "Win on the Baden-W\u00fcrttemberg map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-baden-wurttemberg-champion"
+                }
+            },
+            {
+                "id": "northern-europe-champion",
+                "name": "Northern Europe Champion",
+                "description": "Win on the Northern Europe map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-northern-europe-champion"
+                }
+            },
+            {
+                "id": "korea-champion",
+                "name": "Korea Champion",
+                "description": "Win on the Korea map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-korea-champion"
+                }
+            },
+            {
+                "id": "europe-champion",
+                "name": "Europe Champion",
+                "description": "Win on the Europe map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-europe-champion"
+                }
+            },
+            {
+                "id": "north-america-champion",
+                "name": "North America Champion",
+                "description": "Win on the North America map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-north-america-champion"
+                }
+            },
+            {
+                "id": "south-africa-champion",
+                "name": "South Africa Champion",
+                "description": "Win on the South Africa map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-south-africa-champion"
+                }
+            },
+            {
+                "id": "uk-ireland-champion",
+                "name": "UK & Ireland Champion",
+                "description": "Win on the UK & Ireland map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-uk-ireland-champion"
+                }
+            },
+            {
+                "id": "australia-champion",
+                "name": "Australia Champion",
+                "description": "Win on the Australia map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-australia-champion"
+                }
+            },
+            {
+                "id": "bremen-champion",
+                "name": "Bremen Champion",
+                "description": "Win on the Bremen map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-bremen-champion"
+                }
+            },
+            {
+                "id": "manhattan-champion",
+                "name": "Manhattan Champion",
+                "description": "Win on the Manhattan map.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-manhattan-champion"
+                }
+            },
+            {
+                "id": "power-fifteen",
+                "name": "Power Fifteen",
+                "description": "Finish able to power at least 15 cities in your network.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-power-fifteen"
+                }
+            },
+            {
+                "id": "power-eighteen",
+                "name": "Power Eighteen",
+                "description": "Finish able to power at least 18 cities in your network.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-power-eighteen"
+                }
+            },
+            {
+                "id": "fully-supplied",
+                "name": "Fully Supplied",
+                "description": "Finish able to power every city in a network of at least 15 cities.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-fully-supplied"
+                }
+            },
+            {
+                "id": "network-seventeen",
+                "name": "Network Seventeen",
+                "description": "Finish with at least 17 cities in your network.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-network-seventeen"
+                }
+            },
+            {
+                "id": "network-twenty",
+                "name": "Network Twenty",
+                "description": "Finish with at least 20 cities in your network.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-network-twenty"
+                }
+            },
+            {
+                "id": "cash-reserve",
+                "name": "Cash Reserve",
+                "description": "Finish with at least 100 Elektro.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-cash-reserve"
+                }
+            },
+            {
+                "id": "deep-reserves",
+                "name": "Deep Reserves",
+                "description": "Finish with at least 200 Elektro.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-deep-reserves"
+                }
+            },
+            {
+                "id": "wind-farm",
+                "name": "Wind Farm",
+                "description": "Finish owning wind plants with a combined capacity of at least 8 cities.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-wind-farm"
+                }
+            },
+            {
+                "id": "atomic-power",
+                "name": "Atomic Power",
+                "description": "Finish owning uranium-fuelled power plants with a combined capacity of at least 8 cities. Australian uranium mines do not count.",
+                "icon": {
+                    "type": "asset",
+                    "key": "achievement-atomic-power"
+                }
+            }
+        ]
+    },
+    "verification": {
+        "publicCatalog": true,
+        "allAssets": true,
+        "unchangedMetadata": true
+    },
+    "sourceDelivery": {
+        "reviewer": "sub-1794659183275-7e43d81e",
+        "approvedSourceCommit": "1e4162a380ddab39f659c01bda3db298f3a3d56a",
+        "artManifestSha256": "3dbea49951b2d68cb5a113d9ca95a5526aa36b74f51bf70db1df0f6cebf0b687",
+        "sanitizedCombinedReceiptSha256": "be3063431cebb91c96e650c0550fe9ef6da0c8b1da631d3c6abb56a66596554a",
+        "canonical": "https://github.com/boardgamers/powergrid",
+        "branch": "master",
+        "mirror": "m is a contributor fork, not a required mirror",
+        "verifiedAt": "2026-11-14T13:06:01.524793+00:00",
+        "publicGetVerification": {
+            "url": "https://boardgamers.space/api/boardgame/powergrid/info/latest",
+            "exactPackageAndManifest": true,
+            "newAchievementAssets": 36,
+            "preservedOtherAssets": 6,
+            "allAssetHashesAndSizes": true,
+            "hostedPackageHashAndSize": true
+        },
+        "checks": [
+            "scripts/check-achievement-art.py: 36 decoded PNGs, 24 geographic sources, evaluator unchanged",
+            "scripts/check-packed-achievement-art.cjs: extracted exact tarball, protocol schemas, 36 refs, two replay fixtures; existing local dependencies, no rebuild",
+            "Exact shared original tarball SHA-256 verified unchanged"
+        ],
+        "unchangedScope": {
+            "viewerSettingsVisibility": "Central combined receipt attests unchangedMetadata; delivery changed no viewer, settings or visibility and performed only public GET requests.",
+            "productionWrites": false,
+            "repackedOrRebuilt": false
+        }
+    }
+}

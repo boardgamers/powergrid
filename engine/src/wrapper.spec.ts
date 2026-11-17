@@ -716,6 +716,61 @@ describe('wrapper (tentative turns)', () => {
         expect(result.players[result.currentPlayers[0]].availableMoves).to.not.be.null;
     });
 
+    for (const chooseColors of [false, true]) {
+        it(`advances off-turn dropped setup pickers (colors=${chooseColors})`, async () => {
+            let G = setup(4, { chooseRegions: true, chooseColors }, 'dropped-setup');
+            const [first, second, third, fourth] = G.playerOrder;
+            for (const seat of [second, third]) G = await wrapper.dropPlayer(G, seat);
+            expect(G.currentPlayers).to.deep.equal([first]);
+            const before = G.log.length;
+            const name = chooseColors ? MoveName.ChooseColor : MoveName.ChooseRegion;
+            const data = G.players[first].availableMoves![name]![0];
+            G = await wrapper.move(G, { name, data } as Move, first);
+            expect(wrapper.toSave(G)).to.equal(G);
+            expect(G.currentPlayers).to.deep.equal([fourth]);
+            expect(
+                G.log
+                    .slice(before)
+                    .filter((entry) => entry.type === 'move')
+                    .map((entry) => (entry.type === 'move' ? entry.player : -1))
+            ).to.deep.equal([first, second, third]);
+            expect(wrapper.timeIncrements(G)[second]).to.equal(0);
+            expect(wrapper.timeIncrements(G)[third]).to.equal(0);
+            expect(G.players[fourth].availableMoves![name]).to.not.be.undefined;
+        });
+    }
+
+    for (const chooseRegions of [false, true]) {
+        it(`settles dropped first seat across setup boundaries (regions=${chooseRegions})`, async () => {
+            let G = setup(3, { chooseColors: true, chooseRegions }, 'dropped-boundary');
+            const first = G.playerOrder[0];
+            G = await wrapper.dropPlayer(G, first);
+            for (let turns = 0; turns < 10 && G.phase !== Phase.Auction; turns++) {
+                const seat = G.currentPlayers[0];
+                expect(G.players[seat].isDropped).to.be.false;
+                G = wrapper.moveAI(G, seat);
+                expect(wrapper.toSave(G)).to.equal(G);
+            }
+            expect(G.phase).to.equal(Phase.Auction);
+            expect(G.currentPlayers).to.not.include(first);
+            expect(G.currentPlayers).to.not.be.empty;
+            expect(G.currentPlayers.every((seat) => !G.players[seat].isDropped)).to.be.true;
+        });
+    }
+
+    it('ends cleanly when the last remaining setup player drops', async () => {
+        let G = setup(3, { chooseColors: true, chooseRegions: true }, 'all-dropped-setup');
+        const [first, ...rest] = G.playerOrder;
+        for (const seat of rest) G = await wrapper.dropPlayer(G, seat);
+        const before = G.log.length;
+        G = await wrapper.dropPlayer(G, first);
+        expect(wrapper.ended(G)).to.be.true;
+        expect(G.currentPlayers).to.be.empty;
+        expect(G.players.every((player) => player.availableMoves === null)).to.be.true;
+        expect(G.log.length).to.equal(before + 1);
+        expect(wrapper.toSave(G)).to.equal(G);
+    });
+
     it('should only hand back a state from logSlice when it knows whose it is', async () => {
         // `GET /gameplay/:id/log` is not logged-in: it resolves the player with
         // `findIndex`, which is -1 when there is no user. `stripSecret` then blanks

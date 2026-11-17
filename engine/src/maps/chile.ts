@@ -1,11 +1,11 @@
 // Chile, designed by Mike Isom (draft, in testing). The board itself is generated into chile-board.ts.
 import { cloneDeep } from 'lodash';
 import seedrandom from 'seedrandom';
-import { PowerPlant, PowerPlantDeck, SingleDeck } from '../gamestate';
+import { PowerPlant, PowerPlantDeck, PowerPlantType, SingleDeck } from '../gamestate';
 import { shuffle } from '../utils';
 import { originalTopPlants, removedPlants } from './../deckChanges';
 import { GameMap } from './../maps';
-import { plantCatalogue } from './../powerPlants';
+import { dealtCatalogue, isPlugPlant, plantCatalogue } from './../powerPlants';
 import { chileCities, chileConnections, chileGates } from './chile-board';
 
 /** No nuclear power in Chile: the standard deck's uranium plants are out of the game. Fusion plant 50 stays. */
@@ -20,6 +20,32 @@ export const chileSetAsidePlants: Record<SingleDeck, number[]> = {
     deck2: [31, 36, 44],
 };
 
+const isShuffledDeck = (deck: PowerPlantDeck) => deck == 'shuffled' || deck == 'shuffledUnique';
+
+/**
+ * The plants Chile sets aside from the plants dealt (uranium already out): each single deck's own three; with the
+ * shuffled decks, the three largest ecological plants dealt, whichever deck they came from (all of them, when a
+ * sampled deck deals three or fewer). Smallest first, the order they go on top of the deck.
+ */
+export function chileSetAsideFrom(dealt: PowerPlant[], deck: PowerPlantDeck): PowerPlant[] {
+    if (!isShuffledDeck(deck)) {
+        return chileSetAsidePlants[deck as SingleDeck].map((n) => dealt.find((pp) => pp.number == n)!);
+    }
+    return dealt
+        .filter((pp) => pp.type == PowerPlantType.Wind)
+        .sort((a, b) => a.number - b.number)
+        .slice(-3);
+}
+
+/** Chile, Step 3 began: the set-aside plants, read back from the log's Step 3 event (smallest first). */
+export function chileSetAsideFromLog(log: { type: string; event?: string }[]): number[] | undefined {
+    for (const entry of log) {
+        const match = /^Step 3: power plants ([\d., ]+) go on top of the deck\.$/.exec(entry.event ?? '');
+        if (match) return match[1].split(', ').map(Number);
+    }
+    return undefined;
+}
+
 export const map: GameMap = {
     name: 'Chile',
     cities: chileCities,
@@ -27,7 +53,6 @@ export const map: GameMap = {
     step3Connections: chileGates,
     // The two northern regions, each holding a gate, are always in play.
     fixedRegions: ['brown', 'yellow'],
-    setAsidePlants: chileSetAsidePlants,
     // Viewer layout: the board (drawn at 2102 x 1795, Chile running down at 36 degrees) at 70%, turned to run left to
     // right across the middle, around the whole board's centre so it sits still whichever regions are in play. Plant
     // market along the top, player boards on the right, North and Central markets side by side underneath.
@@ -115,12 +140,24 @@ export const map: GameMap = {
     coalPricesNorth: [1, 1, 2, 2, 3, 3, 4, 4, 5, 6, 7, 8],
     oilPricesNorth: [1, 2, 3, 4, 5, 6, 7, 8],
     garbagePricesNorth: [],
-    // The standard deck without its uranium plants and the set-aside plants, built as usual except that no plants are
-    // removed for the number of players.
-    setupDeck(numPlayers: number, variant: string, rng: seedrandom.prng, powerPlantDeck: PowerPlantDeck = 'standard') {
+    // The deck without its uranium plants and the set-aside plants, built as usual except that no plants are removed
+    // for the number of players.
+    setupDeck(
+        numPlayers: number,
+        variant: string,
+        rng: seedrandom.prng,
+        powerPlantDeck: PowerPlantDeck = 'standard',
+        _fusionEcological?: boolean,
+        sampleShuffled?: boolean
+    ) {
+        const shuffled = isShuffledDeck(powerPlantDeck);
         const single = powerPlantDeck as SingleDeck;
-        const out = new Set([...removedPlants('Chile', single, numPlayers, variant), ...chileSetAsidePlants[single]]);
-        let deck: PowerPlant[] = cloneDeep(plantCatalogue('Chile', single)).filter((pp) => !out.has(pp.number));
+        const removed = new Set(removedPlants('Chile', powerPlantDeck, numPlayers, variant));
+        const dealt = cloneDeep(
+            shuffled ? dealtCatalogue('Chile', powerPlantDeck, rng, sampleShuffled) : plantCatalogue('Chile', single)
+        ).filter((pp) => !removed.has(pp.number));
+        const setAsidePlants = chileSetAsideFrom(dealt, powerPlantDeck);
+        let deck: PowerPlant[] = dealt.filter((pp) => !setAsidePlants.includes(pp));
         const step3 = deck.pop()!;
         let actualMarket: PowerPlant[];
         let futureMarket: PowerPlant[];
@@ -129,24 +166,23 @@ export const map: GameMap = {
             const market = deck.splice(0, 8); // The eight smallest: 3-10 in the standard deck
             actualMarket = market.slice(0, 4);
             futureMarket = market.slice(4);
-            const [topNumber] = originalTopPlants('Chile', single);
-            const top = deck.splice(
-                deck.findIndex((pp) => pp.number == topNumber),
-                1
-            )[0];
+            // The smallest ecological plant left; each single deck names it (Deck 1's 10 opens in the deck, not on top).
+            // A shuffled deck may have none left, and then nothing goes on top.
+            const topNumber = shuffled
+                ? deck.find((pp) => pp.type == PowerPlantType.Wind)?.number
+                : originalTopPlants('Chile', single)[0];
+            const topIndex = deck.findIndex((pp) => pp.number == topNumber);
+            const top = topIndex >= 0 ? deck.splice(topIndex, 1) : [];
             deck = shuffle(deck, rng() + '');
-            deck.unshift(top);
+            deck.unshift(...top);
         } else {
             // The plug-back plants (3-15 in the standard deck, 12 of them without 11): eight open the market, one
             // goes on top of the deck and the rest are shuffled into it.
-            const lastPlug = single == 'deck1' ? 16 : 15;
             const initial = shuffle(
-                deck.splice(
-                    0,
-                    deck.findIndex((pp) => pp.number > lastPlug)
-                ),
+                deck.filter((pp) => isPlugPlant(pp, powerPlantDeck)),
                 rng() + ''
             );
+            deck = deck.filter((pp) => !isPlugPlant(pp, powerPlantDeck));
             const market = initial.splice(0, 8).sort((a, b) => a.number - b.number);
             actualMarket = market.slice(0, 4);
             futureMarket = market.slice(4);
@@ -155,7 +191,7 @@ export const map: GameMap = {
             deck.unshift(first);
         }
         deck.push(step3);
-        return { actualMarket, futureMarket, powerPlantsDeck: deck };
+        return { actualMarket, futureMarket, powerPlantsDeck: deck, setAsidePlants };
     },
     mapSpecificRules:
         'Chile has two separate resource markets: North and Central. Until Step 3, you may only buy from the market of the grid your cities are in; if you have no cities, choose one market for that turn.\n' +

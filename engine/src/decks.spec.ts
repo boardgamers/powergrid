@@ -34,7 +34,6 @@ import {
     plantCatalogue,
     plantLabel,
     powerPlants,
-    SINGLE_DECK_ONLY_MAPS,
 } from './powerPlants';
 
 const numbers = (plants: { number: number }[]) => plants.map((pp) => pp.number);
@@ -404,7 +403,6 @@ describe('shuffled power plant decks', () => {
         for (const deck of ['shuffled', 'shuffledUnique'] as PowerPlantDeck[]) {
             for (const variant of ['original', 'recharged'] as Variant[]) {
                 for (const map of new Set((variant == 'original' ? maps : mapsRecharged).map((m) => m.name))) {
-                    if (SINGLE_DECK_ONLY_MAPS.includes(map)) continue;
                     const G = setup(4, { map: map as MapName, variant, powerPlantDeck: deck }, 'offered');
                     expect(G.options.powerPlantDeck, `${map} ${variant} ${deck}`).to.equal(deck);
                 }

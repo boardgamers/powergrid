@@ -51,7 +51,6 @@ import {
     phaseOutPlants,
     plantCatalogue,
     plantLabel,
-    SINGLE_DECK_ONLY_MAPS,
     usesAlternateDeck,
 } from './powerPlants';
 import prices from './prices';
@@ -235,9 +234,6 @@ export function setup(
         : 'standard';
     const sampleShuffled = chosenDeck == 'shuffled' && shuffledSample;
     const ecologicalRules = ECOLOGICAL_RULE_MAPS.includes(chosenMap.name) && !legacyEcological;
-    if (SINGLE_DECK_ONLY_MAPS.includes(chosenMap.name) && !singleDecks.includes(chosenDeck)) {
-        throw new Error(`${chosenMap.name} is built for the single power plant decks only`);
-    }
     if (chosenMap.name == 'Chile' && randomizeMap) {
         throw new Error('Chile cannot be played on a randomized map: its gates and grids belong to its own board');
     }
@@ -246,6 +242,7 @@ export function setup(
     let futureMarket: PowerPlant[];
     let powerPlantsDeck: PowerPlant[];
     let heldPowerPlants: PowerPlant[] | undefined;
+    let setAsidePlants: PowerPlant[] | undefined;
 
     if (forceDeck) {
         powerPlantsDeck = forceDeck;
@@ -253,7 +250,7 @@ export function setup(
         futureMarket = powerPlantsDeck.splice(0, 4);
     } else {
         if (chosenMap.setupDeck) {
-            ({ actualMarket, futureMarket, powerPlantsDeck, heldPowerPlants } = chosenMap.setupDeck(
+            ({ actualMarket, futureMarket, powerPlantsDeck, heldPowerPlants, setAsidePlants } = chosenMap.setupDeck(
                 numPlayers,
                 variant,
                 rng,
@@ -531,16 +528,8 @@ export function setup(
         garbagePricesNorth,
         actualMarket,
         futureMarket,
-        // Chile: copies, never the catalogue's shared objects (the Step 3 boost replaces them anyway).
-        ...(chosenMap.setAsidePlants
-            ? {
-                  setAsidePlants: cloneDeep(
-                      chosenMap.setAsidePlants[chosenDeck as SingleDeck].map(
-                          (number) => plantCatalogue(chosenMap.name, chosenDeck).find((pp) => pp.number == number)!
-                      )
-                  ),
-              }
-            : {}),
+        // Chile: the plants its setupDeck set aside (copies, never the catalogue's shared objects).
+        ...(setAsidePlants ? { setAsidePlants } : {}),
         chosenPowerPlant: undefined,
         currentBid: undefined,
         highestBidders: [],

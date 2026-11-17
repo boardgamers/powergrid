@@ -10,7 +10,7 @@ import {
 } from './deckChanges';
 import { defaultSetupDeck, reconstructState, setup, stripSecret } from './engine';
 import { GameState, PowerPlant, PowerPlantType, SingleDeck } from './gamestate';
-import { chileSetAsidePlants } from './maps/chile';
+import { chileSetAsideFromLog } from './maps/chile';
 import { gameDeck, isEcological, isPlugPlant, labelledPlant, plantCatalogue, PLANT_LABEL_PATTERN } from './powerPlants';
 import { shuffle } from './utils';
 
@@ -42,7 +42,12 @@ export function createAnalysisScenario(
     if (name === 'Manhattan') excluded = [99, ...excluded];
     // Chile: three ecological plants are set aside (in s.setAsidePlants) until Step 3; removedPlants has its uranium
     // plants.
-    const chileSetAside = name === 'Chile' ? chileSetAsidePlants[powerPlantDeck as SingleDeck] : [];
+    const chileSetAside =
+        name !== 'Chile'
+            ? []
+            : s.setAsidePlants?.map((pp) => pp.number) ??
+              chileSetAsideFromLog(s.log as { type: string; event?: string }[]) ??
+              [];
     if (s.step < 3) excluded = [...excluded, ...chileSetAside];
     const catalogue = JSON.parse(JSON.stringify(plantCatalogue(name, powerPlantDeck))) as PowerPlant[];
     for (const region of new Set(s.regionDraft ? [] : s.map.cities.map((c) => c.region))) {
@@ -127,7 +132,8 @@ export function createAnalysisScenario(
     // One per number: a copy already known rules out the number's other copies, and
     // each still-unknown number is in the game exactly once.
     if (powerPlantDeck === 'shuffledUnique') {
-        const known = new Set([...seen, ...unavailable, ...fixedBottom]);
+        // Chile's set-aside copies are known too: out of the deck until Step 3, then on top of it.
+        const known = new Set([...seen, ...unavailable, ...fixedBottom, ...chileSetAside]);
         const knownPrinted = new Set([...known].map((number) => Math.floor(number)));
         const unknown = (p: PowerPlant) => p.number !== 99 && !known.has(p.number);
         pool = pool.filter((p) => !unknown(p) || !knownPrinted.has(Math.floor(p.number)));

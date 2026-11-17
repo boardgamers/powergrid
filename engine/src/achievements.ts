@@ -4,7 +4,13 @@ import { GameState, MapName, Player, PowerPlantType } from './gamestate';
 
 // Explicit stable IDs, not generated slugs. Match the resolved map name, never
 // the requested option (which may be Random). Original/Recharged share a badge.
-const mapAchievements: Record<MapName, string> = {
+// Community custom maps (selectable by name, never drawn by 'Random') get no
+// Champion badge: a badge needs its own artwork and a manifest publication. A
+// custom map that graduates gets one then. A new custom map must be added here,
+// so the choice is made on purpose. The lookup below already handles a map
+// with no badge.
+type CustomMapName = 'HawaiiCustom';
+const mapAchievements: Record<Exclude<MapName, CustomMapName>, string> = {
     Germany: 'germany-champion',
     USA: 'usa-champion',
     France: 'france-champion',

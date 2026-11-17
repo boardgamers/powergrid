@@ -162,6 +162,14 @@ describe('achievements', function () {
         }
     }
 
+    it('gives a community custom map (HawaiiCustom) the win predicates but no map badge', () => {
+        const state = finalState(6, 'HawaiiCustom');
+        expect(state.map.name).to.equal('HawaiiCustom');
+        state.players[1].citiesPowered = 1;
+        expect(earned(state, 1)).to.deep.equal(['grid-champion', 'full-table']);
+        expect(earned(state, 0)).to.deep.equal([]);
+    });
+
     for (const unsupported of ['Atlantis', 'Random', 'toString', '__proto__']) {
         it(`does not award a map badge for unsupported resolved map ${unsupported}`, () => {
             const state = finalState();

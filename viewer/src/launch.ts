@@ -1,6 +1,7 @@
 import { createViewer } from '@boardgamers/protocol/viewer';
 import { EventEmitter } from 'events';
 import type { GameState, Move } from 'powergrid-engine';
+import type { SetAnalysisMoney } from 'powergrid-engine/src/analysis-money';
 import type { PremoveCommand } from 'powergrid-engine/src/premoves';
 import Vue from 'vue';
 import Game from './components/Game.vue';
@@ -63,7 +64,10 @@ function launch(selector: string) {
     const thumbnail = createBoardThumbnail(app.$el);
     const localization = mountLocalization(target.ownerDocument.body);
     let replaying = false;
-    const viewer = createViewer<GameState, Move[] | PremoveCommand>({
+    const viewer = createViewer<GameState, Move[] | SetAnalysisMoney[] | PremoveCommand>({
+        onMoveResult(result) {
+            params.emitter.emit('analysisMoneyResult', result);
+        },
         async onThumbnail(size) {
             await app.$nextTick();
             return thumbnail.render(app.$el.querySelector('[data-tutorial="map"]'), size, '#e7e6df');
@@ -131,7 +135,7 @@ function launch(selector: string) {
         },
     });
     const item = viewer.emitter;
-    params.emitter.on('move', (moves: Move[]) => viewer.move(moves));
+    params.emitter.on('move', (moves: Move[] | SetAnalysisMoney[]) => viewer.move(moves));
     params.emitter.on('premoves', (command: PremoveCommand) => viewer.move(command));
     params.emitter.on('fetchState', () => viewer.fetchState());
     params.emitter.on('addLog', (data: string[]) => viewer.addLog(data));

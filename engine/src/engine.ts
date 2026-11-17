@@ -1,6 +1,7 @@
 import assert from 'assert';
 import { cloneDeep, isEqual, range } from 'lodash';
 import seedrandom from 'seedrandom';
+import { applyAnalysisMoney, isAnalysisMoneyCommand } from './analysis-money';
 import {
     availableMoves,
     buildOptions,
@@ -850,6 +851,7 @@ export function move(
     playerNumber: number,
     { updateBuildingMarket = true }: { updateBuildingMarket?: boolean } = {}
 ): GameState {
+    if (isAnalysisMoneyCommand(move)) throw new Error('SetAnalysisMoney is only available in an analysis');
     const player = G.players[playerNumber];
     const initialPhase = G.phase;
     const initialRound = G.round;
@@ -2357,6 +2359,10 @@ export function reconstructState(gameState: GameState, to?: number, _forcePublic
     for (const item of log) {
         switch (item.type) {
             case 'event': {
+                if (item.analysisMoney) {
+                    applyAnalysisMoney(G, item.analysisMoney);
+                    G.log.push(cloneDeep(item));
+                }
                 if (item.event.endsWith('was dropped')) {
                     const playerNum = +item.event.split(' ')[1];
                     G.players[playerNum].isDropped = true;
@@ -3434,7 +3440,11 @@ function fastAuction(G: GameState, player: Player, bid: number) {
     G.currentPlayers = G.currentPlayers.filter((id) => id !== player.id);
 
     if (G.currentPlayers.length === 0) {
-        G.log.push(...G.hiddenLog);
+        // Reveal simultaneous responses in fixed seat order, not submission order
+        // (nor the changing playerOrder used for auction nominations).
+        G.log.push(
+            ...G.hiddenLog.slice().sort((a, b) => (a.type === 'move' && b.type === 'move' ? a.player - b.player : 0))
+        );
         G.hiddenLog = [];
 
         const bids = G.players.map((p) => p.bid).filter((b) => b > 0);

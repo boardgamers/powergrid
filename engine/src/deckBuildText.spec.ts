@@ -4,7 +4,7 @@ import { deckBuildText, DECK_BUILD_TEMPLATES } from './deckBuildText';
 import { setup } from './engine';
 import { GameOptions, MapName, PowerPlantDeck, PowerPlantType, Variant } from './gamestate';
 import { maps } from './maps';
-import { availableDecks } from './powerPlants';
+import { availableDecks, STANDARD_DECK_ONLY_MAPS } from './powerPlants';
 
 // The text must name the plants the engine actually deals, so read the numbers back
 // out of the generated sentences and compare them with real setups.
@@ -46,7 +46,8 @@ describe('Deck build text', () => {
     for (const map of maps) {
         for (const variant of ['original', 'recharged'] as Variant[]) {
             it(`names the plants ${map.name} ${variant} deals with each single deck`, () => {
-                for (const deck of singleDecks) {
+                const decks = STANDARD_DECK_ONLY_MAPS.includes(map.name) ? ['standard' as PowerPlantDeck] : singleDecks;
+                for (const deck of decks) {
                     for (const players of [2, 3, 4, 5, 6]) {
                         const options: GameOptions = { map: map.name as MapName, variant, powerPlantDeck: deck };
                         const { standard, map: notes } = deckBuildText(map.name, options, players);

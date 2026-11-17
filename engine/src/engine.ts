@@ -51,6 +51,7 @@ import {
     phaseOutPlants,
     plantCatalogue,
     plantLabel,
+    STANDARD_DECK_ONLY_MAPS,
     usesAlternateDeck,
 } from './powerPlants';
 import prices from './prices';
@@ -222,7 +223,9 @@ export function setup(
     // doesn't shift the rest of the setup's draws.
     const singleDecks: PowerPlantDeck[] = ['standard', 'deck1', 'deck2'];
     const requestedDeck =
-        powerPlantDeck == 'random'
+        powerPlantDeck == 'random' && STANDARD_DECK_ONLY_MAPS.includes(chosenMap.name)
+            ? 'standard'
+            : powerPlantDeck == 'random'
             ? singleDecks[Math.floor(seedrandom(seed + '-deck')() * singleDecks.length)]
             : powerPlantDeck;
     // The legacy option only applies when no deck is asked for, and only on its own maps.
@@ -234,8 +237,8 @@ export function setup(
         : 'standard';
     const sampleShuffled = chosenDeck == 'shuffled' && shuffledSample;
     const ecologicalRules = ECOLOGICAL_RULE_MAPS.includes(chosenMap.name) && !legacyEcological;
-    if (chosenMap.name == 'Chile' && chosenDeck !== 'standard') {
-        throw new Error('Chile is built for the standard power plant deck only');
+    if (STANDARD_DECK_ONLY_MAPS.includes(chosenMap.name) && chosenDeck !== 'standard') {
+        throw new Error(`${chosenMap.name} is built for the standard power plant deck only`);
     }
     if (chosenMap.name == 'Chile' && randomizeMap) {
         throw new Error('Chile cannot be played on a randomized map: its gates and grids belong to its own board');

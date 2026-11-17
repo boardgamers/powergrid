@@ -225,7 +225,9 @@ describe('Chile', () => {
         });
 
         it('builds for the standard deck only, and stays out of the random map pick', () => {
-            expect(() => setup(4, { map: 'Chile', variant: 'recharged', plantDeck: 'set1' }, 'x')).to.throw(/standard/);
+            expect(() => setup(4, { map: 'Chile', variant: 'recharged', powerPlantDeck: 'deck1' }, 'x')).to.throw(
+                /standard/
+            );
             expect(() => setup(4, { map: 'Chile', randomizeMap: true }, 'x')).to.throw(/randomized/);
             for (let i = 0; i < 200; i++) {
                 expect(setup(4, { map: 'Random' }, `random-${i}`).map.name).to.not.equal('Chile');

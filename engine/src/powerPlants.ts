@@ -212,7 +212,11 @@ function labelledPlant(printed: string, copy: string | undefined): number {
     return Number(printed) + (copy ? Number(copy) / 10 : 0);
 }
 
-// The decks a map can be played with: every map takes every deck. The shuffled decks
+// Maps built and balanced for the standard deck alone (Chile, in testing): setup refuses any other deck, and a
+// random deck is the standard one.
+const STANDARD_DECK_ONLY_MAPS = ['Chile'];
+
+// The decks a map can be played with: every map but STANDARD_DECK_ONLY_MAPS takes every deck. The shuffled decks
 // follow every deck's map rules at once (see deckChanges.ts); where those clash, the
 // map's setup states the rule by its purpose (Northern Europe's regional cards in
 // applyRegionalPowerPlants, Québec's top of the deck, Original Russia's opening).
@@ -314,6 +318,7 @@ function isEcological(pp: PowerPlant, fusionEcological: boolean | undefined): bo
 }
 
 export {
+    STANDARD_DECK_ONLY_MAPS,
     powerPlants,
     indiaPowerPlants,
     alternatePowerPlants,

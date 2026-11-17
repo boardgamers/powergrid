@@ -34,6 +34,7 @@ import {
     plantCatalogue,
     plantLabel,
     powerPlants,
+    STANDARD_DECK_ONLY_MAPS,
 } from './powerPlants';
 
 const numbers = (plants: { number: number }[]) => plants.map((pp) => pp.number);
@@ -87,6 +88,12 @@ describe('power plant decks', () => {
         for (const variant of ['original', 'recharged'] as Variant[]) {
             for (const map of (variant == 'original' ? maps : mapsRecharged).map((m) => m.name as MapName)) {
                 for (const deck of ['deck1', 'deck2'] as PowerPlantDeck[]) {
+                    if (STANDARD_DECK_ONLY_MAPS.includes(map)) {
+                        expect(() => setup(4, { map, variant, powerPlantDeck: deck }, 'every-map')).to.throw(
+                            /standard/
+                        );
+                        continue;
+                    }
                     const G = setup(4, { map, variant, powerPlantDeck: deck }, 'every-map');
                     expect(G.options.powerPlantDeck, `${map} ${variant} ${deck}`).to.equal(deck);
                 }
@@ -403,6 +410,7 @@ describe('shuffled power plant decks', () => {
         for (const deck of ['shuffled', 'shuffledUnique'] as PowerPlantDeck[]) {
             for (const variant of ['original', 'recharged'] as Variant[]) {
                 for (const map of new Set((variant == 'original' ? maps : mapsRecharged).map((m) => m.name))) {
+                    if (STANDARD_DECK_ONLY_MAPS.includes(map)) continue;
                     const G = setup(4, { map: map as MapName, variant, powerPlantDeck: deck }, 'offered');
                     expect(G.options.powerPlantDeck, `${map} ${variant} ${deck}`).to.equal(deck);
                 }

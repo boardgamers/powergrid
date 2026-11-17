@@ -963,7 +963,11 @@ export function buildOptions(G: GameState, player: Player): { name: string; pric
             }
             if (player.cities.find((c) => c.name == city.name)) {
                 city.price = 9999;
+                return;
             }
+            // Chile's border spaces also pay a house ($10), given as their one slot cost. South Africa's spaces
+            // have no slot costs and stay connection-only.
+            city.price += cityData.slotCosts?.[0] ?? 0;
             return;
         }
 

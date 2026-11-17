@@ -53,18 +53,18 @@ export const map: GameMap = {
     step3Connections: chileGates,
     // The two northern regions, each holding a gate, are always in play.
     fixedRegions: ['brown', 'yellow'],
-    // Viewer layout: the board (drawn at 2102 x 1795, Chile running down at 36 degrees) at 70%, turned to run left to
+    // Viewer layout: the board (drawn at 2156 x 2341, Chile running down at 36 degrees and stretched 2x east-west) at 70%, turned to run left to
     // right across the middle, around the whole board's centre so it sits still whichever regions are in play. Plant
     // market along the top, player boards on the right, North and Central markets side by side underneath.
     layout: 'Landscape',
     adjustRatio: [0.7, 0.7],
     mapRotation: -36,
-    mapRotationCenter: [736, 621],
-    mapPosition: [50, -20],
-    viewBox: [2010, 1100],
+    mapRotationCenter: [755, 812],
+    mapPosition: [31, -150],
+    viewBox: [2010, 1250],
     playerBoardsPosition: [1650, 240],
-    supplyPosition: [0, 830],
-    roundInfoPosition: [1520, 900],
+    supplyPosition: [0, 990],
+    roundInfoPosition: [1520, 1050],
     // Central market (the engine's main market). [resource][players-2][step-1]. The Step 3 column is
     // the merged market's restock.
     resupply: [

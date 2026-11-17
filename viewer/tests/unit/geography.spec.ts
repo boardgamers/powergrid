@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { setup } from 'powergrid-engine';
-import { GameMap, maps, mapsRecharged } from 'powergrid-engine/src/maps';
+import { customMaps, GameMap, maps, mapsRecharged } from 'powergrid-engine/src/maps';
 import { geographyForMap, loadGeographies } from '../../src/geography';
 
 const catalog = require('../../src/geography/names.json');
@@ -8,21 +8,23 @@ const catalog = require('../../src/geography/names.json');
 describe('geographic backgrounds', () => {
     before(() => loadGeographies());
     it('covers every authored map in both editions without changing its data', () => {
-        expect(Object.keys(catalog)).to.have.length(maps.length);
-        for (const authored of [...maps, ...mapsRecharged]) {
+        expect(Object.keys(catalog)).to.have.length(maps.length + customMaps.length);
+        for (const authored of [...maps, ...mapsRecharged, ...customMaps]) {
             const [rx, ry] = authored.adjustRatio || [1, 1];
             const map = { ...authored, cities: authored.cities.map((c) => ({ ...c, x: c.x * rx, y: c.y * ry })) };
             const before = JSON.stringify(map);
             const geography = geographyForMap(map);
             expect(geography, authored.name).not.to.equal(undefined);
             expect(geography!.land.length, authored.name).to.be.greaterThan(0);
-            expect(geography!.context.length, authored.name).to.be.greaterThan(0);
+            // Hawaii sits in open ocean: no neighbouring coast falls inside its frame.
+            if (authored.name === 'HawaiiCustom') expect(geography!.context, authored.name).to.deep.equal([]);
+            else expect(geography!.context.length, authored.name).to.be.greaterThan(0);
             expect(JSON.stringify(map)).to.equal(before);
         }
     });
     it('recognizes real region subsets for both editions and different player counts', () => {
         for (const variant of ['original', 'recharged'] as const) {
-            for (const authored of variant === 'original' ? maps : mapsRecharged) {
+            for (const authored of variant === 'original' ? [...maps, ...customMaps] : mapsRecharged) {
                 for (const count of [3, 4]) {
                     const state = setup(count, { map: authored.name as any, variant }, 'geography');
                     expect(geographyForMap(state.map), `${authored.name}/${variant}/${count}`).not.to.equal(undefined);

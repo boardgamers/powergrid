@@ -57,8 +57,7 @@ for a in manifest['assets']:
 assert sum(bool(a['source']) for a in manifest['assets']) == 25
 old = subprocess.check_output(['git', 'show', 'c52a87e4b9c41feb35d8e902643514d99fe722f1:engine/src/achievements.ts'], cwd=root).decode()
 # The evaluator is unchanged apart from Chile's line in the map table.
-new = (root / 'engine/src/achievements.ts').read_text().replace("    Chile: 'chile-champion',
-", '')
+new = (root / 'engine/src/achievements.ts').read_text().replace("    Chile: 'chile-champion'," + chr(10), '')
 assert old.split('export function achievementDefinitions')[0] == new.split('export function achievementDefinitions')[0]
 assert old.split('function tied(')[1] == new.split('function tied(')[1]
 print('37 unique decoded 256px PNGs; 25 hashed geographic sources; full IDs/definitions and evaluator unchanged.')

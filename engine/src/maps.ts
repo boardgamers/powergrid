@@ -80,6 +80,8 @@ export interface Connection {
     sea?: boolean;
     // Purely visual: an air link (SwitzerlandCustom's helicopters), drawn dotted. Pricing is unchanged.
     air?: boolean;
+    // Purely visual: a railway (SwitzerlandCustom's Glacier Express), drawn as red rails with ties. Pricing is unchanged.
+    rail?: boolean;
     // Does not count when deciding which regions are neighbours (region selection).
     // The link itself still exists whenever both of its cities are in play.
     ignoreForRegions?: boolean;

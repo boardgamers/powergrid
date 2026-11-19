@@ -214,7 +214,7 @@ export const map: GameMap = {
         // Lake Geneva steamer: the shore road east of Geneva is French, so Geneva's second way out is the boat.
         { nodes: [Cities.Geneva, Cities.Montreux], cost: 14, sea: true },
         // The Glacier Express (Zermatt - Furka - Andermatt).
-        { nodes: [Cities.Zermatt, Cities.Andermatt], cost: 18, ignoreForRegions: true },
+        { nodes: [Cities.Zermatt, Cities.Andermatt], cost: 18, rail: true, ignoreForRegions: true },
         // Helicopters: the outskirts only, never cross-country.
         { nodes: [Cities.Zermatt, Cities.Mendrisio], cost: 20, air: true, ignoreForRegions: true },
         { nodes: [Cities.Mendrisio, Cities.StMoritz], cost: 20, air: true, ignoreForRegions: true, via: [1197, 1005] },

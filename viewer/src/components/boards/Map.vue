@@ -121,9 +121,21 @@
                 :y1="getY1(connection)"
                 :x2="getX2(connection)"
                 :y2="getY2(connection)"
-                stroke-width="9"
+                :stroke-width="connection.rail ? 4 : 9"
                 :stroke="linkInner(connection)"
                 :stroke-dasharray="linkDash(connection)"
+            />
+            <!-- Rail (Switzerland's Glacier Express): two red rails over a pale bed, crossed by red ties. -->
+            <line
+                v-if="!connection.via && connection.rail"
+                :key="connection.nodes[0] + '_' + connection.nodes[1] + '_ties'"
+                :x1="getX1(connection)"
+                :y1="getY1(connection)"
+                :x2="getX2(connection)"
+                :y2="getY2(connection)"
+                stroke-width="16"
+                :stroke="RAIL"
+                stroke-dasharray="3 9"
             />
         </template>
         <!-- Chile: connections closed until Step 3 (the gates), dashed orange over the gray line. -->
@@ -822,12 +834,15 @@ export default class Map extends Vue {
     readonly AIR_INNER = '#e6e6e6';
     readonly AIR_DASH = '5 9';
 
+    readonly RAIL = '#c8102e';
+    readonly RAIL_BED = '#f3ead6';
+
     linkOuter(c: Connection) {
-        return c.sea ? this.SEA_OUTER : c.air ? this.AIR_OUTER : 'black';
+        return c.sea ? this.SEA_OUTER : c.air ? this.AIR_OUTER : c.rail ? this.RAIL : 'black';
     }
 
     linkInner(c: Connection) {
-        return c.sea ? this.SEA_INNER : c.air ? this.AIR_INNER : 'gray';
+        return c.sea ? this.SEA_INNER : c.air ? this.AIR_INNER : c.rail ? this.RAIL_BED : 'gray';
     }
 
     linkDash(c: Connection) {

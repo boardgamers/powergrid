@@ -243,6 +243,27 @@
             </g>
         </template>
 
+        <!-- SwitzerlandCustom: a snow-capped peak on each Alpine city (its owner's green plants get +1), drawn BEHIND
+             the city so it never covers a house, peeking over the top of the ring. -->
+        <template v-for="city in cities">
+            <g
+                v-if="city.alpine"
+                :key="city.name + '_alpine'"
+                pointer-events="none"
+                :transform="`translate(${city.x}, ${city.y - 27}) scale(1.15)`"
+            >
+                <title>{{ city.name }}: Alpine city</title>
+                <polygon
+                    points="-12,9 0,-10 12,9"
+                    fill="#6b5a4a"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linejoin="round"
+                />
+                <polygon points="-4.6,-2.3 0,-10 4.6,-2.3 2,-4 0,-1.5 -2,-4" fill="white" />
+            </g>
+        </template>
+
         <template v-for="city in cities">
             <circle
                 v-if="city.connectionCost == null"

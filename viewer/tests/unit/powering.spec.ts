@@ -87,3 +87,37 @@ describe('automatic free plants', () => {
         expect(canAutoFinishPowering(state, 0)).to.equal(false);
     });
 });
+
+describe('powering on SwitzerlandCustom', () => {
+    function swiss(alpine: string[], plants: number[]) {
+        const state = setup(3, { map: 'SwitzerlandCustom', variant: 'original' }, 'swiss-powering');
+        state.phase = Phase.Bureaucracy;
+        state.currentPlayers = [0, 1, 2];
+        const player = state.players[0];
+        player.powerPlants = plants.map((number) => ({ ...powerPlants.find((plant) => plant.number === number)! }));
+        player.powerPlantsNotUsed = [...plants];
+        const flat = state.map.cities
+            .filter((c) => !c.alpine)
+            .slice(0, 8)
+            .map((c) => c.name);
+        player.cities = [...alpine, ...flat].map((name) => ({ name, position: 0 }));
+        player.passed = false;
+        player.availableMoves = availableMoves(state, player);
+        return state;
+    }
+
+    it('fires both green plants with ONE Alpine city: the +1 goes to one, and every move is legal', () => {
+        // the Alpine city must be in play for this deal
+        const state = swiss([], [13, 27]);
+        const alpine = state.map.cities.find((c) => c.alpine)!.name;
+        const fresh = swiss([alpine], [13, 27]);
+        const before = JSON.stringify(fresh);
+        const moves = freePlantMoves(fresh, 0);
+        expect(JSON.stringify(fresh), 'never changes the live game').to.equal(before);
+        expect(moves.length).to.equal(2);
+        const after = moves.reduce((current, action) => move(current, action, 0), fresh);
+        // 1 + 3 printed, plus one Alpine +1
+        expect(after.players[0].citiesPowered).to.equal(5);
+        expect(poweredCities(after, after.players[0])).to.equal(5);
+    });
+});

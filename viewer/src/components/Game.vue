@@ -2570,9 +2570,21 @@ export default class Game extends Vue {
                     break;
             }
 
+            // Send the engine's own offer for a single-fuel plant: it can differ from the printed card
+            // (SwitzerlandCustom's Alpine +1 and aged cheese). Hybrids carry the mix the player picked.
+            const offered =
+                powerPlant.type == PowerPlantType.Hybrid || powerPlant.type == PowerPlantType.GarbageOilHybrid
+                    ? undefined
+                    : this.G!.players[this.player!].availableMoves?.[MoveName.UsePowerPlant]?.find(
+                          (m) => m.powerPlant == powerPlant.number
+                      );
             this.sendMove({
                 name: MoveName.UsePowerPlant,
-                data: { powerPlant: powerPlant.number, resourcesSpent, citiesPowered: powerPlant.citiesPowered },
+                data: offered ?? {
+                    powerPlant: powerPlant.number,
+                    resourcesSpent,
+                    citiesPowered: powerPlant.citiesPowered,
+                },
             });
 
             this.disablePass = true;

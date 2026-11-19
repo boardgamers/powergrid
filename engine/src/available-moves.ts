@@ -7,6 +7,7 @@ import {
     Phase,
     Player,
     playerColors,
+    PowerPlant,
     PowerPlantType,
     ResourceType,
 } from './gamestate';
@@ -17,6 +18,30 @@ import { minBy } from './utils';
 
 // Central Europe: a player whose network includes Wien buys garbage $1 cheaper, but
 // never for less than $1 ("his cost per piece may not be 0" — Original and Recharged).
+/** SwitzerlandCustom: the plants the Alpine +1 applies to — every fuel-free plant, ecological and fusion alike. */
+export function alpineEligible(pp: PowerPlant): boolean {
+    return pp.type == PowerPlantType.Wind || pp.type == PowerPlantType.Nuclear;
+}
+
+/** SwitzerlandCustom: the Alpine cities the player owns. */
+export function alpineCitiesOwned(G: GameState, player: Player): number {
+    const alpine = new Set(G.map.cities.filter((c) => c.alpine).map((c) => c.name));
+    return alpine.size ? player.cities.filter((c) => alpine.has(c.name)).length : 0;
+}
+
+/**
+ * SwitzerlandCustom, Bureaucracy: how many more ecological plants still get the Alpine +1 this round.
+ * Each ecological or fusion plant fired powers one more city, up to the number of Alpine cities owned.
+ */
+export function alpineBonusLeft(G: GameState, player: Player): number {
+    const owned = alpineCitiesOwned(G, player);
+    if (!owned) return 0;
+    const fired = player.powerPlants.filter(
+        (pp) => alpineEligible(pp) && !player.powerPlantsNotUsed.includes(pp.number)
+    ).length;
+    return Math.max(0, owned - fired);
+}
+
 export function garbagePrice(G: GameState, player: Player, printedPrice: number): number {
     if (G.map.name != 'Central Europe' || !player.cities.some((c) => c.name == 'Wien')) {
         return printedPrice;
@@ -596,7 +621,9 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                             toUse.push({
                                 powerPlant: powerPlant.number,
                                 resourcesSpent: [],
-                                citiesPowered: powerPlant.citiesPowered,
+                                citiesPowered:
+                                    powerPlant.citiesPowered +
+                                    (alpineEligible(powerPlant) && alpineBonusLeft(G, player) > 0 ? 1 : 0),
                             });
 
                             break;

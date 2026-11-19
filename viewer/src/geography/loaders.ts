@@ -13,6 +13,7 @@ export const geographyLoaders = {
     "france": () => import(/* webpackChunkName: "geography-france" */ "./assets/france.json"),
     "germany": () => import(/* webpackChunkName: "geography-germany" */ "./assets/germany.json"),
     "hawaii": () => import(/* webpackChunkName: "geography-hawaii" */ "./assets/hawaii.json"),
+    "switzerland": () => import(/* webpackChunkName: "geography-switzerland" */ "./assets/switzerland.json"),
     "indian": () => import(/* webpackChunkName: "geography-indian" */ "./assets/indian.json"),
     "italy": () => import(/* webpackChunkName: "geography-italy" */ "./assets/italy.json"),
     "japan": () => import(/* webpackChunkName: "geography-japan" */ "./assets/japan.json"),

@@ -25,6 +25,7 @@ import { map as quebec } from './maps/quebec';
 import { map as russia } from './maps/russia';
 import { map as southafrica } from './maps/southafrica';
 import { map as spainportugal } from './maps/spainportugal';
+import { map as switzerland } from './maps/switzerland';
 import { map as ukireland } from './maps/ukireland';
 
 export interface City {
@@ -64,6 +65,9 @@ export interface City {
     // Chile: the grid this city belongs to. Until Step 3 a player with cities buys only from their grid's market
     // (North, or the main market for Central).
     grid?: 'North' | 'Central';
+    // SwitzerlandCustom: an Alpine city. Each ecological plant its owner fires powers one more city,
+    // up to the number of Alpine cities that player owns (see alpineBonusLeft).
+    alpine?: boolean;
 }
 
 export interface Connection {
@@ -74,6 +78,8 @@ export interface Connection {
     via?: [number, number];
     // Purely visual: a sea crossing, drawn as a dashed blue line. Pricing is unchanged.
     sea?: boolean;
+    // Purely visual: an air link (SwitzerlandCustom's helicopters), drawn dotted. Pricing is unchanged.
+    air?: boolean;
     // Does not count when deciding which regions are neighbours (region selection).
     // The link itself still exists whenever both of its cities are in play.
     ignoreForRegions?: boolean;
@@ -194,7 +200,7 @@ export interface GameMap {
 }
 
 // Community custom maps: selectable by name, never drawn by 'Random'.
-export const customMaps: GameMap[] = [hawaii];
+export const customMaps: GameMap[] = [hawaii, switzerland];
 
 export const maps: GameMap[] = [
     america,

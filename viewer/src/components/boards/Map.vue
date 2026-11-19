@@ -92,7 +92,7 @@
                 :d="linkPath(connection)"
                 fill="none"
                 stroke-width="10"
-                :stroke="connection.sea ? SEA_OUTER : 'black'"
+                :stroke="linkOuter(connection)"
             />
             <path
                 v-if="connection.via"
@@ -100,10 +100,10 @@
                 :d="linkPath(connection)"
                 fill="none"
                 stroke-width="9"
-                :stroke="connection.sea ? SEA_INNER : 'gray'"
-                :stroke-dasharray="connection.sea ? SEA_DASH : undefined"
+                :stroke="linkInner(connection)"
+                :stroke-dasharray="linkDash(connection)"
             />
-            <!-- Sea crossings: a light blue dashed line over a dark blue edge. -->
+            <!-- Sea crossings: a light blue dashed line over a dark blue edge. Air links: pale dots over a dark edge. -->
             <line
                 v-if="!connection.via"
                 :key="connection.nodes[0] + '_' + connection.nodes[1] + '_line1'"
@@ -112,7 +112,7 @@
                 :x2="getX2(connection)"
                 :y2="getY2(connection)"
                 stroke-width="10"
-                :stroke="connection.sea ? SEA_OUTER : 'black'"
+                :stroke="linkOuter(connection)"
             />
             <line
                 v-if="!connection.via"
@@ -122,8 +122,8 @@
                 :x2="getX2(connection)"
                 :y2="getY2(connection)"
                 stroke-width="9"
-                :stroke="connection.sea ? SEA_INNER : 'gray'"
-                :stroke-dasharray="connection.sea ? SEA_DASH : undefined"
+                :stroke="linkInner(connection)"
+                :stroke-dasharray="linkDash(connection)"
             />
         </template>
         <!-- Chile: connections closed until Step 3 (the gates), dashed orange over the gray line. -->
@@ -797,6 +797,21 @@ export default class Map extends Vue {
     readonly SEA_OUTER = '#1d4e89';
     readonly SEA_INNER = '#8fd3ff';
     readonly SEA_DASH = '16 9';
+    readonly AIR_OUTER = '#3c3c3c';
+    readonly AIR_INNER = '#e6e6e6';
+    readonly AIR_DASH = '5 9';
+
+    linkOuter(c: Connection) {
+        return c.sea ? this.SEA_OUTER : c.air ? this.AIR_OUTER : 'black';
+    }
+
+    linkInner(c: Connection) {
+        return c.sea ? this.SEA_INNER : c.air ? this.AIR_INNER : 'gray';
+    }
+
+    linkDash(c: Connection) {
+        return c.sea ? this.SEA_DASH : c.air ? this.AIR_DASH : undefined;
+    }
 
     // Quadratic curve from one end to the other, bending toward `via`.
     linkPath(connection) {

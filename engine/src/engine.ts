@@ -3,6 +3,8 @@ import { cloneDeep, isEqual, range } from 'lodash';
 import seedrandom from 'seedrandom';
 import { applyAnalysisMoney, isAnalysisMoneyCommand } from './analysis-money';
 import {
+    alpineCitiesOwned,
+    alpineEligible,
     availableMoves,
     buildOptions,
     coalOilOverCapacity,
@@ -3231,10 +3233,14 @@ export function calculateMaxCitiesPowered(G: GameState, player: Player) {
         permutations.push(perm);
     }
 
+    const alpineOwned = alpineCitiesOwned(G, player);
     let max = 0;
     permutations.forEach((permutation) => {
         if (isValid(player, permutation)) {
-            const citiesPowered = permutation.map((p) => p.citiesPowered).reduce((a, b) => a + b, 0);
+            const citiesPowered =
+                permutation.map((p) => p.citiesPowered).reduce((a, b) => a + b, 0) +
+                // SwitzerlandCustom: +1 per ecological or fusion plant, capped by the Alpine cities owned.
+                Math.min(alpineOwned, permutation.filter(alpineEligible).length);
             max = Math.max(max, citiesPowered);
         }
     });

@@ -16,8 +16,6 @@ import { MoveName } from './move';
 import prices from './prices';
 import { minBy } from './utils';
 
-// Central Europe: a player whose network includes Wien buys garbage $1 cheaper, but
-// never for less than $1 ("his cost per piece may not be 0" — Original and Recharged).
 /** SwitzerlandCustom: the plants the Alpine +1 applies to — the green (ecological) plants only, never fusion. */
 export function alpineEligible(pp: PowerPlant): boolean {
     return pp.type == PowerPlantType.Wind;
@@ -42,6 +40,8 @@ export function alpineBonusLeft(G: GameState, player: Player): number {
     return Math.max(0, owned - fired);
 }
 
+// Central Europe: a player whose network includes Wien buys garbage $1 cheaper, but
+// never for less than $1 ("his cost per piece may not be 0" — Original and Recharged).
 export function garbagePrice(G: GameState, player: Player, printedPrice: number): number {
     if (G.map.name != 'Central Europe' || !player.cities.some((c) => c.name == 'Wien')) {
         return printedPrice;

@@ -72,11 +72,11 @@ describe('SwitzerlandCustom', () => {
         }
     });
 
-    it('is an expensive country: coal from $3, oil from $4, cheese from $5, uranium as usual', () => {
+    it('is an expensive country: coal from $3, oil from $4, cheese from $6, uranium as usual', () => {
         for (const variant of ['original', 'recharged'] as const) {
             const G = setup(4, { map: 'SwitzerlandCustom', variant }, 'prices');
             expect([G.coalMarket, G.oilMarket, G.garbageMarket, G.uraniumMarket], variant).to.deep.equal([
-                18, 15, 12, 2,
+                18, 15, 9, 2,
             ]);
         }
     });

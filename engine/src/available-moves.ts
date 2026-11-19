@@ -16,6 +16,51 @@ import { MoveName } from './move';
 import prices from './prices';
 import { minBy } from './utils';
 
+/** SwitzerlandCustom: garbage is cheese, and cheese kept in a plant that rests through Bureaucracy ages. */
+export function hasCheeseCellar(G: GameState): boolean {
+    return G.map.name === 'SwitzerlandCustom';
+}
+
+/** The player's aged cheese, never more than the cubes they hold. */
+export function agedCheese(player: Player): number {
+    return Math.min(player.agedCheese ?? 0, player.garbageLeft);
+}
+
+/**
+ * The thriftiest way to burn `need` cheese from `fresh` fresh cubes and `aged` aged ones (each worth two):
+ * the least value wasted, then the fewest cubes. Undefined when there is not enough.
+ */
+export function cheeseMix(need: number, fresh: number, aged: number): { aged: number; fresh: number } | undefined {
+    let best: { aged: number; fresh: number; waste: number } | undefined;
+    for (let a = 0; a <= aged; a++) {
+        const f = Math.max(0, need - 2 * a);
+        if (f > fresh) continue;
+        const waste = 2 * a + f - need;
+        if (!best || waste < best.waste || (waste == best.waste && a + f < best.aged + best.fresh))
+            best = { aged: a, fresh: f, waste };
+        if (2 * a >= need) break;
+    }
+    return best && { aged: best.aged, fresh: best.fresh };
+}
+
+/**
+ * SwitzerlandCustom, when a player finishes Bureaucracy: fresh cheese in their cheese plants that rested (did not
+ * fire this round) ages. Aged cubes are counted in the plants that fired first, so a resting plant ripens only the
+ * room it has left. Returns how many cubes aged.
+ */
+export function ripenCheese(G: GameState, player: Player): number {
+    if (!hasCheeseCellar(G)) return 0;
+    const cheesePlants = player.powerPlants.filter((pp) => pp.type == PowerPlantType.Garbage);
+    const room = (pps: PowerPlant[]) => pps.reduce((t, pp) => t + 2 * pp.cost, 0);
+    const restedRoom = room(cheesePlants.filter((pp) => player.powerPlantsNotUsed.includes(pp.number)));
+    if (!restedRoom) return 0;
+    const aged = agedCheese(player);
+    const agedInRested = Math.max(0, aged - (room(cheesePlants) - restedRoom));
+    const ripe = Math.min(player.garbageLeft - aged, restedRoom - agedInRested);
+    if (ripe > 0) player.agedCheese = aged + ripe;
+    return Math.max(0, ripe);
+}
+
 /** SwitzerlandCustom: the plants the Alpine +1 applies to — the green (ecological) plants only, never fusion. */
 export function alpineEligible(pp: PowerPlant): boolean {
     return pp.type == PowerPlantType.Wind;
@@ -71,6 +116,7 @@ export interface AvailableMoves {
         powerPlant: number;
         resourcesSpent: ResourceType[];
         citiesPowered: number;
+        agedSpent?: number;
     }[];
     [MoveName.ChooseRegion]?: string[];
     [MoveName.ChooseColor]?: string[];
@@ -557,7 +603,12 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
         }
 
         case Phase.Bureaucracy: {
-            const toUse: { powerPlant: number; resourcesSpent: ResourceType[]; citiesPowered: number }[] = [];
+            const toUse: {
+                powerPlant: number;
+                resourcesSpent: ResourceType[];
+                citiesPowered: number;
+                agedSpent?: number;
+            }[] = [];
 
             player.powerPlants.forEach((powerPlant) => {
                 // Australia: uranium mines never power cities. They produce uranium
@@ -593,6 +644,20 @@ export function availableMoves(G: GameState, player: Player): AvailableMoves {
                         }
 
                         case PowerPlantType.Garbage: {
+                            if (hasCheeseCellar(G)) {
+                                // SwitzerlandCustom: the engine picks the thriftiest mix of aged and fresh cheese.
+                                const aged = agedCheese(player);
+                                const mix = cheeseMix(powerPlant.cost, player.garbageLeft - aged, aged);
+                                if (mix) {
+                                    toUse.push({
+                                        powerPlant: powerPlant.number,
+                                        resourcesSpent: new Array(mix.aged + mix.fresh).fill(ResourceType.Garbage),
+                                        citiesPowered: powerPlant.citiesPowered,
+                                        ...(mix.aged ? { agedSpent: mix.aged } : {}),
+                                    });
+                                }
+                                break;
+                            }
                             if (player.garbageLeft >= powerPlant.cost) {
                                 toUse.push({
                                     powerPlant: powerPlant.number,

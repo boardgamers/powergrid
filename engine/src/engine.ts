@@ -3,6 +3,7 @@ import { cloneDeep, isEqual, range } from 'lodash';
 import seedrandom from 'seedrandom';
 import { applyAnalysisMoney, isAnalysisMoneyCommand } from './analysis-money';
 import {
+    agedCheese,
     alpineCitiesOwned,
     alpineEligible,
     availableMoves,
@@ -11,9 +12,11 @@ import {
     computeRegionGraph,
     fuelOverCapacity,
     garbagePrice,
+    hasCheeseCellar,
     hasGarbageOilHybrid,
     maxStorable,
     regionPickable,
+    ripenCheese,
 } from './available-moves';
 import {
     canReviseChoice,
@@ -1358,6 +1361,16 @@ export function move(
                     player.passed = true;
                     const payment = powerIncome(G, player);
 
+                    const ripe = ripenCheese(G, player);
+                    if (ripe > 0) {
+                        G.log.push({
+                            type: 'event',
+                            event: `${player.name ?? `Player ${player.id}`}'s cheese ripens: ${ripe} cube${
+                                ripe > 1 ? 's' : ''
+                            } aged (${agedCheese(player)} aged in all).`,
+                        });
+                    }
+
                     player.money += payment;
 
                     if (G.options.trackTotalSpent) {
@@ -2066,6 +2079,10 @@ export function move(
                 }
             });
 
+            // SwitzerlandCustom: aged cheese burned (already counted in the garbage cubes above).
+            if (move.data.agedSpent) player.agedCheese = agedCheese(player) - move.data.agedSpent;
+            else if (player.agedCheese) player.agedCheese = agedCheese(player);
+
             player.citiesPowered += move.data.citiesPowered;
 
             G.log.push({
@@ -2284,7 +2301,15 @@ export function moveAI(G: GameState, playerNumber: number): GameState {
                 chosenMove = {
                     name: MoveName.UsePowerPlant,
                     // Sorted on a copy, for the same reason as Build above.
-                    data: [...availableMoves.UsePowerPlant].sort((a, b) => a.citiesPowered - b.citiesPowered)[0],
+                    data: [...availableMoves.UsePowerPlant].sort((a, b) => {
+                        if (hasCheeseCellar(G)) {
+                            // SwitzerlandCustom: burn aged cheese first; leave fresh cheese plants to rest and ripen.
+                            const rank = (m: typeof a) =>
+                                m.agedSpent ? 0 : m.resourcesSpent.includes(ResourceType.Garbage) ? 2 : 1;
+                            if (rank(a) != rank(b)) return rank(a) - rank(b);
+                        }
+                        return a.citiesPowered - b.citiesPowered;
+                    })[0],
                 };
             }
 
@@ -3234,9 +3259,11 @@ export function calculateMaxCitiesPowered(G: GameState, player: Player) {
     }
 
     const alpineOwned = alpineCitiesOwned(G, player);
+    // SwitzerlandCustom: each aged cheese cube burns as two.
+    const cheeseBonus = hasCheeseCellar(G) ? agedCheese(player) : 0;
     let max = 0;
     permutations.forEach((permutation) => {
-        if (isValid(player, permutation)) {
+        if (isValid(player, permutation, cheeseBonus)) {
             const citiesPowered =
                 permutation.map((p) => p.citiesPowered).reduce((a, b) => a + b, 0) +
                 // SwitzerlandCustom: +1 per ecological plant, capped by the Alpine cities owned.
@@ -3248,7 +3275,7 @@ export function calculateMaxCitiesPowered(G: GameState, player: Player) {
     return Math.min(player.cities.length, max);
 }
 
-function isValid(player: Player, powerPlants: PowerPlant[]) {
+function isValid(player: Player, powerPlants: PowerPlant[], cheeseBonus = 0) {
     const coalUsed = powerPlants
         .filter((pp) => pp.type == PowerPlantType.Coal)
         .map((pp) => pp.cost)
@@ -3273,7 +3300,7 @@ function isValid(player: Player, powerPlants: PowerPlant[]) {
     if (
         coalUsed > player.coalLeft ||
         oilUsed > player.oilLeft ||
-        garbageUsed > player.garbageLeft ||
+        garbageUsed > player.garbageLeft + cheeseBonus ||
         uraniumUsed > player.uraniumLeft
     ) {
         return false;

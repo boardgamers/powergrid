@@ -229,6 +229,9 @@ export const map: GameMap = {
         'Alpine cities get it. A plant never gets more than +1 (one green plant and seven Alpine cities is still +1). ' +
         'Fusion and fuel-burning plants never get it, ' +
         'and you still never power more cities than you own. It follows the plant type, so it works with every deck. ' +
+        'Garbage is cheese, and cheese ripens in the cellar: cheese kept in a garbage plant that does not fire in a ' +
+        'Bureaucracy phase ages, and an aged cube burns as two. Aged cheese stays aged until burned and never ages ' +
+        'again; it still takes one space of storage. The game burns the thriftiest mix for you. ' +
         'Switzerland is expensive: coal opens at $3, oil at $4 and cheese at $6. ' +
         'Geneva is neutral ground: all three of its spaces are open from Step 1. ' +
         'The dotted blue link is the Lake Geneva steamer; the Glacier Express runs Zermatt to Andermatt.',

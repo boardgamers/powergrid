@@ -3,6 +3,7 @@ import Game from '@/components/Game.vue';
 import { mount } from '@vue/test-utils';
 import { expect } from 'chai';
 import { Phase } from 'powergrid-engine';
+import { PowerPlantType } from 'powergrid-engine/src/gamestate';
 
 const capacity = (context: any) => (Game as any).options.computed.buildingPowerCapacity.get.call(context);
 
@@ -24,6 +25,29 @@ describe('building power capacity', () => {
         expect(capacity({ G, player: undefined })).to.equal(undefined);
         expect(capacity({ G, player: -1 })).to.equal(undefined);
         expect(capacity({ G: { ...G, phase: Phase.Bureaucracy }, player: 0 })).to.equal(undefined);
+    });
+
+    it('counts the Alpine +1 on SwitzerlandCustom (John, 2026-11-19: 18 + 30 + 20 with Alpine cities = 14)', () => {
+        const map = {
+            cities: [{ name: 'Grindelwald', alpine: true }, { name: 'Bern' }, { name: 'Zermatt', alpine: true }],
+        };
+        const plants = [
+            { number: 18, type: PowerPlantType.Wind, citiesPowered: 2 },
+            { number: 30, type: PowerPlantType.Garbage, citiesPowered: 6 },
+            { number: 20, type: PowerPlantType.Coal, citiesPowered: 5 },
+        ];
+        const G = {
+            phase: Phase.Building,
+            currentPlayers: [0],
+            map,
+            players: [
+                { powerPlants: plants, cities: [{ name: 'Grindelwald' }, { name: 'Zermatt' }, { name: 'Bern' }] },
+            ],
+        };
+        // two Alpine cities, one green plant: still just +1
+        expect(capacity({ G, player: 0 })).to.equal(14);
+        G.players[0].cities = [{ name: 'Bern' }];
+        expect(capacity({ G, player: 0 })).to.equal(13);
     });
 
     it('marks capacity, caps the track position, and restores the powering marker', async () => {

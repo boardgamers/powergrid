@@ -2050,6 +2050,8 @@ export function move(
             asserts<Moves.MoveUsePowerPlant>(move);
 
             player.powerPlantsNotUsed = player.powerPlantsNotUsed.filter((x) => x != move.data.powerPlant);
+            // SwitzerlandCustom: count the aged cheese BEFORE the cubes leave (the count is capped by the cubes held).
+            const agedBefore = agedCheese(player);
             move.data.resourcesSpent.forEach((resourceType) => {
                 switch (resourceType) {
                     case ResourceType.Coal:
@@ -2080,8 +2082,7 @@ export function move(
             });
 
             // SwitzerlandCustom: aged cheese burned (already counted in the garbage cubes above).
-            if (move.data.agedSpent) player.agedCheese = agedCheese(player) - move.data.agedSpent;
-            else if (player.agedCheese) player.agedCheese = agedCheese(player);
+            if (agedBefore) player.agedCheese = Math.min(agedBefore - (move.data.agedSpent ?? 0), player.garbageLeft);
 
             player.citiesPowered += move.data.citiesPowered;
 

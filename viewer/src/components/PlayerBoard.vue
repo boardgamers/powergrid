@@ -225,7 +225,7 @@
         />
         <text text-anchor="middle" x="180" y="85" fill="black">{{ player.garbageLeft }}</text>
         <!-- SwitzerlandCustom's cheese cellar: how many of those cubes are aged (each burns as two). -->
-        <text v-if="agedCheese" text-anchor="middle" x="180" y="66" font-size="11" font-weight="bold" fill="#6b3f00">
+        <text v-if="agedCheese" text-anchor="middle" x="180" y="97" font-size="9" font-weight="bold" fill="#6b3f00">
             <title>{{ agedCheese }} aged cheese: each burns as two</title>
             {{ agedCheese }} aged
         </text>

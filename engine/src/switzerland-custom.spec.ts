@@ -233,6 +233,26 @@ describe('SwitzerlandCustom cheese cellar', () => {
         expect(agedCheese(after)).to.equal(1);
     });
 
+    it('keeps the other aged cube aged after burning one (John, 2026-11-19: plant 6, two aged, used one)', () => {
+        const G = setup(3, { map: 'SwitzerlandCustom', variant: 'original' }, 'cellar-six');
+        let state = G;
+        for (let i = 0; i < 400 && state.phase != Phase.Bureaucracy; i++)
+            state = moveAI(state, state.currentPlayers[0]);
+        const p = state.players[state.currentPlayers[0]];
+        p.powerPlants = [cheese(6, 1, 1)];
+        p.powerPlantsNotUsed = [6];
+        p.garbageLeft = 2;
+        p.agedCheese = 2;
+        p.cities = cityNames(1).map((name) => ({ name, position: 0 }));
+        p.availableMoves = availableMoves(state, p);
+        const use = (p.availableMoves[MoveName.UsePowerPlant] as any[]).find((m) => m.powerPlant == 6);
+        expect(use.agedSpent).to.equal(1);
+        state = move(state, { name: MoveName.UsePowerPlant, data: use }, state.currentPlayers[0]);
+        const after = state.players.find((x) => x.id == p.id)!;
+        expect(after.garbageLeft).to.equal(1);
+        expect(agedCheese(after)).to.equal(1);
+    });
+
     it('leaves garbage alone on every other map', () => {
         const { G, player } = bureaucracy([cheese(19, 2, 3)], ['Bern']);
         G.map = setup(3, { map: 'Germany', variant: 'original' }, 'g').map;

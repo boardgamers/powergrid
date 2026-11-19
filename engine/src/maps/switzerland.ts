@@ -221,11 +221,15 @@ export const map: GameMap = {
         { nodes: [Cities.Schaffhausen, Cities.Basel], cost: 20, air: true, ignoreForRegions: true, via: [708, 45] },
     ],
     layout: 'Landscape',
+    // An expensive country: coal opens at $3 and oil at $4; cheese is plentiful (opens at $5); uranium as usual.
+    startingResources: [18, 15, 12, 2],
     mapSpecificRules:
         'Alpine cities (Zermatt, Grindelwald, Engelberg, Andermatt, Airolo, Davos, St. Moritz) are dear to reach, but hydro ' +
-        'pays: each ecological or fusion plant you fire powers one more city, but only as many of those plants as you own ' +
-        'Alpine cities get it. A plant never gets more than +1 (one such plant and seven Alpine cities is still +1), ' +
+        'pays: each green (ecological) plant you fire powers one more city, but only as many of your green plants as you own ' +
+        'Alpine cities get it. A plant never gets more than +1 (one green plant and seven Alpine cities is still +1). ' +
+        'Fusion and fuel-burning plants never get it, ' +
         'and you still never power more cities than you own. It follows the plant type, so it works with every deck. ' +
+        'Switzerland is expensive: coal opens at $3 and oil at $4, while cheese is plentiful and opens at $5. ' +
         'Geneva is neutral ground: all three of its spaces are open from Step 1. ' +
         'The dotted blue link is the Lake Geneva steamer; the Glacier Express runs Zermatt to Andermatt.',
 };

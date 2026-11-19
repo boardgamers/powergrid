@@ -72,6 +72,15 @@ describe('SwitzerlandCustom', () => {
         }
     });
 
+    it('is an expensive country: coal from $3, oil from $4, cheese from $5, uranium as usual', () => {
+        for (const variant of ['original', 'recharged'] as const) {
+            const G = setup(4, { map: 'SwitzerlandCustom', variant }, 'prices');
+            expect([G.coalMarket, G.oilMarket, G.garbageMarket, G.uraniumMarket], variant).to.deep.equal([
+                18, 15, 12, 2,
+            ]);
+        }
+    });
+
     it("opens all three of Geneva's spaces from Step 1, and only Geneva's", () => {
         for (const c of switzerland.cities) {
             expect(c.stepSlots, c.name).to.deep.equal(c.name == 'Geneva' ? [3, 3, 3] : undefined);
@@ -125,13 +134,15 @@ describe('SwitzerlandCustom', () => {
             expect(calculateMaxCitiesPowered(G, player)).to.equal(2);
         });
 
-        it('counts the fusion plant as ecological too (John, 2026-11-19: players group the fuel-free plants together)', () => {
+        it('never boosts the fusion plant (John, 2026-11-19: 6 + 1 = 7 from one card is too strong)', () => {
             const fusion: PowerPlant = { number: 50, type: PowerPlantType.Nuclear, cost: 0, citiesPowered: 6 };
             const cities = ['Zermatt', 'Bern', 'Thun', 'Sion', 'Biel', 'Lausanne', 'Nyon', 'Montreux'];
             const { G, player } = bureaucracy([fusion, wind(13, 1)], cities);
-            expect(powers(G, player, 50)).to.equal(7);
-            // one Alpine city: only one of the two fuel-free plants gets it
+            expect(powers(G, player, 50)).to.equal(6);
+            // the one Alpine +1 goes to the green plant: 6 + (1 + 1)
             expect(calculateMaxCitiesPowered(G, player)).to.equal(8);
+            player.powerPlantsNotUsed = [50];
+            expect(powers(G, player, 50)).to.equal(6);
         });
 
         it('leaves every other map untouched', () => {

@@ -18,9 +18,9 @@ import { minBy } from './utils';
 
 // Central Europe: a player whose network includes Wien buys garbage $1 cheaper, but
 // never for less than $1 ("his cost per piece may not be 0" — Original and Recharged).
-/** SwitzerlandCustom: the plants the Alpine +1 applies to — every fuel-free plant, ecological and fusion alike. */
+/** SwitzerlandCustom: the plants the Alpine +1 applies to — the green (ecological) plants only, never fusion. */
 export function alpineEligible(pp: PowerPlant): boolean {
-    return pp.type == PowerPlantType.Wind || pp.type == PowerPlantType.Nuclear;
+    return pp.type == PowerPlantType.Wind;
 }
 
 /** SwitzerlandCustom: the Alpine cities the player owns. */
@@ -31,7 +31,7 @@ export function alpineCitiesOwned(G: GameState, player: Player): number {
 
 /**
  * SwitzerlandCustom, Bureaucracy: how many more ecological plants still get the Alpine +1 this round.
- * Each ecological or fusion plant fired powers one more city, up to the number of Alpine cities owned.
+ * Each ecological plant fired powers one more city, up to the number of Alpine cities owned.
  */
 export function alpineBonusLeft(G: GameState, player: Player): number {
     const owned = alpineCitiesOwned(G, player);

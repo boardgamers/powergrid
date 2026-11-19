@@ -3239,7 +3239,7 @@ export function calculateMaxCitiesPowered(G: GameState, player: Player) {
         if (isValid(player, permutation)) {
             const citiesPowered =
                 permutation.map((p) => p.citiesPowered).reduce((a, b) => a + b, 0) +
-                // SwitzerlandCustom: +1 per ecological or fusion plant, capped by the Alpine cities owned.
+                // SwitzerlandCustom: +1 per ecological plant, capped by the Alpine cities owned.
                 Math.min(alpineOwned, permutation.filter(alpineEligible).length);
             max = Math.max(max, citiesPowered);
         }

@@ -279,21 +279,33 @@ describe('power plant decks on maps with deck-specific changes', () => {
     });
 
     it('holds the Spain & Portugal ecological plants back until Step 2', () => {
-        for (const deck of decks) {
-            let G = setup(4, { map: 'Spain & Portugal', variant: 'recharged', powerPlantDeck: deck }, `spain-${deck}`);
-            G.players.forEach((p, i) => {
-                p.name = `AI ${i}`;
-                p.isAI = true;
-            });
-            const held = SPAIN_STEP_2_PLANTS[deck];
-            for (const number of held) expect(numbers(visible(G)), deck).to.not.include(number);
-            for (let turn = 0; turn < 5000 && G.step == 1 && G.currentPlayers.length > 0; turn++) {
-                G = moveAI(G, G.currentPlayers[0]);
+        // The bots choose with Math.random, so seed it: unseeded, a game could now and then
+        // draw the Step 3 card during Step 1 and skip Step 2 (seen once on CI, 2026-11-20).
+        const realRandom = Math.random;
+        try {
+            for (const deck of decks) {
+                Math.random = seedrandom(`spain-bots-${deck}`);
+                let G = setup(
+                    4,
+                    { map: 'Spain & Portugal', variant: 'recharged', powerPlantDeck: deck },
+                    `spain-${deck}`
+                );
+                G.players.forEach((p, i) => {
+                    p.name = `AI ${i}`;
+                    p.isAI = true;
+                });
+                const held = SPAIN_STEP_2_PLANTS[deck];
+                for (const number of held) expect(numbers(visible(G)), deck).to.not.include(number);
+                for (let turn = 0; turn < 5000 && G.step == 1 && G.currentPlayers.length > 0; turn++) {
+                    G = moveAI(G, G.currentPlayers[0]);
+                }
+                expect(G.step, deck).to.equal(2);
+                // The first replaces the plant removed at the start of Step 2; the other two follow.
+                const known = numbers([...G.actualMarket, ...G.futureMarket, ...G.powerPlantsDeck.slice(0, 2)]);
+                expect(known, deck).to.include.members(held);
             }
-            expect(G.step).to.equal(2);
-            // The first replaces the plant removed at the start of Step 2; the other two follow.
-            const known = numbers([...G.actualMarket, ...G.futureMarket, ...G.powerPlantsDeck.slice(0, 2)]);
-            expect(known, deck).to.include.members(held);
+        } finally {
+            Math.random = realRandom;
         }
     });
 

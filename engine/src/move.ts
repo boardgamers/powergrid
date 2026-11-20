@@ -53,6 +53,8 @@ export declare namespace Moves {
             powerPlant: number;
             resourcesSpent: ResourceType[];
             citiesPowered: number;
+            // SwitzerlandCustom: how many of the garbage cubes spent are aged cheese (each worth two).
+            agedSpent?: number;
         };
     }
 

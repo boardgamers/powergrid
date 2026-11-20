@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import { alpineBonusLeft, availableMoves } from './available-moves';
-import { calculateMaxCitiesPowered, setup } from './engine';
+import { agedCheese, alpineBonusLeft, availableMoves, cheeseMix, ripenCheese } from './available-moves';
+import { calculateMaxCitiesPowered, move, moveAI, setup } from './engine';
 import { GameState, Phase, Player, PowerPlant, PowerPlantType } from './gamestate';
 import { map as switzerland } from './maps/switzerland';
 import { MoveName } from './move';
@@ -151,5 +151,115 @@ describe('SwitzerlandCustom', () => {
             expect(alpineBonusLeft(G, player)).to.equal(0);
             expect(powers(G, player, 13)).to.equal(1);
         });
+    });
+});
+
+describe('SwitzerlandCustom cheese cellar', () => {
+    const cheese = (number: number, cost: number, citiesPowered: number): PowerPlant => ({
+        number,
+        type: PowerPlantType.Garbage,
+        cost,
+        citiesPowered,
+    });
+    const cityNames = (n: number) =>
+        switzerland.cities
+            .filter((c) => !c.alpine)
+            .slice(0, n)
+            .map((c) => c.name);
+
+    it('picks the thriftiest mix: least waste, then fewest cubes', () => {
+        expect(cheeseMix(3, 5, 0)).to.deep.equal({ aged: 0, fresh: 3 });
+        expect(cheeseMix(3, 5, 2)).to.deep.equal({ aged: 1, fresh: 1 }); // plant 30: one aged + one fresh
+        expect(cheeseMix(2, 0, 1)).to.deep.equal({ aged: 1, fresh: 0 }); // plant 19 on one aged cube
+        expect(cheeseMix(3, 0, 2)).to.deep.equal({ aged: 2, fresh: 0 }); // overshoot is wasted, but it runs
+        expect(cheeseMix(3, 0, 1)).to.equal(undefined);
+        expect(cheeseMix(1, 1, 1)).to.deep.equal({ aged: 0, fresh: 1 }); // never burn an aged cube for one
+    });
+
+    it('ripens fresh cheese only in a plant that rested, and an aged cube burns as two', () => {
+        const { G, player } = bureaucracy([cheese(19, 2, 3)], cityNames(3));
+        player.garbageLeft = 2;
+        // plant 19 rests this round: both cubes age
+        expect(ripenCheese(G, player)).to.equal(2);
+        expect(agedCheese(player)).to.equal(2);
+        // next round: one aged cube is a full run, twice over
+        player.powerPlantsNotUsed = [19];
+        const move = offered(G, player).find((m) => m.powerPlant == 19) as any;
+        expect(move.agedSpent).to.equal(1);
+        expect(move.resourcesSpent.length).to.equal(1);
+        expect(calculateMaxCitiesPowered(G, player)).to.equal(3);
+    });
+
+    it('does not ripen cheese in a plant that fired, and aged cheese never ages again', () => {
+        const { G, player } = bureaucracy([cheese(19, 2, 3)], cityNames(3));
+        player.garbageLeft = 4;
+        player.powerPlantsNotUsed = []; // 19 fired
+        expect(ripenCheese(G, player)).to.equal(0);
+        player.powerPlantsNotUsed = [19];
+        player.agedCheese = 4;
+        expect(ripenCheese(G, player)).to.equal(0);
+        expect(agedCheese(player)).to.equal(4);
+    });
+
+    it('a resting plant ripens only the room it has left', () => {
+        // 19 (holds 4) fired, 24 (holds 4) rested; 6 cubes held, 4 already aged
+        const { G, player } = bureaucracy([cheese(19, 2, 3), cheese(24, 2, 4)], cityNames(5));
+        player.garbageLeft = 6;
+        player.agedCheese = 4;
+        player.powerPlantsNotUsed = [24];
+        // the 4 aged fill 19's room first, so 24 has all 4 of its room: the 2 fresh ripen
+        expect(ripenCheese(G, player)).to.equal(2);
+        expect(agedCheese(player)).to.equal(6);
+    });
+
+    it('spends aged cheese when the plant fires, through the real move', () => {
+        const G = setup(3, { map: 'SwitzerlandCustom', variant: 'original' }, 'cellar-move');
+        // Play to the first Bureaucracy, then hand the current player a cheese plant with aged cheese.
+        let state = G;
+        for (let i = 0; i < 400 && state.phase != Phase.Bureaucracy; i++)
+            state = moveAI(state, state.currentPlayers[0]);
+        expect(state.phase).to.equal(Phase.Bureaucracy);
+        const p = state.players[state.currentPlayers[0]];
+        p.powerPlants = [cheese(19, 2, 3)];
+        p.powerPlantsNotUsed = [19];
+        p.garbageLeft = 3;
+        p.agedCheese = 2;
+        p.cities = cityNames(3).map((name) => ({ name, position: 0 }));
+        p.availableMoves = availableMoves(state, p);
+        const use = (p.availableMoves[MoveName.UsePowerPlant] as any[]).find((m) => m.powerPlant == 19);
+        state = move(state, { name: MoveName.UsePowerPlant, data: use }, state.currentPlayers[0]);
+        const after = state.players[state.players.indexOf(state.players.find((x) => x.id == p.id)!)];
+        expect(after.garbageLeft).to.equal(2);
+        expect(agedCheese(after)).to.equal(1);
+    });
+
+    it('keeps the other aged cube aged after burning one (John, 2026-11-19: plant 6, two aged, used one)', () => {
+        const G = setup(3, { map: 'SwitzerlandCustom', variant: 'original' }, 'cellar-six');
+        let state = G;
+        for (let i = 0; i < 400 && state.phase != Phase.Bureaucracy; i++)
+            state = moveAI(state, state.currentPlayers[0]);
+        const p = state.players[state.currentPlayers[0]];
+        p.powerPlants = [cheese(6, 1, 1)];
+        p.powerPlantsNotUsed = [6];
+        p.garbageLeft = 2;
+        p.agedCheese = 2;
+        p.cities = cityNames(1).map((name) => ({ name, position: 0 }));
+        p.availableMoves = availableMoves(state, p);
+        const use = (p.availableMoves[MoveName.UsePowerPlant] as any[]).find((m) => m.powerPlant == 6);
+        expect(use.agedSpent).to.equal(1);
+        state = move(state, { name: MoveName.UsePowerPlant, data: use }, state.currentPlayers[0]);
+        const after = state.players.find((x) => x.id == p.id)!;
+        expect(after.garbageLeft).to.equal(1);
+        expect(agedCheese(after)).to.equal(1);
+    });
+
+    it('leaves garbage alone on every other map', () => {
+        const { G, player } = bureaucracy([cheese(19, 2, 3)], ['Bern']);
+        G.map = setup(3, { map: 'Germany', variant: 'original' }, 'g').map;
+        player.garbageLeft = 2;
+        expect(ripenCheese(G, player)).to.equal(0);
+        const m = offered(G, player).find((x) => x.powerPlant == 19) as any;
+        expect(m.agedSpent).to.equal(undefined);
+        expect(m.resourcesSpent.length).to.equal(2);
     });
 });

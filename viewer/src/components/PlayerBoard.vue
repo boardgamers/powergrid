@@ -224,6 +224,11 @@
             @click="clickResource('garbage')"
         />
         <text text-anchor="middle" x="180" y="85" fill="black">{{ player.garbageLeft }}</text>
+        <!-- SwitzerlandCustom's cheese cellar: how many of those cubes are aged (each burns as two). -->
+        <text v-if="agedCheese" text-anchor="middle" x="180" y="97" font-size="9" font-weight="bold" fill="#6b3f00">
+            <title>{{ agedCheese }} aged cheese: each burns as two</title>
+            {{ agedCheese }} aged
+        </text>
 
         <Uranium :pieceId="'Uranium' + player.id" :targetState="{ x: 215, y: 76 }" />
         <text text-anchor="middle" x="250" y="85" fill="black">{{ player.uraniumLeft }}</text>
@@ -405,6 +410,11 @@ export default class PlayerBoard extends Vue {
     }
 
     // The fuel a hybrid plant can burn besides oil: coal for the standard hybrid,
+    /** SwitzerlandCustom: aged cheese among the garbage held (never more than the cubes held). */
+    get agedCheese(): number {
+        return Math.min(this.player.agedCheese ?? 0, this.player.garbageLeft);
+    }
+
     // garbage for the alternate deck's garbage/oil hybrid. Undefined for other plants.
     hybridFuel(powerPlant: PowerPlant): ResourceType.Coal | ResourceType.Garbage | undefined {
         if (powerPlant.type == PowerPlantType.Hybrid) return ResourceType.Coal;

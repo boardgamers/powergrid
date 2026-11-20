@@ -2985,7 +2985,8 @@ export default class Game extends Vue {
         if (
             coalUsed > player.coalLeft ||
             oilUsed > player.oilLeft ||
-            garbageUsed > player.garbageLeft ||
+            // SwitzerlandCustom: an aged cheese cube burns as two.
+            garbageUsed > player.garbageLeft + Math.min(player.agedCheese ?? 0, player.garbageLeft) ||
             uraniumUsed > player.uraniumLeft
         ) {
             return false;

@@ -151,6 +151,9 @@ export interface Player {
     oilLeft: number;
     garbageCapacity: number;
     garbageLeft: number;
+    // SwitzerlandCustom (the cheese cellar): how many of garbageLeft are AGED cheese. An aged cube burns as two.
+    // Read it through agedCheese(player), which never exceeds garbageLeft (cubes lost to storage go aged-first).
+    agedCheese?: number;
     uraniumCapacity: number;
     uraniumLeft: number;
     hybridCapacity: number;

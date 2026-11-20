@@ -1,12 +1,13 @@
 import { expect } from 'chai';
 import { setup } from 'powergrid-engine';
-import { maps, mapsRecharged } from 'powergrid-engine/src/maps';
+import { customMaps, maps, mapsRecharged } from 'powergrid-engine/src/maps';
 import { inactiveMapNetwork } from '../../src/util/inactive-map';
 
 describe('unselected map regions', () => {
     it('restores only missing authored spaces, without changing playable cities or legal moves', () => {
         for (const variant of ['original', 'recharged'] as const) {
-            for (const authored of variant === 'original' ? maps : mapsRecharged) {
+            // Community custom maps (HawaiiCustom, SwitzerlandCustom) play one layout in both editions.
+            for (const authored of [...(variant === 'original' ? maps : mapsRecharged), ...customMaps]) {
                 for (const count of [2, 3, 4, 5, 6]) {
                     const state = setup(count, { map: authored.name as any, variant }, 'context-regions');
                     const before = JSON.stringify(state);

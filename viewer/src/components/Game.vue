@@ -1070,7 +1070,7 @@ import { formatDuration } from '../util/time';
 import { playerOrderForDisplay } from '../util/player-order';
 import { freePlantMoves, canAutoFinishPowering, poweredCities } from '../util/powering';
 import { bidRevision, canReopenPowering } from 'powergrid-engine/src/choice-revisions';
-import { availableMoves, canStoreFuel } from 'powergrid-engine/src/available-moves';
+import { alpineCitiesOwned, alpineEligible, availableMoves, canStoreFuel } from 'powergrid-engine/src/available-moves';
 import { powerIncome, updatePlayerCapacity } from 'powergrid-engine/src/engine';
 import { inactiveMapNetwork } from '../util/inactive-map';
 import { desktopBoardLayout, PLAYER_SETTING_ROW_HEIGHT } from '../util/board-layout';
@@ -1439,7 +1439,13 @@ export default class Game extends Vue {
             !this.G.currentPlayers.includes(this.player)
         )
             return undefined;
-        return this.G.players[this.player]?.powerPlants.reduce((total, plant) => total + plant.citiesPowered, 0);
+        const player = this.G.players[this.player];
+        if (!player) return undefined;
+        return (
+            player.powerPlants.reduce((total, plant) => total + plant.citiesPowered, 0) +
+            // SwitzerlandCustom: +1 per green plant, up to the Alpine cities owned.
+            (this.G.map ? Math.min(alpineCitiesOwned(this.G, player), player.powerPlants.filter(alpineEligible).length) : 0)
+        );
     }
 
     get poweringPlayer() {
@@ -2570,9 +2576,21 @@ export default class Game extends Vue {
                     break;
             }
 
+            // Send the engine's own offer for a single-fuel plant: it can differ from the printed card
+            // (SwitzerlandCustom's Alpine +1 and aged cheese). Hybrids carry the mix the player picked.
+            const offered =
+                powerPlant.type == PowerPlantType.Hybrid || powerPlant.type == PowerPlantType.GarbageOilHybrid
+                    ? undefined
+                    : this.G!.players[this.player!].availableMoves?.[MoveName.UsePowerPlant]?.find(
+                          (m) => m.powerPlant == powerPlant.number
+                      );
             this.sendMove({
                 name: MoveName.UsePowerPlant,
-                data: { powerPlant: powerPlant.number, resourcesSpent, citiesPowered: powerPlant.citiesPowered },
+                data: offered ?? {
+                    powerPlant: powerPlant.number,
+                    resourcesSpent,
+                    citiesPowered: powerPlant.citiesPowered,
+                },
             });
 
             this.disablePass = true;

@@ -92,7 +92,7 @@
                 :d="linkPath(connection)"
                 fill="none"
                 stroke-width="10"
-                :stroke="connection.sea ? SEA_OUTER : 'black'"
+                :stroke="linkOuter(connection)"
             />
             <path
                 v-if="connection.via"
@@ -100,10 +100,10 @@
                 :d="linkPath(connection)"
                 fill="none"
                 stroke-width="9"
-                :stroke="connection.sea ? SEA_INNER : 'gray'"
-                :stroke-dasharray="connection.sea ? SEA_DASH : undefined"
+                :stroke="linkInner(connection)"
+                :stroke-dasharray="linkDash(connection)"
             />
-            <!-- Sea crossings: a light blue dashed line over a dark blue edge. -->
+            <!-- Sea crossings: a light blue dashed line over a dark blue edge. Air links: pale dots over a dark edge. -->
             <line
                 v-if="!connection.via"
                 :key="connection.nodes[0] + '_' + connection.nodes[1] + '_line1'"
@@ -112,7 +112,7 @@
                 :x2="getX2(connection)"
                 :y2="getY2(connection)"
                 stroke-width="10"
-                :stroke="connection.sea ? SEA_OUTER : 'black'"
+                :stroke="linkOuter(connection)"
             />
             <line
                 v-if="!connection.via"
@@ -121,9 +121,21 @@
                 :y1="getY1(connection)"
                 :x2="getX2(connection)"
                 :y2="getY2(connection)"
-                stroke-width="9"
-                :stroke="connection.sea ? SEA_INNER : 'gray'"
-                :stroke-dasharray="connection.sea ? SEA_DASH : undefined"
+                :stroke-width="connection.rail ? 4 : 9"
+                :stroke="linkInner(connection)"
+                :stroke-dasharray="linkDash(connection)"
+            />
+            <!-- Rail (Switzerland's Glacier Express): two red rails over a pale bed, crossed by red ties. -->
+            <line
+                v-if="!connection.via && connection.rail"
+                :key="connection.nodes[0] + '_' + connection.nodes[1] + '_ties'"
+                :x1="getX1(connection)"
+                :y1="getY1(connection)"
+                :x2="getX2(connection)"
+                :y2="getY2(connection)"
+                stroke-width="16"
+                :stroke="RAIL"
+                stroke-dasharray="3 9"
             />
         </template>
         <!-- Chile: connections closed until Step 3 (the gates), dashed orange over the gray line. -->
@@ -240,6 +252,27 @@
                 >
                     {{ city.slotCosts[0] }}
                 </text>
+            </g>
+        </template>
+
+        <!-- SwitzerlandCustom: a snow-capped peak on each Alpine city (its owner's green plants get +1), drawn BEHIND
+             the city so it never covers a house, peeking over the top of the ring. -->
+        <template v-for="city in cities">
+            <g
+                v-if="city.alpine"
+                :key="city.name + '_alpine'"
+                pointer-events="none"
+                :transform="`translate(${city.x}, ${city.y - 27}) scale(1.15)`"
+            >
+                <title>{{ city.name }}: Alpine city</title>
+                <polygon
+                    points="-12,9 0,-10 12,9"
+                    fill="#6b5a4a"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linejoin="round"
+                />
+                <polygon points="-4.6,-2.3 0,-10 4.6,-2.3 2,-4 0,-1.5 -2,-4" fill="white" />
             </g>
         </template>
 
@@ -797,6 +830,24 @@ export default class Map extends Vue {
     readonly SEA_OUTER = '#1d4e89';
     readonly SEA_INNER = '#8fd3ff';
     readonly SEA_DASH = '16 9';
+    readonly AIR_OUTER = '#3c3c3c';
+    readonly AIR_INNER = '#e6e6e6';
+    readonly AIR_DASH = '5 9';
+
+    readonly RAIL = '#c8102e';
+    readonly RAIL_BED = '#f3ead6';
+
+    linkOuter(c: Connection) {
+        return c.sea ? this.SEA_OUTER : c.air ? this.AIR_OUTER : c.rail ? this.RAIL : 'black';
+    }
+
+    linkInner(c: Connection) {
+        return c.sea ? this.SEA_INNER : c.air ? this.AIR_INNER : c.rail ? this.RAIL_BED : 'gray';
+    }
+
+    linkDash(c: Connection) {
+        return c.sea ? this.SEA_DASH : c.air ? this.AIR_DASH : undefined;
+    }
 
     // Quadratic curve from one end to the other, bending toward `via`.
     linkPath(connection) {

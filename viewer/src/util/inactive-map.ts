@@ -1,5 +1,5 @@
 import type { City, GameMap } from 'powergrid-engine/src/maps';
-import { maps, mapsRecharged } from 'powergrid-engine/src/maps';
+import { customMaps, maps, mapsRecharged } from 'powergrid-engine/src/maps';
 
 export interface InactiveMapNetwork {
     cities: City[];
@@ -10,7 +10,10 @@ export interface InactiveMapNetwork {
 export function inactiveMapNetwork(map?: GameMap, variant?: string): InactiveMapNetwork {
     const empty = { cities: [], links: [] };
     if (!map?.cities.length) return empty;
-    const authored = (variant === 'original' ? maps : mapsRecharged).find((m) => m.name === map.name);
+    // Community custom maps keep one layout for both editions.
+    const authored = [...(variant === 'original' ? maps : mapsRecharged), ...customMaps].find(
+        (m) => m.name === map.name
+    );
     if (!authored) return empty;
     const [rx, ry] = map.adjustRatio || [1, 1];
     const cities = authored.cities.map((c) => ({ ...c, x: c.x * rx, y: c.y * ry }));
@@ -27,7 +30,8 @@ export function inactiveMapNetwork(map?: GameMap, variant?: string): InactiveMap
     return {
         cities: cities.filter((c) => !active.has(c.name)),
         links: authored.connections
-            .filter((c) => c.nodes.some((name) => !active.has(name)))
+            // Curved links (Hawaii's ferry, Switzerland's helicopters) would cut straight across the board here.
+            .filter((c) => !c.via && c.nodes.some((name) => !active.has(name)))
             .map((c) => ({ from: byName.get(c.nodes[0])!, to: byName.get(c.nodes[1])! })),
     };
 }

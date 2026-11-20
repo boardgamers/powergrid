@@ -9,7 +9,7 @@ import { GameState, MapName, Player, PowerPlantType } from './gamestate';
 // custom map that graduates gets one then. A new custom map must be added here,
 // so the choice is made on purpose. The lookup below already handles a map
 // with no badge.
-type CustomMapName = 'HawaiiCustom';
+type CustomMapName = 'HawaiiCustom' | 'SwitzerlandCustom';
 const mapAchievements: Record<Exclude<MapName, CustomMapName>, string> = {
     Germany: 'germany-champion',
     USA: 'usa-champion',

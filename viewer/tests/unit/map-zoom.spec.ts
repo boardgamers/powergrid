@@ -1,11 +1,14 @@
 import { expect } from 'chai';
 import {
+    centreOn,
     clampZoom,
     IDENTITY,
     isZoomed,
     MapZoom,
     MAP_ZOOM_MAX,
+    minimapBox,
     pan,
+    visibleRect,
     zoomAt,
     zoomCentre,
     zoomTransform,
@@ -67,6 +70,31 @@ describe('map zoom', () => {
         // Zooming at a corner is clamped too.
         covers(zoomAt(IDENTITY, 2.5, rect.x, rect.y, rect));
         covers(zoomAt(IDENTITY, 2.5, rect.x + rect.width, rect.y + rect.height, rect));
+    });
+
+    it('boxes exactly what is on screen, and centres a tapped point', () => {
+        const z = zoomAt(IDENTITY, 2, 600, 800, rect);
+        const v = visibleRect(z, rect);
+        expect(v.width).to.be.closeTo(rect.width / 2, 1e-9);
+        const [x, y] = apply(z, [v.x, v.y]);
+        expect(x).to.be.closeTo(rect.x, 1e-9);
+        expect(y).to.be.closeTo(rect.y, 1e-9);
+        const c = centreOn(z, 700, 900, rect);
+        const [cx, cy] = apply(c, [700, 900]);
+        expect(cx).to.be.closeTo(rect.x + rect.width / 2, 1e-9);
+        expect(cy).to.be.closeTo(rect.y + rect.height / 2, 1e-9);
+        covers(centreOn(z, rect.x, rect.y, rect)); // a corner still clamps
+    });
+
+    it('sizes the minimap between its limits, in the bottom-left corner', () => {
+        for (const px of [0.27, 1, 2]) {
+            const m = minimapBox(rect, px);
+            const longPx = Math.max(m.width, m.height) * px;
+            expect(longPx).to.be.within(72 - 1e-9, 128 + 1e-9);
+            expect(m.x).to.be.above(rect.x);
+            expect(m.y + m.height).to.be.below(rect.y + rect.height);
+            expect(m.width / m.height).to.be.closeTo(rect.width / rect.height, 1e-9);
+        }
     });
 
     it('does not pan at the fitted size', () => {

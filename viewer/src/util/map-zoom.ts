@@ -70,5 +70,46 @@ export function zoomTransform(z: MapZoom): string | undefined {
     return `translate(${r(z.x)}, ${r(z.y)}) scale(${Math.round(z.k * 10000) / 10000})`;
 }
 
+/** The part of the fitted map (in unzoomed scene units) that is on screen. */
+export function visibleRect(z: MapZoom, rect: Rect): Rect {
+    return {
+        x: (rect.x - z.x) / z.k,
+        y: (rect.y - z.y) / z.k,
+        width: rect.width / z.k,
+        height: rect.height / z.k,
+    };
+}
+
+/** Keep the zoom level, and bring the unzoomed scene point (px, py) to the middle of the view. */
+export function centreOn(z: MapZoom, px: number, py: number, rect: Rect): MapZoom {
+    return clampZoom({ k: z.k, x: rect.x + rect.width / 2 - z.k * px, y: rect.y + rect.height / 2 - z.k * py }, rect);
+}
+
+/** Minimap size on screen, in CSS px: big enough to read, never a second map. */
+export const MINIMAP_MIN_PX = 72;
+export const MINIMAP_MAX_PX = 128;
+export const MINIMAP_SHARE = 0.195;
+export const MINIMAP_MARGIN_PX = 8;
+
+export interface Minimap extends Rect {
+    /** Maps the map's box onto the minimap's box. */
+    scale: number;
+}
+
+/**
+ * The minimap's box in scene units, in the bottom-left corner of the map's box (the
+ * zoom buttons sit top-right). Its longer side is about a quarter of the map's on
+ * screen, clamped between MINIMAP_MIN_PX and MINIMAP_MAX_PX.
+ */
+export function minimapBox(rect: Rect, pxPerUnit: number): Minimap {
+    const longSide = Math.max(rect.width, rect.height);
+    const longPx = Math.min(MINIMAP_MAX_PX, Math.max(MINIMAP_MIN_PX, longSide * pxPerUnit * MINIMAP_SHARE));
+    const scale = longPx / pxPerUnit / longSide;
+    const width = rect.width * scale;
+    const height = rect.height * scale;
+    const margin = MINIMAP_MARGIN_PX / pxPerUnit;
+    return { x: rect.x + margin, y: rect.y + rect.height - margin - height, width, height, scale };
+}
+
 /** How far a press may travel and still count as a click rather than a pan, in CSS px. */
 export const CLICK_SLOP_PX = 6;

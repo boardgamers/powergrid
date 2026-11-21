@@ -234,7 +234,13 @@
                     fill="transparent"
                 />
                 <g ref="mapZoomLayer" :transform="mapZoomT">
-                    <g ref="slotMap" data-board-slot="map" data-tutorial="map" :transform="slotT('map')">
+                    <g
+                        ref="slotMap"
+                        :id="mapSlotId"
+                        data-board-slot="map"
+                        data-tutorial="map"
+                        :transform="slotT('map')"
+                    >
                         <Map
                             ref="map"
                             :transform="mapTransform"
@@ -257,6 +263,62 @@
                         />
                     </g>
                 </g>
+            </g>
+
+            <!-- While zoomed: a faint outline round the map's box, so it reads as a zoomed
+                 view, and a minimap of the whole board with the visible part boxed. -->
+            <rect
+                v-if="mapZoomed && mapZoomRect && mapZoomPx > 0"
+                class="map-zoom-outline"
+                :x="mapZoomRect.x"
+                :y="mapZoomRect.y"
+                :width="mapZoomRect.width"
+                :height="mapZoomRect.height"
+                :stroke-width="3 / mapZoomPx"
+                pointer-events="none"
+            />
+            <g v-if="mapZoomed && minimap" data-map-minimap @click.stop="onMinimapClick">
+                <title>Overview: tap to look there</title>
+                <!-- Rounded corners; the miniature and its view box are clipped to them. -->
+                <clipPath :id="`${mapSlotId}-mini`" clipPathUnits="userSpaceOnUse">
+                    <rect
+                        :x="minimap.x"
+                        :y="minimap.y"
+                        :width="minimap.width"
+                        :height="minimap.height"
+                        :rx="8 / mapZoomPx"
+                    />
+                </clipPath>
+                <rect
+                    class="map-minimap-frame"
+                    :x="minimap.x"
+                    :y="minimap.y"
+                    :width="minimap.width"
+                    :height="minimap.height"
+                    :rx="8 / mapZoomPx"
+                />
+                <g :clip-path="`url(#${mapSlotId}-mini)`" pointer-events="none">
+                    <use :href="`#${mapSlotId}`" :transform="minimap.transform" />
+                    <rect
+                        class="map-minimap-view"
+                        :x="minimap.view.x"
+                        :y="minimap.view.y"
+                        :width="minimap.view.width"
+                        :height="minimap.view.height"
+                        :rx="3 / mapZoomPx"
+                        :stroke-width="2 / mapZoomPx"
+                    />
+                </g>
+                <rect
+                    class="map-minimap-edge"
+                    :x="minimap.x"
+                    :y="minimap.y"
+                    :width="minimap.width"
+                    :height="minimap.height"
+                    :rx="8 / mapZoomPx"
+                    :stroke-width="1.5 / mapZoomPx"
+                    pointer-events="none"
+                />
             </g>
 
             <!-- Map zoom controls, sized in screen pixels so they stay thumb-sized on a phone. -->
@@ -1114,6 +1176,9 @@ import {
     pan as panMapZoom,
     Rect,
     zoomAt,
+    centreOn,
+    minimapBox,
+    visibleRect,
     zoomCentre,
     zoomTransform,
 } from '../util/map-zoom';
@@ -3593,6 +3658,7 @@ export default class Game extends Vue {
     /** CSS pixels per scene unit, so the controls can be sized in pixels. */
     mapZoomPx = 0;
     mapClipId = `powergrid-map-zoom-${nextGeographyClipId++}`;
+    mapSlotId = `powergrid-map-slot-${nextGeographyClipId++}`;
     private mapDrag: { id: number; lastX: number; lastY: number; startX: number; startY: number; moved: boolean } | null =
         null;
     private mapTouch: {
@@ -3721,7 +3787,7 @@ export default class Game extends Vue {
     onScenePointerDown(event: PointerEvent) {
         // Touch is handled by the touch events (they can also pinch).
         if (event.pointerType === 'touch' || event.button !== 0 || !this.mapZoomed || !this.mapZoomRect) return;
-        if ((event.target as Element | null)?.closest?.('[data-map-zoom-controls]')) return;
+        if (this.onZoomChrome(event.target)) return;
         const p = this.toScene(event.clientX, event.clientY);
         if (!this.inMapRect(p)) return;
         this.mapDrag = {
@@ -3782,7 +3848,37 @@ export default class Game extends Vue {
         return [(touches[0].clientX + touches[1].clientX) / 2, (touches[0].clientY + touches[1].clientY) / 2];
     }
 
+    /** The zoom buttons and the minimap take their own taps; gestures must not start there. */
+    private onZoomChrome(target: EventTarget | null): boolean {
+        return !!(target as Element | null)?.closest?.("[data-map-zoom-controls], [data-map-minimap]");
+    }
+
+    onMinimapClick(event: MouseEvent) {
+        const m = this.minimap;
+        const p = this.toScene(event.clientX, event.clientY);
+        if (!m || !p || !this.mapZoomRect) return;
+        const r = this.mapZoomRect;
+        // Minimap point -> the matching point on the fitted map.
+        this.mapZoom = centreOn(this.mapZoom, r.x + (p[0] - m.x) / m.scale, r.y + (p[1] - m.y) / m.scale, r);
+    }
+
+    get minimap() {
+        const r = this.mapZoomRect;
+        if (!r || !(this.mapZoomPx > 0)) return null;
+        const box = minimapBox(r, this.mapZoomPx);
+        const v = visibleRect(this.mapZoom, r);
+        const to = (x: number, y: number) => [box.x + (x - r.x) * box.scale, box.y + (y - r.y) * box.scale];
+        const [vx, vy] = to(v.x, v.y);
+        const round = (n: number) => Math.round(n * 100) / 100;
+        return {
+            ...box,
+            transform: `translate(${round(box.x - r.x * box.scale)}, ${round(box.y - r.y * box.scale)}) scale(${round(box.scale * 10000) / 10000})`,
+            view: { x: vx, y: vy, width: v.width * box.scale, height: v.height * box.scale },
+        };
+    }
+
     onSceneTouchStart(event: TouchEvent) {
+        if (this.onZoomChrome(event.target)) return;
         if (!this.mapZoomRect) this.updateMapZoomRect();
         if (!this.mapZoomRect) return;
         if (event.touches.length === 2) {
@@ -4473,5 +4569,24 @@ text {
 }
 .map-zoom-hit {
     cursor: grab;
+}
+.map-zoom-outline {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.6);
+}
+.map-minimap-edge {
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.4);
+}
+.map-minimap-frame {
+    fill: rgba(255, 255, 255, 0.78);
+    stroke: none;
+}
+[data-map-minimap] {
+    cursor: pointer;
+}
+.map-minimap-view {
+    fill: rgba(255, 165, 0, 0.12);
+    stroke: #e65c00;
 }
 </style>

@@ -321,6 +321,20 @@
                 />
             </g>
 
+            <!-- A plain wheel over the map scrolls the page; this says how to zoom instead. -->
+            <g
+                v-if="mapZoomRect && mapZoomPx > 0"
+                :class="['map-wheel-hint', { shown: mapWheelHint }]"
+                :transform="`translate(${mapZoomRect.x + mapZoomRect.width / 2}, ${
+                    mapZoomRect.y + mapZoomRect.height / 2
+                }) scale(${1 / mapZoomPx})`"
+                pointer-events="none"
+                aria-hidden="true"
+            >
+                <rect x="-150" y="-20" width="300" height="40" rx="20" />
+                <text x="0" y="1">Hold {{ zoomModifier }} and scroll to zoom</text>
+            </g>
+
             <!-- Map zoom controls, sized in screen pixels so they stay thumb-sized on a phone. -->
             <g
                 v-if="mapZoomRect && mapZoomPx > 0"
@@ -3685,14 +3699,14 @@ export default class Game extends Vue {
             {
                 name: 'in',
                 symbol: '+',
-                label: 'Zoom in on the map',
+                label: `Zoom in on the map (or ${this.zoomModifier} + scroll, or pinch)`,
                 enabled: this.mapZoom.k < MAP_ZOOM_MAX - 1e-6,
                 action: () => this.zoomMapBy(MAP_ZOOM_STEP),
             },
             {
                 name: 'out',
                 symbol: '−',
-                label: 'Zoom out',
+                label: `Zoom out (or ${this.zoomModifier} + scroll)`,
                 enabled: this.mapZoomed,
                 action: () => this.zoomMapBy(1 / MAP_ZOOM_STEP),
             },
@@ -3769,15 +3783,35 @@ export default class Game extends Vue {
         return !!p && !!r && p[0] >= r.x && p[0] <= r.x + r.width && p[1] >= r.y && p[1] <= r.y + r.height;
     }
 
+    /** Ctrl on Windows and Linux, ⌘ on a Mac — the modifier that makes the wheel zoom. */
+    get zoomModifier() {
+        return typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform) ? '⌘' : 'Ctrl';
+    }
+
+    /** Shown briefly when someone scrolls over the map without the modifier. */
+    mapWheelHint = false;
+    private mapWheelHintTimer: ReturnType<typeof setTimeout> | null = null;
+
+    private showMapWheelHint() {
+        this.mapWheelHint = true;
+        if (this.mapWheelHintTimer) clearTimeout(this.mapWheelHintTimer);
+        this.mapWheelHintTimer = setTimeout(() => (this.mapWheelHint = false), 1600);
+    }
+
     onSceneWheel(event: WheelEvent) {
-        // Trackpad pinch arrives as ctrl+wheel everywhere. A plain wheel zooms too on
-        // desktop, where the board fits the window; in the tall portrait layout a
-        // plain wheel keeps scrolling the page.
-        if (!event.ctrlKey && this.stacked) return;
+        // A plain wheel always scrolls the page, as people expect: someone scrolling
+        // down to the chat must never zoom by accident. Zooming takes Ctrl (⌘ on a
+        // Mac) with the wheel; a trackpad pinch arrives as ctrl+wheel by itself.
         if (!this.mapZoomRect) this.updateMapZoomRect();
         const p = this.toScene(event.clientX, event.clientY);
         if (!this.mapZoomRect || !this.inMapRect(p)) return;
-        const factor = Math.exp(-Math.max(-100, Math.min(100, event.deltaY)) * (event.ctrlKey ? 0.01 : 0.002));
+        if (!event.ctrlKey && !event.metaKey) {
+            if (event.deltaY !== 0) this.showMapWheelHint();
+            return;
+        }
+        // A mouse notch is ~100; a pinch sends many small deltas.
+        const rate = Math.abs(event.deltaY) < 30 ? 0.01 : 0.002;
+        const factor = Math.exp(-Math.max(-100, Math.min(100, event.deltaY)) * rate);
         // Zooming out at the fit has nothing to do: let the page have the wheel.
         if (factor < 1 && !this.mapZoomed) return;
         event.preventDefault();
@@ -4017,6 +4051,7 @@ export default class Game extends Vue {
         window.removeEventListener('orientationchange', this.onViewportResize);
         window.removeEventListener('load', this.onViewportResize);
         this.endMapDrag();
+        if (this.mapWheelHintTimer) clearTimeout(this.mapWheelHintTimer);
 
         if (window.visualViewport) {
             window.visualViewport.removeEventListener('resize', this.onViewportResize);
@@ -4569,6 +4604,24 @@ text {
 }
 .map-zoom-hit {
     cursor: grab;
+}
+.map-wheel-hint {
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+.map-wheel-hint.shown {
+    opacity: 1;
+    transition: opacity 0.15s ease;
+}
+.map-wheel-hint rect {
+    fill: rgba(0, 0, 0, 0.6);
+}
+.map-wheel-hint text {
+    font: 600 17px sans-serif;
+    fill: #fff;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    user-select: none;
 }
 .map-zoom-outline {
     fill: none;

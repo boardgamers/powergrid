@@ -25,6 +25,12 @@
             :viewBox="sceneViewBox"
             :style="{ width: '100%', aspectRatio: sceneViewBox.split(' ').slice(2).join(' / ') }"
             preserveAspectRatio="xMidYMin meet"
+            @wheel="onSceneWheel"
+            @pointerdown="onScenePointerDown"
+            @touchstart="onSceneTouchStart"
+            @touchmove="onSceneTouchMove"
+            @touchend="onSceneTouchEnd"
+            @touchcancel="onSceneTouchEnd"
         >
             <rect class="board-surface" width="100%" height="100%" x="0" y="0" :fill="boardSurface" />
             <defs>
@@ -37,7 +43,8 @@
                  behind every game component. Toggling them never changes the
                  playable network's bounds, scale or position. -->
             <g data-geography-layer :clip-path="`url(#${geographyClipId})`" pointer-events="none" aria-hidden="true">
-                <g :transform="slotT('map')">
+                <!-- The player's map zoom is applied outside the fitted slot transform. -->
+                <g :transform="[mapZoomT, slotT('map')].filter(Boolean).join(' ') || undefined">
                     <g :transform="mapTransform">
                         <GeographicBackground
                             :map="G.map"
@@ -200,27 +207,155 @@
                 />
             </g>
 
-            <g ref="slotMap" data-board-slot="map" data-tutorial="map" :transform="slotT('map')">
-                <Map
-                    ref="map"
-                    :transform="mapTransform"
-                    :playerColors="playerColors"
-                    :cities="G.map.cities"
-                    :tutorialCity="tutorialCity"
-                    :connections="G.map.connections"
-                    :gates="G.map.step3Connections"
-                    :polygons="G.map.polygons"
-                    :buildableCities="getBuildableCities()"
-                    :buildPrices="getBuildableCityPrices()"
-                    :blockedCities="G.blockedCities"
-                    :pickableRegions="getPickableRegions()"
-                    :noUraniumRegions="G.map.noUraniumRegions"
-                    :houseLegend="G.map.houseLegend"
-                    :devBackdrop="G.map.devBackdrop"
-                    :mapRotation="mapRotation"
-                    @build="build($event)"
-                    @pickRegion="pickRegion($event)"
+            <!-- Map zoom: the wrapper clips the zoomed map to its own laid-out box so it
+                 never spills over the market or the player boards. The zoom layer sits
+                 OUTSIDE slotMap, so the layout's getBBox() measurement never sees it. -->
+            <clipPath :id="mapClipId" clipPathUnits="userSpaceOnUse">
+                <rect
+                    v-if="mapZoomRect"
+                    :x="mapZoomRect.x"
+                    :y="mapZoomRect.y"
+                    :width="mapZoomRect.width"
+                    :height="mapZoomRect.height"
                 />
+            </clipPath>
+            <g
+                data-map-zoom
+                :clip-path="mapZoomed && mapZoomRect ? `url(#${mapClipId})` : undefined"
+                @click.capture="onMapClickCapture"
+            >
+                <rect
+                    v-if="mapZoomed && mapZoomRect"
+                    class="map-zoom-hit"
+                    :x="mapZoomRect.x"
+                    :y="mapZoomRect.y"
+                    :width="mapZoomRect.width"
+                    :height="mapZoomRect.height"
+                    fill="transparent"
+                />
+                <g ref="mapZoomLayer" :transform="mapZoomT">
+                    <g
+                        ref="slotMap"
+                        :id="mapSlotId"
+                        data-board-slot="map"
+                        data-tutorial="map"
+                        :transform="slotT('map')"
+                    >
+                        <Map
+                            ref="map"
+                            :transform="mapTransform"
+                            :playerColors="playerColors"
+                            :cities="G.map.cities"
+                            :tutorialCity="tutorialCity"
+                            :connections="G.map.connections"
+                            :gates="G.map.step3Connections"
+                            :polygons="G.map.polygons"
+                            :buildableCities="getBuildableCities()"
+                            :buildPrices="getBuildableCityPrices()"
+                            :blockedCities="G.blockedCities"
+                            :pickableRegions="getPickableRegions()"
+                            :noUraniumRegions="G.map.noUraniumRegions"
+                            :houseLegend="G.map.houseLegend"
+                            :devBackdrop="G.map.devBackdrop"
+                            :mapRotation="mapRotation"
+                            @build="build($event)"
+                            @pickRegion="pickRegion($event)"
+                        />
+                    </g>
+                </g>
+            </g>
+
+            <!-- While zoomed: a faint outline round the map's box, so it reads as a zoomed
+                 view, and a minimap of the whole board with the visible part boxed. -->
+            <rect
+                v-if="mapZoomed && mapZoomRect && mapZoomPx > 0"
+                class="map-zoom-outline"
+                :x="mapZoomRect.x"
+                :y="mapZoomRect.y"
+                :width="mapZoomRect.width"
+                :height="mapZoomRect.height"
+                :stroke-width="3 / mapZoomPx"
+                pointer-events="none"
+            />
+            <g v-if="mapZoomed && minimap" data-map-minimap @click.stop="onMinimapClick">
+                <title>Overview: tap to look there</title>
+                <!-- Rounded corners; the miniature and its view box are clipped to them. -->
+                <clipPath :id="`${mapSlotId}-mini`" clipPathUnits="userSpaceOnUse">
+                    <rect
+                        :x="minimap.x"
+                        :y="minimap.y"
+                        :width="minimap.width"
+                        :height="minimap.height"
+                        :rx="8 / mapZoomPx"
+                    />
+                </clipPath>
+                <rect
+                    class="map-minimap-frame"
+                    :x="minimap.x"
+                    :y="minimap.y"
+                    :width="minimap.width"
+                    :height="minimap.height"
+                    :rx="8 / mapZoomPx"
+                />
+                <g :clip-path="`url(#${mapSlotId}-mini)`" pointer-events="none">
+                    <use :href="`#${mapSlotId}`" :transform="minimap.transform" />
+                    <rect
+                        class="map-minimap-view"
+                        :x="minimap.view.x"
+                        :y="minimap.view.y"
+                        :width="minimap.view.width"
+                        :height="minimap.view.height"
+                        :rx="3 / mapZoomPx"
+                        :stroke-width="2 / mapZoomPx"
+                    />
+                </g>
+                <rect
+                    class="map-minimap-edge"
+                    :x="minimap.x"
+                    :y="minimap.y"
+                    :width="minimap.width"
+                    :height="minimap.height"
+                    :rx="8 / mapZoomPx"
+                    :stroke-width="1.5 / mapZoomPx"
+                    pointer-events="none"
+                />
+            </g>
+
+            <!-- A plain wheel over the map scrolls the page; this says how to zoom instead. -->
+            <g
+                v-if="mapZoomRect && mapZoomPx > 0"
+                :class="['map-wheel-hint', { shown: mapWheelHint }]"
+                :transform="`translate(${mapZoomRect.x + mapZoomRect.width / 2}, ${
+                    mapZoomRect.y + mapZoomRect.height / 2
+                }) scale(${1 / mapZoomPx})`"
+                pointer-events="none"
+                aria-hidden="true"
+            >
+                <rect x="-150" y="-20" width="300" height="40" rx="20" />
+                <text x="0" y="1">Hold {{ zoomModifier }} and scroll to zoom</text>
+            </g>
+
+            <!-- Map zoom controls, sized in screen pixels so they stay thumb-sized on a phone. -->
+            <g
+                v-if="mapZoomRect && mapZoomPx > 0"
+                data-map-zoom-controls
+                :transform="`translate(${mapZoomRect.x + mapZoomRect.width - 8 / mapZoomPx}, ${
+                    mapZoomRect.y + 8 / mapZoomPx
+                }) scale(${1 / mapZoomPx})`"
+            >
+                <g
+                    v-for="(control, i) in mapZoomControls"
+                    :key="control.name"
+                    :class="['map-zoom-button', { disabled: !control.enabled }]"
+                    :transform="`translate(-36, ${i * 40})`"
+                    role="button"
+                    :aria-label="control.label"
+                    @click.stop="control.enabled && control.action()"
+                >
+                    <title>{{ control.label }}</title>
+                    <rect width="32" height="32" rx="6" />
+                    <text x="16" y="17">{{ control.symbol }}</text>
+                </g>
             </g>
 
             <!-- Japan: Free Jump indicator -->
@@ -1044,6 +1179,23 @@ import GeographicBackground from './boards/GeographicBackground.vue';
 import type { MapBounds } from '../geography';
 import ResourceBoxes from './boards/ResourceBoxes.vue';
 import RoundPlanner from './RoundPlanner.vue';
+import {
+    CLICK_SLOP_PX,
+    clampZoom,
+    IDENTITY as MAP_ZOOM_IDENTITY,
+    isZoomed,
+    MAP_ZOOM_MAX,
+    MAP_ZOOM_STEP,
+    MapZoom,
+    pan as panMapZoom,
+    Rect,
+    zoomAt,
+    centreOn,
+    minimapBox,
+    visibleRect,
+    zoomCentre,
+    zoomTransform,
+} from '../util/map-zoom';
 import {
     copyState,
     nextPlanningPhase,
@@ -3501,7 +3653,355 @@ export default class Game extends Vue {
     }
 
     private scheduleRelayout() {
-        this.$nextTick(() => this.relayout());
+        this.$nextTick(() => {
+            this.relayout();
+            // The map's box moves with the layout; let the new transforms render first.
+            this.$nextTick(() => this.updateMapZoomRect());
+        });
+    }
+
+    // ── Map zoom ────────────────────────────────────────────────────────────
+    // A second, player-controlled zoom on the map alone, on top of the fitted
+    // layout. Buttons, ctrl/trackpad pinch or (on desktop) the wheel, two-finger
+    // pinch on touch screens, and dragging to pan once zoomed. The maths lives in
+    // util/map-zoom.ts; here we only translate events into scene units.
+
+    mapZoom: MapZoom = { ...MAP_ZOOM_IDENTITY };
+    /** The map's laid-out box in scene units, or null until measured. */
+    mapZoomRect: Rect | null = null;
+    /** CSS pixels per scene unit, so the controls can be sized in pixels. */
+    mapZoomPx = 0;
+    mapClipId = `powergrid-map-zoom-${nextGeographyClipId++}`;
+    mapSlotId = `powergrid-map-slot-${nextGeographyClipId++}`;
+    private mapDrag: { id: number; lastX: number; lastY: number; startX: number; startY: number; moved: boolean } | null =
+        null;
+    private mapTouch: {
+        mode: 'pan' | 'pinch';
+        startX: number;
+        startY: number;
+        lastX: number;
+        lastY: number;
+        dist: number;
+        moved: boolean;
+    } | null = null;
+    private suppressMapClick = false;
+
+    get mapZoomed() {
+        return isZoomed(this.mapZoom);
+    }
+
+    get mapZoomT() {
+        return zoomTransform(this.mapZoom);
+    }
+
+    get mapZoomControls() {
+        return [
+            {
+                name: 'in',
+                symbol: '+',
+                label: `Zoom in on the map (or ${this.zoomModifier} + scroll, or pinch)`,
+                enabled: this.mapZoom.k < MAP_ZOOM_MAX - 1e-6,
+                action: () => this.zoomMapBy(MAP_ZOOM_STEP),
+            },
+            {
+                name: 'out',
+                symbol: '−',
+                label: `Zoom out (or ${this.zoomModifier} + scroll)`,
+                enabled: this.mapZoomed,
+                action: () => this.zoomMapBy(1 / MAP_ZOOM_STEP),
+            },
+            {
+                name: 'reset',
+                symbol: '⟲',
+                label: 'Fit the whole map',
+                enabled: this.mapZoomed,
+                action: () => (this.mapZoom = { ...MAP_ZOOM_IDENTITY }),
+            },
+        ];
+    }
+
+    // A method, not a getter: a getter becomes a cached computed, and $el is not reactive.
+    private sceneEl(): SVGSVGElement | null {
+        return (this.$el?.querySelector?.('#scene') as SVGSVGElement | null) ?? null;
+    }
+
+    /** Measure the map's box in scene units (the fitted layout, without the player's zoom). */
+    updateMapZoomRect() {
+        const scene = this.sceneEl();
+        const slot = this.$refs.slotMap as SVGGraphicsElement | undefined;
+        const layer = this.$refs.mapZoomLayer as SVGGraphicsElement | undefined;
+        if (!scene || !slot || !layer || typeof slot.getBBox !== 'function') return;
+        try {
+            const bb = slot.getBBox();
+            const layerCtm = layer.getScreenCTM();
+            const slotCtm = slot.getScreenCTM();
+            if (!layerCtm || !slotCtm || bb.width <= 0 || bb.height <= 0) return;
+            // The zoom layer's CTM includes the zoom; dividing it out leaves the slot's
+            // own (fitted) transform, in the scene's units.
+            const m = layerCtm.inverse().multiply(slotCtm);
+            const corners = [
+                [bb.x, bb.y],
+                [bb.x + bb.width, bb.y],
+                [bb.x, bb.y + bb.height],
+                [bb.x + bb.width, bb.y + bb.height],
+            ].map(([x, y]) => [m.a * x + m.c * y + m.e, m.b * x + m.d * y + m.f]);
+            const xs = corners.map((c) => c[0]);
+            const ys = corners.map((c) => c[1]);
+            const rect = {
+                x: Math.min(...xs),
+                y: Math.min(...ys),
+                width: Math.max(...xs) - Math.min(...xs),
+                height: Math.max(...ys) - Math.min(...ys),
+            };
+            const round = (r: Rect) => JSON.stringify(Object.values(r).map((n) => Math.round(n * 10) / 10));
+            if (!this.mapZoomRect || round(rect) !== round(this.mapZoomRect)) this.mapZoomRect = rect;
+            const viewWidth = Number(this.sceneViewBox.split(' ')[2]) || 1;
+            this.mapZoomPx = scene.getBoundingClientRect().width / viewWidth;
+            // A new layout may shrink the box; keep an existing zoom inside it.
+            this.mapZoom = clampZoom(this.mapZoom, this.mapZoomRect);
+        } catch {
+            // Not rendered yet — the next relayout measures again.
+        }
+    }
+
+    private zoomMapBy(factor: number) {
+        if (!this.mapZoomRect) this.updateMapZoomRect();
+        if (!this.mapZoomRect) return;
+        this.mapZoom = zoomCentre(this.mapZoom, factor, this.mapZoomRect);
+    }
+
+    /** Client (CSS px) coordinates → scene units. */
+    private toScene(clientX: number, clientY: number): [number, number] | null {
+        const ctm = this.sceneEl()?.getScreenCTM();
+        if (!ctm) return null;
+        const inv = ctm.inverse();
+        return [inv.a * clientX + inv.c * clientY + inv.e, inv.b * clientX + inv.d * clientY + inv.f];
+    }
+
+    private inMapRect(p: [number, number] | null): p is [number, number] {
+        const r = this.mapZoomRect;
+        return !!p && !!r && p[0] >= r.x && p[0] <= r.x + r.width && p[1] >= r.y && p[1] <= r.y + r.height;
+    }
+
+    /** Ctrl on Windows and Linux, ⌘ on a Mac — the modifier that makes the wheel zoom. */
+    get zoomModifier() {
+        return typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform) ? '⌘' : 'Ctrl';
+    }
+
+    /** Shown briefly when someone scrolls over the map without the modifier. */
+    mapWheelHint = false;
+    private mapWheelHintTimer: ReturnType<typeof setTimeout> | null = null;
+
+    private showMapWheelHint() {
+        this.mapWheelHint = true;
+        if (this.mapWheelHintTimer) clearTimeout(this.mapWheelHintTimer);
+        this.mapWheelHintTimer = setTimeout(() => (this.mapWheelHint = false), 1600);
+    }
+
+    onSceneWheel(event: WheelEvent) {
+        // A plain wheel always scrolls the page, as people expect: someone scrolling
+        // down to the chat must never zoom by accident. Zooming takes Ctrl (⌘ on a
+        // Mac) with the wheel; a trackpad pinch arrives as ctrl+wheel by itself.
+        if (!this.mapZoomRect) this.updateMapZoomRect();
+        const p = this.toScene(event.clientX, event.clientY);
+        if (!this.mapZoomRect || !this.inMapRect(p)) return;
+        if (!event.ctrlKey && !event.metaKey) {
+            if (event.deltaY !== 0) this.showMapWheelHint();
+            return;
+        }
+        // A mouse notch is ~100; a pinch sends many small deltas.
+        const rate = Math.abs(event.deltaY) < 30 ? 0.01 : 0.002;
+        const factor = Math.exp(-Math.max(-100, Math.min(100, event.deltaY)) * rate);
+        // Zooming out at the fit has nothing to do: let the page have the wheel.
+        if (factor < 1 && !this.mapZoomed) return;
+        event.preventDefault();
+        this.mapZoom = zoomAt(this.mapZoom, factor, p[0], p[1], this.mapZoomRect);
+    }
+
+    onScenePointerDown(event: PointerEvent) {
+        // Touch is handled by the touch events (they can also pinch).
+        if (event.pointerType === 'touch' || event.button !== 0 || !this.mapZoomed || !this.mapZoomRect) return;
+        if (this.onZoomChrome(event.target)) return;
+        const p = this.toScene(event.clientX, event.clientY);
+        if (!this.inMapRect(p)) return;
+        this.mapDrag = {
+            id: event.pointerId,
+            startX: event.clientX,
+            startY: event.clientY,
+            lastX: event.clientX,
+            lastY: event.clientY,
+            moved: false,
+        };
+        window.addEventListener('pointermove', this.onWindowPointerMove);
+        window.addEventListener('pointerup', this.onWindowPointerUp);
+        window.addEventListener('pointercancel', this.onWindowPointerUp);
+    }
+
+    // Methods, not arrow fields: Vue binds methods to the instance; a class-field arrow
+    // would capture the data-collection object instead and never see the drag.
+    onWindowPointerMove(event: PointerEvent) {
+        const drag = this.mapDrag;
+        if (!drag || event.pointerId !== drag.id || !this.mapZoomRect) return;
+        if (!drag.moved && Math.hypot(event.clientX - drag.startX, event.clientY - drag.startY) < CLICK_SLOP_PX) return;
+        drag.moved = true;
+        const a = this.toScene(drag.lastX, drag.lastY);
+        const b = this.toScene(event.clientX, event.clientY);
+        drag.lastX = event.clientX;
+        drag.lastY = event.clientY;
+        if (a && b) this.mapZoom = panMapZoom(this.mapZoom, b[0] - a[0], b[1] - a[1], this.mapZoomRect);
+    }
+
+    onWindowPointerUp(event: PointerEvent) {
+        if (!this.mapDrag || event.pointerId !== this.mapDrag.id) return;
+        // A drag is not a click: swallow the click that the browser fires next.
+        if (this.mapDrag.moved) this.suppressNextMapClick();
+        this.endMapDrag();
+    }
+
+    private endMapDrag() {
+        this.mapDrag = null;
+        window.removeEventListener('pointermove', this.onWindowPointerMove);
+        window.removeEventListener('pointerup', this.onWindowPointerUp);
+        window.removeEventListener('pointercancel', this.onWindowPointerUp);
+    }
+
+    private suppressNextMapClick() {
+        this.suppressMapClick = true;
+        // If no click follows (the press ended off the map), don't eat a later one.
+        setTimeout(() => (this.suppressMapClick = false), 400);
+    }
+
+    onMapClickCapture(event: MouseEvent) {
+        if (!this.suppressMapClick) return;
+        this.suppressMapClick = false;
+        event.stopPropagation();
+        event.preventDefault();
+    }
+
+    private touchMid(touches: TouchList): [number, number] {
+        return [(touches[0].clientX + touches[1].clientX) / 2, (touches[0].clientY + touches[1].clientY) / 2];
+    }
+
+    /** The zoom buttons and the minimap take their own taps; gestures must not start there. */
+    private onZoomChrome(target: EventTarget | null): boolean {
+        return !!(target as Element | null)?.closest?.("[data-map-zoom-controls], [data-map-minimap]");
+    }
+
+    onMinimapClick(event: MouseEvent) {
+        const m = this.minimap;
+        const p = this.toScene(event.clientX, event.clientY);
+        if (!m || !p || !this.mapZoomRect) return;
+        const r = this.mapZoomRect;
+        // Minimap point -> the matching point on the fitted map.
+        this.mapZoom = centreOn(this.mapZoom, r.x + (p[0] - m.x) / m.scale, r.y + (p[1] - m.y) / m.scale, r);
+    }
+
+    get minimap() {
+        const r = this.mapZoomRect;
+        if (!r || !(this.mapZoomPx > 0)) return null;
+        const box = minimapBox(r, this.mapZoomPx);
+        const v = visibleRect(this.mapZoom, r);
+        const to = (x: number, y: number) => [box.x + (x - r.x) * box.scale, box.y + (y - r.y) * box.scale];
+        const [vx, vy] = to(v.x, v.y);
+        const round = (n: number) => Math.round(n * 100) / 100;
+        return {
+            ...box,
+            transform: `translate(${round(box.x - r.x * box.scale)}, ${round(box.y - r.y * box.scale)}) scale(${round(box.scale * 10000) / 10000})`,
+            view: { x: vx, y: vy, width: v.width * box.scale, height: v.height * box.scale },
+        };
+    }
+
+    onSceneTouchStart(event: TouchEvent) {
+        if (this.onZoomChrome(event.target)) return;
+        if (!this.mapZoomRect) this.updateMapZoomRect();
+        if (!this.mapZoomRect) return;
+        if (event.touches.length === 2) {
+            const [mx, my] = this.touchMid(event.touches);
+            if (!this.inMapRect(this.toScene(mx, my))) return;
+            // Two fingers on the map pinch the map, not the page.
+            event.preventDefault();
+            this.mapTouch = {
+                mode: 'pinch',
+                startX: mx,
+                startY: my,
+                lastX: mx,
+                lastY: my,
+                dist: Math.hypot(
+                    event.touches[0].clientX - event.touches[1].clientX,
+                    event.touches[0].clientY - event.touches[1].clientY
+                ),
+                moved: true,
+            };
+            return;
+        }
+        if (event.touches.length !== 1 || !this.mapZoomed) {
+            this.mapTouch = null;
+            return;
+        }
+        const t = event.touches[0];
+        if (!this.inMapRect(this.toScene(t.clientX, t.clientY))) return;
+        // Not prevented here: a tap must still become a click.
+        this.mapTouch = {
+            mode: 'pan',
+            startX: t.clientX,
+            startY: t.clientY,
+            lastX: t.clientX,
+            lastY: t.clientY,
+            dist: 0,
+            moved: false,
+        };
+    }
+
+    onSceneTouchMove(event: TouchEvent) {
+        const touch = this.mapTouch;
+        if (!touch || !this.mapZoomRect) return;
+        if (touch.mode === 'pinch') {
+            if (event.touches.length !== 2) return;
+            event.preventDefault();
+            const [mx, my] = this.touchMid(event.touches);
+            const dist = Math.hypot(
+                event.touches[0].clientX - event.touches[1].clientX,
+                event.touches[0].clientY - event.touches[1].clientY
+            );
+            const a = this.toScene(touch.lastX, touch.lastY);
+            const b = this.toScene(mx, my);
+            if (a && b && touch.dist > 0) {
+                let z = panMapZoom(this.mapZoom, b[0] - a[0], b[1] - a[1], this.mapZoomRect);
+                z = zoomAt(z, dist / touch.dist, b[0], b[1], this.mapZoomRect);
+                this.mapZoom = z;
+            }
+            touch.lastX = mx;
+            touch.lastY = my;
+            touch.dist = dist;
+            return;
+        }
+        if (event.touches.length !== 1) return;
+        const t = event.touches[0];
+        if (!touch.moved && Math.hypot(t.clientX - touch.startX, t.clientY - touch.startY) < CLICK_SLOP_PX) return;
+        touch.moved = true;
+        // Panning a zoomed map: the page must not scroll underneath.
+        event.preventDefault();
+        const a = this.toScene(touch.lastX, touch.lastY);
+        const b = this.toScene(t.clientX, t.clientY);
+        touch.lastX = t.clientX;
+        touch.lastY = t.clientY;
+        if (a && b) this.mapZoom = panMapZoom(this.mapZoom, b[0] - a[0], b[1] - a[1], this.mapZoomRect);
+    }
+
+    onSceneTouchEnd(event: TouchEvent) {
+        const touch = this.mapTouch;
+        if (!touch) return;
+        if (touch.mode === 'pinch' && event.touches.length === 1) {
+            // One finger lifted mid-pinch: carry on as a pan with the other.
+            const t = event.touches[0];
+            this.mapTouch = this.mapZoomed
+                ? { mode: 'pan', startX: t.clientX, startY: t.clientY, lastX: t.clientX, lastY: t.clientY, dist: 0, moved: true }
+                : null;
+            return;
+        }
+        if (event.touches.length > 0) return;
+        if (touch.moved) this.suppressNextMapClick();
+        this.mapTouch = null;
     }
 
     /**
@@ -3550,6 +4050,8 @@ export default class Game extends Vue {
         window.removeEventListener('resize', this.onViewportResize);
         window.removeEventListener('orientationchange', this.onViewportResize);
         window.removeEventListener('load', this.onViewportResize);
+        this.endMapDrag();
+        if (this.mapWheelHintTimer) clearTimeout(this.mapWheelHintTimer);
 
         if (window.visualViewport) {
             window.visualViewport.removeEventListener('resize', this.onViewportResize);
@@ -4079,5 +4581,65 @@ text {
 .analysis-money-form button {
     margin: 8px;
     padding: 8px 16px;
+}
+.map-zoom-button {
+    cursor: pointer;
+}
+.map-zoom-button rect {
+    fill: rgba(255, 255, 255, 0.85);
+    stroke: rgba(0, 0, 0, 0.45);
+    stroke-width: 1;
+}
+.map-zoom-button text {
+    font: bold 20px sans-serif;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    fill: #222;
+    pointer-events: none;
+    user-select: none;
+}
+.map-zoom-button.disabled {
+    cursor: default;
+    opacity: 0.35;
+}
+.map-zoom-hit {
+    cursor: grab;
+}
+.map-wheel-hint {
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+.map-wheel-hint.shown {
+    opacity: 1;
+    transition: opacity 0.15s ease;
+}
+.map-wheel-hint rect {
+    fill: rgba(0, 0, 0, 0.6);
+}
+.map-wheel-hint text {
+    font: 600 17px sans-serif;
+    fill: #fff;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    user-select: none;
+}
+.map-zoom-outline {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.6);
+}
+.map-minimap-edge {
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.4);
+}
+.map-minimap-frame {
+    fill: rgba(255, 255, 255, 0.78);
+    stroke: none;
+}
+[data-map-minimap] {
+    cursor: pointer;
+}
+.map-minimap-view {
+    fill: rgba(255, 165, 0, 0.12);
+    stroke: #e65c00;
 }
 </style>

@@ -18,6 +18,8 @@ export type Preferences = {
     sound: boolean;
     colorBlind: boolean;
     textActions?: boolean;
+    /** Christmas snow and lights on houses, Dec 1 - Jan 6. Absent = on. */
+    holidayDecorations?: 'on' | 'calm' | 'off';
     /** Legacy host preference; help indicators are now always visible. */
     disableHelp?: boolean;
     showUnselectedRegions?: boolean;

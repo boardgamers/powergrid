@@ -47,6 +47,7 @@ function launch(selector: string) {
             sound: true,
             colorBlind: false,
             textActions: false,
+            holidayDecorations: 'on' as const,
             showUnselectedRegions: true,
             adjustPlayerOrder: false,
 

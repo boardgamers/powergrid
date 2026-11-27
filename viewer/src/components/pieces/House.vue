@@ -22,6 +22,30 @@
             stroke-width="12"
             stroke-miterlimit="10"
         />
+        <!-- Christmas, Dec 1 - Jan 6: snow on the roof (inset, so a rim of the player's
+             colour still shows) and a string of lights along the roofline. Drawn under
+             the colour-blind symbol, which must always stay readable. -->
+        <g v-if="holiday !== 'none'" :class="['house-holiday', holiday]" data-holiday="christmas" pointer-events="none">
+            <path
+                d="M395.724 136.361L187.698 263.636L80.8579 108.141L304.771 4L395.724 136.361Z"
+                fill="#fbfdff"
+                stroke="#d7e3ec"
+                stroke-width="4"
+                transform="translate(242 128) scale(0.8) translate(-242 -128)"
+            />
+            <polyline :points="rooflinePoints" fill="none" stroke="#24352a" stroke-width="5" stroke-linejoin="round" />
+            <circle
+                v-for="(bulb, i) in bulbs"
+                :key="i"
+                :cx="bulb.x"
+                :cy="bulb.y"
+                r="18"
+                :fill="bulb.color"
+                stroke="#1b2a20"
+                stroke-width="3"
+                :class="['bulb', { alternate: bulb.alternate }]"
+            />
+        </g>
         <g v-if="preferences.colorBlind && owner !== undefined" class="house-owner" pointer-events="none">
             <path
                 v-if="ownerSymbolPath"
@@ -52,6 +76,7 @@
 </template>
 <script lang="ts">
 import { playerSymbol } from '../../player-colors';
+import { BULBS, holidayLook, ROOFLINE_POINTS } from '../../util/holiday';
 import { isPlayerSymbol, PLAYER_SYMBOLS } from '@boardgamers/protocol/player-symbols';
 import { PieceType, Preferences } from './../../types/ui-data';
 import { Component, Inject, InjectReactive, Mixins, Prop } from 'vue-property-decorator';
@@ -80,6 +105,13 @@ export default class House extends Mixins(Piece) {
     @Prop()
     ownerName?: string;
 
+    readonly bulbs = BULBS;
+    readonly rooflinePoints = ROOFLINE_POINTS;
+
+    get holiday() {
+        return holidayLook(this.preferences);
+    }
+
     get ownerSymbol() {
         return playerSymbol(this.owner!, this.preferences);
     }
@@ -96,3 +128,28 @@ export default class House extends Mixins(Piece) {
     }
 }
 </script>
+
+<style>
+.house-holiday.lively .bulb {
+    animation: house-bulb-blink 1.6s steps(1, end) infinite;
+}
+
+.house-holiday.lively .bulb.alternate {
+    animation-delay: 0.8s;
+}
+
+@keyframes house-bulb-blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .house-holiday .bulb {
+        animation: none !important;
+    }
+}
+</style>

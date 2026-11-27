@@ -62,3 +62,20 @@ persists declared preference names, so this addition must accompany the release.
 After packaging, `node viewer/scripts/action-labels-smoke.mjs` checks the two
 presentations, keyboard toggling, translated text fitting in all 17 languages,
 mobile/desktop geometry, saved-move undo and text-mode local undo.
+
+## Christmas houses
+
+From December 1 to January 6, by the viewer's local date and every year, houses
+wear snow on the roof and a string of lights along the roofline. The player's
+colour shows as a rim around the snow, and the colour-blind symbol stays on top.
+A snowflake button appears below the board buttons during the season only and
+cycles On, Calm (lights do not blink) and Off. "Reduce motion" on the device
+always means Calm. Viewer-only: the engine, replays and saved games are untouched.
+
+This release adds
+`{ "name": "holidayDecorations", "label": "Holiday decorations", "type": "select", "default": "on", "items": [{ "name": "on", "label": "On" }, { "name": "calm", "label": "Calm (lights still)" }, { "name": "off", "label": "Off" }] }`
+to the BGS version 13 preferences, preserving every other preference. BGS only
+persists declared preference names, so this addition must accompany the release.
+
+In the sandbox, `?today=2026-12-15` pretends it is that day and
+`?holiday=on|calm|off` sets the preference.

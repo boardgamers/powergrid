@@ -723,6 +723,19 @@
                     :toggle="false"
                     @click="rulesVisible = true"
                 />
+                <!-- Christmas season only (Dec 1 - Jan 6): on a row of its own so it is
+                     noticed, and gone by itself afterwards. Cycles On -> Calm -> Off. -->
+                <BoardOption
+                    v-if="holidaySeason"
+                    transform="translate(15, 133)"
+                    :width="30"
+                    :height="32"
+                    control="holiday"
+                    :icon="'holiday-' + holidaySetting"
+                    :label="holidayLabel"
+                    :active="holidaySetting !== 'off'"
+                    @click="cycleHolidayDecorations()"
+                />
             </g>
 
             <g
@@ -1219,6 +1232,7 @@ import {
 } from 'powergrid-engine/src/gamestate';
 import { City, maps, mapsRecharged } from 'powergrid-engine/src/maps';
 import { formatDuration } from '../util/time';
+import { HolidayDecorations, inHolidaySeason, nextHolidaySetting } from '../util/holiday';
 import { playerOrderForDisplay } from '../util/player-order';
 import { freePlantMoves, canAutoFinishPowering, poweredCities } from '../util/powering';
 import { bidRevision, canReopenPowering } from 'powergrid-engine/src/choice-revisions';
@@ -3195,6 +3209,25 @@ export default class Game extends Vue {
     toggleColorBlind() {
         this.preferences.colorBlind = !this.preferences.colorBlind;
         this.emitter.emit('update:preference', { name: 'colorBlind', value: this.preferences.colorBlind });
+    }
+
+    get holidaySeason(): boolean {
+        return inHolidaySeason();
+    }
+
+    get holidaySetting(): HolidayDecorations {
+        return this.preferences.holidayDecorations ?? 'on';
+    }
+
+    get holidayLabel(): string {
+        const now = { on: 'On', calm: 'Calm (lights still)', off: 'Off' }[this.holidaySetting];
+        return `Holiday decorations: ${now}`;
+    }
+
+    cycleHolidayDecorations() {
+        const value = nextHolidaySetting(this.preferences.holidayDecorations);
+        this.$set(this.preferences, 'holidayDecorations', value);
+        this.emitter.emit('update:preference', { name: 'holidayDecorations', value });
     }
 
     toggleTextActions() {

@@ -8,20 +8,34 @@ import { move as wrapperMove, moveAI as wrapperAI } from 'powergrid-engine/wrapp
 import { installLocalChat } from './game-chat';
 import launch from './launch';
 import { mountSoundTests } from './sounds';
+import { setHolidayClock } from './util/holiday';
 
 const delayBase = 0;
 
 function launchSelfContained(selector = '#app') {
     const strip = true;
 
-    const emitter = launch(selector);
-    mountSoundTests(emitter);
-    installLocalChat(emitter);
-
     // The sandbox game can be steered from the URL so a layout or rules change can
     // be checked against several maps without editing this file each time, e.g.
     //   ?map=Australia&players=3&variant=original&seed=7
     const params = new URLSearchParams(window.location.search);
+
+    // ?today=2026-12-15 pretends it is that day (seasonal decorations);
+    // ?holiday=on|calm|off sets the holiday-decorations preference.
+    const today = params.get('today');
+    if (today && !Number.isNaN(Date.parse(today))) {
+        const [y, m, d] = today.split('-').map(Number);
+        setHolidayClock(() => new Date(y, m - 1, d, 12));
+    }
+
+    const emitter = launch(selector);
+    mountSoundTests(emitter);
+    installLocalChat(emitter);
+
+    const holiday = params.get('holiday');
+    if (holiday === 'on' || holiday === 'calm' || holiday === 'off') {
+        emitter.emit('preferences', { locale: 'en', holidayDecorations: holiday });
+    }
     // Note: randomizeMap short-circuits region selection in setup(), so ticking
     // both gives a randomized board with no draft. They are alternatives.
     const gameOptions = {

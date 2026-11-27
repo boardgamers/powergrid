@@ -45,6 +45,17 @@
                 d="M3 2H18V20H3Q0 20 0 17V5Q0 2 3 2ZM3 2V16M0 17Q0 15 3 15H18M6 6H14M6 10H14"
             />
             <path v-else-if="icon === 'return'" d="M9 5L3 11L9 17M3 11H14Q20 11 20 17" />
+            <!-- Holiday decorations: a snowflake; Calm adds a pause mark, Off strikes it through. -->
+            <g v-else-if="icon.startsWith('holiday-')">
+                <path
+                    d="M11 1V21M2.3 6L19.7 16M2.3 16L19.7 6M8 2.5L11 5L14 2.5M8 19.5L11 17L14 19.5M2.2 9.3L5.3 8.3L4.6 5.2M19.8 12.7L16.7 13.7L17.4 16.8M2.2 12.7L5.3 13.7L4.6 16.8M19.8 9.3L16.7 8.3L17.4 5.2"
+                    :opacity="icon === 'holiday-on' ? 1 : 0.55"
+                />
+                <g v-if="icon === 'holiday-calm'" stroke-width="2.4">
+                    <path d="M16 15V21M20 15V21" />
+                </g>
+                <path v-if="icon === 'holiday-off'" d="M2 20L20 2" stroke-width="2.4" />
+            </g>
             <path v-else d="M2 2V20H21M5 15L10 8L15 11L21 3M16 3H21V8" />
         </g>
         <path
